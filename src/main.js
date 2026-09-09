@@ -914,25 +914,25 @@ rightWall.position.set(HALF_W, (CEIL_Y + FLOOR_Y) / 2, ROOM_MID_Z);
 room.add(rightWall);
 
 // baseboards — a dark blue line running the length of the room
-const baseGeo = new THREE.CylinderGeometry(0.42, 0.42, ROOM_LEN, 18, 1, false, 0, Math.PI);
+// full cylinders, half sunk into the wall. A half-cylinder is an open
+// shell, so one side of the room got backface-culled and showed nothing.
+const baseGeo = new THREE.CylinderGeometry(0.42, 0.42, ROOM_LEN, 20);
 const baseMat = new THREE.MeshLambertMaterial({ color: C.navy2 });
 [-1, 1].forEach((side) => {
   const b = new THREE.Mesh(baseGeo, baseMat);
   b.rotation.x = Math.PI / 2;
-  b.rotation.y = side < 0 ? -Math.PI / 2 : Math.PI / 2;
-  b.position.set(side * HALF_W, FLOOR_Y + 0.02, ROOM_MID_Z);
+  b.position.set(side * (HALF_W - 0.1), FLOOR_Y + 0.16, ROOM_MID_Z);
   room.add(b);
 });
 
 // rounded cove where the walls meet the ceiling, so the room reads as a
 // softened shell rather than a hard box
-const coveGeo = new THREE.CylinderGeometry(0.85, 0.85, ROOM_LEN, 20, 1, false, 0, Math.PI);
-const coveMat = new THREE.MeshBasicMaterial({ color: 0xe4f5fc });
+const coveGeo = new THREE.CylinderGeometry(0.8, 0.8, ROOM_LEN, 20);
+const coveMat = new THREE.MeshLambertMaterial({ color: 0xe4f5fc });
 [-1, 1].forEach((side) => {
   const cove = new THREE.Mesh(coveGeo, coveMat);
   cove.rotation.x = Math.PI / 2;
-  cove.rotation.y = side < 0 ? Math.PI : 0;
-  cove.position.set(side * HALF_W, CEIL_Y - 0.02, ROOM_MID_Z);
+  cove.position.set(side * (HALF_W - 0.2), CEIL_Y - 0.2, ROOM_MID_Z);
   room.add(cove);
 });
 
@@ -956,18 +956,7 @@ const backWall = new THREE.Mesh(
 backWall.position.set(0, (CEIL_Y + FLOOR_Y) / 2, BACK_Z);
 room.add(backWall);
 
-// the end wall carries a large drawing rather than the logo — the logo
-// now lives in the page's top-left corner
-const endMotif = new THREE.Mesh(
-  new THREE.PlaneGeometry(8.5, 8.5),
-  new THREE.MeshBasicMaterial({
-    map: motifTexture('rupee'),
-    transparent: true,
-    depthWrite: false,
-  })
-);
-endMotif.position.set(0, 2, BACK_Z + 0.1);
-room.add(endMotif);
+// the end wall carries a wide holographic status board
 
 // ceiling light panels, with a rounded housing around each
 const panelGeo = new THREE.PlaneGeometry(4.6, 1.1);
@@ -1040,6 +1029,107 @@ for (let z = 14; z > BACK_Z + 4; z -= 3.4) {
   const r = new THREE.Mesh(rungGeo, rungMat);
   r.position.set(0, FLOOR_Y + 0.035, z - 1.7);
   room.add(r);
+}
+
+// -----------------------------------------------------
+// CIRCUIT LINKS
+// -----------------------------------------------------
+// PCB-style traces running along the floor, wiring each station back to
+// the one behind it.
+
+const traceTex = makeTexture(512, 1024, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const line = 'rgba(64,150,200,0.55)';
+  const faint = 'rgba(64,150,200,0.3)';
+
+  ctx.lineCap = 'square';
+  ctx.lineJoin = 'miter';
+
+  // three traces with right-angle jogs, running the length of the tile
+  [
+    { x: w * 0.24, jog: w * 0.14, col: line, lw: 7 },
+    { x: w * 0.5, jog: -w * 0.18, col: faint, lw: 5 },
+    { x: w * 0.76, jog: -w * 0.1, col: line, lw: 6 },
+  ].forEach(({ x, jog, col, lw }) => {
+    ctx.strokeStyle = col;
+    ctx.lineWidth = lw;
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, h * 0.3);
+    ctx.lineTo(x + jog, h * 0.38);
+    ctx.lineTo(x + jog, h * 0.68);
+    ctx.lineTo(x, h * 0.76);
+    ctx.lineTo(x, h);
+    ctx.stroke();
+
+    // solder pads along it
+    ctx.fillStyle = col;
+    [0.16, 0.52, 0.88].forEach((t) => {
+      const px = t > 0.38 && t < 0.68 ? x + jog : x;
+      ctx.fillRect(px - lw * 1.8, h * t - lw * 1.8, lw * 3.6, lw * 3.6);
+    });
+  });
+
+  // a chip package in the middle of the tile
+  ctx.fillStyle = 'rgba(24,74,116,0.72)';
+  rr(ctx, w * 0.38, h * 0.44, w * 0.24, h * 0.1, 8);
+  ctx.fill();
+  ctx.fillStyle = faint;
+  for (let i = 0; i < 6; i++) {
+    ctx.fillRect(w * 0.4 + i * w * 0.035, h * 0.42, 8, 12);
+    ctx.fillRect(w * 0.4 + i * w * 0.035, h * 0.541, 8, 12);
+  }
+});
+traceTex.wrapS = traceTex.wrapT = THREE.RepeatWrapping;
+
+// glowing link tube from one station's tower to the next
+function buildLink(from, to) {
+  const a = from.clone();
+  const b = to.clone();
+  const midZ = (a.z + b.z) / 2;
+  // right-angle route: out from the tower, along the room, then in
+  const pts = [
+    a,
+    new THREE.Vector3(a.x, a.y, a.z - 1.4),
+    new THREE.Vector3(a.x * 0.72, a.y, midZ + 1.4),
+    new THREE.Vector3(b.x * 0.72, b.y, midZ - 1.4),
+    new THREE.Vector3(b.x, b.y, b.z + 1.4),
+    b,
+  ];
+  const curve = new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.05);
+  return new THREE.Mesh(
+    new THREE.TubeGeometry(curve, 60, 0.075, 8, false),
+    new THREE.MeshBasicMaterial({ color: 0x3fa8d8 })
+  );
+}
+
+const linkPulses = [];
+for (let i = 0; i < PRODUCTS.length - 1; i++) {
+  const y = FLOOR_Y + 0.09;
+  const from = new THREE.Vector3(stationX(i) * 0.62, y, stationZ(i));
+  const to = new THREE.Vector3(stationX(i + 1) * 0.62, y, stationZ(i + 1));
+  room.add(buildLink(from, to));
+
+  // trace panel on the floor for this segment
+  const segZ = (stationZ(i) + stationZ(i + 1)) / 2;
+  const tex = traceTex.clone();
+  tex.needsUpdate = true;
+  tex.repeat.set(1, 1.6);
+  const panel = new THREE.Mesh(
+    new THREE.PlaneGeometry(7, STATION_GAP - 1),
+    new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false })
+  );
+  panel.rotation.x = -Math.PI / 2;
+  panel.position.set(0, FLOOR_Y + 0.045, segZ);
+  room.add(panel);
+
+  // a bead of light that runs the link
+  const pulse = new THREE.Mesh(
+    new THREE.SphereGeometry(0.17, 12, 10),
+    new THREE.MeshBasicMaterial({ color: 0x9beaff })
+  );
+  room.add(pulse);
+  linkPulses.push({ mesh: pulse, from, to, offset: i * 0.2 });
 }
 
 // low rounded planters flanking the walkway between stations
@@ -1187,6 +1277,278 @@ let gearCursor = 0;
     gearCursor++;
   });
 });
+
+// =====================================================
+// SERVER RACKS
+// =====================================================
+
+const rackPanelTex = makeTexture(256, 640, (ctx, w, h) => {
+  ctx.fillStyle = '#2f7cb8';
+  ctx.fillRect(0, 0, w, h);
+
+  // rows of status ticks
+  for (let r = 0; r < 11; r++) {
+    const y = 34 + r * 44;
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.fillRect(26, y, 46, 9);
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.fillRect(84, y, 30, 9);
+    ctx.fillStyle = r % 3 === 0 ? '#9beaff' : 'rgba(255,255,255,0.7)';
+    ctx.fillRect(150, y, 62, 9);
+    ctx.fillStyle = 'rgba(255,255,255,0.28)';
+    ctx.fillRect(26, y + 16, 186, 4);
+  }
+
+  // indicator block near the base
+  ctx.fillStyle = '#10456d';
+  rr(ctx, 26, h - 120, 186, 82, 12);
+  ctx.fill();
+  ctx.fillStyle = '#9beaff';
+  ctx.beginPath();
+  ctx.arc(w - 56, h - 62, 13, 0, Math.PI * 2);
+  ctx.fill();
+});
+
+const rackShellGeo = rbox(1.5, 3.6, 1.7, 0.26);
+const rackPanelGeo = new THREE.PlaneGeometry(1.0, 2.7);
+const rackShellMat = new THREE.MeshLambertMaterial({ color: 0xeaf4fa });
+const rackPanelMat = new THREE.MeshBasicMaterial({ map: rackPanelTex });
+const rackFootGeo = rbox(1.3, 0.16, 1.5, 0.06);
+
+function buildServerRack() {
+  const g = new THREE.Group();
+
+  const shell = new THREE.Mesh(rackShellGeo, rackShellMat);
+  shell.position.y = 1.9;
+  g.add(shell);
+
+  const panel = new THREE.Mesh(rackPanelGeo, rackPanelMat);
+  panel.position.set(0, 2.05, 0.86);
+  g.add(panel);
+
+  const foot = new THREE.Mesh(
+    rackFootGeo,
+    new THREE.MeshLambertMaterial({ color: C.cyanSoft })
+  );
+  foot.position.y = 0.08;
+  g.add(foot);
+
+  return g;
+}
+
+// clusters of three, set against the side walls between the stations
+for (let i = 0; i < PRODUCTS.length - 1; i++) {
+  const side = i % 2 === 0 ? -1 : 1;
+  const z = (stationZ(i) + stationZ(i + 1)) / 2;
+  const cluster = new THREE.Group();
+
+  [-1, 0, 1].forEach((k) => {
+    const rack = buildServerRack();
+    rack.position.set(k * 1.85, 0, -k * 0.9);
+    cluster.add(rack);
+    addShadow(rack, 4, 0.04, 0.2, 0.7);
+  });
+
+  cluster.position.set(side * 12.1, FLOOR_Y, z);
+  cluster.rotation.y = side < 0 ? 0.5 : -0.5;
+  room.add(cluster);
+}
+
+// =====================================================
+// HOLOGRAMS — fintech readouts floating beside the walk
+// =====================================================
+
+const HOLOS = [
+  { title: 'MARKET FEED', kind: 'ticker' },
+  { title: 'RISK ENGINE', kind: 'gauge' },
+  { title: 'TXN LEDGER', kind: 'ledger' },
+  { title: 'API GATEWAY', kind: 'net' },
+  { title: 'PORTFOLIO SYNC', kind: 'ticker' },
+];
+
+function holoTexture(spec) {
+  return makeTexture(640, 440, (ctx, w, h) => {
+    ctx.clearRect(0, 0, w, h);
+
+    // frame
+    ctx.strokeStyle = 'rgba(120,225,255,0.95)';
+    ctx.lineWidth = 5;
+    rr(ctx, 10, 10, w - 20, h - 20, 16);
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(70,190,240,0.14)';
+    rr(ctx, 10, 10, w - 20, h - 20, 16);
+    ctx.fill();
+
+    // corner ticks
+    ctx.strokeStyle = 'rgba(160,240,255,1)';
+    ctx.lineWidth = 7;
+    [[26, 26, 1, 1], [w - 26, 26, -1, 1], [26, h - 26, 1, -1], [w - 26, h - 26, -1, -1]]
+      .forEach(([x, y, sx, sy]) => {
+        ctx.beginPath();
+        ctx.moveTo(x + sx * 34, y);
+        ctx.lineTo(x, y);
+        ctx.lineTo(x, y + sy * 34);
+        ctx.stroke();
+      });
+
+    ctx.fillStyle = '#bff2ff';
+    ctx.font = '700 30px "JetBrains Mono", monospace';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(spec.title, 40, 56);
+    ctx.fillStyle = 'rgba(160,240,255,0.6)';
+    ctx.fillRect(40, 78, w - 80, 3);
+
+    const cx = 40;
+    const top = 110;
+
+    if (spec.kind === 'ticker') {
+      const pts = [0.3, 0.5, 0.4, 0.66, 0.58, 0.82, 0.72, 0.95];
+      ctx.strokeStyle = '#9beaff';
+      ctx.lineWidth = 5;
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      pts.forEach((p, i) => {
+        const x = cx + (i / (pts.length - 1)) * (w - 80);
+        const y = top + 200 - p * 180;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(120,225,255,0.9)';
+      ctx.font = '500 22px "JetBrains Mono", monospace';
+      ['NIFTY  +1.24%', 'SENSEX +0.87%', 'GOLD   +0.31%'].forEach((t, i) => {
+        ctx.fillText(t, cx, top + 236 + i * 32);
+      });
+    }
+
+    if (spec.kind === 'gauge') {
+      ctx.strokeStyle = 'rgba(120,225,255,0.35)';
+      ctx.lineWidth = 22;
+      ctx.beginPath();
+      ctx.arc(w / 2, top + 190, 96, Math.PI, 0);
+      ctx.stroke();
+      ctx.strokeStyle = '#9beaff';
+      ctx.beginPath();
+      ctx.arc(w / 2, top + 190, 96, Math.PI, Math.PI * 1.62);
+      ctx.stroke();
+      ctx.fillStyle = '#dffaff';
+      ctx.font = '700 52px "Outfit", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('LOW', w / 2, top + 160);
+      ctx.font = '500 22px "JetBrains Mono", monospace';
+      ctx.fillText('EXPOSURE  0.62', w / 2, top + 250);
+      ctx.textAlign = 'left';
+    }
+
+    if (spec.kind === 'ledger') {
+      for (let r = 0; r < 6; r++) {
+        const y = top + 24 + r * 44;
+        ctx.fillStyle = 'rgba(120,225,255,0.18)';
+        rr(ctx, cx, y - 16, w - 80, 34, 8);
+        ctx.fill();
+        ctx.fillStyle = '#bff2ff';
+        ctx.font = '500 20px "JetBrains Mono", monospace';
+        ctx.fillText(`TXN ${8420 + r * 7}`, cx + 16, y);
+        ctx.fillStyle = '#9beaff';
+        ctx.fillText('CLEARED', w - 170, y);
+      }
+    }
+
+    if (spec.kind === 'net') {
+      const nodes = [
+        [0.2, 0.3], [0.5, 0.18], [0.8, 0.34],
+        [0.32, 0.66], [0.66, 0.72], [0.5, 0.46],
+      ];
+      ctx.strokeStyle = 'rgba(120,225,255,0.55)';
+      ctx.lineWidth = 3;
+      nodes.forEach(([ax, ay], a) => {
+        nodes.forEach(([bx, by], b) => {
+          if (b <= a) return;
+          ctx.beginPath();
+          ctx.moveTo(cx + ax * (w - 80), top + ay * 260);
+          ctx.lineTo(cx + bx * (w - 80), top + by * 260);
+          ctx.stroke();
+        });
+      });
+      nodes.forEach(([nx, ny]) => {
+        ctx.fillStyle = '#9beaff';
+        ctx.beginPath();
+        ctx.arc(cx + nx * (w - 80), top + ny * 260, 12, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    // scanlines
+    ctx.fillStyle = 'rgba(10,60,90,0.16)';
+    for (let y = 0; y < h; y += 5) ctx.fillRect(0, y, w, 2);
+  });
+}
+
+const holograms = [];
+const holoPanelGeo = new THREE.PlaneGeometry(5.2, 3.6);
+const holoBeamGeo = new THREE.CylinderGeometry(2.5, 0.42, 2.6, 20, 1, true);
+const holoBaseGeo = new THREE.CylinderGeometry(0.72, 0.85, 0.3, 22);
+
+HOLOS.forEach((spec, i) => {
+  // same side as the station: the product card overlays the opposite
+  // side of the screen, and would otherwise hide the hologram
+  const side = Math.sign(stationX(i));
+  const rig = new THREE.Group();
+
+  const base = new THREE.Mesh(
+    holoBaseGeo,
+    new THREE.MeshLambertMaterial({ color: C.tealDeep })
+  );
+  base.position.y = 0.15;
+  rig.add(base);
+
+  const beam = new THREE.Mesh(
+    holoBeamGeo,
+    new THREE.MeshBasicMaterial({
+      color: 0x7fd8f5,
+      transparent: true,
+      opacity: 0.12,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    })
+  );
+  beam.position.y = 1.6;
+  rig.add(beam);
+
+  const panel = new THREE.Mesh(
+    holoPanelGeo,
+    new THREE.MeshBasicMaterial({
+      map: holoTexture(spec),
+      transparent: true,
+      opacity: 0.92,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+    })
+  );
+  panel.position.y = 4.6;
+  rig.add(panel);
+
+  rig.position.set(side * 9.4, FLOOR_Y, stationZ(i) + 3.2);
+  rig.rotation.y = side < 0 ? 0.42 : -0.42;
+  room.add(rig);
+  holograms.push({ rig, panel, phase: i * 1.3 });
+});
+
+// the wide board on the end wall
+{
+  const endHolo = new THREE.Mesh(
+    new THREE.PlaneGeometry(11.5, 7.9),
+    new THREE.MeshBasicMaterial({
+      map: holoTexture({ title: 'FINLABS // NETWORK', kind: 'net' }),
+      transparent: true,
+      opacity: 0.9,
+      depthWrite: false,
+    })
+  );
+  endHolo.position.set(0, 2.2, BACK_Z + 0.15);
+  room.add(endHolo);
+  holograms.push({ rig: null, panel: endHolo, phase: 2.2 });
+}
 
 // =====================================================
 // PRODUCT SCREEN ARTWORK
@@ -2028,6 +2390,23 @@ function loop() {
   });
 
 
+
+  // holograms drift and flicker like a projected image
+  holograms.forEach((h, idx) => {
+    const flicker = 0.86 + Math.sin(t * 7 + h.phase) * 0.03 + Math.sin(t * 23 + idx) * 0.015;
+    h.panel.material.opacity = flicker;
+    if (h.rig) {
+      h.panel.position.y = 4.6 + Math.sin(t * 0.9 + h.phase) * 0.12;
+      h.rig.rotation.y += Math.sin(t * 0.4 + h.phase) * 0.0004;
+    }
+  });
+
+  // a bead of light running each circuit link
+  linkPulses.forEach((p) => {
+    const k = ((t * 0.22 + p.offset) % 1);
+    p.mesh.position.lerpVectors(p.from, p.to, k);
+    p.mesh.position.y = p.from.y + Math.sin(k * Math.PI) * 0.12;
+  });
 
   // drifting coins
   floaters.forEach((f) => {
