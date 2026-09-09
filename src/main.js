@@ -1,6 +1,7 @@
 import './style.css';
 import * as THREE from 'three';
 import { Timer } from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 /* =====================================================
  * FINLABS SHOWROOM
@@ -32,6 +33,9 @@ const C = {
   teal: 0x1a8fb5,
   cyan: 0x45bede,
   cyanSoft: 0x9ad9ea,
+  royal: 0x2f6fd0,
+  indigo: 0x6d7fe8,
+  steel: 0x5a90b8,
   orange: 0xf26722,
   amber: 0xf9a825,
   gold: 0xfbc02d,
@@ -48,6 +52,9 @@ const CSS = {
   pale: '#cfe8f4',
   paler: '#eaf6fb',
   white: '#ffffff',
+  royal: '#2f6fd0',
+  indigo: '#6d7fe8',
+  // kept for the few gold/warm touches that remain
   orange: '#f26722',
   amber: '#f9a825',
   gold: '#fbc02d',
@@ -58,12 +65,14 @@ const CSS = {
 // PRODUCTS  (order matches the sections in index.html)
 // =====================================================
 
+// all-blue accents; the only warm colour left in the room is the gold on
+// the bars and coins, which reads as a financial cue rather than a theme
 const PRODUCTS = [
-  { name: 'FINEXA', screen: 'wealth', accent: C.teal, prop: 'goldbars' },
-  { name: 'FINEXA GenNxT', screen: 'aggregate', accent: C.cyan, prop: 'coins' },
-  { name: 'FINAWARE', screen: 'awareness', accent: C.orange, prop: 'calculator' },
-  { name: 'FISCUS', screen: 'finance', accent: C.tealDeep, prop: 'cards' },
-  { name: 'LEARNGENIE', screen: 'learning', accent: C.amber, prop: 'coffee' },
+  { name: 'FINEXA', screen: 'wealth', accent: 0x1a8fb5, prop: 'goldbars' },
+  { name: 'FINEXA GenNxT', screen: 'aggregate', accent: 0x3fb9dd, prop: 'coins' },
+  { name: 'FINAWARE', screen: 'awareness', accent: 0x2f6fd0, prop: 'calculator' },
+  { name: 'FISCUS', screen: 'finance', accent: 0x0d5f7d, prop: 'cards' },
+  { name: 'LEARNGENIE', screen: 'learning', accent: 0x6d7fe8, prop: 'vault' },
 ];
 
 const STATION_GAP = 13;
@@ -128,6 +137,12 @@ function makeTexture(w, h, draw) {
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = 4;
   return tex;
+}
+
+// every box in the room is softened at the edges rather than hard-cornered
+function rbox(w, h, d, radius = 0.1, segments = 3) {
+  const r = Math.min(radius, Math.min(w, h, d) / 2 - 0.001);
+  return new RoundedBoxGeometry(w, h, d, segments, r);
 }
 
 function rr(ctx, x, y, w, h, r) {
@@ -202,7 +217,7 @@ const ICONS = {
       [0.4, CSS.cyan],
       [0.3, CSS.white],
       [0.2, CSS.teal],
-      [0.1, CSS.orange],
+      [0.1, CSS.royal],
     ];
     rings.forEach(([r, col]) => {
       ctx.fillStyle = col;
@@ -211,14 +226,14 @@ const ICONS = {
       ctx.fill();
     });
     // arrow
-    ctx.strokeStyle = CSS.orange;
+    ctx.strokeStyle = CSS.royal;
     ctx.lineWidth = s * 0.045;
     ctx.lineCap = 'round';
     ctx.beginPath();
     ctx.moveTo(cx + s * 0.03, cx - s * 0.03);
     ctx.lineTo(cx + s * 0.36, cx - s * 0.36);
     ctx.stroke();
-    ctx.fillStyle = CSS.orange;
+    ctx.fillStyle = CSS.royal;
     ctx.beginPath();
     ctx.moveTo(cx + s * 0.42, cx - s * 0.42);
     ctx.lineTo(cx + s * 0.26, cx - s * 0.38);
@@ -233,7 +248,7 @@ const ICONS = {
     const segs = [
       [0, 1.5, CSS.teal],
       [1.5, 3.0, CSS.cyan],
-      [3.0, 4.4, CSS.orange],
+      [3.0, 4.4, CSS.royal],
       [4.4, Math.PI * 2, CSS.cyanSoft],
     ];
     segs.forEach(([a0, a1, col]) => {
@@ -261,7 +276,7 @@ const ICONS = {
       ctx.fillRect(x, base - s * hh, bw, s * hh);
     });
     // trend arrow
-    ctx.strokeStyle = CSS.orange;
+    ctx.strokeStyle = CSS.royal;
     ctx.lineWidth = s * 0.035;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
@@ -293,7 +308,7 @@ const ICONS = {
     ctx.lineTo(s * 0.68, s * 0.3);
     ctx.lineTo(s * 0.84, s * 0.22);
     ctx.stroke();
-    ctx.fillStyle = CSS.orange;
+    ctx.fillStyle = CSS.royal;
     ctx.beginPath();
     ctx.arc(s * 0.84, s * 0.22, s * 0.045, 0, Math.PI * 2);
     ctx.fill();
@@ -301,7 +316,7 @@ const ICONS = {
 
   coin(ctx, s) {
     const cx = s / 2;
-    ctx.fillStyle = CSS.amber;
+    ctx.fillStyle = CSS.indigo;
     ctx.beginPath();
     ctx.arc(cx, cx, s * 0.36, 0, Math.PI * 2);
     ctx.fill();
@@ -309,7 +324,7 @@ const ICONS = {
     ctx.beginPath();
     ctx.arc(cx, cx, s * 0.28, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = CSS.orange;
+    ctx.fillStyle = CSS.royal;
     ctx.font = `700 ${s * 0.36}px "Outfit", sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -334,11 +349,11 @@ const ICONS = {
     ctx.moveTo(cx + s * 0.19, cx + s * 0.19);
     ctx.lineTo(s * 0.86, s * 0.86);
     ctx.stroke();
-    ctx.fillStyle = CSS.orange;
+    ctx.fillStyle = CSS.royal;
     ctx.font = `700 ${s * 0.24}px "Outfit", sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('$', cx, cx);
+    ctx.fillText('₹', cx, cx);
   },
 
   shield(ctx, s) {
@@ -375,7 +390,7 @@ const ICONS = {
     ctx.fillStyle = CSS.cyanSoft;
     ctx.fillRect(s * 0.39, s * 0.38, s * 0.16, s * 0.04);
     ctx.fillRect(s * 0.39, s * 0.46, s * 0.2, s * 0.04);
-    ctx.fillStyle = CSS.orange;
+    ctx.fillStyle = CSS.royal;
     ctx.beginPath();
     ctx.arc(s * 0.5, s * 0.63, s * 0.06, 0, Math.PI * 2);
     ctx.fill();
@@ -389,7 +404,7 @@ const ICONS = {
 const ID = '#12609f'; // deep blue
 const IL = '#57a8e2'; // light blue
 
-function iconCoin(ctx, cx, cy, r, col, symbol = '$') {
+function iconCoin(ctx, cx, cy, r, col, symbol = '₹') {
   ctx.fillStyle = col;
   ctx.beginPath();
   ctx.arc(cx, cy, r, 0, Math.PI * 2);
@@ -448,7 +463,7 @@ function iconBag(ctx, cx, cy, s, col) {
   ctx.font = `700 ${s * 0.3}px "Outfit", sans-serif`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText('$', cx, cy + s * 0.12);
+  ctx.fillText('₹', cx, cy + s * 0.12);
 }
 
 // each painter fills a square of side S
@@ -899,12 +914,26 @@ rightWall.position.set(HALF_W, (CEIL_Y + FLOOR_Y) / 2, ROOM_MID_Z);
 room.add(rightWall);
 
 // baseboards — a dark blue line running the length of the room
-const baseGeo = new THREE.BoxGeometry(0.3, 0.85, ROOM_LEN);
-const baseMat = new THREE.MeshBasicMaterial({ color: C.navy2 });
-[-HALF_W + 0.15, HALF_W - 0.15].forEach((x) => {
+const baseGeo = new THREE.CylinderGeometry(0.42, 0.42, ROOM_LEN, 18, 1, false, 0, Math.PI);
+const baseMat = new THREE.MeshLambertMaterial({ color: C.navy2 });
+[-1, 1].forEach((side) => {
   const b = new THREE.Mesh(baseGeo, baseMat);
-  b.position.set(x, FLOOR_Y + 0.425, ROOM_MID_Z);
+  b.rotation.x = Math.PI / 2;
+  b.rotation.y = side < 0 ? -Math.PI / 2 : Math.PI / 2;
+  b.position.set(side * HALF_W, FLOOR_Y + 0.02, ROOM_MID_Z);
   room.add(b);
+});
+
+// rounded cove where the walls meet the ceiling, so the room reads as a
+// softened shell rather than a hard box
+const coveGeo = new THREE.CylinderGeometry(0.85, 0.85, ROOM_LEN, 20, 1, false, 0, Math.PI);
+const coveMat = new THREE.MeshBasicMaterial({ color: 0xe4f5fc });
+[-1, 1].forEach((side) => {
+  const cove = new THREE.Mesh(coveGeo, coveMat);
+  cove.rotation.x = Math.PI / 2;
+  cove.rotation.y = side < 0 ? Math.PI : 0;
+  cove.position.set(side * HALF_W, CEIL_Y - 0.02, ROOM_MID_Z);
+  room.add(cove);
 });
 
 // end wall — soft rings, then the Finlabs logo mounted on a white board
@@ -940,14 +969,94 @@ const endMotif = new THREE.Mesh(
 endMotif.position.set(0, 2, BACK_Z + 0.1);
 room.add(endMotif);
 
-// ceiling light panels
+// ceiling light panels, with a rounded housing around each
 const panelGeo = new THREE.PlaneGeometry(4.6, 1.1);
 const panelMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+const housingGeo = rbox(5.4, 0.18, 1.7, 0.08);
+// unlit, so the underside stays bright instead of shading to grey
+const housingMat = new THREE.MeshBasicMaterial({ color: 0xeaf7fd });
 for (let z = 12; z > BACK_Z + 6; z -= 9) {
   const p = new THREE.Mesh(panelGeo, panelMat);
   p.rotation.x = Math.PI / 2;
-  p.position.set(0, CEIL_Y - 0.03, z);
+  p.position.set(0, CEIL_Y - 0.05, z);
   room.add(p);
+
+  const housing = new THREE.Mesh(housingGeo, housingMat);
+  housing.position.set(0, CEIL_Y - 0.12, z);
+  room.add(housing);
+}
+
+// -----------------------------------------------------
+// FLOOR DETAIL
+// -----------------------------------------------------
+// The walkway between the stations used to be bare — these markings and
+// pads give the floor something to read against as the camera moves.
+
+// concentric pad under each station
+const padTex = makeTexture(512, 512, (ctx, w) => {
+  ctx.clearRect(0, 0, w, w);
+  const c = w / 2;
+  ctx.strokeStyle = 'rgba(58,140,180,0.34)';
+  ctx.lineWidth = 7;
+  [0.46, 0.37, 0.27].forEach((r) => {
+    ctx.beginPath();
+    ctx.arc(c, c, w * r, 0, Math.PI * 2);
+    ctx.stroke();
+  });
+  ctx.setLineDash([26, 20]);
+  ctx.strokeStyle = 'rgba(58,140,180,0.5)';
+  ctx.lineWidth = 10;
+  ctx.beginPath();
+  ctx.arc(c, c, w * 0.42, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = 'rgba(58,140,180,0.1)';
+  ctx.beginPath();
+  ctx.arc(c, c, w * 0.27, 0, Math.PI * 2);
+  ctx.fill();
+});
+
+const padGeo = new THREE.PlaneGeometry(9.5, 9.5);
+PRODUCTS.forEach((p, i) => {
+  const pad = new THREE.Mesh(
+    padGeo,
+    new THREE.MeshBasicMaterial({ map: padTex, transparent: true, depthWrite: false })
+  );
+  pad.rotation.x = -Math.PI / 2;
+  pad.position.set(stationX(i), FLOOR_Y + 0.03, stationZ(i) + 0.4);
+  room.add(pad);
+});
+
+// dashed guide line + rungs down the middle of the walkway
+const dashGeo = rbox(0.42, 0.05, 2.1, 0.02);
+const dashMat = new THREE.MeshBasicMaterial({ color: 0x8cc4dd });
+const rungGeo = rbox(6.2, 0.05, 0.16, 0.02);
+const rungMat = new THREE.MeshBasicMaterial({ color: 0xa9d6e8 });
+for (let z = 14; z > BACK_Z + 4; z -= 3.4) {
+  const d = new THREE.Mesh(dashGeo, dashMat);
+  d.position.set(0, FLOOR_Y + 0.035, z);
+  room.add(d);
+
+  const r = new THREE.Mesh(rungGeo, rungMat);
+  r.position.set(0, FLOOR_Y + 0.035, z - 1.7);
+  room.add(r);
+}
+
+// low rounded planters flanking the walkway between stations
+const kerbGeo = rbox(1.5, 0.55, 3.4, 0.24);
+const kerbMat = new THREE.MeshLambertMaterial({ color: 0xdff2fa });
+const kerbTopMat = new THREE.MeshLambertMaterial({ color: C.cyanSoft });
+for (let i = 0; i < PRODUCTS.length - 1; i++) {
+  const z = (stationZ(i) + stationZ(i + 1)) / 2;
+  [-1, 1].forEach((side) => {
+    const kerb = new THREE.Mesh(kerbGeo, kerbMat);
+    kerb.position.set(side * 9.2, FLOOR_Y + 0.28, z);
+    room.add(kerb);
+
+    const top = new THREE.Mesh(rbox(1.15, 0.12, 3.0, 0.06), kerbTopMat);
+    top.position.set(side * 9.2, FLOOR_Y + 0.58, z);
+    room.add(top);
+  });
 }
 
 // =====================================================
@@ -1151,7 +1260,7 @@ const SCREENS = {
     donut(ctx, b.x + 150, b.y + 137, 92, [
       [0.38, CSS.teal],
       [0.26, CSS.cyan],
-      [0.2, CSS.orange],
+      [0.2, CSS.royal],
       [0.16, CSS.cyanSoft],
     ]);
     label(ctx, 'AUM MIX', b.x + 22, b.y + 40, 18);
@@ -1194,7 +1303,7 @@ const SCREENS = {
       rr(ctx, b.x, y, b.w, 42, 10);
       ctx.fill();
       label(ctx, t, b.x + 20, y + 21, 18, CSS.ink);
-      ctx.fillStyle = [CSS.teal, CSS.cyan, CSS.orange][i];
+      ctx.fillStyle = [CSS.teal, CSS.cyan, CSS.royal][i];
       rr(ctx, b.x + 260, y + 13, [300, 210, 380][i], 16, 8);
       ctx.fill();
     });
@@ -1207,7 +1316,7 @@ const SCREENS = {
     const tiles = [
       ['EQUITY', CSS.teal],
       ['DEBT', CSS.cyan],
-      ['GOLD', CSS.amber],
+      ['GOLD', CSS.indigo],
       ['CASH', CSS.cyanSoft],
     ];
     tiles.forEach(([t, col], i) => {
@@ -1239,7 +1348,7 @@ const SCREENS = {
     stacks.forEach((st, i) => {
       let base = b.y + 366;
       const x = b.x + 34 + i * 74;
-      [CSS.teal, CSS.cyan, CSS.amber].forEach((col, k) => {
+      [CSS.teal, CSS.cyan, CSS.indigo].forEach((col, k) => {
         ctx.fillStyle = col;
         ctx.fillRect(x, base - st[k], 44, st[k]);
         base -= st[k];
@@ -1254,7 +1363,7 @@ const SCREENS = {
     donut(ctx, px + 120, b.y + 240, 74, [
       [0.42, accent],
       [0.28, CSS.teal],
-      [0.18, CSS.amber],
+      [0.18, CSS.indigo],
       [0.12, CSS.cyanSoft],
     ]);
     label(ctx, 'ENTERPRISE-GRADE', px + 26, b.y + 350, 17, CSS.tealDeep);
@@ -1284,7 +1393,7 @@ const SCREENS = {
     [
       ['PROGRAMMES', '1 2 4', CSS.teal],
       ['ATTENDEES', '8 6 K', CSS.cyan],
-      ['COMPLIANCE', '1 0 0 %', CSS.orange],
+      ['COMPLIANCE', '1 0 0 %', CSS.royal],
     ].forEach(([t, v, col], i) => {
       const y = b.y + 12 + i * 92;
       ctx.fillStyle = CSS.paler;
@@ -1348,13 +1457,13 @@ const SCREENS = {
     // account list
     const lx = b.x + 512;
     const lw = b.w - 512;
-    label(ctx, 'LINKED · NO PASSWORDS SHARED', lx, b.y + 24, 17, CSS.orange);
+    label(ctx, 'LINKED · NO PASSWORDS SHARED', lx, b.y + 24, 17, CSS.royal);
     ['SAVINGS', 'CURRENT', 'CREDIT CARD', 'E-WALLET'].forEach((t, i) => {
       const y = b.y + 48 + i * 74;
       ctx.fillStyle = CSS.paler;
       rr(ctx, lx, y, lw, 60, 12);
       ctx.fill();
-      ctx.fillStyle = [CSS.teal, CSS.cyan, CSS.orange, CSS.amber][i];
+      ctx.fillStyle = [CSS.teal, CSS.cyan, CSS.royal, CSS.indigo][i];
       rr(ctx, lx + 16, y + 14, 32, 32, 8);
       ctx.fill();
       label(ctx, t, lx + 62, y + 30, 18, CSS.ink);
@@ -1419,7 +1528,7 @@ const SCREENS = {
     // badges
     const bx = b.x + 528;
     label(ctx, 'ACHIEVEMENTS', bx, b.y + 30, 17);
-    [CSS.amber, CSS.teal, CSS.orange, CSS.cyan].forEach((col, i) => {
+    [CSS.indigo, CSS.teal, CSS.royal, CSS.cyan].forEach((col, i) => {
       const x = bx + (i % 2) * 96;
       const y = b.y + 56 + Math.floor(i / 2) * 96;
       ctx.fillStyle = col;
@@ -1451,7 +1560,7 @@ const whiteMat = new THREE.MeshLambertMaterial({ color: C.white });
 
 function propGoldBars() {
   const g = new THREE.Group();
-  const bar = new THREE.BoxGeometry(1.05, 0.34, 0.55);
+  const bar = rbox(1.05, 0.34, 0.55, 0.09);
   const rows = [
     [-1.1, 0, 1.1],
     [-0.55, 0.55],
@@ -1488,22 +1597,22 @@ function propCoins() {
 function propCalculator() {
   const g = new THREE.Group();
   const body = new THREE.Mesh(
-    new THREE.BoxGeometry(1.5, 0.22, 2.1),
-    new THREE.MeshLambertMaterial({ color: C.orange })
+    rbox(1.5, 0.24, 2.1, 0.09),
+    new THREE.MeshLambertMaterial({ color: C.royal })
   );
-  body.position.y = 0.11;
+  body.position.y = 0.12;
   g.add(body);
 
   const screen = new THREE.Mesh(new THREE.PlaneGeometry(1.15, 0.42), whiteMat);
   screen.rotation.x = -Math.PI / 2;
-  screen.position.set(0, 0.23, -0.62);
+  screen.position.set(0, 0.25, -0.62);
   g.add(screen);
 
-  const keyGeo = new THREE.BoxGeometry(0.22, 0.06, 0.22);
+  const keyGeo = rbox(0.22, 0.07, 0.22, 0.03);
   for (let r = 0; r < 4; r++) {
     for (let c = 0; c < 4; c++) {
       const k = new THREE.Mesh(keyGeo, whiteMat);
-      k.position.set(-0.45 + c * 0.3, 0.24, -0.15 + r * 0.32);
+      k.position.set(-0.45 + c * 0.3, 0.25, -0.15 + r * 0.32);
       g.add(k);
     }
   }
@@ -1513,8 +1622,8 @@ function propCalculator() {
 
 function propCards() {
   const g = new THREE.Group();
-  const card = new THREE.BoxGeometry(1.5, 0.06, 0.95);
-  const cols = [C.cyan, C.tealDeep, C.orange];
+  const card = rbox(1.5, 0.07, 0.95, 0.05);
+  const cols = [C.cyan, C.tealDeep, C.royal];
   cols.forEach((col, i) => {
     const m = new THREE.Mesh(card, new THREE.MeshLambertMaterial({ color: col }));
     m.position.set(i * 0.24, 0.04 + i * 0.08, i * 0.16);
@@ -1524,28 +1633,48 @@ function propCards() {
   return g;
 }
 
-function propCoffee() {
+// a small strongbox — keeps every prop on a financial theme
+function propVault() {
   const g = new THREE.Group();
-  const cupMat = new THREE.MeshLambertMaterial({ color: C.orange });
-  const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.32, 0.5, 24), cupMat);
-  cup.position.y = 0.25;
-  g.add(cup);
+  const shellMat = new THREE.MeshLambertMaterial({ color: C.indigo });
 
-  const handle = new THREE.Mesh(new THREE.TorusGeometry(0.17, 0.055, 10, 22), cupMat);
-  handle.position.set(0.46, 0.28, 0);
-  handle.rotation.y = Math.PI / 2;
-  g.add(handle);
+  const body = new THREE.Mesh(rbox(1.6, 1.5, 1.3, 0.16), shellMat);
+  body.position.y = 0.75;
+  g.add(body);
 
-  const saucer = new THREE.Mesh(new THREE.CylinderGeometry(0.66, 0.66, 0.07, 26), whiteMat);
-  saucer.position.y = 0.035;
-  g.add(saucer);
-
-  const brew = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.35, 0.35, 0.02, 24),
-    new THREE.MeshLambertMaterial({ color: 0x8c4a1e })
+  const door = new THREE.Mesh(
+    rbox(1.24, 1.16, 0.12, 0.1),
+    new THREE.MeshLambertMaterial({ color: C.white })
   );
-  brew.position.y = 0.5;
-  g.add(brew);
+  door.position.set(0, 0.75, 0.66);
+  g.add(door);
+
+  // dial
+  const dial = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.24, 0.24, 0.1, 24),
+    new THREE.MeshLambertMaterial({ color: C.tealDeep })
+  );
+  dial.rotation.x = Math.PI / 2;
+  dial.position.set(0, 0.75, 0.75);
+  g.add(dial);
+
+  const spoke = new THREE.Mesh(
+    rbox(0.5, 0.07, 0.07, 0.03),
+    new THREE.MeshLambertMaterial({ color: C.tealDeep })
+  );
+  spoke.position.set(0, 0.75, 0.8);
+  g.add(spoke);
+
+  // a coin resting on top
+  const coin = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.3, 0.3, 0.08, 24),
+    goldMat
+  );
+  coin.position.set(0.4, 1.54, -0.2);
+  g.add(coin);
+
+  g.rotation.y = -0.3;
+  g.scale.setScalar(0.86);
   return g;
 }
 
@@ -1554,7 +1683,7 @@ const PROP_BUILDERS = {
   coins: propCoins,
   calculator: propCalculator,
   cards: propCards,
-  coffee: propCoffee,
+  vault: propVault,
 };
 
 // =====================================================
@@ -1563,11 +1692,73 @@ const PROP_BUILDERS = {
 
 const stations = [];
 
-const monitorFrameGeo = new THREE.BoxGeometry(6.6, 4.6, 0.36);
+const monitorFrameGeo = rbox(6.6, 4.6, 0.36, 0.22);
 const monitorScreenGeo = new THREE.PlaneGeometry(6.05, 4.05);
-const neckGeo = new THREE.BoxGeometry(0.5, 1.5, 0.4);
-const footGeo = new THREE.BoxGeometry(2.6, 0.24, 1.3);
-const podiumGeo = new THREE.BoxGeometry(4.4, 1.0, 2.4);
+const neckGeo = rbox(0.5, 1.5, 0.4, 0.14);
+const footGeo = rbox(2.6, 0.28, 1.3, 0.12);
+const podiumGeo = rbox(4.4, 1.0, 2.4, 0.22);
+const podiumBandGeo = rbox(4.46, 0.18, 2.46, 0.08);
+
+// a desktop tower + power lead beside each station
+function buildTower(accent) {
+  const g = new THREE.Group();
+
+  const caseMesh = new THREE.Mesh(
+    rbox(1.15, 2.3, 2.0, 0.16),
+    new THREE.MeshLambertMaterial({ color: C.white })
+  );
+  caseMesh.position.y = 1.15;
+  g.add(caseMesh);
+
+  // front face plate in the product accent
+  const plate = new THREE.Mesh(
+    rbox(0.9, 1.95, 0.1, 0.07),
+    new THREE.MeshLambertMaterial({ color: accent })
+  );
+  plate.position.set(0, 1.15, 1.0);
+  g.add(plate);
+
+  // drive slots + power light
+  const slotMat = new THREE.MeshLambertMaterial({ color: C.white });
+  [1.75, 1.5].forEach((y) => {
+    const s = new THREE.Mesh(rbox(0.62, 0.1, 0.06, 0.03), slotMat);
+    s.position.set(0, y, 1.06);
+    g.add(s);
+  });
+  const led = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.07, 0.07, 0.05, 14),
+    new THREE.MeshBasicMaterial({ color: 0x8ff0ff })
+  );
+  led.rotation.x = Math.PI / 2;
+  led.position.set(0, 0.45, 1.06);
+  g.add(led);
+
+  // vent fins down the side
+  const finMat = new THREE.MeshLambertMaterial({ color: C.cyanSoft });
+  for (let k = 0; k < 5; k++) {
+    const fin = new THREE.Mesh(rbox(0.06, 0.9, 1.5, 0.03), finMat);
+    fin.position.set(0.6, 1.5 - k * 0.02, -0.15 + k * 0.06);
+    fin.position.set(0.6, 0.85, -0.5 + k * 0.24);
+    g.add(fin);
+  }
+
+  return g;
+}
+
+// power lead: a tube following a slack curve from the tower to the floor
+function buildCable(from, to, color) {
+  const sag = Math.max(0.5, from.distanceTo(to) * 0.42);
+  const mid1 = from.clone().lerp(to, 0.35);
+  mid1.y -= sag;
+  const mid2 = from.clone().lerp(to, 0.7);
+  mid2.y -= sag * 0.55;
+
+  const curve = new THREE.CatmullRomCurve3([from, mid1, mid2, to]);
+  return new THREE.Mesh(
+    new THREE.TubeGeometry(curve, 28, 0.055, 8, false),
+    new THREE.MeshLambertMaterial({ color })
+  );
+}
 
 PRODUCTS.forEach((product, i) => {
   const g = new THREE.Group();
@@ -1581,11 +1772,8 @@ PRODUCTS.forEach((product, i) => {
   podium.position.y = FLOOR_Y + 0.5;
   g.add(podium);
 
-  const podiumBand = new THREE.Mesh(
-    new THREE.BoxGeometry(4.44, 0.16, 2.44),
-    accentMat
-  );
-  podiumBand.position.y = FLOOR_Y + 0.08;
+  const podiumBand = new THREE.Mesh(podiumBandGeo, accentMat);
+  podiumBand.position.y = FLOOR_Y + 0.09;
   g.add(podiumBand);
 
   // stand
@@ -1638,6 +1826,30 @@ PRODUCTS.forEach((product, i) => {
   props.position.set(i % 2 === 0 ? -1.2 : 1.2, FLOOR_Y + 1.0, 0.9);
   props.scale.setScalar(0.85);
   g.add(props);
+
+  // tower on the floor beside the podium, with its lead running back
+  // to the podium and a second lead trailing off to the side
+  const towerSide = i % 2 === 0 ? 3.3 : -3.3;
+  const tower = buildTower(product.accent);
+  tower.position.set(towerSide, FLOOR_Y, 1.1);
+  tower.rotation.y = i % 2 === 0 ? -0.45 : 0.45;
+  g.add(tower);
+  addShadow(tower, 3.4, 0.04, 0, 0.75);
+
+  g.add(
+    buildCable(
+      new THREE.Vector3(towerSide - Math.sign(towerSide) * 0.5, FLOOR_Y + 1.9, 0.4),
+      new THREE.Vector3(Math.sign(towerSide) * 1.9, FLOOR_Y + 1.05, 0.2),
+      C.tealDeep
+    )
+  );
+  g.add(
+    buildCable(
+      new THREE.Vector3(towerSide, FLOOR_Y + 0.5, 0.1),
+      new THREE.Vector3(towerSide + Math.sign(towerSide) * 2.6, FLOOR_Y + 0.06, -1.4),
+      C.navy2
+    )
+  );
 
   // contact shadow
   addShadow(g, 9, FLOOR_Y + 0.03, 0.4, 0.9);
