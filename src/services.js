@@ -2,24 +2,195 @@ import './style.css';
 import * as THREE from 'three';
 import { Timer } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-import { initTheme, onTheme } from './theme.js';
+import { initTheme, onTheme, currentTheme } from './theme.js';
 
 /* =====================================================
- * FINLABS SERVICES — holographic projection room
+ * FINLABS SERVICES — cybernetic workstation
  * =====================================================
- * A dark tech chamber facing a projection wall. Scrolling
- * swaps the hologram on the wall to the next service and
- * pushes the camera a little closer.
+ * A neon-lit operations room. The monitor on the desk is
+ * the whole story: every service detail is drawn into the
+ * screen, and scrolling swaps which one is displayed.
  * ===================================================== */
 
 initTheme();
 
+// =====================================================
+// PALETTE
+// =====================================================
+
+const P = {
+  dark: {
+    air: 0x08070d,
+    wall: 0x171220,
+    wallFar: 0x241826,
+    floor: 0x0d0b12,
+    desk: 0x141b23,
+    deskTop: 0x1d2731,
+    metal: 0x1a2029,
+    neon: 0x2ff0e0,
+    neonDim: 0x148f88,
+    glow: 0xff6a1a,
+    glowDeep: 0xc8390e,
+    chair: 0x11161d,
+    screenGlow: 0x2ff0e0,
+    ambient: 0.55,
+    fogNear: 18,
+    fogFar: 74,
+    // canvas colours for the monitor artwork
+    scr: {
+      bg: '#05141a',
+      panel: 'rgba(20,80,92,0.20)',
+      edge: 'rgba(47,240,224,0.55)',
+      ink: '#d6fbff',
+      dim: '#6fb9c4',
+      neon: '#2ff0e0',
+      warm: '#ff8a3c',
+      grid: 'rgba(47,240,224,0.10)',
+    },
+  },
+  light: {
+    air: 0xd9e9f7,
+    wall: 0xc7dcef,
+    wallFar: 0xf0d9c4,
+    floor: 0xe6f0fa,
+    desk: 0xdce9f4,
+    deskTop: 0xeef6fc,
+    metal: 0xc3d6e6,
+    neon: 0x12a6b4,
+    neonDim: 0x7fc4cc,
+    glow: 0xf2913f,
+    glowDeep: 0xd8611c,
+    chair: 0xb9cbdb,
+    screenGlow: 0x12a6b4,
+    ambient: 1.1,
+    fogNear: 24,
+    fogFar: 92,
+    scr: {
+      bg: '#f2fbfe',
+      panel: 'rgba(18,166,180,0.10)',
+      edge: 'rgba(12,110,130,0.45)',
+      ink: '#08303c',
+      dim: '#5b8898',
+      neon: '#0e8a99',
+      warm: '#d8611c',
+      grid: 'rgba(12,110,130,0.10)',
+    },
+  },
+};
+
+// =====================================================
+// SERVICE CONTENT
+// =====================================================
+
 const SERVICES = [
-  { key: 'uiux', title: 'UI/UX CONSULTING', accent: 0x35d6ff, art: 'wireframe' },
-  { key: 'audit', title: 'APPLICATION & INFRA AUDITS', accent: 0x4d9dff, art: 'audit' },
-  { key: 'sec', title: 'CYBERSECURITY', accent: 0x7b7bff, art: 'shield' },
-  { key: 'cloud', title: 'CLOUD ARCHITECTURE REVIEW', accent: 0x2ec5d8, art: 'cloud' },
-  { key: 'dx', title: 'DIGITAL TRANSFORMATION', accent: 0x57e0b0, art: 'roadmap' },
+  {
+    id: '00',
+    kicker: 'FINLABS // TECHNOLOGY CONSULTING',
+    title: 'OUR CYBERNETIC SOLUTIONS',
+    sub: 'Connect Your Future',
+    desc:
+      'End-to-end technology consulting for financial services. Seasoned experts, ' +
+      'solutions tailored to your stack, transparent communication and measurable ' +
+      'results — from first audit to production rollout.',
+    stack: ['STRATEGY', 'ARCHITECTURE', 'SECURITY', 'CLOUD', 'DATA', 'DELIVERY'],
+    rows: [
+      ['ENGAGEMENT', 'Advisory · Build · Managed'],
+      ['SECTORS', 'Wealth · AMC · Insurance · Banking'],
+      ['DELIVERY', 'Agile pods · Fixed scope · T&M'],
+    ],
+    stats: [['6', 'PRACTICE AREAS'], ['10 YRS', 'IN MARKET'], ['24/7', 'MANAGED SUPPORT']],
+    art: 'network',
+  },
+  {
+    id: '01',
+    kicker: 'SERVICE 01 // EXPERIENCE',
+    title: 'UI / UX CONSULTING',
+    sub: 'User-centered design and seamless experiences',
+    desc:
+      'User-centered design, intuitive interface development and seamless user ' +
+      'experiences that drive engagement and satisfaction — grounded in research, ' +
+      'shipped as a living design system.',
+    stack: ['FIGMA', 'DESIGN SYSTEMS', 'REACT', 'TYPESCRIPT', 'WCAG 2.2', 'STORYBOOK'],
+    rows: [
+      ['RESEARCH', 'Interviews · Journey maps · Usability tests'],
+      ['DESIGN', 'Wireframes · Prototypes · Tokens'],
+      ['HANDOFF', 'Component library · A11y audit'],
+    ],
+    stats: [['WCAG 2.2', 'AA TARGET'], ['<2s', 'TIME TO INTERACTIVE'], ['1 KIT', 'DESIGN SYSTEM']],
+    art: 'wireframe',
+  },
+  {
+    id: '02',
+    kicker: 'SERVICE 02 // ASSURANCE',
+    title: 'APPLICATION & INFRA AUDITS',
+    sub: 'Comprehensive analysis and evaluation',
+    desc:
+      'Thorough analysis and evaluation of software applications and infrastructure ' +
+      'to identify vulnerabilities, optimize performance and enhance security — with ' +
+      'a prioritised remediation plan you can actually execute.',
+    stack: ['OWASP TOP 10', 'SAST / DAST', 'SONARQUBE', 'k6', 'APM', 'CIS BENCHMARKS'],
+    rows: [
+      ['CODE', 'Static analysis · Dependency CVEs'],
+      ['RUNTIME', 'Load profiles · p95 latency · Bottlenecks'],
+      ['OUTPUT', 'Severity-ranked findings · Fix roadmap'],
+    ],
+    stats: [['OWASP', 'TOP 10 COVERAGE'], ['p95', 'LATENCY BUDGETS'], ['CVSS', 'RANKED FINDINGS']],
+    art: 'audit',
+  },
+  {
+    id: '03',
+    kicker: 'SERVICE 03 // DEFENCE',
+    title: 'CYBERSECURITY',
+    sub: 'Threat assessment and defense strategies',
+    desc:
+      'Comprehensive threat assessment, advanced defense strategies and proactive ' +
+      'risk mitigation to safeguard your digital assets — built around zero-trust ' +
+      'principles and continuous monitoring.',
+    stack: ['ZERO TRUST', 'ISO 27001', 'SOC 2', 'SIEM / SOAR', 'IAM · MFA', 'PEN TESTING'],
+    rows: [
+      ['ASSESS', 'Threat modelling · Attack surface map'],
+      ['DEFEND', 'Segmentation · Encryption at rest / in transit'],
+      ['MONITOR', 'SIEM pipelines · Incident runbooks'],
+    ],
+    stats: [['ISO 27001', 'ALIGNED'], ['SOC 2', 'READINESS'], ['ZERO TRUST', 'BY DEFAULT']],
+    art: 'shield',
+  },
+  {
+    id: '04',
+    kicker: 'SERVICE 04 // CLOUD',
+    title: 'CLOUD ARCHITECTURE REVIEW',
+    sub: 'Optimization and alignment with business objectives',
+    desc:
+      'Meticulous examination of cloud infrastructure to optimize efficiency, security ' +
+      'and scalability — identifying optimization opportunities against industry best ' +
+      'practices across every major provider.',
+    stack: ['AWS', 'AZURE', 'GCP', 'KUBERNETES', 'TERRAFORM', 'FINOPS'],
+    rows: [
+      ['REVIEW', 'Well-Architected · Landing zones · IaC drift'],
+      ['SCALE', 'Autoscaling · Multi-AZ · Disaster recovery'],
+      ['COST', 'Right-sizing · Reserved capacity · Tag hygiene'],
+    ],
+    stats: [['AWS · AZURE · GCP', 'MULTI-CLOUD'], ['IaC', 'TERRAFORM'], ['FinOps', 'COST REVIEW']],
+    art: 'cloud',
+  },
+  {
+    id: '05',
+    kicker: 'SERVICE 05 // TRANSFORMATION',
+    title: 'DIGITAL TRANSFORMATION',
+    sub: 'Tailored roadmaps leveraging emerging technologies',
+    desc:
+      'Crafted roadmaps that leverage cutting-edge technologies, data-driven insights ' +
+      'and agile methodologies — with clear stages, an optimized technology stack and ' +
+      'user-centric design throughout.',
+    stack: ['MICROSERVICES', 'EVENT-DRIVEN', 'CI / CD', 'DATA LAKE', 'API-FIRST', 'MLOps'],
+    rows: [
+      ['ASSESS', 'Capability gaps · Legacy inventory'],
+      ['DESIGN', 'Target architecture · Migration waves'],
+      ['ADOPT', 'Enablement · Platform team · Metrics'],
+    ],
+    stats: [['4 STAGES', 'ASSESS TO SCALE'], ['CI/CD', 'AUTOMATED DELIVERY'], ['API-FIRST', 'ARCHITECTURE']],
+    art: 'roadmap',
+  },
 ];
 
 // =====================================================
@@ -27,59 +198,34 @@ const SERVICES = [
 // =====================================================
 
 const canvas = document.querySelector('#canvas');
+// The page can mount at zero size (a hidden tab or pane). Falling back to
+// a sane viewport keeps aspect out of NaN, which would otherwise poison
+// every camera calculation downstream and never recover.
+const vw0 = window.innerWidth || 1280;
+const vh0 = window.innerHeight || 720;
+
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(vw0, vh0);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  55,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  300
-);
-camera.position.set(0, 0.6, 20);
+const camera = new THREE.PerspectiveCamera(52, vw0 / vh0, 0.1, 260);
 
-const WALL_Z = -14;
-const FLOOR_Y = -4.2;
-const CEIL_Y = 9;
-const HALF_W = 17;
+// the screen is the subject: everything else is arranged around it
+const SCREEN_W = 15.2;
+const SCREEN_H = 8.6;
+const SCREEN_Y = 4.2;
+const SCREEN_Z = -9;
+const SCREEN_FILL = 0.7; // fraction of the viewport the screen should span
 
-// palettes for the two themes
-const THEME_COLORS = {
-  dark: {
-    air: 0x060b18,
-    wall: 0x0d1730,
-    floor: 0x081124,
-    grid: 0x1f5484,
-    trim: 0x1b3a63,
-    rack: 0x101d38,
-    rackFace: 0x1b3f6b,
-    fogNear: 16,
-    fogFar: 78,
-    ambient: 0.5,
-    holoOpacity: 0.96,
-  },
-  light: {
-    air: 0xd7ecfa,
-    wall: 0xbcd9ef,
-    floor: 0xe4f3fd,
-    grid: 0x8cc2e2,
-    trim: 0x9dc7e3,
-    rack: 0xdcecf8,
-    rackFace: 0x9ac5e6,
-    fogNear: 22,
-    fogFar: 96,
-    ambient: 1.05,
-    holoOpacity: 0.8,
-  },
-};
+const DESK_Y = -1.2;
+const FLOOR_Y = -5.6;
 
-scene.fog = new THREE.Fog(THEME_COLORS.dark.air, 16, 78);
+scene.fog = new THREE.Fog(P.dark.air, P.dark.fogNear, P.dark.fogFar);
 
-// materials that recolour with the theme
+// materials that repaint with the theme
 const themed = [];
-function themedMat(mat, key) {
+function tm(mat, key) {
   themed.push({ mat, key });
   return mat;
 }
@@ -88,16 +234,20 @@ function themedMat(mat, key) {
 // LIGHTING
 // =====================================================
 
-const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+const ambient = new THREE.AmbientLight(0xffffff, 0.55);
 scene.add(ambient);
 
-const rim = new THREE.DirectionalLight(0x6fd3ff, 0.8);
-rim.position.set(-8, 10, 12);
-scene.add(rim);
+const tealLight = new THREE.PointLight(0x2ff0e0, 60, 40);
+tealLight.position.set(-6, 3, 2);
+scene.add(tealLight);
 
-const rim2 = new THREE.DirectionalLight(0x4d7bff, 0.5);
-rim2.position.set(10, 6, 6);
-scene.add(rim2);
+const warmLight = new THREE.PointLight(0xff6a1a, 90, 46);
+warmLight.position.set(4, 7, SCREEN_Z - 3);
+scene.add(warmLight);
+
+const keyLight = new THREE.DirectionalLight(0xbfe9ff, 0.5);
+keyLight.position.set(-4, 12, 10);
+scene.add(keyLight);
 
 // =====================================================
 // CANVAS HELPERS
@@ -110,7 +260,7 @@ function makeTexture(w, h, draw) {
   draw(cv.getContext('2d'), w, h);
   const tex = new THREE.CanvasTexture(cv);
   tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = 4;
+  tex.anisotropy = 8;
   return tex;
 }
 
@@ -129,6 +279,430 @@ function rbox(w, h, d, radius = 0.1) {
   return new RoundedBoxGeometry(w, h, d, 3, r);
 }
 
+function wrap(ctx, text, x, y, maxW, lh) {
+  const words = text.split(' ');
+  let line = '';
+  let yy = y;
+  words.forEach((word) => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxW && line) {
+      ctx.fillText(line, x, yy);
+      line = word;
+      yy += lh;
+    } else {
+      line = test;
+    }
+  });
+  if (line) ctx.fillText(line, x, yy);
+  return yy + lh;
+}
+
+// =====================================================
+// SCREEN ARTWORK
+// =====================================================
+
+const SW = 1520;
+const SH = 860;
+
+function drawDiagram(ctx, s, c, x, y, w, h) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.strokeStyle = c.neon;
+  ctx.fillStyle = c.neon;
+  ctx.lineWidth = 2.5;
+
+  const cx = w / 2;
+  const cy = h / 2;
+
+  if (s.art === 'network') {
+    const R = Math.min(w, h) * 0.36;
+    const nodes = [];
+    for (let i = 0; i < 14; i++) {
+      const a = (i / 14) * Math.PI * 2;
+      const rr2 = R * (0.5 + ((i * 37) % 10) / 20);
+      nodes.push([cx + Math.cos(a) * rr2, cy + Math.sin(a) * rr2 * 0.92]);
+    }
+    ctx.globalAlpha = 0.35;
+    nodes.forEach(([ax, ay], i) => {
+      nodes.forEach(([bx, by], j) => {
+        if (j <= i || (i + j) % 3) return;
+        ctx.beginPath();
+        ctx.moveTo(ax, ay);
+        ctx.lineTo(bx, by);
+        ctx.stroke();
+      });
+    });
+    ctx.globalAlpha = 1;
+    nodes.forEach(([ax, ay], i) => {
+      ctx.fillStyle = i % 4 === 0 ? c.warm : c.neon;
+      ctx.beginPath();
+      ctx.arc(ax, ay, i % 4 === 0 ? 7 : 4.5, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.strokeStyle = c.neon;
+    ctx.globalAlpha = 0.5;
+    [R * 1.15, R * 1.34].forEach((r) => {
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  if (s.art === 'wireframe') {
+    [0, 1, 2].forEach((k) => {
+      const px = 18 + k * (w / 3.2);
+      const py = 16 + k * 22;
+      const pw = w / 3.4;
+      const ph = h - 90 - k * 20;
+      ctx.globalAlpha = 1 - k * 0.24;
+      ctx.strokeRect(px, py, pw, ph);
+      ctx.fillRect(px + 16, py + 22, pw - 60, 12);
+      ctx.globalAlpha = (1 - k * 0.24) * 0.5;
+      ctx.fillRect(px + 16, py + 48, pw * 0.55, 8);
+      ctx.fillRect(px + 16, py + 66, pw * 0.4, 8);
+      ctx.globalAlpha = (1 - k * 0.24) * 0.2;
+      ctx.fillRect(px + 16, py + 92, pw - 32, ph - 130);
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  if (s.art === 'audit') {
+    const bars = [0.42, 0.68, 0.5, 0.86, 0.58, 0.74, 0.46, 0.62];
+    const bw = (w - 40) / bars.length - 14;
+    bars.forEach((v, i) => {
+      const px = 20 + i * ((w - 40) / bars.length);
+      ctx.globalAlpha = 0.16;
+      ctx.fillRect(px, 20, bw, h - 80);
+      ctx.globalAlpha = 0.95;
+      ctx.fillStyle = v > 0.7 ? c.warm : c.neon;
+      ctx.fillRect(px, 20 + (h - 80) * (1 - v), bw, (h - 80) * v);
+    });
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = c.neon;
+    ctx.strokeStyle = c.warm;
+    ctx.setLineDash([12, 9]);
+    ctx.beginPath();
+    ctx.moveTo(14, 20 + (h - 80) * 0.28);
+    ctx.lineTo(w - 14, 20 + (h - 80) * 0.28);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font = '600 17px "JetBrains Mono", monospace';
+    ctx.fillStyle = c.warm;
+    ctx.fillText('THRESHOLD', 16, 20 + (h - 80) * 0.28 - 10);
+  }
+
+  if (s.art === 'shield') {
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - h * 0.36);
+    ctx.lineTo(cx + w * 0.17, cy - h * 0.22);
+    ctx.lineTo(cx + w * 0.17, cy + h * 0.06);
+    ctx.quadraticCurveTo(cx + w * 0.17, cy + h * 0.32, cx, cy + h * 0.42);
+    ctx.quadraticCurveTo(cx - w * 0.17, cy + h * 0.32, cx - w * 0.17, cy + h * 0.06);
+    ctx.lineTo(cx - w * 0.17, cy - h * 0.22);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.globalAlpha = 0.12;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.lineWidth = 7;
+    ctx.beginPath();
+    ctx.moveTo(cx - w * 0.07, cy + h * 0.03);
+    ctx.lineTo(cx - w * 0.02, cy + h * 0.14);
+    ctx.lineTo(cx + w * 0.09, cy - h * 0.12);
+    ctx.stroke();
+    ctx.lineWidth = 2;
+    [0.5, 0.66, 0.82].forEach((r, i) => {
+      ctx.globalAlpha = 0.4 - i * 0.11;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy + h * 0.03, w * r * 0.4, h * r * 0.52, 0, 0, Math.PI * 2);
+      ctx.stroke();
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  if (s.art === 'cloud') {
+    // three provider bays feeding one orchestration hub
+    const names = ['AWS', 'AZURE', 'GCP'];
+    const bw = w / 3.6;
+    names.forEach((n, i) => {
+      const px = 14 + i * (w / 3.15);
+      ctx.globalAlpha = 0.14;
+      rr(ctx, px, 12, bw, 76, 10);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      rr(ctx, px, 12, bw, 76, 10);
+      ctx.stroke();
+      ctx.font = '700 30px "JetBrains Mono", monospace';
+      ctx.fillStyle = c.neon;
+      ctx.textAlign = 'center';
+      ctx.fillText(n, px + bw / 2, 60);
+      ctx.textAlign = 'left';
+      // feed line down to the hub
+      ctx.globalAlpha = 0.55;
+      ctx.beginPath();
+      ctx.moveTo(px + bw / 2, 92);
+      ctx.lineTo(px + bw / 2, 128);
+      ctx.lineTo(cx, 150);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    });
+    ctx.globalAlpha = 0.16;
+    rr(ctx, cx - w * 0.22, 154, w * 0.44, 62, 10);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    rr(ctx, cx - w * 0.22, 154, w * 0.44, 62, 10);
+    ctx.stroke();
+    ctx.font = '700 24px "JetBrains Mono", monospace';
+    ctx.fillStyle = c.warm;
+    ctx.textAlign = 'center';
+    ctx.fillText('KUBERNETES · TERRAFORM', cx, 193);
+    ctx.textAlign = 'left';
+  }
+
+  if (s.art === 'roadmap') {
+    const stops = ['ASSESS', 'DESIGN', 'ADOPT', 'SCALE'];
+    const y0 = h - 44;
+    ctx.globalAlpha = 0.45;
+    ctx.beginPath();
+    ctx.moveTo(16, y0);
+    ctx.lineTo(w - 16, y0);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    stops.forEach((st, i) => {
+      const px = 46 + i * ((w - 92) / (stops.length - 1));
+      const py = y0 - 34 - i * 34;
+      ctx.fillStyle = i === stops.length - 1 ? c.warm : c.neon;
+      ctx.beginPath();
+      ctx.arc(px, y0, 9, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = c.neon;
+      ctx.beginPath();
+      ctx.moveTo(px, y0 - 9);
+      ctx.lineTo(px, py + 14);
+      ctx.stroke();
+      ctx.globalAlpha = 0.16;
+      rr(ctx, px - 62, py - 22, 124, 38, 8);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      rr(ctx, px - 62, py - 22, 124, 38, 8);
+      ctx.stroke();
+      ctx.font = '700 18px "JetBrains Mono", monospace';
+      ctx.fillStyle = c.ink;
+      ctx.textAlign = 'center';
+      ctx.fillText(st, px, py + 3);
+      ctx.textAlign = 'left';
+    });
+  }
+
+  ctx.restore();
+}
+
+function screenTexture(s, mode) {
+  const c = P[mode].scr;
+  return makeTexture(SW, SH, (ctx, w, h) => {
+    // ground
+    ctx.fillStyle = c.bg;
+    ctx.fillRect(0, 0, w, h);
+
+    // faint grid
+    ctx.strokeStyle = c.grid;
+    ctx.lineWidth = 1;
+    for (let x = 0; x < w; x += 38) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, h);
+      ctx.stroke();
+    }
+    for (let y = 0; y < h; y += 38) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(w, y);
+      ctx.stroke();
+    }
+
+    ctx.textBaseline = 'middle';
+
+    // ---- window chrome ----
+    ctx.fillStyle = c.panel;
+    ctx.fillRect(0, 0, w, 58);
+    ctx.strokeStyle = c.edge;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, 58);
+    ctx.lineTo(w, 58);
+    ctx.stroke();
+    [0, 1, 2].forEach((i) => {
+      ctx.fillStyle = i === 0 ? c.warm : c.neon;
+      ctx.beginPath();
+      ctx.arc(34 + i * 26, 29, 7, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.fillStyle = c.dim;
+    ctx.font = '600 19px "JetBrains Mono", monospace';
+    ctx.fillText(s.kicker, 122, 30);
+    ctx.textAlign = 'right';
+    ctx.fillStyle = c.neon;
+    ctx.fillText('● ONLINE', w - 34, 30);
+    ctx.textAlign = 'left';
+
+    // ---- headline ----
+    const M = 56;
+    let y = 116;
+    ctx.fillStyle = c.ink;
+    ctx.font = '800 62px "Outfit", sans-serif';
+    ctx.fillText(s.title, M, y);
+
+    y += 52;
+    ctx.fillStyle = c.neon;
+    ctx.font = '600 27px "Outfit", sans-serif';
+    ctx.fillText(s.sub, M, y);
+
+    // accent rule
+    y += 34;
+    const g = ctx.createLinearGradient(M, 0, M + 320, 0);
+    g.addColorStop(0, c.neon);
+    g.addColorStop(1, 'transparent');
+    ctx.fillStyle = g;
+    ctx.fillRect(M, y, 320, 4);
+
+    // ---- left column: description + rows ----
+    const colW = w * 0.46;
+    y += 42;
+    ctx.fillStyle = c.dim;
+    ctx.font = '400 23px Inter, sans-serif';
+    y = wrap(ctx, s.desc, M, y, colW, 34);
+
+    y += 18;
+    s.rows.forEach(([k, v]) => {
+      ctx.fillStyle = c.panel;
+      rr(ctx, M, y - 20, colW, 44, 8);
+      ctx.fill();
+      ctx.fillStyle = c.neon;
+      ctx.font = '700 15px "JetBrains Mono", monospace';
+      ctx.fillText(k, M + 16, y + 2);
+      ctx.fillStyle = c.ink;
+      ctx.font = '400 17px Inter, sans-serif';
+      ctx.fillText(v, M + 150, y + 2);
+      y += 54;
+    });
+
+    // ---- right column: diagram ----
+    const dx = M + colW + 46;
+    const dw = w - dx - M;
+    const dy = 176;
+    const dh = 384;
+    ctx.strokeStyle = c.edge;
+    ctx.lineWidth = 2;
+    rr(ctx, dx, dy, dw, dh, 12);
+    ctx.stroke();
+    drawDiagram(ctx, s, c, dx, dy, dw, dh);
+
+    // ---- tech stack chips ----
+    let cxp = dx;
+    let cyp = dy + dh + 44;
+    ctx.font = '700 16px "JetBrains Mono", monospace';
+    s.stack.forEach((chip) => {
+      const tw = ctx.measureText(chip).width + 30;
+      if (cxp + tw > w - M) {
+        cxp = dx;
+        cyp += 44;
+      }
+      ctx.fillStyle = c.panel;
+      rr(ctx, cxp, cyp - 17, tw, 34, 17);
+      ctx.fill();
+      ctx.strokeStyle = c.edge;
+      ctx.lineWidth = 1.5;
+      rr(ctx, cxp, cyp - 17, tw, 34, 17);
+      ctx.stroke();
+      ctx.fillStyle = c.neon;
+      ctx.fillText(chip, cxp + 15, cyp + 1);
+      cxp += tw + 12;
+    });
+
+    // ---- stats strip ----
+    if (s.stats) {
+      const sy = h - 168;
+      const sw = (colW - 24) / 3;
+      s.stats.forEach(([big, small], i) => {
+        const sx = M + i * (sw + 12);
+        ctx.fillStyle = c.panel;
+        rr(ctx, sx, sy, sw, 78, 10);
+        ctx.fill();
+        ctx.strokeStyle = c.edge;
+        ctx.lineWidth = 1.5;
+        rr(ctx, sx, sy, sw, 78, 10);
+        ctx.stroke();
+        ctx.fillStyle = c.neon;
+        ctx.font = '700 22px "Outfit", sans-serif';
+        ctx.fillText(big, sx + 14, sy + 28);
+        ctx.fillStyle = c.dim;
+        ctx.font = '600 12px "JetBrains Mono", monospace';
+        ctx.fillText(small, sx + 14, sy + 55);
+      });
+    }
+
+    // ---- footer ----
+    ctx.fillStyle = c.panel;
+    ctx.fillRect(0, h - 62, w, 62);
+    ctx.strokeStyle = c.edge;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, h - 62);
+    ctx.lineTo(w, h - 62);
+    ctx.stroke();
+
+    ctx.font = '600 18px "JetBrains Mono", monospace';
+    ctx.fillStyle = c.dim;
+    ctx.fillText('SCROLL MOUSE FOR OTHER SERVICES', M, h - 31);
+
+    // index dots
+    const total = SERVICES.length;
+    const idx = SERVICES.indexOf(s);
+    for (let i = 0; i < total; i++) {
+      const px = w - M - (total - 1 - i) * 26;
+      ctx.fillStyle = i === idx ? c.neon : c.edge;
+      ctx.beginPath();
+      ctx.arc(px, h - 31, i === idx ? 7 : 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.textAlign = 'right';
+    ctx.fillStyle = c.neon;
+    ctx.font = '700 18px "JetBrains Mono", monospace';
+    ctx.fillText(`${s.id} / 0${total - 1}`, w - M - total * 26 - 24, h - 31);
+    ctx.textAlign = 'left';
+
+    // scanlines
+    ctx.fillStyle = mode === 'dark' ? 'rgba(0,12,18,0.20)' : 'rgba(30,90,110,0.07)';
+    for (let yy = 0; yy < h; yy += 4) ctx.fillRect(0, yy, w, 2);
+  });
+}
+
+// two screen layers so one can crossfade into the next
+const screenGeo = new THREE.PlaneGeometry(SCREEN_W, SCREEN_H);
+const screenA = new THREE.Mesh(
+  screenGeo,
+  new THREE.MeshBasicMaterial({ transparent: true, opacity: 1 })
+);
+const screenB = new THREE.Mesh(
+  screenGeo,
+  new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 })
+);
+screenA.position.set(0, SCREEN_Y, SCREEN_Z + 0.16);
+screenB.position.set(0, SCREEN_Y, SCREEN_Z + 0.17);
+scene.add(screenA, screenB);
+
+let screenTextures = [];
+function buildScreens(mode) {
+  screenTextures.forEach((t) => t.dispose());
+  screenTextures = SERVICES.map((s) => screenTexture(s, mode));
+  screenA.material.map = screenTextures[0];
+  screenB.material.map = screenTextures[0];
+  screenA.material.needsUpdate = true;
+  screenB.material.needsUpdate = true;
+}
+
 // =====================================================
 // ROOM
 // =====================================================
@@ -136,385 +710,324 @@ function rbox(w, h, d, radius = 0.1) {
 const room = new THREE.Group();
 scene.add(room);
 
-const floorMat = themedMat(new THREE.MeshBasicMaterial({ color: THEME_COLORS.dark.floor }), 'floor');
-const floor = new THREE.Mesh(new THREE.PlaneGeometry(HALF_W * 2, 90), floorMat);
+const floorMat = tm(new THREE.MeshLambertMaterial({ color: P.dark.floor }), 'floor');
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(70, 70), floorMat);
 floor.rotation.x = -Math.PI / 2;
-floor.position.set(0, FLOOR_Y, WALL_Z + 40);
+floor.position.set(0, FLOOR_Y, SCREEN_Z + 18);
 room.add(floor);
 
-const grid = new THREE.GridHelper(90, 60, THEME_COLORS.dark.grid, THEME_COLORS.dark.grid);
-grid.position.set(0, FLOOR_Y + 0.02, WALL_Z + 40);
-grid.material.transparent = true;
-grid.material.opacity = 0.4;
-themed.push({ mat: grid.material, key: 'grid' });
-room.add(grid);
-
-const wallMat = themedMat(new THREE.MeshBasicMaterial({ color: THEME_COLORS.dark.wall }), 'wall');
-const backWall = new THREE.Mesh(new THREE.PlaneGeometry(HALF_W * 2, CEIL_Y - FLOOR_Y), wallMat);
-backWall.position.set(0, (CEIL_Y + FLOOR_Y) / 2, WALL_Z);
+const wallMat = tm(new THREE.MeshLambertMaterial({ color: P.dark.wall }), 'wall');
+const backWall = new THREE.Mesh(new THREE.PlaneGeometry(52, 30), wallMat);
+backWall.position.set(0, 6, SCREEN_Z - 2.6);
 room.add(backWall);
 
-const sideWallGeo = new THREE.PlaneGeometry(90, CEIL_Y - FLOOR_Y);
 [-1, 1].forEach((side) => {
-  const w = new THREE.Mesh(sideWallGeo, wallMat);
+  const w = new THREE.Mesh(new THREE.PlaneGeometry(46, 30), wallMat);
   w.rotation.y = side < 0 ? Math.PI / 2 : -Math.PI / 2;
-  w.position.set(side * HALF_W, (CEIL_Y + FLOOR_Y) / 2, WALL_Z + 40);
+  w.position.set(side * 20, 6, SCREEN_Z + 16);
   room.add(w);
 });
 
-const ceil = new THREE.Mesh(new THREE.PlaneGeometry(HALF_W * 2, 90), wallMat);
+const ceil = new THREE.Mesh(new THREE.PlaneGeometry(52, 46), wallMat);
 ceil.rotation.x = Math.PI / 2;
-ceil.position.set(0, CEIL_Y, WALL_Z + 40);
+ceil.position.set(0, 15, SCREEN_Z + 14);
 room.add(ceil);
 
-// neon trim lines running back toward the wall
-const trimMat = themedMat(new THREE.MeshBasicMaterial({ color: 0x2f8fd6 }), 'trimGlow');
-const trimGeo = new THREE.BoxGeometry(0.14, 0.14, 76);
-[[-HALF_W + 0.4, FLOOR_Y + 0.5], [HALF_W - 0.4, FLOOR_Y + 0.5],
- [-HALF_W + 0.4, CEIL_Y - 0.6], [HALF_W - 0.4, CEIL_Y - 0.6]].forEach(([x, y]) => {
-  const t = new THREE.Mesh(trimGeo, trimMat);
-  t.position.set(x, y, WALL_Z + 36);
-  room.add(t);
+// warm wash on the wall behind the monitor — the orange bloom
+const washTex = makeTexture(512, 512, (ctx, w, h) => {
+  const grad = ctx.createRadialGradient(w / 2, h / 2, 10, w / 2, h / 2, w / 2);
+  grad.addColorStop(0, 'rgba(255,150,60,0.95)');
+  grad.addColorStop(0.45, 'rgba(255,105,26,0.45)');
+  grad.addColorStop(1, 'rgba(255,90,20,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, h);
 });
-
-// =====================================================
-// PROJECTION WALL FRAME
-// =====================================================
-
-const HOLO_W = 17;
-const HOLO_H = 9.4;
-const HOLO_Y = 2.1;
-
-const frameMat = themedMat(new THREE.MeshLambertMaterial({ color: 0x16304f }), 'rack');
-const frameThick = 0.34;
-[[0, HOLO_H / 2 + 0.3, HOLO_W + 1.4, frameThick],
- [0, -HOLO_H / 2 - 0.3, HOLO_W + 1.4, frameThick]].forEach(([x, y, w, h]) => {
-  const bar = new THREE.Mesh(rbox(w, h, 0.5, 0.14), frameMat);
-  bar.position.set(x, HOLO_Y + y, WALL_Z + 0.3);
-  room.add(bar);
-});
-[[-HOLO_W / 2 - 0.7, 0], [HOLO_W / 2 + 0.7, 0]].forEach(([x, y]) => {
-  const bar = new THREE.Mesh(rbox(frameThick, HOLO_H + 1.2, 0.5, 0.14), frameMat);
-  bar.position.set(x, HOLO_Y + y, WALL_Z + 0.3);
-  room.add(bar);
-});
-
-// =====================================================
-// HOLOGRAM ARTWORK — one panel per service
-// =====================================================
-
-function holoArt(service) {
-  return makeTexture(1100, 620, (ctx, w, h) => {
-    ctx.clearRect(0, 0, w, h);
-    const hex = '#' + service.accent.toString(16).padStart(6, '0');
-
-    // faint field
-    ctx.fillStyle = 'rgba(40,140,200,0.10)';
-    rr(ctx, 8, 8, w - 16, h - 16, 18);
-    ctx.fill();
-
-    // frame + corner ticks
-    ctx.strokeStyle = hex;
-    ctx.lineWidth = 3;
-    rr(ctx, 8, 8, w - 16, h - 16, 18);
-    ctx.stroke();
-    ctx.lineWidth = 7;
-    [[34, 34, 1, 1], [w - 34, 34, -1, 1], [34, h - 34, 1, -1], [w - 34, h - 34, -1, -1]]
-      .forEach(([x, y, sx, sy]) => {
-        ctx.beginPath();
-        ctx.moveTo(x + sx * 46, y);
-        ctx.lineTo(x, y);
-        ctx.lineTo(x, y + sy * 46);
-        ctx.stroke();
-      });
-
-    // heading
-    ctx.fillStyle = hex;
-    ctx.font = '700 40px "JetBrains Mono", monospace';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(service.title, 58, 74);
-    ctx.globalAlpha = 0.55;
-    ctx.fillRect(58, 104, w - 116, 3);
-    ctx.globalAlpha = 1;
-
-    const bx = 58;
-    const by = 150;
-    const bw = w - 116;
-    const bh = h - 240;
-
-    ctx.strokeStyle = hex;
-    ctx.fillStyle = hex;
-
-    if (service.art === 'wireframe') {
-      // stacked UI wireframes
-      ctx.lineWidth = 3;
-      [0, 1, 2].forEach((k) => {
-        const px = bx + k * (bw / 3);
-        ctx.globalAlpha = 0.9 - k * 0.2;
-        ctx.strokeRect(px + 20, by + 20 + k * 18, bw / 3 - 60, bh - 80 - k * 30);
-        ctx.fillRect(px + 40, by + 50 + k * 18, bw / 3 - 120, 12);
-        ctx.fillRect(px + 40, by + 80 + k * 18, bw / 4, 8);
-        ctx.fillRect(px + 40, by + 100 + k * 18, bw / 5, 8);
-        ctx.globalAlpha = 0.35;
-        ctx.fillRect(px + 40, by + 140 + k * 18, bw / 3 - 120, bh - 240);
-      });
-      ctx.globalAlpha = 1;
-    }
-
-    if (service.art === 'audit') {
-      // bar scan + flagged rows
-      ctx.lineWidth = 3;
-      const bars = [0.35, 0.62, 0.48, 0.8, 0.55, 0.7, 0.42];
-      bars.forEach((v, i) => {
-        const px = bx + 30 + i * ((bw - 60) / bars.length);
-        const bwid = (bw - 60) / bars.length - 18;
-        ctx.globalAlpha = 0.28;
-        ctx.fillRect(px, by, bwid, bh - 60);
-        ctx.globalAlpha = 0.95;
-        ctx.fillRect(px, by + (bh - 60) * (1 - v), bwid, (bh - 60) * v);
-      });
-      ctx.globalAlpha = 1;
-      ctx.strokeStyle = '#ff8a8a';
-      ctx.setLineDash([14, 10]);
-      ctx.beginPath();
-      ctx.moveTo(bx, by + (bh - 60) * 0.3);
-      ctx.lineTo(bx + bw, by + (bh - 60) * 0.3);
-      ctx.stroke();
-      ctx.setLineDash([]);
-    }
-
-    if (service.art === 'shield') {
-      const cx = bx + bw / 2;
-      const cy = by + bh / 2 - 20;
-      ctx.lineWidth = 5;
-      ctx.beginPath();
-      ctx.moveTo(cx, cy - 140);
-      ctx.lineTo(cx + 110, cy - 90);
-      ctx.lineTo(cx + 110, cy + 20);
-      ctx.quadraticCurveTo(cx + 110, cy + 120, cx, cy + 165);
-      ctx.quadraticCurveTo(cx - 110, cy + 120, cx - 110, cy + 20);
-      ctx.lineTo(cx - 110, cy - 90);
-      ctx.closePath();
-      ctx.stroke();
-      ctx.globalAlpha = 0.16;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-      ctx.lineWidth = 9;
-      ctx.beginPath();
-      ctx.moveTo(cx - 44, cy + 10);
-      ctx.lineTo(cx - 10, cy + 48);
-      ctx.lineTo(cx + 54, cy - 34);
-      ctx.stroke();
-      // scanning rings
-      ctx.lineWidth = 2;
-      [180, 230, 280].forEach((r, i) => {
-        ctx.globalAlpha = 0.4 - i * 0.1;
-        ctx.beginPath();
-        ctx.arc(cx, cy + 10, r, 0, Math.PI * 2);
-        ctx.stroke();
-      });
-      ctx.globalAlpha = 1;
-    }
-
-    if (service.art === 'cloud') {
-      const cx = bx + bw / 2;
-      const cy = by + 110;
-      ctx.lineWidth = 5;
-      ctx.beginPath();
-      ctx.arc(cx - 80, cy, 58, Math.PI * 0.6, Math.PI * 1.7);
-      ctx.arc(cx, cy - 40, 74, Math.PI * 1.1, Math.PI * 1.95);
-      ctx.arc(cx + 90, cy, 56, Math.PI * 1.4, Math.PI * 0.4);
-      ctx.closePath();
-      ctx.stroke();
-      ctx.globalAlpha = 0.14;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-      // nodes beneath
-      ctx.lineWidth = 3;
-      [-1, 0, 1].forEach((k) => {
-        const nx = cx + k * 160;
-        const ny = by + bh - 70;
-        ctx.beginPath();
-        ctx.moveTo(cx, cy + 60);
-        ctx.lineTo(nx, ny - 40);
-        ctx.stroke();
-        ctx.globalAlpha = 0.2;
-        rr(ctx, nx - 62, ny - 40, 124, 74, 12);
-        ctx.fill();
-        ctx.globalAlpha = 1;
-        rr(ctx, nx - 62, ny - 40, 124, 74, 12);
-        ctx.stroke();
-      });
-    }
-
-    if (service.art === 'roadmap') {
-      ctx.lineWidth = 4;
-      const y0 = by + bh - 90;
-      ctx.globalAlpha = 0.5;
-      ctx.beginPath();
-      ctx.moveTo(bx + 20, y0);
-      ctx.lineTo(bx + bw - 20, y0);
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-      const stops = ['ASSESS', 'DESIGN', 'ADOPT', 'SCALE'];
-      stops.forEach((s, i) => {
-        const px = bx + 60 + i * ((bw - 120) / (stops.length - 1));
-        const py = y0 - (i + 1) * 42;
-        ctx.beginPath();
-        ctx.arc(px, y0, 15, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.moveTo(px, y0 - 15);
-        ctx.lineTo(px, py + 18);
-        ctx.stroke();
-        ctx.globalAlpha = 0.22;
-        rr(ctx, px - 80, py - 34, 160, 52, 10);
-        ctx.fill();
-        ctx.globalAlpha = 1;
-        rr(ctx, px - 80, py - 34, 160, 52, 10);
-        ctx.stroke();
-        ctx.font = '700 22px "JetBrains Mono", monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText(s, px, py - 6);
-        ctx.textAlign = 'left';
-      });
-    }
-
-    // readout strip
-    ctx.font = '500 20px "JetBrains Mono", monospace';
-    ctx.globalAlpha = 0.7;
-    ctx.fillText('FINLABS // TECHNOLOGY CONSULTING', 58, h - 52);
-    ctx.textAlign = 'right';
-    ctx.fillText('● LIVE PROJECTION', w - 58, h - 52);
-    ctx.textAlign = 'left';
-    ctx.globalAlpha = 1;
-
-    // scanlines
-    ctx.fillStyle = 'rgba(0,20,40,0.20)';
-    for (let y = 0; y < h; y += 5) ctx.fillRect(0, y, w, 2);
-  });
-}
-
-const holoGeo = new THREE.PlaneGeometry(HOLO_W, HOLO_H);
-const holoPanels = SERVICES.map((s) => {
-  const mesh = new THREE.Mesh(
-    holoGeo,
-    new THREE.MeshBasicMaterial({
-      map: holoArt(s),
-      transparent: true,
-      opacity: 0,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    })
-  );
-  mesh.position.set(0, HOLO_Y, WALL_Z + 0.4);
-  room.add(mesh);
-  return mesh;
-});
-
-// glow wash behind the projection
 const washMat = new THREE.MeshBasicMaterial({
-  color: 0x35d6ff,
+  map: washTex,
   transparent: true,
-  opacity: 0.16,
+  opacity: 0.75,
   depthWrite: false,
   blending: THREE.AdditiveBlending,
 });
-const wash = new THREE.Mesh(new THREE.PlaneGeometry(HOLO_W + 8, HOLO_H + 6), washMat);
-wash.position.set(0, HOLO_Y, WALL_Z + 0.2);
+const wash = new THREE.Mesh(new THREE.PlaneGeometry(38, 26), washMat);
+wash.position.set(0, 6.4, SCREEN_Z - 2.4);
 room.add(wash);
 
-// projector on the floor, throwing the beam at the wall
-const projector = new THREE.Group();
-const projBody = new THREE.Mesh(
-  rbox(2.2, 1.0, 1.5, 0.22),
-  themedMat(new THREE.MeshLambertMaterial({ color: 0x16304f }), 'rack')
-);
-projBody.position.y = 0.5;
-projector.add(projBody);
-const lensMat = new THREE.MeshBasicMaterial({ color: 0x9beaff });
-const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.18, 20), lensMat);
-lens.rotation.x = Math.PI / 2;
-lens.position.set(0, 0.55, -0.78);
-projector.add(lens);
-projector.position.set(0, FLOOR_Y, WALL_Z + 12);
-room.add(projector);
+// neon frame around the monitor
+const neonMat = tm(new THREE.MeshBasicMaterial({ color: P.dark.neon }), 'neon');
+function neonBar(w, h, x, y, z) {
+  const bar = new THREE.Mesh(rbox(w, h, 0.22, 0.1), neonMat);
+  bar.position.set(x, y, z);
+  room.add(bar);
+  return bar;
+}
+const FW = SCREEN_W + 1.5;
+const FH = SCREEN_H + 1.3;
+neonBar(FW, 0.16, 0, SCREEN_Y + FH / 2, SCREEN_Z + 0.2);
+neonBar(FW, 0.16, 0, SCREEN_Y - FH / 2, SCREEN_Z + 0.2);
+neonBar(0.16, FH, -FW / 2, SCREEN_Y, SCREEN_Z + 0.2);
+neonBar(0.16, FH, FW / 2, SCREEN_Y, SCREEN_Z + 0.2);
 
-const beamMat = new THREE.MeshBasicMaterial({
-  color: 0x6fd3ff,
-  transparent: true,
-  opacity: 0.07,
-  side: THREE.DoubleSide,
-  depthWrite: false,
-  blending: THREE.AdditiveBlending,
-});
-const beam = new THREE.Mesh(new THREE.CylinderGeometry(6.4, 0.34, 11.6, 22, 1, true), beamMat);
-beam.rotation.x = Math.PI / 2;
-beam.position.set(0, FLOOR_Y + 0.55, WALL_Z + 6.2);
-room.add(beam);
+// monitor bezel behind the screen
+const bezelMat = tm(new THREE.MeshLambertMaterial({ color: P.dark.metal }), 'metal');
+const bezel = new THREE.Mesh(rbox(SCREEN_W + 2.2, SCREEN_H + 2.0, 0.7, 0.34), bezelMat);
+bezel.position.set(0, SCREEN_Y, SCREEN_Z - 0.25);
+room.add(bezel);
 
 // =====================================================
-// TECH DRESSING — racks, nodes, data motes
+// DESK + PERIPHERALS
+// =====================================================
+
+const deskMat = tm(new THREE.MeshLambertMaterial({ color: P.dark.desk }), 'desk');
+const deskTopMat = tm(new THREE.MeshLambertMaterial({ color: P.dark.deskTop }), 'deskTop');
+
+const deskTop = new THREE.Mesh(rbox(26, 0.5, 5.6, 0.2), deskTopMat);
+deskTop.position.set(0, DESK_Y, SCREEN_Z + 5.4);
+room.add(deskTop);
+
+// drawer pedestals with neon slots
+[-7.4, 7.4].forEach((x) => {
+  const ped = new THREE.Mesh(rbox(5.4, 4, 4.6, 0.24), deskMat);
+  ped.position.set(x, DESK_Y - 2.3, SCREEN_Z + 5.4);
+  room.add(ped);
+  [0.9, -0.2, -1.3].forEach((dy) => {
+    const slot = new THREE.Mesh(rbox(3.4, 0.09, 0.09, 0.04), neonMat);
+    slot.position.set(x, DESK_Y - 2.3 + dy, SCREEN_Z + 7.75);
+    room.add(slot);
+  });
+});
+
+// neon lip along the desk edge
+const lip = new THREE.Mesh(rbox(26, 0.1, 0.1, 0.05), neonMat);
+lip.position.set(0, DESK_Y - 0.3, SCREEN_Z + 8.2);
+room.add(lip);
+
+// keyboard
+const kbTex = makeTexture(512, 180, (ctx, w, h) => {
+  ctx.fillStyle = '#0f151c';
+  ctx.fillRect(0, 0, w, h);
+  for (let r = 0; r < 4; r++) {
+    for (let cc = 0; cc < 15; cc++) {
+      ctx.fillStyle = 'rgba(47,240,224,0.45)';
+      ctx.fillRect(14 + cc * 32, 16 + r * 38, 24, 26);
+    }
+  }
+});
+const keyboard = new THREE.Mesh(
+  rbox(5.6, 0.2, 1.9, 0.08),
+  new THREE.MeshBasicMaterial({ map: kbTex })
+);
+keyboard.position.set(-0.6, DESK_Y + 0.34, SCREEN_Z + 6.6);
+room.add(keyboard);
+
+const mouse = new THREE.Mesh(rbox(0.7, 0.24, 1.1, 0.11), bezelMat);
+mouse.position.set(3.6, DESK_Y + 0.36, SCREEN_Z + 6.6);
+room.add(mouse);
+
+// speakers either side of the monitor
+[-9.2, 9.2].forEach((x) => {
+  const sp = new THREE.Mesh(rbox(1.5, 2.6, 1.4, 0.16), bezelMat);
+  sp.position.set(x, DESK_Y + 1.55, SCREEN_Z + 4.4);
+  room.add(sp);
+  const cone = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.42, 0.42, 0.1, 20),
+    neonMat
+  );
+  cone.rotation.x = Math.PI / 2;
+  cone.position.set(x, DESK_Y + 2.0, SCREEN_Z + 5.15);
+  room.add(cone);
+});
+
+// a couple of small desk devices
+[-5.2, 5.8].forEach((x, i) => {
+  const dev = new THREE.Mesh(rbox(1.5, 0.7 + i * 0.3, 1.2, 0.14), bezelMat);
+  dev.position.set(x, DESK_Y + 0.6 + i * 0.15, SCREEN_Z + 4.6);
+  room.add(dev);
+  const led = new THREE.Mesh(rbox(0.9, 0.07, 0.07, 0.03), neonMat);
+  led.position.set(x, DESK_Y + 0.85 + i * 0.15, SCREEN_Z + 5.22);
+  room.add(led);
+});
+
+// chair, seen from behind
+const chairMat = tm(new THREE.MeshLambertMaterial({ color: P.dark.chair }), 'chair');
+const chairBack = new THREE.Mesh(rbox(4.4, 4.6, 0.8, 0.9), chairMat);
+chairBack.position.set(-0.4, DESK_Y - 0.6, SCREEN_Z + 11.4);
+chairBack.rotation.x = -0.07;
+room.add(chairBack);
+const chairSeat = new THREE.Mesh(rbox(4.2, 0.7, 3.2, 0.3), chairMat);
+chairSeat.position.set(-0.4, DESK_Y - 2.8, SCREEN_Z + 12.6);
+room.add(chairSeat);
+
+// =====================================================
+// SIDE WALL MAP PANELS
+// =====================================================
+
+const mapTex = makeTexture(600, 340, (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = 'rgba(47,240,224,0.55)';
+  // a loose dot-matrix landmass silhouette
+  for (let x = 0; x < w; x += 9) {
+    for (let y = 0; y < h; y += 9) {
+      const nx = x / w;
+      const ny = y / h;
+      const land =
+        Math.sin(nx * 9 + ny * 3) * Math.cos(ny * 7 - nx * 2) +
+        Math.sin(nx * 17 + 1.4) * 0.4;
+      if (land > 0.32) {
+        ctx.globalAlpha = 0.3 + (land - 0.32) * 0.9;
+        ctx.fillRect(x, y, 4, 4);
+      }
+    }
+  }
+  ctx.globalAlpha = 1;
+  ctx.strokeStyle = 'rgba(47,240,224,0.5)';
+  ctx.lineWidth = 3;
+  ctx.strokeRect(2, 2, w - 4, h - 4);
+});
+
+// angled panels flanking the monitor, so they read at the frame edges
+const mapGeo = new THREE.PlaneGeometry(7.4, 4.4);
+[-1, 1].forEach((side) => {
+  const m = new THREE.Mesh(
+    mapGeo,
+    new THREE.MeshBasicMaterial({ map: mapTex, transparent: true, opacity: 0.75 })
+  );
+  m.position.set(side * 12.4, 6.6, SCREEN_Z + 0.6);
+  m.rotation.y = side < 0 ? 0.42 : -0.42;
+  room.add(m);
+
+  const m2 = new THREE.Mesh(
+    mapGeo,
+    new THREE.MeshBasicMaterial({ map: mapTex, transparent: true, opacity: 0.45 })
+  );
+  m2.position.set(side * 13.2, 1.4, SCREEN_Z + 1.4);
+  m2.rotation.y = side < 0 ? 0.55 : -0.55;
+  room.add(m2);
+});
+
+// =====================================================
+// SERVER RACKS — only two, kept to the right
 // =====================================================
 
 const rackFaceTex = makeTexture(256, 512, (ctx, w, h) => {
-  ctx.fillStyle = '#0e2547';
+  ctx.fillStyle = '#0b1016';
   ctx.fillRect(0, 0, w, h);
-  for (let r = 0; r < 12; r++) {
-    const y = 22 + r * 40;
-    ctx.fillStyle = 'rgba(120,215,255,0.75)';
-    ctx.fillRect(24, y, 40, 8);
-    ctx.fillStyle = 'rgba(120,215,255,0.35)';
-    ctx.fillRect(74, y, 26, 8);
-    ctx.fillStyle = r % 3 === 0 ? '#9beaff' : 'rgba(120,215,255,0.5)';
-    ctx.fillRect(130, y, 76, 8);
-    ctx.fillStyle = 'rgba(120,215,255,0.16)';
-    ctx.fillRect(24, y + 15, 182, 3);
+  for (let r = 0; r < 13; r++) {
+    const y = 20 + r * 37;
+    ctx.fillStyle = 'rgba(47,240,224,0.75)';
+    ctx.fillRect(22, y, 36, 7);
+    ctx.fillStyle = 'rgba(47,240,224,0.3)';
+    ctx.fillRect(68, y, 24, 7);
+    ctx.fillStyle = r % 4 === 0 ? '#ff8a3c' : 'rgba(47,240,224,0.5)';
+    ctx.fillRect(122, y, 84, 7);
   }
+  ctx.fillStyle = 'rgba(47,240,224,0.16)';
+  ctx.fillRect(20, 0, 190, 2);
 });
 
-const rackGeo = rbox(1.5, 4.2, 1.6, 0.24);
-const rackFaceGeo = new THREE.PlaneGeometry(1.05, 3.2);
-const rackFaceMat = new THREE.MeshBasicMaterial({ map: rackFaceTex });
-const rackBodyMat = themedMat(new THREE.MeshLambertMaterial({ color: 0x101d38 }), 'rack');
+const rackLabelTex = (label) =>
+  makeTexture(360, 90, (ctx, w, h) => {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#2ff0e0';
+    ctx.font = '700 42px "JetBrains Mono", monospace';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(label, 8, h / 2);
+  });
 
-for (let i = 0; i < 8; i++) {
-  const side = i % 2 === 0 ? -1 : 1;
+[['DATA CORE', 0], ['NETWORK HUB', 1]].forEach(([label, k]) => {
   const g = new THREE.Group();
-  const body = new THREE.Mesh(rackGeo, rackBodyMat);
-  body.position.y = 2.1;
+  const body = new THREE.Mesh(rbox(4.4, 5.4, 3.4, 0.3), bezelMat);
+  body.position.y = 2.7;
   g.add(body);
-  const face = new THREE.Mesh(rackFaceGeo, rackFaceMat);
-  face.position.set(0, 2.3, 0.82);
-  g.add(face);
-  g.position.set(side * (HALF_W - 3.4), FLOOR_Y, WALL_Z + 6 + Math.floor(i / 2) * 9);
-  g.rotation.y = side < 0 ? 0.5 : -0.5;
-  room.add(g);
-}
 
-// drifting data motes
+  const face = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.6, 3.6),
+    new THREE.MeshBasicMaterial({ map: rackFaceTex })
+  );
+  face.position.set(0, 2.5, 1.72);
+  g.add(face);
+
+  const lab = new THREE.Mesh(
+    new THREE.PlaneGeometry(3.2, 0.8),
+    new THREE.MeshBasicMaterial({ map: rackLabelTex(label), transparent: true })
+  );
+  lab.position.set(0, 4.9, 1.72);
+  g.add(lab);
+
+  g.position.set(11.9 + k * 1.6, FLOOR_Y, SCREEN_Z + 2.4 + k * 5.2);
+  g.rotation.y = -0.5;
+  room.add(g);
+});
+
+// =====================================================
+// CABLES + FLOOR NEON
+// =====================================================
+
+function cable(a, b, sag, color) {
+  const mid = a.clone().lerp(b, 0.5);
+  mid.y -= sag;
+  const curve = new THREE.CatmullRomCurve3([a, mid, b]);
+  const mesh = new THREE.Mesh(
+    new THREE.TubeGeometry(curve, 24, 0.055, 7, false),
+    new THREE.MeshLambertMaterial({ color })
+  );
+  room.add(mesh);
+}
+cable(
+  new THREE.Vector3(9.6, DESK_Y - 0.4, SCREEN_Z + 4),
+  new THREE.Vector3(14, FLOOR_Y + 0.4, SCREEN_Z + 3),
+  1.4,
+  0x11161d
+);
+cable(
+  new THREE.Vector3(-9.6, DESK_Y - 0.4, SCREEN_Z + 4),
+  new THREE.Vector3(-15, FLOOR_Y + 0.5, SCREEN_Z + 2),
+  1.6,
+  0x11161d
+);
+cable(
+  new THREE.Vector3(11.2, 9.4, SCREEN_Z - 1.6),
+  new THREE.Vector3(15.6, 4.4, SCREEN_Z + 1),
+  1.1,
+  0x11161d
+);
+
+// floor neon runners
+[-1, 1].forEach((side) => {
+  const strip = new THREE.Mesh(rbox(0.16, 0.1, 34, 0.05), neonMat);
+  strip.position.set(side * 19.4, FLOOR_Y + 0.1, SCREEN_Z + 12);
+  room.add(strip);
+});
+// wall neon rails
+[-1, 1].forEach((side) => {
+  const rail = new THREE.Mesh(rbox(0.14, 0.14, 30, 0.05), neonMat);
+  rail.position.set(side * 19.6, 10.6, SCREEN_Z + 12);
+  room.add(rail);
+});
+
+// drifting motes
 const motes = [];
 {
-  const geo = new THREE.SphereGeometry(0.07, 8, 6);
-  const mat = new THREE.MeshBasicMaterial({ color: 0x9beaff });
-  for (let i = 0; i < 60; i++) {
+  const geo = new THREE.SphereGeometry(0.055, 8, 6);
+  const mat = new THREE.MeshBasicMaterial({ color: 0x8ff6ee });
+  for (let i = 0; i < 44; i++) {
     const m = new THREE.Mesh(geo, mat);
     m.position.set(
-      (Math.random() - 0.5) * 30,
-      FLOOR_Y + Math.random() * 12,
-      WALL_Z + Math.random() * 40
+      (Math.random() - 0.5) * 34,
+      FLOOR_Y + Math.random() * 15,
+      SCREEN_Z + Math.random() * 26
     );
     room.add(m);
-    motes.push({ mesh: m, speed: 0.3 + Math.random() * 0.8, phase: Math.random() * 6.28 });
+    motes.push({ mesh: m, speed: 0.2 + Math.random() * 0.5, phase: Math.random() * 6.28 });
   }
 }
 
 // =====================================================
-// THEME REACTION
+// THEME
 // =====================================================
 
 onTheme((mode) => {
-  const t = THEME_COLORS[mode];
+  const t = P[mode];
   scene.background = new THREE.Color(t.air);
   scene.fog.color.setHex(t.air);
   scene.fog.near = t.fogNear;
@@ -522,14 +1035,15 @@ onTheme((mode) => {
   ambient.intensity = t.ambient;
 
   themed.forEach(({ mat, key }) => {
-    if (key === 'trimGlow') return; // stays lit in both themes
     if (t[key] !== undefined) mat.color.setHex(t[key]);
   });
 
-  grid.material.opacity = mode === 'dark' ? 0.4 : 0.55;
-  washMat.opacity = mode === 'dark' ? 0.16 : 0.09;
-  beamMat.opacity = mode === 'dark' ? 0.07 : 0.04;
-  rackBodyMat.color.setHex(t.rack);
+  washMat.opacity = mode === 'dark' ? 0.75 : 0.34;
+  tealLight.intensity = mode === 'dark' ? 60 : 18;
+  warmLight.intensity = mode === 'dark' ? 90 : 26;
+  keyLight.intensity = mode === 'dark' ? 0.5 : 1.1;
+
+  buildScreens(mode);
   document.body.classList.toggle('is-dark', mode === 'dark');
 });
 
@@ -544,11 +1058,8 @@ let outro = 0;
 
 const progressBar = document.querySelector('#progress span');
 const scrollCue = document.querySelector('#scrollcue');
-const projection = document.querySelector('.services');
-const cards = [...document.querySelectorAll('.service')].map((el) => ({
-  el,
-  inner: el.querySelector('.service__inner'),
-}));
+const deck = document.querySelector('.deck');
+const slides = [...document.querySelectorAll('.slide')];
 
 function updateScroll() {
   const vh = window.innerHeight;
@@ -557,34 +1068,23 @@ function updateScroll() {
   const doc = document.documentElement.scrollHeight - vh;
   scrollProgress = doc > 0 ? window.scrollY / doc : 0;
 
-  const sectionH = cards[0].el.offsetHeight || vh;
-  const pinned = sectionH - vh;
+  const slideH = slides[0].offsetHeight || vh;
   focus = THREE.MathUtils.clamp(
-    (window.scrollY - projection.offsetTop - pinned / 2) / sectionH,
+    (window.scrollY - deck.offsetTop) / slideH,
     0,
     SERVICES.length - 1
   );
 
-  const last = cards[cards.length - 1].el;
+  const last = slides[slides.length - 1];
   outro = THREE.MathUtils.clamp(
-    (window.scrollY - (last.offsetTop + sectionH - vh)) / (vh * 0.9),
+    (window.scrollY - (last.offsetTop + slideH - vh * 0.4)) / (vh * 0.9),
     0,
     1
   );
 
-  const pinEnd = pinned / sectionH;
-  cards.forEach(({ el, inner }) => {
-    const d = (window.scrollY - el.offsetTop) / sectionH;
-    let o = 1;
-    if (d < 0) o = 1 + d / 0.3;
-    else if (d > pinEnd) o = 1 - (d - pinEnd) / 0.3;
-    o = THREE.MathUtils.clamp(o, 0, 1);
-    inner.style.opacity = o;
-    inner.style.transform = `translateY(${(1 - o) * 24}px)`;
-  });
-
   progressBar.style.width = scrollProgress * 100 + '%';
   scrollCue.style.opacity = scrollProgress > 0.02 ? 0 : 0.95;
+  document.body.style.setProperty('--outro', String(outro));
 }
 window.addEventListener('scroll', updateScroll, { passive: true });
 
@@ -604,12 +1104,27 @@ toggle.addEventListener('click', () => {
 });
 
 // =====================================================
+// CAMERA FRAMING
+// =====================================================
+
+// distance at which the screen spans SCREEN_FILL of the viewport
+function screenDistance() {
+  const vFov = THREE.MathUtils.degToRad(camera.fov);
+  const byHeight = SCREEN_H / 2 / Math.tan(vFov / 2) / SCREEN_FILL;
+  const hFov = 2 * Math.atan(Math.tan(vFov / 2) * camera.aspect);
+  const byWidth = SCREEN_W / 2 / Math.tan(hFov / 2) / SCREEN_FILL;
+  return Math.max(byHeight, byWidth);
+}
+
+// =====================================================
 // ANIMATION
 // =====================================================
 
 const timer = new Timer();
-const lookTarget = new THREE.Vector3(0, HOLO_Y, WALL_Z);
-const accentColor = new THREE.Color();
+const lookTarget = new THREE.Vector3(0, SCREEN_Y - 0.9, SCREEN_Z);
+let shownIndex = 0;
+
+camera.position.set(0, SCREEN_Y, SCREEN_Z + 18);
 
 function loop() {
   if (!enabled) {
@@ -619,46 +1134,65 @@ function loop() {
   running = true;
   requestAnimationFrame(loop);
 
+  // NaN-safe: if the page mounted at zero size, camera.aspect is NaN and
+  // every comparison against it is false, so check the buffer explicitly
   const vw = window.innerWidth;
   const vh = window.innerHeight;
-  if (vw > 0 && vh > 0 && Math.abs(camera.aspect - vw / vh) > 0.001) handleResize();
+  if (
+    vw > 0 &&
+    vh > 0 &&
+    (!Number.isFinite(camera.aspect) ||
+      canvas.width === 0 ||
+      Math.abs(camera.aspect - vw / vh) > 0.001)
+  ) {
+    handleResize();
+  }
 
   timer.update();
   const t = timer.getElapsed();
 
-  focusEased += (focus - focusEased) * 0.1;
+  focusEased += (focus - focusEased) * 0.12;
 
-  // crossfade the projections, with a flicker as they swap
-  const flicker = 0.93 + Math.sin(t * 26) * 0.035 + Math.sin(t * 61) * 0.02;
-  holoPanels.forEach((p, i) => {
-    const near = 1 - THREE.MathUtils.clamp(Math.abs(focusEased - i), 0, 1);
-    p.material.opacity = near * flicker;
-    p.position.y = HOLO_Y + Math.sin(t * 0.7 + i) * 0.06;
-    p.visible = near > 0.002;
-  });
+  // swap the screen art when the nearest slide changes, crossfading
+  const nearest = Math.round(focusEased);
+  if (nearest !== shownIndex && screenTextures[nearest]) {
+    screenB.material.map = screenA.material.map;
+    screenB.material.opacity = 1;
+    screenA.material.map = screenTextures[nearest];
+    screenA.material.opacity = 0;
+    screenA.material.needsUpdate = true;
+    screenB.material.needsUpdate = true;
+    shownIndex = nearest;
+  }
+  screenA.material.opacity += (1 - screenA.material.opacity) * 0.14;
+  screenB.material.opacity += (0 - screenB.material.opacity) * 0.14;
 
-  // wash + trim take the colour of whichever service is showing
-  const idx = Math.round(THREE.MathUtils.clamp(focusEased, 0, SERVICES.length - 1));
-  accentColor.setHex(SERVICES[idx].accent);
-  washMat.color.lerp(accentColor, 0.05);
-  trimMat.color.lerp(accentColor, 0.03);
-  lensMat.color.lerp(accentColor, 0.05);
+  // a faint CRT breathe
+  const breathe = 0.97 + Math.sin(t * 5.5) * 0.012 + Math.sin(t * 19) * 0.006;
+  screenA.material.opacity *= breathe;
 
-  // camera eases toward the wall as you go, drifting slightly
-  const zTarget = 20 - focusEased * 1.5 - outro * 3.5;
-  camera.position.z += (zTarget - camera.position.z) * 0.06;
-  camera.position.x += (Math.sin(t * 0.25) * 0.7 - camera.position.x) * 0.05;
-  camera.position.y += (0.6 + Math.sin(t * 0.4) * 0.25 - camera.position.y) * 0.05;
+  // camera: locked on the screen, drifting, pulling back at the end
+  const dist = screenDistance();
+  const zTarget = SCREEN_Z + dist + outro * 9;
+  camera.position.z += (zTarget - camera.position.z) * 0.07;
+  camera.position.x += (Math.sin(t * 0.22) * 0.5 - camera.position.x) * 0.05;
+  camera.position.y +=
+    (SCREEN_Y + Math.sin(t * 0.31) * 0.22 + outro * 1.6 - camera.position.y) * 0.06;
+  lookTarget.y += (SCREEN_Y - 0.9 + outro * 1.6 - lookTarget.y) * 0.06;
   camera.lookAt(lookTarget);
 
-  // motes drift toward the wall and wrap around
+  // motes drift toward the wall
   motes.forEach((m) => {
     m.mesh.position.z -= m.speed * 0.02;
-    m.mesh.position.y += Math.sin(t * 0.8 + m.phase) * 0.002;
-    if (m.mesh.position.z < WALL_Z + 0.5) m.mesh.position.z = WALL_Z + 40;
+    m.mesh.position.y += Math.sin(t * 0.8 + m.phase) * 0.0018;
+    if (m.mesh.position.z < SCREEN_Z - 1) m.mesh.position.z = SCREEN_Z + 26;
   });
 
   renderer.render(scene, camera);
+
+  if (import.meta.env.DEV) {
+    window.__S = { scene, camera, screenA, screenB, room, renderer, focusEased, outro };
+  }
 }
 
 // =====================================================
@@ -673,9 +1207,14 @@ function handleResize() {
   camera.updateProjectionMatrix();
   renderer.setSize(w, h);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  // repair a position that already went non-finite
+  if (!Number.isFinite(camera.position.z)) {
+    camera.position.set(0, SCREEN_Y, SCREEN_Z + screenDistance());
+  }
   updateScroll();
 }
 window.addEventListener('resize', handleResize);
 
+buildScreens(currentTheme());
 updateScroll();
 loop();

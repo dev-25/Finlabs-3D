@@ -127,8 +127,8 @@ const stationX = (i) => (i % 2 === 0 ? 6.4 : -6.4);
 const FLOOR_Y = -3.4;
 const CEIL_Y = 7.4;
 const HALF_W = 15;
-const ROOM_LEN = 92;
-const ROOM_MID_Z = -24;
+const ROOM_LEN = 104;
+const ROOM_MID_Z = -30;
 const BACK_Z = ROOM_MID_Z - ROOM_LEN / 2;
 
 // =====================================================
@@ -138,19 +138,16 @@ const BACK_Z = ROOM_MID_Z - ROOM_LEN / 2;
 const canvas = document.querySelector('#canvas');
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
+const vw0 = window.innerWidth || 1280;
+const vh0 = window.innerHeight || 720;
+renderer.setSize(vw0, vh0);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(C.air);
 scene.fog = new THREE.Fog(C.air, 40, 108);
 
-const camera = new THREE.PerspectiveCamera(
-  58,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  400
-);
+const camera = new THREE.PerspectiveCamera(58, vw0 / vh0, 0.1, 400);
 camera.position.set(0, -0.3, 18);
 
 // =====================================================
@@ -983,22 +980,30 @@ const coveMat = themed(new THREE.MeshLambertMaterial({ color: 0xe4f5fc }), 'cove
   room.add(cove);
 });
 
-// end wall — soft rings, then the Finlabs logo mounted on a white board
-const backTex = makeTexture(1024, 512, (ctx, w, h) => {
-  ctx.fillStyle = CSS.pale;
-  ctx.fillRect(0, 0, w, h);
-  ctx.strokeStyle = 'rgba(120,196,224,0.32)';
-  ctx.lineWidth = 16;
-  for (let i = 1; i <= 5; i++) {
-    ctx.beginPath();
-    ctx.arc(w / 2, h * 0.5, i * 64, 0, Math.PI * 2);
-    ctx.stroke();
-  }
-});
+// end wall — soft rings, drawn once per theme so it can go dark
+function backTexture(bg, ring) {
+  return makeTexture(1024, 512, (ctx, w, h) => {
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = ring;
+    ctx.lineWidth = 16;
+    for (let i = 1; i <= 5; i++) {
+      ctx.beginPath();
+      ctx.arc(w / 2, h * 0.5, i * 64, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+  });
+}
 
+const BACK_TEX = {
+  light: backTexture(CSS.pale, 'rgba(120,196,224,0.32)'),
+  dark: backTexture('#0a1020', 'rgba(60,150,210,0.30)'),
+};
+
+const backWallMat = new THREE.MeshBasicMaterial({ map: BACK_TEX.light });
 const backWall = new THREE.Mesh(
   new THREE.PlaneGeometry(HALF_W * 2, CEIL_Y - FLOOR_Y),
-  new THREE.MeshBasicMaterial({ map: backTex })
+  backWallMat
 );
 backWall.position.set(0, (CEIL_Y + FLOOR_Y) / 2, BACK_Z);
 room.add(backWall);
@@ -2014,6 +2019,8 @@ onTheme((mode) => {
   keyLight.intensity = mode === 'dark' ? 0.5 : 1.25;
   fillLight.intensity = mode === 'dark' ? 0.3 : 0.55;
   grid.material.opacity = mode === 'dark' ? 0.22 : 0.34;
+  backWallMat.map = BACK_TEX[mode];
+  backWallMat.needsUpdate = true;
   document.body.classList.toggle('is-dark', mode === 'dark');
 });
 
@@ -2109,9 +2116,17 @@ function loop() {
   requestAnimationFrame(loop);
 
   // keep the drawing buffer in step with the viewport
+  // NaN-safe: if the page mounted at zero size, camera.aspect is NaN and
+  // every comparison against it is false, so check the buffer explicitly
   const vw = window.innerWidth;
   const vh = window.innerHeight;
-  if (vw > 0 && vh > 0 && Math.abs(camera.aspect - vw / vh) > 0.001) {
+  if (
+    vw > 0 &&
+    vh > 0 &&
+    (!Number.isFinite(camera.aspect) ||
+      canvas.width === 0 ||
+      Math.abs(camera.aspect - vw / vh) > 0.001)
+  ) {
     handleResize();
   }
 
@@ -2132,7 +2147,7 @@ function loop() {
     THREE.MathUtils.lerp(stationZ(i), stationZ(next), frac) +
     10.5 +
     heroBias * 13 -
-    outro * 5;
+    outro * 19;
   // at the end, drift back to the middle of the room to face the sign
   const sideTarget =
     THREE.MathUtils.lerp(stationX(i), stationX(next), frac) * (1 - outro);
@@ -2194,6 +2209,7 @@ function handleResize() {
   camera.updateProjectionMatrix();
   renderer.setSize(w, h);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  if (!Number.isFinite(camera.position.z)) camera.position.set(0, -0.3, 16);
   updateScroll();
 }
 window.addEventListener('resize', handleResize);
