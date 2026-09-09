@@ -37,12 +37,21 @@
     </a>
 
     <nav class="topnav">
+      <button id="themeToggle" class="pill pill--icon" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="ico-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor" />
+          <g stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+            <path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7" />
+          </g>
+        </svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor" />
+        </svg>
+      </button>
       <button id="toggle3d" class="pill" type="button" aria-pressed="true">
         3D <span data-state>ON</span>
       </button>
-      <a class="pill pill--solid" href="https://finlabsindia.org/products/" target="_blank" rel="noopener">
-        ALL PRODUCTS ↗
-      </a>
+      <a class="pill pill--solid" href="/services.html">SERVICES</a>
     </nav>
   </header>
 
@@ -211,16 +220,60 @@
 
     </section>
 
-    <!-- empty stretch: the camera walks up to the hanging sign -->
+    <!-- empty stretch: the camera walks up to the end wall -->
     <section class="outro" aria-hidden="true"></section>
 
-    <footer class="site-footer">
-      <p class="credit">
-        Product information from
-        <a href="https://finlabsindia.org/products/" target="_blank" rel="noopener">finlabsindia.org/products</a>
-        · Showroom rendered with Three.js
-      </p>
-    </footer>
+    <section class="endwall" id="endwall">
+      <div class="endwall__panel">
+        <div class="endwall__brand">
+          <img src="/finlabs-logo.png" alt="Finlabs" />
+          <a class="endwall__mail" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
+          <ul class="social" aria-label="Social links">
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="Instagram">ig</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="Facebook">f</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="X">X</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="YouTube">▶</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a></li>
+          </ul>
+        </div>
+
+        <nav class="endwall__cols">
+          <ul>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Home</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">About Us</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Career</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Blog</a></li>
+          </ul>
+          <ul>
+            <li><a href="#showroom">Products</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Solutions</a></li>
+            <li><a class="crosslink" href="/services.html">Services</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Knowledge Centre</a></li>
+          </ul>
+          <ul>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Contact Us</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Download Brochure</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          </ul>
+        </nav>
+
+        <div class="endwall__cta">
+          <h2>Have questions or want to learn more?</h2>
+          <p>Feel free to reach out or schedule a quick call — we're happy to help.</p>
+          <a class="bookcall" href="https://finlabsindia.org/" target="_blank" rel="noopener">Book A Call</a>
+        </div>
+      </div>
+
+      <a class="jumplink" href="/services.html">
+        <span class="jumplink__label">EXPLORE OUR</span>
+        <span class="jumplink__word">Services</span>
+        <span class="jumplink__arrow">→</span>
+      </a>
+
+      <p class="copyline">© copyright Finlabs India Pvt. Ltd. | All Rights Reserved</p>
+    </section>
 
   </main>
 

@@ -2,6 +2,50 @@ import './style.css';
 import * as THREE from 'three';
 import { Timer } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { initTheme, onTheme } from './theme.js';
+
+initTheme();
+
+// materials that repaint when the theme flips; `key` names an entry in
+// ROOM_THEME below
+const themedMats = [];
+function themed(mat, key) {
+  themedMats.push({ mat, key });
+  return mat;
+}
+
+const ROOM_THEME = {
+  light: {
+    air: 0xbde3f1,
+    wall: 0xd2ebf6,
+    floor: 0xe7f6fc,
+    runner: 0xbbe1f0,
+    ceiling: 0xb2dcef,
+    cove: 0xe4f5fc,
+    housing: 0xeaf7fd,
+    kerb: 0xdff2fa,
+    mark: 0x8cc4dd,
+    ambient: 1.15,
+    hemi: 0.9,
+    fogNear: 40,
+    fogFar: 108,
+  },
+  dark: {
+    air: 0x070d1c,
+    wall: 0x101c36,
+    floor: 0x0a1428,
+    runner: 0x12203d,
+    ceiling: 0x0b1730,
+    cove: 0x1b3a63,
+    housing: 0xbfe9ff,
+    kerb: 0x14263f,
+    mark: 0x2f7fb8,
+    ambient: 0.55,
+    hemi: 0.35,
+    fogNear: 26,
+    fogFar: 86,
+  },
+};
 
 /* =====================================================
  * FINLABS SHOWROOM
@@ -113,8 +157,11 @@ camera.position.set(0, -0.3, 18);
 // LIGHTING — bright and even, like a daylit showroom
 // =====================================================
 
-scene.add(new THREE.AmbientLight(0xffffff, 1.15));
-scene.add(new THREE.HemisphereLight(0xf6fdff, 0xd2ecf6, 0.9));
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.15);
+scene.add(ambientLight);
+
+const hemiLight = new THREE.HemisphereLight(0xf6fdff, 0xd2ecf6, 0.9);
+scene.add(hemiLight);
 
 const keyLight = new THREE.DirectionalLight(0xffffff, 1.25);
 keyLight.position.set(12, 20, 14);
@@ -868,7 +915,7 @@ scene.add(room);
 // floor
 const floor = new THREE.Mesh(
   new THREE.PlaneGeometry(HALF_W * 2, ROOM_LEN),
-  new THREE.MeshBasicMaterial({ color: C.floor })
+  themed(new THREE.MeshBasicMaterial({ color: C.floor }), 'floor')
 );
 floor.rotation.x = -Math.PI / 2;
 floor.position.set(0, FLOOR_Y, ROOM_MID_Z);
@@ -884,7 +931,7 @@ room.add(grid);
 // central runner
 const runner = new THREE.Mesh(
   new THREE.PlaneGeometry(7.5, ROOM_LEN - 6),
-  new THREE.MeshBasicMaterial({ color: C.runner })
+  themed(new THREE.MeshBasicMaterial({ color: C.runner }), 'runner')
 );
 runner.rotation.x = -Math.PI / 2;
 runner.position.set(0, FLOOR_Y + 0.02, ROOM_MID_Z);
@@ -893,7 +940,7 @@ room.add(runner);
 // ceiling
 const ceiling = new THREE.Mesh(
   new THREE.PlaneGeometry(HALF_W * 2, ROOM_LEN),
-  new THREE.MeshBasicMaterial({ color: C.ceiling })
+  themed(new THREE.MeshBasicMaterial({ color: C.ceiling }), 'ceiling')
 );
 ceiling.rotation.x = Math.PI / 2;
 ceiling.position.set(0, CEIL_Y, ROOM_MID_Z);
@@ -901,7 +948,7 @@ room.add(ceiling);
 
 // side walls (mural)
 const wallGeo = new THREE.PlaneGeometry(ROOM_LEN, CEIL_Y - FLOOR_Y);
-const wallMat = new THREE.MeshBasicMaterial({ color: C.wall });
+const wallMat = themed(new THREE.MeshBasicMaterial({ color: C.wall }), 'wall');
 
 const leftWall = new THREE.Mesh(wallGeo, wallMat);
 leftWall.rotation.y = Math.PI / 2;
@@ -928,7 +975,7 @@ const baseMat = new THREE.MeshLambertMaterial({ color: C.navy2 });
 // rounded cove where the walls meet the ceiling, so the room reads as a
 // softened shell rather than a hard box
 const coveGeo = new THREE.CylinderGeometry(0.8, 0.8, ROOM_LEN, 20);
-const coveMat = new THREE.MeshLambertMaterial({ color: 0xe4f5fc });
+const coveMat = themed(new THREE.MeshLambertMaterial({ color: 0xe4f5fc }), 'cove');
 [-1, 1].forEach((side) => {
   const cove = new THREE.Mesh(coveGeo, coveMat);
   cove.rotation.x = Math.PI / 2;
@@ -963,7 +1010,7 @@ const panelGeo = new THREE.PlaneGeometry(4.6, 1.1);
 const panelMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
 const housingGeo = rbox(5.4, 0.18, 1.7, 0.08);
 // unlit, so the underside stays bright instead of shading to grey
-const housingMat = new THREE.MeshBasicMaterial({ color: 0xeaf7fd });
+const housingMat = themed(new THREE.MeshBasicMaterial({ color: 0xeaf7fd }), 'housing');
 for (let z = 12; z > BACK_Z + 6; z -= 9) {
   const p = new THREE.Mesh(panelGeo, panelMat);
   p.rotation.x = Math.PI / 2;
@@ -1018,9 +1065,9 @@ PRODUCTS.forEach((p, i) => {
 
 // dashed guide line + rungs down the middle of the walkway
 const dashGeo = rbox(0.42, 0.05, 2.1, 0.02);
-const dashMat = new THREE.MeshBasicMaterial({ color: 0x8cc4dd });
+const dashMat = themed(new THREE.MeshBasicMaterial({ color: 0x8cc4dd }), 'mark');
 const rungGeo = rbox(6.2, 0.05, 0.16, 0.02);
-const rungMat = new THREE.MeshBasicMaterial({ color: 0xa9d6e8 });
+const rungMat = themed(new THREE.MeshBasicMaterial({ color: 0xa9d6e8 }), 'mark');
 for (let z = 14; z > BACK_Z + 4; z -= 3.4) {
   const d = new THREE.Mesh(dashGeo, dashMat);
   d.position.set(0, FLOOR_Y + 0.035, z);
@@ -1033,7 +1080,7 @@ for (let z = 14; z > BACK_Z + 4; z -= 3.4) {
 
 // low rounded planters flanking the walkway between stations
 const kerbGeo = rbox(1.5, 0.55, 3.4, 0.24);
-const kerbMat = new THREE.MeshLambertMaterial({ color: 0xdff2fa });
+const kerbMat = themed(new THREE.MeshLambertMaterial({ color: 0xdff2fa }), 'kerb');
 const kerbTopMat = new THREE.MeshLambertMaterial({ color: C.cyanSoft });
 for (let i = 0; i < PRODUCTS.length - 1; i++) {
   const z = (stationZ(i) + stationZ(i + 1)) / 2;
@@ -1946,6 +1993,29 @@ const floaters = [];
     floaters.push({ mesh: m, phase: Math.random() * 6.28, speed: 0.4 + Math.random() * 0.5 });
   }
 }
+
+// =====================================================
+// THEME REACTION
+// =====================================================
+
+onTheme((mode) => {
+  const t = ROOM_THEME[mode];
+  scene.background.setHex(t.air);
+  scene.fog.color.setHex(t.air);
+  scene.fog.near = t.fogNear;
+  scene.fog.far = t.fogFar;
+
+  themedMats.forEach(({ mat, key }) => {
+    if (t[key] !== undefined) mat.color.setHex(t[key]);
+  });
+
+  ambientLight.intensity = t.ambient;
+  hemiLight.intensity = t.hemi;
+  keyLight.intensity = mode === 'dark' ? 0.5 : 1.25;
+  fillLight.intensity = mode === 'dark' ? 0.3 : 0.55;
+  grid.material.opacity = mode === 'dark' ? 0.22 : 0.34;
+  document.body.classList.toggle('is-dark', mode === 'dark');
+});
 
 // =====================================================
 // SCROLL TRACKING
