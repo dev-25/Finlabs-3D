@@ -3,143 +3,434 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Finlabs technology consulting — UI/UX, application and infra audits, cybersecurity, cloud architecture review and digital transformation strategy."
-  />
-
+  <meta name="description" content="Finlabs technology consulting for financial services — UI/UX, application and infrastructure audits, cybersecurity, cloud architecture review and digital transformation strategy." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <title>Services — Finlabs</title>
 </head>
 
-<body class="page-services">
+<body class="svc">
 
-  <canvas id="canvas"></canvas>
-  <div id="grain" aria-hidden="true"></div>
-  <div id="scanlines" aria-hidden="true"></div>
+  <!-- ambient backdrop, painted by CSS behind the transparent WebGL canvas -->
+  <div class="backdrop" aria-hidden="true">
+    <span class="orb orb--a"></span>
+    <span class="orb orb--b"></span>
+    <span class="orb orb--c"></span>
+    <div class="backdrop__grid"></div>
+  </div>
+  <canvas id="scene" aria-hidden="true"></canvas>
 
-  <header class="topbar">
-    <a class="brand" href="/index.html">
+  <header class="nav" id="top">
+    <a class="nav__brand" href="/index.html" aria-label="Finlabs home">
       <img src="/finlabs-logo.png" alt="Finlabs — Celebrating a Decade of Impact" />
     </a>
-
-    <nav class="topnav">
-      <button id="themeToggle" class="pill pill--icon" type="button" aria-pressed="false" aria-label="Switch to dark theme">
-        <svg class="ico-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-          <circle cx="12" cy="12" r="4.2" fill="currentColor" />
-          <g stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
-            <path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7" />
-          </g>
-        </svg>
-        <svg class="ico-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-          <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor" />
-        </svg>
-      </button>
-      <button id="toggle3d" class="pill" type="button" aria-pressed="true">
-        3D <span data-state>ON</span>
-      </button>
-      <a class="pill pill--solid" href="/index.html">PRODUCTS</a>
+    <nav class="nav__links" aria-label="Page sections">
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a href="#why">Why Finlabs</a>
+      <a href="/index.html">Products</a>
     </nav>
+    <div class="nav__actions">
+      <button id="themeToggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></g></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor"/></svg>
+      </button>
+      <button id="toggle3d" class="icon-btn icon-btn--text" type="button" aria-pressed="true" aria-label="Toggle 3D scene">3D</button>
+      <a class="btn btn--primary btn--sm" href="#contact" data-magnetic>Talk to us</a>
+    </div>
   </header>
 
-  <div class="scrollcue" id="scrollcue">
-    <span>SCROLL MOUSE FOR OTHER SERVICES</span>
-    <i></i>
-  </div>
+  <!-- progress rail through the five practices -->
+  <aside class="rail" aria-label="Services">
+    <a href="#uiux" data-rail="uiux"><i></i><span>UI / UX</span></a>
+    <a href="#audit" data-rail="audit"><i></i><span>Audits</span></a>
+    <a href="#security" data-rail="security"><i></i><span>Security</span></a>
+    <a href="#cloud" data-rail="cloud"><i></i><span>Cloud</span></a>
+    <a href="#transform" data-rail="transform"><i></i><span>Transformation</span></a>
+  </aside>
 
-  <div class="progress" id="progress" aria-hidden="true"><span></span></div>
+  <main>
 
-  <main class="content" id="top">
+    <section class="hero" data-scene="core">
+      <div class="col">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Technology consulting for financial services</p>
+        <h1 class="hero__title" data-reveal>Technology that moves <em>finance</em> forward.</h1>
+        <p class="hero__lead" data-reveal>
+          For ten years Finlabs has helped wealth managers, distributors, insurers and
+          financial institutions design, secure and scale the technology their clients
+          depend on. Seasoned experts, solutions tailored to your stack, and results you
+          can measure.
+        </p>
+        <div class="hero__ctas" data-reveal>
+          <a class="btn btn--primary" href="#contact" data-magnetic>Talk to an expert <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#services">Explore services</a>
+        </div>
+        <ul class="trust" data-reveal>
+          <li><strong>10+</strong><span>years in fintech</span></li>
+          <li><strong>5</strong><span>consulting practices</span></li>
+          <li><strong>End-to-end</strong><span>consult · implement · manage</span></li>
+        </ul>
+      </div>
+      <a class="hero__scroll" href="#services" aria-label="Scroll to services"><span></span></a>
+    </section>
 
-    <!-- The monitor carries every detail. These slides only drive the
-         scroll position and keep the content readable to search engines
-         and screen readers. -->
-    <section class="deck" id="deck">
-      <article class="slide" id="s0" data-index="0">
-        <h1>Our Cybernetic Solutions</h1>
-        <p>End-to-end technology consulting for financial services — advisory, build and managed delivery.</p>
+    <section class="services" id="services">
+      <header class="section-head" data-scene="core">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Technology consulting</p>
+        <h2 data-reveal>Five practices. One accountable team.</h2>
+        <p data-reveal>
+          Each practice can run on its own or as part of a wider programme. Pick where
+          you need help — we'll bring the specialists and own the outcome with you.
+        </p>
+      </header>
+
+      <article class="service" id="uiux" data-scene="uiux" style="--accent:#8b5cf6">
+        <div class="col">
+          <p class="service__num" data-reveal>01</p>
+          <p class="service__kicker" data-reveal><span class="dot"></span>UI / UX Consulting</p>
+          <h3 class="service__title" data-reveal>Interfaces your clients actually enjoy using.</h3>
+          <p class="service__lead" data-reveal>
+            User-centered design, intuitive interface development and seamless experiences that
+            drive engagement and satisfaction. We start with the people who use your product, then
+            turn what we learn into a design system your engineers can build from.
+          </p>
+          <div class="service__grid" data-reveal>
+            <div class="block">
+              <h4>What we do</h4>
+              <ul class="ticks">
+                <li>User interviews, journey mapping and analytics review</li>
+                <li>Information architecture and task flows</li>
+                <li>Wireframes, high-fidelity design and clickable prototypes</li>
+                <li>Usability testing with real advisors and investors</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>You walk away with</h4>
+              <ul class="ticks">
+                <li>A tokenised design system and component library</li>
+                <li>Developer-ready specs and Storybook documentation</li>
+                <li>An accessibility audit against WCAG 2.2 AA</li>
+                <li>A prioritised UX improvement backlog</li>
+              </ul>
+            </div>
+          </div>
+          <ol class="phases" data-reveal>
+            <li>Discover</li><li>Define</li><li>Design</li><li>Validate</li><li>Handoff</li>
+          </ol>
+          <ul class="chips" data-reveal>
+            <li>Figma</li><li>Design tokens</li><li>React</li><li>TypeScript</li><li>Storybook</li><li>WCAG 2.2</li>
+          </ul>
+          <div class="service__cta" data-reveal>
+            <a class="btn btn--accent" href="#contact" data-service="UI / UX Consulting" data-magnetic>Talk to us about UI / UX <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </article>
-      <article class="slide" id="s1" data-index="1">
-        <h2>UI / UX Consulting</h2>
-        <p>User-centered design, intuitive interface development and seamless user experiences. Figma, design systems, React, TypeScript, WCAG 2.2, Storybook.</p>
+
+      <article class="service" id="audit" data-scene="audit" style="--accent:#14b8a6">
+        <div class="col">
+          <p class="service__num" data-reveal>02</p>
+          <p class="service__kicker" data-reveal><span class="dot"></span>Application &amp; Infra Audits</p>
+          <h3 class="service__title" data-reveal>Find the weak points before anyone else does.</h3>
+          <p class="service__lead" data-reveal>
+            A thorough analysis and evaluation of your applications and infrastructure to identify
+            vulnerabilities, optimize performance and enhance security — delivered as findings ranked
+            by severity and a remediation plan sequenced by risk against effort.
+          </p>
+          <div class="service__grid" data-reveal>
+            <div class="block">
+              <h4>What we do</h4>
+              <ul class="ticks">
+                <li>Static and dynamic application security testing</li>
+                <li>Dependency, SBOM and open-source licence review</li>
+                <li>Infrastructure-as-code and CIS benchmark checks</li>
+                <li>Load and performance profiling under peak traffic</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>You walk away with</h4>
+              <ul class="ticks">
+                <li>Findings scored by CVSS severity with evidence</li>
+                <li>A remediation roadmap your team can execute</li>
+                <li>Performance baselines and latency budgets</li>
+                <li>An executive summary for your board or regulator</li>
+              </ul>
+            </div>
+          </div>
+          <ol class="phases" data-reveal>
+            <li>Scope</li><li>Scan</li><li>Analyse</li><li>Report</li><li>Retest</li>
+          </ol>
+          <ul class="chips" data-reveal>
+            <li>OWASP ASVS</li><li>SAST / DAST</li><li>SonarQube</li><li>Trivy</li><li>k6</li><li>CIS Benchmarks</li>
+          </ul>
+          <div class="service__cta" data-reveal>
+            <a class="btn btn--accent" href="#contact" data-service="Application & Infra Audits" data-magnetic>Book an audit conversation <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </article>
-      <article class="slide" id="s2" data-index="2">
-        <h2>Application &amp; Infra Audits</h2>
-        <p>Thorough analysis of applications and infrastructure to identify vulnerabilities, optimize performance and enhance security. OWASP Top 10, SAST/DAST, SonarQube, k6, APM, CIS Benchmarks.</p>
+
+      <article class="service" id="security" data-scene="security" style="--accent:#6366f1">
+        <div class="col">
+          <p class="service__num" data-reveal>03</p>
+          <p class="service__kicker" data-reveal><span class="dot"></span>Cybersecurity</p>
+          <h3 class="service__title" data-reveal>Security your regulator and your clients can rely on.</h3>
+          <p class="service__lead" data-reveal>
+            Comprehensive threat assessment, advanced defense strategies and proactive risk mitigation
+            to safeguard your digital assets. We map your real attack surface, harden it around zero-trust
+            principles, and wire in detection your team can actually run.
+          </p>
+          <div class="service__grid" data-reveal>
+            <div class="block">
+              <h4>What we do</h4>
+              <ul class="ticks">
+                <li>Threat modelling and attack-surface mapping</li>
+                <li>Identity redesign: zero trust, IAM roles and MFA</li>
+                <li>Encryption at rest and in transit with managed keys</li>
+                <li>Penetration testing and incident-response drills</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>You walk away with</h4>
+              <ul class="ticks">
+                <li>A risk register with owners and treatment plans</li>
+                <li>Controls mapped to ISO 27001 and SOC 2</li>
+                <li>SIEM detections and SOAR response playbooks</li>
+                <li>Evidence packs ready for audit</li>
+              </ul>
+            </div>
+          </div>
+          <ol class="phases" data-reveal>
+            <li>Assess</li><li>Harden</li><li>Detect</li><li>Respond</li><li>Assure</li>
+          </ol>
+          <ul class="chips" data-reveal>
+            <li>Zero Trust</li><li>ISO 27001</li><li>SOC 2</li><li>SIEM / SOAR</li><li>IAM · MFA</li><li>KMS / HSM</li>
+          </ul>
+          <div class="service__cta" data-reveal>
+            <a class="btn btn--accent" href="#contact" data-service="Cybersecurity" data-magnetic>Talk to a security lead <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </article>
-      <article class="slide" id="s3" data-index="3">
-        <h2>Cybersecurity</h2>
-        <p>Comprehensive threat assessment, advanced defense strategies and proactive risk mitigation. Zero trust, ISO 27001, SOC 2, SIEM/SOAR, IAM and MFA, penetration testing.</p>
+
+      <article class="service" id="cloud" data-scene="cloud" style="--accent:#0ea5e9">
+        <div class="col">
+          <p class="service__num" data-reveal>04</p>
+          <p class="service__kicker" data-reveal><span class="dot"></span>Cloud Architecture Review</p>
+          <h3 class="service__title" data-reveal>Pay for the cloud you need — and nothing you don't.</h3>
+          <p class="service__lead" data-reveal>
+            A meticulous examination of your cloud infrastructure to optimize efficiency, security and
+            scalability. We review against each provider's own framework, find the optimization
+            opportunities, and quantify the savings before you commit to anything.
+          </p>
+          <div class="service__grid" data-reveal>
+            <div class="block">
+              <h4>What we do</h4>
+              <ul class="ticks">
+                <li>AWS Well-Architected, Azure CAF and Google Cloud reviews</li>
+                <li>Landing zone, network and IAM assessment</li>
+                <li>Terraform drift and infrastructure-as-code coverage</li>
+                <li>Resilience modelling across zones and regions</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>You walk away with</h4>
+              <ul class="ticks">
+                <li>A right-sizing and FinOps plan with costs modelled</li>
+                <li>Security, scalability and cost-efficiency scorecard</li>
+                <li>A target architecture and migration sequence</li>
+                <li>Guardrails as code for every new workload</li>
+              </ul>
+            </div>
+          </div>
+          <ol class="phases" data-reveal>
+            <li>Inventory</li><li>Assess</li><li>Model</li><li>Recommend</li><li>Optimise</li>
+          </ol>
+          <ul class="chips" data-reveal>
+            <li>AWS</li><li>Microsoft Azure</li><li>Google Cloud</li><li>Kubernetes</li><li>Terraform</li><li>FinOps</li>
+          </ul>
+          <div class="service__cta" data-reveal>
+            <a class="btn btn--accent" href="#contact" data-service="Cloud Architecture Review" data-magnetic>Get a cloud review <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </article>
-      <article class="slide" id="s4" data-index="4">
-        <h2>Cloud Architecture Review</h2>
-        <p>Meticulous examination of cloud infrastructure to optimize efficiency, security and scalability across AWS, Azure and GCP. Kubernetes, Terraform, FinOps.</p>
-      </article>
-      <article class="slide" id="s5" data-index="5">
-        <h2>Digital Transformation Strategy</h2>
-        <p>Roadmaps leveraging cutting-edge technologies, data-driven insights and agile methodologies. Microservices, event-driven architecture, CI/CD, data lake, API-first, MLOps.</p>
+
+      <article class="service" id="transform" data-scene="transform" style="--accent:#22c55e">
+        <div class="col">
+          <p class="service__num" data-reveal>05</p>
+          <p class="service__kicker" data-reveal><span class="dot"></span>Digital Transformation Strategy</p>
+          <h3 class="service__title" data-reveal>A roadmap you can actually ship, one wave at a time.</h3>
+          <p class="service__lead" data-reveal>
+            Crafted roadmaps that leverage cutting-edge technologies, data-driven insights and agile
+            methodologies. We inventory the legacy estate, agree a target architecture, and sequence the
+            change so the business keeps running while it moves.
+          </p>
+          <div class="service__grid" data-reveal>
+            <div class="block">
+              <h4>What we do</h4>
+              <ul class="ticks">
+                <li>Legacy inventory and capability-gap analysis</li>
+                <li>Target architecture: microservices, events, APIs</li>
+                <li>Technology stack optimization</li>
+                <li>Agile adoption and delivery-team enablement</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>You walk away with</h4>
+              <ul class="ticks">
+                <li>A phased roadmap with clear migration waves</li>
+                <li>CI/CD pipelines and release automation</li>
+                <li>A data platform plan: lakehouse and MLOps</li>
+                <li>Delivery metrics tracked against DORA</li>
+              </ul>
+            </div>
+          </div>
+          <ol class="phases" data-reveal>
+            <li>Assess</li><li>Design</li><li>Pilot</li><li>Scale</li><li>Enable</li>
+          </ol>
+          <ul class="chips" data-reveal>
+            <li>Microservices</li><li>Event-driven</li><li>API-first</li><li>CI / CD</li><li>Data lakehouse</li><li>MLOps</li>
+          </ul>
+          <div class="service__cta" data-reveal>
+            <a class="btn btn--accent" href="#contact" data-service="Digital Transformation Strategy" data-magnetic>Plan your roadmap with us <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </article>
     </section>
 
-    <a class="talkbtn" href="https://finlabsindia.org/technology-consulting/" target="_blank" rel="noopener">
-      Talk to us <span>&rarr;</span>
-    </a>
+    <section class="process" id="process" data-scene="core">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal><span class="dot"></span>How we work</p>
+        <h2 data-reveal>From first conversation to systems that run themselves.</h2>
+        <p data-reveal>Consulting is where most engagements begin. When you want us to build it and look after it too, the same team carries on.</p>
+      </header>
+      <div class="lines">
+        <article class="line" data-reveal>
+          <p class="line__step">01</p>
+          <h3>Consult</h3>
+          <p>Advice grounded in your stack and your regulators: the five practices above, run by specialists who know financial services.</p>
+          <ul class="ticks"><li>UI / UX and audits</li><li>Security and cloud reviews</li><li>Transformation roadmaps</li></ul>
+          <a class="line__link" href="#services">See the practices →</a>
+        </article>
+        <article class="line" data-reveal>
+          <p class="line__step">02</p>
+          <h3>Implement</h3>
+          <p>We translate the plan into practical, efficient solutions — with minimal disruption, and built to scale securely.</p>
+          <ul class="ticks"><li>Websites, apps and digital assets</li><li>Process automation and workflows</li><li>Analytics and QA automation</li></ul>
+          <a class="line__link" href="https://finlabsindia.org/technology-implementation/" target="_blank" rel="noopener">Technology implementation ↗</a>
+        </article>
+        <article class="line" data-reveal>
+          <p class="line__step">03</p>
+          <h3>Manage</h3>
+          <p>Cloud-focused managed services: deploying, running and optimising your infrastructure for security and performance.</p>
+          <ul class="ticks"><li>Cloud deployment and management</li><li>Security and performance tuning</li><li>Proactive infrastructure support</li></ul>
+          <a class="line__link" href="https://finlabsindia.org/managed-services/" target="_blank" rel="noopener">Managed services ↗</a>
+        </article>
+      </div>
+      <ol class="kickoff" data-reveal>
+        <li><strong>Intro call</strong><span>A short call on Microsoft Teams about what you need.</span></li>
+        <li><strong>Scoping</strong><span>We look at your stack, constraints and goals.</span></li>
+        <li><strong>Proposal</strong><span>Clear scope, team and deliverables — no surprises.</span></li>
+        <li><strong>Kick-off</strong><span>Your specialists start, with a single point of contact.</span></li>
+      </ol>
+    </section>
 
-    <!-- run-out: the camera settles on the end wall -->
-    <section class="outro" aria-hidden="true"></section>
-
-    <section class="endwall" id="endwall">
-      <div class="endwall__panel">
-        <div class="endwall__brand">
-          <img src="/finlabs-logo.png" alt="Finlabs" />
-          <a class="endwall__mail" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
-          <ul class="social" aria-label="Social links">
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="Instagram">ig</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="Facebook">f</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="X">X</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="YouTube">▶</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a></li>
-          </ul>
-        </div>
-
-        <nav class="endwall__cols">
-          <ul>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Home</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">About Us</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Career</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Blog</a></li>
-          </ul>
-          <ul>
-            <li><a class="crosslink" href="/index.html">Products</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Solutions</a></li>
-            <li><a href="#deck">Services</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Knowledge Centre</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Contact Us</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Download Brochure</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Privacy Policy</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Terms and Conditions</a></li>
-          </ul>
-        </nav>
-
-        <div class="endwall__cta">
-          <h2>Have questions or want to learn more?</h2>
-          <p>Feel free to reach out or schedule a quick call — we're happy to help.</p>
-          <a class="bookcall" href="https://finlabsindia.org/" target="_blank" rel="noopener">Book A Call</a>
+    <section class="why" id="why" data-scene="core">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Why Finlabs</p>
+        <h2 data-reveal>A decade inside financial technology.</h2>
+      </header>
+      <div class="tiles">
+        <div class="tile" data-reveal><h3>Seasoned experts</h3><p>Specialists who pair industry knowledge with a working understanding of current technology.</p></div>
+        <div class="tile" data-reveal><h3>Tailored, not templated</h3><p>Every recommendation is shaped around your stack, your team and your constraints.</p></div>
+        <div class="tile" data-reveal><h3>Transparent communication</h3><p>You always know what we're doing, why, and what it will cost.</p></div>
+        <div class="tile" data-reveal><h3>Quality standards</h3><p>Work reviewed against recognised frameworks, not just opinion.</p></div>
+        <div class="tile" data-reveal><h3>Measurable results</h3><p>We agree what success looks like up front, then report against it.</p></div>
+        <div class="tile" data-reveal><h3>Ethical practice</h3><p>Your data, your clients and your reputation are treated as ours.</p></div>
+      </div>
+      <div class="marquee" aria-label="Who we work with">
+        <div class="marquee__track">
+          <span>Financial advisors</span><span>Mutual fund distributors</span><span>Insurance companies</span><span>Wealth managers</span><span>Educational institutions</span><span>Financial organisations</span>
+          <span aria-hidden="true">Financial advisors</span><span aria-hidden="true">Mutual fund distributors</span><span aria-hidden="true">Insurance companies</span><span aria-hidden="true">Wealth managers</span><span aria-hidden="true">Educational institutions</span><span aria-hidden="true">Financial organisations</span>
         </div>
       </div>
-
-
-      <p class="copyline">© copyright Finlabs India Pvt. Ltd. | All Rights Reserved</p>
     </section>
+
+    <section class="contact" id="contact" data-scene="core">
+      <div class="contact__intro" data-reveal>
+        <p class="eyebrow"><span class="dot"></span>Start a conversation</p>
+        <h2>Tell us what you're building.</h2>
+        <p>Share a little context and a consultant will come back to you. Prefer to talk it through? Book a call and we'll meet on Microsoft Teams.</p>
+        <ul class="channels">
+          <li><a href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener"><b>Book a call</b><span>Pick a slot on Calendly</span></a></li>
+          <li><a href="mailto:info@finlabsindia.com"><b>Email</b><span>info@finlabsindia.com</span></a></li>
+          <li><a href="https://wa.me/9372956429" target="_blank" rel="noopener"><b>WhatsApp</b><span>Message the team</span></a></li>
+        </ul>
+      </div>
+      <form class="form" id="enquiry" data-reveal novalidate>
+        <div class="form__row">
+          <label>Your name<input name="name" type="text" autocomplete="name" required /></label>
+          <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+        </div>
+        <label>Company<input name="company" type="text" autocomplete="organization" /></label>
+        <label>What do you need help with?
+          <select name="service" id="serviceSelect">
+            <option>UI / UX Consulting</option>
+            <option>Application &amp; Infra Audits</option>
+            <option>Cybersecurity</option>
+            <option>Cloud Architecture Review</option>
+            <option>Digital Transformation Strategy</option>
+            <option>Technology Implementation</option>
+            <option>Managed Services</option>
+            <option selected>Not sure yet — let's talk</option>
+          </select>
+        </label>
+        <label>A few lines about the project<textarea name="message" rows="4"></textarea></label>
+        <button class="btn btn--primary form__submit" type="submit" data-magnetic>Send enquiry <span aria-hidden="true">→</span></button>
+        <p class="form__note" id="formNote">Sending opens your email app with these details filled in.</p>
+      </form>
+    </section>
+
+    <footer class="foot">
+      <div class="foot__panel">
+        <div class="foot__brand">
+          <img src="/finlabs-logo.png" alt="Finlabs" />
+          <a class="foot__mail" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
+          <ul class="social" aria-label="Finlabs on social media">
+            <li><a href="https://www.linkedin.com/company/14438243/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v12H3zM9 9h2.9v1.7h.1c.4-.8 1.4-1.9 3-1.9 3.2 0 3.9 2.1 3.9 4.9V21h-3v-6.4c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9z"/></svg></a></li>
+            <li><a href="https://www.instagram.com/finlabsindia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></li>
+            <li><a href="https://www.facebook.com/finlabsind" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z"/></svg></a></li>
+            <li><a href="https://twitter.com/IndiaFinlabs" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg></a></li>
+            <li><a href="https://www.youtube.com/@finlabsindia7860" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a></li>
+            <li><a href="https://wa.me/9372956429" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.6 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5zm0 17.1a7.7 7.7 0 0 1-3.9-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 1 1 12 19.6zm4.2-5.8c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.3 6.3 0 0 1-3.1-2.7c-.2-.4.2-.4.7-1.3.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.2-.2-.5-.3z"/></svg></a></li>
+          </ul>
+        </div>
+        <nav class="foot__cols" aria-label="Site">
+          <ul>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Home</a></li>
+            <li><a href="https://finlabsindia.org/about-us/" target="_blank" rel="noopener">About Us</a></li>
+            <li><a href="https://finlabsindia.org/careers/" target="_blank" rel="noopener">Career</a></li>
+            <li><a href="https://finlabsindia.org/blog/" target="_blank" rel="noopener">Blog</a></li>
+          </ul>
+          <ul>
+            <li><a class="foot__cross" href="/index.html">Products</a></li>
+            <li><a href="https://finlabsindia.org/solutions/" target="_blank" rel="noopener">Solutions</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="https://finlabsindia.org/knowledge-centre/" target="_blank" rel="noopener">Knowledge Centre</a></li>
+          </ul>
+          <ul>
+            <li><a href="https://finlabsindia.org/contact-us/" target="_blank" rel="noopener">Contact Us</a></li>
+            <li><a href="https://finlabsindia.org/wp-content/uploads/2026/07/Finlabs-Corpdeck-Brochure.pdf" target="_blank" rel="noopener">Download Brochure</a></li>
+            <li><a href="https://finlabsindia.org/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://finlabsindia.org/terms-conditions/" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          </ul>
+        </nav>
+        <div class="foot__cta">
+          <h3>Have questions or want to learn more?</h3>
+          <p>Feel free to reach out or schedule a quick call — we're happy to help.</p>
+          <a class="btn btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Book A Call</a>
+        </div>
+      </div>
+      <p class="foot__copy">© copyright Finlabs India Pvt. Ltd. | All Rights Reserved</p>
+    </footer>
 
   </main>
 

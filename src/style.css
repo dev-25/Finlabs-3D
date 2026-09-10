@@ -702,155 +702,6 @@ body.no3d #canvas {
 }
 
 /* ===================================================== */
-/* SERVICES PAGE                                          */
-/* ===================================================== */
-
-.page-services {
-  --bg: #060b18;
-  --ink: #dbeeff;
-  --ink-soft: #9dbdd6;
-  --ink-faint: #6d8ba4;
-  --line: rgba(120, 200, 255, 0.22);
-  background: #060b18;
-  color: var(--ink);
-}
-.page-services.no3d {
-  background:
-    radial-gradient(900px 600px at 50% 30%, rgba(53, 214, 255, 0.16), transparent 65%),
-    #060b18;
-}
-
-/* the light theme still gets a bright room */
-:root[data-theme="light"] .page-services {
-  --bg: #d7ecfa;
-  --ink: #0b3348;
-  --ink-soft: #3f6f8c;
-  --ink-faint: #7ba3ba;
-  --line: rgba(20, 110, 145, 0.18);
-  background: #d7ecfa;
-}
-
-/* projector scanlines over the whole page */
-#scanlines {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.5;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(120, 220, 255, 0.05) 0 1px,
-    transparent 1px 4px
-  );
-}
-:root[data-theme="light"] #scanlines {
-  opacity: 0.22;
-}
-
-.hero--services .hero__title {
-  background: linear-gradient(102deg, #7fe9ff 0%, #35d6ff 30%, #6d8bff 55%, #35d6ff 78%, #7fe9ff 100%);
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-:root[data-theme="light"] .hero--services .hero__title {
-  background: linear-gradient(102deg, #072133 0%, #0a2c40 26%, #14688c 52%, #0a2c40 74%, #072133 100%);
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.hero--services::before {
-  background: radial-gradient(
-    62% 58% at 8% 52%,
-    rgba(6, 11, 24, 0.94),
-    rgba(6, 11, 24, 0.55) 52%,
-    rgba(6, 11, 24, 0) 100%
-  );
-}
-:root[data-theme="light"] .hero--services::before {
-  background: radial-gradient(
-    62% 58% at 8% 52%,
-    rgba(226, 243, 253, 0.95),
-    rgba(226, 243, 253, 0.6) 52%,
-    rgba(226, 243, 253, 0) 100%
-  );
-}
-
-/* the monitor carries the content: these slides are scroll drivers only */
-.deck {
-  position: relative;
-}
-.slide {
-  height: 130vh;
-}
-.slide h1,
-.slide h2,
-.slide p {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Talk to us — pinned just under the projected screen, and it fades out
-   as the run-out begins so it never sits over the end wall */
-.talkbtn {
-  position: fixed;
-  left: 50%;
-  bottom: 8vh;
-  transform: translateX(-50%);
-  z-index: 4;
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  padding: 15px 34px;
-  border-radius: 999px;
-  color: #04141a;
-  background: #2ff0e0;
-  box-shadow: 0 0 44px -6px #2ff0e0;
-  opacity: calc(1 - var(--outro, 0));
-  pointer-events: auto;
-  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-}
-.talkbtn span {
-  transition: transform 0.2s;
-}
-.talkbtn:hover {
-  transform: translateX(-50%) translateY(-2px);
-  filter: brightness(1.07);
-  box-shadow: 0 0 60px -4px #2ff0e0;
-}
-.talkbtn:hover span {
-  transform: translateX(5px);
-}
-:root[data-theme="light"] .talkbtn {
-  background: #0e8a99;
-  color: #eafdff;
-  box-shadow: 0 16px 36px -14px #0e8a99;
-}
-
-.page-services .scrollcue,
-.page-services .eyebrow {
-  color: #6fd3ff;
-}
-:root[data-theme="light"] .page-services .scrollcue,
-:root[data-theme="light"] .page-services .eyebrow {
-  color: var(--teal-deep);
-}
-
-/* ===================================================== */
 /* DARK THEME OVERRIDES                                   */
 /* ===================================================== */
 
@@ -906,8 +757,7 @@ body.no3d #canvas {
   filter: brightness(1.9) saturate(0.6);
 }
 
-:root[data-theme="dark"] body.no3d,
-:root[data-theme="dark"] .page-services.no3d {
+:root[data-theme="dark"] body.no3d {
   background:
     radial-gradient(900px 620px at 70% 20%, rgba(53, 214, 255, 0.16), transparent 62%),
     radial-gradient(760px 560px at 14% 82%, rgba(77, 125, 255, 0.14), transparent 62%),
@@ -922,8 +772,3 @@ body.no3d #canvas {
   background: linear-gradient(90deg, var(--cyan), var(--teal) 55%, #7b7bff);
 }
 
-/* the browser status bar already says this, and it collided with the
-   Talk to us button */
-.page-services .scrollcue {
-  display: none;
-}
