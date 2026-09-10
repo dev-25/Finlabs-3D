@@ -84,112 +84,52 @@ const P = {
 
 const SERVICES = [
   {
-    id: '00',
+    tab: 'Overview',
+    url: 'https://finlabsindia.org/technology-consulting',
     kicker: 'FINLABS // TECHNOLOGY CONSULTING',
-    title: 'OUR CYBERNETIC SOLUTIONS',
-    sub: 'Connect Your Future',
-    desc:
-      'End-to-end technology consulting for financial services. Seasoned experts, ' +
-      'solutions tailored to your stack, transparent communication and measurable ' +
-      'results — from first audit to production rollout.',
-    stack: ['STRATEGY', 'ARCHITECTURE', 'SECURITY', 'CLOUD', 'DATA', 'DELIVERY'],
-    rows: [
-      ['ENGAGEMENT', 'Advisory · Build · Managed'],
-      ['SECTORS', 'Wealth · AMC · Insurance · Banking'],
-      ['DELIVERY', 'Agile pods · Fixed scope · T&M'],
-    ],
-    stats: [['6', 'PRACTICE AREAS'], ['10 YRS', 'IN MARKET'], ['24/7', 'MANAGED SUPPORT']],
-    art: 'network',
+    title: 'Our Cybernetic Solutions',
+    sub: 'Seasoned experts, tailored solutions, transparent communication and measurable results.',
+    page: 'overview',
   },
   {
-    id: '01',
+    tab: 'UI / UX',
+    url: 'https://finlabsindia.org/services/ui-ux-consulting',
     kicker: 'SERVICE 01 // EXPERIENCE',
-    title: 'UI / UX CONSULTING',
-    sub: 'User-centered design and seamless experiences',
-    desc:
-      'User-centered design, intuitive interface development and seamless user ' +
-      'experiences that drive engagement and satisfaction — grounded in research, ' +
-      'shipped as a living design system.',
-    stack: ['FIGMA', 'DESIGN SYSTEMS', 'REACT', 'TYPESCRIPT', 'WCAG 2.2', 'STORYBOOK'],
-    rows: [
-      ['RESEARCH', 'Interviews · Journey maps · Usability tests'],
-      ['DESIGN', 'Wireframes · Prototypes · Tokens'],
-      ['HANDOFF', 'Component library · A11y audit'],
-    ],
-    stats: [['WCAG 2.2', 'AA TARGET'], ['<2s', 'TIME TO INTERACTIVE'], ['1 KIT', 'DESIGN SYSTEM']],
-    art: 'wireframe',
+    title: 'UI / UX Consulting',
+    sub: 'User-centered design, intuitive interfaces and seamless experiences that drive engagement.',
+    page: 'uiux',
   },
   {
-    id: '02',
+    tab: 'Audits',
+    url: 'https://finlabsindia.org/services/application-infra-audits',
     kicker: 'SERVICE 02 // ASSURANCE',
-    title: 'APPLICATION & INFRA AUDITS',
-    sub: 'Comprehensive analysis and evaluation',
-    desc:
-      'Thorough analysis and evaluation of software applications and infrastructure ' +
-      'to identify vulnerabilities, optimize performance and enhance security — with ' +
-      'a prioritised remediation plan you can actually execute.',
-    stack: ['OWASP TOP 10', 'SAST / DAST', 'SONARQUBE', 'k6', 'APM', 'CIS BENCHMARKS'],
-    rows: [
-      ['CODE', 'Static analysis · Dependency CVEs'],
-      ['RUNTIME', 'Load profiles · p95 latency · Bottlenecks'],
-      ['OUTPUT', 'Severity-ranked findings · Fix roadmap'],
-    ],
-    stats: [['OWASP', 'TOP 10 COVERAGE'], ['p95', 'LATENCY BUDGETS'], ['CVSS', 'RANKED FINDINGS']],
-    art: 'audit',
+    title: 'Application & Infra Audits',
+    sub: 'Identify vulnerabilities, optimize performance and enhance security across code and infrastructure.',
+    page: 'audit',
   },
   {
-    id: '03',
+    tab: 'Security',
+    url: 'https://finlabsindia.org/services/cybersecurity',
     kicker: 'SERVICE 03 // DEFENCE',
-    title: 'CYBERSECURITY',
-    sub: 'Threat assessment and defense strategies',
-    desc:
-      'Comprehensive threat assessment, advanced defense strategies and proactive ' +
-      'risk mitigation to safeguard your digital assets — built around zero-trust ' +
-      'principles and continuous monitoring.',
-    stack: ['ZERO TRUST', 'ISO 27001', 'SOC 2', 'SIEM / SOAR', 'IAM · MFA', 'PEN TESTING'],
-    rows: [
-      ['ASSESS', 'Threat modelling · Attack surface map'],
-      ['DEFEND', 'Segmentation · Encryption at rest / in transit'],
-      ['MONITOR', 'SIEM pipelines · Incident runbooks'],
-    ],
-    stats: [['ISO 27001', 'ALIGNED'], ['SOC 2', 'READINESS'], ['ZERO TRUST', 'BY DEFAULT']],
-    art: 'shield',
+    title: 'Cybersecurity',
+    sub: 'Threat assessment, advanced defense strategies and proactive risk mitigation.',
+    page: 'security',
   },
   {
-    id: '04',
+    tab: 'Cloud',
+    url: 'https://finlabsindia.org/services/cloud-architecture-review',
     kicker: 'SERVICE 04 // CLOUD',
-    title: 'CLOUD ARCHITECTURE REVIEW',
-    sub: 'Optimization and alignment with business objectives',
-    desc:
-      'Meticulous examination of cloud infrastructure to optimize efficiency, security ' +
-      'and scalability — identifying optimization opportunities against industry best ' +
-      'practices across every major provider.',
-    stack: ['AWS', 'AZURE', 'GCP', 'KUBERNETES', 'TERRAFORM', 'FINOPS'],
-    rows: [
-      ['REVIEW', 'Well-Architected · Landing zones · IaC drift'],
-      ['SCALE', 'Autoscaling · Multi-AZ · Disaster recovery'],
-      ['COST', 'Right-sizing · Reserved capacity · Tag hygiene'],
-    ],
-    stats: [['AWS · AZURE · GCP', 'MULTI-CLOUD'], ['IaC', 'TERRAFORM'], ['FinOps', 'COST REVIEW']],
-    art: 'cloud',
+    title: 'Cloud Architecture Review',
+    sub: 'Optimize efficiency, security and scalability across AWS, Azure and Google Cloud.',
+    page: 'cloud',
   },
   {
-    id: '05',
+    tab: 'Transform',
+    url: 'https://finlabsindia.org/services/digital-transformation',
     kicker: 'SERVICE 05 // TRANSFORMATION',
-    title: 'DIGITAL TRANSFORMATION',
-    sub: 'Tailored roadmaps leveraging emerging technologies',
-    desc:
-      'Crafted roadmaps that leverage cutting-edge technologies, data-driven insights ' +
-      'and agile methodologies — with clear stages, an optimized technology stack and ' +
-      'user-centric design throughout.',
-    stack: ['MICROSERVICES', 'EVENT-DRIVEN', 'CI / CD', 'DATA LAKE', 'API-FIRST', 'MLOps'],
-    rows: [
-      ['ASSESS', 'Capability gaps · Legacy inventory'],
-      ['DESIGN', 'Target architecture · Migration waves'],
-      ['ADOPT', 'Enablement · Platform team · Metrics'],
-    ],
-    stats: [['4 STAGES', 'ASSESS TO SCALE'], ['CI/CD', 'AUTOMATED DELIVERY'], ['API-FIRST', 'ARCHITECTURE']],
-    art: 'roadmap',
+    title: 'Digital Transformation Strategy',
+    sub: 'Roadmaps leveraging emerging technologies, data-driven insights and agile delivery.',
+    page: 'transform',
   },
 ];
 
@@ -212,11 +152,11 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(52, vw0 / vh0, 0.1, 260);
 
 // the screen is the subject: everything else is arranged around it
-const SCREEN_W = 15.2;
-const SCREEN_H = 8.6;
+const SCREEN_W = 16.2;
+const SCREEN_H = 9.2;
 const SCREEN_Y = 4.2;
 const SCREEN_Z = -9;
-const SCREEN_FILL = 0.7; // fraction of the viewport the screen should span
+const SCREEN_FILL = 0.8; // fraction of the viewport the screen should span
 
 const DESK_Y = -1.2;
 const FLOOR_Y = -5.6;
@@ -300,385 +240,631 @@ function wrap(ctx, text, x, y, maxW, lh) {
 // =====================================================
 // SCREEN ARTWORK
 // =====================================================
+const SW = 1760;
+const SH = 1000;
 
-const SW = 1520;
-const SH = 860;
+// browser chrome metrics
+const BAR = 46;    // title bar
+const TABH = 52;   // tab strip
+const ADDR = 46;   // address bar
+const TOP = BAR + TABH + ADDR;
 
-function drawDiagram(ctx, s, c, x, y, w, h) {
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.strokeStyle = c.neon;
+function chip(ctx, c, x, y, label, font = '700 15px "JetBrains Mono", monospace') {
+  ctx.font = font;
+  const w = ctx.measureText(label).width + 26;
+  ctx.fillStyle = c.panel;
+  rr(ctx, x, y - 15, w, 30, 15);
+  ctx.fill();
+  ctx.strokeStyle = c.edge;
+  ctx.lineWidth = 1.4;
+  rr(ctx, x, y - 15, w, 30, 15);
+  ctx.stroke();
   ctx.fillStyle = c.neon;
-  ctx.lineWidth = 2.5;
-
-  const cx = w / 2;
-  const cy = h / 2;
-
-  if (s.art === 'network') {
-    const R = Math.min(w, h) * 0.36;
-    const nodes = [];
-    for (let i = 0; i < 14; i++) {
-      const a = (i / 14) * Math.PI * 2;
-      const rr2 = R * (0.5 + ((i * 37) % 10) / 20);
-      nodes.push([cx + Math.cos(a) * rr2, cy + Math.sin(a) * rr2 * 0.92]);
-    }
-    ctx.globalAlpha = 0.35;
-    nodes.forEach(([ax, ay], i) => {
-      nodes.forEach(([bx, by], j) => {
-        if (j <= i || (i + j) % 3) return;
-        ctx.beginPath();
-        ctx.moveTo(ax, ay);
-        ctx.lineTo(bx, by);
-        ctx.stroke();
-      });
-    });
-    ctx.globalAlpha = 1;
-    nodes.forEach(([ax, ay], i) => {
-      ctx.fillStyle = i % 4 === 0 ? c.warm : c.neon;
-      ctx.beginPath();
-      ctx.arc(ax, ay, i % 4 === 0 ? 7 : 4.5, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    ctx.strokeStyle = c.neon;
-    ctx.globalAlpha = 0.5;
-    [R * 1.15, R * 1.34].forEach((r) => {
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.stroke();
-    });
-    ctx.globalAlpha = 1;
-  }
-
-  if (s.art === 'wireframe') {
-    [0, 1, 2].forEach((k) => {
-      const px = 18 + k * (w / 3.2);
-      const py = 16 + k * 22;
-      const pw = w / 3.4;
-      const ph = h - 90 - k * 20;
-      ctx.globalAlpha = 1 - k * 0.24;
-      ctx.strokeRect(px, py, pw, ph);
-      ctx.fillRect(px + 16, py + 22, pw - 60, 12);
-      ctx.globalAlpha = (1 - k * 0.24) * 0.5;
-      ctx.fillRect(px + 16, py + 48, pw * 0.55, 8);
-      ctx.fillRect(px + 16, py + 66, pw * 0.4, 8);
-      ctx.globalAlpha = (1 - k * 0.24) * 0.2;
-      ctx.fillRect(px + 16, py + 92, pw - 32, ph - 130);
-    });
-    ctx.globalAlpha = 1;
-  }
-
-  if (s.art === 'audit') {
-    const bars = [0.42, 0.68, 0.5, 0.86, 0.58, 0.74, 0.46, 0.62];
-    const bw = (w - 40) / bars.length - 14;
-    bars.forEach((v, i) => {
-      const px = 20 + i * ((w - 40) / bars.length);
-      ctx.globalAlpha = 0.16;
-      ctx.fillRect(px, 20, bw, h - 80);
-      ctx.globalAlpha = 0.95;
-      ctx.fillStyle = v > 0.7 ? c.warm : c.neon;
-      ctx.fillRect(px, 20 + (h - 80) * (1 - v), bw, (h - 80) * v);
-    });
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = c.neon;
-    ctx.strokeStyle = c.warm;
-    ctx.setLineDash([12, 9]);
-    ctx.beginPath();
-    ctx.moveTo(14, 20 + (h - 80) * 0.28);
-    ctx.lineTo(w - 14, 20 + (h - 80) * 0.28);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.font = '600 17px "JetBrains Mono", monospace';
-    ctx.fillStyle = c.warm;
-    ctx.fillText('THRESHOLD', 16, 20 + (h - 80) * 0.28 - 10);
-  }
-
-  if (s.art === 'shield') {
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy - h * 0.36);
-    ctx.lineTo(cx + w * 0.17, cy - h * 0.22);
-    ctx.lineTo(cx + w * 0.17, cy + h * 0.06);
-    ctx.quadraticCurveTo(cx + w * 0.17, cy + h * 0.32, cx, cy + h * 0.42);
-    ctx.quadraticCurveTo(cx - w * 0.17, cy + h * 0.32, cx - w * 0.17, cy + h * 0.06);
-    ctx.lineTo(cx - w * 0.17, cy - h * 0.22);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.globalAlpha = 0.12;
-    ctx.fill();
-    ctx.globalAlpha = 1;
-    ctx.lineWidth = 7;
-    ctx.beginPath();
-    ctx.moveTo(cx - w * 0.07, cy + h * 0.03);
-    ctx.lineTo(cx - w * 0.02, cy + h * 0.14);
-    ctx.lineTo(cx + w * 0.09, cy - h * 0.12);
-    ctx.stroke();
-    ctx.lineWidth = 2;
-    [0.5, 0.66, 0.82].forEach((r, i) => {
-      ctx.globalAlpha = 0.4 - i * 0.11;
-      ctx.beginPath();
-      ctx.ellipse(cx, cy + h * 0.03, w * r * 0.4, h * r * 0.52, 0, 0, Math.PI * 2);
-      ctx.stroke();
-    });
-    ctx.globalAlpha = 1;
-  }
-
-  if (s.art === 'cloud') {
-    // three provider bays feeding one orchestration hub
-    const names = ['AWS', 'AZURE', 'GCP'];
-    const bw = w / 3.6;
-    names.forEach((n, i) => {
-      const px = 14 + i * (w / 3.15);
-      ctx.globalAlpha = 0.14;
-      rr(ctx, px, 12, bw, 76, 10);
-      ctx.fill();
-      ctx.globalAlpha = 1;
-      rr(ctx, px, 12, bw, 76, 10);
-      ctx.stroke();
-      ctx.font = '700 30px "JetBrains Mono", monospace';
-      ctx.fillStyle = c.neon;
-      ctx.textAlign = 'center';
-      ctx.fillText(n, px + bw / 2, 60);
-      ctx.textAlign = 'left';
-      // feed line down to the hub
-      ctx.globalAlpha = 0.55;
-      ctx.beginPath();
-      ctx.moveTo(px + bw / 2, 92);
-      ctx.lineTo(px + bw / 2, 128);
-      ctx.lineTo(cx, 150);
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-    });
-    ctx.globalAlpha = 0.16;
-    rr(ctx, cx - w * 0.22, 154, w * 0.44, 62, 10);
-    ctx.fill();
-    ctx.globalAlpha = 1;
-    rr(ctx, cx - w * 0.22, 154, w * 0.44, 62, 10);
-    ctx.stroke();
-    ctx.font = '700 24px "JetBrains Mono", monospace';
-    ctx.fillStyle = c.warm;
-    ctx.textAlign = 'center';
-    ctx.fillText('KUBERNETES · TERRAFORM', cx, 193);
-    ctx.textAlign = 'left';
-  }
-
-  if (s.art === 'roadmap') {
-    const stops = ['ASSESS', 'DESIGN', 'ADOPT', 'SCALE'];
-    const y0 = h - 44;
-    ctx.globalAlpha = 0.45;
-    ctx.beginPath();
-    ctx.moveTo(16, y0);
-    ctx.lineTo(w - 16, y0);
-    ctx.stroke();
-    ctx.globalAlpha = 1;
-    stops.forEach((st, i) => {
-      const px = 46 + i * ((w - 92) / (stops.length - 1));
-      const py = y0 - 34 - i * 34;
-      ctx.fillStyle = i === stops.length - 1 ? c.warm : c.neon;
-      ctx.beginPath();
-      ctx.arc(px, y0, 9, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = c.neon;
-      ctx.beginPath();
-      ctx.moveTo(px, y0 - 9);
-      ctx.lineTo(px, py + 14);
-      ctx.stroke();
-      ctx.globalAlpha = 0.16;
-      rr(ctx, px - 62, py - 22, 124, 38, 8);
-      ctx.fill();
-      ctx.globalAlpha = 1;
-      rr(ctx, px - 62, py - 22, 124, 38, 8);
-      ctx.stroke();
-      ctx.font = '700 18px "JetBrains Mono", monospace';
-      ctx.fillStyle = c.ink;
-      ctx.textAlign = 'center';
-      ctx.fillText(st, px, py + 3);
-      ctx.textAlign = 'left';
-    });
-  }
-
-  ctx.restore();
+  ctx.fillText(label, x + 13, y + 1);
+  return w + 10;
 }
 
-function screenTexture(s, mode) {
-  const c = P[mode].scr;
-  return makeTexture(SW, SH, (ctx, w, h) => {
-    // ground
-    ctx.fillStyle = c.bg;
-    ctx.fillRect(0, 0, w, h);
+function panel(ctx, c, x, y, w, h, title) {
+  ctx.fillStyle = c.panel;
+  rr(ctx, x, y, w, h, 12);
+  ctx.fill();
+  ctx.strokeStyle = c.edge;
+  ctx.lineWidth = 1.6;
+  rr(ctx, x, y, w, h, 12);
+  ctx.stroke();
+  if (title) {
+    ctx.fillStyle = c.dim;
+    ctx.font = '700 13px "JetBrains Mono", monospace';
+    ctx.fillText(title, x + 16, y + 20);
+  }
+}
 
-    // faint grid
-    ctx.strokeStyle = c.grid;
-    ctx.lineWidth = 1;
-    for (let x = 0; x < w; x += 38) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, h);
-      ctx.stroke();
-    }
-    for (let y = 0; y < h; y += 38) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(w, y);
-      ctx.stroke();
-    }
+// -----------------------------------------------------
+// PER-DOMAIN PAGE MOCKS
+// -----------------------------------------------------
 
-    ctx.textBaseline = 'middle';
+const PAGES = {
+  // Overview — a services index
+  overview(ctx, c, x, y, w, h) {
+    ctx.fillStyle = c.ink;
+    ctx.font = '800 58px "Outfit", sans-serif';
+    ctx.fillText('Technology Consulting', x, y + 46);
+    ctx.fillStyle = c.neon;
+    ctx.font = '600 24px "Outfit", sans-serif';
+    ctx.fillText('Advisory · Build · Managed services for financial institutions', x, y + 92);
 
-    // ---- window chrome ----
-    ctx.fillStyle = c.panel;
-    ctx.fillRect(0, 0, w, 58);
-    ctx.strokeStyle = c.edge;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(0, 58);
-    ctx.lineTo(w, 58);
-    ctx.stroke();
-    [0, 1, 2].forEach((i) => {
-      ctx.fillStyle = i === 0 ? c.warm : c.neon;
+    const cards = [
+      ['UI / UX', 'Research → design system'],
+      ['AUDITS', 'Code, infra, performance'],
+      ['SECURITY', 'Zero-trust, SOC 2, ISO'],
+      ['CLOUD', 'AWS · Azure · GCP'],
+      ['TRANSFORM', 'Roadmap → platform'],
+      ['DATA', 'Lakehouse, MLOps'],
+    ];
+    const cw = (w - 40) / 3;
+    const ch = 108;
+    cards.forEach(([t, d], i) => {
+      const px = x + (i % 3) * (cw + 20);
+      const py = y + 132 + Math.floor(i / 3) * (ch + 18);
+      panel(ctx, c, px, py, cw, ch);
+      ctx.fillStyle = c.neon;
+      ctx.font = '700 24px "Outfit", sans-serif';
+      ctx.fillText(t, px + 18, py + 42);
+      ctx.fillStyle = c.dim;
+      ctx.font = '400 17px Inter, sans-serif';
+      ctx.fillText(d, px + 18, py + 74);
+    });
+
+    // engagement bar
+    const by = y + 132 + 2 * (ch + 18) + 12;
+    panel(ctx, c, x, by, w, 92, 'ENGAGEMENT MODEL');
+    ['DISCOVERY', 'ARCHITECTURE', 'BUILD', 'HARDENING', 'RUN'].forEach((st, i) => {
+      const px = x + 24 + i * ((w - 60) / 5);
+      ctx.fillStyle = i < 3 ? c.neon : c.edge;
       ctx.beginPath();
-      ctx.arc(34 + i * 26, 29, 7, 0, Math.PI * 2);
+      ctx.arc(px + 8, by + 60, 9, 0, Math.PI * 2);
       ctx.fill();
+      if (i < 4) {
+        ctx.strokeStyle = c.edge;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(px + 20, by + 60);
+        ctx.lineTo(px + (w - 60) / 5 - 4, by + 60);
+        ctx.stroke();
+      }
+      ctx.fillStyle = c.dim;
+      ctx.font = '600 13px "JetBrains Mono", monospace';
+      ctx.fillText(st, px, by + 88);
+    });
+  },
+
+  // UI/UX — a design tool workspace
+  uiux(ctx, c, x, y, w, h) {
+    const railW = 200;
+    // layers rail
+    panel(ctx, c, x, y, railW, h - 120, 'LAYERS');
+    ['Frame / Dashboard', 'Nav / Sidebar', 'Card / Portfolio', 'Chart / AUM', 'Table / Holdings', 'Modal / KYC', 'Token / Colour', 'Token / Type']
+      .forEach((l, i) => {
+        ctx.fillStyle = i === 2 ? c.neon : c.dim;
+        ctx.font = '400 14px Inter, sans-serif';
+        ctx.fillText(l, x + 16, y + 52 + i * 30);
+      });
+
+    // artboards
+    const ax = x + railW + 22;
+    const aw = w - railW - 260;
+    panel(ctx, c, ax, y, aw, h - 120, 'ARTBOARDS — 1440 / 768 / 375');
+    [0, 1, 2].forEach((k) => {
+      const bw = (aw - 80) / 3;
+      const bx = ax + 20 + k * (bw + 20);
+      const by = y + 46;
+      const bh = h - 200;
+      ctx.strokeStyle = c.edge;
+      ctx.lineWidth = 2;
+      ctx.strokeRect(bx, by, bw, bh);
+      ctx.fillStyle = c.neon;
+      ctx.globalAlpha = 0.85;
+      ctx.fillRect(bx, by, bw, 24);
+      ctx.globalAlpha = 0.32;
+      ctx.fillRect(bx + 14, by + 44, bw - 28, 46);
+      ctx.globalAlpha = 0.18;
+      ctx.fillRect(bx + 14, by + 104, bw * 0.52, 14);
+      ctx.fillRect(bx + 14, by + 126, bw * 0.4, 14);
+      ctx.fillRect(bx + 14, by + 160, bw - 28, bh - 200);
+      ctx.globalAlpha = 1;
+      // selection handles on the middle artboard
+      if (k === 1) {
+        ctx.strokeStyle = c.warm;
+        ctx.lineWidth = 2.5;
+        ctx.strokeRect(bx + 10, by + 40, bw - 20, 54);
+        [[bx + 10, by + 40], [bx + bw - 10, by + 40], [bx + 10, by + 94], [bx + bw - 10, by + 94]]
+          .forEach(([hx, hy]) => {
+            ctx.fillStyle = c.warm;
+            ctx.fillRect(hx - 4, hy - 4, 8, 8);
+          });
+      }
+    });
+
+    // tokens rail
+    const tx = ax + aw + 22;
+    panel(ctx, c, tx, y, w - (tx - x), h - 120, 'DESIGN TOKENS');
+    ['#0E7C8B', '#35D6FF', '#0B2430', '#F2913F', '#E8F6FA'].forEach((hex, i) => {
+      ctx.fillStyle = hex;
+      rr(ctx, tx + 16, y + 44 + i * 40, 30, 30, 7);
+      ctx.fill();
+      ctx.fillStyle = c.dim;
+      ctx.font = '500 13px "JetBrains Mono", monospace';
+      ctx.fillText(hex, tx + 56, y + 62 + i * 40);
     });
     ctx.fillStyle = c.dim;
-    ctx.font = '600 19px "JetBrains Mono", monospace';
-    ctx.fillText(s.kicker, 122, 30);
-    ctx.textAlign = 'right';
+    ctx.font = '700 13px "JetBrains Mono", monospace';
+    ctx.fillText('TYPE SCALE', tx + 16, y + 262);
+    ['48 / 32 / 24', '18 / 16 / 14'].forEach((t, i) => {
+      ctx.fillStyle = c.neon;
+      ctx.font = '400 16px Inter, sans-serif';
+      ctx.fillText(t, tx + 16, y + 292 + i * 26);
+    });
+
+    let cx2 = x;
+    ['FIGMA', 'REACT', 'TYPESCRIPT', 'STORYBOOK', 'WCAG 2.2', 'TOKENS STUDIO'].forEach((t) => {
+      cx2 += chip(ctx, c, cx2, h - 66, t);
+    });
+  },
+
+  // Audits — a scan report
+  audit(ctx, c, x, y, w, h) {
+    const colW = w * 0.56;
+    panel(ctx, c, x, y, colW, h - 120, 'FINDINGS — SEVERITY RANKED');
+    const rows = [
+      ['CRITICAL', 'CVE-2025-4188 · transitive dep', 9.8],
+      ['HIGH', 'Missing rate limit on /auth', 8.1],
+      ['HIGH', 'Secrets in CI environment', 7.9],
+      ['MEDIUM', 'N+1 query on holdings view', 6.2],
+      ['MEDIUM', 'TLS 1.1 still negotiated', 5.4],
+      ['LOW', 'Verbose error responses', 3.1],
+    ];
+    rows.forEach(([sev, txt, score], i) => {
+      const ry = y + 52 + i * 46;
+      const col = sev === 'CRITICAL' ? '#ff5a5a' : sev === 'HIGH' ? c.warm : c.neon;
+      ctx.fillStyle = col;
+      rr(ctx, x + 16, ry, 6, 30, 3);
+      ctx.fill();
+      ctx.font = '700 13px "JetBrains Mono", monospace';
+      ctx.fillText(sev, x + 34, ry + 18);
+      ctx.fillStyle = c.ink;
+      ctx.font = '400 16px Inter, sans-serif';
+      ctx.fillText(txt, x + 132, ry + 18);
+      ctx.fillStyle = c.dim;
+      ctx.font = '600 15px "JetBrains Mono", monospace';
+      ctx.fillText(String(score), x + colW - 56, ry + 18);
+    });
+
+    // coverage + latency
+    const rx = x + colW + 24;
+    const rw = w - colW - 24;
+    panel(ctx, c, rx, y, rw, 176, 'COVERAGE');
+    [['SAST', 0.94], ['DAST', 0.81], ['DEPENDENCIES', 0.97], ['IaC / CIS', 0.72]].forEach(([lab, v], i) => {
+      const py = y + 56 + i * 30;
+      ctx.fillStyle = c.dim;
+      ctx.font = '500 13px "JetBrains Mono", monospace';
+      ctx.fillText(lab, rx + 16, py);
+      ctx.fillStyle = c.edge;
+      rr(ctx, rx + 150, py - 8, rw - 210, 12, 6);
+      ctx.fill();
+      ctx.fillStyle = c.neon;
+      rr(ctx, rx + 150, py - 8, (rw - 210) * v, 12, 6);
+      ctx.fill();
+      ctx.fillStyle = c.neon;
+      ctx.fillText(Math.round(v * 100) + '%', rx + rw - 48, py);
+    });
+
+    panel(ctx, c, rx, y + 194, rw, h - 314, 'LOAD PROFILE — k6');
+    const gx = rx + 18;
+    const gw = rw - 36;
+    const gy = y + 194 + (h - 314) - 30;
+    const gh = h - 314 - 70;
+    ctx.strokeStyle = c.neon;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    [0.2, 0.34, 0.3, 0.52, 0.48, 0.7, 0.62, 0.86].forEach((v, i, arr) => {
+      const px = gx + (i / (arr.length - 1)) * gw;
+      const py = gy - v * gh;
+      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+    });
+    ctx.stroke();
+    ctx.fillStyle = c.dim;
+    ctx.font = '500 13px "JetBrains Mono", monospace';
+    ctx.fillText('p95 latency vs virtual users', gx, gy + 20);
+
+    let cx2 = x;
+    ['OWASP TOP 10', 'SAST / DAST', 'SONARQUBE', 'TRIVY', 'k6', 'CIS BENCHMARKS'].forEach((t) => {
+      cx2 += chip(ctx, c, cx2, h - 66, t);
+    });
+  },
+
+  // Security — a SOC console
+  security(ctx, c, x, y, w, h) {
+    const mapW = w * 0.54;
+    panel(ctx, c, x, y, mapW, h - 260, 'THREAT MAP — LIVE');
+    // dotted world + attack arcs
     ctx.fillStyle = c.neon;
-    ctx.fillText('● ONLINE', w - 34, 30);
+    for (let px = 0; px < mapW - 40; px += 11) {
+      for (let py = 0; py < h - 330; py += 11) {
+        const nx = px / (mapW - 40);
+        const ny = py / (h - 330);
+        const land = Math.sin(nx * 9 + ny * 3) * Math.cos(ny * 7 - nx * 2) + Math.sin(nx * 17 + 1.4) * 0.4;
+        if (land > 0.34) {
+          ctx.globalAlpha = 0.18 + (land - 0.34) * 0.6;
+          ctx.fillRect(x + 22 + px, y + 44 + py, 4, 4);
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+    [[0.24, 0.34, 0.68, 0.6], [0.6, 0.28, 0.36, 0.72]].forEach(([ax, ay, bx, by]) => {
+      const p0 = [x + 22 + ax * (mapW - 44), y + 44 + ay * (h - 330)];
+      const p1 = [x + 22 + bx * (mapW - 44), y + 44 + by * (h - 330)];
+      ctx.strokeStyle = c.warm;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(p0[0], p0[1]);
+      ctx.quadraticCurveTo((p0[0] + p1[0]) / 2, Math.min(p0[1], p1[1]) - 60, p1[0], p1[1]);
+      ctx.stroke();
+      [p0, p1].forEach(([cx3, cy3]) => {
+        ctx.fillStyle = c.warm;
+        ctx.beginPath();
+        ctx.arc(cx3, cy3, 6, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    });
+
+    // alert feed
+    const rx = x + mapW + 24;
+    const rw = w - mapW - 24;
+    panel(ctx, c, rx, y, rw, h - 260, 'ALERT FEED');
+    [
+      ['12:04:11', 'Impossible travel — user 8842', 'HIGH'],
+      ['12:03:47', 'Brute force blocked · 214 attempts', 'MED'],
+      ['12:01:02', 'New device enrolled (MFA)', 'INFO'],
+      ['11:58:20', 'Privilege escalation attempt', 'HIGH'],
+      ['11:55:09', 'TLS cert expiring in 14d', 'MED'],
+      ['11:51:44', 'Anomalous egress to 45.**.**.7', 'HIGH'],
+    ].forEach(([t, msg, sev], i) => {
+      const py = y + 56 + i * 40;
+      ctx.fillStyle = c.dim;
+      ctx.font = '500 13px "JetBrains Mono", monospace';
+      ctx.fillText(t, rx + 16, py);
+      ctx.fillStyle = c.ink;
+      ctx.font = '400 15px Inter, sans-serif';
+      ctx.fillText(msg, rx + 104, py);
+      ctx.fillStyle = sev === 'HIGH' ? '#ff5a5a' : sev === 'MED' ? c.warm : c.neon;
+      ctx.font = '700 12px "JetBrains Mono", monospace';
+      ctx.fillText(sev, rx + rw - 56, py);
+    });
+
+    // compliance badges
+    const by = y + h - 246;
+    ['ISO 27001', 'SOC 2 TYPE II', 'PCI DSS', 'RBI / SEBI', 'GDPR'].forEach((b, i) => {
+      const bw = (w - 4 * 14) / 5;
+      const bx = x + i * (bw + 14);
+      panel(ctx, c, bx, by, bw, 82);
+      ctx.fillStyle = c.neon;
+      ctx.font = '700 18px "Outfit", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(b, bx + bw / 2, by + 38);
+      ctx.fillStyle = c.dim;
+      ctx.font = '500 12px "JetBrains Mono", monospace';
+      ctx.fillText('ALIGNED', bx + bw / 2, by + 62);
+      ctx.textAlign = 'left';
+    });
+
+    let cx2 = x;
+    ['ZERO TRUST', 'SIEM / SOAR', 'IAM · MFA', 'EDR', 'PEN TESTING', 'KMS / HSM'].forEach((t) => {
+      cx2 += chip(ctx, c, cx2, h - 66, t);
+    });
+  },
+
+  // Cloud — a multi-cloud architecture board
+  cloud(ctx, c, x, y, w, h) {
+    const providers = [
+      ['AWS', ['EC2 · EKS', 'S3 · RDS', 'Lambda', 'CloudFront']],
+      ['MICROSOFT AZURE', ['AKS · VMSS', 'Blob · SQL DB', 'Functions', 'Front Door']],
+      ['GOOGLE CLOUD', ['GKE · GCE', 'BigQuery · GCS', 'Cloud Run', 'Cloud CDN']],
+    ];
+    const cw = (w - 48) / 3;
+    providers.forEach(([name, items], i) => {
+      const px = x + i * (cw + 24);
+      panel(ctx, c, px, y, cw, 232, null);
+      // provider header band
+      ctx.fillStyle = c.neon;
+      ctx.globalAlpha = 0.16;
+      rr(ctx, px, y, cw, 52, 12);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = c.neon;
+      ctx.font = '700 22px "Outfit", sans-serif';
+      ctx.fillText(name, px + 18, y + 32);
+      items.forEach((it, k) => {
+        ctx.fillStyle = c.edge;
+        rr(ctx, px + 18, y + 70 + k * 38, cw - 36, 30, 7);
+        ctx.fill();
+        ctx.fillStyle = c.ink;
+        ctx.font = '500 15px "JetBrains Mono", monospace';
+        ctx.fillText(it, px + 30, y + 90 + k * 38);
+      });
+      // link down to the platform layer
+      ctx.strokeStyle = c.edge;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(px + cw / 2, y + 232);
+      ctx.lineTo(px + cw / 2, y + 268);
+      ctx.lineTo(x + w / 2, y + 292);
+      ctx.stroke();
+    });
+
+    // platform layer
+    panel(ctx, c, x + w * 0.16, y + 292, w * 0.68, 78);
+    ctx.fillStyle = c.warm;
+    ctx.font = '700 24px "Outfit", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('KUBERNETES  ·  TERRAFORM  ·  ARGO CD', x + w / 2, y + 326);
+    ctx.fillStyle = c.dim;
+    ctx.font = '500 14px "JetBrains Mono", monospace';
+    ctx.fillText('one control plane across all three providers', x + w / 2, y + 354);
     ctx.textAlign = 'left';
 
-    // ---- headline ----
-    const M = 56;
-    let y = 116;
-    ctx.fillStyle = c.ink;
-    ctx.font = '800 62px "Outfit", sans-serif';
-    ctx.fillText(s.title, M, y);
-
-    y += 52;
-    ctx.fillStyle = c.neon;
-    ctx.font = '600 27px "Outfit", sans-serif';
-    ctx.fillText(s.sub, M, y);
-
-    // accent rule
-    y += 34;
-    const g = ctx.createLinearGradient(M, 0, M + 320, 0);
-    g.addColorStop(0, c.neon);
-    g.addColorStop(1, 'transparent');
-    ctx.fillStyle = g;
-    ctx.fillRect(M, y, 320, 4);
-
-    // ---- left column: description + rows ----
-    const colW = w * 0.46;
-    y += 42;
-    ctx.fillStyle = c.dim;
-    ctx.font = '400 23px Inter, sans-serif';
-    y = wrap(ctx, s.desc, M, y, colW, 34);
-
-    y += 18;
-    s.rows.forEach(([k, v]) => {
-      ctx.fillStyle = c.panel;
-      rr(ctx, M, y - 20, colW, 44, 8);
-      ctx.fill();
-      ctx.fillStyle = c.neon;
-      ctx.font = '700 15px "JetBrains Mono", monospace';
-      ctx.fillText(k, M + 16, y + 2);
-      ctx.fillStyle = c.ink;
-      ctx.font = '400 17px Inter, sans-serif';
-      ctx.fillText(v, M + 150, y + 2);
-      y += 54;
-    });
-
-    // ---- right column: diagram ----
-    const dx = M + colW + 46;
-    const dw = w - dx - M;
-    const dy = 176;
-    const dh = 384;
-    ctx.strokeStyle = c.edge;
-    ctx.lineWidth = 2;
-    rr(ctx, dx, dy, dw, dh, 12);
-    ctx.stroke();
-    drawDiagram(ctx, s, c, dx, dy, dw, dh);
-
-    // ---- tech stack chips ----
-    let cxp = dx;
-    let cyp = dy + dh + 44;
-    ctx.font = '700 16px "JetBrains Mono", monospace';
-    s.stack.forEach((chip) => {
-      const tw = ctx.measureText(chip).width + 30;
-      if (cxp + tw > w - M) {
-        cxp = dx;
-        cyp += 44;
-      }
-      ctx.fillStyle = c.panel;
-      rr(ctx, cxp, cyp - 17, tw, 34, 17);
-      ctx.fill();
-      ctx.strokeStyle = c.edge;
-      ctx.lineWidth = 1.5;
-      rr(ctx, cxp, cyp - 17, tw, 34, 17);
-      ctx.stroke();
-      ctx.fillStyle = c.neon;
-      ctx.fillText(chip, cxp + 15, cyp + 1);
-      cxp += tw + 12;
-    });
-
-    // ---- stats strip ----
-    if (s.stats) {
-      const sy = h - 168;
-      const sw = (colW - 24) / 3;
-      s.stats.forEach(([big, small], i) => {
-        const sx = M + i * (sw + 12);
-        ctx.fillStyle = c.panel;
-        rr(ctx, sx, sy, sw, 78, 10);
-        ctx.fill();
-        ctx.strokeStyle = c.edge;
-        ctx.lineWidth = 1.5;
-        rr(ctx, sx, sy, sw, 78, 10);
-        ctx.stroke();
-        ctx.fillStyle = c.neon;
-        ctx.font = '700 22px "Outfit", sans-serif';
-        ctx.fillText(big, sx + 14, sy + 28);
+    // review scorecard
+    const by = y + 392;
+    [['WELL-ARCHITECTED', 0.86], ['COST / FINOPS', 0.71], ['RESILIENCE · MULTI-AZ', 0.93], ['IaC DRIFT', 0.64]]
+      .forEach(([lab, v], i) => {
+        const bw = (w - 3 * 16) / 4;
+        const bx = x + i * (bw + 16);
+        panel(ctx, c, bx, by, bw, 92);
         ctx.fillStyle = c.dim;
         ctx.font = '600 12px "JetBrains Mono", monospace';
-        ctx.fillText(small, sx + 14, sy + 55);
+        ctx.fillText(lab, bx + 14, by + 26);
+        ctx.fillStyle = c.edge;
+        rr(ctx, bx + 14, by + 44, bw - 28, 12, 6);
+        ctx.fill();
+        ctx.fillStyle = v > 0.8 ? c.neon : c.warm;
+        rr(ctx, bx + 14, by + 44, (bw - 28) * v, 12, 6);
+        ctx.fill();
+        ctx.fillStyle = c.ink;
+        ctx.font = '700 22px "Outfit", sans-serif';
+        ctx.fillText(Math.round(v * 100) + '%', bx + 14, by + 80);
       });
+
+    let cx2 = x;
+    ['AWS', 'AZURE', 'GCP', 'KUBERNETES', 'TERRAFORM', 'FINOPS'].forEach((t) => {
+      cx2 += chip(ctx, c, cx2, h - 66, t);
+    });
+  },
+
+  // Transformation — roadmap + delivery pipeline
+  transform(ctx, c, x, y, w, h) {
+    panel(ctx, c, x, y, w, 250, 'TRANSFORMATION ROADMAP');
+    const cols = [
+      ['Q1 · ASSESS', ['Legacy inventory', 'Capability gaps', 'Data lineage']],
+      ['Q2 · DESIGN', ['Target architecture', 'Migration waves', 'API contracts']],
+      ['Q3 · ADOPT', ['Platform team', 'CI/CD rollout', 'Pilot migration']],
+      ['Q4 · SCALE', ['Event backbone', 'Data lakehouse', 'MLOps enablement']],
+    ];
+    const cw = (w - 60) / 4;
+    cols.forEach(([t, items], i) => {
+      const px = x + 18 + i * (cw + 14);
+      ctx.fillStyle = i < 2 ? c.neon : c.edge;
+      rr(ctx, px, y + 44, cw, 6, 3);
+      ctx.fill();
+      ctx.fillStyle = i < 2 ? c.neon : c.dim;
+      ctx.font = '700 16px "JetBrains Mono", monospace';
+      ctx.fillText(t, px, y + 78);
+      items.forEach((it, k) => {
+        ctx.fillStyle = c.panel;
+        rr(ctx, px, y + 96 + k * 44, cw, 36, 8);
+        ctx.fill();
+        ctx.strokeStyle = c.edge;
+        ctx.lineWidth = 1.2;
+        rr(ctx, px, y + 96 + k * 44, cw, 36, 8);
+        ctx.stroke();
+        ctx.fillStyle = c.ink;
+        ctx.font = '400 15px Inter, sans-serif';
+        ctx.fillText(it, px + 12, y + 118 + k * 44);
+      });
+    });
+
+    // pipeline
+    const py = y + 274;
+    panel(ctx, c, x, py, w, 108, 'DELIVERY PIPELINE');
+    const stages = ['COMMIT', 'BUILD', 'TEST', 'SCAN', 'STAGE', 'DEPLOY'];
+    stages.forEach((st, i) => {
+      const px = x + 30 + i * ((w - 80) / stages.length);
+      const done = i < 4;
+      ctx.fillStyle = done ? c.neon : c.edge;
+      rr(ctx, px, py + 52, (w - 80) / stages.length - 18, 30, 8);
+      ctx.fill();
+      ctx.fillStyle = done ? (c.bg || '#04141a') : c.dim;
+      ctx.font = '700 13px "JetBrains Mono", monospace';
+      ctx.fillText(st, px + 14, py + 72);
+    });
+
+    // metric tiles
+    const my = py + 126;
+    [['DEPLOY FREQ', 'daily'], ['LEAD TIME', '< 1 day'], ['CHANGE FAIL', '4.2%'], ['MTTR', '38 min']]
+      .forEach(([lab, val], i) => {
+        const bw = (w - 3 * 16) / 4;
+        const bx = x + i * (bw + 16);
+        panel(ctx, c, bx, my, bw, 92);
+        ctx.fillStyle = c.dim;
+        ctx.font = '600 12px "JetBrains Mono", monospace';
+        ctx.fillText(lab, bx + 14, my + 26);
+        ctx.fillStyle = c.neon;
+        ctx.font = '700 30px "Outfit", sans-serif';
+        ctx.fillText(val, bx + 14, my + 66);
+      });
+
+    let cx2 = x;
+    ['MICROSERVICES', 'EVENT-DRIVEN', 'CI / CD', 'DATA LAKEHOUSE', 'API-FIRST', 'MLOps'].forEach((t) => {
+      cx2 += chip(ctx, c, cx2, h - 66, t);
+    });
+  },
+};
+
+// -----------------------------------------------------
+// THE BROWSER WINDOW
+// -----------------------------------------------------
+
+function screenTexture(active, mode) {
+  const c = P[mode].scr;
+  const s = SERVICES[active];
+
+  return makeTexture(SW, SH, (ctx, w, h) => {
+    ctx.textBaseline = 'middle';
+
+    // ---- window shell ----
+    ctx.fillStyle = mode === 'dark' ? '#0a1c24' : '#dfeef4';
+    ctx.fillRect(0, 0, w, TOP);
+    ctx.fillStyle = c.bg;
+    ctx.fillRect(0, TOP, w, h - TOP);
+
+    // faint content grid
+    ctx.strokeStyle = c.grid;
+    ctx.lineWidth = 1;
+    for (let gx = 0; gx < w; gx += 44) {
+      ctx.beginPath();
+      ctx.moveTo(gx, TOP);
+      ctx.lineTo(gx, h);
+      ctx.stroke();
+    }
+    for (let gy = TOP; gy < h; gy += 44) {
+      ctx.beginPath();
+      ctx.moveTo(0, gy);
+      ctx.lineTo(w, gy);
+      ctx.stroke();
     }
 
-    // ---- footer ----
-    ctx.fillStyle = c.panel;
-    ctx.fillRect(0, h - 62, w, 62);
+    // ---- traffic lights ----
+    ['#ff5f57', '#febc2e', '#28c840'].forEach((col, i) => {
+      ctx.fillStyle = col;
+      ctx.beginPath();
+      ctx.arc(30 + i * 24, BAR / 2, 8, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.fillStyle = c.dim;
+    ctx.font = '600 15px "JetBrains Mono", monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText('FINLABS CONSOLE', w - 26, BAR / 2);
+    ctx.textAlign = 'left';
+
+    // ---- tab strip: one tab per service ----
+    const tabPad = 12;
+    const stripW = w - tabPad * 2;
+    const tabW = stripW / SERVICES.length;
+    SERVICES.forEach((sv, i) => {
+      const tx = tabPad + i * tabW;
+      const ty = BAR + 6;
+      const th = TABH - 6;
+      const on = i === active;
+
+      ctx.fillStyle = on ? c.bg : mode === 'dark' ? 'rgba(255,255,255,0.045)' : 'rgba(0,40,60,0.05)';
+      rr(ctx, tx + 2, ty, tabW - 6, th, 10);
+      ctx.fill();
+      if (on) {
+        ctx.strokeStyle = c.neon;
+        ctx.lineWidth = 2;
+        rr(ctx, tx + 2, ty, tabW - 6, th, 10);
+        ctx.stroke();
+        // active underline
+        ctx.fillStyle = c.neon;
+        rr(ctx, tx + 12, ty + th - 5, tabW - 26, 4, 2);
+        ctx.fill();
+      }
+
+      // favicon dot
+      ctx.fillStyle = on ? c.neon : c.edge;
+      ctx.beginPath();
+      ctx.arc(tx + 22, ty + th / 2, 6, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = on ? c.ink : c.dim;
+      ctx.font = on
+        ? '700 15px "JetBrains Mono", monospace'
+        : '500 15px "JetBrains Mono", monospace';
+      let label = sv.tab;
+      while (ctx.measureText(label).width > tabW - 74 && label.length > 4) {
+        label = label.slice(0, -1);
+      }
+      ctx.fillText(label, tx + 38, ty + th / 2);
+
+      // close glyph
+      ctx.fillStyle = c.edge;
+      ctx.font = '400 16px "JetBrains Mono", monospace';
+      ctx.fillText('×', tx + tabW - 24, ty + th / 2);
+    });
+
+    // ---- address bar ----
+    const ay = BAR + TABH + 7;
+    ctx.fillStyle = mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,40,60,0.06)';
+    rr(ctx, 14, ay, w - 28, ADDR - 14, 16);
+    ctx.fill();
     ctx.strokeStyle = c.edge;
+    ctx.lineWidth = 1.2;
+    rr(ctx, 14, ay, w - 28, ADDR - 14, 16);
+    ctx.stroke();
+    // padlock
+    ctx.strokeStyle = c.neon;
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(0, h - 62);
-    ctx.lineTo(w, h - 62);
+    ctx.arc(40, ay + 12, 4.5, Math.PI, 0);
     ctx.stroke();
-
-    ctx.font = '600 18px "JetBrains Mono", monospace';
+    ctx.fillStyle = c.neon;
+    ctx.fillRect(35, ay + 12, 11, 9);
     ctx.fillStyle = c.dim;
-    ctx.fillText('SCROLL MOUSE FOR OTHER SERVICES', M, h - 31);
+    ctx.font = '500 15px "JetBrains Mono", monospace';
+    ctx.fillText(s.url, 60, ay + 16);
+    ctx.textAlign = 'right';
+    ctx.fillStyle = c.edge;
+    ctx.fillText('⟳    ☆    ⋯', w - 32, ay + 16);
+    ctx.textAlign = 'left';
 
-    // index dots
-    const total = SERVICES.length;
-    const idx = SERVICES.indexOf(s);
-    for (let i = 0; i < total; i++) {
-      const px = w - M - (total - 1 - i) * 26;
-      ctx.fillStyle = i === idx ? c.neon : c.edge;
-      ctx.beginPath();
-      ctx.arc(px, h - 31, i === idx ? 7 : 4, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    // ---- page content ----
+    const M = 44;
+    const px = M;
+    const py = TOP + 30;
+    const pw = w - M * 2;
+    const ph = h - py - 30;
+
+    // page heading strip
+    ctx.fillStyle = c.neon;
+    ctx.font = '700 14px "JetBrains Mono", monospace';
+    ctx.fillText(s.kicker, px, py + 8);
+    ctx.fillStyle = c.ink;
+    ctx.font = '800 40px "Outfit", sans-serif';
+    ctx.fillText(s.title, px, py + 46);
+    ctx.fillStyle = c.dim;
+    ctx.font = '400 19px Inter, sans-serif';
+    ctx.fillText(s.sub, px, py + 82);
+
+    // divider
+    ctx.fillStyle = c.edge;
+    ctx.fillRect(px, py + 106, pw, 1.5);
+
+    PAGES[s.page](ctx, c, px, py + 132, pw, ph - 132);
+
+    // ---- status bar ----
+    ctx.fillStyle = mode === 'dark' ? 'rgba(255,255,255,0.04)' : 'rgba(0,40,60,0.05)';
+    ctx.fillRect(0, h - 34, w, 34);
+    ctx.fillStyle = c.dim;
+    ctx.font = '500 13px "JetBrains Mono", monospace';
+    ctx.fillText('SCROLL MOUSE TO SWITCH TABS', 20, h - 17);
     ctx.textAlign = 'right';
     ctx.fillStyle = c.neon;
-    ctx.font = '700 18px "JetBrains Mono", monospace';
-    ctx.fillText(`${s.id} / 0${total - 1}`, w - M - total * 26 - 24, h - 31);
+    ctx.fillText(`TAB ${active + 1} / ${SERVICES.length}`, w - 20, h - 17);
     ctx.textAlign = 'left';
 
     // scanlines
-    ctx.fillStyle = mode === 'dark' ? 'rgba(0,12,18,0.20)' : 'rgba(30,90,110,0.07)';
+    ctx.fillStyle = mode === 'dark' ? 'rgba(0,12,18,0.16)' : 'rgba(30,90,110,0.05)';
     for (let yy = 0; yy < h; yy += 4) ctx.fillRect(0, yy, w, 2);
   });
 }
-
 // two screen layers so one can crossfade into the next
 const screenGeo = new THREE.PlaneGeometry(SCREEN_W, SCREEN_H);
 const screenA = new THREE.Mesh(
@@ -696,7 +882,7 @@ scene.add(screenA, screenB);
 let screenTextures = [];
 function buildScreens(mode) {
   screenTextures.forEach((t) => t.dispose());
-  screenTextures = SERVICES.map((s) => screenTexture(s, mode));
+  screenTextures = SERVICES.map((_, i) => screenTexture(i, mode));
   screenA.material.map = screenTextures[0];
   screenB.material.map = screenTextures[0];
   screenA.material.needsUpdate = true;
@@ -717,9 +903,101 @@ floor.position.set(0, FLOOR_Y, SCREEN_Z + 18);
 room.add(floor);
 
 const wallMat = tm(new THREE.MeshLambertMaterial({ color: P.dark.wall }), 'wall');
-const backWall = new THREE.Mesh(new THREE.PlaneGeometry(52, 30), wallMat);
+const bezelHousingMat = tm(new THREE.MeshLambertMaterial({ color: P.dark.metal }), 'metal');
+
+// The back wall gets a printed circuit pattern so neither theme reads as
+// a flat slab — it does most of the decorating work in light mode.
+function wallPatternTex(mode) {
+  const line = mode === 'dark' ? 'rgba(47,240,224,0.16)' : 'rgba(16,120,140,0.30)';
+  const dot = mode === 'dark' ? 'rgba(47,240,224,0.30)' : 'rgba(16,120,140,0.45)';
+  const base = mode === 'dark' ? '#171220' : '#c7dcef';
+  return makeTexture(512, 512, (ctx, w, h) => {
+    ctx.fillStyle = base;
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = line;
+    ctx.lineWidth = 3;
+    // right-angle traces
+    for (let i = 0; i < 9; i++) {
+      const y = 26 + i * 56;
+      const jog = 60 + ((i * 47) % 140);
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(jog, y);
+      ctx.lineTo(jog + 34, y + 34);
+      ctx.lineTo(w, y + 34);
+      ctx.stroke();
+    }
+    for (let i = 0; i < 7; i++) {
+      const x = 40 + i * 74;
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, 90 + ((i * 61) % 180));
+      ctx.stroke();
+    }
+    // pads
+    ctx.fillStyle = dot;
+    for (let i = 0; i < 46; i++) {
+      const x = (i * 97) % w;
+      const y = (i * 151) % h;
+      ctx.fillRect(x, y, 7, 7);
+    }
+  });
+}
+
+const WALL_TEX = { dark: wallPatternTex('dark'), light: wallPatternTex('light') };
+WALL_TEX.dark.wrapS = WALL_TEX.dark.wrapT = THREE.RepeatWrapping;
+WALL_TEX.light.wrapS = WALL_TEX.light.wrapT = THREE.RepeatWrapping;
+WALL_TEX.dark.repeat.set(4, 2.4);
+WALL_TEX.light.repeat.set(4, 2.4);
+
+const backWallMat = new THREE.MeshLambertMaterial({ map: WALL_TEX.dark });
+const backWall = new THREE.Mesh(new THREE.PlaneGeometry(52, 30), backWallMat);
 backWall.position.set(0, 6, SCREEN_Z - 2.6);
 room.add(backWall);
+
+// overhead light bars — they read as fixtures in light, as neon in dark
+const barMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+[-8.5, 0, 8.5].forEach((x) => {
+  const bar = new THREE.Mesh(rbox(5.2, 0.2, 0.8, 0.09), barMat);
+  bar.position.set(x, 13.4, SCREEN_Z + 9);
+  room.add(bar);
+  const housing = new THREE.Mesh(rbox(6.0, 0.34, 1.3, 0.14), bezelHousingMat);
+  housing.position.set(x, 13.62, SCREEN_Z + 9);
+  room.add(housing);
+});
+
+// framed accent panels either side of the monitor
+const artTex = (mode) =>
+  makeTexture(400, 300, (ctx, w, h) => {
+    const ink = mode === 'dark' ? '#2ff0e0' : '#0e7c8b';
+    ctx.fillStyle = mode === 'dark' ? 'rgba(10,28,36,0.9)' : 'rgba(255,255,255,0.92)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = ink;
+    ctx.lineWidth = 5;
+    ctx.strokeRect(3, 3, w - 6, h - 6);
+    ctx.strokeStyle = ink;
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    [0.18, 0.36, 0.28, 0.56, 0.5, 0.78].forEach((v, i, a) => {
+      const px = 34 + (i / (a.length - 1)) * (w - 68);
+      const py = h - 50 - v * (h - 110);
+      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+    });
+    ctx.stroke();
+    ctx.fillStyle = ink;
+    ctx.font = '700 22px "JetBrains Mono", monospace';
+    ctx.fillText('UPTIME 99.98%', 34, 44);
+  });
+
+const ART_TEX = { dark: artTex('dark'), light: artTex('light') };
+const artMats = [];
+[-1, 1].forEach((side) => {
+  const m = new THREE.MeshBasicMaterial({ map: ART_TEX.dark });
+  artMats.push(m);
+  const art = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 3.15), m);
+  art.position.set(side * 17.6, 10.2, SCREEN_Z - 2.3);
+  room.add(art);
+});
 
 [-1, 1].forEach((side) => {
   const w = new THREE.Mesh(new THREE.PlaneGeometry(46, 30), wallMat);
@@ -1042,6 +1320,14 @@ onTheme((mode) => {
   tealLight.intensity = mode === 'dark' ? 60 : 18;
   warmLight.intensity = mode === 'dark' ? 90 : 26;
   keyLight.intensity = mode === 'dark' ? 0.5 : 1.1;
+
+  backWallMat.map = WALL_TEX[mode];
+  backWallMat.needsUpdate = true;
+  artMats.forEach((m) => {
+    m.map = ART_TEX[mode];
+    m.needsUpdate = true;
+  });
+  barMat.color.setHex(mode === 'dark' ? 0xd8fffb : 0xffffff);
 
   buildScreens(mode);
   document.body.classList.toggle('is-dark', mode === 'dark');
