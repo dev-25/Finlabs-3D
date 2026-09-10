@@ -89,6 +89,12 @@ const SERVICES = [
     kicker: 'FINLABS // TECHNOLOGY CONSULTING',
     title: 'Our Cybernetic Solutions',
     sub: 'Seasoned experts, tailored solutions, transparent communication and measurable results.',
+    tagline: 'Advisory · Build · Managed',
+    desc:
+      'Finlabs partners with banks, AMCs, wealth managers and insurers to plan, build and run '
+      + 'their technology. Our commitment is rooted in a multidimensional approach: seasoned '
+      + 'experts who know the sector, solutions tailored to your existing stack, transparent '
+      + 'communication throughout, and results you can measure.',
     page: 'overview',
   },
   {
@@ -97,6 +103,12 @@ const SERVICES = [
     kicker: 'SERVICE 01 // EXPERIENCE',
     title: 'UI / UX Consulting',
     sub: 'User-centered design, intuitive interfaces and seamless experiences that drive engagement.',
+    tagline: 'Research to design system',
+    desc:
+      'We start with the people who use your product — interviews, journey mapping and analytics '
+      + 'review — then turn what we learn into information architecture, interface design and a '
+      + 'component library your engineers can build from. Every screen is checked against WCAG 2.2 AA '
+      + 'before handoff.',
     page: 'uiux',
   },
   {
@@ -105,6 +117,12 @@ const SERVICES = [
     kicker: 'SERVICE 02 // ASSURANCE',
     title: 'Application & Infra Audits',
     sub: 'Identify vulnerabilities, optimize performance and enhance security across code and infrastructure.',
+    tagline: 'Find it before an attacker does',
+    desc:
+      'A full sweep of your applications and infrastructure. Static and dynamic analysis, dependency '
+      + 'and SBOM review, CIS benchmark checks against your infrastructure-as-code, and load testing '
+      + 'to find the bottleneck before your customers do. You get findings ranked by CVSS severity and '
+      + 'a remediation plan sequenced by effort against risk.',
     page: 'audit',
   },
   {
@@ -113,6 +131,12 @@ const SERVICES = [
     kicker: 'SERVICE 03 // DEFENCE',
     title: 'Cybersecurity',
     sub: 'Threat assessment, advanced defense strategies and proactive risk mitigation.',
+    tagline: 'Zero trust by default',
+    desc:
+      'Threat modelling workshops map your real attack surface, then we harden it: identity and access '
+      + 'redesigned around zero trust, encryption at rest and in transit backed by managed keys, network '
+      + 'segmentation, and detection wired into SIEM with SOAR playbooks your team can actually run. '
+      + 'Controls are mapped to ISO 27001 and SOC 2 so audits stop being a fire drill.',
     page: 'security',
   },
   {
@@ -121,6 +145,12 @@ const SERVICES = [
     kicker: 'SERVICE 04 // CLOUD',
     title: 'Cloud Architecture Review',
     sub: 'Optimize efficiency, security and scalability across AWS, Azure and Google Cloud.',
+    tagline: 'AWS · Azure · Google Cloud',
+    desc:
+      'A meticulous review of what you are running and what it costs you. We assess against the AWS '
+      + 'Well-Architected Framework, Azure Cloud Adoption Framework and Google Cloud Architecture '
+      + 'Framework, check landing zones and Terraform drift, and model resilience across availability '
+      + 'zones and regions. The output is a right-sizing and FinOps plan with the savings quantified.',
     page: 'cloud',
   },
   {
@@ -129,6 +159,12 @@ const SERVICES = [
     kicker: 'SERVICE 05 // TRANSFORMATION',
     title: 'Digital Transformation Strategy',
     sub: 'Roadmaps leveraging emerging technologies, data-driven insights and agile delivery.',
+    tagline: 'Roadmap to platform',
+    desc:
+      'We inventory the legacy estate, agree a target architecture, and sequence the migration into '
+      + 'waves that keep the business running. Microservices where they earn their keep, an event '
+      + 'backbone for the rest, CI/CD so releases stop being events, and a platform team set up to own '
+      + 'it after we leave. Progress is tracked against DORA metrics, not slideware.',
     page: 'transform',
   },
 ];
@@ -240,629 +276,669 @@ function wrap(ctx, text, x, y, maxW, lh) {
 // =====================================================
 // SCREEN ARTWORK
 // =====================================================
-const SW = 1760;
-const SH = 1000;
+const SW = 1840;
+const SH = 1035;
 
 // browser chrome metrics
-const BAR = 46;    // title bar
-const TABH = 52;   // tab strip
-const ADDR = 46;   // address bar
+const BAR = 44;
+const TABH = 48;
+const ADDR = 44;
 const TOP = BAR + TABH + ADDR;
 
-function chip(ctx, c, x, y, label, font = '700 15px "JetBrains Mono", monospace') {
-  ctx.font = font;
-  const w = ctx.measureText(label).width + 26;
-  ctx.fillStyle = c.panel;
-  rr(ctx, x, y - 15, w, 30, 15);
-  ctx.fill();
-  ctx.strokeStyle = c.edge;
-  ctx.lineWidth = 1.4;
-  rr(ctx, x, y - 15, w, 30, 15);
-  ctx.stroke();
-  ctx.fillStyle = c.neon;
-  ctx.fillText(label, x + 13, y + 1);
-  return w + 10;
-}
-
-function panel(ctx, c, x, y, w, h, title) {
-  ctx.fillStyle = c.panel;
-  rr(ctx, x, y, w, h, 12);
-  ctx.fill();
-  ctx.strokeStyle = c.edge;
-  ctx.lineWidth = 1.6;
-  rr(ctx, x, y, w, h, 12);
-  ctx.stroke();
-  if (title) {
-    ctx.fillStyle = c.dim;
-    ctx.font = '700 13px "JetBrains Mono", monospace';
-    ctx.fillText(title, x + 16, y + 20);
-  }
-}
-
 // -----------------------------------------------------
-// PER-DOMAIN PAGE MOCKS
+// DASHBOARD PALETTE  (modelled on a dark fintech console)
 // -----------------------------------------------------
 
-const PAGES = {
-  // Overview — a services index
-  overview(ctx, c, x, y, w, h) {
-    ctx.fillStyle = c.ink;
-    ctx.font = '800 58px "Outfit", sans-serif';
-    ctx.fillText('Technology Consulting', x, y + 46);
-    ctx.fillStyle = c.neon;
-    ctx.font = '600 24px "Outfit", sans-serif';
-    ctx.fillText('Advisory · Build · Managed services for financial institutions', x, y + 92);
-
-    const cards = [
-      ['UI / UX', 'Research → design system'],
-      ['AUDITS', 'Code, infra, performance'],
-      ['SECURITY', 'Zero-trust, SOC 2, ISO'],
-      ['CLOUD', 'AWS · Azure · GCP'],
-      ['TRANSFORM', 'Roadmap → platform'],
-      ['DATA', 'Lakehouse, MLOps'],
-    ];
-    const cw = (w - 40) / 3;
-    const ch = 108;
-    cards.forEach(([t, d], i) => {
-      const px = x + (i % 3) * (cw + 20);
-      const py = y + 132 + Math.floor(i / 3) * (ch + 18);
-      panel(ctx, c, px, py, cw, ch);
-      ctx.fillStyle = c.neon;
-      ctx.font = '700 24px "Outfit", sans-serif';
-      ctx.fillText(t, px + 18, py + 42);
-      ctx.fillStyle = c.dim;
-      ctx.font = '400 17px Inter, sans-serif';
-      ctx.fillText(d, px + 18, py + 74);
-    });
-
-    // engagement bar
-    const by = y + 132 + 2 * (ch + 18) + 12;
-    panel(ctx, c, x, by, w, 92, 'ENGAGEMENT MODEL');
-    ['DISCOVERY', 'ARCHITECTURE', 'BUILD', 'HARDENING', 'RUN'].forEach((st, i) => {
-      const px = x + 24 + i * ((w - 60) / 5);
-      ctx.fillStyle = i < 3 ? c.neon : c.edge;
-      ctx.beginPath();
-      ctx.arc(px + 8, by + 60, 9, 0, Math.PI * 2);
-      ctx.fill();
-      if (i < 4) {
-        ctx.strokeStyle = c.edge;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(px + 20, by + 60);
-        ctx.lineTo(px + (w - 60) / 5 - 4, by + 60);
-        ctx.stroke();
-      }
-      ctx.fillStyle = c.dim;
-      ctx.font = '600 13px "JetBrains Mono", monospace';
-      ctx.fillText(st, px, by + 88);
-    });
+const UI = {
+  dark: {
+    chrome: '#15181e',
+    bg: '#1c2027',
+    card: '#252A33',
+    cardAlt: '#2E343F',
+    ink: '#F3F5F8',
+    dim: '#98A0AE',
+    faint: '#69707E',
+    line: 'rgba(255,255,255,0.07)',
+    accent: '#FF5964',
+    amber: '#FFC247',
+    green: '#3ECF8E',
+    blue: '#5B9CFF',
+    violet: '#9A7BFF',
+    tabOff: 'rgba(255,255,255,0.05)',
   },
-
-  // UI/UX — a design tool workspace
-  uiux(ctx, c, x, y, w, h) {
-    const railW = 200;
-    // layers rail
-    panel(ctx, c, x, y, railW, h - 120, 'LAYERS');
-    ['Frame / Dashboard', 'Nav / Sidebar', 'Card / Portfolio', 'Chart / AUM', 'Table / Holdings', 'Modal / KYC', 'Token / Colour', 'Token / Type']
-      .forEach((l, i) => {
-        ctx.fillStyle = i === 2 ? c.neon : c.dim;
-        ctx.font = '400 14px Inter, sans-serif';
-        ctx.fillText(l, x + 16, y + 52 + i * 30);
-      });
-
-    // artboards
-    const ax = x + railW + 22;
-    const aw = w - railW - 260;
-    panel(ctx, c, ax, y, aw, h - 120, 'ARTBOARDS — 1440 / 768 / 375');
-    [0, 1, 2].forEach((k) => {
-      const bw = (aw - 80) / 3;
-      const bx = ax + 20 + k * (bw + 20);
-      const by = y + 46;
-      const bh = h - 200;
-      ctx.strokeStyle = c.edge;
-      ctx.lineWidth = 2;
-      ctx.strokeRect(bx, by, bw, bh);
-      ctx.fillStyle = c.neon;
-      ctx.globalAlpha = 0.85;
-      ctx.fillRect(bx, by, bw, 24);
-      ctx.globalAlpha = 0.32;
-      ctx.fillRect(bx + 14, by + 44, bw - 28, 46);
-      ctx.globalAlpha = 0.18;
-      ctx.fillRect(bx + 14, by + 104, bw * 0.52, 14);
-      ctx.fillRect(bx + 14, by + 126, bw * 0.4, 14);
-      ctx.fillRect(bx + 14, by + 160, bw - 28, bh - 200);
-      ctx.globalAlpha = 1;
-      // selection handles on the middle artboard
-      if (k === 1) {
-        ctx.strokeStyle = c.warm;
-        ctx.lineWidth = 2.5;
-        ctx.strokeRect(bx + 10, by + 40, bw - 20, 54);
-        [[bx + 10, by + 40], [bx + bw - 10, by + 40], [bx + 10, by + 94], [bx + bw - 10, by + 94]]
-          .forEach(([hx, hy]) => {
-            ctx.fillStyle = c.warm;
-            ctx.fillRect(hx - 4, hy - 4, 8, 8);
-          });
-      }
-    });
-
-    // tokens rail
-    const tx = ax + aw + 22;
-    panel(ctx, c, tx, y, w - (tx - x), h - 120, 'DESIGN TOKENS');
-    ['#0E7C8B', '#35D6FF', '#0B2430', '#F2913F', '#E8F6FA'].forEach((hex, i) => {
-      ctx.fillStyle = hex;
-      rr(ctx, tx + 16, y + 44 + i * 40, 30, 30, 7);
-      ctx.fill();
-      ctx.fillStyle = c.dim;
-      ctx.font = '500 13px "JetBrains Mono", monospace';
-      ctx.fillText(hex, tx + 56, y + 62 + i * 40);
-    });
-    ctx.fillStyle = c.dim;
-    ctx.font = '700 13px "JetBrains Mono", monospace';
-    ctx.fillText('TYPE SCALE', tx + 16, y + 262);
-    ['48 / 32 / 24', '18 / 16 / 14'].forEach((t, i) => {
-      ctx.fillStyle = c.neon;
-      ctx.font = '400 16px Inter, sans-serif';
-      ctx.fillText(t, tx + 16, y + 292 + i * 26);
-    });
-
-    let cx2 = x;
-    ['FIGMA', 'REACT', 'TYPESCRIPT', 'STORYBOOK', 'WCAG 2.2', 'TOKENS STUDIO'].forEach((t) => {
-      cx2 += chip(ctx, c, cx2, h - 66, t);
-    });
-  },
-
-  // Audits — a scan report
-  audit(ctx, c, x, y, w, h) {
-    const colW = w * 0.56;
-    panel(ctx, c, x, y, colW, h - 120, 'FINDINGS — SEVERITY RANKED');
-    const rows = [
-      ['CRITICAL', 'CVE-2025-4188 · transitive dep', 9.8],
-      ['HIGH', 'Missing rate limit on /auth', 8.1],
-      ['HIGH', 'Secrets in CI environment', 7.9],
-      ['MEDIUM', 'N+1 query on holdings view', 6.2],
-      ['MEDIUM', 'TLS 1.1 still negotiated', 5.4],
-      ['LOW', 'Verbose error responses', 3.1],
-    ];
-    rows.forEach(([sev, txt, score], i) => {
-      const ry = y + 52 + i * 46;
-      const col = sev === 'CRITICAL' ? '#ff5a5a' : sev === 'HIGH' ? c.warm : c.neon;
-      ctx.fillStyle = col;
-      rr(ctx, x + 16, ry, 6, 30, 3);
-      ctx.fill();
-      ctx.font = '700 13px "JetBrains Mono", monospace';
-      ctx.fillText(sev, x + 34, ry + 18);
-      ctx.fillStyle = c.ink;
-      ctx.font = '400 16px Inter, sans-serif';
-      ctx.fillText(txt, x + 132, ry + 18);
-      ctx.fillStyle = c.dim;
-      ctx.font = '600 15px "JetBrains Mono", monospace';
-      ctx.fillText(String(score), x + colW - 56, ry + 18);
-    });
-
-    // coverage + latency
-    const rx = x + colW + 24;
-    const rw = w - colW - 24;
-    panel(ctx, c, rx, y, rw, 176, 'COVERAGE');
-    [['SAST', 0.94], ['DAST', 0.81], ['DEPENDENCIES', 0.97], ['IaC / CIS', 0.72]].forEach(([lab, v], i) => {
-      const py = y + 56 + i * 30;
-      ctx.fillStyle = c.dim;
-      ctx.font = '500 13px "JetBrains Mono", monospace';
-      ctx.fillText(lab, rx + 16, py);
-      ctx.fillStyle = c.edge;
-      rr(ctx, rx + 150, py - 8, rw - 210, 12, 6);
-      ctx.fill();
-      ctx.fillStyle = c.neon;
-      rr(ctx, rx + 150, py - 8, (rw - 210) * v, 12, 6);
-      ctx.fill();
-      ctx.fillStyle = c.neon;
-      ctx.fillText(Math.round(v * 100) + '%', rx + rw - 48, py);
-    });
-
-    panel(ctx, c, rx, y + 194, rw, h - 314, 'LOAD PROFILE — k6');
-    const gx = rx + 18;
-    const gw = rw - 36;
-    const gy = y + 194 + (h - 314) - 30;
-    const gh = h - 314 - 70;
-    ctx.strokeStyle = c.neon;
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    [0.2, 0.34, 0.3, 0.52, 0.48, 0.7, 0.62, 0.86].forEach((v, i, arr) => {
-      const px = gx + (i / (arr.length - 1)) * gw;
-      const py = gy - v * gh;
-      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
-    });
-    ctx.stroke();
-    ctx.fillStyle = c.dim;
-    ctx.font = '500 13px "JetBrains Mono", monospace';
-    ctx.fillText('p95 latency vs virtual users', gx, gy + 20);
-
-    let cx2 = x;
-    ['OWASP TOP 10', 'SAST / DAST', 'SONARQUBE', 'TRIVY', 'k6', 'CIS BENCHMARKS'].forEach((t) => {
-      cx2 += chip(ctx, c, cx2, h - 66, t);
-    });
-  },
-
-  // Security — a SOC console
-  security(ctx, c, x, y, w, h) {
-    const mapW = w * 0.54;
-    panel(ctx, c, x, y, mapW, h - 260, 'THREAT MAP — LIVE');
-    // dotted world + attack arcs
-    ctx.fillStyle = c.neon;
-    for (let px = 0; px < mapW - 40; px += 11) {
-      for (let py = 0; py < h - 330; py += 11) {
-        const nx = px / (mapW - 40);
-        const ny = py / (h - 330);
-        const land = Math.sin(nx * 9 + ny * 3) * Math.cos(ny * 7 - nx * 2) + Math.sin(nx * 17 + 1.4) * 0.4;
-        if (land > 0.34) {
-          ctx.globalAlpha = 0.18 + (land - 0.34) * 0.6;
-          ctx.fillRect(x + 22 + px, y + 44 + py, 4, 4);
-        }
-      }
-    }
-    ctx.globalAlpha = 1;
-    [[0.24, 0.34, 0.68, 0.6], [0.6, 0.28, 0.36, 0.72]].forEach(([ax, ay, bx, by]) => {
-      const p0 = [x + 22 + ax * (mapW - 44), y + 44 + ay * (h - 330)];
-      const p1 = [x + 22 + bx * (mapW - 44), y + 44 + by * (h - 330)];
-      ctx.strokeStyle = c.warm;
-      ctx.lineWidth = 2.5;
-      ctx.beginPath();
-      ctx.moveTo(p0[0], p0[1]);
-      ctx.quadraticCurveTo((p0[0] + p1[0]) / 2, Math.min(p0[1], p1[1]) - 60, p1[0], p1[1]);
-      ctx.stroke();
-      [p0, p1].forEach(([cx3, cy3]) => {
-        ctx.fillStyle = c.warm;
-        ctx.beginPath();
-        ctx.arc(cx3, cy3, 6, 0, Math.PI * 2);
-        ctx.fill();
-      });
-    });
-
-    // alert feed
-    const rx = x + mapW + 24;
-    const rw = w - mapW - 24;
-    panel(ctx, c, rx, y, rw, h - 260, 'ALERT FEED');
-    [
-      ['12:04:11', 'Impossible travel — user 8842', 'HIGH'],
-      ['12:03:47', 'Brute force blocked · 214 attempts', 'MED'],
-      ['12:01:02', 'New device enrolled (MFA)', 'INFO'],
-      ['11:58:20', 'Privilege escalation attempt', 'HIGH'],
-      ['11:55:09', 'TLS cert expiring in 14d', 'MED'],
-      ['11:51:44', 'Anomalous egress to 45.**.**.7', 'HIGH'],
-    ].forEach(([t, msg, sev], i) => {
-      const py = y + 56 + i * 40;
-      ctx.fillStyle = c.dim;
-      ctx.font = '500 13px "JetBrains Mono", monospace';
-      ctx.fillText(t, rx + 16, py);
-      ctx.fillStyle = c.ink;
-      ctx.font = '400 15px Inter, sans-serif';
-      ctx.fillText(msg, rx + 104, py);
-      ctx.fillStyle = sev === 'HIGH' ? '#ff5a5a' : sev === 'MED' ? c.warm : c.neon;
-      ctx.font = '700 12px "JetBrains Mono", monospace';
-      ctx.fillText(sev, rx + rw - 56, py);
-    });
-
-    // compliance badges
-    const by = y + h - 246;
-    ['ISO 27001', 'SOC 2 TYPE II', 'PCI DSS', 'RBI / SEBI', 'GDPR'].forEach((b, i) => {
-      const bw = (w - 4 * 14) / 5;
-      const bx = x + i * (bw + 14);
-      panel(ctx, c, bx, by, bw, 82);
-      ctx.fillStyle = c.neon;
-      ctx.font = '700 18px "Outfit", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(b, bx + bw / 2, by + 38);
-      ctx.fillStyle = c.dim;
-      ctx.font = '500 12px "JetBrains Mono", monospace';
-      ctx.fillText('ALIGNED', bx + bw / 2, by + 62);
-      ctx.textAlign = 'left';
-    });
-
-    let cx2 = x;
-    ['ZERO TRUST', 'SIEM / SOAR', 'IAM · MFA', 'EDR', 'PEN TESTING', 'KMS / HSM'].forEach((t) => {
-      cx2 += chip(ctx, c, cx2, h - 66, t);
-    });
-  },
-
-  // Cloud — a multi-cloud architecture board
-  cloud(ctx, c, x, y, w, h) {
-    const providers = [
-      ['AWS', ['EC2 · EKS', 'S3 · RDS', 'Lambda', 'CloudFront']],
-      ['MICROSOFT AZURE', ['AKS · VMSS', 'Blob · SQL DB', 'Functions', 'Front Door']],
-      ['GOOGLE CLOUD', ['GKE · GCE', 'BigQuery · GCS', 'Cloud Run', 'Cloud CDN']],
-    ];
-    const cw = (w - 48) / 3;
-    providers.forEach(([name, items], i) => {
-      const px = x + i * (cw + 24);
-      panel(ctx, c, px, y, cw, 232, null);
-      // provider header band
-      ctx.fillStyle = c.neon;
-      ctx.globalAlpha = 0.16;
-      rr(ctx, px, y, cw, 52, 12);
-      ctx.fill();
-      ctx.globalAlpha = 1;
-      ctx.fillStyle = c.neon;
-      ctx.font = '700 22px "Outfit", sans-serif';
-      ctx.fillText(name, px + 18, y + 32);
-      items.forEach((it, k) => {
-        ctx.fillStyle = c.edge;
-        rr(ctx, px + 18, y + 70 + k * 38, cw - 36, 30, 7);
-        ctx.fill();
-        ctx.fillStyle = c.ink;
-        ctx.font = '500 15px "JetBrains Mono", monospace';
-        ctx.fillText(it, px + 30, y + 90 + k * 38);
-      });
-      // link down to the platform layer
-      ctx.strokeStyle = c.edge;
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(px + cw / 2, y + 232);
-      ctx.lineTo(px + cw / 2, y + 268);
-      ctx.lineTo(x + w / 2, y + 292);
-      ctx.stroke();
-    });
-
-    // platform layer
-    panel(ctx, c, x + w * 0.16, y + 292, w * 0.68, 78);
-    ctx.fillStyle = c.warm;
-    ctx.font = '700 24px "Outfit", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('KUBERNETES  ·  TERRAFORM  ·  ARGO CD', x + w / 2, y + 326);
-    ctx.fillStyle = c.dim;
-    ctx.font = '500 14px "JetBrains Mono", monospace';
-    ctx.fillText('one control plane across all three providers', x + w / 2, y + 354);
-    ctx.textAlign = 'left';
-
-    // review scorecard
-    const by = y + 392;
-    [['WELL-ARCHITECTED', 0.86], ['COST / FINOPS', 0.71], ['RESILIENCE · MULTI-AZ', 0.93], ['IaC DRIFT', 0.64]]
-      .forEach(([lab, v], i) => {
-        const bw = (w - 3 * 16) / 4;
-        const bx = x + i * (bw + 16);
-        panel(ctx, c, bx, by, bw, 92);
-        ctx.fillStyle = c.dim;
-        ctx.font = '600 12px "JetBrains Mono", monospace';
-        ctx.fillText(lab, bx + 14, by + 26);
-        ctx.fillStyle = c.edge;
-        rr(ctx, bx + 14, by + 44, bw - 28, 12, 6);
-        ctx.fill();
-        ctx.fillStyle = v > 0.8 ? c.neon : c.warm;
-        rr(ctx, bx + 14, by + 44, (bw - 28) * v, 12, 6);
-        ctx.fill();
-        ctx.fillStyle = c.ink;
-        ctx.font = '700 22px "Outfit", sans-serif';
-        ctx.fillText(Math.round(v * 100) + '%', bx + 14, by + 80);
-      });
-
-    let cx2 = x;
-    ['AWS', 'AZURE', 'GCP', 'KUBERNETES', 'TERRAFORM', 'FINOPS'].forEach((t) => {
-      cx2 += chip(ctx, c, cx2, h - 66, t);
-    });
-  },
-
-  // Transformation — roadmap + delivery pipeline
-  transform(ctx, c, x, y, w, h) {
-    panel(ctx, c, x, y, w, 250, 'TRANSFORMATION ROADMAP');
-    const cols = [
-      ['Q1 · ASSESS', ['Legacy inventory', 'Capability gaps', 'Data lineage']],
-      ['Q2 · DESIGN', ['Target architecture', 'Migration waves', 'API contracts']],
-      ['Q3 · ADOPT', ['Platform team', 'CI/CD rollout', 'Pilot migration']],
-      ['Q4 · SCALE', ['Event backbone', 'Data lakehouse', 'MLOps enablement']],
-    ];
-    const cw = (w - 60) / 4;
-    cols.forEach(([t, items], i) => {
-      const px = x + 18 + i * (cw + 14);
-      ctx.fillStyle = i < 2 ? c.neon : c.edge;
-      rr(ctx, px, y + 44, cw, 6, 3);
-      ctx.fill();
-      ctx.fillStyle = i < 2 ? c.neon : c.dim;
-      ctx.font = '700 16px "JetBrains Mono", monospace';
-      ctx.fillText(t, px, y + 78);
-      items.forEach((it, k) => {
-        ctx.fillStyle = c.panel;
-        rr(ctx, px, y + 96 + k * 44, cw, 36, 8);
-        ctx.fill();
-        ctx.strokeStyle = c.edge;
-        ctx.lineWidth = 1.2;
-        rr(ctx, px, y + 96 + k * 44, cw, 36, 8);
-        ctx.stroke();
-        ctx.fillStyle = c.ink;
-        ctx.font = '400 15px Inter, sans-serif';
-        ctx.fillText(it, px + 12, y + 118 + k * 44);
-      });
-    });
-
-    // pipeline
-    const py = y + 274;
-    panel(ctx, c, x, py, w, 108, 'DELIVERY PIPELINE');
-    const stages = ['COMMIT', 'BUILD', 'TEST', 'SCAN', 'STAGE', 'DEPLOY'];
-    stages.forEach((st, i) => {
-      const px = x + 30 + i * ((w - 80) / stages.length);
-      const done = i < 4;
-      ctx.fillStyle = done ? c.neon : c.edge;
-      rr(ctx, px, py + 52, (w - 80) / stages.length - 18, 30, 8);
-      ctx.fill();
-      ctx.fillStyle = done ? (c.bg || '#04141a') : c.dim;
-      ctx.font = '700 13px "JetBrains Mono", monospace';
-      ctx.fillText(st, px + 14, py + 72);
-    });
-
-    // metric tiles
-    const my = py + 126;
-    [['DEPLOY FREQ', 'daily'], ['LEAD TIME', '< 1 day'], ['CHANGE FAIL', '4.2%'], ['MTTR', '38 min']]
-      .forEach(([lab, val], i) => {
-        const bw = (w - 3 * 16) / 4;
-        const bx = x + i * (bw + 16);
-        panel(ctx, c, bx, my, bw, 92);
-        ctx.fillStyle = c.dim;
-        ctx.font = '600 12px "JetBrains Mono", monospace';
-        ctx.fillText(lab, bx + 14, my + 26);
-        ctx.fillStyle = c.neon;
-        ctx.font = '700 30px "Outfit", sans-serif';
-        ctx.fillText(val, bx + 14, my + 66);
-      });
-
-    let cx2 = x;
-    ['MICROSERVICES', 'EVENT-DRIVEN', 'CI / CD', 'DATA LAKEHOUSE', 'API-FIRST', 'MLOps'].forEach((t) => {
-      cx2 += chip(ctx, c, cx2, h - 66, t);
-    });
+  light: {
+    chrome: '#E7EBF1',
+    bg: '#F3F5F9',
+    card: '#FFFFFF',
+    cardAlt: '#EDF1F6',
+    ink: '#171A21',
+    dim: '#69707E',
+    faint: '#98A0AE',
+    line: 'rgba(20,30,50,0.10)',
+    accent: '#EF4352',
+    amber: '#E9A21B',
+    green: '#22A96F',
+    blue: '#3D7BE0',
+    violet: '#7A5CF0',
+    tabOff: 'rgba(20,30,50,0.05)',
   },
 };
 
 // -----------------------------------------------------
-// THE BROWSER WINDOW
+// SMALL DRAWING PRIMITIVES
+// -----------------------------------------------------
+
+function card(ctx, u, x, y, w, h, alt) {
+  ctx.fillStyle = alt ? u.cardAlt : u.card;
+  rr(ctx, x, y, w, h, 14);
+  ctx.fill();
+}
+
+function label(ctx, u, text, x, y, size = 13, col) {
+  ctx.fillStyle = col || u.dim;
+  ctx.font = `600 ${size}px Inter, sans-serif`;
+  ctx.fillText(text, x, y);
+}
+
+function heading(ctx, u, text, x, y, size = 20, col) {
+  ctx.fillStyle = col || u.ink;
+  ctx.font = `700 ${size}px Inter, sans-serif`;
+  ctx.fillText(text, x, y);
+}
+
+function pill(ctx, u, x, y, text, col) {
+  ctx.font = '700 12px Inter, sans-serif';
+  const w = ctx.measureText(text).width + 22;
+  ctx.fillStyle = col + '26';
+  rr(ctx, x, y - 11, w, 22, 11);
+  ctx.fill();
+  ctx.fillStyle = col;
+  ctx.fillText(text, x + 11, y + 1);
+  return w + 8;
+}
+
+// donut used in a few of the cards
+function donut(ctx, cx, cy, r, segs, trackCol) {
+  ctx.lineWidth = r * 0.42;
+  ctx.strokeStyle = trackCol;
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.stroke();
+  let a = -Math.PI / 2;
+  segs.forEach(([frac, col]) => {
+    ctx.strokeStyle = col;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, a, a + frac * Math.PI * 2);
+    ctx.stroke();
+    a += frac * Math.PI * 2;
+  });
+}
+
+function areaChart(ctx, u, x, y, w, h, pts, col) {
+  const px = (i) => x + (i / (pts.length - 1)) * w;
+  const py = (v) => y + h - v * h;
+  const g = ctx.createLinearGradient(0, y, 0, y + h);
+  g.addColorStop(0, col + '55');
+  g.addColorStop(1, col + '00');
+  ctx.beginPath();
+  ctx.moveTo(px(0), y + h);
+  pts.forEach((v, i) => ctx.lineTo(px(i), py(v)));
+  ctx.lineTo(px(pts.length - 1), y + h);
+  ctx.closePath();
+  ctx.fillStyle = g;
+  ctx.fill();
+  ctx.beginPath();
+  pts.forEach((v, i) => (i ? ctx.lineTo(px(i), py(v)) : ctx.moveTo(px(i), py(v))));
+  ctx.strokeStyle = col;
+  ctx.lineWidth = 3;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+  ctx.fillStyle = col;
+  ctx.beginPath();
+  ctx.arc(px(pts.length - 1), py(pts[pts.length - 1]), 5.5, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function barChart(ctx, u, x, y, w, h, vals, cols) {
+  const bw = w / vals.length - 12;
+  vals.forEach((v, i) => {
+    const bx = x + i * (w / vals.length);
+    ctx.fillStyle = u.line;
+    rr(ctx, bx, y, bw, h, 6);
+    ctx.fill();
+    ctx.fillStyle = cols[i % cols.length];
+    rr(ctx, bx, y + h * (1 - v), bw, h * v, 6);
+    ctx.fill();
+  });
+}
+
+// -----------------------------------------------------
+// ILLUSTRATION TILES
+// Flat vector artwork, drawn per domain. Not photography —
+// swap these for real assets by loading textures instead.
+// -----------------------------------------------------
+
+function illustration(ctx, u, kind, x, y, w, h) {
+  ctx.save();
+  ctx.beginPath();
+  rr(ctx, x, y, w, h, 14);
+  ctx.clip();
+
+  const g = ctx.createLinearGradient(x, y, x + w, y + h);
+  if (kind === 'uiux') {
+    g.addColorStop(0, '#5B9CFF');
+    g.addColorStop(1, '#9A7BFF');
+  } else if (kind === 'audit') {
+    g.addColorStop(0, '#FFC247');
+    g.addColorStop(1, '#FF5964');
+  } else if (kind === 'security') {
+    g.addColorStop(0, '#FF5964');
+    g.addColorStop(1, '#9A7BFF');
+  } else if (kind === 'cloud') {
+    g.addColorStop(0, '#3ECF8E');
+    g.addColorStop(1, '#5B9CFF');
+  } else if (kind === 'transform') {
+    g.addColorStop(0, '#9A7BFF');
+    g.addColorStop(1, '#3ECF8E');
+  } else {
+    g.addColorStop(0, '#5B9CFF');
+    g.addColorStop(1, '#3ECF8E');
+  }
+  ctx.fillStyle = g;
+  ctx.fillRect(x, y, w, h);
+
+  ctx.globalAlpha = 0.22;
+  ctx.fillStyle = '#ffffff';
+  for (let i = 0; i < 5; i++) {
+    ctx.beginPath();
+    ctx.arc(x + w * (0.15 + i * 0.2), y + h * (i % 2 ? 0.72 : 0.28), h * 0.3, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  const cx = x + w / 2;
+  const cy = y + h / 2;
+  ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+  ctx.fillStyle = 'rgba(255,255,255,0.95)';
+  ctx.lineWidth = 5;
+
+  if (kind === 'uiux') {
+    ctx.strokeRect(cx - 62, cy - 44, 124, 88);
+    ctx.fillRect(cx - 62, cy - 44, 124, 16);
+    ctx.globalAlpha = 0.75;
+    ctx.fillRect(cx - 50, cy - 16, 54, 10);
+    ctx.fillRect(cx - 50, cy + 4, 78, 10);
+    ctx.globalAlpha = 1;
+  }
+  if (kind === 'audit') {
+    ctx.beginPath();
+    ctx.arc(cx - 12, cy - 12, 36, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.lineWidth = 9;
+    ctx.beginPath();
+    ctx.moveTo(cx + 14, cy + 14);
+    ctx.lineTo(cx + 48, cy + 48);
+    ctx.stroke();
+  }
+  if (kind === 'security') {
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - 52);
+    ctx.lineTo(cx + 42, cy - 32);
+    ctx.lineTo(cx + 42, cy + 6);
+    ctx.quadraticCurveTo(cx + 42, cy + 42, cx, cy + 58);
+    ctx.quadraticCurveTo(cx - 42, cy + 42, cx - 42, cy + 6);
+    ctx.lineTo(cx - 42, cy - 32);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    ctx.moveTo(cx - 17, cy + 4);
+    ctx.lineTo(cx - 3, cy + 20);
+    ctx.lineTo(cx + 22, cy - 16);
+    ctx.stroke();
+  }
+  if (kind === 'cloud') {
+    ctx.beginPath();
+    ctx.arc(cx - 30, cy + 8, 24, Math.PI * 0.6, Math.PI * 1.7);
+    ctx.arc(cx, cy - 12, 32, Math.PI * 1.1, Math.PI * 1.95);
+    ctx.arc(cx + 34, cy + 8, 23, Math.PI * 1.4, Math.PI * 0.4);
+    ctx.closePath();
+    ctx.stroke();
+  }
+  if (kind === 'transform') {
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.moveTo(cx - 60, cy + 34);
+    ctx.lineTo(cx - 18, cy - 6);
+    ctx.lineTo(cx + 10, cy + 14);
+    ctx.lineTo(cx + 62, cy - 40);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(cx + 62, cy - 40);
+    ctx.lineTo(cx + 34, cy - 38);
+    ctx.lineTo(cx + 58, cy - 14);
+    ctx.closePath();
+    ctx.fill();
+  }
+  if (kind === 'overview') {
+    ctx.lineWidth = 4;
+    [[-52, 0], [0, -34], [52, 0], [0, 34]].forEach(([dx, dy]) => {
+      ctx.beginPath();
+      ctx.arc(cx + dx, cy + dy, 13, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + dx, cy + dy);
+      ctx.stroke();
+    });
+    ctx.beginPath();
+    ctx.arc(cx, cy, 18, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.restore();
+}
+
+// small round avatar, drawn rather than photographed
+function avatar(ctx, x, y, r, a, b, initials) {
+  const g = ctx.createLinearGradient(x - r, y - r, x + r, y + r);
+  g.addColorStop(0, a);
+  g.addColorStop(1, b);
+  ctx.fillStyle = g;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,0.95)';
+  ctx.font = `700 ${r * 0.85}px Inter, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.fillText(initials, x, y + 1);
+  ctx.textAlign = 'left';
+}
+
+// -----------------------------------------------------
+// PER-SERVICE DASHBOARD DATA
+// -----------------------------------------------------
+
+const BOARD = {
+  overview: {
+    stats: [
+      ['Active engagements', '24', '+3 this quarter', 'green'],
+      ['Avg. delivery', '11 wks', 'discovery to launch', 'blue'],
+      ['Client retention', '96%', 'rolling 12 months', 'amber'],
+    ],
+    chartTitle: 'Engagements delivered',
+    chart: [0.24, 0.36, 0.32, 0.5, 0.46, 0.64, 0.72, 0.88],
+    chartCol: 'green',
+    listTitle: 'Practice areas',
+    list: [
+      ['UI / UX Consulting', 'Research → design system', 'Active'],
+      ['Application & Infra Audits', 'Code, infra, performance', 'Active'],
+      ['Cybersecurity', 'Zero-trust, SOC 2, ISO 27001', 'Active'],
+      ['Cloud Architecture Review', 'AWS · Azure · GCP', 'Active'],
+      ['Digital Transformation', 'Roadmap → platform', 'Active'],
+    ],
+    sideTitle: 'Engagement model',
+    side: [['Advisory', '4–8 wks'], ['Build', '3–9 mths'], ['Managed', 'Ongoing']],
+    illo: 'overview',
+  },
+  uiux: {
+    stats: [
+      ['Task success', '94%', '+18 pts post-redesign', 'green'],
+      ['Time to interactive', '1.8s', 'p75, mobile', 'blue'],
+      ['Components shipped', '142', 'in the design system', 'violet'],
+    ],
+    chartTitle: 'Usability score by round',
+    chart: [0.3, 0.42, 0.4, 0.58, 0.66, 0.74, 0.82, 0.94],
+    chartCol: 'blue',
+    listTitle: 'What we deliver',
+    list: [
+      ['Discovery research', 'Interviews, journey maps, analytics review', 'Wk 1–2'],
+      ['Information architecture', 'Flows, sitemap, content model', 'Wk 2–3'],
+      ['Interface design', 'Wireframes → high-fidelity, prototypes', 'Wk 3–6'],
+      ['Design system', 'Tokens, components, Storybook, docs', 'Wk 6–9'],
+      ['Accessibility audit', 'WCAG 2.2 AA, screen-reader passes', 'Wk 9'],
+    ],
+    sideTitle: 'Stack',
+    side: [['Figma', 'Design'], ['React + TS', 'Build'], ['Storybook', 'Docs'], ['WCAG 2.2', 'Standard']],
+    illo: 'uiux',
+  },
+  audit: {
+    stats: [
+      ['Findings raised', '68', '9 critical, 21 high', 'accent'],
+      ['Code coverage', '81%', 'after remediation', 'green'],
+      ['p95 latency', '−42%', 'under 2× peak load', 'amber'],
+    ],
+    chartTitle: 'Open findings over remediation',
+    chart: [0.92, 0.84, 0.7, 0.58, 0.44, 0.3, 0.2, 0.12],
+    chartCol: 'accent',
+    listTitle: 'Audit scope',
+    list: [
+      ['Static analysis', 'SonarQube, Semgrep, secret scanning', 'SAST'],
+      ['Dynamic testing', 'Authenticated crawl, fuzzing, API abuse', 'DAST'],
+      ['Dependencies', 'SBOM, CVE triage, licence review', 'Trivy'],
+      ['Infrastructure', 'CIS benchmarks, IaC drift, network policy', 'Terraform'],
+      ['Performance', 'Load profiles, N+1 queries, cache strategy', 'k6'],
+    ],
+    sideTitle: 'Severity mix',
+    side: [['Critical', '9'], ['High', '21'], ['Medium', '26'], ['Low', '12']],
+    illo: 'audit',
+  },
+  security: {
+    stats: [
+      ['Mean time to detect', '6 min', 'down from 41 min', 'green'],
+      ['Blocked intrusions', '1,284', 'last 30 days', 'accent'],
+      ['Controls mapped', '212', 'ISO 27001 + SOC 2', 'blue'],
+    ],
+    chartTitle: 'Threat events blocked',
+    chart: [0.4, 0.55, 0.48, 0.7, 0.62, 0.8, 0.74, 0.9],
+    chartCol: 'accent',
+    listTitle: 'Defence programme',
+    list: [
+      ['Threat modelling', 'STRIDE workshops, attack surface map', 'Assess'],
+      ['Identity', 'Zero trust, IAM roles, MFA, session policy', 'Defend'],
+      ['Data protection', 'Encryption at rest and in transit, KMS/HSM', 'Defend'],
+      ['Detection', 'SIEM pipelines, SOAR playbooks, EDR', 'Monitor'],
+      ['Assurance', 'Penetration tests, red team, tabletop drills', 'Verify'],
+    ],
+    sideTitle: 'Compliance',
+    side: [['ISO 27001', 'Aligned'], ['SOC 2 Type II', 'Ready'], ['PCI DSS', 'Scoped'], ['RBI / SEBI', 'Mapped']],
+    illo: 'security',
+  },
+  cloud: {
+    stats: [
+      ['Monthly spend', '−31%', 'after right-sizing', 'green'],
+      ['Availability', '99.98%', 'multi-AZ, multi-region', 'blue'],
+      ['IaC coverage', '88%', 'Terraform managed', 'violet'],
+    ],
+    chartTitle: 'Cloud spend after review',
+    chart: [0.9, 0.86, 0.72, 0.64, 0.52, 0.46, 0.42, 0.38],
+    chartCol: 'green',
+    listTitle: 'Reviewed across all three providers',
+    list: [
+      ['AWS', 'EC2 · EKS · S3 · RDS · Lambda · CloudFront', 'Well-Architected'],
+      ['Microsoft Azure', 'AKS · VMSS · Blob · SQL DB · Functions', 'CAF review'],
+      ['Google Cloud', 'GKE · GCE · BigQuery · GCS · Cloud Run', 'Architecture FW'],
+      ['Orchestration', 'Kubernetes, Helm, Argo CD, service mesh', 'Platform'],
+      ['Infrastructure as code', 'Terraform modules, drift detection, policy', 'OPA'],
+    ],
+    sideTitle: 'Workload split',
+    side: [['AWS', '52%'], ['Azure', '28%'], ['GCP', '20%']],
+    illo: 'cloud',
+  },
+  transform: {
+    stats: [
+      ['Deploy frequency', 'Daily', 'from monthly', 'green'],
+      ['Lead time', '< 1 day', 'commit to production', 'blue'],
+      ['Change failure', '4.2%', 'elite band', 'amber'],
+    ],
+    chartTitle: 'Delivery throughput',
+    chart: [0.18, 0.26, 0.34, 0.42, 0.56, 0.66, 0.8, 0.92],
+    chartCol: 'violet',
+    listTitle: 'Transformation roadmap',
+    list: [
+      ['Q1 · Assess', 'Legacy inventory, capability gaps, data lineage', 'Done'],
+      ['Q2 · Design', 'Target architecture, migration waves, API contracts', 'Done'],
+      ['Q3 · Adopt', 'Platform team, CI/CD rollout, pilot migration', 'Active'],
+      ['Q4 · Scale', 'Event backbone, data lakehouse, MLOps enablement', 'Planned'],
+      ['Ongoing', 'Enablement, golden paths, developer experience', 'Planned'],
+    ],
+    sideTitle: 'Architecture',
+    side: [['Microservices', 'Core'], ['Event-driven', 'Backbone'], ['API-first', 'Contract'], ['MLOps', 'Data']],
+    illo: 'transform',
+  },
+};
+
+// -----------------------------------------------------
+// THE BROWSER WINDOW + DASHBOARD
 // -----------------------------------------------------
 
 function screenTexture(active, mode) {
-  const c = P[mode].scr;
+  const u = UI[mode];
   const s = SERVICES[active];
+  const b = BOARD[s.page];
 
   return makeTexture(SW, SH, (ctx, w, h) => {
     ctx.textBaseline = 'middle';
 
-    // ---- window shell ----
-    ctx.fillStyle = mode === 'dark' ? '#0a1c24' : '#dfeef4';
+    // ================= browser chrome =================
+    ctx.fillStyle = u.chrome;
     ctx.fillRect(0, 0, w, TOP);
-    ctx.fillStyle = c.bg;
+    ctx.fillStyle = u.bg;
     ctx.fillRect(0, TOP, w, h - TOP);
 
-    // faint content grid
-    ctx.strokeStyle = c.grid;
-    ctx.lineWidth = 1;
-    for (let gx = 0; gx < w; gx += 44) {
-      ctx.beginPath();
-      ctx.moveTo(gx, TOP);
-      ctx.lineTo(gx, h);
-      ctx.stroke();
-    }
-    for (let gy = TOP; gy < h; gy += 44) {
-      ctx.beginPath();
-      ctx.moveTo(0, gy);
-      ctx.lineTo(w, gy);
-      ctx.stroke();
-    }
-
-    // ---- traffic lights ----
-    ['#ff5f57', '#febc2e', '#28c840'].forEach((col, i) => {
+    ['#FF5F57', '#FEBC2E', '#28C840'].forEach((col, i) => {
       ctx.fillStyle = col;
       ctx.beginPath();
-      ctx.arc(30 + i * 24, BAR / 2, 8, 0, Math.PI * 2);
+      ctx.arc(28 + i * 22, BAR / 2, 7, 0, Math.PI * 2);
       ctx.fill();
     });
-    ctx.fillStyle = c.dim;
-    ctx.font = '600 15px "JetBrains Mono", monospace';
-    ctx.textAlign = 'right';
-    ctx.fillText('FINLABS CONSOLE', w - 26, BAR / 2);
-    ctx.textAlign = 'left';
 
-    // ---- tab strip: one tab per service ----
-    const tabPad = 12;
-    const stripW = w - tabPad * 2;
-    const tabW = stripW / SERVICES.length;
+    // tabs — one per service
+    const pad = 10;
+    const tabW = (w - pad * 2) / SERVICES.length;
     SERVICES.forEach((sv, i) => {
-      const tx = tabPad + i * tabW;
-      const ty = BAR + 6;
-      const th = TABH - 6;
+      const tx = pad + i * tabW;
+      const ty = BAR + 4;
+      const th = TABH - 4;
       const on = i === active;
 
-      ctx.fillStyle = on ? c.bg : mode === 'dark' ? 'rgba(255,255,255,0.045)' : 'rgba(0,40,60,0.05)';
-      rr(ctx, tx + 2, ty, tabW - 6, th, 10);
+      ctx.fillStyle = on ? u.bg : u.tabOff;
+      rr(ctx, tx + 2, ty, tabW - 6, th + 10, 10);
       ctx.fill();
-      if (on) {
-        ctx.strokeStyle = c.neon;
-        ctx.lineWidth = 2;
-        rr(ctx, tx + 2, ty, tabW - 6, th, 10);
-        ctx.stroke();
-        // active underline
-        ctx.fillStyle = c.neon;
-        rr(ctx, tx + 12, ty + th - 5, tabW - 26, 4, 2);
-        ctx.fill();
-      }
 
-      // favicon dot
-      ctx.fillStyle = on ? c.neon : c.edge;
+      ctx.fillStyle = on ? u.accent : u.faint;
       ctx.beginPath();
-      ctx.arc(tx + 22, ty + th / 2, 6, 0, Math.PI * 2);
+      ctx.arc(tx + 20, ty + th / 2, 5, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = on ? c.ink : c.dim;
-      ctx.font = on
-        ? '700 15px "JetBrains Mono", monospace'
-        : '500 15px "JetBrains Mono", monospace';
-      let label = sv.tab;
-      while (ctx.measureText(label).width > tabW - 74 && label.length > 4) {
-        label = label.slice(0, -1);
-      }
-      ctx.fillText(label, tx + 38, ty + th / 2);
+      ctx.fillStyle = on ? u.ink : u.dim;
+      ctx.font = on ? '700 15px Inter, sans-serif' : '500 15px Inter, sans-serif';
+      ctx.fillText(sv.tab, tx + 36, ty + th / 2);
 
-      // close glyph
-      ctx.fillStyle = c.edge;
-      ctx.font = '400 16px "JetBrains Mono", monospace';
-      ctx.fillText('×', tx + tabW - 24, ty + th / 2);
+      ctx.fillStyle = u.faint;
+      ctx.font = '400 15px Inter, sans-serif';
+      ctx.fillText('×', tx + tabW - 26, ty + th / 2);
     });
 
-    // ---- address bar ----
-    const ay = BAR + TABH + 7;
-    ctx.fillStyle = mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,40,60,0.06)';
-    rr(ctx, 14, ay, w - 28, ADDR - 14, 16);
+    // address bar
+    const ay = BAR + TABH + 6;
+    ctx.fillStyle = u.tabOff;
+    rr(ctx, 12, ay, w - 24, ADDR - 14, 15);
     ctx.fill();
-    ctx.strokeStyle = c.edge;
-    ctx.lineWidth = 1.2;
-    rr(ctx, 14, ay, w - 28, ADDR - 14, 16);
-    ctx.stroke();
-    // padlock
-    ctx.strokeStyle = c.neon;
+    ctx.strokeStyle = u.green;
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.arc(40, ay + 12, 4.5, Math.PI, 0);
+    ctx.arc(36, ay + 11, 4, Math.PI, 0);
     ctx.stroke();
-    ctx.fillStyle = c.neon;
-    ctx.fillRect(35, ay + 12, 11, 9);
-    ctx.fillStyle = c.dim;
-    ctx.font = '500 15px "JetBrains Mono", monospace';
-    ctx.fillText(s.url, 60, ay + 16);
+    ctx.fillStyle = u.green;
+    ctx.fillRect(31.5, ay + 11, 9, 8);
+    ctx.fillStyle = u.dim;
+    ctx.font = '500 14px Inter, sans-serif';
+    ctx.fillText(s.url, 54, ay + 15);
+
+    // ================= app header =================
+    const M = 34;
+    let y = TOP + 34;
+
+    ctx.fillStyle = u.accent;
+    rr(ctx, M, y - 13, 26, 26, 8);
+    ctx.fill();
+    ctx.fillStyle = u.ink;
+    ctx.font = '800 17px Inter, sans-serif';
+    ctx.fillText('Finlabs', M + 36, y);
+
+    let nx = M + 132;
+    ['Home', 'Services', 'Insights', 'Support'].forEach((n, i) => {
+      ctx.fillStyle = i === 1 ? u.accent : u.dim;
+      ctx.font = i === 1 ? '700 14px Inter, sans-serif' : '500 14px Inter, sans-serif';
+      ctx.fillText(n, nx, y);
+      if (i === 1) {
+        ctx.fillStyle = u.accent;
+        rr(ctx, nx, y + 15, ctx.measureText(n).width, 3, 1.5);
+        ctx.fill();
+      }
+      nx += ctx.measureText(n).width + 34;
+    });
+
+    // search
+    ctx.fillStyle = u.card;
+    rr(ctx, nx + 20, y - 15, 260, 30, 15);
+    ctx.fill();
+    ctx.fillStyle = u.faint;
+    ctx.font = '400 13px Inter, sans-serif';
+    ctx.fillText('Search reports', nx + 44, y + 1);
+    ctx.strokeStyle = u.faint;
+    ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    ctx.arc(nx + 33, y - 1, 5, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // account
+    avatar(ctx, w - M - 18, y, 17, u.violet, u.blue, 'FI');
+    ctx.fillStyle = u.ink;
+    ctx.font = '600 14px Inter, sans-serif';
     ctx.textAlign = 'right';
-    ctx.fillStyle = c.edge;
-    ctx.fillText('⟳    ☆    ⋯', w - 32, ay + 16);
+    ctx.fillText('Finlabs India', w - M - 46, y - 7);
+    ctx.fillStyle = u.faint;
+    ctx.font = '400 12px Inter, sans-serif';
+    ctx.fillText('Consulting workspace', w - M - 46, y + 9);
     ctx.textAlign = 'left';
 
-    // ---- page content ----
-    const M = 44;
-    const px = M;
-    const py = TOP + 30;
-    const pw = w - M * 2;
-    const ph = h - py - 30;
+    ctx.fillStyle = u.line;
+    ctx.fillRect(M, y + 30, w - M * 2, 1);
 
-    // page heading strip
-    ctx.fillStyle = c.neon;
-    ctx.font = '700 14px "JetBrains Mono", monospace';
-    ctx.fillText(s.kicker, px, py + 8);
-    ctx.fillStyle = c.ink;
-    ctx.font = '800 40px "Outfit", sans-serif';
-    ctx.fillText(s.title, px, py + 46);
-    ctx.fillStyle = c.dim;
-    ctx.font = '400 19px Inter, sans-serif';
-    ctx.fillText(s.sub, px, py + 82);
+    // ================= layout =================
+    const colGap = 22;
+    const rightW = 420;
+    const leftW = w - M * 2 - rightW - colGap;
+    const leftX = M;
+    const rightX = M + leftW + colGap;
+    let ly = y + 62;
 
-    // divider
-    ctx.fillStyle = c.edge;
-    ctx.fillRect(px, py + 106, pw, 1.5);
+    // ---- title + description ----
+    heading(ctx, u, s.title, leftX, ly + 14, 32);
+    ly += 44;
+    ctx.fillStyle = u.dim;
+    ctx.font = '400 16px Inter, sans-serif';
+    ly = wrap(ctx, s.desc, leftX, ly, leftW - 20, 25) + 6;
 
-    PAGES[s.page](ctx, c, px, py + 132, pw, ph - 132);
+    // ---- stat cards ----
+    const sw = (leftW - 2 * 14) / 3;
+    b.stats.forEach(([lab, val, sub, col], i) => {
+      const sx = leftX + i * (sw + 14);
+      card(ctx, u, sx, ly, sw, 100);
+      label(ctx, u, lab, sx + 18, ly + 26, 12);
+      ctx.fillStyle = u.ink;
+      ctx.font = '800 30px Inter, sans-serif';
+      ctx.fillText(val, sx + 18, ly + 58);
+      ctx.fillStyle = u[col];
+      ctx.font = '600 12px Inter, sans-serif';
+      ctx.fillText(sub, sx + 18, ly + 82);
+    });
+    ly += 118;
 
-    // ---- status bar ----
-    ctx.fillStyle = mode === 'dark' ? 'rgba(255,255,255,0.04)' : 'rgba(0,40,60,0.05)';
-    ctx.fillRect(0, h - 34, w, 34);
-    ctx.fillStyle = c.dim;
-    ctx.font = '500 13px "JetBrains Mono", monospace';
-    ctx.fillText('SCROLL MOUSE TO SWITCH TABS', 20, h - 17);
+    // ---- chart card ----
+    const chartH = 190;
+    card(ctx, u, leftX, ly, leftW, chartH);
+    heading(ctx, u, b.chartTitle, leftX + 18, ly + 26, 15);
+    label(ctx, u, 'Last 8 periods', leftX + 18, ly + 48, 12);
+    areaChart(ctx, u, leftX + 18, ly + 66, leftW - 46, chartH - 96, b.chart, u[b.chartCol]);
+    ['1', '2', '3', '4', '5', '6', '7', '8'].forEach((t, i, a) => {
+      ctx.fillStyle = u.faint;
+      ctx.font = '500 11px Inter, sans-serif';
+      ctx.fillText(t, leftX + 18 + (i / (a.length - 1)) * (leftW - 46), ly + chartH - 16);
+    });
+    ly += chartH + 18;
+
+    // ---- list card ----
+    const listH = h - ly - 54;
+    card(ctx, u, leftX, ly, leftW, listH);
+    heading(ctx, u, b.listTitle, leftX + 18, ly + 26, 15);
+    b.list.forEach((row, i) => {
+      const ry = ly + 58 + i * 42;
+      if (ry + 20 > ly + listH) return;
+      ctx.fillStyle = u.cardAlt;
+      rr(ctx, leftX + 14, ry - 15, leftW - 28, 34, 8);
+      ctx.fill();
+      ctx.fillStyle = u.ink;
+      ctx.font = '600 14px Inter, sans-serif';
+      ctx.fillText(row[0], leftX + 28, ry + 2);
+      ctx.fillStyle = u.dim;
+      ctx.font = '400 13px Inter, sans-serif';
+      ctx.fillText(row[1], leftX + 268, ry + 2);
+      const tagCol =
+        row[2] === 'Active' || row[2] === 'Done' ? u.green : row[2] === 'Planned' ? u.amber : u.blue;
+      ctx.textAlign = 'right';
+      ctx.font = '700 12px Inter, sans-serif';
+      ctx.fillStyle = tagCol;
+      ctx.fillText(row[2], leftX + leftW - 28, ry + 2);
+      ctx.textAlign = 'left';
+    });
+
+    // ================= right column =================
+    let ry2 = y + 62;
+
+    // illustration tile
+    const illoH = 210;
+    illustration(ctx, u, b.illo, rightX, ry2, rightW, illoH);
+    ctx.fillStyle = 'rgba(0,0,0,0.34)';
+    rr(ctx, rightX + 16, ry2 + illoH - 54, rightW - 32, 38, 10);
+    ctx.fill();
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '700 14px Inter, sans-serif';
+    ctx.fillText(s.tagline, rightX + 30, ry2 + illoH - 35);
+    ry2 += illoH + 18;
+
+    // side metric card
+    const sideH = 224;
+    card(ctx, u, rightX, ry2, rightW, sideH);
+    heading(ctx, u, b.sideTitle, rightX + 18, ry2 + 26, 15);
+    b.side.forEach(([k, v], i) => {
+      const yy = ry2 + 62 + i * 38;
+      ctx.fillStyle = [u.blue, u.green, u.amber, u.violet][i % 4];
+      rr(ctx, rightX + 18, yy - 6, 10, 10, 3);
+      ctx.fill();
+      ctx.fillStyle = u.ink;
+      ctx.font = '600 14px Inter, sans-serif';
+      ctx.fillText(k, rightX + 38, yy);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = u.dim;
+      ctx.font = '500 14px Inter, sans-serif';
+      ctx.fillText(v, rightX + rightW - 18, yy);
+      ctx.textAlign = 'left';
+    });
+    ry2 += sideH + 18;
+
+    // team / contact card
+    const teamH = h - ry2 - 54;
+    if (teamH > 90) {
+      card(ctx, u, rightX, ry2, rightW, teamH);
+      heading(ctx, u, 'Your delivery pod', rightX + 18, ry2 + 26, 15);
+      [
+        ['AR', 'Engagement lead', u.accent, u.amber],
+        ['SM', 'Principal architect', u.blue, u.violet],
+        ['KP', 'Security specialist', u.green, u.blue],
+      ].forEach(([ini, role, c1, c2], i) => {
+        const yy = ry2 + 62 + i * 44;
+        if (yy + 18 > ry2 + teamH) return;
+        avatar(ctx, rightX + 32, yy, 15, c1, c2, ini);
+        ctx.fillStyle = u.ink;
+        ctx.font = '600 14px Inter, sans-serif';
+        ctx.fillText(role, rightX + 58, yy);
+      });
+    }
+
+    // ================= status bar =================
+    ctx.fillStyle = u.chrome;
+    ctx.fillRect(0, h - 32, w, 32);
+    ctx.fillStyle = u.dim;
+    ctx.font = '500 12px Inter, sans-serif';
+    ctx.fillText('Scroll to switch tabs', 20, h - 16);
     ctx.textAlign = 'right';
-    ctx.fillStyle = c.neon;
-    ctx.fillText(`TAB ${active + 1} / ${SERVICES.length}`, w - 20, h - 17);
+    ctx.fillStyle = u.accent;
+    ctx.font = '700 12px Inter, sans-serif';
+    ctx.fillText(`Tab ${active + 1} of ${SERVICES.length}`, w - 20, h - 16);
     ctx.textAlign = 'left';
-
-    // scanlines
-    ctx.fillStyle = mode === 'dark' ? 'rgba(0,12,18,0.16)' : 'rgba(30,90,110,0.05)';
-    for (let yy = 0; yy < h; yy += 4) ctx.fillRect(0, yy, w, 2);
   });
 }
 // two screen layers so one can crossfade into the next
@@ -1407,7 +1483,7 @@ function screenDistance() {
 // =====================================================
 
 const timer = new Timer();
-const lookTarget = new THREE.Vector3(0, SCREEN_Y - 0.9, SCREEN_Z);
+const lookTarget = new THREE.Vector3(0, SCREEN_Y, SCREEN_Z);
 let shownIndex = 0;
 
 camera.position.set(0, SCREEN_Y, SCREEN_Z + 18);
@@ -1461,10 +1537,13 @@ function loop() {
   const dist = screenDistance();
   const zTarget = SCREEN_Z + dist + outro * 9;
   camera.position.z += (zTarget - camera.position.z) * 0.07;
-  camera.position.x += (Math.sin(t * 0.22) * 0.5 - camera.position.x) * 0.05;
-  camera.position.y +=
-    (SCREEN_Y + Math.sin(t * 0.31) * 0.22 + outro * 1.6 - camera.position.y) * 0.06;
-  lookTarget.y += (SCREEN_Y - 0.9 + outro * 1.6 - lookTarget.y) * 0.06;
+  // Head-on and centred. Drifting the camera or aiming off-centre makes
+  // the screen render as a trapezoid instead of a rectangle.
+  camera.position.x += (0 - camera.position.x) * 0.08;
+  camera.position.y += (SCREEN_Y + outro * 1.6 - camera.position.y) * 0.08;
+  lookTarget.y += (SCREEN_Y + outro * 1.6 - lookTarget.y) * 0.08;
+  lookTarget.x = 0;
+  lookTarget.z = SCREEN_Z;
   camera.lookAt(lookTarget);
 
   // motes drift toward the wall
