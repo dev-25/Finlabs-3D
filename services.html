@@ -12,6 +12,17 @@
 
 <body class="svc">
 
+  <!-- practice icons, referenced with <use href="#s-…"> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="s-uiux" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 8.5h18M7 13h4M7 15.5h7"/><circle cx="16.5" cy="13.8" r="1.6"/></symbol>
+      <symbol id="s-audit" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/><path d="m7.8 10.6 1.9 1.9 3.4-3.6"/></symbol>
+      <symbol id="s-security" viewBox="0 0 24 24"><path d="M12 2.8 19.5 6v5.2c0 4.6-3.1 8.4-7.5 10-4.4-1.6-7.5-5.4-7.5-10V6z"/><rect x="9" y="10.5" width="6" height="5" rx="1.2"/><path d="M10.2 10.5V9a1.8 1.8 0 0 1 3.6 0v1.5"/></symbol>
+      <symbol id="s-cloud" viewBox="0 0 24 24"><path d="M7 18.5h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7.1 9.4 4.5 4.5 0 0 0 7 18.5z"/></symbol>
+      <symbol id="s-transform" viewBox="0 0 24 24"><path d="m3 17.5 6-6 4 4 8-8"/><path d="M15 7.5h6v6"/></symbol>
+    </defs>
+  </svg>
+
   <!-- ambient backdrop, painted by CSS behind the transparent WebGL canvas -->
   <div class="backdrop" aria-hidden="true">
     <span class="orb orb--a"></span>
@@ -21,24 +32,24 @@
   </div>
   <canvas id="scene" aria-hidden="true"></canvas>
 
-  <header class="nav" id="top">
-    <a class="nav__brand" href="index.html" aria-label="Finlabs home">
+  <header class="site-nav" id="top">
+    <a class="site-nav__brand" href="index.html" aria-label="Finlabs home">
       <img src="/finlabs-logo.png" alt="Finlabs — Celebrating a Decade of Impact" />
     </a>
-    <nav class="nav__links" aria-label="Page sections">
-      <a href="#services">Services</a>
-      <a href="#process">How we work</a>
-      <a href="#why">Why Finlabs</a>
+    <nav class="site-nav__links" id="siteLinks" aria-label="Main">
+      <a href="https://finlabsindia.org/about-us/" target="_blank" rel="noopener">About Us</a>
       <a href="products.html">Products</a>
       <a href="solutions.html">Solutions</a>
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="https://finlabsindia.org/knowledge-centre/" target="_blank" rel="noopener">Knowledge Centre</a>
     </nav>
-    <div class="nav__actions">
-      <button id="themeToggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+    <div class="site-nav__actions">
+      <button id="themeToggle" class="site-nav__theme" type="button" aria-pressed="false" aria-label="Switch to dark theme">
         <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></g></svg>
         <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor"/></svg>
       </button>
-      <button id="toggle3d" class="icon-btn icon-btn--text" type="button" aria-pressed="true" aria-label="Toggle 3D scene">3D</button>
-      <a class="btn btn--primary btn--sm" href="#contact" data-magnetic>Talk to us</a>
+      <a class="site-nav__contact" href="https://finlabsindia.org/contact-us/" target="_blank" rel="noopener">Contact Us</a>
+      <button class="site-nav__menu" type="button" aria-expanded="false" aria-controls="siteLinks" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -88,9 +99,13 @@
 
       <article class="service" id="uiux" data-scene="uiux" style="--accent:#8b5cf6">
         <div class="col">
-          <p class="service__num" data-reveal>01</p>
-          <p class="service__kicker" data-reveal><span class="dot"></span>UI / UX Consulting</p>
-          <h3 class="service__title" data-reveal>Interfaces your clients actually enjoy using.</h3>
+          <div class="service__head" data-reveal>
+            <span class="service__icon"><svg class="ico"><use href="#s-uiux"/></svg></span>
+            <span class="service__count">01<i>/ 05</i></span>
+            <span class="service__steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span>
+          </div>
+          <h3 class="service__name" data-reveal>UI / UX Consulting</h3>
+          <p class="service__tagline" data-reveal>Interfaces your clients actually enjoy using.</p>
           <p class="service__lead" data-reveal>
             User-centered design, intuitive interface development and seamless experiences that
             drive engagement and satisfaction. We start with the people who use your product, then
@@ -130,9 +145,13 @@
 
       <article class="service" id="audit" data-scene="audit" style="--accent:#14b8a6">
         <div class="col">
-          <p class="service__num" data-reveal>02</p>
-          <p class="service__kicker" data-reveal><span class="dot"></span>Application &amp; Infra Audits</p>
-          <h3 class="service__title" data-reveal>Find the weak points before anyone else does.</h3>
+          <div class="service__head" data-reveal>
+            <span class="service__icon"><svg class="ico"><use href="#s-audit"/></svg></span>
+            <span class="service__count">02<i>/ 05</i></span>
+            <span class="service__steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+          </div>
+          <h3 class="service__name" data-reveal>Application &amp; Infra Audits</h3>
+          <p class="service__tagline" data-reveal>Find the weak points before anyone else does.</p>
           <p class="service__lead" data-reveal>
             A thorough analysis and evaluation of your applications and infrastructure to identify
             vulnerabilities, optimize performance and enhance security — delivered as findings ranked
@@ -172,9 +191,13 @@
 
       <article class="service" id="security" data-scene="security" style="--accent:#6366f1">
         <div class="col">
-          <p class="service__num" data-reveal>03</p>
-          <p class="service__kicker" data-reveal><span class="dot"></span>Cybersecurity</p>
-          <h3 class="service__title" data-reveal>Security your regulator and your clients can rely on.</h3>
+          <div class="service__head" data-reveal>
+            <span class="service__icon"><svg class="ico"><use href="#s-security"/></svg></span>
+            <span class="service__count">03<i>/ 05</i></span>
+            <span class="service__steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+          </div>
+          <h3 class="service__name" data-reveal>Cybersecurity</h3>
+          <p class="service__tagline" data-reveal>Security your regulator and your clients can rely on.</p>
           <p class="service__lead" data-reveal>
             Comprehensive threat assessment, advanced defense strategies and proactive risk mitigation
             to safeguard your digital assets. We map your real attack surface, harden it around zero-trust
@@ -214,9 +237,13 @@
 
       <article class="service" id="cloud" data-scene="cloud" style="--accent:#0ea5e9">
         <div class="col">
-          <p class="service__num" data-reveal>04</p>
-          <p class="service__kicker" data-reveal><span class="dot"></span>Cloud Architecture Review</p>
-          <h3 class="service__title" data-reveal>Pay for the cloud you need — and nothing you don't.</h3>
+          <div class="service__head" data-reveal>
+            <span class="service__icon"><svg class="ico"><use href="#s-cloud"/></svg></span>
+            <span class="service__count">04<i>/ 05</i></span>
+            <span class="service__steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+          </div>
+          <h3 class="service__name" data-reveal>Cloud Architecture Review</h3>
+          <p class="service__tagline" data-reveal>Pay for the cloud you need — and nothing you don't.</p>
           <p class="service__lead" data-reveal>
             A meticulous examination of your cloud infrastructure to optimize efficiency, security and
             scalability. We review against each provider's own framework, find the optimization
@@ -256,9 +283,13 @@
 
       <article class="service" id="transform" data-scene="transform" style="--accent:#22c55e">
         <div class="col">
-          <p class="service__num" data-reveal>05</p>
-          <p class="service__kicker" data-reveal><span class="dot"></span>Digital Transformation Strategy</p>
-          <h3 class="service__title" data-reveal>A roadmap you can actually ship, one wave at a time.</h3>
+          <div class="service__head" data-reveal>
+            <span class="service__icon"><svg class="ico"><use href="#s-transform"/></svg></span>
+            <span class="service__count">05<i>/ 05</i></span>
+            <span class="service__steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+          </div>
+          <h3 class="service__name" data-reveal>Digital Transformation Strategy</h3>
+          <p class="service__tagline" data-reveal>A roadmap you can actually ship, one wave at a time.</p>
           <p class="service__lead" data-reveal>
             Crafted roadmaps that leverage cutting-edge technologies, data-driven insights and agile
             methodologies. We inventory the legacy estate, agree a target architecture, and sequence the

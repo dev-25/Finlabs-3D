@@ -103,92 +103,7 @@ body.no3d #canvas {
 /* TOP BAR                                                */
 /* ===================================================== */
 
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 20px clamp(16px, 4vw, 48px);
-}
-
-/* the logo sits directly on the room — no plate, no backdrop */
-.brand {
-  display: inline-flex;
-  align-items: center;
-}
-.brand img {
-  display: block;
-  height: clamp(38px, 4.4vw, 56px);
-  width: auto;
-}
-
-.topnav {
-  display: flex;
-  gap: 10px;
-}
-
-.pill {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--teal-deep);
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 9px 16px;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 6px 18px -12px rgba(14, 58, 82, 0.6);
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
-}
-.pill:hover {
-  border-color: rgba(20, 110, 145, 0.4);
-  transform: translateY(-1px);
-}
-.pill[aria-pressed="true"] [data-state] {
-  color: var(--orange);
-}
-.pill--solid {
-  background: var(--navy);
-  border-color: var(--navy);
-  color: #fff;
-}
-.pill--solid:hover {
-  background: var(--navy-soft);
-  border-color: var(--navy-soft);
-}
-
-/* icon-only theme switch: sun in light mode, moon in dark */
-.pill--icon {
-  display: inline-grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  color: var(--teal-deep);
-}
-.pill--icon svg {
-  grid-area: 1 / 1;
-  transition: opacity 0.2s, transform 0.3s;
-}
-.ico-moon {
-  opacity: 0;
-  transform: rotate(-45deg) scale(0.7);
-}
-:root[data-theme="dark"] .ico-sun {
-  opacity: 0;
-  transform: rotate(45deg) scale(0.7);
-}
-:root[data-theme="dark"] .ico-moon {
-  opacity: 1;
-  transform: none;
-}
+/* the menu bar is shared by every page — see nav.css */
 
 /* ===================================================== */
 /* SCROLL CUE + PROGRESS                                  */
@@ -534,22 +449,33 @@ body.no3d #canvas {
   gap: 8px;
   list-style: none;
 }
+/* same icon tiles as the other pages' footers */
 .social a {
   display: grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background: var(--teal-deep);
-  color: #fff;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  transition: transform 0.18s, background 0.18s;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.12);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
 }
 .social a:hover {
-  transform: translateY(-2px);
-  background: var(--teal);
+  transform: translateY(-3px);
+  background: #2563eb;
+  color: #fff;
+}
+.social svg {
+  width: 18px;
+  height: 18px;
+}
+:root[data-theme="dark"] .social a {
+  color: #4f86ff;
+  background: rgba(79, 134, 255, 0.14);
+}
+:root[data-theme="dark"] .social a:hover {
+  background: #4f86ff;
+  color: #fff;
 }
 
 .endwall__cols {
@@ -735,26 +661,6 @@ body.no3d #canvas {
   box-shadow:
     0 0 0 1px rgba(120, 200, 255, 0.07),
     0 30px 70px -38px rgba(0, 0, 0, 0.95);
-}
-
-:root[data-theme="dark"] .pill {
-  background: rgba(12, 26, 48, 0.8);
-  color: var(--cyan);
-}
-:root[data-theme="dark"] .pill:hover {
-  border-color: rgba(120, 200, 255, 0.5);
-}
-:root[data-theme="dark"] .pill--solid {
-  background: var(--teal-deep);
-  border-color: var(--teal-deep);
-  color: #041420;
-}
-:root[data-theme="dark"] .pill--icon {
-  color: var(--cyan);
-}
-
-:root[data-theme="dark"] .brand img {
-  filter: brightness(1.9) saturate(0.6);
 }
 
 :root[data-theme="dark"] body.no3d {

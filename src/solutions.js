@@ -1,4 +1,6 @@
 import './solutions.css';
+import './nav.css';
+import './nav.js';
 import * as THREE from 'three';
 import { Timer } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';

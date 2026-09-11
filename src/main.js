@@ -1,4 +1,6 @@
 import './style.css';
+import './nav.css';
+import './nav.js';
 import * as THREE from 'three';
 import { Timer } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -1030,43 +1032,8 @@ for (let z = 12; z > BACK_Z + 6; z -= 9) {
 // -----------------------------------------------------
 // FLOOR DETAIL
 // -----------------------------------------------------
-// The walkway between the stations used to be bare — these markings and
-// pads give the floor something to read against as the camera moves.
-
-// concentric pad under each station
-const padTex = makeTexture(512, 512, (ctx, w) => {
-  ctx.clearRect(0, 0, w, w);
-  const c = w / 2;
-  ctx.strokeStyle = 'rgba(58,140,180,0.34)';
-  ctx.lineWidth = 7;
-  [0.46, 0.37, 0.27].forEach((r) => {
-    ctx.beginPath();
-    ctx.arc(c, c, w * r, 0, Math.PI * 2);
-    ctx.stroke();
-  });
-  ctx.setLineDash([26, 20]);
-  ctx.strokeStyle = 'rgba(58,140,180,0.5)';
-  ctx.lineWidth = 10;
-  ctx.beginPath();
-  ctx.arc(c, c, w * 0.42, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.fillStyle = 'rgba(58,140,180,0.1)';
-  ctx.beginPath();
-  ctx.arc(c, c, w * 0.27, 0, Math.PI * 2);
-  ctx.fill();
-});
-
-const padGeo = new THREE.PlaneGeometry(9.5, 9.5);
-PRODUCTS.forEach((p, i) => {
-  const pad = new THREE.Mesh(
-    padGeo,
-    new THREE.MeshBasicMaterial({ map: padTex, transparent: true, depthWrite: false })
-  );
-  pad.rotation.x = -Math.PI / 2;
-  pad.position.set(stationX(i), FLOOR_Y + 0.03, stationZ(i) + 0.4);
-  room.add(pad);
-});
+// The walkway between the stations used to be bare — these markings give
+// the floor something to read against as the camera moves.
 
 // dashed guide line + rungs down the middle of the walkway
 const dashGeo = rbox(0.42, 0.05, 2.1, 0.02);
@@ -1228,82 +1195,6 @@ let gearCursor = 0;
     gearCursor++;
   });
 });
-
-// =====================================================
-// SERVER RACKS
-// =====================================================
-
-const rackPanelTex = makeTexture(256, 640, (ctx, w, h) => {
-  ctx.fillStyle = '#2f7cb8';
-  ctx.fillRect(0, 0, w, h);
-
-  // rows of status ticks
-  for (let r = 0; r < 11; r++) {
-    const y = 34 + r * 44;
-    ctx.fillStyle = 'rgba(255,255,255,0.85)';
-    ctx.fillRect(26, y, 46, 9);
-    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.fillRect(84, y, 30, 9);
-    ctx.fillStyle = r % 3 === 0 ? '#9beaff' : 'rgba(255,255,255,0.7)';
-    ctx.fillRect(150, y, 62, 9);
-    ctx.fillStyle = 'rgba(255,255,255,0.28)';
-    ctx.fillRect(26, y + 16, 186, 4);
-  }
-
-  // indicator block near the base
-  ctx.fillStyle = '#10456d';
-  rr(ctx, 26, h - 120, 186, 82, 12);
-  ctx.fill();
-  ctx.fillStyle = '#9beaff';
-  ctx.beginPath();
-  ctx.arc(w - 56, h - 62, 13, 0, Math.PI * 2);
-  ctx.fill();
-});
-
-const rackShellGeo = rbox(1.5, 3.6, 1.7, 0.26);
-const rackPanelGeo = new THREE.PlaneGeometry(1.0, 2.7);
-const rackShellMat = new THREE.MeshLambertMaterial({ color: 0xeaf4fa });
-const rackPanelMat = new THREE.MeshBasicMaterial({ map: rackPanelTex });
-const rackFootGeo = rbox(1.3, 0.16, 1.5, 0.06);
-
-function buildServerRack() {
-  const g = new THREE.Group();
-
-  const shell = new THREE.Mesh(rackShellGeo, rackShellMat);
-  shell.position.y = 1.9;
-  g.add(shell);
-
-  const panel = new THREE.Mesh(rackPanelGeo, rackPanelMat);
-  panel.position.set(0, 2.05, 0.86);
-  g.add(panel);
-
-  const foot = new THREE.Mesh(
-    rackFootGeo,
-    new THREE.MeshLambertMaterial({ color: C.cyanSoft })
-  );
-  foot.position.y = 0.08;
-  g.add(foot);
-
-  return g;
-}
-
-// clusters of three, set against the side walls between the stations
-for (let i = 0; i < PRODUCTS.length - 1; i++) {
-  const side = i % 2 === 0 ? -1 : 1;
-  const z = (stationZ(i) + stationZ(i + 1)) / 2;
-  const cluster = new THREE.Group();
-
-  [-1, 0, 1].forEach((k) => {
-    const rack = buildServerRack();
-    rack.position.set(k * 1.85, 0, -k * 0.9);
-    cluster.add(rack);
-    addShadow(rack, 4, 0.04, 0.2, 0.7);
-  });
-
-  cluster.position.set(side * 12.1, FLOOR_Y, z);
-  cluster.rotation.y = side < 0 ? 0.5 : -0.5;
-  room.add(cluster);
-}
 
 // =====================================================
 // PRODUCT SCREEN ARTWORK
@@ -1968,8 +1859,8 @@ PRODUCTS.forEach((product, i) => {
     )
   );
 
-  // contact shadow
-  addShadow(g, 9, FLOOR_Y + 0.03, 0.4, 0.9);
+  // contact shadow, kept tight to the podium so it doesn't read as a circle on the floor
+  addShadow(g, 5.2, FLOOR_Y + 0.03, 0.4, 0.55);
 
   g.position.set(stationX(i), 0, stationZ(i));
   g.userData.baseY = 0;
@@ -2085,20 +1976,12 @@ function updateScroll() {
 window.addEventListener('scroll', updateScroll, { passive: true });
 
 // =====================================================
-// 3D ON / OFF
+// LOOP STATE
 // =====================================================
 
+// The shared menu bar has no 3D switch any more, so the room always runs.
 let enabled = true;
 let running = false;
-const toggle = document.querySelector('#toggle3d');
-
-toggle.addEventListener('click', () => {
-  enabled = !enabled;
-  toggle.setAttribute('aria-pressed', String(enabled));
-  toggle.querySelector('[data-state]').textContent = enabled ? 'ON' : 'OFF';
-  document.body.classList.toggle('no3d', !enabled);
-  if (enabled && !running) loop();
-});
 
 // =====================================================
 // ANIMATION

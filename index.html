@@ -48,24 +48,24 @@
   </div>
   <canvas id="scene" aria-hidden="true"></canvas>
 
-  <header class="nav" id="top">
-    <a class="nav__brand" href="#top" aria-label="Finlabs home">
+  <header class="site-nav" id="top">
+    <a class="site-nav__brand" href="index.html" aria-label="Finlabs home">
       <img src="/finlabs-logo.png" alt="Finlabs — Celebrating a Decade of Impact" />
     </a>
-    <nav class="nav__links" aria-label="Site">
+    <nav class="site-nav__links" id="siteLinks" aria-label="Main">
+      <a href="https://finlabsindia.org/about-us/" target="_blank" rel="noopener">About Us</a>
       <a href="products.html">Products</a>
       <a href="solutions.html">Solutions</a>
       <a href="services.html">Services</a>
-      <a href="#awards">Awards</a>
-      <a href="#voices">Clients</a>
+      <a href="https://finlabsindia.org/knowledge-centre/" target="_blank" rel="noopener">Knowledge Centre</a>
     </nav>
-    <div class="nav__actions">
-      <button id="themeToggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+    <div class="site-nav__actions">
+      <button id="themeToggle" class="site-nav__theme" type="button" aria-pressed="false" aria-label="Switch to dark theme">
         <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></g></svg>
         <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor"/></svg>
       </button>
-      <button id="toggle3d" class="icon-btn icon-btn--text" type="button" aria-pressed="true" aria-label="Toggle 3D scene">3D</button>
-      <a class="btn btn--primary btn--sm" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener" data-magnetic>Book a call</a>
+      <a class="site-nav__contact" href="https://finlabsindia.org/contact-us/" target="_blank" rel="noopener">Contact Us</a>
+      <button class="site-nav__menu" type="button" aria-expanded="false" aria-controls="siteLinks" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </header>
 
