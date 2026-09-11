@@ -21,6 +21,22 @@
       <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
       <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
       <symbol id="i-quote" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M9.6 5.5C5.9 6.6 3.8 9.6 3.8 13.4V18.5h6.4v-6.4H7.1c.2-2.1 1.5-3.7 3.4-4.4zm10.6 0c-3.7 1.1-5.8 4.1-5.8 7.9V18.5h6.4v-6.4h-3.1c.2-2.1 1.5-3.7 3.4-4.4z"/></symbol>
+      <symbol id="i-cards" viewBox="0 0 24 24"><rect x="3" y="9" width="14" height="9.5" rx="2"/><path d="M6.5 6h11A2.5 2.5 0 0 1 20 8.5V15"/><path d="M10 3h10.5A2.5 2.5 0 0 1 23 5.5V11"/></symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24"><path d="m12 2.6 2 4 4.4.6-3.2 3.1.8 4.4-4-2.1-4 2.1.8-4.4-3.2-3.1 4.4-.6z"/><path d="M12 12.6v5"/><path d="M8.5 21.5h7M9.5 17.6h5v3.9h-5z"/></symbol>
+      <symbol id="i-laurel" viewBox="0 0 120 48">
+        <path fill="currentColor" d="M60 5.5l5.4 10.9 12 1.8-8.7 8.5 2.1 12L60 33l-10.8 5.7 2.1-12-8.7-8.5 12-1.8z"/>
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M44 40C28 37 17 27 12 8M76 40c16-3 27-13 32-32"/>
+        <g fill="currentColor">
+          <ellipse cx="38" cy="36" rx="6.5" ry="2.4" transform="rotate(-12 38 36)"/>
+          <ellipse cx="28.5" cy="31" rx="6.5" ry="2.4" transform="rotate(-32 28.5 31)"/>
+          <ellipse cx="20.5" cy="23.5" rx="6.2" ry="2.3" transform="rotate(-50 20.5 23.5)"/>
+          <ellipse cx="15.5" cy="14.5" rx="5.8" ry="2.2" transform="rotate(-68 15.5 14.5)"/>
+          <ellipse cx="82" cy="36" rx="6.5" ry="2.4" transform="rotate(12 82 36)"/>
+          <ellipse cx="91.5" cy="31" rx="6.5" ry="2.4" transform="rotate(32 91.5 31)"/>
+          <ellipse cx="99.5" cy="23.5" rx="6.2" ry="2.3" transform="rotate(50 99.5 23.5)"/>
+          <ellipse cx="104.5" cy="14.5" rx="5.8" ry="2.2" transform="rotate(68 104.5 14.5)"/>
+        </g>
+      </symbol>
     </defs>
   </svg>
 
@@ -40,6 +56,7 @@
       <a href="products.html">Products</a>
       <a href="solutions.html">Solutions</a>
       <a href="services.html">Services</a>
+      <a href="#awards">Awards</a>
       <a href="#voices">Clients</a>
     </nav>
     <div class="nav__actions">
@@ -54,8 +71,8 @@
 
   <main>
 
-    <section class="hero" data-scene="hero" data-side="left">
-      <div class="col">
+    <section class="hero">
+      <div class="hero__text">
         <p class="eyebrow" data-reveal><span class="dot"></span>Celebrating a decade of impact</p>
         <h1 class="hero__title" data-reveal>Ten years of <em>smarter fintech.</em></h1>
         <p class="hero__lead" data-reveal>
@@ -74,10 +91,12 @@
           <li><strong>3</strong><span>service lines</span></li>
         </ul>
       </div>
-      <a class="hero__scroll" href="#clients" aria-label="Scroll down"><span></span></a>
+      <div class="hero__visual" data-view="hero" aria-hidden="true">
+        <div class="view__fallback"><svg class="ico"><use href="#i-cards"/></svg></div>
+      </div>
     </section>
 
-    <section class="clients" id="clients" data-scene="hero" data-side="left">
+    <section class="clients" id="clients">
       <p class="clients__title" data-reveal>Trusted by leading names in Indian finance and education</p>
       <div class="marquee" aria-label="Clients">
         <div class="marquee__track">
@@ -94,17 +113,19 @@
     </section>
 
     <section class="offerings" id="offerings">
-      <header class="section-head" data-scene="hero" data-side="left">
+      <header class="section-head">
         <p class="eyebrow" data-reveal><span class="dot"></span>Our offerings</p>
-        <h2 data-reveal>Three doors into Finlabs.</h2>
+        <h2 data-reveal>Three ways we help you grow.</h2>
         <p data-reveal>
           Products to run your business, solutions for the problems that slow it down, and
-          services to build and look after the technology behind it. Step through any door.
+          services to build and look after the technology behind it.
         </p>
       </header>
+      <div class="bento">
 
-      <article class="offer" id="products" data-scene="products" data-side="left" style="--accent:#2563eb">
-        <div class="offer__card" data-reveal>
+      <article class="offer" id="products" style="--accent:#2563eb" data-reveal>
+        <div class="offer__visual" data-view="products" aria-hidden="true"><div class="view__fallback"><svg class="ico"><use href="#i-products"/></svg></div></div>
+        <div class="offer__body">
           <div class="offer__meta"><span class="offer__icon"><svg class="ico"><use href="#i-products"/></svg></span><b>01</b><span>Five platforms</span></div>
           <h3 class="offer__title">Products</h3>
           <p class="offer__lead">Explore a range of innovative financial tools designed to streamline your operations and maximize growth.</p>
@@ -121,8 +142,9 @@
         </div>
       </article>
 
-      <article class="offer" id="solutions" data-scene="solutions" data-side="right" style="--accent:#06b6d4">
-        <div class="offer__card" data-reveal>
+      <article class="offer" id="solutions" style="--accent:#0891b2" data-reveal>
+        <div class="offer__visual" data-view="solutions" aria-hidden="true"><div class="view__fallback"><svg class="ico"><use href="#i-solutions"/></svg></div></div>
+        <div class="offer__body">
           <div class="offer__meta"><span class="offer__icon"><svg class="ico"><use href="#i-solutions"/></svg></span><b>02</b><span>Eight building blocks</span></div>
           <h3 class="offer__title">Solutions</h3>
           <p class="offer__lead">
@@ -145,8 +167,9 @@
         </div>
       </article>
 
-      <article class="offer" id="services" data-scene="services" data-side="left" style="--accent:#8b5cf6">
-        <div class="offer__card" data-reveal>
+      <article class="offer" id="services" style="--accent:#7c3aed" data-reveal>
+        <div class="offer__visual" data-view="services" aria-hidden="true"><div class="view__fallback"><svg class="ico"><use href="#i-services"/></svg></div></div>
+        <div class="offer__body">
           <div class="offer__meta"><span class="offer__icon"><svg class="ico"><use href="#i-services"/></svg></span><b>03</b><span>Consult · build · run</span></div>
           <h3 class="offer__title">Services</h3>
           <p class="offer__lead">Leverage our specialized services to tackle challenges, improve efficiency, and drive results.</p>
@@ -161,9 +184,51 @@
           </div>
         </div>
       </article>
+      </div>
     </section>
 
-    <section class="voices" id="voices" data-scene="voices" data-side="center">
+    <section class="awards" id="awards">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Recognition</p>
+        <h2 data-reveal>Industry Recognition &amp; Awards</h2>
+        <p data-reveal>Honoured by India's business and technology community.</p>
+      </header>
+      <div class="awards__grid">
+        <div class="awards__col">
+          <article class="award" data-tilt data-reveal>
+            <span class="award__year">2023</span>
+            <svg class="award__laurel" aria-hidden="true"><use href="#i-laurel"/></svg>
+            <p class="award__who">Mint W3 Conclave</p>
+            <h3>Future of Workforce Disruptor in Emerging Enterprise</h3>
+          </article>
+          <article class="award" data-tilt data-reveal>
+            <span class="award__year">2023</span>
+            <svg class="award__laurel" aria-hidden="true"><use href="#i-laurel"/></svg>
+            <p class="award__who">Dun &amp; Bradstreet</p>
+            <h3>Start-up 50 Trailblazer</h3>
+          </article>
+        </div>
+        <div class="awards__trophy" data-view="trophy" aria-hidden="true">
+          <div class="view__fallback"><svg class="ico"><use href="#i-trophy"/></svg></div>
+        </div>
+        <div class="awards__col">
+          <article class="award" data-tilt data-reveal>
+            <span class="award__year">2023</span>
+            <svg class="award__laurel" aria-hidden="true"><use href="#i-laurel"/></svg>
+            <p class="award__who">Nasscom AI &amp; IBM</p>
+            <h3>Runner-up, IBM AI for Business Grand Challenge for IT Automation</h3>
+          </article>
+          <article class="award" data-tilt data-reveal>
+            <span class="award__year">2025</span>
+            <svg class="award__laurel" aria-hidden="true"><use href="#i-laurel"/></svg>
+            <p class="award__who">MIT ADT University, Pune</p>
+            <h3>Best Innovation in the Future Skill of the Twenty-First Century Award</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="voices" id="voices">
       <header class="section-head section-head--center">
         <p class="eyebrow" data-reveal><span class="dot"></span>What our clients say</p>
         <h2 data-reveal>A decade of partnerships, in their words.</h2>
@@ -249,7 +314,7 @@
       </div>
     </section>
 
-    <section class="blog" id="blog" data-scene="voices" data-side="center">
+    <section class="blog" id="blog">
       <header class="section-head section-head--center">
         <p class="eyebrow" data-reveal><span class="dot"></span>From the Knowledge Centre</p>
         <h2 data-reveal>Our recent blogs &amp; articles</h2>
@@ -282,7 +347,7 @@
       </ul>
     </section>
 
-    <section class="cta" id="contact" data-scene="cta" data-side="center">
+    <section class="cta" id="contact">
       <div class="cta__panel" data-reveal>
         <span class="cta__ten" aria-hidden="true">10</span>
         <p class="eyebrow"><span class="dot"></span>Here for the next decade</p>

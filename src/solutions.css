@@ -7,7 +7,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #f3f7fd;
+  --bg: #e6eeff;
   --ink: #0a1426;
   --ink-2: #394862;
   --ink-3: #6a7893;
@@ -19,9 +19,9 @@
   --brand: #2563eb;
   --brand-2: #06b6d4;
   --accent: var(--brand);
-  --glow-a: #b8ceff;
-  --glow-b: #a9eef7;
-  --dots: rgba(37, 99, 235, 0.16);
+  --glow-a: #86adff;
+  --glow-b: #7fdcec;
+  --dots: rgba(37, 99, 235, 0.22);
 
   --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --body: "Inter", "Segoe UI", system-ui, sans-serif;
@@ -46,6 +46,12 @@
   --glow-b: #07465a;
   --dots: rgba(120, 160, 255, 0.14);
 }
+
+/* light theme: a colour wash instead of flat white */
+:root:not([data-theme="dark"]) body.sol-page {
+  background: linear-gradient(165deg, #dce7ff 0%, #ebe4ff 45%, #ddf3fa 100%) fixed;
+}
+:root:not([data-theme="dark"]) .glow { opacity: 0.75; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body.sol-page {

@@ -6,7 +6,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #f4f7fc;
+  --bg: #e6eeff;
   --ink: #0c1424;
   --ink-2: #3a4760;
   --ink-3: #6b7892;
@@ -18,10 +18,10 @@
   --brand: #2f6bff;
   --brand-2: #6a5cff;
   --accent: var(--brand);
-  --orb-a: #a9c2ff;
-  --orb-b: #cdbdff;
-  --orb-c: #a8eef3;
-  --grid: rgba(47, 107, 255, 0.07);
+  --orb-a: #86adff;
+  --orb-b: #bba6ff;
+  --orb-c: #7fdcec;
+  --grid: rgba(47, 107, 255, 0.1);
 
   --display: "Outfit", "Segoe UI", system-ui, sans-serif;
   --body: "Inter", "Segoe UI", system-ui, sans-serif;
@@ -46,6 +46,12 @@
   --orb-c: #0b5669;
   --grid: rgba(120, 150, 255, 0.06);
 }
+
+/* light theme: a colour wash instead of flat white */
+:root:not([data-theme="dark"]) body.svc {
+  background: linear-gradient(165deg, #dce7ff 0%, #ebe4ff 45%, #ddf3fa 100%) fixed;
+}
+:root:not([data-theme="dark"]) .orb { opacity: 0.75; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body.svc {

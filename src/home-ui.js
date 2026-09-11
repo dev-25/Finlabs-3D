@@ -1,69 +1,13 @@
 /* =====================================================
  * FINLABS HOME — page interactions (no 3D here)
  * =====================================================
- * Section tracking, reveal-on-scroll, the testimonial
- * carousel and magnetic buttons. The 3D lobby listens
- * via onSceneChange().
+ * Reveal-on-scroll, the testimonial carousel, award
+ * cards that tilt toward the pointer, and magnetic
+ * buttons.
  * ===================================================== */
 
-export const DOORS = [
-  { key: 'products', label: 'PRODUCTS', accent: '#2563eb' },
-  { key: 'solutions', label: 'SOLUTIONS', accent: '#06b6d4' },
-  { key: 'services', label: 'SERVICES', accent: '#8b5cf6' },
-];
-export const BRAND = '#2563eb';
-
-const BY_KEY = Object.fromEntries(DOORS.map((d) => [d.key, d]));
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-// ---------------------------------------------------------------------
-// Which section owns the middle of the viewport?
-// ---------------------------------------------------------------------
-
-const listeners = new Set();
-let current = { scene: 'hero', side: 'left' };
-
-/** fn({ scene, side }) — scene is 'hero', 'voices', 'cta' or a door key */
-export function onSceneChange(fn) {
-  listeners.add(fn);
-  fn(current);
-  return () => listeners.delete(fn);
-}
-
-const sections = [...document.querySelectorAll('[data-scene]')];
-
-function track() {
-  const mid = window.innerHeight * 0.5;
-  let hit = null;
-  sections.forEach((el) => {
-    const r = el.getBoundingClientRect();
-    if (r.top <= mid && r.bottom >= mid) hit = el;
-  });
-  if (!hit) return;
-
-  const scene = hit.dataset.scene;
-  const side = hit.dataset.side || 'left';
-  if (scene === current.scene && side === current.side) return;
-  current = { scene, side };
-
-  document.body.style.setProperty('--accent', BY_KEY[scene]?.accent || BRAND);
-  // the lobby steps back behind the long-form sections so they stay readable
-  document.body.classList.toggle('dim3d', scene === 'voices' || scene === 'cta');
-  listeners.forEach((fn) => fn(current));
-}
-
-let queued = false;
-function queueTrack() {
-  if (queued) return;
-  queued = true;
-  requestAnimationFrame(() => {
-    queued = false;
-    track();
-  });
-}
-window.addEventListener('scroll', queueTrack, { passive: true });
-window.addEventListener('resize', queueTrack);
-track();
+const FINE = window.matchMedia('(pointer: fine)').matches;
 
 // ---------------------------------------------------------------------
 // Reveal on scroll, lightly staggered within each parent
@@ -138,10 +82,30 @@ window.addEventListener('resize', syncArrows);
 syncArrows();
 
 // ---------------------------------------------------------------------
+// Award cards lean toward the pointer, with a moving sheen
+// ---------------------------------------------------------------------
+
+if (!REDUCED && FINE) {
+  document.querySelectorAll('[data-tilt]').forEach((card) => {
+    card.addEventListener('pointermove', (e) => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(900px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg) translateY(-4px)`;
+      card.style.setProperty('--gx', `${Math.round((x + 0.5) * 100)}%`);
+      card.style.setProperty('--gy', `${Math.round((y + 0.5) * 100)}%`);
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+// ---------------------------------------------------------------------
 // Magnetic buttons — a slight pull toward the pointer
 // ---------------------------------------------------------------------
 
-if (!REDUCED && window.matchMedia('(pointer: fine)').matches) {
+if (!REDUCED && FINE) {
   document.querySelectorAll('[data-magnetic]').forEach((btn) => {
     btn.addEventListener('pointermove', (e) => {
       const r = btn.getBoundingClientRect();
