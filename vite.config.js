@@ -10,6 +10,7 @@ export default defineConfig(({ command }) => ({
       input: {
         products: resolve(__dirname, 'index.html'),
         services: resolve(__dirname, 'services.html'),
+        solutions: resolve(__dirname, 'solutions.html'),
       },
     },
   },

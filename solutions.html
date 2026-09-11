@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Finlabs solutions for financial services — Learning Hub, NPS Systems, RoboInsights, SwiftOnboard, DataPulse, CollabHub, ReguSure and OpsOptima." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <title>Solutions — Finlabs</title>
+</head>
+
+<body class="sol-page">
+
+  <!-- icon sprite, referenced with <use href="#i-…"> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-learning" viewBox="0 0 24 24"><path d="M2 9.5 12 4.5l10 5-10 5z"/><path d="M6 11.5v4.8c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.8"/><path d="M22 9.5v5"/></symbol>
+      <symbol id="i-nps" viewBox="0 0 24 24"><ellipse cx="9" cy="6" rx="6" ry="2.4"/><path d="M3 6v4c0 1.3 2.7 2.4 6 2.4s6-1.1 6-2.4V6"/><path d="M3 10v4c0 1.3 2.7 2.4 6 2.4 1 0 2-.1 2.8-.3"/><path d="M15 21v-6.5M12.5 17l2.5-2.5 2.5 2.5"/><path d="M20 21v-9"/></symbol>
+      <symbol id="i-robo" viewBox="0 0 24 24"><rect x="4.5" y="8" width="15" height="11" rx="3.2"/><path d="M12 4.2V8"/><circle cx="12" cy="3.2" r="1"/><circle cx="9.3" cy="13.2" r="1.3"/><circle cx="14.7" cy="13.2" r="1.3"/><path d="M2.5 12.5v2.5M21.5 12.5v2.5"/></symbol>
+      <symbol id="i-onboard" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.6"/><path d="M2.8 20c0-3.4 2.8-6.2 6.2-6.2 1.6 0 3 .6 4.1 1.6"/><path d="m15.5 18 2.2 2.2L22 16"/></symbol>
+      <symbol id="i-datapulse" viewBox="0 0 24 24"><path d="M2.5 12.5h4l2.2-5.5 4.4 11 2.3-5.5h6.1"/></symbol>
+      <symbol id="i-collab" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.6"/><circle cx="4.8" cy="5.5" r="2"/><circle cx="19.2" cy="5.5" r="2"/><circle cx="4.8" cy="18.5" r="2"/><circle cx="19.2" cy="18.5" r="2"/><path d="m6.5 7 3.4 3.1M17.5 7l-3.4 3.1M6.5 17l3.4-3.1M17.5 17l-3.4-3.1"/></symbol>
+      <symbol id="i-regusure" viewBox="0 0 24 24"><path d="M12 2.8 19.5 6v5.2c0 4.6-3.1 8.4-7.5 10-4.4-1.6-7.5-5.4-7.5-10V6z"/><path d="m8.6 12 2.4 2.4 4.5-4.8"/></symbol>
+      <symbol id="i-opsoptima" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/><path d="M6.5 10v3.5a3 3 0 0 0 3 3H14"/><path d="M17.5 14v-3.5a3 3 0 0 0-3-3H10"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ambient backdrop, painted by CSS behind the transparent WebGL canvas -->
+  <div class="backdrop" aria-hidden="true">
+    <span class="glow glow--a"></span>
+    <span class="glow glow--b"></span>
+    <div class="backdrop__dots"></div>
+  </div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <header class="nav" id="top">
+    <a class="nav__brand" href="index.html" aria-label="Finlabs home">
+      <img src="/finlabs-logo.png" alt="Finlabs — Celebrating a Decade of Impact" />
+    </a>
+    <nav class="nav__links" aria-label="Site">
+      <a href="#solutions" aria-current="page">Solutions</a>
+      <a href="#fit">Find your fit</a>
+      <a href="index.html">Products</a>
+      <a href="services.html">Services</a>
+    </nav>
+    <div class="nav__actions">
+      <button id="themeToggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></g></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor"/></svg>
+      </button>
+      <button id="toggle3d" class="icon-btn icon-btn--text" type="button" aria-pressed="true" aria-label="Toggle 3D scene">3D</button>
+      <a class="btn btn--primary btn--sm" href="#contact" data-magnetic>Book a demo</a>
+    </div>
+  </header>
+
+  <!-- progress rail through the eight solutions -->
+  <aside class="rail" aria-label="Solutions">
+    <a href="#learning" data-rail="learning"><i></i><span>Learning Hub</span></a>
+    <a href="#nps" data-rail="nps"><i></i><span>NPS Systems</span></a>
+    <a href="#robo" data-rail="robo"><i></i><span>RoboInsights</span></a>
+    <a href="#onboard" data-rail="onboard"><i></i><span>SwiftOnboard</span></a>
+    <a href="#datapulse" data-rail="datapulse"><i></i><span>DataPulse</span></a>
+    <a href="#collab" data-rail="collab"><i></i><span>CollabHub</span></a>
+    <a href="#regusure" data-rail="regusure"><i></i><span>ReguSure</span></a>
+    <a href="#opsoptima" data-rail="opsoptima"><i></i><span>OpsOptima</span></a>
+  </aside>
+
+  <main>
+
+    <section class="hero" data-scene="overview" data-side="left">
+      <div class="col">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Solutions offered</p>
+        <h1 class="hero__title" data-reveal>Fintech building blocks, <em>ready to plug in.</em></h1>
+        <p class="hero__lead" data-reveal>
+          Eight ready-to-deploy solutions for financial advisors, distributors, insurers and
+          institutions — covering onboarding, advisory, analytics, compliance, operations and
+          learning. Start with the one you need today and add more as you grow.
+        </p>
+        <div class="hero__ctas" data-reveal>
+          <a class="btn btn--primary" href="#contact" data-magnetic>Schedule a demo <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#solutions">Explore solutions</a>
+        </div>
+        <ul class="index" data-reveal aria-label="Jump to a solution">
+          <li><a href="#learning" style="--accent:#6366f1"><svg class="ico"><use href="#i-learning"/></svg>Learning Hub</a></li>
+          <li><a href="#nps" style="--accent:#0ea5e9"><svg class="ico"><use href="#i-nps"/></svg>NPS Systems</a></li>
+          <li><a href="#robo" style="--accent:#3b82f6"><svg class="ico"><use href="#i-robo"/></svg>RoboInsights</a></li>
+          <li><a href="#onboard" style="--accent:#06b6d4"><svg class="ico"><use href="#i-onboard"/></svg>SwiftOnboard</a></li>
+          <li><a href="#datapulse" style="--accent:#14b8a6"><svg class="ico"><use href="#i-datapulse"/></svg>DataPulse</a></li>
+          <li><a href="#collab" style="--accent:#8b5cf6"><svg class="ico"><use href="#i-collab"/></svg>CollabHub</a></li>
+          <li><a href="#regusure" style="--accent:#22c55e"><svg class="ico"><use href="#i-regusure"/></svg>ReguSure</a></li>
+          <li><a href="#opsoptima" style="--accent:#f59e0b"><svg class="ico"><use href="#i-opsoptima"/></svg>OpsOptima</a></li>
+        </ul>
+      </div>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <span>Digital KYC</span><span>Robo-advisory</span><span>Partner portals</span><span>Compliance automation</span><span>Workflow automation</span><span>Strategic analytics</span><span>Retirement planning</span><span>Scalable training</span>
+          <span>Digital KYC</span><span>Robo-advisory</span><span>Partner portals</span><span>Compliance automation</span><span>Workflow automation</span><span>Strategic analytics</span><span>Retirement planning</span><span>Scalable training</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="solutions" id="solutions">
+      <header class="section-head" data-scene="overview" data-side="left">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Solutions offered</p>
+        <h2 data-reveal>Pick the building block you need.</h2>
+        <p data-reveal>
+          Each solution is ready to deploy on its own. Start with today's biggest problem and plug
+          in more as your business grows — with one team supporting you from demo to go-live.
+        </p>
+      </header>
+
+      <article class="sol" id="learning" data-scene="learning" data-side="left" style="--accent:#6366f1">
+        <div class="sol__card" data-reveal>
+          <div class="sol__meta"><span class="sol__icon"><svg class="ico"><use href="#i-learning"/></svg></span><span class="sol__code">SOL—01</span><span class="sol__cat">Learning &amp; development</span></div>
+          <h3 class="sol__name">Learning Hub</h3>
+          <p class="sol__tag">Quick &amp; scalable training</p>
+          <p class="sol__lead">
+            Learning Hub transforms professional development by equipping individuals and organisations
+            with essential skills for a constantly evolving world. Roll it out to one team or the whole
+            organisation, and keep everyone learning at their own pace.
+          </p>
+          <h4 class="sol__h">Key capabilities</h4>
+          <ul class="ticks">
+            <li>Self-paced courses and structured learning paths</li>
+            <li>Quizzes and assessments that check understanding</li>
+            <li>Progress and completion tracking for managers</li>
+            <li>Learn anywhere, on desktop or mobile</li>
+          </ul>
+          <ul class="outcomes">
+            <li><svg class="ico"><use href="#i-up"/></svg>Faster upskilling</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Consistent training at scale</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Progress you can measure</li>
+          </ul>
+          <div class="sol__for"><span>Built for</span><ul class="chips"><li>Financial advisors</li><li>Corporate L&amp;D</li><li>HR teams</li><li>Educational institutions</li></ul></div>
+          <div class="sol__cta">
+            <a class="btn btn--accent" href="#contact" data-solution="Learning Hub" data-magnetic>Book a Learning Hub demo <span aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="https://learninghub.finlabsindia.org/" target="_blank" rel="noopener">Visit Learning Hub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sol" id="nps" data-scene="nps" data-side="right" style="--accent:#0ea5e9">
+        <div class="sol__card" data-reveal>
+          <div class="sol__meta"><span class="sol__icon"><svg class="ico"><use href="#i-nps"/></svg></span><span class="sol__code">SOL—02</span><span class="sol__cat">Retirement planning</span></div>
+          <h3 class="sol__name">NPS Systems</h3>
+          <p class="sol__tag">Smarter retirement planning made simple</p>
+          <p class="sol__lead">
+            Empower your financial future with the National Pension System (NPS) — a seamless solution
+            designed to simplify retirement planning, so saving for later feels as easy as it should.
+          </p>
+          <h4 class="sol__h">Key capabilities</h4>
+          <ul class="ticks">
+            <li>Simple, guided NPS enrolment and contributions</li>
+            <li>Retirement corpus and pension projections</li>
+            <li>Allocation across equity, corporate bonds and government securities</li>
+            <li>Guidance on NPS tax benefits under Section 80CCD</li>
+          </ul>
+          <ul class="outcomes">
+            <li><svg class="ico"><use href="#i-up"/></svg>Retirement planning made simple</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>A seamless client experience</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Long-term clarity</li>
+          </ul>
+          <div class="sol__for"><span>Built for</span><ul class="chips"><li>Individual investors</li><li>Employers</li><li>Financial advisors</li><li>Distributors</li></ul></div>
+          <div class="sol__cta">
+            <a class="btn btn--accent" href="#contact" data-solution="NPS Systems" data-magnetic>Book an NPS Systems demo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sol" id="robo" data-scene="robo" data-side="left" style="--accent:#3b82f6">
+        <div class="sol__card" data-reveal>
+          <div class="sol__meta"><span class="sol__icon"><svg class="ico"><use href="#i-robo"/></svg></span><span class="sol__code">SOL—03</span><span class="sol__cat">Robo-advisory</span></div>
+          <h3 class="sol__name">RoboInsights</h3>
+          <p class="sol__tag">Intelligent robo-advisory services</p>
+          <p class="sol__lead">
+            Unlock the potential of automated advisory services with RoboInsights. Elevate your investment
+            strategies with data-driven insights that sharpen decision-making for your clients — on an
+            intelligent, adaptive robo-advisory platform.
+          </p>
+          <h4 class="sol__h">Key capabilities</h4>
+          <ul class="ticks">
+            <li>Risk profiling that maps each client to a suitable portfolio</li>
+            <li>Goal-based recommendations and asset allocation</li>
+            <li>Rebalancing alerts as markets and goals change</li>
+            <li>Clear insights advisors can explain to clients</li>
+          </ul>
+          <ul class="outcomes">
+            <li><svg class="ico"><use href="#i-up"/></svg>Better investment decisions</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Advice that scales</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Adapts as markets move</li>
+          </ul>
+          <div class="sol__for"><span>Built for</span><ul class="chips"><li>Wealth managers</li><li>Mutual fund distributors</li><li>Investment advisers</li><li>Fintech platforms</li></ul></div>
+          <div class="sol__cta">
+            <a class="btn btn--accent" href="#contact" data-solution="RoboInsights" data-magnetic>Book a RoboInsights demo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sol" id="onboard" data-scene="onboard" data-side="right" style="--accent:#06b6d4">
+        <div class="sol__card" data-reveal>
+          <div class="sol__meta"><span class="sol__icon"><svg class="ico"><use href="#i-onboard"/></svg></span><span class="sol__code">SOL—04</span><span class="sol__cat">Digital onboarding</span></div>
+          <h3 class="sol__name">SwiftOnboard</h3>
+          <p class="sol__tag">Streamlined digital onboarding</p>
+          <p class="sol__lead">
+            Revolutionise your customer onboarding with SwiftOnboard. A modern digital process simplifies
+            and speeds up onboarding for a seamless, hassle-free experience — accelerating client
+            acquisition while keeping costs down.
+          </p>
+          <h4 class="sol__h">Key capabilities</h4>
+          <ul class="ticks">
+            <li>Paperless onboarding from any device</li>
+            <li>Digital KYC with document upload and verification</li>
+            <li>e-Sign and pre-filled application forms</li>
+            <li>Live status for every application in the pipeline</li>
+          </ul>
+          <ul class="outcomes">
+            <li><svg class="ico"><use href="#i-up"/></svg>Faster client acquisition</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Lower onboarding costs</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Hassle-free for clients</li>
+          </ul>
+          <div class="sol__for"><span>Built for</span><ul class="chips"><li>Mutual fund distributors</li><li>Wealth managers</li><li>Insurance companies</li><li>Financial institutions</li></ul></div>
+          <div class="sol__cta">
+            <a class="btn btn--accent" href="#contact" data-solution="SwiftOnboard" data-magnetic>Book a SwiftOnboard demo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sol" id="datapulse" data-scene="datapulse" data-side="left" style="--accent:#14b8a6">
+        <div class="sol__card" data-reveal>
+          <div class="sol__meta"><span class="sol__icon"><svg class="ico"><use href="#i-datapulse"/></svg></span><span class="sol__code">SOL—05</span><span class="sol__cat">Data analytics</span></div>
+          <h3 class="sol__name">DataPulse</h3>
+          <p class="sol__tag">Strategic data analytics</p>
+          <p class="sol__lead">
+            Harness the power of your data with DataPulse. Robust analytics turn raw numbers into
+            actionable insights that drive strategic planning — so every choice you make is an
+            informed one.
+          </p>
+          <h4 class="sol__h">Key capabilities</h4>
+          <ul class="ticks">
+            <li>Interactive dashboards across clients, portfolios and revenue</li>
+            <li>Client segmentation to spot growth and churn early</li>
+            <li>Trend analysis and forecasting for planning</li>
+            <li>Scheduled reports for leadership and teams</li>
+          </ul>
+          <ul class="outcomes">
+            <li><svg class="ico"><use href="#i-up"/></svg>Actionable insights</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Sharper strategic planning</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Ahead of the competition</li>
+          </ul>
+          <div class="sol__for"><span>Built for</span><ul class="chips"><li>Leadership teams</li><li>Business heads</li><li>Wealth managers</li><li>Analysts</li></ul></div>
+          <div class="sol__cta">
+            <a class="btn btn--accent" href="#contact" data-solution="DataPulse" data-magnetic>Book a DataPulse demo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sol" id="collab" data-scene="collab" data-side="right" style="--accent:#8b5cf6">
+        <div class="sol__card" data-reveal>
+          <div class="sol__meta"><span class="sol__icon"><svg class="ico"><use href="#i-collab"/></svg></span><span class="sol__code">SOL—06</span><span class="sol__cat">Partner portals</span></div>
+          <h3 class="sol__name">CollabHub</h3>
+          <p class="sol__tag">Distributor &amp; partner portals</p>
+          <p class="sol__lead">
+            Build robust relationships and foster collaboration with CollabHub. Intuitive online portals
+            empower your distributors and partners with seamless communication and efficient
+            collaboration — strengthening your network with every interaction.
+          </p>
+          <h4 class="sol__h">Key capabilities</h4>
+          <ul class="ticks">
+            <li>Self-service portals for every distributor and partner</li>
+            <li>Shared documents, product updates and announcements</li>
+            <li>Business and performance views for each partner</li>
+            <li>Role-based access with secure sign-in</li>
+          </ul>
+          <ul class="outcomes">
+            <li><svg class="ico"><use href="#i-up"/></svg>Stronger partner relationships</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Seamless communication</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Higher engagement</li>
+          </ul>
+          <div class="sol__for"><span>Built for</span><ul class="chips"><li>Asset management companies</li><li>Insurance companies</li><li>Distributor networks</li><li>Financial institutions</li></ul></div>
+          <div class="sol__cta">
+            <a class="btn btn--accent" href="#contact" data-solution="CollabHub" data-magnetic>Book a CollabHub demo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sol" id="regusure" data-scene="regusure" data-side="left" style="--accent:#22c55e">
+        <div class="sol__card" data-reveal>
+          <div class="sol__meta"><span class="sol__icon"><svg class="ico"><use href="#i-regusure"/></svg></span><span class="sol__code">SOL—07</span><span class="sol__cat">Compliance automation</span></div>
+          <h3 class="sol__name">ReguSure</h3>
+          <p class="sol__tag">Regulatory compliance automation</p>
+          <p class="sol__lead">
+            Stay effortlessly compliant with ReguSure. Automated regulatory processes keep your business
+            aligned with the rules, so you can focus on what matters most — while mitigating risk and
+            maintaining trust.
+          </p>
+          <h4 class="sol__h">Key capabilities</h4>
+          <ul class="ticks">
+            <li>Automated compliance checks inside everyday workflows</li>
+            <li>A regulatory calendar with reminders for every deadline</li>
+            <li>Complete audit trails and ready-to-share reports</li>
+            <li>Instant alerts when a rule or threshold is breached</li>
+          </ul>
+          <ul class="outcomes">
+            <li><svg class="ico"><use href="#i-up"/></svg>Lower regulatory risk</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Trust maintained</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>More time for the business</li>
+          </ul>
+          <div class="sol__for"><span>Built for</span><ul class="chips"><li>Compliance teams</li><li>Wealth managers</li><li>Distributors</li><li>Financial institutions</li></ul></div>
+          <div class="sol__cta">
+            <a class="btn btn--accent" href="#contact" data-solution="ReguSure" data-magnetic>Book a ReguSure demo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sol" id="opsoptima" data-scene="opsoptima" data-side="right" style="--accent:#f59e0b">
+        <div class="sol__card" data-reveal>
+          <div class="sol__meta"><span class="sol__icon"><svg class="ico"><use href="#i-opsoptima"/></svg></span><span class="sol__code">SOL—08</span><span class="sol__cat">Operations automation</span></div>
+          <h3 class="sol__name">OpsOptima</h3>
+          <p class="sol__tag">Operations automation</p>
+          <p class="sol__lead">
+            Optimise workflows, increase efficiency and streamline day-to-day operations with OpsOptima.
+            We automate the repetitive tasks, reducing manual effort and bringing a new level of
+            operational excellence.
+          </p>
+          <h4 class="sol__h">Key capabilities</h4>
+          <ul class="ticks">
+            <li>Workflow automation for repetitive back-office tasks</li>
+            <li>Automated data entry and reconciliation</li>
+            <li>Approvals, task queues and turnaround tracking</li>
+            <li>Works with the systems you already use</li>
+          </ul>
+          <ul class="outcomes">
+            <li><svg class="ico"><use href="#i-up"/></svg>Less manual effort</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Operational excellence</li>
+            <li><svg class="ico"><use href="#i-up"/></svg>Higher efficiency</li>
+          </ul>
+          <div class="sol__for"><span>Built for</span><ul class="chips"><li>Operations teams</li><li>Back-office teams</li><li>Advisory firms</li><li>Financial institutions</li></ul></div>
+          <div class="sol__cta">
+            <a class="btn btn--accent" href="#contact" data-solution="OpsOptima" data-magnetic>Book an OpsOptima demo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="fit" id="fit" data-scene="fit" data-side="left">
+      <div class="col">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Find your fit</p>
+        <h2 data-reveal>Not sure where to start?</h2>
+        <p class="fit__lead" data-reveal>Tell us what you want to improve and we'll point you to the solutions that fit — they light up on the board.</p>
+        <div class="goals" role="group" aria-label="What do you want to improve?" data-reveal>
+          <button type="button" data-goal="onboard robo" aria-pressed="true">Win &amp; onboard clients</button>
+          <button type="button" data-goal="robo datapulse nps" aria-pressed="false">Advise smarter</button>
+          <button type="button" data-goal="regusure opsoptima" aria-pressed="false">Stay compliant</button>
+          <button type="button" data-goal="opsoptima onboard regusure" aria-pressed="false">Cut manual work</button>
+          <button type="button" data-goal="collab datapulse" aria-pressed="false">Grow a partner network</button>
+          <button type="button" data-goal="nps robo" aria-pressed="false">Plan clients' retirement</button>
+          <button type="button" data-goal="learning" aria-pressed="false">Upskill my team</button>
+        </div>
+        <div class="fit__panel" data-reveal>
+          <p class="fit__count" id="fitCount" aria-live="polite"></p>
+          <ul class="picks">
+            <li data-pick="learning" style="--accent:#6366f1"><a href="#learning"><svg class="ico"><use href="#i-learning"/></svg><b>Learning Hub</b><span>Quick &amp; scalable training</span></a></li>
+            <li data-pick="nps" style="--accent:#0ea5e9"><a href="#nps"><svg class="ico"><use href="#i-nps"/></svg><b>NPS Systems</b><span>Smarter retirement planning</span></a></li>
+            <li data-pick="robo" style="--accent:#3b82f6"><a href="#robo"><svg class="ico"><use href="#i-robo"/></svg><b>RoboInsights</b><span>Intelligent robo-advisory</span></a></li>
+            <li data-pick="onboard" style="--accent:#06b6d4"><a href="#onboard"><svg class="ico"><use href="#i-onboard"/></svg><b>SwiftOnboard</b><span>Streamlined digital onboarding</span></a></li>
+            <li data-pick="datapulse" style="--accent:#14b8a6"><a href="#datapulse"><svg class="ico"><use href="#i-datapulse"/></svg><b>DataPulse</b><span>Strategic data analytics</span></a></li>
+            <li data-pick="collab" style="--accent:#8b5cf6"><a href="#collab"><svg class="ico"><use href="#i-collab"/></svg><b>CollabHub</b><span>Distributor &amp; partner portals</span></a></li>
+            <li data-pick="regusure" style="--accent:#22c55e"><a href="#regusure"><svg class="ico"><use href="#i-regusure"/></svg><b>ReguSure</b><span>Regulatory compliance automation</span></a></li>
+            <li data-pick="opsoptima" style="--accent:#f59e0b"><a href="#opsoptima"><svg class="ico"><use href="#i-opsoptima"/></svg><b>OpsOptima</b><span>Operations automation</span></a></li>
+          </ul>
+          <a class="btn btn--primary" id="fitCta" href="#contact" data-solution="SwiftOnboard" data-magnetic>Book a demo of these <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" data-scene="contact" data-side="center">
+      <div class="contact__intro" data-reveal>
+        <p class="eyebrow"><span class="dot"></span>Schedule a personalised demo</p>
+        <h2>We're happy to assist you.</h2>
+        <p>
+          Every business has unique financial goals and challenges. To get the most out of our
+          solutions, schedule a personalised demo — share a few details and our team will set it up
+          around the way you work.
+        </p>
+        <ol class="steps">
+          <li><b>Share your goals</b><span>Fill in the form, or book a call directly.</span></li>
+          <li><b>Personalised demo</b><span>A walkthrough on Microsoft Teams, built around your business.</span></li>
+          <li><b>Tailored proposal</b><span>Clear scope and timelines, with no surprises.</span></li>
+          <li><b>Go live</b><span>Our team sets you up and stays alongside you.</span></li>
+        </ol>
+        <ul class="channels">
+          <li><a href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener"><b>Book a call</b><span>Pick a slot on Calendly</span></a></li>
+          <li><a href="mailto:info@finlabsindia.com"><b>Email</b><span>info@finlabsindia.com</span></a></li>
+          <li><a href="https://wa.me/9372956429" target="_blank" rel="noopener"><b>WhatsApp</b><span>Message the team</span></a></li>
+        </ul>
+      </div>
+      <form class="form" id="demo" data-reveal novalidate>
+        <div class="form__head">
+          <b>Request a demo</b>
+          <span>Takes under a minute</span>
+        </div>
+        <div class="form__row">
+          <label>First name<input name="first" type="text" autocomplete="given-name" required /></label>
+          <label>Last name<input name="last" type="text" autocomplete="family-name" /></label>
+        </div>
+        <div class="form__row">
+          <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+          <label><span>Mobile <em>(optional)</em></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" /></label>
+        </div>
+        <label>Organisation<input name="org" type="text" autocomplete="organization" /></label>
+        <label>Which solution interests you?
+          <select name="solution" id="solutionSelect">
+            <option>Learning Hub</option>
+            <option>NPS Systems</option>
+            <option>RoboInsights</option>
+            <option>SwiftOnboard</option>
+            <option>DataPulse</option>
+            <option>CollabHub</option>
+            <option>ReguSure</option>
+            <option>OpsOptima</option>
+            <option selected>Not sure yet — let's talk</option>
+          </select>
+        </label>
+        <label>Anything we should know?<textarea name="message" rows="3"></textarea></label>
+        <button class="btn btn--primary form__submit" type="submit" data-magnetic>Request my demo <span aria-hidden="true">→</span></button>
+        <p class="form__note" id="formNote">Sending opens your email app with these details filled in.</p>
+      </form>
+    </section>
+
+    <footer class="foot">
+      <div class="foot__panel">
+        <div class="foot__brand">
+          <img src="/finlabs-logo.png" alt="Finlabs" />
+          <a class="foot__mail" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
+          <ul class="social" aria-label="Finlabs on social media">
+            <li><a href="https://www.linkedin.com/company/14438243/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v12H3zM9 9h2.9v1.7h.1c.4-.8 1.4-1.9 3-1.9 3.2 0 3.9 2.1 3.9 4.9V21h-3v-6.4c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9z"/></svg></a></li>
+            <li><a href="https://www.instagram.com/finlabsindia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></li>
+            <li><a href="https://www.facebook.com/finlabsind" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z"/></svg></a></li>
+            <li><a href="https://twitter.com/IndiaFinlabs" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg></a></li>
+            <li><a href="https://www.youtube.com/@finlabsindia7860" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a></li>
+            <li><a href="https://wa.me/9372956429" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.6 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5zm0 17.1a7.7 7.7 0 0 1-3.9-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 1 1 12 19.6zm4.2-5.8c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.3 6.3 0 0 1-3.1-2.7c-.2-.4.2-.4.7-1.3.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.2-.2-.5-.3z"/></svg></a></li>
+          </ul>
+        </div>
+        <nav class="foot__cols" aria-label="Site">
+          <ul>
+            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Home</a></li>
+            <li><a href="https://finlabsindia.org/about-us/" target="_blank" rel="noopener">About Us</a></li>
+            <li><a href="https://finlabsindia.org/careers/" target="_blank" rel="noopener">Career</a></li>
+            <li><a href="https://finlabsindia.org/blog/" target="_blank" rel="noopener">Blog</a></li>
+          </ul>
+          <ul>
+            <li><a class="foot__cross" href="index.html">Products</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a class="foot__cross" href="services.html">Services</a></li>
+            <li><a href="https://finlabsindia.org/knowledge-centre/" target="_blank" rel="noopener">Knowledge Centre</a></li>
+          </ul>
+          <ul>
+            <li><a href="https://finlabsindia.org/contact-us/" target="_blank" rel="noopener">Contact Us</a></li>
+            <li><a href="https://finlabsindia.org/wp-content/uploads/2026/07/Finlabs-Corpdeck-Brochure.pdf" target="_blank" rel="noopener">Download Brochure</a></li>
+            <li><a href="https://finlabsindia.org/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://finlabsindia.org/terms-conditions/" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          </ul>
+        </nav>
+        <div class="foot__cta">
+          <h3>Have questions or want to learn more?</h3>
+          <p>Feel free to reach out or schedule a quick call — we're happy to help.</p>
+          <a class="btn btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Book A Call</a>
+        </div>
+      </div>
+      <p class="foot__copy">© copyright Finlabs India Pvt. Ltd. | All Rights Reserved</p>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/src/solutions.js"></script>
+</body>
+</html>
