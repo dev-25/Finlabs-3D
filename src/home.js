@@ -1,6 +1,7 @@
 import './home.css';
 import './nav.css';
 import './nav.js';
+import './whatsapp.js';
 import './home-ui.js';
 import * as THREE from 'three';
 import { Timer } from 'three';

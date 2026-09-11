@@ -1,0 +1,56 @@
+/* WhatsApp chat button — fixed to the bottom-right corner of every page */
+
+.wa-float {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: #fff;
+  background: #25d366;
+  box-shadow: 0 14px 30px -10px rgba(18, 140, 70, 0.6);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  animation: wa-pulse 2.8s ease-out infinite;
+}
+.wa-float svg { width: 30px; height: 30px; }
+.wa-float:hover { transform: scale(1.07); }
+.wa-float:focus-visible { outline: 3px solid #25d366; outline-offset: 3px; }
+
+.wa-float__tip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translate(6px, -50%);
+  white-space: nowrap;
+  padding: 9px 13px;
+  border-radius: 10px;
+  font: 600 13px/1 "Inter", "Segoe UI", system-ui, sans-serif;
+  color: #0f1a33;
+  background: #fff;
+  box-shadow: 0 12px 30px -12px rgba(15, 40, 100, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.wa-float:hover .wa-float__tip,
+.wa-float:focus-visible .wa-float__tip { opacity: 1; transform: translate(0, -50%); }
+:root[data-theme="dark"] .wa-float__tip { color: #e8eeff; background: #111a30; }
+
+@keyframes wa-pulse {
+  0% { box-shadow: 0 14px 30px -10px rgba(18, 140, 70, 0.6), 0 0 0 0 rgba(37, 211, 102, 0.45); }
+  70%, 100% { box-shadow: 0 14px 30px -10px rgba(18, 140, 70, 0.6), 0 0 0 16px rgba(37, 211, 102, 0); }
+}
+
+@media (max-width: 560px) {
+  .wa-float { width: 52px; height: 52px; }
+  .wa-float svg { width: 27px; height: 27px; }
+  .wa-float__tip { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-float { animation: none; transition: none; }
+}
