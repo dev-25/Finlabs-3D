@@ -18,16 +18,17 @@ function themed(mat, key) {
 }
 
 const ROOM_THEME = {
+  // the same blue-violet wash as the home page and the other pages
   light: {
-    air: 0xbde3f1,
-    wall: 0xd2ebf6,
-    floor: 0xe7f6fc,
-    runner: 0xbbe1f0,
-    ceiling: 0xb2dcef,
-    cove: 0xe4f5fc,
-    housing: 0xeaf7fd,
-    kerb: 0xdff2fa,
-    mark: 0x8cc4dd,
+    air: 0xe1e3fb,
+    wall: 0xebe4ff,
+    floor: 0xeef1ff,
+    runner: 0xdcdcf9,
+    ceiling: 0xdce4ff,
+    cove: 0xf2effe,
+    housing: 0xf5f3ff,
+    kerb: 0xe9e4fc,
+    mark: 0xb4b2ea,
     ambient: 1.15,
     hemi: 0.9,
     fogNear: 40,
@@ -53,7 +54,8 @@ const ROOM_THEME = {
 /* =====================================================
  * FINLABS SHOWROOM
  * =====================================================
- * A bright, light-blue product room rendered with Three.js.
+ * A bright product room in the site's blue-violet light palette,
+ * rendered with Three.js.
  * The camera walks down the showroom as the page scrolls,
  * stopping at a display station for each Finlabs platform.
  * The walls carry framed financial artwork, turning gears
@@ -65,13 +67,13 @@ const ROOM_THEME = {
 // =====================================================
 
 const C = {
-  air: 0xbde3f1,
-  wall: 0xd2ebf6,
-  wallTint: 0xb2dded,
-  floor: 0xe7f6fc,
-  floorLine: 0x9ccfe4,
-  runner: 0xbbe1f0,
-  ceiling: 0xb2dcef, // light blue, so the white light panels read against it
+  air: 0xe1e3fb,
+  wall: 0xebe4ff,
+  wallTint: 0xdcd3fa,
+  floor: 0xeef1ff,
+  floorLine: 0xc3c6f0,
+  runner: 0xdcdcf9,
+  ceiling: 0xdce4ff, // pale blue, so the white light panels read against it
   navyDeep: 0x0a2c40,
   navy2: 0x11455e,
   white: 0xffffff,
@@ -79,7 +81,7 @@ const C = {
   tealDeep: 0x0f6d8c,
   teal: 0x1a8fb5,
   cyan: 0x45bede,
-  cyanSoft: 0x9ad9ea,
+  cyanSoft: 0xc9c8f4, // now a soft periwinkle, for planter tops and props
   royal: 0x2f6fd0,
   indigo: 0x6d7fe8,
   steel: 0x5a90b8,
@@ -96,8 +98,8 @@ const CSS = {
   teal: '#1a8fb5',
   cyan: '#45bede',
   cyanSoft: '#9ad9ea',
-  pale: '#cfe8f4',
-  paler: '#eaf6fb',
+  pale: '#dcd9f7',
+  paler: '#f1effd',
   white: '#ffffff',
   royal: '#2f6fd0',
   indigo: '#6d7fe8',
@@ -160,14 +162,14 @@ camera.position.set(0, -0.3, 18);
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.15);
 scene.add(ambientLight);
 
-const hemiLight = new THREE.HemisphereLight(0xf6fdff, 0xd2ecf6, 0.9);
+const hemiLight = new THREE.HemisphereLight(0xfbf9ff, 0xdcd8f7, 0.9);
 scene.add(hemiLight);
 
 const keyLight = new THREE.DirectionalLight(0xffffff, 1.25);
 keyLight.position.set(12, 20, 14);
 scene.add(keyLight);
 
-const fillLight = new THREE.DirectionalLight(0xd8f0fb, 0.55);
+const fillLight = new THREE.DirectionalLight(0xe3dffb, 0.55);
 fillLight.position.set(-14, 8, -10);
 scene.add(fillLight);
 
@@ -999,7 +1001,7 @@ function backTexture(bg, ring) {
 }
 
 const BACK_TEX = {
-  light: backTexture(CSS.pale, 'rgba(120,196,224,0.32)'),
+  light: backTexture(CSS.pale, 'rgba(139,124,240,0.28)'),
   dark: backTexture('#0a1020', 'rgba(60,150,210,0.30)'),
 };
 

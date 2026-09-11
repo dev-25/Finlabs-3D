@@ -11,8 +11,8 @@
 }
 
 :root {
-  /* light blue showroom palette, anchored by a dark blue */
-  --bg: #cbe9f4;
+  /* the site's blue-violet light palette, anchored by a dark blue */
+  --bg: #e4e6fc;
   --navy: #0a2c40;
   --navy-soft: #11455e;
   --ink: #0b3348;
@@ -81,9 +81,9 @@ a {
 /* fallback backdrop when 3D is switched off */
 body.no3d {
   background:
-    radial-gradient(900px 620px at 78% 18%, rgba(69, 190, 222, 0.35), transparent 62%),
-    radial-gradient(760px 560px at 12% 82%, rgba(242, 103, 34, 0.16), transparent 62%),
-    linear-gradient(180deg, #dff2f9 0%, #c3e4f1 100%);
+    radial-gradient(900px 620px at 78% 18%, rgba(134, 173, 255, 0.35), transparent 62%),
+    radial-gradient(760px 560px at 12% 82%, rgba(187, 166, 255, 0.3), transparent 62%),
+    linear-gradient(165deg, #dce7ff 0%, #ebe4ff 42%, #ddf3fa 100%);
 }
 body.no3d #canvas {
   opacity: 0;

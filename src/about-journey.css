@@ -1,0 +1,82 @@
+/* =====================================================
+ * ABOUT — the journey ride
+ * =====================================================
+ * These rules only change the layout once the 3D ride is
+ * running (.is-live). Until then — no WebGL, or reduced
+ * motion — the milestones stay the plain list styled in
+ * about.css.
+ * ===================================================== */
+
+.a-ride { padding: 0 var(--pad); }
+.a-ride__panel { width: min(1180px, 100%); margin: 0 auto; }
+.a-ride__canvas, .a-ride__hint, .a-ride__years { display: none; }
+
+/* the section becomes a long scroll with the stage pinned inside it */
+.a-ride.is-live { position: relative; padding: 0; height: calc(var(--n, 11) * 55vh + 100vh); }
+.a-ride.is-live .a-ride__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.a-ride.is-live .a-ride__canvas { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* the current year's card */
+.a-ride.is-live .a-ride__panel {
+  position: absolute; z-index: 1; top: 50%; left: max(var(--pad), calc((100% - 1180px) / 2));
+  width: min(430px, 40vw); margin: 0; transform: translateY(-44%);
+  display: grid; gap: 16px; padding: 24px 24px 20px; border-radius: 24px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.a-ride.is-live .a-ride__hint {
+  display: block;
+  font: 600 11.5px/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3);
+  transition: opacity 0.4s;
+}
+.a-ride.is-live .a-ride__hint.is-gone { opacity: 0; }
+
+/* every year sits in the same grid cell; only the current one shows */
+.a-ride.is-live .a-years { display: grid; }
+.a-ride.is-live .a-year {
+  grid-area: 1 / 1; display: block; padding: 0; border: 0;
+  opacity: 0; visibility: hidden; transform: translateY(14px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s 0.35s;
+}
+.a-ride.is-live .a-year.is-on {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s;
+}
+.a-ride.is-live .a-year h3 {
+  display: block; padding: 0; margin-bottom: 14px;
+  font-size: clamp(54px, 5vw, 74px); line-height: 0.95; letter-spacing: -0.04em;
+  background: linear-gradient(100deg, #2563eb, #8b5cf6 55%, #ec4899);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.a-ride.is-live .a-year h3::before { display: none; }
+.a-ride.is-live .a-year ul { flex-direction: column; flex-wrap: nowrap; gap: 8px; }
+.a-ride.is-live .a-mile { flex: none; max-width: none; box-shadow: none; background: var(--bg); }
+:root[data-theme="dark"] .a-ride.is-live .a-mile { background: #0a1122; }
+.a-ride.is-live .a-mile:hover { transform: none; }
+.a-ride.is-live .a-year--now .a-mile { background: linear-gradient(135deg, #1d3fa8, #7c3aed); }
+
+/* jump straight to a year */
+.a-ride.is-live .a-ride__years {
+  display: flex; flex-wrap: wrap; gap: 6px; padding-top: 14px; border-top: 1px solid var(--line);
+}
+.a-ride__years button {
+  font: 600 12px/1 var(--mono); letter-spacing: 0.04em; color: var(--ink-3); cursor: pointer;
+  padding: 7px 9px; border-radius: 999px; border: 1px solid var(--line); background: transparent;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+.a-ride__years button:hover { color: var(--ink); border-color: var(--brand); }
+.a-ride__years button[aria-current="true"] { color: #fff; background: var(--brand); border-color: var(--brand); }
+:root[data-theme="dark"] .a-ride__years button[aria-current="true"] { color: #06102a; }
+
+/* narrow screens: the road above, the card along the bottom */
+@media (max-width: 960px) {
+  .a-ride.is-live .a-ride__panel {
+    top: auto; bottom: 14px; left: 12px; right: 12px; width: auto; transform: none;
+    padding: 18px 18px 14px; gap: 12px; max-height: 54svh; overflow: auto;
+  }
+  .a-ride.is-live .a-year h3 { font-size: 44px; margin-bottom: 10px; }
+  /* anchored to the bottom, the card can simply fit the current year */
+  .a-ride.is-live .a-year { display: none; }
+  .a-ride.is-live .a-year.is-on { display: block; }
+  .a-ride.is-live .a-ride__hint { display: none; }
+  .a-ride.is-live .a-ride__years { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+}

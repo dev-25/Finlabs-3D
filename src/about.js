@@ -5,6 +5,7 @@ import './nav.js';
 import './whatsapp.js';
 import { initTheme } from './theme.js';
 import './about-hero.js';
+import './about-journey.js';
 
 /* =====================================================
  * FINLABS ABOUT US — page interactions

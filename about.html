@@ -12,6 +12,15 @@
 
 <body class="doc-page about-page">
 
+  <!-- the same soft colour wash as the home page -->
+  <div class="a-backdrop" aria-hidden="true">
+    <span class="a-glow a-glow--a"></span>
+    <span class="a-glow a-glow--b"></span>
+    <span class="a-glow a-glow--c"></span>
+    <span class="a-glow a-glow--d"></span>
+    <div class="a-backdrop__dots"></div>
+  </div>
+
   <!-- icons, referenced with <use href="#i-…"> -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
@@ -84,23 +93,27 @@
     <!-- ===================== the team, ten years on ===================== -->
     <section class="a-sec a-photo" aria-labelledby="photoTitle">
       <div class="a-wrap">
-        <div data-reveal>
-          <p class="a-eyebrow">Ten years together</p>
-          <h2 class="a-h2" id="photoTitle">One team, ten years of building.</h2>
-          <p class="a-sub">
-            Ten years after its formation in August 2016, Finlabs is a team of product builders,
-            technologists and industry veterans — the people behind every milestone on this page.
-          </p>
-          <p class="a-sub">
-            Founded by <button class="a-link" type="button" data-bio="sudipto-roy">Sudipto Roy</button> and
-            <button class="a-link" type="button" data-bio="nimish-agrawal">Nimish Agrawal</button>, who moved
-            from successful corporate finance careers to follow their passion.
-          </p>
+        <div class="a-photo__head" data-reveal>
+          <div>
+            <p class="a-eyebrow">Ten years together</p>
+            <h2 class="a-h2" id="photoTitle">One team, ten years of building.</h2>
+          </div>
+          <div>
+            <p class="a-sub">
+              The Finlabs team came together to celebrate our tenth anniversary — product builders,
+              technologists and industry veterans, the people behind every milestone on this page.
+            </p>
+            <p class="a-sub">
+              Founded by <button class="a-link" type="button" data-bio="sudipto-roy">Sudipto Roy</button> and
+              <button class="a-link" type="button" data-bio="nimish-agrawal">Nimish Agrawal</button>, who moved
+              from successful corporate finance careers to follow their passion.
+            </p>
+          </div>
         </div>
         <div data-reveal>
-          <figure class="a-frame" data-tilt="5">
-            <img src="/about/team-group.webp" alt="The Finlabs team together at the office" width="1333" height="720" />
-            <figcaption><b>Team Finlabs</b><span>Celebrating a Decade of Impact</span></figcaption>
+          <figure class="a-frame" data-tilt="2.5">
+            <img src="/about/team-group.webp" alt="The Finlabs team in matching black polo shirts, celebrating the company’s 10th anniversary in front of the anniversary banner" width="1600" height="1066" />
+            <figcaption><b>Team Finlabs at our 10th anniversary celebration</b><span>Celebrating a Decade of Impact</span></figcaption>
             <span class="a-badge" aria-hidden="true"><b>10</b><span>years</span></span>
           </figure>
         </div>
@@ -158,7 +171,7 @@
       </div>
     </section>
 
-    <!-- ===================== journey ===================== -->
+    <!-- ===================== journey: a 3D road through ten years ===================== -->
     <section class="a-sec a-journey" id="journey" aria-labelledby="journeyTitle">
       <div class="a-wrap">
         <header class="a-head" data-reveal>
@@ -166,52 +179,73 @@
           <h2 class="a-h2" id="journeyTitle">Milestones since 2016.</h2>
           <p class="a-sub">From company formation to the platforms our clients use today — the steps of our first ten years.</p>
         </header>
-        <ol class="a-years">
-          <li class="a-year" data-reveal>
-            <h3>2016</h3>
-            <ul><li class="a-mile"><time datetime="2016-08-28">28 Aug</time><b>Company Formation</b></li><li class="a-mile"><time datetime="2016-09-28">28 Sep</time><b>Kolkata Development Centre</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2017</h3>
-            <ul><li class="a-mile"><time datetime="2017-09-28">28 Sep</time><b>Mumbai Corporate Office</b></li><li class="a-mile"><time datetime="2017-12-28">28 Dec</time><b>Finexa &amp; Fiscus Prototype Launch</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2018</h3>
-            <ul><li class="a-mile"><time datetime="2018-03-22">22 Mar</time><b>Learngenie Launch</b></li><li class="a-mile"><time datetime="2018-08-28">28 Aug</time><b>Finexa Planning Suite Rollout</b></li><li class="a-mile"><time datetime="2018-12-28">28 Dec</time><b>First 50 Advisors</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2019</h3>
-            <ul><li class="a-mile"><time datetime="2019-01-28">28 Jan</time><b>Finexa BSE Integration</b></li><li class="a-mile"><time datetime="2019-09-28">28 Sep</time><b>Finexa &amp; Fiscus Integrated Suite Release</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2020</h3>
-            <ul><li class="a-mile"><time datetime="2020-09-28">28 Sep</time><b>Mahindra Dhan Samvaad App Launch</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2021</h3>
-            <ul><li class="a-mile"><time datetime="2021-02-28">28 Feb</time><b>Finexa – LIC MF Tie-up</b></li><li class="a-mile"><time datetime="2021-08-28">28 Aug</time><b>ISO Certification</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2022</h3>
-            <ul><li class="a-mile"><time datetime="2022-04-20">20 Apr</time><b>Protean POP BO Portal Project Start</b></li><li class="a-mile"><time datetime="2022-08-28">28 Aug</time><b>NPS Prosperity Planner App Live</b></li><li class="a-mile"><time datetime="2022-09-28">28 Sep</time><b>Enterprise Finexa Live with Muthoot Fincorp</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2023</h3>
-            <ul><li class="a-mile"><time datetime="2023-10-28">28 Oct</time><b>Fintech Program with Hinduja Foundation</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2024</h3>
-            <ul><li class="a-mile"><time datetime="2024-08-24">24 Aug</time><b>Finaware Launch</b></li><li class="a-mile"><time datetime="2024-12-12">12 Dec</time><b>Finexa MFD App &amp; Finexa Nova Launch</b></li></ul>
-          </li>
-          <li class="a-year" data-reveal>
-            <h3>2025</h3>
-            <ul><li class="a-mile"><time datetime="2025-01-16">16 Jan</time><b>Learning Hub Launch</b></li><li class="a-mile"><time datetime="2025-01-23">23 Jan</time><b>Finaware Installation For A Large Non-Profit Industry</b></li><li class="a-mile"><time datetime="2025-01-28">28 Jan</time><b>FinexaGenNxT Launch</b></li></ul>
-          </li>
-          <li class="a-year a-year--now" data-reveal>
-            <h3>2026</h3>
-            <ul><li class="a-mile"><time datetime="2026-08">Aug</time><b>Ten years of Finlabs</b></li></ul>
-          </li>
-        </ol>
+      </div>
+      <div class="a-ride">
+        <div class="a-ride__stage">
+          <canvas class="a-ride__canvas" aria-hidden="true"></canvas>
+          <div class="a-ride__panel">
+            <p class="a-ride__hint" aria-hidden="true">Scroll to travel through the decade ↓</p>
+            <ol class="a-years">
+              <li class="a-year" data-year="2016">
+                <h3>2016</h3>
+                <ul><li class="a-mile"><time datetime="2016-08-28">28 Aug</time><b>Company Formation</b></li><li class="a-mile"><time datetime="2016-09-28">28 Sep</time><b>Kolkata Development Centre</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2017">
+                <h3>2017</h3>
+                <ul><li class="a-mile"><time datetime="2017-09-28">28 Sep</time><b>Mumbai Corporate Office</b></li><li class="a-mile"><time datetime="2017-12-28">28 Dec</time><b>Finexa &amp; Fiscus Prototype Launch</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2018">
+                <h3>2018</h3>
+                <ul><li class="a-mile"><time datetime="2018-03-22">22 Mar</time><b>Learngenie Launch</b></li><li class="a-mile"><time datetime="2018-08-28">28 Aug</time><b>Finexa Planning Suite Rollout</b></li><li class="a-mile"><time datetime="2018-12-28">28 Dec</time><b>First 50 Advisors</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2019">
+                <h3>2019</h3>
+                <ul><li class="a-mile"><time datetime="2019-01-28">28 Jan</time><b>Finexa BSE Integration</b></li><li class="a-mile"><time datetime="2019-09-28">28 Sep</time><b>Finexa &amp; Fiscus Integrated Suite Release</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2020">
+                <h3>2020</h3>
+                <ul><li class="a-mile"><time datetime="2020-09-28">28 Sep</time><b>Mahindra Dhan Samvaad App Launch</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2021">
+                <h3>2021</h3>
+                <ul><li class="a-mile"><time datetime="2021-02-28">28 Feb</time><b>Finexa – LIC MF Tie-up</b></li><li class="a-mile"><time datetime="2021-08-28">28 Aug</time><b>ISO Certification</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2022">
+                <h3>2022</h3>
+                <ul><li class="a-mile"><time datetime="2022-04-20">20 Apr</time><b>Protean POP BO Portal Project Start</b></li><li class="a-mile"><time datetime="2022-08-28">28 Aug</time><b>NPS Prosperity Planner App Live</b></li><li class="a-mile"><time datetime="2022-09-28">28 Sep</time><b>Enterprise Finexa Live with Muthoot Fincorp</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2023">
+                <h3>2023</h3>
+                <ul><li class="a-mile"><time datetime="2023-10-28">28 Oct</time><b>Fintech Program with Hinduja Foundation</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2024">
+                <h3>2024</h3>
+                <ul><li class="a-mile"><time datetime="2024-08-24">24 Aug</time><b>Finaware Launch</b></li><li class="a-mile"><time datetime="2024-12-12">12 Dec</time><b>Finexa MFD App &amp; Finexa Nova Launch</b></li></ul>
+              </li>
+              <li class="a-year" data-year="2025">
+                <h3>2025</h3>
+                <ul><li class="a-mile"><time datetime="2025-01-16">16 Jan</time><b>Learning Hub Launch</b></li><li class="a-mile"><time datetime="2025-01-23">23 Jan</time><b>Finaware Installation For A Large Non-Profit Industry</b></li><li class="a-mile"><time datetime="2025-01-28">28 Jan</time><b>FinexaGenNxT Launch</b></li></ul>
+              </li>
+              <li class="a-year a-year--now" data-year="2026">
+                <h3>2026</h3>
+                <ul><li class="a-mile"><time datetime="2026-08">Aug</time><b>Ten years of Finlabs</b></li></ul>
+              </li>
+            </ol>
+            <nav class="a-ride__years" aria-label="Jump to a year">
+              <button type="button">2016</button>
+              <button type="button">2017</button>
+              <button type="button">2018</button>
+              <button type="button">2019</button>
+              <button type="button">2020</button>
+              <button type="button">2021</button>
+              <button type="button">2022</button>
+              <button type="button">2023</button>
+              <button type="button">2024</button>
+              <button type="button">2025</button>
+              <button type="button">2026</button>
+            </nav>
+          </div>
+        </div>
       </div>
     </section>
 
