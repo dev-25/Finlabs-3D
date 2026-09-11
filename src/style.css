@@ -178,36 +178,34 @@ body.no3d #canvas {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 clamp(18px, 6vw, 92px);
+  align-items: flex-start;
+  padding: 96px clamp(18px, 6vw, 92px) 64px;
 }
 
-/* scrim so the wordmark reads over the showroom */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(
-    62% 58% at 4% 52%,
-    rgba(233, 247, 252, 0.95),
-    rgba(233, 247, 252, 0.6) 52%,
-    rgba(233, 247, 252, 0) 100%
-  );
+/* the intro sits on the same solid card as the products, so it reads
+   cleanly over the showroom in both themes */
+.hero__panel {
+  max-width: 560px;
+  padding: clamp(26px, 3.4vw, 42px);
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid rgba(20, 110, 145, 0.14);
+  box-shadow: 0 30px 64px -34px rgba(10, 44, 64, 0.5);
 }
 
 .eyebrow {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.3em;
+  font-size: 12px;
+  letter-spacing: 0.26em;
   color: var(--teal-deep);
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .hero__title {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(52px, 10.5vw, 162px);
-  line-height: 0.92;
+  font-size: clamp(40px, 5.4vw, 74px);
+  line-height: 1;
   letter-spacing: -0.02em;
   background: linear-gradient(
     102deg,
@@ -234,7 +232,7 @@ body.no3d #canvas {
   height: 5px;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--orange), var(--amber));
-  margin: 26px 0 20px;
+  margin: 20px 0 18px;
 }
 
 .hero__jp {
@@ -247,9 +245,10 @@ body.no3d #canvas {
 }
 
 .hero__lead {
-  max-width: 44ch;
-  font-size: 15px;
-  color: var(--ink-soft);
+  max-width: 46ch;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.7;
+  color: #1d4a63;
 }
 
 /* ---------- PRODUCT SECTIONS ---------- */
@@ -274,17 +273,15 @@ body.no3d #canvas {
   justify-content: flex-end;
 }
 
-/* the backboard the details sit on — near solid so the copy is crisp,
-   with only about 5% of the room showing through */
+/* the backboard the details sit on — fully solid, with no blur and
+   nothing showing through, so the copy is crisp at the centre */
 .product__card {
   width: 100%;
   max-width: 470px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: #fff;
+  border: 1px solid rgba(20, 110, 145, 0.14);
   border-radius: 20px;
   padding: clamp(24px, 3vw, 36px);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   box-shadow: 0 30px 64px -34px rgba(10, 44, 64, 0.5);
 }
 
@@ -618,9 +615,9 @@ body.no3d #canvas {
 }
 
 @media (max-width: 720px) {
-  .product__card {
+  .product__card,
+  .hero__panel {
     max-width: 100%;
-    background: rgba(255, 255, 255, 0.72);
   }
   .hero__lead {
     max-width: 100%;
@@ -631,13 +628,15 @@ body.no3d #canvas {
 /* DARK THEME OVERRIDES                                   */
 /* ===================================================== */
 
-:root[data-theme="dark"] .hero::before {
-  background: radial-gradient(
-    62% 58% at 4% 52%,
-    rgba(6, 12, 26, 0.95),
-    rgba(6, 12, 26, 0.6) 52%,
-    rgba(6, 12, 26, 0) 100%
-  );
+:root[data-theme="dark"] .hero__panel {
+  background: #091426;
+  border-color: rgba(120, 200, 255, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(120, 200, 255, 0.07),
+    0 30px 70px -38px rgba(0, 0, 0, 0.95);
+}
+:root[data-theme="dark"] .hero__lead {
+  color: #c3d9ea;
 }
 
 :root[data-theme="dark"] .hero__title {
@@ -656,7 +655,7 @@ body.no3d #canvas {
 }
 
 :root[data-theme="dark"] .product__card {
-  background: rgba(9, 20, 38, 0.92);
+  background: #091426;
   border-color: rgba(120, 200, 255, 0.22);
   box-shadow:
     0 0 0 1px rgba(120, 200, 255, 0.07),

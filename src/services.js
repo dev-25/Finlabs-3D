@@ -546,48 +546,230 @@ function screen(kind, w, h, d) {
   register('security', g);
 }
 
-// --- CLOUD: three providers wired into one control plane ------------
-function labelSprite(text, hex) {
-  const tex = makeTexture(320, 110, (ctx, w, h) => {
-    ctx.fillStyle = '#' + hex.toString(16).padStart(6, '0');
-    rr(ctx, 6, 14, w - 12, h - 28, (h - 28) / 2);
-    ctx.fill();
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 44px Inter, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(text, w / 2, h / 2 + 2);
+// --- CLOUD: AWS, Azure and Google Cloud wired into one control plane --
+// Each provider's mark is modelled from extruded shapes (no image files),
+// mounted on a rounded tile and linked to a Kubernetes-style hub.
+
+// a flat stroke along a polyline; width is a number or fn(t), t in 0..1
+function ribbon(pts, width) {
+  const half = (i) => (typeof width === 'function' ? width(i / (pts.length - 1)) : width) / 2;
+  const normal = (a, b) => new THREE.Vector2(a.y - b.y, b.x - a.x).normalize();
+  const left = [];
+  const right = [];
+  pts.forEach((p, i) => {
+    const n0 = i > 0 ? normal(pts[i - 1], p) : null;
+    const n1 = i < pts.length - 1 ? normal(p, pts[i + 1]) : null;
+    const n = n0 && n1 ? n0.clone().add(n1).normalize() : (n0 || n1).clone();
+    // mitre: widen slightly at bends so the stroke keeps its width
+    const k = n0 && n1 ? half(i) / Math.max(n.dot(n1), 0.5) : half(i);
+    left.push(p.clone().addScaledVector(n, k));
+    right.push(p.clone().addScaledVector(n, -k));
   });
-  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, toneMapped: false }));
-  s.scale.set(1.05, 0.36, 1);
+  return new THREE.Shape([...left, ...right.reverse()]);
+}
+
+// points along a circular arc from angle a0 to a1 (radians)
+function arc(cx, cy, r, a0, a1, steps = 32) {
+  return Array.from({ length: steps + 1 }, (_, i) => {
+    const a = a0 + ((a1 - a0) * i) / steps;
+    return new THREE.Vector2(cx + Math.cos(a) * r, cy + Math.sin(a) * r);
+  });
+}
+
+function poly(...pairs) {
+  return new THREE.Shape(pairs.map(([x, y]) => new THREE.Vector2(x, y)));
+}
+
+function roundedRect(w, h, r) {
+  const x = -w / 2;
+  const y = -h / 2;
+  const s = new THREE.Shape();
+  s.moveTo(x + r, y);
+  s.lineTo(x + w - r, y);
+  s.quadraticCurveTo(x + w, y, x + w, y + r);
+  s.lineTo(x + w, y + h - r);
+  s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  s.lineTo(x + r, y + h);
+  s.quadraticCurveTo(x, y + h, x, y + h - r);
+  s.lineTo(x, y + r);
+  s.quadraticCurveTo(x, y, x + r, y);
   return s;
+}
+
+// extrude a flat mark toward the viewer, its back resting on z = 0
+function mark(shape, mat, depth = 0.085) {
+  const geo = new THREE.ExtrudeGeometry(shape, {
+    depth, bevelEnabled: true, bevelThickness: 0.012, bevelSize: 0.008, bevelSegments: 2, curveSegments: 24,
+  });
+  geo.translate(0, 0, 0.012);
+  return new THREE.Mesh(geo, mat);
+}
+
+function logoMat(hex) {
+  return new THREE.MeshPhysicalMaterial({
+    color: hex, roughness: 0.3, clearcoat: 1, clearcoatRoughness: 0.15, emissive: hex, emissiveIntensity: 0.06,
+  });
+}
+
+// a bottom-to-top colour fade baked into vertex colours
+const gradientMat = new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: 0.3, clearcoat: 1, clearcoatRoughness: 0.15 });
+function gradient(mesh, bottomHex, topHex) {
+  const geo = mesh.geometry;
+  geo.computeBoundingBox();
+  const { min, max } = geo.boundingBox;
+  const lo = new THREE.Color(bottomHex);
+  const hi = new THREE.Color(topHex);
+  const c = new THREE.Color();
+  const pos = geo.attributes.position;
+  const col = new Float32Array(pos.count * 3);
+  for (let i = 0; i < pos.count; i++) {
+    c.lerpColors(lo, hi, (pos.getY(i) - min.y) / (max.y - min.y || 1));
+    c.toArray(col, i * 3);
+  }
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  return mesh;
+}
+
+// the AWS wordmark turns white in the dark theme, as AWS's own does
+const awsInk = logoMat(0x232f3e);
+
+function awsLogo() {
+  const g = new THREE.Group();
+  const S = 0.085; // stroke width; letters run from y = -S/2 to 0.4275
+  // a: a bowl, and a stem that curls over the top
+  const bowl = new THREE.Shape().absellipse(-0.41, 0.12, 0.11 + S / 2, 0.12 + S / 2, 0, Math.PI * 2);
+  bowl.holes.push(new THREE.Path().absellipse(-0.41, 0.12, 0.11 - S / 2, 0.12 - S / 2, 0, Math.PI * 2));
+  const stem = [new THREE.Vector2(-0.3, -S / 2), ...arc(-0.405, 0.28, 0.105, 0, Math.PI * 0.9)];
+  // w: four straight strokes, flat-cut where they meet
+  const w = [
+    poly([-0.214, 0.425], [-0.126, 0.425], [-0.031, -0.04], [-0.119, -0.04]),
+    poly([-0.119, -0.04], [-0.031, -0.04], [0.044, 0.33], [-0.044, 0.33]),
+    poly([-0.044, 0.33], [0.044, 0.33], [0.119, -0.04], [0.031, -0.04]),
+    poly([0.031, -0.04], [0.119, -0.04], [0.214, 0.425], [0.126, 0.425]),
+  ];
+  // s: two arcs meeting in the middle
+  const s = [
+    ...arc(0.375, 0.288, 0.096, 0.35, Math.PI * 1.5),
+    ...arc(0.375, 0.096, 0.096, Math.PI * 0.5, -Math.PI * 0.9).slice(1),
+  ];
+  [bowl, ribbon(stem, S), ...w, ribbon(s, S)].forEach((shape) => g.add(mark(shape, awsInk)));
+
+  // the orange smile, thickening into an arrowhead
+  const smile = new THREE.QuadraticBezierCurve(
+    new THREE.Vector2(-0.5, -0.13), new THREE.Vector2(-0.02, -0.4), new THREE.Vector2(0.45, -0.15)
+  ).getPoints(40);
+  const end = smile[smile.length - 1];
+  const dir = end.clone().sub(smile[smile.length - 2]).normalize();
+  const side = new THREE.Vector2(-dir.y, dir.x);
+  const head = new THREE.Shape([
+    end.clone().addScaledVector(side, 0.08).addScaledVector(dir, -0.015),
+    end.clone().addScaledVector(dir, 0.11),
+    end.clone().addScaledVector(side, -0.08).addScaledVector(dir, -0.015),
+  ]);
+  const orange = logoMat(0xff9900);
+  g.add(mark(ribbon(smile, (t) => 0.035 + 0.05 * t), orange), mark(head, orange));
+  return g;
+}
+
+function azureLogo() {
+  // corners traced from Azure's 96-unit artboard, y flipped
+  const shape = (...pts) => poly(...pts.map(([x, y]) => [(x - 48) / 96, (48 - y) / 96]));
+  const g = new THREE.Group();
+  g.add(
+    gradient(mark(shape([31, 6.5], [59.4, 6.5], [30, 89.5], [6, 89.5]), gradientMat, 0.07), 0x0a4c96, 0x1b6fcf),
+    gradient(mark(shape([29.9, 60.3], [71.2, 60.3], [81.4, 89.5], [57, 89.5]), gradientMat, 0.085), 0x005ba1, 0x0078d4),
+    gradient(mark(shape([33.6, 6.5], [63.5, 6.5], [90, 89.5], [60.5, 89.5]), gradientMat, 0.1), 0x2892df, 0x3ccbf4)
+  );
+  return g;
+}
+
+function googleCloudLogo() {
+  const V = (x, y) => new THREE.Vector2(x, y);
+  const HW = 0.06; // half the stroke width
+  const cR = V(0.26, -0.06);
+  const rR = 0.22; // right bump
+  const cT = V(-0.02, 0.1);
+  const rT = 0.3; // big top bump
+  const cL = V(-0.3, -0.08);
+  const rL = 0.2; // left bump
+  const yB = -0.28; // flat bottom, tangent to both side bumps
+  // the upper of the two points where two circles cross
+  const cross = (c1, r1, c2, r2) => {
+    const d = c1.distanceTo(c2);
+    const a = (r1 * r1 - r2 * r2 + d * d) / (2 * d);
+    const u = c2.clone().sub(c1).divideScalar(d);
+    const n = V(-u.y, u.x).multiplyScalar(Math.sqrt(r1 * r1 - a * a));
+    const p = c1.clone().addScaledVector(u, a);
+    return n.y > 0 ? p.add(n) : p.sub(n);
+  };
+  const angle = (c, p) => Math.atan2(p.y - c.y, p.x - c.x);
+  const ccw = (a0, a1) => (a1 < a0 ? a1 + Math.PI * 2 : a1); // arcs always run anticlockwise
+  const rt = cross(cR, rR, cT, rT);
+  const tl = cross(cT, rT, cL, rL);
+  const aT = angle(cT, rt);
+  const aL = angle(cL, tl);
+  const pieces = [
+    [0x4285f4, 0.085, [V(0, yB), ...arc(cR.x, cR.y, rR, -Math.PI / 2, ccw(-Math.PI / 2, angle(cR, rt)))]],
+    [0xea4335, 0.1, arc(cT.x, cT.y, rT, aT, ccw(aT, angle(cT, tl)))],
+    [0xfbbc04, 0.085, arc(cL.x, cL.y, rL, aL, ccw(aL, Math.PI * 1.5))],
+    [0x34a853, 0.085, [V(cL.x, yB), V(0, yB)]],
+  ];
+  const g = new THREE.Group();
+  const mats = {};
+  pieces.forEach(([hex, depth, pts]) => {
+    mats[hex] = logoMat(hex);
+    g.add(mark(ribbon(pts, HW * 2), mats[hex], depth));
+  });
+  // round joins fill the notches where the bumps meet
+  [[rt, 0x4285f4], [tl, 0xfbbc04]].forEach(([p, hex]) => {
+    const j = new THREE.Mesh(new THREE.CylinderGeometry(HW, HW, 0.109, 32), mats[hex]);
+    j.rotation.x = Math.PI / 2;
+    j.position.set(p.x, p.y, 0.0545);
+    g.add(j);
+  });
+  return g;
+}
+
+const tileGeo = new THREE.ExtrudeGeometry(roundedRect(1.3, 1.3, 0.3), {
+  depth: 0.12, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.05, bevelSegments: 4, curveSegments: 12,
+});
+tileGeo.translate(0, 0, -0.06); // front face at z = 0.11
+const tileEdgeGeo = new THREE.ExtrudeGeometry(roundedRect(1.42, 1.42, 0.34), {
+  depth: 0.05, bevelEnabled: true, bevelThickness: 0.02, bevelSize: 0.02, bevelSegments: 3, curveSegments: 12,
+});
+const tileEdgeMat = accentMat(ACCENTS.cloud, 0.3);
+
+function logoTile(logo) {
+  const tile = new THREE.Group();
+  tile.add(new THREE.Mesh(tileGeo, M.panel));
+  const edge = new THREE.Mesh(tileEdgeGeo, tileEdgeMat); // a thin accent rim behind the tile
+  edge.position.z = -0.14;
+  tile.add(edge);
+  // fit the mark to the tile face
+  const box = new THREE.Box3().setFromObject(logo);
+  const size = box.getSize(new THREE.Vector3());
+  const mid = box.getCenter(new THREE.Vector3());
+  const s = 0.88 / Math.max(size.x, size.y);
+  logo.scale.set(s, s, 1);
+  logo.position.set(-mid.x * s, -mid.y * s, 0.11);
+  tile.add(logo);
+  return tile;
 }
 
 {
   const g = new THREE.Group();
-  const puff = (mat) => {
-    const c = new THREE.Group();
-    [[0, 0, 0, 0.5], [0.46, -0.04, 0.05, 0.38], [-0.46, -0.05, 0, 0.36], [0.18, 0.28, -0.05, 0.36], [-0.18, 0.2, 0.1, 0.33]]
-      .forEach(([x, y, z, r]) => {
-        const s = new THREE.Mesh(new THREE.SphereGeometry(r, 32, 24), mat);
-        s.position.set(x, y, z);
-        c.add(s);
-      });
-    return c;
-  };
   const hubPos = new THREE.Vector3(0, TOP + 0.95, 0.65);
-  const clouds = [
-    ['AWS', -1.75, 2.45, -0.2],
-    ['Azure', 0.05, 3.05, -0.75],
-    ['GCP', 1.85, 2.35, 0.1],
-  ].map(([name, x, y, z]) => {
-    const c = puff(M.panel);
-    c.position.set(x, TOP + y, z);
-    c.scale.setScalar(0.9);
-    const tag = labelSprite(name, ACCENTS.cloud);
-    tag.position.set(x, TOP + y - 0.66, z + 0.2);
-    g.add(c, tag);
-    return c;
+  const tiles = [
+    [awsLogo(), -1.72, 2.3, -0.1, 0.3],
+    [azureLogo(), 0, 2.95, -0.7, 0],
+    [googleCloudLogo(), 1.72, 2.3, -0.1, -0.3],
+  ].map(([logo, x, y, z, turnY]) => {
+    const tile = logoTile(logo);
+    tile.position.set(x, TOP + y, z);
+    tile.rotation.y = turnY;
+    tile.userData.home = { y: TOP + y, turnY };
+    g.add(tile);
+    return tile;
   });
 
   const wheel = new THREE.Group();
@@ -613,8 +795,9 @@ function labelSprite(text, hex) {
 
   const tubeMat = glowMat(ACCENTS.cloud, 0.6);
   const packetMat = glowMat(0xffffff);
-  const links = clouds.map((c) => {
-    const a = c.position.clone().add(new THREE.Vector3(0, -0.42, 0));
+  const links = tiles.map((tile) => {
+    // start inside the tile, so the join stays hidden while the tile bobs
+    const a = tile.position.clone().add(new THREE.Vector3(0, -0.45, -0.04));
     const mid = a.clone().lerp(hubPos, 0.5);
     mid.y += 0.15;
     const curve = new THREE.CatmullRomCurve3([a, mid, hubPos.clone()]);
@@ -629,7 +812,11 @@ function labelSprite(text, hex) {
 
   g.userData.animate = (t) => {
     wheel.rotation.z = t * 0.5;
-    clouds.forEach((c, i) => (c.position.y += Math.sin(t * 1.1 + i * 2) * 0.0015));
+    tiles.forEach((tile, i) => {
+      const { y, turnY } = tile.userData.home;
+      tile.position.y = y + Math.sin(t * 1.1 + i * 2) * 0.06;
+      tile.rotation.y = turnY + Math.sin(t * 0.6 + i * 1.7) * 0.1;
+    });
     links.forEach(({ curve, packets }, i) => {
       packets.forEach((p, k) => p.position.copy(curve.getPointAt((t * 0.28 + k * 0.5 + i * 0.17) % 1)));
     });
@@ -729,6 +916,8 @@ onTheme((mode) => {
   renderer.toneMappingExposure = t.exposure;
   pMat.color.setHex(t.particles);
   shadowMat.opacity = t.shadow;
+  awsInk.color.setHex(mode === 'dark' ? 0xf4f6fb : 0x232f3e);
+  awsInk.emissive.copy(awsInk.color);
   hemi.intensity = mode === 'dark' ? 0.35 : 0.6;
   key.intensity = mode === 'dark' ? 1.1 : 1.5;
   uiFaces.forEach((f) => {
