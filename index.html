@@ -3,276 +3,343 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="The Finlabs product showroom — Finexa, Finexa GenNxT, Finaware, Fiscus and Learngenie."
-  />
-
+  <meta name="description" content="Finlabs — ten years of smarter fintech. Products, solutions and technology services for financial advisors, mutual fund distributors, insurers and financial institutions." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <title>Products — Finlabs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+  <title>Finlabs — Celebrating a Decade of Impact</title>
 </head>
 
-<body>
+<body class="home">
 
-  <!-- ===================================================== -->
-  <!-- THE SHOWROOM (fixed WebGL layer)                       -->
-  <!-- ===================================================== -->
+  <!-- icon sprite, referenced with <use href="#i-…"> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-products" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="11.5" rx="2"/><path d="M1.5 19.5h21"/><path d="m7 12.5 3-3 2.5 2.5L17 7.5"/></symbol>
+      <symbol id="i-solutions" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5"/></symbol>
+      <symbol id="i-services" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(-25 12 12)"/><circle cx="19.6" cy="8.4" r="1.3"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-quote" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M9.6 5.5C5.9 6.6 3.8 9.6 3.8 13.4V18.5h6.4v-6.4H7.1c.2-2.1 1.5-3.7 3.4-4.4zm10.6 0c-3.7 1.1-5.8 4.1-5.8 7.9V18.5h6.4v-6.4h-3.1c.2-2.1 1.5-3.7 3.4-4.4z"/></symbol>
+    </defs>
+  </svg>
 
-  <canvas id="canvas"></canvas>
-  <div id="grain" aria-hidden="true"></div>
+  <!-- ambient backdrop, painted by CSS behind the transparent WebGL canvas -->
+  <div class="backdrop" aria-hidden="true">
+    <span class="glow glow--a"></span>
+    <span class="glow glow--b"></span>
+    <div class="backdrop__dots"></div>
+  </div>
+  <canvas id="scene" aria-hidden="true"></canvas>
 
-  <!-- ===================================================== -->
-  <!-- FIXED UI                                               -->
-  <!-- ===================================================== -->
-
-  <header class="topbar">
-    <a class="brand" href="#top">
+  <header class="nav" id="top">
+    <a class="nav__brand" href="#top" aria-label="Finlabs home">
       <img src="/finlabs-logo.png" alt="Finlabs — Celebrating a Decade of Impact" />
     </a>
-
-    <nav class="topnav">
-      <button id="themeToggle" class="pill pill--icon" type="button" aria-pressed="false" aria-label="Switch to dark theme">
-        <svg class="ico-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-          <circle cx="12" cy="12" r="4.2" fill="currentColor" />
-          <g stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
-            <path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7" />
-          </g>
-        </svg>
-        <svg class="ico-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-          <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor" />
-        </svg>
-      </button>
-      <button id="toggle3d" class="pill" type="button" aria-pressed="true">
-        3D <span data-state>ON</span>
-      </button>
-      <a class="pill pill--solid" href="solutions.html">SOLUTIONS</a>
-      <a class="pill pill--solid" href="services.html">SERVICES</a>
+    <nav class="nav__links" aria-label="Site">
+      <a href="products.html">Products</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="services.html">Services</a>
+      <a href="#voices">Clients</a>
     </nav>
+    <div class="nav__actions">
+      <button id="themeToggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></g></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor"/></svg>
+      </button>
+      <button id="toggle3d" class="icon-btn icon-btn--text" type="button" aria-pressed="true" aria-label="Toggle 3D scene">3D</button>
+      <a class="btn btn--primary btn--sm" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener" data-magnetic>Book a call</a>
+    </div>
   </header>
 
-  <div class="scrollcue" id="scrollcue">
-    <span>ENTER THE SHOWROOM</span>
-    <i></i>
-  </div>
+  <main>
 
-  <div class="progress" id="progress" aria-hidden="true"><span></span></div>
-
-  <!-- ===================================================== -->
-  <!-- SCROLLING CONTENT                                      -->
-  <!-- ===================================================== -->
-
-  <main class="content" id="top">
-
-    <section class="hero">
-      <p class="eyebrow">FIVE PLATFORMS · ONE SHOWROOM</p>
-      <h1 class="hero__title">PRODUCTS</h1>
-      <p class="hero__rule" aria-hidden="true"></p>
-      <p class="hero__lead">
-        Wealth management, asset aggregation, investor awareness, personal
-        finance and learning. Walk the floor and see each platform in turn.
-      </p>
+    <section class="hero" data-scene="hero" data-side="left">
+      <div class="col">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Celebrating a decade of impact</p>
+        <h1 class="hero__title" data-reveal>Ten years of <em>smarter fintech.</em></h1>
+        <p class="hero__lead" data-reveal>
+          For a decade, Finlabs has built the technology behind financial professionals —
+          platforms, learning tools and digital services for advisors, mutual fund distributors,
+          insurers and financial institutions across India.
+        </p>
+        <div class="hero__ctas" data-reveal>
+          <a class="btn btn--primary" href="#offerings" data-magnetic>Explore our offerings <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Book a strategy call</a>
+        </div>
+        <ul class="stats" data-reveal>
+          <li><strong>10</strong><span>years of impact</span></li>
+          <li><strong>5</strong><span>products</span></li>
+          <li><strong>8</strong><span>solutions</span></li>
+          <li><strong>3</strong><span>service lines</span></li>
+        </ul>
+      </div>
+      <a class="hero__scroll" href="#clients" aria-label="Scroll down"><span></span></a>
     </section>
 
-    <section class="products" id="showroom">
-
-      <article class="product product--left" data-index="0" style="--accent:#1a8fb5">
-        <div class="product__inner">
-          <div class="product__card">
-            <p class="product__tag">PRODUCT 01 — WEALTH MANAGEMENT</p>
-            <h2 class="product__name">Finexa</h2>
-            <p class="product__sub">Powering Growth with Modern Wealth Management Stack</p>
-            <p class="product__desc">
-              A comprehensive business solution tailored for Investment Advisors,
-              Wealth Managers and Distributors — offering a holistic approach to
-              managing the entire client lifecycle.
-            </p>
-            <ul class="product__points">
-              <li>Covers the entire client lifecycle</li>
-              <li>Built for advisors, wealth managers &amp; distributors</li>
-              <li>A modern wealth management stack</li>
-            </ul>
-            <dl class="product__meta">
-              <div><dt>CATEGORY</dt><dd>Wealth Management Platform</dd></div>
-              <div><dt>BUILT FOR</dt><dd>Advisors · Wealth Managers · Distributors</dd></div>
-            </dl>
-            <a class="product__cta" href="https://finlabsindia.org/finexa-wealth-management-platform/" target="_blank" rel="noopener">
-              Explore Finexa <span>→</span>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="product product--right" data-index="1" style="--accent:#2aa7c9">
-        <div class="product__inner">
-          <div class="product__card">
-            <p class="product__tag">PRODUCT 02 — ASSET AGGREGATION</p>
-            <h2 class="product__name">Finexa GenNxT</h2>
-            <p class="product__sub">Empowering Wealth Management with Finexa GenNxt</p>
-            <p class="product__desc">
-              Simplifies financial management by aggregating all assets on a single
-              platform, offering advanced analytics and multi-asset reporting for
-              deeper insights. With enterprise-grade security, it ensures safe and
-              efficient financial oversight.
-            </p>
-            <ul class="product__points">
-              <li>All assets aggregated on one platform</li>
-              <li>Advanced analytics &amp; multi-asset reporting</li>
-              <li>Enterprise-grade security</li>
-            </ul>
-            <dl class="product__meta">
-              <div><dt>CATEGORY</dt><dd>Multi-Asset Analytics</dd></div>
-              <div><dt>BUILT FOR</dt><dd>Wealth Firms · Enterprises</dd></div>
-            </dl>
-            <a class="product__cta" href="https://finlabsindia.org/finexagennxt/" target="_blank" rel="noopener">
-              Explore GenNxT <span>→</span>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="product product--left" data-index="2" style="--accent:#f26722">
-        <div class="product__inner">
-          <div class="product__card">
-            <p class="product__tag">PRODUCT 03 — INVESTOR AWARENESS</p>
-            <h2 class="product__name">Finaware</h2>
-            <p class="product__sub">Empowering Investor Awareness with a Unified Solution</p>
-            <p class="product__desc">
-              An integrated platform designed to streamline and scale Investor
-              Awareness Programs (IAPs) efficiently. Whether managing digital or
-              offline initiatives, it empowers organizations to execute, track and
-              optimize IAPs while ensuring regulatory compliance.
-            </p>
-            <ul class="product__points">
-              <li>Digital and offline IAPs in one place</li>
-              <li>Execute, track and optimise programmes</li>
-              <li>Regulatory compliance throughout</li>
-            </ul>
-            <dl class="product__meta">
-              <div><dt>CATEGORY</dt><dd>Investor Awareness Programs</dd></div>
-              <div><dt>BUILT FOR</dt><dd>AMCs · Institutions · Regulated Bodies</dd></div>
-            </dl>
-            <a class="product__cta" href="https://finlabsindia.org/finaware/" target="_blank" rel="noopener">
-              Explore Finaware <span>→</span>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="product product--right" data-index="3" style="--accent:#0f6d8c">
-        <div class="product__inner">
-          <div class="product__card">
-            <p class="product__tag">PRODUCT 04 — PERSONAL FINANCE</p>
-            <h2 class="product__name">Fiscus</h2>
-            <p class="product__sub">An Investor's Finance Manager</p>
-            <p class="product__desc">
-              A completely safe and convenient way to track all bank accounts,
-              credit cards and e-wallets live at one place — without sharing
-              passwords.
-            </p>
-            <ul class="product__points">
-              <li>Bank accounts, credit cards &amp; e-wallets</li>
-              <li>Live tracking, all in one place</li>
-              <li>No password sharing required</li>
-            </ul>
-            <dl class="product__meta">
-              <div><dt>CATEGORY</dt><dd>Personal Finance Manager</dd></div>
-              <div><dt>BUILT FOR</dt><dd>Investors · Individuals</dd></div>
-            </dl>
-            <a class="product__cta" href="https://finlabsindia.org/fiscus/" target="_blank" rel="noopener">
-              Explore Fiscus <span>→</span>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="product product--left" data-index="4" style="--accent:#f9a825">
-        <div class="product__inner">
-          <div class="product__card">
-            <p class="product__tag">PRODUCT 05 — LEARNING &amp; DEVELOPMENT</p>
-            <h2 class="product__name">Learngenie</h2>
-            <p class="product__sub">L&amp;D Made Easy, Engaging and Effective</p>
-            <p class="product__desc">
-              A mobile app making learning accessible and personalized for
-              employees, partners and channels — through gamified learning,
-              interactive content and customizable programs, on a white-labeled
-              platform with HR integration.
-            </p>
-            <ul class="product__points">
-              <li>Gamified, interactive learning</li>
-              <li>White-labeled platform</li>
-              <li>HR system integration</li>
-            </ul>
-            <dl class="product__meta">
-              <div><dt>CATEGORY</dt><dd>Learning &amp; Development App</dd></div>
-              <div><dt>BUILT FOR</dt><dd>Employees · Partners · Channels</dd></div>
-            </dl>
-            <a class="product__cta" href="https://finlabsindia.org/engaging-and-outcome-oriented-training-with-learngenie/" target="_blank" rel="noopener">
-              Explore Learngenie <span>→</span>
-            </a>
-          </div>
-        </div>
-      </article>
-
-    </section>
-
-    <!-- empty stretch: the camera walks up to the end wall -->
-    <section class="outro" aria-hidden="true"></section>
-
-    <section class="endwall" id="endwall">
-      <div class="endwall__panel">
-        <div class="endwall__brand">
-          <img src="/finlabs-logo.png" alt="Finlabs" />
-          <a class="endwall__mail" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
-          <ul class="social" aria-label="Social links">
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="Instagram">ig</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="Facebook">f</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="X">X</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="YouTube">▶</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a></li>
-          </ul>
-        </div>
-
-        <nav class="endwall__cols">
-          <ul>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Home</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">About Us</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Career</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Blog</a></li>
-          </ul>
-          <ul>
-            <li><a href="#showroom">Products</a></li>
-            <li><a class="crosslink" href="solutions.html">Solutions</a></li>
-            <li><a class="crosslink" href="services.html">Services</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Knowledge Centre</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Contact Us</a></li>
-            <li><a href="https://finlabsindia.org/wp-content/uploads/2026/07/Finlabs-Corpdeck-Brochure.pdf" target="_blank" rel="noopener">Download Brochure</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Privacy Policy</a></li>
-            <li><a href="https://finlabsindia.org/" target="_blank" rel="noopener">Terms and Conditions</a></li>
-          </ul>
-        </nav>
-
-        <div class="endwall__cta">
-          <h2>Have questions or want to learn more?</h2>
-          <p>Feel free to reach out or schedule a quick call — we're happy to help.</p>
-          <a class="bookcall" href="https://finlabsindia.org/" target="_blank" rel="noopener">Book A Call</a>
+    <section class="clients" id="clients" data-scene="hero" data-side="left">
+      <p class="clients__title" data-reveal>Trusted by leading names in Indian finance and education</p>
+      <div class="marquee" aria-label="Clients">
+        <div class="marquee__track">
+          <span>AMFI</span><span>BSE</span><span>LIC</span><span>Kotak</span><span>UTI Mutual Fund</span><span>HSBC Mutual Fund</span><span>DSP Mutual Fund</span><span>Nippon India Mutual Fund</span><span>Canara Robeco</span><span>Bajaj Finserv</span><span>Edelweiss</span><span>Bandhan</span>
+          <span aria-hidden="true">AMFI</span><span aria-hidden="true">BSE</span><span aria-hidden="true">LIC</span><span aria-hidden="true">Kotak</span><span aria-hidden="true">UTI Mutual Fund</span><span aria-hidden="true">HSBC Mutual Fund</span><span aria-hidden="true">DSP Mutual Fund</span><span aria-hidden="true">Nippon India Mutual Fund</span><span aria-hidden="true">Canara Robeco</span><span aria-hidden="true">Bajaj Finserv</span><span aria-hidden="true">Edelweiss</span><span aria-hidden="true">Bandhan</span>
         </div>
       </div>
-
-
-      <p class="copyline">© copyright Finlabs India Pvt. Ltd. | All Rights Reserved</p>
+      <div class="marquee marquee--rev" aria-label="More clients">
+        <div class="marquee__track">
+          <span>NISM</span><span>Protean</span><span>Muthoot</span><span>Utkarsh</span><span>Systematix Group</span><span>Luthra &amp; Luthra</span><span>Hinduja Foundation</span><span>AADHAAR</span><span>Saarthi Capital</span><span>EazySIP</span><span>Vedant Asset</span><span>SSRVM</span><span>ICEX</span><span>Health One</span>
+          <span aria-hidden="true">NISM</span><span aria-hidden="true">Protean</span><span aria-hidden="true">Muthoot</span><span aria-hidden="true">Utkarsh</span><span aria-hidden="true">Systematix Group</span><span aria-hidden="true">Luthra &amp; Luthra</span><span aria-hidden="true">Hinduja Foundation</span><span aria-hidden="true">AADHAAR</span><span aria-hidden="true">Saarthi Capital</span><span aria-hidden="true">EazySIP</span><span aria-hidden="true">Vedant Asset</span><span aria-hidden="true">SSRVM</span><span aria-hidden="true">ICEX</span><span aria-hidden="true">Health One</span>
+        </div>
+      </div>
     </section>
+
+    <section class="offerings" id="offerings">
+      <header class="section-head" data-scene="hero" data-side="left">
+        <p class="eyebrow" data-reveal><span class="dot"></span>Our offerings</p>
+        <h2 data-reveal>Three doors into Finlabs.</h2>
+        <p data-reveal>
+          Products to run your business, solutions for the problems that slow it down, and
+          services to build and look after the technology behind it. Step through any door.
+        </p>
+      </header>
+
+      <article class="offer" id="products" data-scene="products" data-side="left" style="--accent:#2563eb">
+        <div class="offer__card" data-reveal>
+          <div class="offer__meta"><span class="offer__icon"><svg class="ico"><use href="#i-products"/></svg></span><b>01</b><span>Five platforms</span></div>
+          <h3 class="offer__title">Products</h3>
+          <p class="offer__lead">Explore a range of innovative financial tools designed to streamline your operations and maximize growth.</p>
+          <ul class="items">
+            <li><b>Finexa</b><span>Wealth management platform for advisors, wealth managers and distributors</span></li>
+            <li><b>Finexa GenNxT</b><span>Every asset on one platform, with multi-asset analytics and reporting</span></li>
+            <li><b>Finaware</b><span>Run, track and scale investor awareness programmes</span></li>
+            <li><b>Fiscus</b><span>Track bank accounts, cards and e-wallets in one place</span></li>
+            <li><b>Learngenie</b><span>Gamified learning app for employees, partners and channels</span></li>
+          </ul>
+          <div class="offer__cta">
+            <a class="btn btn--accent" href="products.html" data-magnetic>Explore Products Now <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="offer" id="solutions" data-scene="solutions" data-side="right" style="--accent:#06b6d4">
+        <div class="offer__card" data-reveal>
+          <div class="offer__meta"><span class="offer__icon"><svg class="ico"><use href="#i-solutions"/></svg></span><b>02</b><span>Eight building blocks</span></div>
+          <h3 class="offer__title">Solutions</h3>
+          <p class="offer__lead">
+            Our tailored solutions empower you to solve complex problems and achieve your unique
+            goals — from digital onboarding and robo-advisory to compliance and operations automation.
+          </p>
+          <ul class="chips">
+            <li><a href="solutions.html#learning">Learning Hub</a></li>
+            <li><a href="solutions.html#nps">NPS Systems</a></li>
+            <li><a href="solutions.html#robo">RoboInsights</a></li>
+            <li><a href="solutions.html#onboard">SwiftOnboard</a></li>
+            <li><a href="solutions.html#datapulse">DataPulse</a></li>
+            <li><a href="solutions.html#collab">CollabHub</a></li>
+            <li><a href="solutions.html#regusure">ReguSure</a></li>
+            <li><a href="solutions.html#opsoptima">OpsOptima</a></li>
+          </ul>
+          <div class="offer__cta">
+            <a class="btn btn--accent" href="solutions.html" data-magnetic>View Solutions <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="offer" id="services" data-scene="services" data-side="left" style="--accent:#8b5cf6">
+        <div class="offer__card" data-reveal>
+          <div class="offer__meta"><span class="offer__icon"><svg class="ico"><use href="#i-services"/></svg></span><b>03</b><span>Consult · build · run</span></div>
+          <h3 class="offer__title">Services</h3>
+          <p class="offer__lead">Leverage our specialized services to tackle challenges, improve efficiency, and drive results.</p>
+          <ul class="items">
+            <li><b>Technology Consulting</b><span>UI / UX, audits, cybersecurity, cloud reviews and transformation roadmaps</span></li>
+            <li><b>Technology Implementation</b><span>Practical, efficient builds with minimal disruption, made to scale securely</span></li>
+            <li><b>Managed Services</b><span>Cloud deployment, management and proactive infrastructure support</span></li>
+          </ul>
+          <div class="offer__cta">
+            <a class="btn btn--accent" href="services.html" data-magnetic>Explore Services <span aria-hidden="true">→</span></a>
+            <a class="offer__more" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">or call for services ↗</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="voices" id="voices" data-scene="voices" data-side="center">
+      <header class="section-head section-head--center">
+        <p class="eyebrow" data-reveal><span class="dot"></span>What our clients say</p>
+        <h2 data-reveal>A decade of partnerships, in their words.</h2>
+      </header>
+      <div class="voices__bar" data-reveal>
+        <p>14 client stories</p>
+        <div class="voices__nav">
+          <button class="icon-btn" type="button" data-voices="prev" aria-label="Previous testimonials"><svg class="ico"><use href="#i-left"/></svg></button>
+          <button class="icon-btn" type="button" data-voices="next" aria-label="Next testimonials"><svg class="ico"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <div class="voices__track" data-reveal tabindex="0" role="region" aria-label="Client testimonials">
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>I came to know of Finlabs at an event organized by Network FP, I subscribed to Finlabs - Finexa for financial planning post the demo and have been using it for more than a year now. The team at Finlabs is very supportive in resolving queries and constantly looking for inputs to update their product, the financial planning report is exhaustive and very helpful. I recommend subscribing Finexa!!</blockquote>
+          <figcaption><span class="avatar">IS</span><span><b>Iqbal Shaikh</b><small>Chief Investment Advisor, Ethical Investments</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Finexa is a great platform for an advisor looking for using a single platform to provide his clients with a wide bouquet of services – from financial planning to transactions and then tracking of investments and a client portal. It has evolved over a period of time as they have added many modules over the last one year.</blockquote>
+          <figcaption><span class="avatar">PR</span><span><b>Prasad Rao</b><small>Financial advisor</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>From the very beginning, it was evident that Finlabs operates with a customer-centric approach at its core. They took the time to truly understand our unique needs and objectives, ensuring that the website they designed and developed perfectly aligned with our vision. This level of dedication to understanding their clients is truly commendable and sets them apart in the industry.</blockquote>
+          <figcaption><span class="avatar">AS</span><span><b>Abhishek Sharma</b><small>Vice President Strategy and Business, Quantum Phinance</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>We have had one of the most wonderful experiences with Finlabs. The team is efficient and helpful. We reach out to them for any digital query we have. They are quick to respond and direct us to the right person in the team. We have recommended further too.</blockquote>
+          <figcaption><span class="avatar">RM</span><span><b>Ruchi Chopra Mitroo</b><small>AVP – HR and Corporate Communication, Luthra and Luthra Law Firm</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>The animated videos created by Finlabs on financial literacy concepts were crisp, interactive, and easy to understand. Topics like saving, insurance, and responsible borrowing were well explained for the LCV and LMV driver community. Feedback from implementation partners was very positive during driver sessions. The drivers were able to relate to the concepts and understand them clearly. The Finlabs team was highly cooperative and readily accommodated suggestions during the process.</blockquote>
+          <figcaption><span class="avatar">ND</span><span><b>Neelima D'silva-Dalvi</b><small>Deputy Vice President – CSR, Mahindra Finance</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Change Initiatives has been associated with Finlabs for almost a decade. Their expertise in exam software has helped us achieve our digital literacy goals at scale. The team is always available to resolve queries and guide us through every process. Finlabs' strong knowledge of personal finance and easy-to-use applications are extremely valuable. Their solutions have greatly supported our on-ground financial literacy initiatives.</blockquote>
+          <figcaption><span class="avatar">SR</span><span><b>Suryatirtha Ray</b><small>Secretary (Honorary), Change Initiatives</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>It has been a cordial partnership between AADHAAR and Finlabs since 2021. We are very pleased with the professional services and technical support extended by Finlabs while developing our LMS and operationalizing it as per our specific educational requirements. The platform developed has increased the accessibility for thousands of students to learn STEAM.</blockquote>
+          <figcaption><span class="avatar">KS</span><span><b>Kamleshwar Singh</b><small>CEO, AADHAAR</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Our overall experience with Finexa has been fantastic — it's a reliable, user-friendly platform that's transformed how we manage our advisory work. What we like most is the seamless integration of real-time analytics and customizable reports, which make complex data simple and actionable. Finexa adds real value to our business by boosting efficiency, helping me attract more clients with sharper insights, and ultimately increasing my revenue.</blockquote>
+          <figcaption><span class="avatar">VT</span><span><b>Vikram Tewari</b><small>Vanshika Financial Technology Pvt. Ltd</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>I have been using the Finexa online platform for the last 4 months for mutual fund transactions. The software is user-friendly and generates all the reports required for MFDs. It is simple, efficient, and easy to use for our daily operations. The support team is very cooperative and always ready to help. I am very satisfied with the Finexa mobile app and web portal.</blockquote>
+          <figcaption><span class="avatar">KT</span><span><b>Ketan Tailor</b><small>Mutual fund distributor, Navsari</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Finexa has greatly simplified our mutual fund operations. The platform is easy to use and saves significant operational time. The equity shares column helps present client portfolios clearly and professionally. It has allowed us to focus more on client servicing and business growth. I highly recommend Finexa to all mutual fund distributors.</blockquote>
+          <figcaption><span class="avatar">AG</span><span><b>Alok Garg</b><small>Investor, Founder, Director — Induscap Wealth</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Our association with Finlabs Learning Hub has been highly positive. The platform is reliable, user-friendly, and effective in supporting our learning and development needs. We value this partnership and would recommend Finlabs Learning Hub to organizations seeking a dependable and well-supported learning solution.</blockquote>
+          <figcaption><span class="avatar">LT</span><span><b>Lallit Tripathi</b><small>Chief Executive, Vedant Asset Limited</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>As an MFD, I have been associated with Finexa for nearly three years, and it has been a wonderful experience. The platform is simple, convenient, and easy to navigate. More importantly, their client servicing team is outstanding. Whenever I encounter any difficulty, I just need to make one call, and the team is ready to help.</blockquote>
+          <figcaption><span class="avatar">SC</span><span><b>Somnath Chatterjee</b><small>AMFI-registered Mutual Fund Distributor</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Thank you, team Finexa, for your quick response and steady support. Huge congratulations to the team on completing 10 wonderful years in the industry! Your advanced system has truly helped me elevate and scale my mutual fund business. Wishing the entire team many more decades of innovation and success.</blockquote>
+          <figcaption><span class="avatar">GM</span><span><b>Ganesh Madhukar</b><small>Mutual Fund Distributor</small></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <svg class="quote__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Its ease of use has helped us work more efficiently and deliver better outcomes for our clients.</blockquote>
+          <figcaption><span class="avatar">DS</span><span><b>Divesh Sharma</b><small>Dhanyukti Finvest</small></span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="blog" id="blog" data-scene="voices" data-side="center">
+      <header class="section-head section-head--center">
+        <p class="eyebrow" data-reveal><span class="dot"></span>From the Knowledge Centre</p>
+        <h2 data-reveal>Our recent blogs &amp; articles</h2>
+      </header>
+      <ul class="posts">
+        <li class="post" data-reveal>
+          <a href="https://finlabsindia.org/cyber-incident-response-in-india-a-basic-guide/" target="_blank" rel="noopener">
+            <time datetime="2026-02-20">February 20, 2026</time>
+            <h3>Cyber Incident Response in India: A Basic Guide</h3>
+            <p>Indian companies experienced the highest rate of ransomware attacks in Asia in 2024, with 68% of organizations falling victim…</p>
+            <span>Read more ↗</span>
+          </a>
+        </li>
+        <li class="post" data-reveal>
+          <a href="https://finlabsindia.org/part-3-the-role-of-social-media-mobile-and-finaware/" target="_blank" rel="noopener">
+            <time datetime="2026-02-18">February 18, 2026</time>
+            <h3>Part 3: The Role of Social Media, Mobile, and Finaware</h3>
+            <p>We have seen how digital platforms are transforming investor education. Now, let us explore how social…</p>
+            <span>Read more ↗</span>
+          </a>
+        </li>
+        <li class="post" data-reveal>
+          <a href="https://finlabsindia.org/part-2-the-digital-revolution-breaking-down-every-barrier/" target="_blank" rel="noopener">
+            <time datetime="2026-02-18">February 18, 2026</time>
+            <h3>Part 2: The Digital Revolution – Breaking Down Every Barrier</h3>
+            <p>In our first part, we explored how traditional investor education methods limited reach and how technology…</p>
+            <span>Read more ↗</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="cta" id="contact" data-scene="cta" data-side="center">
+      <div class="cta__panel" data-reveal>
+        <span class="cta__ten" aria-hidden="true">10</span>
+        <p class="eyebrow"><span class="dot"></span>Here for the next decade</p>
+        <h2>Celebrate 10 Years of Excellence with Us</h2>
+        <p>Join the movement of smarter fintech. Whether you have questions or want to partner, we're here for the next decade.</p>
+        <div class="cta__ctas">
+          <a class="btn btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener" data-magnetic>Book a Strategy Call <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot__panel">
+        <div class="foot__brand">
+          <img src="/finlabs-logo.png" alt="Finlabs" />
+          <a class="foot__mail" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
+          <ul class="social" aria-label="Finlabs on social media">
+            <li><a href="https://www.linkedin.com/company/14438243/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v12H3zM9 9h2.9v1.7h.1c.4-.8 1.4-1.9 3-1.9 3.2 0 3.9 2.1 3.9 4.9V21h-3v-6.4c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9z"/></svg></a></li>
+            <li><a href="https://www.instagram.com/finlabsindia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></li>
+            <li><a href="https://www.facebook.com/finlabsind" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z"/></svg></a></li>
+            <li><a href="https://twitter.com/IndiaFinlabs" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg></a></li>
+            <li><a href="https://www.youtube.com/@finlabsindia7860" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a></li>
+            <li><a href="https://wa.me/9372956429" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.6 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5zm0 17.1a7.7 7.7 0 0 1-3.9-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 1 1 12 19.6zm4.2-5.8c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.3 6.3 0 0 1-3.1-2.7c-.2-.4.2-.4.7-1.3.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.2-.2-.5-.3z"/></svg></a></li>
+          </ul>
+        </div>
+        <nav class="foot__cols" aria-label="Site">
+          <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="https://finlabsindia.org/about-us/" target="_blank" rel="noopener">About Us</a></li>
+            <li><a href="https://finlabsindia.org/careers/" target="_blank" rel="noopener">Career</a></li>
+            <li><a href="https://finlabsindia.org/blog/" target="_blank" rel="noopener">Blog</a></li>
+          </ul>
+          <ul>
+            <li><a class="foot__cross" href="products.html">Products</a></li>
+            <li><a class="foot__cross" href="solutions.html">Solutions</a></li>
+            <li><a class="foot__cross" href="services.html">Services</a></li>
+            <li><a href="https://finlabsindia.org/knowledge-centre/" target="_blank" rel="noopener">Knowledge Centre</a></li>
+          </ul>
+          <ul>
+            <li><a href="https://finlabsindia.org/contact-us/" target="_blank" rel="noopener">Contact Us</a></li>
+            <li><a href="https://finlabsindia.org/wp-content/uploads/2026/07/Finlabs-Corpdeck-Brochure.pdf" target="_blank" rel="noopener">Download Brochure</a></li>
+            <li><a href="https://finlabsindia.org/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://finlabsindia.org/terms-conditions/" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          </ul>
+        </nav>
+        <div class="foot__cta">
+          <h3>Have questions or want to learn more?</h3>
+          <p>Feel free to reach out or schedule a quick call — we're happy to help.</p>
+          <a class="btn btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Book A Call</a>
+        </div>
+      </div>
+      <p class="foot__copy">© copyright Finlabs India Pvt. Ltd. | All Rights Reserved</p>
+    </footer>
 
   </main>
 
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/home.js"></script>
 </body>
 </html>

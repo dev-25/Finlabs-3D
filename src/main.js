@@ -106,7 +106,7 @@ const CSS = {
 };
 
 // =====================================================
-// PRODUCTS  (order matches the sections in index.html)
+// PRODUCTS  (order matches the sections in products.html)
 // =====================================================
 
 // all-blue accents; the only warm colour left in the room is the gold on
