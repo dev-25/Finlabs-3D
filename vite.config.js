@@ -15,6 +15,7 @@ export default defineConfig(({ command }) => ({
         terms: resolve(__dirname, 'terms.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         contact: resolve(__dirname, 'contact.html'),
+        about: resolve(__dirname, 'about.html'),
       },
     },
   },
