@@ -69,7 +69,9 @@
   font-size: clamp(13px, 1.15cqw, 16px); line-height: 1.6;
 }
 .fx * { box-sizing: border-box; }
-.fx img { display: block; max-width: 100%; }
+/* height:auto matters — without it the width/height attributes on an
+   image win over a CSS width and squash the picture */
+.fx img { display: block; max-width: 100%; height: auto; }
 .fx__wrap { width: min(1040px, 100%); margin: 0 auto; padding-inline: var(--fx-pad); }
 .fx-ico {
   width: 20px; height: 20px; flex: none;
