@@ -2,6 +2,7 @@ import './style.css';
 import './nav.css';
 import './nav.js';
 import './whatsapp.js';
+import { onExplore, onExploreClose, place as placeViewport } from './finexa-viewport.js';
 import * as THREE from 'three';
 import { Timer } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -1868,7 +1869,7 @@ PRODUCTS.forEach((product, i) => {
   g.position.set(stationX(i), 0, stationZ(i));
   g.userData.baseY = 0;
   scene.add(g);
-  stations.push({ group: g });
+  stations.push({ group: g, screen });
 });
 
 // =====================================================
@@ -1993,6 +1994,77 @@ let running = false;
 const timer = new Timer();
 const lookTarget = new THREE.Vector3(0, 0.4, 0);
 
+// =====================================================
+// EXPLORING A PRODUCT ON ITS MONITOR
+// =====================================================
+// "Explore" flies the camera to that station's screen until it fills the
+// view. The HTML panel rides the screen in and then takes over as a page
+// inside it; closing flies the camera back to where it was.
+
+let exploring = -1; // product being explored, -1 when back in the room
+let zoomIndex = -1; // station flown to; kept during the flight back
+let zoom = 0; // 0 in the room, 1 with the screen filling the view
+let placing = false;
+const roamPos = new THREE.Vector3().copy(camera.position);
+const lookNow = new THREE.Vector3().copy(lookTarget);
+const zoomPos = new THREE.Vector3();
+const zoomLook = new THREE.Vector3();
+const tmpDir = new THREE.Vector3();
+const tmpCorner = new THREE.Vector3();
+const SCREEN_W = 6.05;
+const SCREEN_H = 4.05;
+
+const smoothstep = (a, b, x) => {
+  const k = THREE.MathUtils.clamp((x - a) / (b - a), 0, 1);
+  return k * k * (3 - 2 * k);
+};
+
+// where the camera has to stand for this station's screen to fill the view
+function screenPose(i, outPos, outLook) {
+  const mesh = stations[i].screen;
+  mesh.updateWorldMatrix(true, false);
+  outLook.setFromMatrixPosition(mesh.matrixWorld);
+  tmpDir.set(0, 0, 1).transformDirection(mesh.matrixWorld).normalize();
+  const half = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
+  const dist = Math.max(SCREEN_H / 2 / half, SCREEN_W / 2 / (half * camera.aspect));
+  outPos.copy(outLook).addScaledVector(tmpDir, dist * 1.04); // a 4% margin round the screen
+}
+
+// the screen's box on the page, so the panel can sit exactly on it
+function screenRect(i) {
+  const mesh = stations[i].screen;
+  mesh.updateWorldMatrix(true, false);
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+  for (let c = 0; c < 4; c++) {
+    tmpCorner
+      .set(c & 1 ? SCREEN_W / 2 : -SCREEN_W / 2, c & 2 ? SCREEN_H / 2 : -SCREEN_H / 2, 0)
+      .applyMatrix4(mesh.matrixWorld)
+      .project(camera);
+    const x = (tmpCorner.x * 0.5 + 0.5) * vw;
+    const y = (-tmpCorner.y * 0.5 + 0.5) * vh;
+    minX = Math.min(minX, x);
+    maxX = Math.max(maxX, x);
+    minY = Math.min(minY, y);
+    maxY = Math.max(maxY, y);
+  }
+  return { x: minX, y: minY, width: maxX - minX, height: maxY - minY };
+}
+
+onExplore((i) => {
+  exploring = i;
+  zoomIndex = i;
+  document.body.classList.add('exploring');
+});
+onExploreClose(() => {
+  exploring = -1;
+  document.body.classList.remove('exploring');
+});
+
 function loop() {
   if (!enabled) {
     running = false;
@@ -2000,7 +2072,12 @@ function loop() {
   }
   running = true;
   requestAnimationFrame(loop);
+  step();
+}
 
+// one frame of the showroom, kept apart from the loop so a single frame can
+// be drawn on demand (see the dev hook at the end of this file)
+function step() {
   // keep the drawing buffer in step with the viewport
   // NaN-safe: if the page mounted at zero size, camera.aspect is NaN and
   // every comparison against it is false, so check the buffer explicitly
@@ -2038,25 +2115,52 @@ function loop() {
   const sideTarget =
     THREE.MathUtils.lerp(stationX(i), stationX(next), frac) * (1 - outro);
 
-  camera.position.z += (zTarget - camera.position.z) * 0.08;
-  camera.position.x +=
-    (sideTarget * 0.26 - heroBias * 2.4 + Math.sin(t * 0.35) * 0.35 - camera.position.x) * 0.06;
-  camera.position.y +=
-    (-0.2 + Math.sin(t * 0.5) * 0.2 - camera.position.y) * 0.06;
+  roamPos.z += (zTarget - roamPos.z) * 0.08;
+  roamPos.x += (sideTarget * 0.26 - heroBias * 2.4 + Math.sin(t * 0.35) * 0.35 - roamPos.x) * 0.06;
+  roamPos.y += (-0.2 + Math.sin(t * 0.5) * 0.2 - roamPos.y) * 0.06;
 
   lookTarget.x += (sideTarget * 0.5 - heroBias * 3.4 - lookTarget.x) * 0.07;
   lookTarget.y += (0.5 - lookTarget.y) * 0.07;
-  lookTarget.z += (camera.position.z - 17 - lookTarget.z) * 0.07;
-  camera.lookAt(lookTarget);
+  lookTarget.z += (roamPos.z - 17 - lookTarget.z) * 0.07;
 
-  // stations breathe and turn a little toward the visitor
+  // fly in to the monitor being explored, and back out again on close
+  zoom += ((exploring >= 0 ? 1 : 0) - zoom) * 0.075;
+  if (exploring < 0 && zoom < 0.002) zoom = 0;
+  if (zoom > 0 && zoomIndex >= 0) {
+    screenPose(zoomIndex, zoomPos, zoomLook);
+    const k = zoom < 0.5 ? 2 * zoom * zoom : 1 - Math.pow(2 - 2 * zoom, 2) / 2;
+    camera.position.lerpVectors(roamPos, zoomPos, k);
+    lookNow.lerpVectors(lookTarget, zoomLook, k);
+  } else {
+    camera.position.copy(roamPos);
+    lookNow.copy(lookTarget);
+  }
+  camera.lookAt(lookNow);
+
+  // stations breathe and turn a little toward the visitor; the one being
+  // explored holds still, square to the camera
   stations.forEach((st, idx) => {
     const g = st.group;
+    if (zoom > 0.01 && idx === zoomIndex) {
+      g.position.y += (g.userData.baseY - g.position.y) * 0.08;
+      g.rotation.y += -g.rotation.y * 0.08;
+      return;
+    }
     g.position.y = g.userData.baseY + Math.sin(t * 0.8 + idx) * 0.09;
     const dx = camera.position.x - g.position.x;
     const dz = camera.position.z - g.position.z;
     g.rotation.y += (Math.atan2(dx, dz) * 0.3 - g.rotation.y) * 0.05;
   });
+
+  // the panel rides the screen in, then holds still on it
+  if (zoom > 0.02 && zoomIndex >= 0) {
+    placeViewport(screenRect(zoomIndex), smoothstep(0.45, 0.96, zoom), zoom > 0.97 && exploring >= 0);
+    placing = true;
+  } else if (placing) {
+    placeViewport(null);
+    placing = false;
+    zoomIndex = -1;
+  }
 
   // wall gears
   gears.forEach((g) => {
@@ -2106,3 +2210,10 @@ window.addEventListener('resize', handleResize);
 
 updateScroll();
 loop();
+
+// dev-only: draw frames by hand in a tab that is not animating
+if (import.meta.env.DEV) {
+  window.__step = (n = 1) => {
+    for (let i = 0; i < n; i++) step();
+  };
+}
