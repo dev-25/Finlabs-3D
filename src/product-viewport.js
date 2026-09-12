@@ -1,5 +1,6 @@
-import './finexa.css';
+import './product-screen.css';
 import { createHub } from './finexa-hub.js';
+import { createStack } from './gennxt-stack.js';
 
 /* =====================================================
  * PRODUCTS — the on-screen product viewport
@@ -11,17 +12,31 @@ import { createHub } from './finexa-hub.js';
  * feeds this module the screen's projected rectangle so
  * the panel lands exactly on it. With no 3D running the
  * panel simply opens by itself.
+ *
+ * One panel serves every product: each product's page
+ * lives in its own `.fx[data-product]` article and only
+ * the one being explored is shown. Each may carry a 3D
+ * piece, named by `data-scene` and built on first use.
  * ===================================================== */
+
+const SCENES = { hub: createHub, stack: createStack };
+
+// the pop-up's sources live in markup, which the build rewrites for the
+// site's base path — these do not pass through it, so join them here
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (path) => (path.startsWith('/') ? BASE + path : path);
 
 const panel = document.querySelector('#productViewport');
 const lightbox = panel?.querySelector('#fxLightbox');
 const lbMedia = lightbox?.querySelector('.fx-lb__media');
 const lbTitle = lightbox?.querySelector('.fx-lb__title');
 const lbSub = lightbox?.querySelector('.fx-lb__sub');
-let hub = null; // the 3D transactions hub, built the first time it is needed
 const screenEl = panel?.querySelector('.pv__screen');
 const scroller = panel?.querySelector('.pv__scroll');
 const closeBtn = panel?.querySelector('.pv__close');
+const urlBar = panel?.querySelector('.pv__url');
+const docs = panel ? [...panel.querySelectorAll('.fx[data-product]')] : [];
+const scenes = new Map(); // host element -> its 3D piece, built the first time it is needed
 
 const openListeners = new Set();
 const closeListeners = new Set();
@@ -61,8 +76,45 @@ function hide() {
   screenEl.style.transform = '';
 }
 
+// show the product being explored and dress the window bar to match
+function activate(index) {
+  let active = null;
+  docs.forEach((doc) => {
+    const on = Number(doc.dataset.product) === index;
+    doc.hidden = !on;
+    if (on) active = doc;
+  });
+  if (!active) return null;
+  if (urlBar) urlBar.textContent = active.dataset.url || '';
+  closeBtn?.setAttribute(
+    'aria-label',
+    `Close ${active.dataset.name || 'this product'} and go back to the showroom`
+  );
+  const heading = active.querySelector('h1[id]');
+  if (heading) screenEl.setAttribute('aria-labelledby', heading.id);
+  return active;
+}
+
+// each product's 3D piece runs only while its page is the one on screen
+function runScene(doc) {
+  scenes.forEach((piece, host) => {
+    if (!doc.contains(host)) piece?.stop();
+  });
+  const host = doc.querySelector('[data-scene]');
+  if (!host) return;
+  if (!scenes.has(host)) {
+    const build = SCENES[host.dataset.scene];
+    const piece = build ? build(host.querySelector('canvas')) : null;
+    if (!piece) host.classList.add('is-flat'); // no WebGL: show the flat stand-in
+    scenes.set(host, piece);
+  }
+  scenes.get(host)?.start();
+}
+
 export function open(index, trigger) {
   if (!panel || current === index) return;
+  const doc = activate(index);
+  if (!doc) return;
   current = index;
   opener = trigger || null;
   show();
@@ -71,13 +123,7 @@ export function open(index, trigger) {
   if (!driven) panel.classList.add('is-live');
   document.body.classList.add('viewport-open');
   scroller.scrollTop = 0;
-  // the hero's 3D hub: build it on first open, then let it run
-  const hubEl = panel.querySelector('#fxHub');
-  if (!hub && hubEl) {
-    hub = createHub(hubEl.querySelector('.fx-hub__canvas'));
-    if (!hub) hubEl.classList.add('is-flat'); // no WebGL: show the flat banner
-  }
-  hub?.start();
+  runScene(doc);
   openListeners.forEach((fn) => fn(index));
   // let the camera land before moving the keyboard focus into the screen
   setTimeout(() => closeBtn?.focus({ preventScroll: true }), driven ? 850 : 60);
@@ -89,7 +135,7 @@ export function close() {
   panel.classList.remove('is-open', 'is-live');
   document.body.classList.remove('viewport-open');
   closeLightbox();
-  hub?.stop();
+  scenes.forEach((piece) => piece?.stop());
   closeListeners.forEach((fn) => fn());
   if (!driven) hide();
   opener?.focus({ preventScroll: true });
@@ -138,16 +184,17 @@ if (panel) {
     if (current >= 0 && !panel.contains(e.target)) closeBtn.focus({ preventScroll: true });
   });
 
-  // in-screen feature tabs
-  const tabs = [...panel.querySelectorAll('.fx-tabs button')];
-  tabs.forEach((tab, i) =>
-    tab.addEventListener('click', () => {
-      tabs.forEach((t, k) => {
-        t.setAttribute('aria-selected', String(k === i));
-        document.getElementById(t.getAttribute('aria-controls')).hidden = k !== i;
-      });
-    })
-  );
+  // in-screen feature tabs — each product's set works on its own
+  panel.addEventListener('click', (e) => {
+    const tab = e.target.closest('.fx-tabs button');
+    if (!tab) return;
+    [...tab.parentElement.querySelectorAll('button')].forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      const view = document.getElementById(t.getAttribute('aria-controls'));
+      if (view) view.hidden = !on;
+    });
+  });
 
   // in-screen navigation scrolls the panel, not the page behind it
   panel.querySelectorAll('.fx-top nav a').forEach((a) =>
@@ -187,7 +234,7 @@ function openLightbox(trigger) {
     lbMedia.replaceChildren(frame);
   } else {
     const img = document.createElement('img');
-    img.src = src;
+    img.src = asset(src);
     img.alt = `${trigger.dataset.lbTitle || ''} — ${trigger.dataset.lbSub || ''}`;
     lbMedia.replaceChildren(img);
   }
@@ -207,28 +254,29 @@ if (lightbox) {
 }
 
 // ---------------------------------------------------------------------
-// FAQ filter
+// FAQ filter — one per product page
 // ---------------------------------------------------------------------
 
-const faqSearch = panel?.querySelector('#fxFaqSearch');
-const faqCount = panel?.querySelector('#fxFaqCount');
-const questions = panel ? [...panel.querySelectorAll('.fx-q')] : [];
+docs.forEach((doc) => {
+  const search = doc.querySelector('[data-faq-search]');
+  const count = doc.querySelector('[data-faq-count]');
+  if (!search || !count) return;
+  const questions = [...doc.querySelectorAll('.fx-q')];
 
-function filterFaqs() {
-  const q = faqSearch.value.trim().toLowerCase();
-  let shown = 0;
-  questions.forEach((item) => {
-    const hit = !q || item.textContent.toLowerCase().includes(q);
-    item.hidden = !hit;
-    if (hit) shown++;
-    if (!hit) item.open = false;
-  });
-  faqCount.textContent = q
-    ? `${shown} of ${questions.length} questions match “${faqSearch.value.trim()}”`
-    : `${questions.length} questions`;
-}
+  function filterFaqs() {
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    questions.forEach((item) => {
+      const hit = !q || item.textContent.toLowerCase().includes(q);
+      item.hidden = !hit;
+      if (hit) shown++;
+      if (!hit) item.open = false;
+    });
+    count.textContent = q
+      ? `${shown} of ${questions.length} questions match “${search.value.trim()}”`
+      : `${questions.length} questions`;
+  }
 
-if (faqSearch) {
-  faqSearch.addEventListener('input', filterFaqs);
+  search.addEventListener('input', filterFaqs);
   filterFaqs();
-}
+});

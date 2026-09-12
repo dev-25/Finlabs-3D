@@ -2,7 +2,7 @@ import './style.css';
 import './nav.css';
 import './nav.js';
 import './whatsapp.js';
-import { onExplore, onExploreClose, place as placeViewport } from './finexa-viewport.js';
+import { onExplore, onExploreClose, place as placeViewport } from './product-viewport.js';
 import * as THREE from 'three';
 import { Timer } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';

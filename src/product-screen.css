@@ -51,7 +51,10 @@
 .pv__scroll { overflow: hidden auto; background: #fff; scrollbar-width: thin; scroll-behavior: smooth; }
 
 /* =====================================================
- * FINEXA — the product page shown on the screen
+ * THE PRODUCT PAGE SHOWN ON THE SCREEN
+ * =====================================================
+ * Shared by every product: each one is an `.fx` article
+ * and sets its own brand colours through these tokens.
  * ===================================================== */
 
 .fx {
@@ -63,6 +66,10 @@
   --fx-ink-3: #7ba3ba;
   --fx-line: rgba(20, 110, 145, 0.16);
   --fx-soft: rgba(26, 143, 181, 0.08);
+  --fx-wash: #eef7fb;
+  --fx-alt: #f6fafd;
+  --fx-glow: rgba(69, 190, 222, 0.28);
+  --fx-glow-cta: rgba(69, 190, 222, 0.5);
   --fx-pad: clamp(18px, 3.4cqw, 46px);
   container-type: inline-size;
   font-family: var(--body); color: var(--fx-ink); background: #fff;
@@ -114,8 +121,8 @@
 .fx-hero {
   padding: clamp(26px, 4cqw, 54px) 0 0;
   background:
-    radial-gradient(700px 300px at 85% 0%, rgba(69, 190, 222, 0.28), transparent 65%),
-    linear-gradient(180deg, #eef7fb 0%, #ffffff 100%);
+    radial-gradient(700px 300px at 85% 0%, var(--fx-glow), transparent 65%),
+    linear-gradient(180deg, var(--fx-wash) 0%, #ffffff 100%);
   border-bottom: 1px solid var(--fx-line);
 }
 .fx-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(18px, 3cqw, 44px); align-items: center; }
@@ -150,7 +157,7 @@
 
 /* sections */
 .fx-sec { padding: clamp(28px, 4cqw, 56px) 0; }
-.fx-sec--alt { background: #f6fafd; border-block: 1px solid var(--fx-line); }
+.fx-sec--alt { background: var(--fx-alt); border-block: 1px solid var(--fx-line); }
 .fx-head { max-width: 62ch; margin-bottom: clamp(18px, 2.4cqw, 32px); }
 .fx-head h2 {
   font-family: var(--display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12;
@@ -257,7 +264,7 @@
 .fx-cta {
   margin: clamp(24px, 4cqw, 52px) 0;
   padding: clamp(22px, 3.4cqw, 40px); border-radius: 18px; color: #fff;
-  background: radial-gradient(600px 260px at 90% 0%, rgba(69, 190, 222, 0.5), transparent 65%), linear-gradient(135deg, #0a2c40, #0f6d8c);
+  background: radial-gradient(600px 260px at 90% 0%, var(--fx-glow-cta), transparent 65%), linear-gradient(135deg, var(--fx-navy), var(--fx-deep));
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px;
 }
 .fx-cta h2 { font-family: var(--display); font-size: clamp(19px, 2.2cqw, 28px); line-height: 1.15; }
@@ -307,10 +314,118 @@
 .fx-lb__close:hover { transform: scale(1.08); }
 .fx-lb__close svg { width: 17px; height: 17px; }
 
+/* =====================================================
+ * FINEXA GenNxt — its own colours and its own blocks
+ * ===================================================== */
+
+.fx--gx {
+  --fx-brand: #2f6fd0;
+  --fx-deep: #1f4fa0;
+  --fx-navy: #12244e;
+  --fx-ink: #16294f;
+  --fx-ink-2: #4d5f84;
+  --fx-ink-3: #8794b5;
+  --fx-line: rgba(47, 111, 208, 0.16);
+  --fx-soft: rgba(47, 111, 208, 0.08);
+  --fx-wash: #eef1fd;
+  --fx-alt: #f6f8fe;
+  --fx-glow: rgba(107, 92, 231, 0.26);
+  --fx-glow-cta: rgba(107, 92, 231, 0.55);
+}
+.fx--gx .fx-top__brand { font-size: 1.6em; }
+
+/* the architecture stack, in the hero */
+.fx-arch { position: relative; display: grid; }
+.fx-arch__canvas { width: 100%; aspect-ratio: 4 / 3; display: block; }
+/* the plain list only stands in when there is no WebGL */
+.fx-arch__flat { display: none; list-style: none; margin: 0; padding: 0; gap: 8px; }
+.fx-arch.is-flat .fx-arch__canvas { display: none; }
+.fx-arch.is-flat .fx-arch__flat { display: grid; }
+.fx-arch__flat li {
+  padding: 12px 14px; border-radius: 12px; background: #fff;
+  border: 1px solid var(--fx-line); border-left: 3px solid var(--fx-brand);
+}
+.fx-arch__flat b { display: block; font-family: var(--display); color: var(--fx-navy); }
+.fx-arch__flat span { font-size: 0.84em; color: var(--fx-ink-2); }
+.fx-arch__caption { text-align: center; font-size: 0.82em; color: var(--fx-ink-3); margin-top: -4px; }
+
+/* the three layers, written out */
+.fx-layers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.fx-layer {
+  position: relative; overflow: hidden;
+  padding: 18px; border-radius: 16px; background: #fff;
+  border: 1px solid var(--fx-line); box-shadow: 0 18px 34px -30px rgba(18, 36, 78, 0.5);
+  transition: transform 0.25s cubic-bezier(.2,.8,.2,1), box-shadow 0.25s;
+}
+.fx-layer::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: var(--layer); }
+.fx-layer:hover { transform: translateY(-4px); box-shadow: 0 26px 44px -26px rgba(18, 36, 78, 0.45); }
+.fx-layer__tag { font: 700 0.7em/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--layer); margin-top: 4px; }
+.fx-layer h3 {
+  display: flex; align-items: center; gap: 9px; margin: 10px 0 12px;
+  font-family: var(--display); font-size: 1.02em; line-height: 1.25; color: var(--fx-navy);
+}
+.fx-layer h3 .fx-ico { color: var(--layer); }
+.fx-layer ul { list-style: none; display: grid; gap: 7px; margin: 0; padding: 0; }
+.fx-layer li {
+  position: relative; padding-left: 16px; font-size: 0.88em; color: var(--fx-ink-2);
+}
+.fx-layer li::before {
+  content: ""; position: absolute; left: 0; top: 0.52em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--layer); opacity: 0.55;
+}
+
+/* operational capabilities */
+.fx-caps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.fx-cap {
+  display: grid; grid-template-rows: auto 1fr; border-radius: 16px; overflow: hidden;
+  background: #fff; border: 1px solid var(--fx-line); box-shadow: 0 18px 34px -30px rgba(18, 36, 78, 0.5);
+  transition: transform 0.25s cubic-bezier(.2,.8,.2,1), border-color 0.25s, box-shadow 0.25s;
+}
+.fx-cap:hover { transform: translateY(-5px); border-color: var(--fx-brand); box-shadow: 0 26px 44px -26px rgba(18, 36, 78, 0.45); }
+.fx-cap__btn {
+  display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; overflow: hidden;
+  background: linear-gradient(180deg, var(--fx-wash), #fff);
+}
+.fx-cap__btn img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
+.fx-cap__btn:hover img, .fx-cap__btn:focus-visible img { transform: scale(1.05); }
+.fx-cap__body { padding: 14px 16px 18px; border-top: 1px solid var(--fx-line); }
+.fx-cap__no { font: 700 0.72em/1 var(--mono); letter-spacing: 0.14em; color: var(--fx-brand); }
+.fx-cap h3 { font-family: var(--display); font-size: 1em; line-height: 1.25; margin: 8px 0 6px; color: var(--fx-navy); }
+.fx-cap__body p { font-size: 0.87em; color: var(--fx-ink-2); }
+
+/* platform advantages, side by side */
+.fx-adv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.fx-adv__col { padding: 20px; border-radius: 16px; background: #fff; border: 1px solid var(--fx-line); }
+.fx-adv__col h3 {
+  display: flex; align-items: center; gap: 9px; padding-bottom: 12px; margin-bottom: 4px;
+  border-bottom: 1px solid var(--fx-line);
+  font-family: var(--display); font-size: 1.05em; color: var(--fx-navy);
+}
+.fx-adv__col h3 .fx-ico { color: var(--fx-brand); }
+.fx-adv ol { list-style: none; counter-reset: adv; margin: 0; padding: 0; }
+.fx-adv li {
+  counter-increment: adv; position: relative; padding: 12px 0 12px 40px;
+  border-bottom: 1px solid var(--fx-line);
+  transition: padding-left 0.25s;
+}
+.fx-adv li:last-child { border-bottom: 0; padding-bottom: 0; }
+.fx-adv li:hover { padding-left: 46px; }
+.fx-adv li::before {
+  content: counter(adv, decimal-leading-zero);
+  position: absolute; left: 0; top: 13px;
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 9px;
+  font: 700 0.72em/1 var(--mono); color: var(--fx-brand); background: var(--fx-soft);
+  transition: color 0.25s, background 0.25s;
+}
+.fx-adv li:hover::before { color: #fff; background: var(--fx-brand); }
+.fx-adv b { display: block; font-family: var(--display); font-weight: 700; font-size: 0.98em; color: var(--fx-navy); }
+.fx-adv span { font-size: 0.86em; color: var(--fx-ink-2); }
+
 /* narrow screens */
 @container (max-width: 620px) {
   .fx-hero__grid, .fx-panel, .fx-nova { grid-template-columns: minmax(0, 1fr); }
   .fx-cards, .fx-stats, .fx-clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fx-layers, .fx-caps, .fx-adv { grid-template-columns: minmax(0, 1fr); }
   .fx-top nav { display: none; }
   .fx-shot { position: static; }
 }

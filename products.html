@@ -127,9 +127,9 @@
               <div><dt>CATEGORY</dt><dd>Multi-Asset Analytics</dd></div>
               <div><dt>BUILT FOR</dt><dd>Wealth Firms · Enterprises</dd></div>
             </dl>
-            <a class="product__cta" href="https://finlabsindia.org/finexagennxt/" target="_blank" rel="noopener">
+            <button class="product__cta" type="button" data-explore="1" aria-haspopup="dialog">
               Explore GenNxT <span>→</span>
-            </a>
+            </button>
           </div>
         </div>
       </article>
@@ -288,7 +288,7 @@
       </div>
 
       <div class="pv__scroll">
-        <article class="fx">
+        <article class="fx" data-product="0" data-url="finlabsindia.org / finexa" data-name="Finexa">
           <header class="fx-top">
             <p class="fx-top__brand">fin<span>exa</span></p>
             <nav aria-label="Finexa sections">
@@ -316,7 +316,7 @@
                   <a class="fx-btn fx-btn--ghost" href="#fx-features">See the features</a>
                 </div>
               </div>
-              <div class="fx-hub" id="fxHub">
+              <div class="fx-hub" id="fxHub" data-scene="hub">
                 <canvas class="fx-hub__canvas" aria-hidden="true"></canvas>
                 <img class="fx-hub__flat" src="/products/finexa/hub-banner.webp" alt="NSE, BSE StAR MF and MFU connected to Finexa" loading="lazy" />
                 <p class="fx-hub__caption">Transact on NSE Invest, BSE StAR MF and MFU — from one place</p>
@@ -593,9 +593,9 @@
               </div>
               <div class="fx-faq__search">
                 <svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-                <input id="fxFaqSearch" type="search" placeholder="Search the FAQs — reports, ARNs, onboarding…" aria-label="Search the FAQs" />
+                <input id="fxFaqSearch" type="search" data-faq-search placeholder="Search the FAQs — reports, ARNs, onboarding…" aria-label="Search the FAQs" />
               </div>
-              <p class="fx-faq__count" id="fxFaqCount" role="status"></p>
+              <p class="fx-faq__count" id="fxFaqCount" data-faq-count role="status"></p>
               <div class="fx-faq">
               <details class="fx-q">
                 <summary>What is Finexa?</summary>
@@ -722,6 +722,285 @@
           </section>
 
           <p class="fx__wrap fx-foot">Finexa is a Finlabs India product. Press Esc, click outside the screen, or use the button at the top left to go back to the showroom.</p>
+        </article>
+        <article class="fx fx--gx" data-product="1" data-url="finlabsindia.org / finexagennxt" data-name="Finexa GenNxt" hidden>
+          <header class="fx-top">
+            <p class="fx-top__brand">finexa<span>GenNxt</span></p>
+            <nav aria-label="Finexa GenNxt sections">
+              <a href="#gx-arch">Architecture</a>
+              <a href="#gx-platform">Platform</a>
+              <a href="#gx-capabilities">Capabilities</a>
+              <a href="#gx-advantages">Advantages</a>
+              <a href="#gx-faq">FAQs</a>
+            </nav>
+            <a class="fx-btn fx-btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Request a demo</a>
+          </header>
+
+          <section class="fx-hero">
+            <div class="fx__wrap fx-hero__grid">
+              <div>
+                <p class="fx-eyebrow">Wealth management stack</p>
+                <h1 id="gxTitle">Empowering wealth management, <em>enabling growth</em></h1>
+                <p>
+                  A fully integrated digital platform designed to streamline operations for family offices
+                  and wealth management firms. The B2B2C model carries service delivery from the back office
+                  all the way to end clients — empowering growth and enhancing customer experience.
+                </p>
+                <div class="fx-hero__ctas">
+                  <a class="fx-btn fx-btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Get started <span aria-hidden="true">→</span></a>
+                  <a class="fx-btn fx-btn--ghost" href="#gx-platform">See the platform</a>
+                </div>
+              </div>
+              <div class="fx-arch" id="gxStack" data-scene="stack">
+                <canvas class="fx-arch__canvas" aria-hidden="true"></canvas>
+                <ol class="fx-arch__flat">
+                  <li><b>Channels / presentation</b><span>Front office · Back office · External interfaces</span></li>
+                  <li><b>Key app components</b><span>User management · Data aggregation · Portfolio insights · Model portfolios · Reporting · Revenue</span></li>
+                  <li><b>Data &amp; integrations</b><span>BSE StAR / MFU · KYC APIs · Security data providers</span></li>
+                </ol>
+                <p class="fx-arch__caption">The functional architecture — three layers, one platform</p>
+              </div>
+            </div>
+            <div class="fx-stats">
+              <div><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><b>B2B2C</b><span>Back office through to end clients</span></div>
+              <div><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="13" height="9.5" rx="1.8"/><rect x="14" y="9" width="7" height="11" rx="1.8"/></svg><b>Web + mobile</b><span>Responsive app, with a mobile option</span></div>
+              <div><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3.2-3.2M20 16H7l3.2 3.2"/></svg><b>BSE StAR / MFU</b><span>Transactions straight from the platform</span></div>
+              <div><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5.5c0 4.3-2.9 7.8-7 9.2-4.1-1.4-7-4.9-7-9.2V6z"/><path d="m9 12 2 2 4-4"/></svg><b>Enterprise-grade</b><span>Security, audit and compliance built in</span></div>
+            </div>
+          </section>
+
+          <section class="fx-sec" id="gx-arch">
+            <div class="fx__wrap">
+              <div class="fx-head">
+                <p class="fx-eyebrow">Platform functional architecture</p>
+                <h2>Every layer accounted for, from the channel to the custodian</h2>
+                <p>Channels sit on top, the app components do the work in the middle, and the data and integration layer keeps everything fed. Turn the stack above to see how they sit together.</p>
+              </div>
+              <div class="fx-layers">
+                <article class="fx-layer" style="--layer:#6b5ce7">
+                  <p class="fx-layer__tag">Layer 01</p>
+                  <h3><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M9 9v11"/></svg>Channels / presentation layers</h3>
+                  <ul><li>Front office</li><li>Back office</li><li>External interfaces</li></ul>
+                </article>
+                <article class="fx-layer" style="--layer:#1a8fb5">
+                  <p class="fx-layer__tag">Layer 02</p>
+                  <h3><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 4.5-9 4.5-9-4.5z"/><path d="m3 12.5 9 4.5 9-4.5"/><path d="m3 17 9 4.5 9-4.5"/></svg>Key app components</h3>
+                  <ul><li>User management</li><li>Data aggregation &amp; management</li><li>Portfolio insights</li><li>Model portfolios &amp; recommendations</li><li>Reporting &amp; dashboard</li><li>Revenue tracking &amp; reconciliation</li></ul>
+                </article>
+                <article class="fx-layer" style="--layer:#12a594">
+                  <p class="fx-layer__tag">Layer 03</p>
+                  <h3><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Data &amp; integrations</h3>
+                  <ul><li>BSE StAR / MFU transactions</li><li>KYC APIs</li><li>Security data providers</li></ul>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="fx-sec fx-sec--alt" id="gx-platform">
+            <div class="fx__wrap">
+              <div class="fx-head">
+                <p class="fx-eyebrow">What the platform does</p>
+                <h2>One stack for the whole wealth management journey</h2>
+                <p>From onboarding a family to reconciling the revenue it generates — the pieces below are what firms use day to day.</p>
+              </div>
+              <div class="fx-tabs" role="tablist" aria-label="Finexa GenNxt platform views">
+                <button type="button" role="tab" id="gxt-dash" aria-controls="gxp-dash" aria-selected="true"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Reporting &amp; analytics</button>
+                <button type="button" role="tab" id="gxt-rm" aria-controls="gxp-rm" aria-selected="false"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14c2.8.3 5 2.6 5 5.6"/></svg>RM dashboard</button>
+                <button type="button" role="tab" id="gxt-client" aria-controls="gxp-client" aria-selected="false"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="13" height="9.5" rx="1.8"/><rect x="14" y="9" width="7" height="11" rx="1.8"/></svg>Client dashboard</button>
+              </div>
+              <div class="fx-panel" id="gxp-dash" role="tabpanel" aria-labelledby="gxt-dash">
+                <div class="fx-groups">
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9h9"/><circle cx="12" cy="12" r="9"/></svg>Multi-asset data aggregation</h4>
+                    <ul><li>Consolidated portfolio data for accurate insights</li><li>Every asset held, on one platform</li><li>Portfolio insights drawn from the aggregated book</li></ul>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Reporting &amp; analytics</h4>
+                    <ul><li>Real-time data visualisation</li><li>Performance tracking</li><li>Reporting and dashboards for every role</li></ul>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3.5a6 6 0 0 1-12 0z"/><path d="M12 17.5V21"/></svg>Revenue management</h4>
+                    <ul><li>Comprehensive revenue tracking</li><li>Reconciliation tools</li><li>Model portfolios &amp; recommendations</li></ul>
+                  </article>
+                </div>
+                <figure class="fx-shot">
+                  <button class="fx-shot__btn" type="button" data-lb-type="image" data-lb-src="/products/gennxt/dashboard.webp" data-lb-title="Reporting &amp; analytics" data-lb-sub="Asset market value bifurcation, AUM client-wise, transactions grouped by asset and SIP details — live on one dashboard.">
+                    <img src="/products/gennxt/dashboard.webp" alt="Finexa GenNxt dashboard: asset market value bifurcation, AUM client wise, transactions grouped by assets and SIP details" loading="lazy" />
+                    <span class="fx-shot__zoom"><svg class="fx-ico fx-ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Click to enlarge</span>
+                  </button>
+                  <figcaption>Asset market value bifurcation, AUM client-wise, transactions by asset and SIP details, on one dashboard.</figcaption>
+                </figure>
+              </div>
+              <div class="fx-panel" id="gxp-rm" role="tabpanel" aria-labelledby="gxt-rm" hidden>
+                <div class="fx-groups">
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>Actionable insights for RMs</h4>
+                    <ul><li>Families, clients, RMs and prospects in one view</li><li>Current value against AUM held, and AUM held away</li><li>Gain and loss at a glance, client by client</li></ul>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>User onboarding</h4>
+                    <ul><li>Smooth and efficient onboarding</li><li>Digital onboarding, planning and rebalancing</li><li>User management across the firm</li></ul>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Search and act</h4>
+                    <ul><li>Search across the client book</li><li>Export what the meeting needs</li><li>Model portfolios and recommendations to hand</li></ul>
+                  </article>
+                </div>
+                <figure class="fx-shot">
+                  <button class="fx-shot__btn" type="button" data-lb-type="image" data-lb-src="/products/gennxt/rm-dashboard.webp" data-lb-title="RM dashboard" data-lb-sub="Families, clients, RMs and prospects, with current value, AUM held, AUM held away and gain/loss per client.">
+                    <img src="/products/gennxt/rm-dashboard.webp" alt="Finexa GenNxt RM dashboard: my families, my clients, my RMs and my prospects, with a searchable client table" loading="lazy" />
+                    <span class="fx-shot__zoom"><svg class="fx-ico fx-ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Click to enlarge</span>
+                  </button>
+                  <figcaption>Families, clients, RMs and prospects — with AUM held, AUM held away and gain/loss per client.</figcaption>
+                </figure>
+              </div>
+              <div class="fx-panel" id="gxp-client" role="tabpanel" aria-labelledby="gxt-client" hidden>
+                <div class="fx-groups">
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="13" height="9.5" rx="1.8"/><rect x="14" y="9" width="7" height="11" rx="1.8"/></svg>Responsive web app</h4>
+                    <ul><li>Responsive web app, with a mobile app option</li><li>Access anywhere, anytime</li><li>Real-time portfolio reports and insights</li></ul>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Client dashboard</h4>
+                    <ul><li>Portfolio reports on web and mobile</li><li>Open and clear performance metrics</li><li>Investment goals in plain sight</li></ul>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.4-7 9-7 9z"/></svg>Advisory services</h4>
+                    <ul><li>Digital onboarding</li><li>Investment planning</li><li>Portfolio rebalancing</li></ul>
+                  </article>
+                </div>
+                <figure class="fx-shot">
+                  <button class="fx-shot__btn" type="button" data-lb-type="image" data-lb-src="/products/gennxt/cap-security.webp" data-lb-title="Client access, secured" data-lb-sub="Clients reach their portfolio on web and mobile, behind enterprise-grade security and KYC checks.">
+                    <img src="/products/gennxt/cap-security.webp" alt="Secure digital access to the platform on web and mobile" loading="lazy" />
+                    <span class="fx-shot__zoom"><svg class="fx-ico fx-ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Click to enlarge</span>
+                  </button>
+                  <figcaption>Clients reach real-time reports on web and mobile, behind enterprise-grade security.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <section class="fx-sec" id="gx-capabilities">
+            <div class="fx__wrap">
+              <div class="fx-head">
+                <p class="fx-eyebrow">Operational capabilities</p>
+                <h2>The plumbing that makes it work</h2>
+                <p>Three capabilities carry the day-to-day load. Pick one to see it larger.</p>
+              </div>
+              <div class="fx-caps">
+                <article class="fx-cap">
+                  <button class="fx-cap__btn" type="button" data-lb-type="image" data-lb-src="/products/gennxt/cap-transactions.webp" data-lb-title="Seamless transactions" data-lb-sub="BSE StAR and MFU integration — orders placed from inside the platform.">
+                    <img src="/products/gennxt/cap-transactions.webp" alt="" loading="lazy" />
+                  </button>
+                  <div class="fx-cap__body">
+                    <p class="fx-cap__no">01</p>
+                    <h3>Seamless transactions</h3>
+                    <p>BSE StAR and MFU integration, so orders are placed from inside the platform.</p>
+                  </div>
+                </article>
+                <article class="fx-cap">
+                  <button class="fx-cap__btn" type="button" data-lb-type="image" data-lb-src="/products/gennxt/cap-security.webp" data-lb-title="Security data providers and KYC APIs" data-lb-sub="Security master data and KYC checks come in over APIs.">
+                    <img src="/products/gennxt/cap-security.webp" alt="" loading="lazy" />
+                  </button>
+                  <div class="fx-cap__body">
+                    <p class="fx-cap__no">02</p>
+                    <h3>Security data providers &amp; KYC APIs</h3>
+                    <p>Security master data and KYC checks arrive over APIs, keeping records current and compliant.</p>
+                  </div>
+                </article>
+                <article class="fx-cap">
+                  <button class="fx-cap__btn" type="button" data-lb-type="image" data-lb-src="/products/gennxt/cap-orders.webp" data-lb-title="Order management and data processing" data-lb-sub="Orders and feeds processed end to end, ready for reporting and reconciliation.">
+                    <img src="/products/gennxt/cap-orders.webp" alt="" loading="lazy" />
+                  </button>
+                  <div class="fx-cap__body">
+                    <p class="fx-cap__no">03</p>
+                    <h3>Order management &amp; data processing</h3>
+                    <p>Orders and feeds processed end to end, ready for reporting and reconciliation.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="fx-sec fx-sec--alt" id="gx-advantages">
+            <div class="fx__wrap">
+              <div class="fx-head">
+                <p class="fx-eyebrow">Platform advantages</p>
+                <h2>What the firm gains, and what the client feels</h2>
+              </div>
+              <div class="fx-adv">
+                <div class="fx-adv__col">
+                  <h3><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 6.5a4.5 4.5 0 0 1-6.2 4.2L7.5 17.5a2.1 2.1 0 1 1-3-3l6.8-6.8A4.5 4.5 0 0 1 16 2.2c.9 0 1.7.3 2.4.7l-3 3 2.4 2.4 3-3c.4.7.7 1.5.7 2.2z"/></svg>Technical enablers</h3>
+                  <ol>
+                    <li><b>Enterprise-grade security</b><span>Ensuring top-tier data protection and compliance</span></li>
+                    <li><b>Audit &amp; compliance</b><span>Meet industry standards with ease</span></li>
+                    <li><b>Revenue growth</b><span>Proactive insights drive better investment decisions and business growth</span></li>
+                    <li><b>Digital experience</b><span>Access anywhere, anytime, through web and mobile</span></li>
+                    <li><b>Advisory services</b><span>Digital onboarding, investment planning and rebalancing</span></li>
+                  </ol>
+                </div>
+                <div class="fx-adv__col">
+                  <h3><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.4-7 9-7 9z"/></svg>Client benefits</h3>
+                  <ol>
+                    <li><b>Ease of use</b><span>Streamlined processes for enhanced efficiency</span></li>
+                    <li><b>Data-driven insights</b><span>Real-time, actionable portfolio data</span></li>
+                    <li><b>Trust &amp; transparency</b><span>Open and clear investment goals and performance metrics</span></li>
+                    <li><b>Business expansion</b><span>Increased client retention, cross-selling and referrals</span></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="fx__wrap">
+            <section class="fx-cta">
+              <div>
+                <h2>We're happy to assist you</h2>
+                <p>Every business has its own goals and challenges. Book a personalised demo and we'll show you how the stack fits yours.</p>
+              </div>
+              <div class="fx-cta__btns">
+                <a class="fx-btn fx-btn--light" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Book a call</a>
+                <a class="fx-btn fx-btn--outline" href="contact.html">Request a demo</a>
+              </div>
+            </section>
+          </div>
+
+          <section class="fx-sec" id="gx-faq">
+            <div class="fx__wrap">
+              <div class="fx-head">
+                <p class="fx-eyebrow">FAQs</p>
+                <h2>What firms ask about GenNxt</h2>
+                <p>18 questions about the wealth management stack. Type to find one.</p>
+              </div>
+              <div class="fx-faq__search">
+                <svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+                <input id="gxFaqSearch" type="search" data-faq-search placeholder="Search the FAQs — architecture, KYC, reporting…" aria-label="Search the Finexa GenNxt FAQs" />
+              </div>
+              <p class="fx-faq__count" id="gxFaqCount" data-faq-count role="status"></p>
+              <div class="fx-faq">
+                <details class="fx-q"><summary>What is Finexa GenNxt?</summary><p>It is a wealth management stack: a fully integrated digital platform designed to streamline operations for family offices and wealth management firms, from the back office through to end clients.</p></details>
+                <details class="fx-q"><summary>Who is the platform built for?</summary><p>Family offices and wealth management firms. The B2B2C model means the firm runs its own operations on the platform and serves its end clients through it.</p></details>
+                <details class="fx-q"><summary>What does B2B2C mean here?</summary><p>Finlabs provides the platform to your firm, and your firm serves its clients on it. Service delivery runs from the back office to the end client without a break in the chain.</p></details>
+                <details class="fx-q"><summary>How is the platform structured?</summary><p>In three layers: the channels and presentation layer (front office, back office and external interfaces), the key app components in the middle, and the data and integration layer underneath.</p></details>
+                <details class="fx-q"><summary>Which app components are included?</summary><p>User management, data aggregation and management, portfolio insights, model portfolios and recommendations, reporting and dashboards, and revenue tracking and reconciliation.</p></details>
+                <details class="fx-q"><summary>Is there a mobile app?</summary><p>The platform is a responsive web app, with a mobile app option. Clients can reach real-time portfolio reports and insights on both.</p></details>
+                <details class="fx-q"><summary>Can clients see their own portfolios?</summary><p>Yes. The client dashboard gives them access to real-time portfolio reports and insights through the web and mobile apps.</p></details>
+                <details class="fx-q"><summary>How does onboarding work?</summary><p>Onboarding is digital and designed to be smooth and efficient, and sits alongside investment planning and rebalancing as part of the advisory services on the platform.</p></details>
+                <details class="fx-q"><summary>What does multi-asset data aggregation give me?</summary><p>Consolidated portfolio data across assets, which is what the portfolio insights and reporting are built on — so the numbers you act on are complete.</p></details>
+                <details class="fx-q"><summary>What reporting is available?</summary><p>Real-time data visualisation and performance tracking, with reporting and dashboards for the roles that need them — including a dedicated RM dashboard.</p></details>
+                <details class="fx-q"><summary>What does the RM dashboard show?</summary><p>Actionable insights for relationship managers: families, clients, RMs and prospects, with current value, AUM held, AUM held away and gain or loss per client.</p></details>
+                <details class="fx-q"><summary>How are transactions placed?</summary><p>Through BSE StAR and MFU integration, so orders are placed from inside the platform rather than in a separate system.</p></details>
+                <details class="fx-q"><summary>How is KYC handled?</summary><p>KYC APIs are part of the integration layer, along with security data providers, so checks and security master data come in over APIs.</p></details>
+                <details class="fx-q"><summary>Is revenue tracked on the platform?</summary><p>Yes. Revenue tracking and reconciliation is one of the key app components, with comprehensive tracking and reconciliation tools.</p></details>
+                <details class="fx-q"><summary>How secure is it?</summary><p>Security is enterprise-grade, aimed at top-tier data protection and compliance, with audit and compliance support so industry standards are met with ease.</p></details>
+                <details class="fx-q"><summary>Can it work with the systems we already run?</summary><p>The data and integration layer is where external interfaces, security data providers and KYC APIs connect, and it is the layer to talk to us about for your own systems.</p></details>
+                <details class="fx-q"><summary>How does the platform help the business grow?</summary><p>Proactive insights support better investment decisions, and firms see increased client retention, cross-selling and referrals as the client experience improves.</p></details>
+                <details class="fx-q"><summary>How do we get started?</summary><p>Book a personalised demo with the Finlabs team. Tell us about your setup and we will show you how the stack fits it.</p></details>
+              </div>
+            </div>
+          </section>
+
+          <p class="fx__wrap fx-foot">Finexa GenNxt is a Finlabs India product. Press Esc, click outside the screen, or use the button at the top left to go back to the showroom.</p>
         </article>
       </div>
 
