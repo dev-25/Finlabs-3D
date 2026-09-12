@@ -1,4 +1,5 @@
 import './finexa.css';
+import { createHub } from './finexa-hub.js';
 
 /* =====================================================
  * PRODUCTS — the on-screen product viewport
@@ -13,6 +14,11 @@ import './finexa.css';
  * ===================================================== */
 
 const panel = document.querySelector('#productViewport');
+const lightbox = panel?.querySelector('#fxLightbox');
+const lbMedia = lightbox?.querySelector('.fx-lb__media');
+const lbTitle = lightbox?.querySelector('.fx-lb__title');
+const lbSub = lightbox?.querySelector('.fx-lb__sub');
+let hub = null; // the 3D transactions hub, built the first time it is needed
 const screenEl = panel?.querySelector('.pv__screen');
 const scroller = panel?.querySelector('.pv__scroll');
 const closeBtn = panel?.querySelector('.pv__close');
@@ -65,6 +71,13 @@ export function open(index, trigger) {
   if (!driven) panel.classList.add('is-live');
   document.body.classList.add('viewport-open');
   scroller.scrollTop = 0;
+  // the hero's 3D hub: build it on first open, then let it run
+  const hubEl = panel.querySelector('#fxHub');
+  if (!hub && hubEl) {
+    hub = createHub(hubEl.querySelector('.fx-hub__canvas'));
+    if (!hub) hubEl.classList.add('is-flat'); // no WebGL: show the flat banner
+  }
+  hub?.start();
   openListeners.forEach((fn) => fn(index));
   // let the camera land before moving the keyboard focus into the screen
   setTimeout(() => closeBtn?.focus({ preventScroll: true }), driven ? 850 : 60);
@@ -75,6 +88,8 @@ export function close() {
   current = -1;
   panel.classList.remove('is-open', 'is-live');
   document.body.classList.remove('viewport-open');
+  closeLightbox();
+  hub?.stop();
   closeListeners.forEach((fn) => fn());
   if (!driven) hide();
   opener?.focus({ preventScroll: true });
@@ -109,8 +124,14 @@ if (panel) {
     btn.addEventListener('click', () => open(Number(btn.dataset.explore), btn))
   );
   closeBtn.addEventListener('click', close);
+  // a click on the surround — the gap between the screen and the page edge
+  panel.addEventListener('click', (e) => {
+    if (e.target === panel) close();
+  });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && current >= 0) close();
+    if (e.key !== 'Escape' || current < 0) return;
+    if (!lightbox.hidden) closeLightbox();
+    else close();
   });
   // a light focus trap: keep the keyboard inside the screen while it is open
   document.addEventListener('focusin', (e) => {
@@ -139,4 +160,75 @@ if (panel) {
       scroller.scrollTo({ top, behavior: 'smooth' });
     })
   );
+}
+
+// ---------------------------------------------------------------------
+// The pop-up: screenshots open as pictures, client stories as pictures
+// or as their video.
+// ---------------------------------------------------------------------
+
+function closeLightbox() {
+  if (!lightbox || lightbox.hidden) return;
+  lightbox.hidden = true;
+  lbMedia.replaceChildren(); // also stops a playing video
+}
+
+function openLightbox(trigger) {
+  const kind = trigger.dataset.lbType;
+  const src = trigger.dataset.lbSrc;
+  lbTitle.textContent = trigger.dataset.lbTitle || '';
+  lbSub.textContent = trigger.dataset.lbSub || '';
+  if (kind === 'video') {
+    const frame = document.createElement('iframe');
+    frame.src = `https://www.youtube-nocookie.com/embed/${src}?autoplay=1&rel=0`;
+    frame.title = trigger.dataset.lbTitle || 'Client video';
+    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
+    frame.allowFullscreen = true;
+    lbMedia.replaceChildren(frame);
+  } else {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `${trigger.dataset.lbTitle || ''} — ${trigger.dataset.lbSub || ''}`;
+    lbMedia.replaceChildren(img);
+  }
+  lightbox.hidden = false;
+  lightbox.querySelector('.fx-lb__close').focus({ preventScroll: true });
+}
+
+if (lightbox) {
+  panel.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-lb-type]');
+    if (trigger) openLightbox(trigger);
+  });
+  lightbox.querySelector('.fx-lb__close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+}
+
+// ---------------------------------------------------------------------
+// FAQ filter
+// ---------------------------------------------------------------------
+
+const faqSearch = panel?.querySelector('#fxFaqSearch');
+const faqCount = panel?.querySelector('#fxFaqCount');
+const questions = panel ? [...panel.querySelectorAll('.fx-q')] : [];
+
+function filterFaqs() {
+  const q = faqSearch.value.trim().toLowerCase();
+  let shown = 0;
+  questions.forEach((item) => {
+    const hit = !q || item.textContent.toLowerCase().includes(q);
+    item.hidden = !hit;
+    if (hit) shown++;
+    if (!hit) item.open = false;
+  });
+  faqCount.textContent = q
+    ? `${shown} of ${questions.length} questions match “${faqSearch.value.trim()}”`
+    : `${questions.length} questions`;
+}
+
+if (faqSearch) {
+  faqSearch.addEventListener('input', filterFaqs);
+  filterFaqs();
 }

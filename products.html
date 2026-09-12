@@ -284,7 +284,7 @@
         </button>
         <span class="pv__dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <span class="pv__url">finlabsindia.org / finexa</span>
-        <span class="pv__hint">ESC TO CLOSE</span>
+        <span class="pv__hint">ESC OR CLICK OUTSIDE TO CLOSE</span>
       </div>
 
       <div class="pv__scroll">
@@ -295,6 +295,7 @@
               <a href="#fx-why">Why Finexa</a>
               <a href="#fx-features">Features</a>
               <a href="#fx-nova">Investor app</a>
+              <a href="#fx-clients">Clients</a>
               <a href="#fx-faq">FAQs</a>
             </nav>
             <a class="fx-btn fx-btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Schedule a demo</a>
@@ -306,24 +307,26 @@
                 <p class="fx-eyebrow">Mutual fund distribution platform</p>
                 <h1 id="fxTitle">All your transactions into <em>one seamless workflow</em></h1>
                 <p>
-                  An all-in-one platform for Mutual Fund Distributors and financial advisors — available as a
-                  SaaS solution or an enterprise version, and built to simplify operations, deepen client
-                  engagement and grow your business.
+                  No tab switching required — get more done, faster, with everything in one place. Finexa is
+                  an all-in-one platform for Mutual Fund Distributors and financial advisors, available as a
+                  SaaS solution or an enterprise version.
                 </p>
                 <div class="fx-hero__ctas">
-                  <a class="fx-btn fx-btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Schedule a demo</a>
-                  <a class="fx-btn fx-btn--ghost" href="https://finlabsindia.org/finexa-wealth-management-platform/" target="_blank" rel="noopener">View the full page ↗</a>
+                  <a class="fx-btn fx-btn--primary" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Schedule a demo <span aria-hidden="true">→</span></a>
+                  <a class="fx-btn fx-btn--ghost" href="#fx-features">See the features</a>
                 </div>
               </div>
-              <figure class="fx-hero__shot">
-                <img src="/products/finexa/dashboard.webp" alt="The Finexa dashboard, showing assets under management, SIP and transaction summaries" width="1400" height="937" loading="lazy" />
-              </figure>
+              <div class="fx-hub" id="fxHub">
+                <canvas class="fx-hub__canvas" aria-hidden="true"></canvas>
+                <img class="fx-hub__flat" src="/products/finexa/hub-banner.webp" alt="NSE, BSE StAR MF and MFU connected to Finexa" loading="lazy" />
+                <p class="fx-hub__caption">Transact on NSE Invest, BSE StAR MF and MFU — from one place</p>
+              </div>
             </div>
             <div class="fx-stats">
-              <div><b>Multiple ARNs</b><span>On one platform, at no extra cost</span></div>
-              <div><b>NSE · BSE StAR MF · MFU</b><span>Transact on your preferred platform</span></div>
-              <div><b>Daily updates</b><span>Portfolio, transaction and NAV data</span></div>
-              <div><b>AES-GCM</b><span>Encryption protecting client data</span></div>
+              <div><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 4.5-9 4.5-9-4.5z"/><path d="m3 12.5 9 4.5 9-4.5"/><path d="m3 17 9 4.5 9-4.5"/></svg><b>3 platforms</b><span>NSE Invest · BSE StAR MF · MFU</span></div>
+              <div><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-1.2 5.3"/><path d="M20 5v6h-6"/></svg><b>Daily updates</b><span>Portfolio, transaction and NAV data</span></div>
+              <div><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5.5c0 4.3-2.9 7.8-7 9.2-4.1-1.4-7-4.9-7-9.2V6z"/><path d="m9 12 2 2 4-4"/></svg><b>AES-GCM</b><span>Encryption protecting client data</span></div>
+              <div><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m6 18 12-12"/></svg><b>No commission</b><span>Finexa takes none of your brokerage</span></div>
             </div>
           </section>
 
@@ -340,22 +343,22 @@
               </div>
               <div class="fx-cards">
               <article class="fx-card">
-                <span class="fx-card__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h6M4 12h10M4 17h7"/><circle cx="17.5" cy="7" r="2.5"/><path d="M17.5 9.5V19"/></svg></span>
+                <span class="fx-card__ico"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h6M4 12h10M4 17h7"/><circle cx="17.5" cy="7" r="2.5"/><path d="M17.5 9.5V19"/></svg></span>
                 <h3>One seamless workflow</h3>
                 <p>No tab switching required — get more done, faster, with everything in one place.</p>
               </article>
               <article class="fx-card">
-                <span class="fx-card__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 4.5-9 4.5-9-4.5z"/><path d="m3 12.5 9 4.5 9-4.5"/><path d="m3 17 9 4.5 9-4.5"/></svg></span>
+                <span class="fx-card__ico"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 4.5-9 4.5-9-4.5z"/><path d="m3 12.5 9 4.5 9-4.5"/><path d="m3 17 9 4.5 9-4.5"/></svg></span>
                 <h3>Multiple ARNs on one platform</h3>
                 <p>Manage multiple ARNs seamlessly, without switching systems or duplicating effort.</p>
               </article>
               <article class="fx-card">
-                <span class="fx-card__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V9M10 20V4M16 20v-7M22 20H2"/></svg></span>
+                <span class="fx-card__ico"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></span>
                 <h3>Comprehensive reporting</h3>
                 <p>From performance to compliance, Finexa brings clarity with reports that speak your business language.</p>
               </article>
               <article class="fx-card">
-                <span class="fx-card__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2.5" y="13" width="4" height="6" rx="1.6"/><rect x="17.5" y="13" width="4" height="6" rx="1.6"/><path d="M20 19v.6a2.4 2.4 0 0 1-2.4 2.4H13"/></svg></span>
+                <span class="fx-card__ico"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2.5" y="13" width="4" height="6" rx="1.6"/><rect x="17.5" y="13" width="4" height="6" rx="1.6"/><path d="M20 19v.6a2.4 2.4 0 0 1-2.4 2.4H13"/></svg></span>
                 <h3>Support that knows your business</h3>
                 <p>A dedicated Customer Service Manager who understands your setup and priorities.</p>
               </article>
@@ -371,94 +374,106 @@
                 <p>Designed with flexibility in mind, Finexa's modular architecture adapts as your financial landscape changes, so you can scale and add tools when you need them.</p>
               </div>
               <div class="fx-tabs" role="tablist" aria-label="Finexa feature groups">
-                <button type="button" role="tab" id="fxt-portals" aria-controls="fxp-portals" aria-selected="true">Customised portals</button>
-                <button type="button" role="tab" id="fxt-reporting" aria-controls="fxp-reporting" aria-selected="false">Diverse reporting</button>
-                <button type="button" role="tab" id="fxt-tools" aria-controls="fxp-tools" aria-selected="false">Tools &amp; additional features</button>
-                <button type="button" role="tab" id="fxt-new" aria-controls="fxp-new" aria-selected="false">New features</button>
+                <button type="button" role="tab" id="fxt-portals" aria-controls="fxp-portals" aria-selected="true"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M9 9v11"/></svg>Customised portals</button>
+                <button type="button" role="tab" id="fxt-reporting" aria-controls="fxp-reporting" aria-selected="false"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Diverse reporting</button>
+                <button type="button" role="tab" id="fxt-tools" aria-controls="fxp-tools" aria-selected="false"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 6.5a4.5 4.5 0 0 1-6.2 4.2L7.5 17.5a2.1 2.1 0 1 1-3-3l6.8-6.8A4.5 4.5 0 0 1 16 2.2c.9 0 1.7.3 2.4.7l-3 3 2.4 2.4 3-3c.4.7.7 1.5.7 2.2z"/></svg>Tools &amp; additional features</button>
+                <button type="button" role="tab" id="fxt-new" aria-controls="fxp-new" aria-selected="false"><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>New features</button>
               </div>
               <div class="fx-panel" id="fxp-portals" role="tabpanel" aria-labelledby="fxt-portals">
                 <div class="fx-groups">
-                  <div class="fx-group">
-                    <h4>Portfolio management &amp; analytics</h4>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9h9"/><circle cx="12" cy="12" r="9"/></svg>Portfolio management &amp; analytics</h4>
                     <ul><li>Risk profiling</li><li>Comprehensive customer portfolio with analytics</li><li>Customer portfolio returns calculation</li><li>Comprehensive RM / advisor reports</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>Investment &amp; transaction management</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3.2-3.2M20 16H7l3.2 3.2"/></svg>Investment &amp; transaction management</h4>
                     <ul><li>Instant digital transaction (lumpsum &amp; systematic)</li><li>Seamless order processing via interfacing to RTA &amp; BSE StAR</li><li>RTA interface for reverse feeds (transaction, NAV &amp; income)</li><li>Call centre-assisted transaction execution &amp; queries</li><li>RM-assisted e-risk profiling &amp; transaction execution</li><li>Cart facility</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>Customer &amp; advisor experience</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>Customer &amp; advisor experience</h4>
                     <ul><li>Customer &amp; advisor dashboard</li><li>Goal planning &amp; tracking</li><li>RM-assisted customer onboarding</li><li>Responsive designs</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>Integration &amp; system connectivity</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3.5a6 6 0 0 1-12 0z"/><path d="M12 17.5V21"/></svg>Integration &amp; system connectivity</h4>
                     <ul><li>Integration with various data service providers</li><li>Integration with existing core systems</li><li>Comprehensive / customisable report module</li></ul>
-                  </div>
+                  </article>
                 </div>
-                <div class="fx-shots">
-                  <figure class="fx-shot"><img src="/products/finexa/portfolio.webp" alt="Client portfolio with analytics" loading="lazy" /><figcaption>Client portfolio with analytics</figcaption></figure>
-                  <figure class="fx-shot"><img src="/products/finexa/asset-allocation.webp" alt="Asset allocation at a glance" loading="lazy" /><figcaption>Asset allocation at a glance</figcaption></figure>
-                </div>
+                <figure class="fx-shot">
+                  <button class="fx-shot__btn" type="button" data-lb-type="image" data-lb-src="/products/finexa/tab-portals.webp" data-lb-title="Customised portals" data-lb-sub="The client dashboard: net worth, surplus, risk profile, portfolio tracker, asset allocation and goals on one screen.">
+                    <img src="/products/finexa/tab-portals.webp" alt="Customised portals in Finexa" loading="lazy" />
+                    <span class="fx-shot__zoom"><svg class="fx-ico fx-ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Click to enlarge</span>
+                  </button>
+                  <figcaption>The client dashboard: net worth, surplus, risk profile, portfolio tracker, asset allocation and goals on one screen.</figcaption>
+                </figure>
               </div>
               <div class="fx-panel" id="fxp-reporting" role="tabpanel" aria-labelledby="fxt-reporting" hidden>
                 <div class="fx-groups">
-                  <div class="fx-group">
-                    <h4>Business &amp; performance reports</h4>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg>Business &amp; performance reports</h4>
                     <ul><li>Assets under management (AUM) reports</li><li>Active systematic reports</li><li>YTD and MTD business reports</li><li>Detailed AUM report</li><li>Monthly inflow-outflow report</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>Transaction &amp; investment reports</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3.2-3.2M20 16H7l3.2 3.2"/></svg>Transaction &amp; investment reports</h4>
                     <ul><li>Transaction report</li><li>Current portfolio report</li><li>Portfolio since inception</li><li>STP &amp; SWP reports</li><li>Dividend &amp; SIP report</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>Client &amp; investor insights</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14c2.8.3 5 2.6 5 5.6"/></svg>Client &amp; investor insights</h4>
                     <ul><li>Client creation / edit option</li><li>Investor &amp; family search</li><li>Investor &amp; family mapping</li><li>Client-wise &amp; scheme-wise holding report</li><li>Separate portfolio access for branch, RM, associate, investors and family</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>Brokerage, capital &amp; master portfolio</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9h9"/><circle cx="12" cy="12" r="9"/></svg>Brokerage, capital &amp; master portfolio</h4>
                     <ul><li>Brokerage report — AMC, transaction, investor, family, branch, RM and sub-broker</li><li>Capital gains (tax report)</li><li>Master portfolio including MFs, shares, PMS, FDs, insurance, bonds, NPS and other assets</li></ul>
-                  </div>
+                  </article>
                 </div>
-                <div class="fx-shots">
-                  <figure class="fx-shot"><img src="/products/finexa/reporting.webp" alt="Reports built for your business language" loading="lazy" /><figcaption>Reports built for your business language</figcaption></figure>
-                  <figure class="fx-shot"><img src="/products/finexa/portfolio-equity.webp" alt="Equity and multi-asset holdings" loading="lazy" /><figcaption>Equity and multi-asset holdings</figcaption></figure>
-                </div>
+                <figure class="fx-shot">
+                  <button class="fx-shot__btn" type="button" data-lb-type="image" data-lb-src="/products/finexa/tab-reporting.webp" data-lb-title="Diverse reporting" data-lb-sub="Holdings, equity overview by product type and market cap, and exposure by sector — ready to share with clients.">
+                    <img src="/products/finexa/tab-reporting.webp" alt="Diverse reporting in Finexa" loading="lazy" />
+                    <span class="fx-shot__zoom"><svg class="fx-ico fx-ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Click to enlarge</span>
+                  </button>
+                  <figcaption>Holdings, equity overview by product type and market cap, and exposure by sector — ready to share with clients.</figcaption>
+                </figure>
               </div>
               <div class="fx-panel" id="fxp-tools" role="tabpanel" aria-labelledby="fxt-tools" hidden>
                 <div class="fx-groups">
-                  <div class="fx-group">
-                    <h4>Data &amp; portfolio management</h4>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Data &amp; portfolio management</h4>
                     <ul><li>Daily data update</li><li>AUM reconciliation</li><li>Brokerage data update</li><li>CAS upload and portfolio creation</li><li>Manual entry of mutual fund portfolios</li><li>Investment summary since inception</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>User &amp; client management</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14c2.8.3 5 2.6 5 5.6"/></svg>User &amp; client management</h4>
                     <ul><li>User creation</li><li>Risk profiling of investors</li><li>Client portfolio triggers</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>Financial planning &amp; investment tools</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2"/></svg>Financial planning &amp; investment tools</h4>
                     <ul><li>Composite financial goal planner calculator</li><li>Goal-based investment — SIP</li><li>Goal-based investment — lumpsum</li><li>Goal planning and mapping with an existing portfolio</li><li>Investment proposal — lumpsum, SIP, STP and SWP</li></ul>
-                  </div>
-                  <div class="fx-group">
-                    <h4>Calculators &amp; planning tools</h4>
+                  </article>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8 7h8M8 11h2M12 11h2M16 11h.01M8 15h2M12 15h2M16 15h.01M8 19h6"/></svg>Calculators &amp; planning tools</h4>
                     <ul><li>Lumpsum calculator</li><li>SIP &amp; SIP top-up calculator</li><li>Retirement planning</li></ul>
-                  </div>
+                  </article>
                 </div>
-                <div class="fx-shots">
-                  <figure class="fx-shot"><img src="/products/finexa/goal-planning.webp" alt="Goal planning and tracking" loading="lazy" /><figcaption>Goal planning and tracking</figcaption></figure>
-                  <figure class="fx-shot"><img src="/products/finexa/sip-dashboard.webp" alt="SIP dashboard" loading="lazy" /><figcaption>SIP dashboard</figcaption></figure>
-                </div>
+                <figure class="fx-shot">
+                  <button class="fx-shot__btn" type="button" data-lb-type="image" data-lb-src="/products/finexa/tab-tools.webp" data-lb-title="Tools &amp; additional features" data-lb-sub="Planning tools your clients can follow along with — here, the SIP calculator with invested amount and estimated returns.">
+                    <img src="/products/finexa/tab-tools.webp" alt="Tools &amp; additional features in Finexa" loading="lazy" />
+                    <span class="fx-shot__zoom"><svg class="fx-ico fx-ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Click to enlarge</span>
+                  </button>
+                  <figcaption>Planning tools your clients can follow along with — here, the SIP calculator with invested amount and estimated returns.</figcaption>
+                </figure>
               </div>
               <div class="fx-panel" id="fxp-new" role="tabpanel" aria-labelledby="fxt-new" hidden>
                 <div class="fx-groups">
-                  <div class="fx-group">
-                    <h4>Latest release</h4>
+                  <article class="fx-group">
+                    <h4><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Latest release</h4>
                     <ul><li>Quick navigation bar — reach frequent pages in a few clicks</li><li>Ready-to-use marketing creatives for investor communication</li><li>NSE — SIP top-up</li></ul>
-                  </div>
+                  </article>
                 </div>
-                <div class="fx-shots">
-                  <figure class="fx-shot"><img src="/products/finexa/creatives.webp" alt="White-labelled marketing creatives" loading="lazy" /><figcaption>White-labelled marketing creatives</figcaption></figure>
-                  <figure class="fx-shot"><img src="/products/finexa/tools-calculators.webp" alt="Calculators and planning tools" loading="lazy" /><figcaption>Calculators and planning tools</figcaption></figure>
-                </div>
+                <figure class="fx-shot">
+                  <button class="fx-shot__btn" type="button" data-lb-type="image" data-lb-src="/products/finexa/tab-new.webp" data-lb-title="New features" data-lb-sub="Ready-to-use, white-labelled creatives your clients can receive — searchable and sorted by occasion.">
+                    <img src="/products/finexa/tab-new.webp" alt="New features in Finexa" loading="lazy" />
+                    <span class="fx-shot__zoom"><svg class="fx-ico fx-ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Click to enlarge</span>
+                  </button>
+                  <figcaption>Ready-to-use, white-labelled creatives your clients can receive — searchable and sorted by occasion.</figcaption>
+                </figure>
               </div>
             </div>
           </section>
@@ -466,68 +481,92 @@
           <section class="fx-sec" id="fx-nova">
             <div class="fx__wrap fx-nova">
               <div>
-                <img class="fx-nova__logo" src="/products/finexa/nova-logo.webp" alt="Finexa Nova" width="420" height="76" loading="lazy" />
+                <img class="fx-nova__logo" src="/products/finexa/nova-logo.webp" alt="Finexa Nova" width="560" height="101" loading="lazy" />
                 <div class="fx-head">
                   <h2>Ready to elevate your service?</h2>
-                  <p>Finexa Nova is the investor app: clients view portfolios, access reports, transact, track goals and stay connected, on Android and iOS.</p>
+                  <p>Finexa Nova is the investor app: clients view portfolios, track goals, access reports and transact — on Android and iOS, under your brand.</p>
                 </div>
                 <ul>
-                <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>24/7 access</li>
-                <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m4 15 5-5 4 4 7-7"/></svg>Goal monitoring</li>
-                <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 20s-7-4.6-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.4-7 9-7 9z"/></svg>Foster loyalty</li>
-                <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>Self-client onboarding</li>
+                  <li><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>24/7 access</li>
+                  <li><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 14 3-3 2 2 3.5-3.5"/></svg>Goal monitoring</li>
+                  <li><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.4-7 9-7 9z"/></svg>Foster loyalty</li>
+                  <li><svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Self-client onboarding</li>
                 </ul>
               </div>
               <figure class="fx-shot">
-                <img src="/products/finexa/tools-planner.webp" alt="Goal planning tools inside Finexa" loading="lazy" />
-                <figcaption>Planning tools that clients can follow in the app</figcaption>
+                <button class="fx-shot__btn" type="button" data-lb-type="image" data-lb-src="/products/finexa/nova-app.webp" data-lb-title="Finexa Nova" data-lb-sub="Learn, invest and flourish — the investor app">
+                  <img src="/products/finexa/nova-app.webp" alt="Finexa Nova app screens: dashboard with goals, portfolio snapshot and debt portfolio analysis" loading="lazy" />
+                  <span class="fx-shot__zoom"><svg class="fx-ico fx-ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"/><path d="m18.2 15.4.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/></svg>Click to enlarge</span>
+                </button>
+                <figcaption>Goals, portfolio snapshot and analysis, in the investor's pocket</figcaption>
               </figure>
             </div>
           </section>
 
-          <section class="fx-sec fx-sec--alt" id="fx-faq">
+          <section class="fx-sec fx-sec--alt" id="fx-clients">
             <div class="fx__wrap">
               <div class="fx-head">
-                <p class="fx-eyebrow">FAQs</p>
-                <h2>Questions distributors ask us</h2>
+                <p class="fx-eyebrow">What our clients say</p>
+                <h2>Distributors on working with Finexa</h2>
+                <p>Pick any card to watch the video or read the full note.</p>
               </div>
-              <div class="fx-faq">
-              <details>
-                <summary>What is Finexa?</summary>
-                <p>Finexa is a comprehensive mutual fund distribution platform designed to help Mutual Fund Distributors and advisors manage their business from a single hub — client onboarding, transactions, reporting and portfolio tracking in one place.</p>
-              </details>
-              <details>
-                <summary>Who is Finexa designed for?</summary>
-                <p>Mutual Fund Distributors, wealth advisors, banks, broking firms and financial institutions looking for one platform for mutual fund distribution and tracking.</p>
-              </details>
-              <details>
-                <summary>Which transaction platforms does Finexa support?</summary>
-                <p>Finexa integrates with NSE Invest, BSE StAR MF and Mutual Fund Utility (MFU), so advisors can transact through their preferred platform.</p>
-              </details>
-              <details>
-                <summary>Can clients complete KYC and onboarding through Finexa?</summary>
-                <p>Yes. Finexa supports digital client onboarding, including PAN verification and MF transaction account opening, through both the Finexa website and the Finexa Nova app.</p>
-              </details>
-              <details>
-                <summary>Can I manage multiple ARNs from a single account?</summary>
-                <p>Yes. Finexa lets you manage multiple ARNs at no additional cost, which suits firms and MFDs operating under more than one ARN.</p>
-              </details>
-              <details>
-                <summary>Is my client data secure?</summary>
-                <p>Yes. Finexa uses advanced encryption (AES-GCM), which provides both strong protection and data integrity in the background.</p>
-              </details>
-              <details>
-                <summary>What is Finny?</summary>
-                <p>Finny is Finexa’s built-in AI assistant. It helps you find information about the platform, whether you have questions about features, reports or workflows.</p>
-              </details>
-              <details>
-                <summary>Does Finexa charge any commission on my transactions?</summary>
-                <p>No. Finexa does not deduct any commission or levy additional transaction charges on your mutual fund business. Your earnings remain yours.</p>
-              </details>
-              <details>
-                <summary>Can I try Finexa before subscribing?</summary>
-                <p>Yes. Contact the team to schedule a demo or explore the platform through a trial, so you can see how Finexa fits your business before deciding.</p>
-              </details>
+              <div class="fx-clients">
+            <button class="fx-client" type="button" data-lb-type="video" data-lb-src="v6bdyazm768" data-lb-title="Mr. Arvind Vishwanath" data-lb-sub="Finance Planner &amp; Wealth Coach, Green Earth Advisory Service">
+              <span class="fx-client__thumb"><img src="/products/finexa/testimonials/arvind-vishwanath.webp" alt="" loading="lazy" /><span class="fx-client__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z" fill="currentColor"/></svg></span></span>
+              <span class="fx-client__name">Mr. Arvind Vishwanath</span>
+              <span class="fx-client__role">Finance Planner &amp; Wealth Coach, Green Earth Advisory Service</span>
+              
+              <span class="fx-client__more">Watch the video <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="fx-client" type="button" data-lb-type="video" data-lb-src="R9SMPL1Z5kM" data-lb-title="Mr. Divesh Sharma" data-lb-sub="Dhanyukti Finvest, MFD from Mohali, Punjab">
+              <span class="fx-client__thumb"><img src="/products/finexa/testimonials/divesh-sharma.webp" alt="" loading="lazy" /><span class="fx-client__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z" fill="currentColor"/></svg></span></span>
+              <span class="fx-client__name">Mr. Divesh Sharma</span>
+              <span class="fx-client__role">Dhanyukti Finvest, MFD from Mohali, Punjab</span>
+              
+              <span class="fx-client__more">Watch the video <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="fx-client" type="button" data-lb-type="video" data-lb-src="fy2Wgwe9ydM" data-lb-title="Mr. Sourav Saha" data-lb-sub="MFD from Kolkata">
+              <span class="fx-client__thumb"><img src="/products/finexa/testimonials/sourav-saha.webp" alt="" loading="lazy" /><span class="fx-client__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z" fill="currentColor"/></svg></span></span>
+              <span class="fx-client__name">Mr. Sourav Saha</span>
+              <span class="fx-client__role">MFD from Kolkata</span>
+              
+              <span class="fx-client__more">Watch the video <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="fx-client" type="button" data-lb-type="video" data-lb-src="blw-FFfpm_4" data-lb-title="Mr. Abir Banerjee" data-lb-sub="AMFI Registered Mutual Fund Distributor">
+              <span class="fx-client__thumb"><img src="/products/finexa/testimonials/abir-banerjee.webp" alt="" loading="lazy" /><span class="fx-client__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z" fill="currentColor"/></svg></span></span>
+              <span class="fx-client__name">Mr. Abir Banerjee</span>
+              <span class="fx-client__role">AMFI Registered Mutual Fund Distributor</span>
+              
+              <span class="fx-client__more">Watch the video <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="fx-client" type="button" data-lb-type="image" data-lb-src="/products/finexa/testimonials/alok-garg.webp" data-lb-title="Alok Garg" data-lb-sub="Investor, Founder &amp; Director, Induscap Wealth">
+              <span class="fx-client__thumb"><img src="/products/finexa/testimonials/alok-garg.webp" alt="" loading="lazy" /></span>
+              <span class="fx-client__name">Alok Garg</span>
+              <span class="fx-client__role">Investor, Founder &amp; Director, Induscap Wealth</span>
+              <span class="fx-client__quote">“Finexa has been a game-changer for us in simplifying mutual fund operations.”</span>
+              <span class="fx-client__more">Read the full note <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="fx-client" type="button" data-lb-type="image" data-lb-src="/products/finexa/testimonials/ketan-tailor.webp" data-lb-title="Ketan Tailor" data-lb-sub="MFD from Navsari">
+              <span class="fx-client__thumb"><img src="/products/finexa/testimonials/ketan-tailor.webp" alt="" loading="lazy" /></span>
+              <span class="fx-client__name">Ketan Tailor</span>
+              <span class="fx-client__role">MFD from Navsari</span>
+              <span class="fx-client__quote">“User-friendly for every MFD, and it generates all the kinds of reports we need.”</span>
+              <span class="fx-client__more">Read the full note <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="fx-client" type="button" data-lb-type="image" data-lb-src="/products/finexa/testimonials/vikram-tewari.webp" data-lb-title="Vikram Tewari" data-lb-sub="Vanshika Financial Technology Pvt. Ltd">
+              <span class="fx-client__thumb"><img src="/products/finexa/testimonials/vikram-tewari.webp" alt="" loading="lazy" /></span>
+              <span class="fx-client__name">Vikram Tewari</span>
+              <span class="fx-client__role">Vanshika Financial Technology Pvt. Ltd</span>
+              <span class="fx-client__quote">“Our overall experience with Finexa has been fantastic — reliable and user-friendly.”</span>
+              <span class="fx-client__more">Read the full note <span aria-hidden="true">→</span></span>
+            </button>
+            <button class="fx-client" type="button" data-lb-type="image" data-lb-src="/products/finexa/testimonials/ganesh-madhukar.webp" data-lb-title="Ganesh Madhukar" data-lb-sub="Mutual Fund Distributor">
+              <span class="fx-client__thumb"><img src="/products/finexa/testimonials/ganesh-madhukar.webp" alt="" loading="lazy" /></span>
+              <span class="fx-client__name">Ganesh Madhukar</span>
+              <span class="fx-client__role">Mutual Fund Distributor</span>
+              <span class="fx-client__quote">“Thank you, team Finexa, for your quick response and steady support.”</span>
+              <span class="fx-client__more">Read the full note <span aria-hidden="true">→</span></span>
+            </button>
               </div>
             </div>
           </section>
@@ -543,9 +582,158 @@
                 <a class="fx-btn fx-btn--outline" href="contact.html">Contact us</a>
               </div>
             </section>
-            <p class="fx-foot">Finexa is a Finlabs India product. Press Esc, or the button at the top left, to go back to the showroom.</p>
           </div>
+
+          <section class="fx-sec" id="fx-faq">
+            <div class="fx__wrap">
+              <div class="fx-head">
+                <p class="fx-eyebrow">FAQs</p>
+                <h2>Everything distributors ask us</h2>
+                <p>30 questions about Finexa. Type to find one.</p>
+              </div>
+              <div class="fx-faq__search">
+                <svg class="fx-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+                <input id="fxFaqSearch" type="search" placeholder="Search the FAQs — reports, ARNs, onboarding…" aria-label="Search the FAQs" />
+              </div>
+              <p class="fx-faq__count" id="fxFaqCount" role="status"></p>
+              <div class="fx-faq">
+              <details class="fx-q">
+                <summary>What is Finexa?</summary>
+                <p>Finexa is a comprehensive mutual fund distribution platform designed to help Mutual Fund Distributors / Advisors manage their business from a single hub. With features such as client onboarding, transactions, reporting, and portfolio tracking, Finexa brings together the tools needed to run and grow your practice.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Who is Finexa designed for?</summary>
+                <p>Finexa is built for Mutual Fund Distributors, wealth advisors, banks, broking firms, and financial institutions looking to have a comprehensive one stop platform for mutual fund distribution and tracking, simplify their operations and enhance the investor experience.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Which transaction platforms does Finexa support?</summary>
+                <p>Finexa integrates with all the Mutual Fund Transaction platform — NSE Invest, BSE Star MF, and Mutual fund Utility (MFU), allowing advisors to execute mutual fund transactions through their preferred platform.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can clients complete KYC and onboarding through Finexa?</summary>
+                <p>Yes. Finexa supports digital client onboarding, including PAN verification, MF Transaction Account opening and can be done through both the Finexa website and Finexa Nova App (Do-it-yourself Investor Onboarding) to help reduce manual paperwork.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Does Finexa support SIP Top-Up and NFO investments?</summary>
+                <p>Yes, but currently only through NSE. MFDs can offer SIP Top-Up and New Fund Offers (NFOs) directly through Finexa. An update for including it with BSE Star MF platform is currently in development.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can I track all my client's investments in one place?</summary>
+                <p>Yes. Finexa provides a consolidated portfolio view, helping MFDs monitor investments, track performance, and access client information from a single dashboard. You can also generate and share detailed Transaction Report, Portfolio Valuation Reports, Portfolio Gain /Loss Report across all Mutual fund Investments of the client</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can Finexa help with goal-based investing?</summary>
+                <p>Yes, MFDs can create investment goals for clients and track their progress over time, making financial planning more engaging and meaningful. Fin exa has a very comprehensive goal planning, investing and Goal tracking user journey. It also enables you to earmark any of the existing investments of the investor to a particular goal</p>
+              </details>
+              <details class="fx-q">
+                <summary>Does Finexa support non-mutual fund holdings?</summary>
+                <p>MFDs can maintain records of assets such as fixed deposits, equities, insurance, and other investments to build a broader financial picture for their clients, however in terms of transactions, only MF transactions are available.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can reports be shared directly with clients?</summary>
+                <p>Yes. Reports can be generated and downloaded or shared digitally through email, helping MFDs communicate portfolio updates quickly and professionally.</p>
+              </details>
+              <details class="fx-q">
+                <summary>What reports are available?</summary>
+                <p>Finexa offers a wide range of client and business reports. Client Reports include Portfolio Summary Report, Transaction Statements, Capital Gain /Loss reports, Performance reports etc. Business Reports include Business MIS, AUM Reconciliation Report, Brokerage MIS Reports, SIP Valuation</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can I manage multiple ARNs from a single Finexa account?</summary>
+                <p>Yes. Finexa allows you to manage multiple ARNs at no additional cost, making it ideal for firms or MFDs operating under more than one ARN.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Is my client data secure?</summary>
+                <p>Yes, protecting your data is a priority. Finexa uses advanced encryption (AES-GCM), which ensures both strong protection and data integrity in the background.</p>
+              </details>
+              <details class="fx-q">
+                <summary>What is Finny?</summary>
+                <p>Finny is Finexa’s built-in AI assistant designed to help you quickly find information about the platform. Whether you have questions about features, reports, or workflows, Finny is there to assist you.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can I access Finexa from anywhere?</summary>
+                <p>Yes. Finexa is a web-based platform, allowing you to securely access your business from anywhere with an internet connection. Investors can also stay connected through the Finexa Nova mobile app and MFDs can stay connected through the Finexa Mobile app.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Will my clients receive updates about their investments?</summary>
+                <p>Yes. Through Finexa Nova and various reporting options, clients can stay informed about their portfolios while MFDs can easily share reports and updates whenever required.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Does Finexa have a mobile app for investors?</summary>
+                <p>Yes. Finexa Nova enables investors to view their portfolios, access reports, complete transactions, track goals, and stay connected through a convenient mobile experience. The app is available on Android as well as iOS platforms.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can I customise the investor app with my own branding?</summary>
+                <p>Yes. Finexa offers white-label branding options at a separate cost, allowing MFDs and institutions to present the platform under their own identity.</p>
+              </details>
+              <details class="fx-q">
+                <summary>How can Finexa help me engage with clients?</summary>
+                <p>Finexa includes ready-to-use white-labeled marketing creatives that MFDs can share with clients to stay connected and maintain regular communication.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can I control what my investors can do on the app?</summary>
+                <p>Finexa includes ready-to-use white-labelled marketing creatives that MFDs can share with clients to stay connected and maintain regular communication.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can I research and compare mutual funds within Finexa?</summary>
+                <p>Yes. Finexa provides detailed fund information along with fund comparison tools to help MFDs evaluate schemes and support investment decisions.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can Finexa recommend schemes based on client risk profiles?</summary>
+                <p>Yes. MFDs can build their own recommended product lists, allowing Finexa to accordingly suggest schemes based on each client’s risk profile.</p>
+              </details>
+              <details class="fx-q">
+                <summary>How quickly can I get support if I face an issue?</summary>
+                <p>Our support team is committed to providing prompt assistance. Most queries receive a quick response, with most issues resolved within 48 hours.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Is training provided after I subscribe?</summary>
+                <p>Yes. We provide onboarding assistance, assistance for NSE/BSE/MFU registration, platform demonstrations, and ongoing support to help MFDs get the most from Finexa.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can I try Finexa before subscribing?</summary>
+                <p>Yes. Contact our team to schedule a demo or explore the platform through a trial, so you can see how Finexa fits your business before making a decision.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Is Finexa fully white-labeled?</summary>
+                <p>Yes. Finexa is a fully white-labelled platform where you can update your logo and information to reflect in real time on the main page, reports, creatives and the Finexa Nova App loading screen.</p>
+              </details>
+              <details class="fx-q">
+                <summary>How often is my portfolio data updated?</summary>
+                <p>Finexa updates portfolio,, transaction and MF NAV data every day, ensuring you always have access to the latest available information for your clients and business.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Does Finexa charge any commission on my transactions?</summary>
+                <p>No. Finexa does not deduct any commission or levy additional transaction charges on your mutual fund business. Your earnings remain yours.</p>
+              </details>
+              <details class="fx-q">
+                <summary>What is Quick Access?</summary>
+                <p>Quick Access is a navigation tool that helps you reach frequently used pages and features in just a few clicks, reducing the time spent searching through menus.</p>
+              </details>
+              <details class="fx-q">
+                <summary>Can I switch to Finexa if I am already using another platform?</summary>
+                <p>Yes, many MFDs have transitioned to Finexa from other platforms. Provided you are operating under your own ARN, our team can guide you through the onboarding process and help you understand the options available based on your existing setup.</p>
+              </details>
+              <details class="fx-q">
+                <summary>I'm a new ARN. Is Finexa suitable for me?</summary>
+                <p>Yes. Finexa is designed to support MFDs from the very beginning of their journey, providing the tools needed to onboard clients, execute transactions, generate reports, and manage a growing practice.</p>
+              </details>
+              </div>
+            </div>
+          </section>
+
+          <p class="fx__wrap fx-foot">Finexa is a Finlabs India product. Press Esc, click outside the screen, or use the button at the top left to go back to the showroom.</p>
         </article>
+      </div>
+
+      <!-- shared pop-up for screenshots and client stories -->
+      <div class="fx-lb" id="fxLightbox" hidden>
+        <button class="fx-lb__close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+        </button>
+        <figure class="fx-lb__box">
+          <div class="fx-lb__media"></div>
+          <figcaption><b class="fx-lb__title"></b><span class="fx-lb__sub"></span></figcaption>
+        </figure>
       </div>
     </div>
   </div>
