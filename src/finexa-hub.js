@@ -21,28 +21,6 @@ const HUB_W = 2.15;
 const HUB_H = 1.35;
 const RADIUS = 3.2;
 
-// the Finexa wordmark for the middle card
-function wordmark() {
-  const cv = document.createElement('canvas');
-  cv.width = 1024;
-  cv.height = 256;
-  const ctx = cv.getContext('2d');
-  ctx.font = '700 168px Outfit, "Segoe UI", system-ui, sans-serif';
-  ctx.textBaseline = 'middle';
-  const parts = [['fin', '#0f4c81'], ['x', '#2dd4bf'], ['a', '#0f4c81']];
-  const total = parts.reduce((w, [t]) => w + ctx.measureText(t).width, 0);
-  let x = (cv.width - total) / 2;
-  parts.forEach(([t, colour]) => {
-    ctx.fillStyle = colour;
-    ctx.fillText(t, x, 138);
-    x += ctx.measureText(t).width;
-  });
-  const tex = new THREE.CanvasTexture(cv);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = 8;
-  return tex;
-}
-
 function shadowTexture() {
   const cv = document.createElement('canvas');
   cv.width = cv.height = 256;
@@ -102,13 +80,16 @@ export function createHub(canvas) {
       face.scale.set(fw, fw / aspect, 1);
     };
     if (texture.image) fit(texture.image.width / texture.image.height);
-    else texture.addEventListener?.('update', () => {});
     return { group: g, fit };
   }
 
-  // the middle card
-  const hub = card(HUB_W, HUB_H, wordmark(), 0.2);
-  hub.fit(1024 / 256);
+  // the middle card carries the Finexa logo
+  const hubTex = loader.load(`${BASE}products/finexa/logo-finexa.webp`, (t) => {
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.anisotropy = 8;
+    hub.fit(t.image.width / t.image.height);
+  });
+  const hub = card(HUB_W, HUB_H, hubTex, 0.2);
   hub.group.position.y = 0.45; // sits above the ring, so the near card passes under it
   root.add(hub.group);
 
