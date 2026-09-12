@@ -1,6 +1,7 @@
 import './product-screen.css';
 import { createHub } from './finexa-hub.js';
 import { createStack } from './gennxt-stack.js';
+import { createFlow } from './finaware-flow.js';
 
 /* =====================================================
  * PRODUCTS — the on-screen product viewport
@@ -19,7 +20,7 @@ import { createStack } from './gennxt-stack.js';
  * piece, named by `data-scene` and built on first use.
  * ===================================================== */
 
-const SCENES = { hub: createHub, stack: createStack };
+const SCENES = { hub: createHub, stack: createStack, flow: createFlow };
 
 // the pop-up's sources live in markup, which the build rewrites for the
 // site's base path — these do not pass through it, so join them here
