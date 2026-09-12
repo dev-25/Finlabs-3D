@@ -85,7 +85,7 @@
   background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--fx-line);
 }
-.fx-top__brand { font-family: var(--display); font-weight: 800; font-size: 1.35em; letter-spacing: -0.02em; color: var(--fx-navy); }
+.fx-top__brand { font-family: var(--display); font-weight: 800; font-size: 1.95em; letter-spacing: -0.03em; color: var(--fx-navy); line-height: 1; }
 .fx-top__brand span { color: var(--fx-brand); }
 .fx-top nav { display: flex; gap: 4px; margin-inline: auto; flex-wrap: wrap; }
 .fx-top nav a {
@@ -216,7 +216,7 @@
 
 /* investor app */
 .fx-nova { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(18px, 3cqw, 44px); align-items: center; }
-.fx-nova__logo { width: 210px; margin-bottom: 14px; }
+.fx-nova__logo { width: 148px; margin-bottom: 14px; }
 .fx-nova ul { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 16px 0 0; padding: 0; }
 .fx-nova li {
   display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px;
