@@ -426,15 +426,6 @@
 .fx-adv b { display: block; font-family: var(--display); font-weight: 700; font-size: 0.98em; color: var(--fx-navy); }
 .fx-adv span { font-size: 0.86em; color: var(--fx-ink-2); }
 
-/* narrow screens */
-@container (max-width: 620px) {
-  .fx-hero__grid, .fx-panel, .fx-nova { grid-template-columns: minmax(0, 1fr); }
-  .fx-cards, .fx-stats, .fx-clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .fx-layers, .fx-caps, .fx-adv { grid-template-columns: minmax(0, 1fr); }
-  .fx-cards--six { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .fx-top nav { display: none; }
-  .fx-shot { position: static; }
-}
 /* =====================================================
  * FINAWARE — its own colours and its own blocks
  * ===================================================== */
@@ -474,15 +465,108 @@
 .fx-award figcaption { padding: 10px 14px; font-size: 0.8em; color: var(--fx-ink-3); border-top: 1px solid var(--fx-line); }
 .fx-hub__link { margin-top: 18px; }
 
+/* =====================================================
+ * FISCUS and LEARNGENIE — their colours and blocks
+ * ===================================================== */
+
+.fx--fs {
+  --fx-brand: #15629b;
+  --fx-deep: #0f4a77;
+  --fx-navy: #0f2f45;
+  --fx-ink: #123449;
+  --fx-ink-2: #4d6c80;
+  --fx-ink-3: #7f9cad;
+  --fx-line: rgba(21, 98, 155, 0.16);
+  --fx-soft: rgba(21, 98, 155, 0.08);
+  --fx-wash: #eaf3fa;
+  --fx-alt: #f4f9fd;
+  --fx-glow: rgba(43, 181, 152, 0.2);
+  --fx-glow-cta: rgba(43, 181, 152, 0.42);
+}
+.fx--lg {
+  --fx-brand: #5b5bd6;
+  --fx-deep: #4040ad;
+  --fx-navy: #211d47;
+  --fx-ink: #25224d;
+  --fx-ink-2: #5e5b85;
+  --fx-ink-3: #918eb4;
+  --fx-line: rgba(91, 91, 214, 0.16);
+  --fx-soft: rgba(91, 91, 214, 0.08);
+  --fx-wash: #f0efff;
+  --fx-alt: #f7f6ff;
+  --fx-glow: rgba(249, 168, 37, 0.2);
+  --fx-glow-cta: rgba(249, 168, 37, 0.45);
+}
+.fx--fs .fx-hero__intro > div,
+.fx--lg .fx-hero__intro > div { max-width: 72ch; }
+.fx--fs .fx-hero > .fx__wrap > div > p,
+.fx--lg .fx-hero > .fx__wrap > div > p { max-width: 66ch; }
+
+/* a wide stage for a piece that spreads sideways */
+.fx-arch--wide { margin-top: clamp(16px, 2.6cqw, 30px); }
+.fx-arch--wide .fx-arch__canvas { aspect-ratio: 16 / 7; }
+.fx-stats--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Fiscus's app shots are small, so they sit centred rather than stretched */
+.fx-shot--phone .fx-shot__btn { background: linear-gradient(180deg, var(--fx-wash), #fff); padding: 14px; }
+.fx-shot--phone .fx-shot__btn img { width: auto; max-width: min(300px, 100%); margin: 0 auto; }
+
+/* short quotes, where there is no photograph to show */
+.fx-quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.fx-quote {
+  margin: 0; padding: 18px; border-radius: 14px; background: #fff;
+  border: 1px solid var(--fx-line); box-shadow: 0 18px 34px -30px rgba(15, 47, 69, 0.5);
+  transition: transform 0.25s cubic-bezier(.2,.8,.2,1), border-color 0.25s;
+}
+.fx-quote:hover { transform: translateY(-4px); border-color: var(--fx-brand); }
+.fx-quote p { font-size: 0.9em; color: var(--fx-ink-2); line-height: 1.55; }
+.fx-quote cite {
+  display: block; margin-top: 10px; font-style: normal;
+  font-family: var(--display); font-weight: 700; font-size: 0.92em; color: var(--fx-navy);
+}
+
+/* the feature gallery: a screen and a line about it, twelve times over */
+.fx-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.fx-gal {
+  display: grid; grid-template-rows: auto 1fr; border-radius: 16px; overflow: hidden;
+  background: #fff; border: 1px solid var(--fx-line); box-shadow: 0 18px 34px -30px rgba(33, 29, 71, 0.5);
+  transition: transform 0.25s cubic-bezier(.2,.8,.2,1), border-color 0.25s, box-shadow 0.25s;
+}
+.fx-gal:hover { transform: translateY(-5px); border-color: var(--fx-brand); box-shadow: 0 26px 44px -26px rgba(33, 29, 71, 0.45); }
+.fx-gal__btn {
+  display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; overflow: hidden;
+  background: var(--fx-wash);
+}
+.fx-gal__btn img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center top; transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
+.fx-gal__btn:hover img, .fx-gal__btn:focus-visible img { transform: scale(1.04); }
+.fx-gal__body { padding: 14px 16px 18px; border-top: 1px solid var(--fx-line); }
+.fx-gal h3 { font-family: var(--display); font-size: 1em; line-height: 1.25; margin-bottom: 6px; color: var(--fx-navy); }
+.fx-gal p { font-size: 0.86em; color: var(--fx-ink-2); }
+
+/* two client notes rather than eight, so they get more room */
+.fx-clients--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fx-client__thumb--face { aspect-ratio: 1 / 1; max-width: 108px; margin: 16px 0 10px 14px; border-radius: 14px; }
+
 /* on a narrow screen the stage cannot carry six labels legibly, and the
    layer cards below already say the same thing, so it steps aside */
 @container (max-width: 470px) {
   .fx-arch--stage { display: none; }
 }
-/* the lifecycle band cannot hold five labels on a phone, so it is listed */
+/* narrow screens */
 @container (max-width: 620px) {
-  .fx-arch--band .fx-arch__canvas, .fx-arch--band .fx-arch__caption { display: none; }
-  .fx-arch--band .fx-arch__flat { display: grid; }
+  .fx-hero__grid, .fx-panel, .fx-nova { grid-template-columns: minmax(0, 1fr); }
+  .fx-cards, .fx-stats, .fx-clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fx-layers, .fx-caps, .fx-adv { grid-template-columns: minmax(0, 1fr); }
+  .fx-cards--six, .fx-gallery, .fx-quotes, .fx-stats--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fx-top nav { display: none; }
+  .fx-shot { position: static; }
+}
+
+/* these bands cannot hold their labels on a phone, so they are listed */
+@container (max-width: 620px) {
+  .fx-arch--band .fx-arch__canvas, .fx-arch--band .fx-arch__caption,
+  .fx-arch--wide .fx-arch__canvas, .fx-arch--wide .fx-arch__caption { display: none; }
+  .fx-arch--band .fx-arch__flat, .fx-arch--wide .fx-arch__flat { display: grid; }
   .fx-arch__flat--row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
