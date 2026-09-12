@@ -334,9 +334,14 @@
 }
 .fx--gx .fx-top__brand { font-size: 1.6em; }
 
-/* the architecture stack, in the hero */
+/* GenNxt's hero runs full width, since its 3D piece has a stage of its own */
+.fx--gx .fx-hero__intro > div { max-width: 72ch; }
+.fx--gx .fx-hero > .fx__wrap > div > p { max-width: 66ch; }
+
+/* the architecture stack — given room, because it is carrying words */
 .fx-arch { position: relative; display: grid; }
-.fx-arch__canvas { width: 100%; aspect-ratio: 4 / 3; display: block; }
+.fx-arch__canvas { width: 100%; aspect-ratio: 6 / 4.9; display: block; }
+.fx-arch--stage { width: min(720px, 100%); margin: 0 auto clamp(16px, 2.4cqw, 30px); }
 /* the plain list only stands in when there is no WebGL */
 .fx-arch__flat { display: none; list-style: none; margin: 0; padding: 0; gap: 8px; }
 .fx-arch.is-flat .fx-arch__canvas { display: none; }
@@ -429,6 +434,12 @@
   .fx-top nav { display: none; }
   .fx-shot { position: static; }
 }
+/* on a narrow screen the stage cannot carry six labels legibly, and the
+   layer cards below already say the same thing, so it steps aside */
+@container (max-width: 470px) {
+  .fx-arch--stage { display: none; }
+}
+
 @media (max-width: 760px) {
   .pv__screen {
     left: 0; top: 0; width: 100vw; height: 100dvh; max-width: none;
