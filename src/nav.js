@@ -1,9 +1,11 @@
 /* =====================================================
- * SITE NAV — the menu button on small screens
+ * SITE NAV — the menu button, and the scroll line
  * =====================================================
  * Below 960px the page links fold into a drop-down; this
- * opens and closes it. The theme switch in the same bar
- * is wired up by theme.js.
+ * opens and closes it. It also draws the thin line along
+ * the top of the window that tracks how far down the
+ * page you are. The theme switch in the same bar is
+ * wired up by theme.js.
  * ===================================================== */
 
 const nav = document.querySelector('.site-nav');
@@ -25,3 +27,26 @@ if (nav && menu) {
     if (!nav.contains(e.target)) setOpen(false);
   });
 }
+
+// ---------------------------------------------------------------------
+// the scroll line
+// ---------------------------------------------------------------------
+
+const line = document.createElement('div');
+line.className = 'site-progress';
+line.setAttribute('aria-hidden', 'true');
+const fill = document.createElement('span');
+line.append(fill);
+document.body.prepend(line);
+
+// scroll events already arrive at most once a frame, so no throttle is needed
+function drawLine() {
+  const room = document.documentElement.scrollHeight - window.innerHeight;
+  const k = room > 0 ? Math.min(1, Math.max(0, window.scrollY / room)) : 0;
+  fill.style.transform = `scaleX(${k.toFixed(4)})`;
+}
+window.addEventListener('scroll', drawLine, { passive: true });
+window.addEventListener('resize', drawLine);
+// pages whose height settles after load (images, the About journey) re-measure
+new ResizeObserver(drawLine).observe(document.documentElement);
+drawLine();

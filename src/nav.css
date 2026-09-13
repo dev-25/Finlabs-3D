@@ -175,6 +175,29 @@
   .site-nav__contact { padding: 9px 13px; font-size: 13px; }
 }
 
+/* the scroll line along the very top of the window, above the bar —
+   it fills left to right as the page scrolls down, and empties back */
+.site-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+}
+.site-progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #45bede, #0f6d8c 55%, #f26722);
+}
+:root[data-theme="dark"] .site-progress span {
+  background: linear-gradient(90deg, #6fe6ff, #35d6ff 55%, #7b7bff);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-nav *, .site-nav *::before, .site-nav *::after { transition: none !important; }
 }

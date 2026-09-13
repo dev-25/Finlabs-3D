@@ -145,21 +145,7 @@ body.no3d #canvas {
   }
 }
 
-.progress {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 3px;
-  width: 100%;
-  z-index: 6;
-  background: transparent;
-}
-.progress span {
-  display: block;
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, var(--cyan), var(--teal-deep) 55%, var(--orange));
-}
+
 
 /* ===================================================== */
 /* CONTENT                                                */
@@ -692,7 +678,4 @@ body.no3d #canvas {
   opacity: 0.1;
 }
 
-:root[data-theme="dark"] .progress span {
-  background: linear-gradient(90deg, var(--cyan), var(--teal) 55%, #7b7bff);
-}
 

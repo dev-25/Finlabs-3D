@@ -1928,8 +1928,8 @@ let heroFade = 1; // 1 while the hero fills the screen, 0 once scrolled away
 let outro = 0;    // 0..1 once past the last product, walking up to the sign
 let focus = 0;
 let focusEased = 0;
+let snapCamera = false; // true for one frame: place the camera, don't ease it
 
-const progressBar = document.querySelector('#progress span');
 const rail = document.querySelector('.rail');
 const railLinks = [...document.querySelectorAll('[data-rail]')];
 const scrollCue = document.querySelector('#scrollcue');
@@ -1984,7 +1984,6 @@ function updateScroll() {
   const here = Math.round(focus);
   railLinks.forEach((a, k) => a.classList.toggle('on', inShowroom && k === here));
 
-  progressBar.style.width = scrollProgress * 100 + '%';
   scrollCue.style.opacity = scrollProgress > 0.02 ? 0 : 0.95;
 }
 
@@ -2007,7 +2006,15 @@ function productById(id) {
 
 function goToProduct(el, smooth) {
   const top = el.offsetTop + (el.offsetHeight - window.innerHeight) / 2;
-  window.scrollTo({ top, behavior: smooth && !REDUCED_MOTION ? 'smooth' : 'auto' });
+  if (smooth && !REDUCED_MOTION) {
+    window.scrollTo({ top, behavior: 'smooth' });
+    return;
+  }
+  // 'auto' would defer to the page's CSS, which scrolls smoothly — a link
+  // from another page should open on the product, not travel to it
+  window.scrollTo({ top, behavior: 'instant' });
+  updateScroll();
+  snapCamera = true;
 }
 
 railLinks.forEach((a) =>
@@ -2025,11 +2032,12 @@ function followHash() {
   if (el) goToProduct(el, false);
 }
 window.addEventListener('hashchange', followHash);
-// the browser's own jump lands on the section's top edge; move on to the
-// product once the page has laid out
+// Arriving with a hash: go there before the first frame is drawn, so the
+// room opens on the product, then once more after load in case anything
+// above the showroom changed height as the page finished loading.
 if (location.hash) {
-  if (document.readyState === 'complete') requestAnimationFrame(followHash);
-  else window.addEventListener('load', () => requestAnimationFrame(followHash), { once: true });
+  followHash();
+  window.addEventListener('load', followHash, { once: true });
 }
 
 // =====================================================
@@ -2149,7 +2157,8 @@ function step() {
   timer.update();
   const t = timer.getElapsed();
 
-  focusEased += (focus - focusEased) * 0.1;
+  const ease = (rate) => (snapCamera ? 1 : rate);
+  focusEased += (focus - focusEased) * ease(0.1);
 
   const i = Math.floor(focusEased);
   const frac = focusEased - i;
@@ -2168,13 +2177,13 @@ function step() {
   const sideTarget =
     THREE.MathUtils.lerp(stationX(i), stationX(next), frac) * (1 - outro);
 
-  roamPos.z += (zTarget - roamPos.z) * 0.08;
-  roamPos.x += (sideTarget * 0.26 - heroBias * 2.4 + Math.sin(t * 0.35) * 0.35 - roamPos.x) * 0.06;
-  roamPos.y += (-0.2 + Math.sin(t * 0.5) * 0.2 - roamPos.y) * 0.06;
+  roamPos.z += (zTarget - roamPos.z) * ease(0.08);
+  roamPos.x += (sideTarget * 0.26 - heroBias * 2.4 + Math.sin(t * 0.35) * 0.35 - roamPos.x) * ease(0.06);
+  roamPos.y += (-0.2 + Math.sin(t * 0.5) * 0.2 - roamPos.y) * ease(0.06);
 
-  lookTarget.x += (sideTarget * 0.5 - heroBias * 3.4 - lookTarget.x) * 0.07;
-  lookTarget.y += (0.5 - lookTarget.y) * 0.07;
-  lookTarget.z += (roamPos.z - 17 - lookTarget.z) * 0.07;
+  lookTarget.x += (sideTarget * 0.5 - heroBias * 3.4 - lookTarget.x) * ease(0.07);
+  lookTarget.y += (0.5 - lookTarget.y) * ease(0.07);
+  lookTarget.z += (roamPos.z - 17 - lookTarget.z) * ease(0.07);
 
   // fly in to the monitor being explored, and back out again on close
   zoom += ((exploring >= 0 ? 1 : 0) - zoom) * 0.075;
@@ -2202,8 +2211,9 @@ function step() {
     g.position.y = g.userData.baseY + Math.sin(t * 0.8 + idx) * 0.09;
     const dx = camera.position.x - g.position.x;
     const dz = camera.position.z - g.position.z;
-    g.rotation.y += (Math.atan2(dx, dz) * 0.3 - g.rotation.y) * 0.05;
+    g.rotation.y += (Math.atan2(dx, dz) * 0.3 - g.rotation.y) * ease(0.05);
   });
+  snapCamera = false;
 
   // the panel rides the screen in, then holds still on it
   if (zoom > 0.02 && zoomIndex >= 0) {
