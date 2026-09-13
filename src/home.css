@@ -291,10 +291,23 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 }
 .offer__lead { color: var(--ink-2); font-size: 15px; margin: 8px 0 16px; }
 .items { list-style: none; display: grid; gap: 7px; margin-bottom: 20px; }
-.items li {
-  display: grid; gap: 1px; padding: 9px 13px; border-radius: 13px;
+/* each item links straight to its place on the product or services page */
+.items a {
+  position: relative; display: grid; gap: 1px; padding: 9px 34px 9px 13px; border-radius: 13px;
+  color: inherit; text-decoration: none;
   border: 1px solid var(--line); background: color-mix(in srgb, var(--accent) 6%, transparent);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
+.items a::after {
+  content: "→"; position: absolute; right: 13px; top: 50%; transform: translate(-4px, -50%);
+  color: var(--accent); opacity: 0; transition: opacity 0.2s, transform 0.2s;
+}
+.items a:hover, .items a:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  transform: translateX(2px);
+}
+.items a:hover::after, .items a:focus-visible::after { opacity: 1; transform: translate(0, -50%); }
 .items b { font-family: var(--display); font-size: 16px; line-height: 1.3; }
 .items span { font-size: 13.5px; color: var(--ink-3); line-height: 1.4; }
 .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }

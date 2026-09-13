@@ -584,6 +584,7 @@ body.viewport-open { overflow: hidden; }
 body.exploring .site-nav,
 body.exploring .scrollcue,
 body.exploring .progress,
+body.exploring .rail,
 body.exploring .wa-float { opacity: 0; pointer-events: none; }
 .site-nav, .scrollcue, .progress, .wa-float { transition: opacity 0.35s ease; }
 button.product__cta { border: 0; cursor: pointer; }

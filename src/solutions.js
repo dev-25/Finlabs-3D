@@ -457,6 +457,9 @@ function fitText(ctx, text, weight, size, maxW) {
   }
 }
 
+// The top of the texture is the back of the chip, where its model stands
+// in the overview; the name and number sit on the front band, nearest the
+// camera, so no model can stand in front of them.
 function chipLabel(s, i) {
   return makeTexture(512, 512, (ctx, w) => {
     ctx.strokeStyle = 'rgba(255,255,255,0.14)';
@@ -468,61 +471,71 @@ function chipLabel(s, i) {
     ctx.arc(62, 62, 13, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.textBaseline = 'alphabetic';
-    ctx.fillStyle = s.accent;
-    ctx.font = `700 132px ${MONO}`;
-    ctx.fillText(String(i + 1).padStart(2, '0'), 44, 236);
-
-    ctx.fillStyle = '#eef3ff';
-    fitText(ctx, s.label, 700, 52, w - 88);
-    ctx.fillText(s.label, 44, 318);
-
-    ctx.fillStyle = 'rgba(238,243,255,0.45)';
-    ctx.font = `500 27px ${MONO}`;
-    ctx.fillText(`FL-SOL-0${i + 1} · FINLABS`, 44, 362);
-
-    ctx.fillStyle = s.accent;
-    rr(ctx, 44, 404, 150, 14, 7);
-    ctx.fill();
-    ctx.fillStyle = 'rgba(255,255,255,0.18)';
-    for (let gx = 0; gx < 5; gx++) {
+    // a quiet grid under the model
+    ctx.fillStyle = 'rgba(255,255,255,0.12)';
+    for (let gx = 0; gx < 6; gx++) {
       for (let gy = 0; gy < 3; gy++) {
         ctx.beginPath();
-        ctx.arc(356 + gx * 24, 404 + gy * 24, 4, 0, Math.PI * 2);
+        ctx.arc(330 + gx * 24, 58 + gy * 24, 3.5, 0, Math.PI * 2);
         ctx.fill();
       }
     }
+
+    // the front band
+    ctx.fillStyle = 'rgba(255,255,255,0.07)';
+    rr(ctx, 30, 292, w - 60, 190, 18);
+    ctx.fill();
+
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = '#ffffff';
+    fitText(ctx, s.label, 700, 64, w - 100);
+    ctx.fillText(s.label, 50, 368);
+
+    ctx.fillStyle = s.accent;
+    ctx.font = `700 38px ${MONO}`;
+    const no = String(i + 1).padStart(2, '0');
+    ctx.fillText(no, 50, 428);
+    ctx.fillStyle = 'rgba(238,243,255,0.62)';
+    ctx.font = `500 26px ${MONO}`;
+    ctx.fillText(`FL-SOL-0${i + 1} · FINLABS`, 50 + ctx.measureText(no).width * 1.5 + 20, 426);
+
+    ctx.fillStyle = s.accent;
+    rr(ctx, 50, 448, w - 100, 10, 5);
+    ctx.fill();
   });
 }
 
+// the real Finlabs logo — its chart mark and wordmark — cut from the
+// site's logo file and stacked to suit a square chip
+const finlabsLogo = new Image();
+finlabsLogo.src = `${import.meta.env.BASE_URL}finlabs-logo.png`;
+const LOGO_MARK = [8, 0, 487, 360]; // x, y, w, h in the 2048 × 523 file
+const LOGO_WORD = [500, 20, 1006, 330];
+
 function coreLabel() {
-  return makeTexture(512, 512, (ctx, w) => {
-    ctx.strokeStyle = 'rgba(255,255,255,0.16)';
-    ctx.lineWidth = 3;
-    rr(ctx, 16, 16, w - 32, w - 32, 30);
-    ctx.stroke();
-    ctx.fillStyle = 'rgba(255,255,255,0.3)';
-    ctx.beginPath();
-    ctx.arc(62, 62, 13, 0, Math.PI * 2);
+  return makeTexture(1024, 1024, (ctx, w) => {
+    ctx.fillStyle = '#ffffff';
+    rr(ctx, 56, 56, w - 112, w - 112, 64);
     ctx.fill();
-    // concentric mark
-    ctx.strokeStyle = BRAND;
-    ctx.lineWidth = 10;
-    rr(ctx, 196, 92, 120, 120, 28);
+    ctx.strokeStyle = 'rgba(21,98,155,0.18)';
+    ctx.lineWidth = 6;
     ctx.stroke();
-    ctx.fillStyle = BRAND;
-    rr(ctx, 232, 128, 48, 48, 12);
-    ctx.fill();
+
+    if (finlabsLogo.complete && finlabsLogo.naturalWidth) {
+      const [mx, my, mw, mh] = LOGO_MARK;
+      const markW = 420;
+      const markH = (markW * mh) / mw;
+      ctx.drawImage(finlabsLogo, mx, my, mw, mh, (w - markW) / 2, 150, markW, markH);
+      const [wx, wy, ww, wh] = LOGO_WORD;
+      const wordW = 640;
+      const wordH = (wordW * wh) / ww;
+      ctx.drawImage(finlabsLogo, wx, wy, ww, wh, (w - wordW) / 2, 150 + markH + 56, wordW, wordH);
+    }
+
     ctx.textAlign = 'center';
-    ctx.fillStyle = '#eef3ff';
-    ctx.font = `700 76px ${MONO}`;
-    ctx.fillText('FINLABS', w / 2, 318);
-    ctx.fillStyle = 'rgba(238,243,255,0.5)';
-    ctx.font = `600 28px ${MONO}`;
-    ctx.fillText('SOLUTIONS CORE', w / 2, 368);
-    ctx.fillStyle = 'rgba(238,243,255,0.3)';
-    ctx.font = `500 22px ${MONO}`;
-    ctx.fillText('U1 · 8 CHANNELS', w / 2, 420);
+    ctx.fillStyle = 'rgba(15,47,69,0.55)';
+    ctx.font = `600 40px ${MONO}`;
+    ctx.fillText('SOLUTIONS CORE', w / 2, w - 118);
   });
 }
 
@@ -606,6 +619,11 @@ coreBody.position.y = 0.27;
 core.add(coreBody);
 const coreLabelMat = new THREE.MeshBasicMaterial({ map: coreLabel(), transparent: true, toneMapped: false });
 labelMats.push({ mat: coreLabelMat, draw: coreLabel });
+finlabsLogo.addEventListener('load', () => {
+  coreLabelMat.map?.dispose();
+  coreLabelMat.map = coreLabel();
+  coreLabelMat.needsUpdate = true;
+});
 const coreTop = new THREE.Mesh(new THREE.PlaneGeometry(CORE - 0.28, CORE - 0.28), coreLabelMat);
 coreTop.rotation.x = -Math.PI / 2;
 coreTop.position.y = 0.482;
@@ -1513,7 +1531,7 @@ function frame() {
   const focusKey = chipByKey[sceneName] ? sceneName : null;
   const T = THEME3D[themeMode];
   chips.forEach((c) => {
-    let s = 0.62;
+    let s = 0.5;
     let rise = 0;
     let glow = 0.45;
     if (focusKey) {
@@ -1547,6 +1565,9 @@ function frame() {
     m.visible = u.s > 0.01;
     if (!m.visible) return;
     m.scale.setScalar(Math.max(0.001, u.s));
+    // at overview size the model stands back, clear of the chip's name;
+    // brought into focus it steps to the middle
+    c.mount.position.z = -0.56 * (1 - THREE.MathUtils.clamp((u.s - 0.5) / 0.5, 0, 1));
     m.userData.animate(t, u.p);
   });
 

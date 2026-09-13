@@ -1930,6 +1930,8 @@ let focus = 0;
 let focusEased = 0;
 
 const progressBar = document.querySelector('#progress span');
+const rail = document.querySelector('.rail');
+const railLinks = [...document.querySelectorAll('[data-rail]')];
 const scrollCue = document.querySelector('#scrollcue');
 const productsSection = document.querySelector('.products');
 const sections = [...document.querySelectorAll('.product')].map((el) => ({
@@ -1973,11 +1975,62 @@ function updateScroll() {
     inner.style.transform = `translateY(${(1 - o) * 26}px)`;
   });
 
+  // the rail shows while the showroom is on screen, marking the product
+  // the camera is standing at
+  const inShowroom =
+    window.scrollY > productsSection.offsetTop - vh * 0.5 &&
+    window.scrollY < last.offsetTop + sectionH - vh * 0.4;
+  rail?.classList.toggle('on', inShowroom);
+  const here = Math.round(focus);
+  railLinks.forEach((a, k) => a.classList.toggle('on', inShowroom && k === here));
+
   progressBar.style.width = scrollProgress * 100 + '%';
   scrollCue.style.opacity = scrollProgress > 0.02 ? 0 : 0.95;
 }
 
 window.addEventListener('scroll', updateScroll, { passive: true });
+
+// =====================================================
+// GOING STRAIGHT TO A PRODUCT
+// =====================================================
+// From the rail, or from a link such as products.html#fiscus. A product
+// is "reached" at the middle of its pinned range, where the camera has
+// settled on its station, so that is where the page lands — not at the
+// top of its section, where the camera is still walking up to it.
+
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function productById(id) {
+  const el = id && document.getElementById(id);
+  return el?.classList.contains('product') ? el : null;
+}
+
+function goToProduct(el, smooth) {
+  const top = el.offsetTop + (el.offsetHeight - window.innerHeight) / 2;
+  window.scrollTo({ top, behavior: smooth && !REDUCED_MOTION ? 'smooth' : 'auto' });
+}
+
+railLinks.forEach((a) =>
+  a.addEventListener('click', (e) => {
+    const el = productById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    history.replaceState(null, '', `#${el.id}`);
+    goToProduct(el, true);
+  })
+);
+
+function followHash() {
+  const el = productById(decodeURIComponent(location.hash.slice(1)));
+  if (el) goToProduct(el, false);
+}
+window.addEventListener('hashchange', followHash);
+// the browser's own jump lands on the section's top edge; move on to the
+// product once the page has laid out
+if (location.hash) {
+  if (document.readyState === 'complete') requestAnimationFrame(followHash);
+  else window.addEventListener('load', () => requestAnimationFrame(followHash), { once: true });
+}
 
 // =====================================================
 // LOOP STATE
