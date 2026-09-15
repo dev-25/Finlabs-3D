@@ -187,7 +187,7 @@ body.no3d #canvas {
 }
 
 /* the intro sits on the same solid card as the products, so it reads
-   cleanly over the showroom in both themes */
+   cleanly over the 3D room in both themes */
 .hero__panel {
   max-width: 560px;
   padding: clamp(26px, 3.4vw, 42px);

@@ -81,7 +81,7 @@ function activate(index) {
   if (urlBar) urlBar.textContent = active.dataset.url || '';
   closeBtn?.setAttribute(
     'aria-label',
-    `Close ${active.dataset.name || 'this product'} and go back to the showroom`
+    `Close ${active.dataset.name || 'this product'} and return to Products`
   );
   const heading = active.querySelector('h1[id]');
   if (heading) screenEl.setAttribute('aria-labelledby', heading.id);
