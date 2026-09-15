@@ -1,0 +1,77 @@
+/* =====================================================
+ * PRODUCT PAGES — products/*.html
+ * =====================================================
+ * The product markup from the showroom's monitor, set on
+ * one solid card between the site's menu and footer.
+ * ===================================================== */
+
+html { scroll-padding-top: 160px; }
+
+.pp-main { padding: 104px var(--pad) 36px; }
+.pp-crumbs { max-width: 1240px; margin: 0 auto 14px; }
+.pp-crumbs [aria-current="page"] { color: var(--ink); font-weight: 600; }
+
+.fx--page {
+  max-width: 1240px;
+  margin: 0 auto;
+  border-radius: 26px;
+  /* clip, not hidden: hidden would stop the product bar from sticking */
+  overflow: clip;
+  border: 1px solid var(--paper-edge);
+  box-shadow: var(--shadow);
+}
+/* the product's own bar sticks just under the menu bar */
+.fx--page .fx-top { top: 84px; }
+.fx--page .fx-top__brand { font-size: 1.7em; }
+.fx--page .fx-shot { top: 160px; }
+.fx--page .fx-foot { padding-top: clamp(18px, 3cqw, 30px); }
+.fx--page .fx-foot a { color: var(--fx-brand); font-weight: 600; text-decoration: none; }
+.fx--page .fx-foot a:hover { text-decoration: underline; }
+
+/* the pop-up covers the window, not just a screen */
+.pp .fx-lb { position: fixed; z-index: 90; }
+.pp .fx-lb__media img { max-height: 76vh; }
+
+@media (max-width: 760px) {
+  html { scroll-padding-top: 140px; }
+  .pp-main { padding-top: 88px; }
+  .fx--page { border-radius: 18px; }
+  .fx--page .fx-top { top: 70px; }
+}
+
+/* ---------- dark theme ----------
+   On the monitor a product page is always a lit screen; as a page of its
+   own it follows the site's theme. Neutrals flip, each brand colour lifts
+   so it reads on a dark card, and text on brand colour turns dark. */
+:root[data-theme="dark"] .fx--page {
+  --fx-surface: #0e172c;
+  --fx-top: rgba(14, 23, 44, 0.9);
+  --fx-navy: #eef3ff;
+  --fx-ink: #dce4f7;
+  --fx-ink-2: #aab6d2;
+  --fx-ink-3: #7c89a8;
+  --fx-line: rgba(160, 185, 255, 0.14);
+  --fx-soft: color-mix(in srgb, var(--fx-brand) 16%, transparent);
+  --fx-wash: #111c36;
+  --fx-alt: #0b1428;
+  --fx-brand: #4cc3e3;
+  --fx-deep: #8fd9ee;
+}
+:root[data-theme="dark"] .fx--page.fx--gx { --fx-brand: #6b9cf2; --fx-deep: #a9c4f8; }
+:root[data-theme="dark"] .fx--page.fx--fw { --fx-brand: #2fc9b8; --fx-deep: #86e3d8; }
+:root[data-theme="dark"] .fx--page.fx--fs { --fx-brand: #4ea3e6; --fx-deep: #98c9f1; }
+:root[data-theme="dark"] .fx--page.fx--lg { --fx-brand: #9090f5; --fx-deep: #bdbdf9; }
+
+:root[data-theme="dark"] .fx--page .fx-btn--primary,
+:root[data-theme="dark"] .fx--page .fx-tabs button[aria-selected="true"],
+:root[data-theme="dark"] .fx--page .fx-card:hover .fx-card__ico { color: #06121f; }
+:root[data-theme="dark"] .fx--page .fx-adv li:hover::before { color: #06121f; }
+:root[data-theme="dark"] .fx--page .fx-btn--light { color: #0f1a33; }
+:root[data-theme="dark"] .fx--page .fx-cta {
+  background:
+    radial-gradient(600px 260px at 90% 0%, var(--fx-glow-cta), transparent 65%),
+    linear-gradient(135deg, #0a1430, color-mix(in srgb, var(--fx-brand) 38%, #0a1430));
+}
+:root[data-theme="dark"] .fx--page .fx-shot,
+:root[data-theme="dark"] .fx--page .fx-cap,
+:root[data-theme="dark"] .fx--page .fx-gal { box-shadow: 0 22px 44px -30px rgba(0, 0, 0, 0.8); }

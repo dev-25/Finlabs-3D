@@ -1,9 +1,5 @@
 import './product-screen.css';
-import { createHub } from './finexa-hub.js';
-import { createStack } from './gennxt-stack.js';
-import { createFlow } from './finaware-flow.js';
-import { createPicture } from './fiscus-picture.js';
-import { createClimb } from './learngenie-climb.js';
+import { buildScene, wireTabs, wireFaqs, createLightbox } from './product-ui.js';
 
 /* =====================================================
  * PRODUCTS — the on-screen product viewport
@@ -20,26 +16,20 @@ import { createClimb } from './learngenie-climb.js';
  * lives in its own `.fx[data-product]` article and only
  * the one being explored is shown. Each may carry a 3D
  * piece, named by `data-scene` and built on first use.
+ * The same markup is also each product's own page, so
+ * what it does — tabs, pop-up, FAQ — lives in
+ * product-ui.js. main.js opens a product here when its
+ * computer in the room is clicked.
  * ===================================================== */
 
-const SCENES = { hub: createHub, stack: createStack, flow: createFlow, picture: createPicture, climb: createClimb };
-
-// the pop-up's sources live in markup, which the build rewrites for the
-// site's base path — these do not pass through it, so join them here
-const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
-const asset = (path) => (path.startsWith('/') ? BASE + path : path);
-
 const panel = document.querySelector('#productViewport');
-const lightbox = panel?.querySelector('#fxLightbox');
-const lbMedia = lightbox?.querySelector('.fx-lb__media');
-const lbTitle = lightbox?.querySelector('.fx-lb__title');
-const lbSub = lightbox?.querySelector('.fx-lb__sub');
 const screenEl = panel?.querySelector('.pv__screen');
 const scroller = panel?.querySelector('.pv__scroll');
 const closeBtn = panel?.querySelector('.pv__close');
 const urlBar = panel?.querySelector('.pv__url');
 const docs = panel ? [...panel.querySelectorAll('.fx[data-product]')] : [];
 const scenes = new Map(); // host element -> its 3D piece, built the first time it is needed
+const lightbox = panel ? createLightbox(panel, panel.querySelector('#fxLightbox')) : null;
 
 const openListeners = new Set();
 const closeListeners = new Set();
@@ -105,12 +95,7 @@ function runScene(doc) {
   });
   const host = doc.querySelector('[data-scene]');
   if (!host) return;
-  if (!scenes.has(host)) {
-    const build = SCENES[host.dataset.scene];
-    const piece = build ? build(host.querySelector('canvas')) : null;
-    if (!piece) host.classList.add('is-flat'); // no WebGL: show the flat stand-in
-    scenes.set(host, piece);
-  }
+  if (!scenes.has(host)) scenes.set(host, buildScene(host));
   scenes.get(host)?.start();
 }
 
@@ -137,7 +122,7 @@ export function close() {
   current = -1;
   panel.classList.remove('is-open', 'is-live');
   document.body.classList.remove('viewport-open');
-  closeLightbox();
+  lightbox?.close();
   scenes.forEach((piece) => piece?.stop());
   closeListeners.forEach((fn) => fn());
   if (!driven) hide();
@@ -169,9 +154,6 @@ export function place(rect, opacity, interactive) {
 }
 
 if (panel) {
-  document.querySelectorAll('[data-explore]').forEach((btn) =>
-    btn.addEventListener('click', () => open(Number(btn.dataset.explore), btn))
-  );
   closeBtn.addEventListener('click', close);
   // a click on the surround — the gap between the screen and the page edge
   panel.addEventListener('click', (e) => {
@@ -179,7 +161,7 @@ if (panel) {
   });
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape' || current < 0) return;
-    if (!lightbox.hidden) closeLightbox();
+    if (lightbox.isOpen()) lightbox.close();
     else close();
   });
   // a light focus trap: keep the keyboard inside the screen while it is open
@@ -187,17 +169,7 @@ if (panel) {
     if (current >= 0 && !panel.contains(e.target)) closeBtn.focus({ preventScroll: true });
   });
 
-  // in-screen feature tabs — each product's set works on its own
-  panel.addEventListener('click', (e) => {
-    const tab = e.target.closest('.fx-tabs button');
-    if (!tab) return;
-    [...tab.parentElement.querySelectorAll('button')].forEach((t) => {
-      const on = t === tab;
-      t.setAttribute('aria-selected', String(on));
-      const view = document.getElementById(t.getAttribute('aria-controls'));
-      if (view) view.hidden = !on;
-    });
-  });
+  wireTabs(panel);
 
   // in-screen navigation scrolls the panel, not the page behind it
   panel.querySelectorAll('.fx-top nav a').forEach((a) =>
@@ -212,74 +184,4 @@ if (panel) {
   );
 }
 
-// ---------------------------------------------------------------------
-// The pop-up: screenshots open as pictures, client stories as pictures
-// or as their video.
-// ---------------------------------------------------------------------
-
-function closeLightbox() {
-  if (!lightbox || lightbox.hidden) return;
-  lightbox.hidden = true;
-  lbMedia.replaceChildren(); // also stops a playing video
-}
-
-function openLightbox(trigger) {
-  const kind = trigger.dataset.lbType;
-  const src = trigger.dataset.lbSrc;
-  lbTitle.textContent = trigger.dataset.lbTitle || '';
-  lbSub.textContent = trigger.dataset.lbSub || '';
-  if (kind === 'video') {
-    const frame = document.createElement('iframe');
-    frame.src = `https://www.youtube-nocookie.com/embed/${src}?autoplay=1&rel=0`;
-    frame.title = trigger.dataset.lbTitle || 'Client video';
-    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
-    frame.allowFullscreen = true;
-    lbMedia.replaceChildren(frame);
-  } else {
-    const img = document.createElement('img');
-    img.src = asset(src);
-    img.alt = `${trigger.dataset.lbTitle || ''} — ${trigger.dataset.lbSub || ''}`;
-    lbMedia.replaceChildren(img);
-  }
-  lightbox.hidden = false;
-  lightbox.querySelector('.fx-lb__close').focus({ preventScroll: true });
-}
-
-if (lightbox) {
-  panel.addEventListener('click', (e) => {
-    const trigger = e.target.closest('[data-lb-type]');
-    if (trigger) openLightbox(trigger);
-  });
-  lightbox.querySelector('.fx-lb__close').addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-}
-
-// ---------------------------------------------------------------------
-// FAQ filter — one per product page
-// ---------------------------------------------------------------------
-
-docs.forEach((doc) => {
-  const search = doc.querySelector('[data-faq-search]');
-  const count = doc.querySelector('[data-faq-count]');
-  if (!search || !count) return;
-  const questions = [...doc.querySelectorAll('.fx-q')];
-
-  function filterFaqs() {
-    const q = search.value.trim().toLowerCase();
-    let shown = 0;
-    questions.forEach((item) => {
-      const hit = !q || item.textContent.toLowerCase().includes(q);
-      item.hidden = !hit;
-      if (hit) shown++;
-      if (!hit) item.open = false;
-    });
-    count.textContent = q
-      ? `${shown} of ${questions.length} questions match “${search.value.trim()}”`
-      : `${questions.length} questions`;
-  }
-
-  search.addEventListener('input', filterFaqs);
-  filterFaqs();
-});
+wireFaqs(docs);

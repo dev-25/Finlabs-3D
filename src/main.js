@@ -2,7 +2,7 @@ import './style.css';
 import './nav.css';
 import './nav.js';
 import './whatsapp.js';
-import { onExplore, onExploreClose, place as placeViewport } from './product-viewport.js';
+import { onExplore, onExploreClose, open as openProduct, place as placeViewport } from './product-viewport.js';
 import * as THREE from 'three';
 import { Timer } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -1869,7 +1869,10 @@ PRODUCTS.forEach((product, i) => {
   g.position.set(stationX(i), 0, stationZ(i));
   g.userData.baseY = 0;
   scene.add(g);
-  stations.push({ group: g, screen });
+  // everything that reads as "the computer": clicking any of it looks closer
+  const parts = [podium, podiumBand, foot, neck, frame, screen, backCard, tower];
+  parts.forEach((part) => (part.userData.station = i));
+  stations.push({ group: g, screen, parts });
 });
 
 // =====================================================
@@ -2126,6 +2129,50 @@ onExploreClose(() => {
   document.body.classList.remove('exploring');
 });
 
+// =====================================================
+// CLICKING A COMPUTER
+// =====================================================
+// The Explore buttons open each product's own page; clicking a computer in
+// the room flies in to its screen instead. The page's panels sit over the
+// canvas, so clicks are caught on the document and anything that is page
+// UI is left alone.
+
+const PAGE_UI =
+  'a, button, input, select, textarea, label, summary, .product__card, .hero__panel, ' +
+  '.endwall__panel, .site-nav, .rail, .pv, .wa-float, .scrollcue';
+const raycaster = new THREE.Raycaster();
+const pointerNdc = new THREE.Vector2();
+const pickables = stations.flatMap((st) => st.parts);
+
+function stationAt(clientX, clientY) {
+  pointerNdc.set((clientX / window.innerWidth) * 2 - 1, -(clientY / window.innerHeight) * 2 + 1);
+  raycaster.setFromCamera(pointerNdc, camera);
+  let obj = raycaster.intersectObjects(pickables, true)[0]?.object;
+  while (obj && obj.userData.station === undefined) obj = obj.parent;
+  return obj ? obj.userData.station : -1;
+}
+
+const canPick = (target) => enabled && exploring < 0 && zoom === 0 && !target.closest(PAGE_UI);
+
+document.addEventListener('click', (e) => {
+  if (e.button !== 0 || !canPick(e.target)) return;
+  const i = stationAt(e.clientX, e.clientY);
+  if (i >= 0) openProduct(i);
+});
+
+// a pointer cursor over a computer says it can be clicked; checked once a frame
+let hover = null;
+document.addEventListener(
+  'pointermove',
+  (e) => (hover = e.pointerType === 'mouse' ? { x: e.clientX, y: e.clientY, target: e.target } : null),
+  { passive: true }
+);
+function updateHover() {
+  const over = hover && canPick(hover.target) && stationAt(hover.x, hover.y) >= 0;
+  document.body.classList.toggle('over-computer', Boolean(over));
+  hover = null;
+}
+
 function loop() {
   if (!enabled) {
     running = false;
@@ -2214,6 +2261,7 @@ function step() {
     g.rotation.y += (Math.atan2(dx, dz) * 0.3 - g.rotation.y) * ease(0.05);
   });
   snapCamera = false;
+  if (hover) updateHover();
 
   // the panel rides the screen in, then holds still on it
   if (zoom > 0.02 && zoomIndex >= 0) {
