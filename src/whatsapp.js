@@ -7,7 +7,7 @@
 
 import './whatsapp.css';
 
-const NUMBER = '919653217146'; // +91 96532 17146
+const NUMBER = '919372787432'; // +91 93727 87432
 const MESSAGE = "Hi Finlabs, I'd like to know more about your products and services.";
 
 const button = document.createElement('a');

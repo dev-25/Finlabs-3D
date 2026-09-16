@@ -133,11 +133,11 @@
   font: 700 0.72em/1 var(--mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--fx-deep);
   padding: 7px 12px; border-radius: 999px; background: var(--fx-soft);
 }
-.fx-hero h1 {
+.fx-hero :is(h1, h2) {
   font-family: var(--display); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
   font-size: clamp(26px, 3.4cqw, 46px); margin: 14px 0 12px; color: var(--fx-navy);
 }
-.fx-hero h1 em { font-style: normal; color: var(--fx-brand); }
+.fx-hero :is(h1, h2) em { font-style: normal; color: var(--fx-brand); }
 .fx-hero > .fx__wrap > div > p { color: var(--fx-ink-2); font-size: 1.02em; max-width: 46ch; }
 .fx-hero__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 

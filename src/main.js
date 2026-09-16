@@ -119,7 +119,7 @@ const CSS = {
 // the bars and coins, which reads as a financial cue rather than a theme
 const PRODUCTS = [
   { name: 'FINEXA', screen: 'wealth', accent: 0x1a8fb5, prop: 'goldbars' },
-  { name: 'FINEXA GenNxT', screen: 'aggregate', accent: 0x3fb9dd, prop: 'coins' },
+  { name: 'FINEXA GenNxt', screen: 'aggregate', accent: 0x3fb9dd, prop: 'coins' },
   { name: 'FINAWARE', screen: 'awareness', accent: 0x2f6fd0, prop: 'calculator' },
   { name: 'FISCUS', screen: 'finance', accent: 0x0d5f7d, prop: 'cards' },
   { name: 'LEARNGENIE', screen: 'learning', accent: 0x6d7fe8, prop: 'vault' },
@@ -1321,7 +1321,7 @@ const SCREENS = {
     });
   },
 
-  // GenNxT — multi-asset aggregation
+  // GenNxt — multi-asset aggregation
   aggregate(ctx, b, accent) {
     label(ctx, 'ALL ASSETS · ONE VIEW', b.x, b.y - 12, 22, CSS.tealDeep);
 
@@ -2020,15 +2020,16 @@ function goToProduct(el, smooth) {
   snapCamera = true;
 }
 
-railLinks.forEach((a) =>
-  a.addEventListener('click', (e) => {
-    const el = productById(a.getAttribute('href').slice(1));
-    if (!el) return;
-    e.preventDefault();
-    history.replaceState(null, '', `#${el.id}`);
-    goToProduct(el, true);
-  })
-);
+// the rail's bullets and the index under the intro both lead to a product
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  const el = productById(link.getAttribute('href').slice(1));
+  if (!el) return;
+  e.preventDefault();
+  history.replaceState(null, '', `#${el.id}`);
+  goToProduct(el, true);
+});
 
 function followHash() {
   const el = productById(decodeURIComponent(location.hash.slice(1)));

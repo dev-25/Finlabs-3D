@@ -11,10 +11,15 @@ const ROOT = __dirname;
  * site root ('' at the top level, '../' one folder down), for site links
  * in markup shared between folders. */
 function htmlIncludes() {
-  const INCLUDE = /<!--\s*include:\s*([\w./-]+)\s*-->/g;
+  const INCLUDE = /<!--\s*include:\s*([\w./-]+)\s*(\|\s*demote\s*)?-->/g;
   const expand = (html, depth = 0) => {
     if (depth > 8) throw new Error('html-includes: includes nested too deep');
-    return html.replace(INCLUDE, (_, file) => expand(readFileSync(resolve(ROOT, file), 'utf8'), depth + 1));
+    return html.replace(INCLUDE, (_, file, demote) => {
+      const part = expand(readFileSync(resolve(ROOT, file), 'utf8'), depth + 1);
+      // `| demote` turns the included page's h1 into an h2, for a page that
+      // already has an h1 of its own — the showroom's monitor, say
+      return demote ? part.replace(/<h1(\s|>)/g, '<h2$1').replace(/<\/h1>/g, '</h2>') : part;
+    });
   };
   return {
     name: 'html-includes',
