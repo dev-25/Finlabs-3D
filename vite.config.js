@@ -52,8 +52,8 @@ function htmlIncludes() {
 
 // GitHub Pages serves this project at https://dev-25.github.io/Finlabs-3D/,
 // so production URLs need that prefix. The dev server keeps serving from /.
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/Finlabs-3D/' : '/',
+export default defineConfig(({ command, isPreview }) => ({
+  base: command === 'build' || isPreview ? '/Finlabs-3D/' : '/',
   plugins: [htmlIncludes()],
   build: {
     rollupOptions: {
@@ -67,6 +67,11 @@ export default defineConfig(({ command }) => ({
         contact: resolve(ROOT, 'contact.html'),
         about: resolve(ROOT, 'about.html'),
         careers: resolve(ROOT, 'careers.html'),
+        'knowledge-centre': resolve(ROOT, 'knowledge-centre.html'),
+        // the Knowledge Centre's three sections
+        'kc-blogs': resolve(ROOT, 'knowledge-centre/blogs.html'),
+        'kc-infographics': resolve(ROOT, 'knowledge-centre/infographics.html'),
+        'kc-summariwise': resolve(ROOT, 'knowledge-centre/summariwise.html'),
         // one page per product, sharing its body with the showroom's monitor
         'product-finexa': resolve(ROOT, 'products/finexa.html'),
         'product-finexa-gennxt': resolve(ROOT, 'products/finexa-gennxt.html'),

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Infographics from Finlabs India: money rules, investment trends, market volatility, learning at work and technology trends in financial services — each one easy to take in at a glance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <title>Infographics — Finance and Technology at a Glance | Finlabs</title>
+
+  <!-- tab icon, and how the link looks when it is shared -->
+  <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finlabs India" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Infographics — Finance and Technology at a Glance | Finlabs" />
+  <meta property="og:description" content="Key financial and technology concepts, trends and innovations — explained in easy-to-understand infographics." />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{site}}/og-finlabs.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Infographics — Finance and Technology at a Glance | Finlabs" />
+  <meta name="twitter:description" content="Key financial and technology concepts, trends and innovations — explained in easy-to-understand infographics." />
+  <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+</head>
+
+<body class="doc-page kc-page kc-infos">
+
+  <!-- include: src/partials/knowledge/nav.html -->
+
+  <main class="kc">
+    <header class="kc-pagehead">
+      <div class="kc-pagehead__copy">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../knowledge-centre.html">Knowledge Centre</a></li>
+          <li aria-current="page">Infographics</li>
+        </ol>
+        <h1>Infographics</h1>
+        <p class="kc-lead">Quickly grasp key financial and technology concepts, trends and innovations through easy-to-understand infographics — and stay up to date on market shifts. Open any one to zoom in and read the notes beside it.</p>
+      </div>
+        <nav class="kc-switch" aria-label="Knowledge Centre sections">
+          <a href="blogs.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M15 3.5V7h3.5M9 11h6.5M9 14h6.5M9 17h4"/></svg>Blogs</a>
+          <a href="infographics.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5h16"/><path d="M6.5 17v-5M11 17V7.5M15.5 17v-3.5"/><circle cx="18.5" cy="6.5" r="2.5"/></svg>Infographics</a>
+          <a href="summariwise.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5c-2-1.6-4.8-2-8-1.5v13.5c3.2-.5 6 0 8 1.5 2-1.5 4.8-2 8-1.5V5c-3.2-.5-6-.1-8 1.5z"/><path d="M12 6.5V20"/></svg>SummariWise</a>
+        </nav>
+    </header>
+
+    <section class="kc-browse" aria-labelledby="wallTitle">
+      <div class="kc-browse__head">
+        <h2 id="wallTitle">Browse the infographics</h2>
+        <p class="kc-count" id="kcCount" aria-live="polite">Showing all 10 infographics</p>
+      </div>
+      <div class="kc-tools kc-tools--slim">
+        <div class="kc-chips" role="group" aria-label="Filter by theme">
+          <!-- include: src/partials/knowledge/info-chips.html -->
+        </div>
+        <label class="kc-sort">
+          <span>Sort</span>
+          <select id="kcSort">
+            <option value="new">Newest first</option>
+            <option value="old">Oldest first</option>
+          </select>
+        </label>
+      </div>
+      <ul class="kc-wall" id="kcItems">
+        <!-- include: src/partials/knowledge/info-tiles.html -->
+      </ul>
+    </section>
+
+    <aside class="kc-next" aria-label="More from the Knowledge Centre">
+      <a href="blogs.html"><span>Want the full story?</span><b>Blogs</b><em>Guides and deep dives →</em></a>
+      <a href="summariwise.html"><span>Next in the Knowledge Centre</span><b>SummariWise</b><em>Bestselling books in minutes →</em></a>
+    </aside>
+  </main>
+
+  <!-- the viewer: a large, zoomable image with its notes alongside -->
+  <div class="kc-viewer" id="kcViewer" hidden>
+    <div class="kc-viewer__box" role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
+      <div class="kc-viewer__stage">
+        <div class="kc-viewer__canvas">
+          <img class="kc-viewer__img" alt="" draggable="false" />
+        </div>
+        <button class="kc-viewer__nav kc-viewer__nav--prev" type="button" data-step="-1" aria-label="Previous infographic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="kc-viewer__nav kc-viewer__nav--next" type="button" data-step="1" aria-label="Next infographic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <div class="kc-viewer__zoom" role="group" aria-label="Zoom">
+          <button class="kc-icon-btn" type="button" data-zoom="-1" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg></button>
+          <output class="kc-viewer__level">100%</output>
+          <button class="kc-icon-btn" type="button" data-zoom="1" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12M12 6v12"/></svg></button>
+          <button class="kc-icon-btn" type="button" data-zoom="0" aria-label="Fit to screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+        </div>
+        <ol class="kc-viewer__shots" aria-label="Images in this infographic"></ol>
+      </div>
+      <aside class="kc-viewer__side">
+        <div class="kc-viewer__top">
+          <p class="kc-viewer__pos"></p>
+          <button class="kc-icon-btn" type="button" data-close aria-label="Close the infographic">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <p class="kc-card__meta"><span class="kc-tag"></span><time></time></p>
+        <h2 class="kc-viewer__title" id="viewerTitle"></h2>
+        <div class="kc-viewer__notes"></div>
+        <a class="kc-viewer__full" href="#" target="_blank" rel="noopener">Open the full-size image ↗</a>
+        <p class="kc-viewer__keys" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd> browse · <kbd>+</kbd><kbd>−</kbd> zoom · <kbd>Esc</kbd> close</p>
+      </aside>
+    </div>
+  </div>
+
+  <!-- include: src/partials/knowledge/footer.html -->
+
+  <script type="module" src="/src/kc-infographics.js"></script>
+</body>
+</html>

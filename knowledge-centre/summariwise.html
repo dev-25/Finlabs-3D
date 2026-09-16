@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SummariWise by Finlabs India: concise, free summaries of must-read books on leadership, productivity, money, mindset and more — read online or download the PDF." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <title>SummariWise — Bite-Sized Summaries of Bestselling Books | Finlabs</title>
+
+  <!-- tab icon, and how the link looks when it is shared -->
+  <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finlabs India" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="SummariWise — Bite-Sized Summaries of Bestselling Books | Finlabs" />
+  <meta property="og:description" content="Knowledge on the fly: concise summaries of must-read books on leadership, productivity, money and mindset." />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{site}}/og-finlabs.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SummariWise — Bite-Sized Summaries of Bestselling Books | Finlabs" />
+  <meta name="twitter:description" content="Knowledge on the fly: concise summaries of must-read books on leadership, productivity, money and mindset." />
+  <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+</head>
+
+<body class="doc-page kc-page kc-sw">
+
+  <!-- include: src/partials/knowledge/nav.html -->
+
+  <main class="kc">
+    <header class="kc-pagehead kc-pagehead--sw">
+      <div class="kc-pagehead__copy">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../knowledge-centre.html">Knowledge Centre</a></li>
+          <li aria-current="page">SummariWise</li>
+        </ol>
+        <h1>SummariWise</h1>
+        <p class="kc-lead"><b>Attention busy bees!</b> Knowledge on the fly, so you can keep buzzing from one book to the next.</p>
+        <p class="kc-sub">Forget wading through hundreds of pages. Every fortnight we serve a concise, captivating summary of a must-read book from the business and leadership arena — each bite-sized nugget packed with actionable takeaways.</p>
+        <ul class="kc-facts">
+          <li><b>31</b> books summarised</li>
+          <li>A new one every fortnight</li>
+          <li>Free to read and download</li>
+        </ul>
+      </div>
+      <div class="kc-flow" id="kcFlow" aria-roledescription="carousel" aria-label="The newest summaries">
+        <ul class="kc-flow__track">
+          <!-- include: src/partials/knowledge/sw-flow.html -->
+        </ul>
+        <div class="kc-flow__bar">
+          <button class="kc-icon-btn" type="button" data-flow="-1" aria-label="Previous book"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <p class="kc-flow__caption" aria-live="polite"><b></b><span></span></p>
+          <button class="kc-icon-btn" type="button" data-flow="1" aria-label="Next book"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+        <nav class="kc-switch" aria-label="Knowledge Centre sections">
+          <a href="blogs.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M15 3.5V7h3.5M9 11h6.5M9 14h6.5M9 17h4"/></svg>Blogs</a>
+          <a href="infographics.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5h16"/><path d="M6.5 17v-5M11 17V7.5M15.5 17v-3.5"/><circle cx="18.5" cy="6.5" r="2.5"/></svg>Infographics</a>
+          <a href="summariwise.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5c-2-1.6-4.8-2-8-1.5v13.5c3.2-.5 6 0 8 1.5 2-1.5 4.8-2 8-1.5V5c-3.2-.5-6-.1-8 1.5z"/><path d="M12 6.5V20"/></svg>SummariWise</a>
+        </nav>
+    </header>
+
+    <section class="kc-browse" aria-labelledby="shelfTitle">
+      <div class="kc-browse__head">
+        <h2 id="shelfTitle">The bookshelf</h2>
+        <p class="kc-count" id="kcCount" aria-live="polite">Showing all 31 summaries</p>
+      </div>
+      <div class="kc-tools">
+        <label class="kc-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+          <span class="sr-only">Search by book or author</span>
+          <input id="kcSearch" type="search" placeholder="Search by book or author — try “habits” or “Gladwell”" autocomplete="off" />
+          <kbd aria-hidden="true">/</kbd>
+        </label>
+        <label class="kc-sort">
+          <span>Sort</span>
+          <select id="kcSort">
+            <option value="new">Newest first</option>
+            <option value="old">Oldest first</option>
+            <option value="az">Book title A–Z</option>
+          </select>
+        </label>
+        <div class="kc-chips" role="group" aria-label="Filter by theme">
+          <!-- include: src/partials/knowledge/sw-chips.html -->
+        </div>
+      </div>
+      <ul class="kc-books" id="kcItems">
+        <!-- include: src/partials/knowledge/sw-cards.html -->
+      </ul>
+      <div class="kc-empty" id="kcEmpty" hidden>
+        <p>No summaries match that search.</p>
+        <button class="kc-btn kc-btn--ghost" type="button" data-reset>Clear the filters</button>
+      </div>
+    </section>
+
+    <section class="kc-suggest" aria-labelledby="suggestTitle">
+      <div>
+        <h2 id="suggestTitle">Which book should we summarise next?</h2>
+        <p>We’d love to hear from you. Share your feedback and tell us which book summaries you’d like to see.</p>
+      </div>
+      <a class="kc-btn" href="mailto:info@finlabsindia.com?subject=SummariWise%3A%20a%20book%20suggestion">Suggest a book</a>
+    </section>
+
+    <aside class="kc-next" aria-label="More from the Knowledge Centre">
+      <a href="blogs.html"><span>Next in the Knowledge Centre</span><b>Blogs</b><em>Guides and deep dives →</em></a>
+      <a href="infographics.html"><span>Got a minute?</span><b>Infographics</b><em>Key concepts at a glance →</em></a>
+    </aside>
+  </main>
+
+  <!-- the book drawer: the summary's details, and the PDF itself -->
+  <div class="kc-drawer" id="kcDrawer" hidden>
+    <div class="kc-drawer__scrim" data-close></div>
+    <div class="kc-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+      <div class="kc-drawer__bar">
+        <p class="kc-drawer__pos"></p>
+        <div class="kc-reader__tools">
+          <button class="kc-icon-btn" type="button" data-step="-1" aria-label="Previous book"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="kc-icon-btn" type="button" data-step="1" aria-label="Next book"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          <button class="kc-icon-btn" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+      </div>
+      <div class="kc-drawer__body">
+        <div class="kc-drawer__info">
+          <figure class="kc-drawer__cover"><img alt="" /></figure>
+          <p class="kc-card__meta"><span class="kc-tag"></span><time></time></p>
+          <h2 class="kc-drawer__title" id="drawerTitle"></h2>
+          <p class="kc-drawer__author"></p>
+          <p class="kc-drawer__line"></p>
+          <p class="kc-drawer__intro"></p>
+          <div class="kc-drawer__btns">
+            <button class="kc-btn kc-drawer__read" type="button" aria-expanded="false">Read the summary</button>
+            <a class="kc-btn kc-btn--ghost kc-drawer__pdf" href="#" download>Download PDF</a>
+          </div>
+          <p class="kc-drawer__note">Opens right here. On a phone the PDF opens in a new tab.</p>
+        </div>
+        <div class="kc-drawer__doc" hidden>
+          <div class="kc-drawer__loading" aria-hidden="true"><span></span>Opening the summary…</div>
+          <iframe title="Book summary PDF" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- include: src/partials/knowledge/footer.html -->
+
+  <script type="module" src="/src/kc-summariwise.js"></script>
+</body>
+</html>

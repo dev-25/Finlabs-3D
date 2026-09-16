@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blogs from Finlabs India: financial literacy, personal finance, wealth tech for advisors and distributors, learning and development, and cybersecurity for financial services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <title>Blogs — Finance Tips, Investing Guides and Learning Resources | Finlabs</title>
+
+  <!-- tab icon, and how the link looks when it is shared -->
+  <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finlabs India" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Blogs — Finance Tips, Investing Guides and Learning Resources | Finlabs" />
+  <meta property="og:description" content="Finance tips, investing guides and learning resources from the Finlabs India team." />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{site}}/og-finlabs.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blogs — Finance Tips, Investing Guides and Learning Resources | Finlabs" />
+  <meta name="twitter:description" content="Finance tips, investing guides and learning resources from the Finlabs India team." />
+  <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+</head>
+
+<body class="doc-page kc-page kc-blogs">
+
+  <!-- include: src/partials/knowledge/nav.html -->
+
+  <main class="kc">
+    <header class="kc-pagehead">
+      <div class="kc-pagehead__copy">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../knowledge-centre.html">Knowledge Centre</a></li>
+          <li aria-current="page">Blogs</li>
+        </ol>
+        <h1>Blogs</h1>
+        <p class="kc-lead">Finance tips, investing guides and learning resources from the Finlabs team — on investor awareness, personal finance, wealth tech, learning at work and cybersecurity.</p>
+      </div>
+        <nav class="kc-switch" aria-label="Knowledge Centre sections">
+          <a href="blogs.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M15 3.5V7h3.5M9 11h6.5M9 14h6.5M9 17h4"/></svg>Blogs</a>
+          <a href="infographics.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5h16"/><path d="M6.5 17v-5M11 17V7.5M15.5 17v-3.5"/><circle cx="18.5" cy="6.5" r="2.5"/></svg>Infographics</a>
+          <a href="summariwise.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5c-2-1.6-4.8-2-8-1.5v13.5c3.2-.5 6 0 8 1.5 2-1.5 4.8-2 8-1.5V5c-3.2-.5-6-.1-8 1.5z"/><path d="M12 6.5V20"/></svg>SummariWise</a>
+        </nav>
+    </header>
+
+    <section class="kc-feature" aria-label="Latest article">
+      <!-- include: src/partials/knowledge/blog-featured.html -->
+    </section>
+
+    <section class="kc-browse" aria-labelledby="allTitle">
+      <div class="kc-browse__head">
+        <h2 id="allTitle">All articles</h2>
+        <p class="kc-count" id="kcCount" aria-live="polite">Showing all 36 articles</p>
+      </div>
+      <div class="kc-tools">
+        <label class="kc-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+          <span class="sr-only">Search the blogs</span>
+          <input id="kcSearch" type="search" placeholder="Search articles — try “SIP”, “tax” or “cyber”" autocomplete="off" />
+          <kbd aria-hidden="true">/</kbd>
+        </label>
+        <label class="kc-sort">
+          <span>Sort</span>
+          <select id="kcSort">
+            <option value="new">Newest first</option>
+            <option value="old">Oldest first</option>
+            <option value="short">Quickest reads</option>
+          </select>
+        </label>
+        <div class="kc-chips" role="group" aria-label="Filter by topic">
+          <!-- include: src/partials/knowledge/blog-chips.html -->
+        </div>
+      </div>
+
+      <ul class="kc-grid" id="kcItems">
+        <!-- include: src/partials/knowledge/blog-cards.html -->
+      </ul>
+      <div class="kc-empty" id="kcEmpty" hidden>
+        <p>No articles match that search.</p>
+        <button class="kc-btn kc-btn--ghost" type="button" data-reset>Clear the filters</button>
+      </div>
+      <div class="kc-more">
+        <button class="kc-btn kc-btn--ghost" type="button" id="kcMore">Show more articles</button>
+      </div>
+    </section>
+
+    <aside class="kc-next" aria-label="More from the Knowledge Centre">
+      <a href="infographics.html"><span>Next in the Knowledge Centre</span><b>Infographics</b><em>Key concepts at a glance →</em></a>
+      <a href="summariwise.html"><span>Short on time?</span><b>SummariWise</b><em>Bestselling books in minutes →</em></a>
+    </aside>
+  </main>
+
+  <!-- the article reader: opens over the list, one post at a time -->
+  <div class="kc-reader" id="kcReader" hidden>
+    <div class="kc-reader__scrim" data-close></div>
+    <article class="kc-reader__panel" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+      <div class="kc-reader__bar">
+        <button class="kc-reader__back" type="button" data-close>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>All articles
+        </button>
+        <div class="kc-reader__tools">
+          <button class="kc-icon-btn" type="button" data-size="-1" aria-label="Smaller text">A<small>−</small></button>
+          <button class="kc-icon-btn" type="button" data-size="1" aria-label="Larger text">A<small>+</small></button>
+          <button class="kc-icon-btn kc-reader__copy" type="button" aria-label="Copy a link to this article">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>
+          </button>
+          <button class="kc-icon-btn" type="button" data-close aria-label="Close the article">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <span class="kc-reader__progress" aria-hidden="true"><span></span></span>
+      </div>
+      <div class="kc-reader__scroll" tabindex="-1">
+        <div class="kc-reader__inner">
+          <p class="kc-card__meta kc-reader__meta"><span class="kc-tag"></span><time></time><span class="kc-reader__mins"></span></p>
+          <h2 class="kc-reader__title" id="readerTitle"></h2>
+          <figure class="kc-reader__cover"><img alt="" /></figure>
+          <div class="kc-prose kc-reader__body" aria-live="polite"></div>
+          <nav class="kc-reader__pager" aria-label="More articles"></nav>
+          <div class="kc-reader__cta">
+            <p><b>Found this useful?</b> Finlabs builds the platforms behind many of these ideas.</p>
+            <a class="kc-btn" href="../contact.html">Talk to us</a>
+          </div>
+        </div>
+      </div>
+      <p class="kc-toast" role="status" aria-live="polite"></p>
+    </article>
+  </div>
+
+  <!-- include: src/partials/knowledge/footer.html -->
+
+  <script type="module" src="/src/kc-blogs.js"></script>
+</body>
+</html>

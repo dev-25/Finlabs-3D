@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Finlabs Knowledge Centre: blogs on financial literacy, personal finance, wealth tech and cybersecurity, easy-to-read infographics, and SummariWise book summaries you can finish in minutes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <title>Knowledge Centre — Blogs, Infographics and Book Summaries | Finlabs</title>
+
+  <!-- tab icon, and how the link looks when it is shared -->
+  <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finlabs India" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Knowledge Centre — Blogs, Infographics and Book Summaries | Finlabs" />
+  <meta property="og:description" content="Blogs, infographics and SummariWise book summaries from Finlabs India — finance and technology, explained simply." />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{site}}/og-finlabs.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Knowledge Centre — Blogs, Infographics and Book Summaries | Finlabs" />
+  <meta name="twitter:description" content="Blogs, infographics and SummariWise book summaries from Finlabs India — finance and technology, explained simply." />
+  <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+</head>
+
+<body class="doc-page kc-page kc-home">
+
+  <!-- include: src/partials/knowledge/nav.html -->
+
+  <main class="kc">
+    <!-- ===================== hero: three ways in, in 3D ===================== -->
+    <section class="kc-hero" aria-labelledby="kcTitle">
+      <div class="kc-hero__copy">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Knowledge Centre</li>
+        </ol>
+        <p class="kc-eyebrow"><span class="kc-dot"></span>Welcome to the Knowledge Centre</p>
+        <h1 id="kcTitle">Expand your knowledge on <em>finance</em></h1>
+        <p class="kc-lead">
+          A treasure trove designed to empower your curiosity and broaden your horizons. Read our blogs,
+          take in a topic at a glance with an infographic, or finish a bestselling book in minutes with
+          SummariWise. Whether you’re a keen learner or a seasoned professional, explore, discover and
+          turn knowledge into action.
+        </p>
+        <ul class="kc-hero__stats">
+          <li><a href="knowledge-centre/blogs.html"><b>36</b><span>blogs</span></a></li>
+          <li><a href="knowledge-centre/infographics.html"><b>10</b><span>infographics</span></a></li>
+          <li><a href="knowledge-centre/summariwise.html"><b>31</b><span>book summaries</span></a></li>
+        </ul>
+      </div>
+      <div class="kc-hero__stage" aria-hidden="true">
+        <canvas></canvas>
+        <p class="kc-hero__hint">Pick one to open it</p>
+      </div>
+    </section>
+
+    <!-- ===================== the three sections ===================== -->
+    <section class="kc-doors" aria-labelledby="doorsTitle">
+      <header class="kc-head">
+        <p class="kc-eyebrow"><span class="kc-dot"></span>Three ways to learn</p>
+        <h2 id="doorsTitle">Choose how you want to learn today</h2>
+      </header>
+      <div class="kc-doors__grid">
+        <article class="kc-door" data-door="blogs">
+          <span class="kc-door__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M15 3.5V7h3.5M9 11h6.5M9 14h6.5M9 17h4"/></svg></span>
+          <p class="kc-door__count"><b>36</b> articles · since 2018</p>
+          <h3><a class="kc-door__link" href="knowledge-centre/blogs.html">Blogs</a></h3>
+          <p class="kc-door__text">Finance tips, investing guides and learning resources — from investor awareness and personal finance to wealth tech and cybersecurity.</p>
+          <p class="kc-door__label">Latest</p>
+          <ul class="kc-door__latest">
+            <!-- include: src/partials/knowledge/home-latest-blogs.html -->
+          </ul>
+          <a class="kc-door__cta" href="knowledge-centre/blogs.html" tabindex="-1" aria-hidden="true">Read the blogs <span>→</span></a>
+        </article>
+        <article class="kc-door" data-door="infographics">
+          <span class="kc-door__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20.5h16"/><path d="M6.5 17v-5M11 17V7.5M15.5 17v-3.5"/><circle cx="18.5" cy="6.5" r="2.5"/></svg></span>
+          <p class="kc-door__count"><b>10</b> infographics · 11 visuals</p>
+          <h3><a class="kc-door__link" href="knowledge-centre/infographics.html">Infographics</a></h3>
+          <p class="kc-door__text">Quickly grasp key financial and technology concepts, trends and innovations through easy-to-understand visuals.</p>
+          <p class="kc-door__label">Latest</p>
+          <ul class="kc-door__latest">
+            <!-- include: src/partials/knowledge/home-latest-infographics.html -->
+          </ul>
+          <a class="kc-door__cta" href="knowledge-centre/infographics.html" tabindex="-1" aria-hidden="true">See the infographics <span>→</span></a>
+        </article>
+        <article class="kc-door" data-door="summariwise">
+          <span class="kc-door__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6.5c-2-1.6-4.8-2-8-1.5v13.5c3.2-.5 6 0 8 1.5 2-1.5 4.8-2 8-1.5V5c-3.2-.5-6-.1-8 1.5z"/><path d="M12 6.5V20"/></svg></span>
+          <p class="kc-door__count"><b>31</b> book summaries · free PDFs</p>
+          <h3><a class="kc-door__link" href="knowledge-centre/summariwise.html">SummariWise</a></h3>
+          <p class="kc-door__text">Attention busy bees! Knowledge on the fly — a concise, captivating summary of a must-read book, so you can keep buzzing from one book to the next.</p>
+          <p class="kc-door__label">Latest</p>
+          <ul class="kc-door__latest">
+            <!-- include: src/partials/knowledge/home-latest-summaries.html -->
+          </ul>
+          <a class="kc-door__cta" href="knowledge-centre/summariwise.html" tabindex="-1" aria-hidden="true">Browse the summaries <span>→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== every topic, one click away ===================== -->
+    <section class="kc-topics" aria-labelledby="topicsTitle">
+      <header class="kc-head">
+        <p class="kc-eyebrow"><span class="kc-dot"></span>Browse by topic</p>
+        <h2 id="topicsTitle">Jump straight to what you need</h2>
+      </header>
+      <div class="kc-topics__filter" role="group" aria-label="Show topics from">
+        <button class="kc-chip" type="button" data-kind="all" aria-pressed="true">Everything</button>
+        <button class="kc-chip" type="button" data-kind="blogs" aria-pressed="false">Blogs</button>
+        <button class="kc-chip" type="button" data-kind="infographics" aria-pressed="false">Infographics</button>
+        <button class="kc-chip" type="button" data-kind="summariwise" aria-pressed="false">SummariWise</button>
+      </div>
+      <ul class="kc-topics__list">
+        <!-- include: src/partials/knowledge/home-topics.html -->
+      </ul>
+    </section>
+
+    <!-- ===================== closing call to action ===================== -->
+    <section class="kc-cta" aria-labelledby="ctaTitle">
+      <div>
+        <p class="kc-eyebrow"><span class="kc-dot"></span>From insight to impact</p>
+        <h2 id="ctaTitle">Want these ideas working inside your business?</h2>
+        <p>Finlabs builds wealth-tech, learning and investor-awareness platforms for financial institutions. Tell us what you’re working on.</p>
+      </div>
+      <div class="kc-cta__btns">
+        <a class="kc-btn" href="contact.html">Contact us</a>
+        <a class="kc-btn kc-btn--ghost" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Book a call</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- include: src/partials/knowledge/footer.html -->
+
+  <script type="module" src="/src/knowledge.js"></script>
+</body>
+</html>
