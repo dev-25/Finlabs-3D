@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Careers at Finlabs India — open roles in engineering, sales and product, plus internships. Ten years of building technology for financial services, and we are still hiring." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <title>Careers — Finlabs</title>
+
+  <!-- tab icon, and how the link looks when it is shared -->
+  <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finlabs India" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Careers — Finlabs" />
+  <meta property="og:description" content="Open roles in engineering, sales and product at Finlabs India, plus internships in Mumbai." />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{site}}/og-finlabs.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Careers — Finlabs" />
+  <meta name="twitter:description" content="Open roles in engineering, sales and product at Finlabs India, plus internships in Mumbai." />
+  <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+</head>
+
+<body class="doc-page">
+
+  <header class="site-nav">
+    <a class="site-nav__brand" href="index.html" aria-label="Finlabs home">
+      <img src="/finlabs-logo.png" alt="Finlabs — Celebrating a Decade of Impact" />
+    </a>
+    <nav class="site-nav__links" id="siteLinks" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="services.html">Services</a>
+      <a href="https://finlabsindia.org/knowledge-centre/" target="_blank" rel="noopener">Knowledge Centre</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button id="themeToggle" class="site-nav__theme" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></g></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z" fill="currentColor"/></svg>
+      </button>
+      <a class="site-nav__contact" href="contact.html">Contact Us</a>
+      <button class="site-nav__menu" type="button" aria-expanded="false" aria-controls="siteLinks" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+
+  <main class="careers">
+    <header class="careers__hero">
+      <ol class="crumbs" aria-label="Breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li>Careers</li>
+      </ol>
+      <h1>Ten years. Still building.</h1>
+      <p class="careers__lead">
+        For ten years we have been building technology that transforms financial services. Now we are
+        looking for passionate people to help shape what comes next. Join Finlabs and build products
+        that make a real impact.
+      </p>
+      <ul class="careers__facts">
+        <li>5 open roles</li>
+        <li>Mumbai &amp; Pan India</li>
+        <li>Full time &amp; internships</li>
+        <li><a href="mailto:hr@finlabsindia.com">hr@finlabsindia.com</a></li>
+      </ul>
+    </header>
+
+    <section class="roles" id="openings" aria-labelledby="openingsTitle">
+      <div class="roles__head">
+        <h2 id="openingsTitle">Current openings</h2>
+        <p class="roles__count" id="roleCount" role="status">5 open roles</p>
+      </div>
+      <p class="careers__lead" style="max-width:78ch;margin-top:8px">
+        Driven by our core values, we are passionate about what we do — and we are looking for team
+        members who are every bit as passionate. Ready to take that leap of faith?
+      </p>
+
+      <div class="filters">
+        <label class="filters__search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input id="roleSearch" type="search" placeholder="Search roles — Node.js, sales, internship…" aria-label="Search open roles" />
+        </label>
+        <div class="filters__row" role="group" aria-label="Filter by team">
+          <span class="filters__label">Team</span>
+          <button class="chip" type="button" data-filter="category" data-value="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="category" data-value="Information Technology" aria-pressed="false">Information Technology</button>
+          <button class="chip" type="button" data-filter="category" data-value="Sales" aria-pressed="false">Sales</button>
+        </div>
+        <div class="filters__row" role="group" aria-label="Filter by location">
+          <span class="filters__label">Location</span>
+          <button class="chip" type="button" data-filter="location" data-value="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="location" data-value="Mumbai" aria-pressed="false">Mumbai</button>
+          <button class="chip" type="button" data-filter="location" data-value="Pan India" aria-pressed="false">Pan India</button>
+        </div>
+      </div>
+
+      <div class="jobs">
+        <article class="job" id="backend-developer-node-js" data-category="Information Technology" data-location="Pan India">
+          <button class="job__head" type="button" aria-expanded="false" aria-controls="panel-backend-developer-node-js">
+            <span>
+              <span class="job__title">Backend Developer (Node.js)</span>
+              <span class="job__meta">
+                <span class="tag">Information Technology</span>
+                <span class="tag">Full Time</span>
+                <span class="tag">Pan India</span>
+                <span class="tag tag--exp">4–5 years</span>
+              </span>
+            </span>
+            <span class="job__toggle"></span>
+          </button>
+          <div class="job__panel" id="panel-backend-developer-node-js" hidden>
+<h4>About the role</h4>
+          <p>We are looking for an experienced and motivated <strong>Backend Developer – Node.js</strong> with 4–5 years of hands-on experience in backend application development. The ideal candidate will have strong expertise in Node.js and JavaScript, experience building scalable REST APIs, and a solid understanding of PostgreSQL databases.</p>
+          <p>You will work closely with cross-functional teams to design, develop, test, deploy and maintain reliable backend services, following industry best practices, coding standards and Agile development methodologies.</p>
+          <h4>Key responsibilities</h4>
+          <ul>
+            <li>Design, develop and maintain scalable, high-performance backend applications using Node.js</li>
+            <li>Build and maintain robust RESTful APIs for web and application-based solutions</li>
+            <li>Write clean, maintainable, reusable and efficient code following established coding standards</li>
+            <li>Work with PostgreSQL databases — database design, SQL queries, indexing and performance optimisation</li>
+            <li>Use ORM libraries such as Sequelize or Prisma for efficient database interaction</li>
+            <li>Implement authentication and authorisation using technologies such as JWT and OAuth</li>
+            <li>Perform API testing and debugging with tools such as Postman</li>
+            <li>Use Git and standard branching strategies for source code management</li>
+            <li>Take part in code reviews and follow secure coding practices</li>
+            <li>Collaborate with frontend developers, QA engineers, product teams and other stakeholders</li>
+            <li>Take part in application deployment and release processes</li>
+            <li>Implement logging, monitoring and debugging practices that keep applications reliable</li>
+            <li>Follow Agile/Scrum — sprint planning, stand-ups, reviews and retrospectives</li>
+            <li>Track work in Jira or a similar issue-tracking tool</li>
+          </ul>
+          <div class="job__cols">
+            <div>
+              <h4>Required technical skills</h4>
+              <ul>
+                <li>4–5 years of professional backend development with Node.js</li>
+                <li>Strong JavaScript (ES6+) and asynchronous programming</li>
+                <li>Developing and integrating REST APIs</li>
+                <li>PostgreSQL: database design, SQL, indexing, query and performance optimisation</li>
+                <li>ORM libraries such as Sequelize or Prisma</li>
+                <li>Git and standard branching strategies</li>
+                <li>Deployment and release processes</li>
+                <li>API testing tools such as Postman</li>
+                <li>Authentication and authorisation, including JWT and OAuth</li>
+                <li>Logging, monitoring, troubleshooting and debugging</li>
+                <li>CI/CD concepts are an added advantage</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Process &amp; development practices</h4>
+              <ul>
+                <li>Good understanding of Agile/Scrum</li>
+                <li>Experience across the software development life cycle</li>
+                <li>Coding standards, clean code and development best practices</li>
+                <li>Secure coding practices and code review</li>
+                <li>CI/CD pipelines are an advantage</li>
+                <li>Jira or a similar tool</li>
+              </ul>
+              <h4>Desired candidate profile</h4>
+              <ul>
+                <li>Strong analytical and problem-solving skills</li>
+                <li>Excellent communication and interpersonal skills</li>
+                <li>Works well independently and in a collaborative Agile team</li>
+                <li>Strong ownership of tasks and deliverables</li>
+                <li>Attention to detail and a commitment to software quality</li>
+                <li>Eager to learn and adapt to new technologies</li>
+              </ul>
+            </div>
+          </div>
+          <h4>Educational qualifications</h4>
+          <ul><li>Bachelor's degree in Computer Science, Information Technology or a related field</li></ul>
+          <h4>Why join us?</h4>
+          <ul>
+            <li>Challenging backend development projects</li>
+            <li>A collaborative, Agile working environment</li>
+            <li>Continuous learning and professional growth</li>
+            <li>Exposure to modern backend technologies, practices and deployment processes</li>
+          </ul>
+            <div class="job__apply">
+              <a class="btn-apply" href="mailto:hr@finlabsindia.com?subject=Application:%20Backend%20Developer%20(Node.js)">Apply for this role <span aria-hidden="true">→</span></a>
+              <span>Email your CV to hr@finlabsindia.com with the role in the subject line.</span>
+            </div>
+          </div>
+        </article>
+        <article class="job" id="senior-java-developer" data-category="Information Technology" data-location="Pan India">
+          <button class="job__head" type="button" aria-expanded="false" aria-controls="panel-senior-java-developer">
+            <span>
+              <span class="job__title">Senior Java Developer (3–5 Years Experience)</span>
+              <span class="job__meta">
+                <span class="tag">Information Technology</span>
+                <span class="tag">Full Time</span>
+                <span class="tag">Pan India</span>
+                <span class="tag tag--exp">3–5 years</span>
+              </span>
+            </span>
+            <span class="job__toggle"></span>
+          </button>
+          <div class="job__panel" id="panel-senior-java-developer" hidden>
+<h4>About the role</h4>
+          <p>We are looking for a skilled and motivated <strong>Senior Java Developer</strong> with 3–5 years of experience designing, developing and maintaining enterprise applications. You should have strong expertise in Java backend development, RESTful APIs, database design and modern software development practices, and be capable of independently developing features, performing developer testing, debugging issues and delivering production-ready code.</p>
+          <h4>Key responsibilities</h4>
+          <ul>
+            <li>Design, develop and maintain scalable Java-based applications</li>
+            <li>Develop and consume RESTful APIs and backend services</li>
+            <li>Implement efficient CRUD operations across relational and NoSQL databases</li>
+            <li>Analyse business requirements and translate them into technical solutions</li>
+            <li>Perform root cause analysis, debugging and issue resolution</li>
+            <li>Write clean, reusable, maintainable and well-documented code</li>
+            <li>Write and run unit tests, and maintain code coverage</li>
+            <li>Take part in code reviews and uphold coding standards</li>
+            <li>Use Git, following branching and merging strategies</li>
+            <li>Work with CI/CD pipelines for automated build, testing and deployment</li>
+            <li>Use GitHub Copilot or similar AI assistants, validating what they generate</li>
+            <li>Collaborate with frontend, QA, DevOps and product teams in an Agile/Scrum environment</li>
+          </ul>
+          <div class="job__cols">
+            <div>
+              <h4>Core technologies</h4>
+              <ul>
+                <li>Java 11/17 or above</li>
+                <li>Spring Boot, Spring MVC, Spring Data JPA / Hibernate</li>
+                <li>RESTful API development</li>
+                <li>Microservices architecture (preferred)</li>
+              </ul>
+              <h4>Databases</h4>
+              <ul>
+                <li>PostgreSQL, MySQL, Oracle Database, MongoDB</li>
+                <li>SQL query optimisation and CRUD operations</li>
+                <li>Database design fundamentals</li>
+              </ul>
+              <h4>Version control &amp; DevOps</h4>
+              <ul>
+                <li>Git with GitHub, GitLab or Bitbucket</li>
+                <li>CI/CD concepts (Jenkins, GitHub Actions, Azure DevOps or similar)</li>
+                <li>Basic Docker knowledge is an added advantage</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Development practices</h4>
+              <ul>
+                <li>Object-oriented programming and design patterns</li>
+                <li>Exception handling and logging frameworks (SLF4J, Logback)</li>
+                <li>Secure coding and code standardisation</li>
+                <li>Static code analysis (SonarQube preferred)</li>
+              </ul>
+              <h4>Debugging &amp; analysis</h4>
+              <ul>
+                <li>Root cause analysis and application debugging</li>
+                <li>Performance and log analysis</li>
+                <li>Problem solving and troubleshooting</li>
+              </ul>
+              <h4>Preferred skills</h4>
+              <ul>
+                <li>Spring Security and JWT authentication</li>
+                <li>Redis, Swagger/OpenAPI</li>
+                <li>Basic Linux commands</li>
+                <li>Cloud exposure (AWS, Azure or GCP)</li>
+              </ul>
+            </div>
+          </div>
+          <h4>Educational qualification</h4>
+          <ul><li>Bachelor's degree in Computer Science, Information Technology, Engineering or a related field</li></ul>
+            <div class="job__apply">
+              <a class="btn-apply" href="mailto:hr@finlabsindia.com?subject=Application:%20Senior%20Java%20Developer">Apply for this role <span aria-hidden="true">→</span></a>
+              <span>Email your CV to hr@finlabsindia.com with the role in the subject line.</span>
+            </div>
+          </div>
+        </article>
+        <article class="job" id="business-development-executive" data-category="Sales" data-location="Pan India">
+          <button class="job__head" type="button" aria-expanded="false" aria-controls="panel-business-development-executive">
+            <span>
+              <span class="job__title">Business Development Executive (Telecaller)</span>
+              <span class="job__meta">
+                <span class="tag">Sales</span>
+                <span class="tag">Full Time</span>
+                <span class="tag">Pan India</span>
+                <span class="tag tag--exp">1–3 years (BFSI / B2B sales)</span>
+              </span>
+            </span>
+            <span class="job__toggle"></span>
+          </button>
+          <div class="job__panel" id="panel-business-development-executive" hidden>
+<h4>About the role</h4>
+          <p>We are looking for a dynamic, confident and highly persuasive <strong>telecaller</strong> with a proven track record in BFSI product sales or B2B inside sales. You will be responsible for outbound calling, lead conversion, demo scheduling and relationship management with financial professionals across India.</p>
+          <p>The role asks for excellent communication, product understanding, empathy and follow-up discipline. You will be the first voice of Finexa — our AI-powered platform for investment advisors, wealth managers and mutual fund distributors — building long-term trust from the first call through to the sale.</p>
+          <h4>Lead generation &amp; prospect engagement</h4>
+          <ul>
+            <li>Call warm and cold leads — MFDs, IFAs and wealth managers — from campaigns, emails and events</li>
+            <li>Pitch Finexa SaaS, highlighting its benefits, key features and AI-powered advantages</li>
+            <li>Schedule product demos and see interested leads through to a completed demo</li>
+            <li>Follow up diligently on demo-to-sale conversion and track leads in the CRM</li>
+          </ul>
+          <h4>Sales fulfilment &amp; onboarding</h4>
+          <ul>
+            <li>Work with the product fulfilment team for seamless onboarding after a sale</li>
+            <li>Introduce clients to the activation and support teams for a smooth setup</li>
+            <li>Make periodic check-in and satisfaction calls after onboarding</li>
+          </ul>
+          <h4>Client relationship &amp; retention</h4>
+          <ul>
+            <li>Maintain long-term relationships through regular interaction and feedback</li>
+            <li>Update clients on new features, enhancements and renewal benefits</li>
+            <li>Send renewal reminders and follow up on subscription collections</li>
+            <li>Encourage referrals and repeat purchases through trust-based engagement</li>
+          </ul>
+          <div class="job__cols">
+            <div>
+              <h4>Performance tracking &amp; reporting</h4>
+              <ul>
+                <li>Achieve weekly and monthly sales and demo targets</li>
+                <li>Keep accurate calling and follow-up records in the CRM</li>
+                <li>Share daily reports on calls made, demos scheduled and closures</li>
+                <li>Report on lead response time and objections to improve conversion</li>
+              </ul>
+              <h4>Market intelligence</h4>
+              <ul>
+                <li>Track competitor products, pricing and trial offers in SaaS fintech</li>
+                <li>Capture client feedback and feature requests for the product team</li>
+                <li>Spot regions and advisor clusters worth reaching out to</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Required skills &amp; qualifications</h4>
+              <ul>
+                <li>1–3 years in telecalling, telesales or inside sales, preferably B2B, fintech or financial products</li>
+                <li>Strong communication in English; Hindi, Marathi, Bengali, Tamil or another regional language preferred</li>
+                <li>Persuasion, negotiation and objection handling</li>
+                <li>CRM systems, calling tools and Zoom or Microsoft Teams</li>
+                <li>Proactive and disciplined, with flexible hours when required</li>
+                <li>Comfortable with large lead databases and conversion targets</li>
+              </ul>
+              <h4>Preferred attributes</h4>
+              <ul>
+                <li>Experience selling to MFDs, IFAs, RIAs or wealth management professionals</li>
+                <li>Exposure to AI-driven SaaS or digital subscription platforms</li>
+                <li>High emotional intelligence and client empathy</li>
+                <li>Tech-savvy, detail-oriented and comfortable with data</li>
+              </ul>
+            </div>
+          </div>
+          <h4>What you'll get</h4>
+          <ul>
+            <li>Work with one of India's fastest-growing fintech SaaS ecosystems</li>
+            <li>Exposure to end-to-end sales automation and CRM systems</li>
+            <li>An environment that values initiative, ownership and growth</li>
+            <li>A flexible working model with performance-based incentives</li>
+          </ul>
+            <div class="job__apply">
+              <a class="btn-apply" href="mailto:hr@finlabsindia.com?subject=Application:%20Business%20Development%20Executive">Apply for this role <span aria-hidden="true">→</span></a>
+              <span>Email your CV to hr@finlabsindia.com with the role in the subject line.</span>
+            </div>
+          </div>
+        </article>
+        <article class="job" id="project-manager-custom-fintech-solutions" data-category="Information Technology" data-location="Mumbai">
+          <button class="job__head" type="button" aria-expanded="false" aria-controls="panel-project-manager-custom-fintech-solutions">
+            <span>
+              <span class="job__title">Project Manager – Custom Fintech Solutions</span>
+              <span class="job__meta">
+                <span class="tag">Information Technology</span>
+                <span class="tag">Full Time</span>
+                <span class="tag">Mumbai</span>
+                <span class="tag tag--exp">10+ years (fintech / financial services)</span>
+              </span>
+            </span>
+            <span class="job__toggle"></span>
+          </button>
+          <div class="job__panel" id="panel-project-manager-custom-fintech-solutions" hidden>
+<h4>The role</h4>
+          <p>We are seeking an exceptional <strong>Project Manager – Custom Fintech Solutions</strong> to own end-to-end delivery of bespoke financial technology products across our wealth management, bond market and investor platform verticals. This is not a coordination role — it is a delivery leadership position for someone who has worked at the confluence of financial domain expertise and modern software engineering.</p>
+          <p>You will lead a cross-functional team of 8+ — frontend engineers, backend engineers, Flutter developers, QA specialists and a business analyst — translating complex financial requirements into production-grade, scalable solutions, on time and within scope. You will report to the CTO / Chief Delivery Officer.</p>
+          <h4>Project leadership &amp; delivery</h4>
+          <ul>
+            <li>Own the full project lifecycle — requirements, sprint planning, UAT, deployment and post-go-live stabilisation</li>
+            <li>Deliver bespoke wealth management platforms, bond market solutions and investor-facing products</li>
+            <li>Manage parallel workstreams across multiple clients and product lines</li>
+            <li>Establish milestone governance, sprint cadence and release readiness checkpoints</li>
+          </ul>
+          <h4>Business requirements &amp; documentation</h4>
+          <ul>
+            <li>Lead BRD and FRD/SRS authoring with business analysts, turning client intent into precise technical specifications</li>
+            <li>Run deep-dive discovery workshops with BFSI clients to extract, validate and prioritise requirements</li>
+            <li>Maintain living documentation that keeps every stakeholder on one source of truth</li>
+          </ul>
+          <h4>Team management</h4>
+          <ul>
+            <li>Lead and mentor frontend, backend and Flutter developers, QA engineers and a business analyst</li>
+            <li>Allocate resources across sprints and resolve blockers before they become escalations</li>
+            <li>Build a culture of accountability, continuous improvement and technical excellence</li>
+            <li>Run 1:1s, performance reviews and structured retrospectives</li>
+          </ul>
+          <h4>Stakeholder &amp; client management</h4>
+          <ul>
+            <li>Be the interface between Finlabs leadership, engineering teams and BFSI clients</li>
+            <li>Manage expectations transparently — flag risks early and communicate trade-offs</li>
+            <li>Deliver executive-level status reporting, dashboards and escalation protocols</li>
+          </ul>
+          <h4>Process, quality &amp; governance</h4>
+          <ul>
+            <li>Run sprint planning, stand-ups, reviews and retrospectives with precision</li>
+            <li>Build QA cycles, regression testing and UAT into timelines rather than bolting them on</li>
+            <li>Own JIRA boards end to end: epics, stories, velocity tracking and burndown analysis</li>
+            <li>Enforce change management and scope governance on bespoke builds</li>
+          </ul>
+          <div class="job__cols">
+            <div>
+              <h4>Domain expertise</h4>
+              <ul>
+                <li>Wealth management platforms, bond markets, mutual fund ecosystems and compliance frameworks (SEBI, RBI, AMFI)</li>
+                <li>Financial product lifecycles: portfolio management, fixed income, IAP mandates and digital distribution</li>
+              </ul>
+              <h4>Tools</h4>
+              <ul>
+                <li>JIRA (advanced) and Confluence</li>
+                <li>Monday.com, Asana or ClickUp; Notion</li>
+                <li>Microsoft Project or Smartsheet</li>
+                <li>Slack or Microsoft Teams; Miro and Figma</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Engineering acumen</h4>
+              <ul>
+                <li>Modern stacks: React or Angular, Node.js, Python, Java/Spring Boot, Flutter, AWS/Azure/GCP</li>
+                <li>Reviewing architecture proposals and making informed delivery trade-offs</li>
+                <li>REST APIs, microservices, CI/CD and DevOps as they affect release governance</li>
+                <li>AI/ML in fintech products is a distinct advantage</li>
+                <li>Data privacy, DPDP Act compliance and BFSI regulatory constraints</li>
+              </ul>
+              <h4>Methodologies</h4>
+              <ul>
+                <li>PMP, PRINCE2, PMI-ACP, CSM or equivalent — at least one required</li>
+                <li>Hands-on Agile/Scrum; SAFe is a strong plus</li>
+                <li>Requirement elicitation, story pointing, UAT, release management and hypercare</li>
+              </ul>
+            </div>
+          </div>
+          <h4>What you bring</h4>
+          <ul>
+            <li>10+ years overall, with at least 5 in BFSI or fintech delivering custom software</li>
+            <li>A track record of complex, multi-stakeholder fintech projects delivered on time, budget and scope</li>
+            <li>Managing cross-functional engineering teams of 6–10 with accountability for delivery</li>
+            <li>Strong BRD/SRS authoring — as comfortable in a client workshop as in backlog grooming</li>
+            <li>Exceptional communication: you can brief a CXO and a developer on the same day</li>
+            <li>High ownership — you act without waiting for direction</li>
+            <li>Fluency with delivery data: velocity charts, risk registers, utilisation dashboards</li>
+          </ul>
+          <h4>Bonus points</h4>
+          <ul>
+            <li>Bond market platforms, fixed income digital distribution or algo-driven portfolio tools</li>
+            <li>SEBI-regulated platforms, investor education mandates or AMFI-compliant products</li>
+            <li>LMS or EdTech platforms in a financial services context</li>
+            <li>AI-augmented product development; an MBA, CFA or FRM is an edge, not a requirement</li>
+          </ul>
+          <h4>Why Finlabs India</h4>
+          <ul>
+            <li><strong>Domain that matters</strong> — investor education, wealth creation and market access at scale</li>
+            <li><strong>Founders who build</strong> — a technical, commercially sharp founding team</li>
+            <li><strong>Build, don't maintain</strong> — new products and greenfield builds</li>
+            <li><strong>Marquee clients</strong> — India's leading AMCs, banks, DPs and financial institutions</li>
+          </ul>
+          <h4>How to apply</h4>
+          <p>Send your updated resume with a brief note — no more than 200 words — on the most complex custom fintech project you have delivered and what made it exceptional. Use the subject line <strong>PM – Custom Fintech Solutions | [Your Name]</strong>.</p>
+            <div class="job__apply">
+              <a class="btn-apply" href="mailto:hr@finlabsindia.com?subject=Application:%20PM%20%E2%80%93%20Custom%20Fintech%20Solutions">Apply for this role <span aria-hidden="true">→</span></a>
+              <span>Email your CV to hr@finlabsindia.com with the role in the subject line.</span>
+            </div>
+          </div>
+        </article>
+        <article class="job" id="internship-product-development" data-category="Information Technology" data-location="Mumbai">
+          <button class="job__head" type="button" aria-expanded="false" aria-controls="panel-internship-product-development">
+            <span>
+              <span class="job__title">Internship — Business Development, Marketing, Sales, Strategy, Product Development</span>
+              <span class="job__meta">
+                <span class="tag">Information Technology</span>
+                <span class="tag">Full Time</span>
+                <span class="tag">Mumbai</span>
+                <span class="tag tag--exp">0–1 year</span>
+              </span>
+            </span>
+            <span class="job__toggle"></span>
+          </button>
+          <div class="job__panel" id="panel-internship-product-development" hidden>
+<h4>About the internship</h4>
+          <p>Finlabs India is inviting applications for an internship programme across several areas — business development, marketing, sales, strategy and product development. It is a chance to work closely with a passionate team, gain real-world experience, and contribute to projects that make an impact in financial technology.</p>
+          <div class="job__cols">
+            <div>
+              <h4>What you'll get</h4>
+              <ul>
+                <li>Hands-on experience in a fast-growing fintech environment</li>
+                <li>Mentorship from experienced professionals</li>
+                <li>Exposure to live business and product challenges</li>
+                <li>A chance to pitch ideas, experiment and see your work come to life</li>
+              </ul>
+            </div>
+            <div>
+              <h4>We're looking for</h4>
+              <ul>
+                <li>Curious, proactive and driven individuals</li>
+                <li>Strong communication and problem-solving skills</li>
+                <li>A genuine interest in financial technology and innovation</li>
+                <li>Students or recent graduates eager to learn and grow</li>
+              </ul>
+            </div>
+          </div>
+            <div class="job__apply">
+              <a class="btn-apply" href="mailto:hr@finlabsindia.com?subject=Application:%20Internship">Apply for this role <span aria-hidden="true">→</span></a>
+              <span>Email your CV to hr@finlabsindia.com with the role in the subject line.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="roles__empty" id="rolesEmpty" hidden>
+        No roles match that search. Clear the filters, or write to
+        <a href="mailto:hr@finlabsindia.com">hr@finlabsindia.com</a> — we read every CV.
+      </p>
+    </section>
+
+    <section class="culture" aria-labelledby="cultureTitle">
+      <h2 id="cultureTitle">An open and collaborative place to work</h2>
+      <p>
+        At Finlabs we believe in fostering not just careers, but people who become catalysts of
+        innovation. Joining the team means a dynamic environment that runs on individual
+        responsibility and collective growth.
+      </p>
+      <div class="culture__grid">
+        <article class="culture__card">
+          <span class="culture__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5.5c0 4.3-2.9 7.8-7 9.2-4.1-1.4-7-4.9-7-9.2V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>Trust and ownership</h3>
+          <p>The best work comes from a balance of trust and empowerment, so team members own their
+            responsibilities and drive outcomes that carry across the financial landscape.</p>
+        </article>
+        <article class="culture__card">
+          <span class="culture__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <h3>A flexible setting</h3>
+          <p>Life is diverse and so are our people. Morning person or night owl, remote or in the
+            office with everyone else — the working environment adapts to you.</p>
+        </article>
+        <article class="culture__card">
+          <span class="culture__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.4 5.6 6 .5-4.6 4 1.4 5.9L12 15.9 6.8 19l1.4-5.9-4.6-4 6-.5z"/></svg></span>
+          <h3>Work that means something</h3>
+          <p>Your ideas matter, your efforts count and your contributions last. Every team member
+            plays a part in shaping the future of financial solutions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="apply-box" aria-labelledby="applyTitle">
+      <div>
+        <h2 id="applyTitle">Don't see your role?</h2>
+        <p>Write to us anyway. Tell us what you would like to build and where you think you fit —
+          we read every CV that reaches us.</p>
+      </div>
+      <div class="apply-box__btns">
+        <a class="is-solid" href="mailto:hr@finlabsindia.com?subject=Open%20application">Write to hr@finlabsindia.com</a>
+        <a class="is-ghost" href="about.html">Meet the team</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__panel">
+      <div class="foot__brand">
+        <img src="/finlabs-logo.png" alt="Finlabs" />
+        <a class="foot__mail" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
+        <ul class="social" aria-label="Finlabs on social media">
+          <li><a href="https://www.linkedin.com/company/14438243/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v12H3zM9 9h2.9v1.7h.1c.4-.8 1.4-1.9 3-1.9 3.2 0 3.9 2.1 3.9 4.9V21h-3v-6.4c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/finlabsindia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></li>
+          <li><a href="https://www.facebook.com/finlabsind" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z"/></svg></a></li>
+          <li><a href="https://twitter.com/IndiaFinlabs" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg></a></li>
+          <li><a href="https://www.youtube.com/@finlabsindia7860" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a></li>
+          <li><a href="https://wa.me/919372787432" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.6 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5zm0 17.1a7.7 7.7 0 0 1-3.9-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 1 1 12 19.6zm4.2-5.8c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.3 6.3 0 0 1-3.1-2.7c-.2-.4.2-.4.7-1.3.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.2-.2-.5-.3z"/></svg></a></li>
+        </ul>
+      </div>
+      <nav class="foot__cols" aria-label="Site">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html" aria-current="page">Career</a></li>
+          <li><a href="https://finlabsindia.org/blog/" target="_blank" rel="noopener">Blog</a></li>
+        </ul>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="https://finlabsindia.org/knowledge-centre/" target="_blank" rel="noopener">Knowledge Centre</a></li>
+        </ul>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="Finlabs-Corpdeck-Brochure.pdf" target="_blank" rel="noopener">Download Brochure</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms and Conditions</a></li>
+        </ul>
+      </nav>
+      <div class="foot__cta">
+        <h3>Have questions or want to learn more?</h3>
+        <p>Feel free to reach out or schedule a quick call — we're happy to help.</p>
+        <a href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Book A Call</a>
+      </div>
+    </div>
+    <p class="foot__copy">© copyright Finlabs India Pvt. Ltd. | All Rights Reserved</p>
+  </footer>
+
+  <script type="module" src="/src/careers.js"></script>
+</body>
+</html>

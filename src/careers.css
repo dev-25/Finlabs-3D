@@ -1,0 +1,151 @@
+/* =====================================================
+ * CAREERS
+ * =====================================================
+ * A plain page: the openings, what each one asks for,
+ * and how to apply. No 3D — the work is the point.
+ * Built on the reading pages' tokens (doc.css).
+ * ===================================================== */
+
+.careers { padding: 120px var(--pad) 40px; }
+.careers__hero { max-width: 760px; margin-bottom: clamp(26px, 4vw, 44px); }
+.careers__hero h1 {
+  font-family: var(--display); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;
+  font-size: clamp(34px, 5.4vw, 60px); margin: 12px 0 14px;
+}
+.careers__lead { color: var(--ink-2); font-size: clamp(16px, 1.3vw, 18px); }
+.careers__facts { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 20px; list-style: none; }
+.careers__facts li {
+  padding: 7px 13px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  color: var(--ink-2); background: var(--soft); border: 1px solid var(--line);
+}
+.careers__facts a { color: var(--brand); text-decoration: none; }
+
+/* ---------- finding a role ---------- */
+.roles { max-width: 1040px; }
+.roles__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; }
+.roles__head h2 { font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; }
+.roles__count { font-size: 14px; color: var(--ink-3); }
+
+.filters {
+  display: grid; gap: 14px; margin: 20px 0 22px; padding: 16px;
+  border-radius: 18px; background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.filters__search { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); }
+.filters__search svg { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--ink-3); stroke-width: 1.8; }
+.filters__search input { flex: 1; border: 0; outline: none; background: none; font: 500 15px var(--body); color: var(--ink); }
+.filters__row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.filters__label { font: 600 11px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-right: 4px; }
+.chip {
+  padding: 7px 14px; border-radius: 999px; cursor: pointer;
+  font: 600 13.5px/1 var(--body); color: var(--ink-2);
+  background: transparent; border: 1px solid var(--line);
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+.chip:hover { color: var(--ink); border-color: var(--brand); }
+.chip[aria-pressed="true"] { color: #fff; background: var(--brand); border-color: var(--brand); }
+:root[data-theme="dark"] .chip[aria-pressed="true"] { color: #06102a; }
+
+/* ---------- one opening ---------- */
+.jobs { display: grid; gap: 12px; }
+.job {
+  border-radius: 18px; background: var(--paper); border: 1px solid var(--paper-edge);
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.job:hover { border-color: color-mix(in srgb, var(--brand) 40%, transparent); }
+.job[hidden] { display: none; }
+.job__head {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px;
+  width: 100%; padding: 18px 20px; cursor: pointer; text-align: left;
+  background: none; border: 0; color: inherit; font: inherit;
+}
+.job__title { font-family: var(--display); font-size: clamp(17px, 1.7vw, 21px); font-weight: 700; display: block; }
+.job__meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.tag {
+  padding: 4px 10px; border-radius: 999px; font: 600 12px/1.5 var(--body);
+  color: var(--ink-2); background: var(--soft); border: 1px solid var(--line);
+}
+.tag--exp { color: var(--brand); }
+.job__toggle {
+  display: grid; place-items: center; width: 34px; height: 34px; flex: none;
+  border-radius: 50%; border: 1px solid var(--line); color: var(--brand);
+  transition: transform 0.25s, background 0.2s;
+}
+.job__toggle::before { content: "+"; font-size: 20px; line-height: 1; }
+.job__head[aria-expanded="true"] .job__toggle { transform: rotate(45deg); background: var(--soft); }
+
+.job__panel { padding: 0 20px 22px; border-top: 1px solid var(--line); }
+.job__panel[hidden] { display: none; }
+.job__panel h4 {
+  font: 700 11.5px/1.4 var(--mono); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--brand); margin: 20px 0 8px;
+}
+.job__panel p { color: var(--ink-2); margin-bottom: 10px; max-width: 78ch; }
+.job__panel ul { list-style: none; display: grid; gap: 6px; margin-bottom: 8px; }
+.job__panel li { position: relative; padding-left: 20px; color: var(--ink-2); font-size: 15px; }
+.job__panel li::before {
+  content: ""; position: absolute; left: 2px; top: 0.6em;
+  width: 7px; height: 7px; border-radius: 2px; background: var(--brand); opacity: 0.6;
+}
+.job__panel strong { color: var(--ink); }
+.job__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 26px; }
+
+.job__apply {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line);
+}
+.job__apply span { font-size: 14px; color: var(--ink-3); }
+.btn-apply {
+  display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px;
+  font: 600 14.5px/1 var(--body); color: #fff; text-decoration: none;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  box-shadow: 0 12px 26px -14px var(--brand); transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-apply:hover { transform: translateY(-1px); box-shadow: 0 18px 32px -14px var(--brand); }
+:root[data-theme="dark"] .btn-apply { color: #06102a; }
+
+.roles__empty {
+  padding: 28px; border-radius: 18px; text-align: center; color: var(--ink-2);
+  background: var(--paper); border: 1px dashed var(--line);
+}
+.roles__empty[hidden] { display: none; }
+
+/* ---------- culture and how to apply ---------- */
+.culture { max-width: 1040px; margin-top: clamp(40px, 6vw, 70px); }
+.culture h2 { font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; margin-bottom: 8px; }
+.culture > p { color: var(--ink-2); max-width: 78ch; margin-bottom: 22px; }
+.culture__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.culture__card {
+  padding: 22px; border-radius: 18px; background: var(--paper);
+  border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+  transition: transform 0.25s, border-color 0.25s;
+}
+.culture__card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--brand) 40%, transparent); }
+.culture__card h3 { font-family: var(--display); font-size: 18px; font-weight: 700; margin: 12px 0 8px; }
+.culture__card p { color: var(--ink-2); font-size: 15px; }
+.culture__ico { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; color: var(--brand); background: var(--soft); }
+.culture__ico svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+.apply-box {
+  max-width: 1040px; margin-top: clamp(34px, 5vw, 54px);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px;
+  padding: clamp(22px, 3vw, 34px); border-radius: 22px; color: #fff;
+  background: linear-gradient(135deg, #12306e, var(--brand));
+}
+.apply-box h2 { font-family: var(--display); font-size: clamp(20px, 2.4vw, 27px); font-weight: 700; }
+.apply-box p { color: rgba(255, 255, 255, 0.82); margin-top: 6px; max-width: 60ch; }
+.apply-box__btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.apply-box a {
+  display: inline-flex; align-items: center; padding: 11px 20px; border-radius: 999px;
+  font: 600 14.5px/1 var(--body); text-decoration: none;
+}
+.apply-box .is-solid { color: #12306e; background: #fff; }
+.apply-box .is-ghost { color: #fff; border: 1px solid rgba(255, 255, 255, 0.55); }
+
+@media (max-width: 820px) {
+  .culture__grid { grid-template-columns: minmax(0, 1fr); }
+  .job__cols { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .job, .culture__card, .btn-apply, .chip, .job__toggle { transition: none !important; }
+}

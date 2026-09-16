@@ -66,6 +66,7 @@ export default defineConfig(({ command }) => ({
         privacy: resolve(ROOT, 'privacy.html'),
         contact: resolve(ROOT, 'contact.html'),
         about: resolve(ROOT, 'about.html'),
+        careers: resolve(ROOT, 'careers.html'),
         // one page per product, sharing its body with the showroom's monitor
         'product-finexa': resolve(ROOT, 'products/finexa.html'),
         'product-finexa-gennxt': resolve(ROOT, 'products/finexa-gennxt.html'),
