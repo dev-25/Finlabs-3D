@@ -679,6 +679,16 @@ body.no3d #canvas {
   color: #c3d9ea;
 }
 
+:root[data-theme="dark"] .hero__index { border-top-color: rgba(120, 200, 255, 0.18); }
+:root[data-theme="dark"] .hero__index a {
+  color: #e8f4ff;
+  border-bottom-color: rgba(120, 200, 255, 0.18);
+}
+:root[data-theme="dark"] .hero__index a:hover,
+:root[data-theme="dark"] .hero__index a:focus-visible { background: rgba(120, 200, 255, 0.1); }
+:root[data-theme="dark"] .hero__index b { color: var(--teal); }
+:root[data-theme="dark"] .hero__index i { color: #8fb3c9; }
+
 :root[data-theme="dark"] .hero__title {
   background: linear-gradient(
     102deg,
