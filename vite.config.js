@@ -64,6 +64,7 @@ export default defineConfig(({ command, isPreview }) => ({
         solutions: resolve(ROOT, 'solutions.html'),
         terms: resolve(ROOT, 'terms.html'),
         privacy: resolve(ROOT, 'privacy.html'),
+        'privacy-learngenie': resolve(ROOT, 'privacy-learngenie.html'),
         contact: resolve(ROOT, 'contact.html'),
         about: resolve(ROOT, 'about.html'),
         careers: resolve(ROOT, 'careers.html'),
