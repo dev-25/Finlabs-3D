@@ -257,6 +257,22 @@ main { position: relative; z-index: 2; }
   font-size: clamp(28px, 3vw, 42px); line-height: 1.04; letter-spacing: -0.03em;
 }
 .sol__tag { color: var(--accent); font-weight: 600; font-size: 16px; margin: 4px 0 10px; }
+/* the Finlabs product a solution runs on */
+.sol__powered {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; padding: 6px 12px 6px 6px;
+  border-radius: 999px; text-decoration: none; color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.sol__powered span {
+  padding: 4px 8px; border-radius: 999px; color: #fff; background: var(--accent);
+  font: 600 10.5px/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase;
+}
+.sol__powered b { font-family: var(--display); font-size: 15px; font-weight: 700; }
+.sol__powered i { font-style: normal; color: var(--accent); font-weight: 700; transition: transform 0.2s; }
+.sol__powered:hover { border-color: var(--accent); transform: translateY(-1px); }
+.sol__powered:hover i { transform: translateX(3px); }
 .sol__lead { color: var(--ink-2); font-size: 15px; line-height: 1.6; }
 .sol__h {
   display: flex; align-items: center; gap: 12px; margin: 18px 0 10px;

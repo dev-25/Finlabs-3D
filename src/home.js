@@ -255,7 +255,7 @@ function fitCamera(v, aspect) {
 
 const OFFERS = [
   { key: 'products', title: 'Products', sub: 'Five platforms', n: '01', c: ['#1e3a8a', '#2563eb', '#60a5fa'] },
-  { key: 'solutions', title: 'Solutions', sub: 'Eight building blocks', n: '02', c: ['#155e75', '#0891b2', '#5eead4'] },
+  { key: 'solutions', title: 'Solutions', sub: 'Seven building blocks', n: '02', c: ['#155e75', '#0891b2', '#5eead4'] },
   { key: 'services', title: 'Services', sub: 'Consult · build · run', n: '03', c: ['#4c1d95', '#7c3aed', '#c4b5fd'] },
 ];
 
@@ -569,7 +569,7 @@ function chipLabel() {
     ctx.textAlign = 'center';
     ctx.fillStyle = '#22d3ee';
     ctx.font = `700 92px ${MONO}`;
-    ctx.fillText('08', w / 2, 150);
+    ctx.fillText('07', w / 2, 150);
     ctx.fillStyle = '#eef3ff';
     ctx.font = `700 26px ${MONO}`;
     ctx.fillText('SOLUTIONS', w / 2, 196);

@@ -199,7 +199,7 @@ function glowMat(hex, opacity = 1) {
 }
 
 // =====================================================
-// LAYOUT — eight chips on an ellipse around the core
+// LAYOUT — seven chips on an ellipse around the core
 // =====================================================
 
 const BOARD_W = 21;
@@ -211,9 +211,12 @@ const CORE = 3.3;
 const RX = 7.3;
 const RZ = 4.7;
 
-// clockwise from back-left, so neighbouring sections are neighbouring chips
+// clockwise from back-left, so neighbouring sections are neighbouring chips.
+// One chip sits at the back centre, which leaves a gap at the front centre
+// for the bus that runs from the core to the edge connector.
+const STEP = (Math.PI * 2) / SOLUTIONS.length;
 const SPOTS = SOLUTIONS.map((_, i) => {
-  const a = Math.PI * (0.875 - i * 0.25);
+  const a = Math.PI / 2 + (1 - i) * STEP;
   return new THREE.Vector3(Math.cos(a) * RX, 0, -Math.sin(a) * RZ);
 });
 
@@ -292,11 +295,9 @@ const DECOR = (() => {
   return list;
 })();
 
-// buses: bundles of parallel traces running to the edge connector
-const BUSES = [
-  { from: [-CORE / 2 - 0.1, 1.1], to: [-4.6, 6.2], n: 5 },
-  { from: [CORE / 2 + 0.1, 1.1], to: [4.6, 6.2], n: 5 },
-];
+// the bus: a bundle of parallel traces from the core's front edge straight
+// down to the edge connector, through the gap between the two front chips
+const BUS = { from: CORE / 2 + 0.1, to: 6.2, n: 7, gap: 0.16 };
 
 function strokePath(ctx, pts, width, color) {
   ctx.strokeStyle = color;
@@ -339,13 +340,11 @@ function drawCircuit(ctx, c) {
     via(ctx, ex, ez, 0.07, viaCol, hole);
   });
 
-  BUSES.forEach(({ from, to, n }) => {
-    for (let k = 0; k < n; k++) {
-      const off = (k - (n - 1) / 2) * 0.16;
-      const mx = from[0] + (to[0] - from[0]) * 0.35;
-      strokePath(ctx, [[from[0], from[1] + off], [mx, from[1] + off], [to[0] + off, to[1] - 0.5], [to[0] + off, to[1]]], w, trace);
-    }
-  });
+  for (let k = 0; k < BUS.n; k++) {
+    const x = (k - (BUS.n - 1) / 2) * BUS.gap;
+    strokePath(ctx, [[x, BUS.from], [x, BUS.to]], w, trace);
+    via(ctx, x, BUS.to, 0.06, viaCol, hole);
+  }
 
   ROUTES.forEach((r) => {
     strokePath(ctx, r.points.map((p) => [p.x, p.z]), PX * 0.09, main);
@@ -458,8 +457,8 @@ function fitText(ctx, text, weight, size, maxW) {
 }
 
 // The top of the texture is the back of the chip, where its model stands
-// in the overview; the name and number sit on the front band, nearest the
-// camera, so no model can stand in front of them.
+// in the overview; the name (one or two lines), number and product sit on
+// the front band, nearest the camera, so no model can stand in front of them.
 function chipLabel(s, i) {
   return makeTexture(512, 512, (ctx, w) => {
     ctx.strokeStyle = 'rgba(255,255,255,0.14)';
@@ -483,24 +482,33 @@ function chipLabel(s, i) {
 
     // the front band
     ctx.fillStyle = 'rgba(255,255,255,0.07)';
-    rr(ctx, 30, 292, w - 60, 190, 18);
+    rr(ctx, 30, 262, w - 60, 220, 18);
     ctx.fill();
 
+    // both lines of the name share one size: the largest the longer line allows
+    const lines = s.label.split('\n');
+    let size = lines.length > 1 ? 56 : 64;
+    ctx.font = `700 ${size}px ${MONO}`;
+    while (Math.max(...lines.map((l) => ctx.measureText(l).width)) > w - 100 && size > 20) {
+      size -= 2;
+      ctx.font = `700 ${size}px ${MONO}`;
+    }
     ctx.textBaseline = 'alphabetic';
     ctx.fillStyle = '#ffffff';
-    fitText(ctx, s.label, 700, 64, w - 100);
-    ctx.fillText(s.label, 50, 368);
+    const first = lines.length > 1 ? 340 : 372;
+    lines.forEach((line, k) => ctx.fillText(line, 50, first + k * (size + 4)));
 
     ctx.fillStyle = s.accent;
-    ctx.font = `700 38px ${MONO}`;
+    ctx.font = `700 36px ${MONO}`;
     const no = String(i + 1).padStart(2, '0');
-    ctx.fillText(no, 50, 428);
-    ctx.fillStyle = 'rgba(238,243,255,0.62)';
-    ctx.font = `500 26px ${MONO}`;
-    ctx.fillText(`FL-SOL-0${i + 1} · FINLABS`, 50 + ctx.measureText(no).width * 1.5 + 20, 426);
+    ctx.fillText(no, 50, 446);
+    const subX = 50 + ctx.measureText(no).width + 18;
+    ctx.fillStyle = 'rgba(238,243,255,0.72)';
+    fitText(ctx, s.sub, 600, 28, w - 50 - subX);
+    ctx.fillText(s.sub, subX, 444);
 
     ctx.fillStyle = s.accent;
-    rr(ctx, 50, 448, w - 100, 10, 5);
+    rr(ctx, 50, 462, w - 100, 10, 5);
     ctx.fill();
   });
 }
@@ -651,6 +659,7 @@ core.add(corePad);
   const clear = (x, z, pad) => {
     if (Math.abs(x) < CORE / 2 + pad && Math.abs(z) < CORE / 2 + pad) return false;
     if (SPOTS.some((p) => Math.abs(x - p.x) < CHIP / 2 + pad && Math.abs(z - p.z) < CHIP / 2 + pad)) return false;
+    if (Math.abs(x) < BUS.gap * BUS.n * 0.5 + 0.35 && z > 0) return false; // keep the bus clear
     return !ROUTES.some((r) => r.points.some((a, k) => k > 0 && distToSegment(x, z, r.points[k - 1], a) < 0.32));
   };
   const spots = [];
@@ -702,67 +711,11 @@ function linePath(points) {
   return path;
 }
 
-// --- LEARNING HUB: a stack of books under a mortarboard --------------
+// --- WEALTH MANAGEMENT (FINEXA GENNXT): a growing portfolio ----------
+// Coin stacks grow, a rupee turns overhead, a growth line draws itself
+// and an asset-allocation ring floats beside them.
 {
-  const A = chipByKey.learning.accent.getHex();
-  const g = new THREE.Group();
-  const pageMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.7 });
-  const covers = [accentMat(A, 0.15), M.panel, accentMat(0x3b82f6, 0.12)];
-  let y = 0;
-  const books = [[1.75, 0.27, 1.25, 0.1], [1.6, 0.25, 1.15, -0.14], [1.66, 0.23, 1.18, 0.22]].map(([w, h, d, rot], k) => {
-    const b = new THREE.Group();
-    b.add(new THREE.Mesh(rbox(w, h, d, 0.05), covers[k]));
-    const pages = new THREE.Mesh(new THREE.BoxGeometry(w - 0.12, h * 0.7, d - 0.12), pageMat);
-    pages.position.set(0.07, 0, 0.07);
-    b.add(pages);
-    b.rotation.y = rot;
-    b.userData.y = y + h / 2;
-    b.position.y = b.userData.y;
-    y += h;
-    g.add(b);
-    return b;
-  });
-  const stackTop = y;
-
-  const cap = new THREE.Group();
-  cap.add(new THREE.Mesh(rbox(1.25, 0.07, 1.25, 0.03), M.chip));
-  const skull = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.5, 0.36, 40), M.chip);
-  skull.position.y = -0.2;
-  cap.add(skull);
-  const tasselMat = accentMat(A, 0.45);
-  const button = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 12), tasselMat);
-  button.position.y = 0.05;
-  const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.6, 6), tasselMat);
-  cord.rotation.z = Math.PI / 2;
-  cord.position.set(0.3, 0.045, 0);
-  const tassel = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.065, 0.34, 12), tasselMat);
-  tassel.position.set(0.6, -0.14, 0);
-  cap.add(button, cord, tassel);
-  g.add(cap);
-
-  const sparkMat = accentMat(A, 0.5);
-  const sparks = [0, 1, 2].map(() => {
-    const m = new THREE.Mesh(new THREE.OctahedronGeometry(0.1), sparkMat);
-    g.add(m);
-    return m;
-  });
-
-  attach('learning', g, (t) => {
-    books.forEach((b, k) => (b.position.y = b.userData.y + Math.sin(t * 1.4 + k) * 0.012));
-    cap.position.y = stackTop + 0.72 + Math.sin(t * 1.3) * 0.1;
-    cap.rotation.y = Math.PI / 4 + t * 0.4;
-    cap.rotation.z = Math.sin(t * 0.9) * 0.08;
-    sparks.forEach((m, k) => {
-      const a = t * 0.9 + (k * Math.PI * 2) / 3;
-      m.position.set(Math.cos(a) * 1.25, stackTop + 0.55 + Math.sin(a * 2) * 0.3, Math.sin(a) * 0.9);
-      m.rotation.set(t * 2, t * 1.5, 0);
-    });
-  });
-}
-
-// --- NPS SYSTEMS: a growing corpus and a spinning rupee --------------
-{
-  const s = chipByKey.nps;
+  const s = chipByKey.wealth;
   const A = s.accent.getHex();
   const g = new THREE.Group();
   const coinMat = new THREE.MeshPhysicalMaterial({
@@ -820,7 +773,18 @@ function linePath(points) {
   g.add(tip);
   const arrowCount = arrowGeo.index.count;
 
-  attach('nps', g, (t, mix) => {
+  const ring = new THREE.Group();
+  ring.position.set(-1.12, 1.95, -0.35);
+  g.add(ring);
+  let from = 0;
+  [[2.6, accentMat(A, 0.2)], [1.9, M.panel], [1.6, accentMat(0x22c55e, 0.15)]].forEach(([arc, mat]) => {
+    const seg = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.1, 14, 40, arc - 0.07), mat);
+    seg.rotation.z = from;
+    ring.add(seg);
+    from += arc;
+  });
+
+  attach('wealth', g, (t, mix) => {
     const grow = THREE.MathUtils.clamp(mix * 1.25, 0, 1);
     stacks.forEach((coins) => coins.forEach((c, k) => (c.visible = k < Math.ceil(coins.length * grow))));
     big.position.set(0, 2.2 + Math.sin(t * 1.2) * 0.08, -0.15);
@@ -828,10 +792,235 @@ function linePath(points) {
     const draw = THREE.MathUtils.clamp((mix - 0.3) / 0.7, 0, 1);
     arrowGeo.setDrawRange(0, Math.floor((arrowCount * draw) / 6) * 6);
     tip.visible = draw > 0.98;
+    ring.rotation.z = t * 0.45;
+    ring.rotation.y = Math.sin(t * 0.7) * 0.35;
+    ring.position.y = 1.95 + Math.sin(t * 1.3 + 1) * 0.07;
+    ring.scale.setScalar(Math.max(0.001, THREE.MathUtils.clamp(mix * 1.4 - 0.2, 0, 1)));
   });
 }
 
-// --- ROBOINSIGHTS: a friendly advisor bot reading the market ----------
+// --- LEARNING & DEVELOPMENT (LEARNGENIE): books under a mortarboard ---
+{
+  const A = chipByKey.learning.accent.getHex();
+  const g = new THREE.Group();
+  const pageMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.7 });
+  const covers = [accentMat(A, 0.15), M.panel, accentMat(0x3b82f6, 0.12)];
+  let y = 0;
+  const books = [[1.75, 0.27, 1.25, 0.1], [1.6, 0.25, 1.15, -0.14], [1.66, 0.23, 1.18, 0.22]].map(([w, h, d, rot], k) => {
+    const b = new THREE.Group();
+    b.add(new THREE.Mesh(rbox(w, h, d, 0.05), covers[k]));
+    const pages = new THREE.Mesh(new THREE.BoxGeometry(w - 0.12, h * 0.7, d - 0.12), pageMat);
+    pages.position.set(0.07, 0, 0.07);
+    b.add(pages);
+    b.rotation.y = rot;
+    b.userData.y = y + h / 2;
+    b.position.y = b.userData.y;
+    y += h;
+    g.add(b);
+    return b;
+  });
+  const stackTop = y;
+
+  const cap = new THREE.Group();
+  cap.add(new THREE.Mesh(rbox(1.25, 0.07, 1.25, 0.03), M.chip));
+  const skull = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.5, 0.36, 40), M.chip);
+  skull.position.y = -0.2;
+  cap.add(skull);
+  const tasselMat = accentMat(A, 0.45);
+  const button = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 12), tasselMat);
+  button.position.y = 0.05;
+  const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.6, 6), tasselMat);
+  cord.rotation.z = Math.PI / 2;
+  cord.position.set(0.3, 0.045, 0);
+  const tassel = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.065, 0.34, 12), tasselMat);
+  tassel.position.set(0.6, -0.14, 0);
+  cap.add(button, cord, tassel);
+  g.add(cap);
+
+  const sparkMat = accentMat(A, 0.5);
+  const sparks = [0, 1, 2].map(() => {
+    const m = new THREE.Mesh(new THREE.OctahedronGeometry(0.1), sparkMat);
+    g.add(m);
+    return m;
+  });
+
+  attach('learning', g, (t) => {
+    books.forEach((b, k) => (b.position.y = b.userData.y + Math.sin(t * 1.4 + k) * 0.012));
+    cap.position.y = stackTop + 0.72 + Math.sin(t * 1.3) * 0.1;
+    cap.rotation.y = Math.PI / 4 + t * 0.4;
+    cap.rotation.z = Math.sin(t * 0.9) * 0.08;
+    sparks.forEach((m, k) => {
+      const a = t * 0.9 + (k * Math.PI * 2) / 3;
+      m.position.set(Math.cos(a) * 1.25, stackTop + 0.55 + Math.sin(a * 2) * 0.3, Math.sin(a) * 0.9);
+      m.rotation.set(t * 2, t * 1.5, 0);
+    });
+  });
+}
+
+// --- INVESTOR AWARENESS (FINAWARE): a session in progress -------------
+// A presentation screen teaches saving and investing to a small audience;
+// attendees check in one by one, and an idea lights up above the screen.
+function awarenessSlide() {
+  const A = chipByKey.iap.accent;
+  const hex = '#' + A.getHexString();
+  return makeTexture(640, 400, (ctx, w, h) => {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = hex;
+    ctx.fillRect(0, 0, w, 64);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '700 30px Inter, "Segoe UI", Arial, sans-serif';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Invest wisely', 28, 33);
+    ctx.font = '600 20px Inter, "Segoe UI", Arial, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText('SESSION 04', w - 28, 34);
+    ctx.textAlign = 'left';
+
+    // a rising SIP curve over a quiet grid
+    ctx.strokeStyle = '#e3e9f3';
+    ctx.lineWidth = 2;
+    for (let k = 0; k < 4; k++) {
+      ctx.beginPath();
+      ctx.moveTo(28, 120 + k * 58);
+      ctx.lineTo(372, 120 + k * 58);
+      ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(15,155,142,0.14)';
+    ctx.beginPath();
+    ctx.moveTo(28, 300);
+    [[28, 280], [110, 262], [190, 236], [270, 196], [372, 118], [372, 300]].forEach(([x, y]) => ctx.lineTo(x, y));
+    ctx.fill();
+    ctx.strokeStyle = hex;
+    ctx.lineWidth = 7;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    [[28, 280], [110, 262], [190, 236], [270, 196], [372, 118]].forEach(([x, y], k) => (k ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
+    ctx.stroke();
+
+    // three lessons, ticked
+    [['Save first', 1], ['Start a SIP', 1], ['Avoid scams', 0]].forEach(([label, done], k) => {
+      const y = 132 + k * 72;
+      ctx.fillStyle = done ? hex : '#dfe6f1';
+      ctx.beginPath();
+      ctx.arc(420, y, 17, 0, Math.PI * 2);
+      ctx.fill();
+      if (done) {
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(411, y);
+        ctx.lineTo(418, y + 7);
+        ctx.lineTo(430, y - 7);
+        ctx.stroke();
+      }
+      ctx.fillStyle = '#1c2a4c';
+      ctx.font = '600 24px Inter, "Segoe UI", Arial, sans-serif';
+      ctx.fillText(label, 450, y + 1);
+    });
+    ctx.fillStyle = '#eef3fb';
+    rr(ctx, 28, h - 70, w - 56, 44, 12);
+    ctx.fill();
+    ctx.fillStyle = '#5d6a86';
+    ctx.font = '600 19px "JetBrains Mono", ui-monospace, monospace';
+    ctx.fillText('QR CHECK-IN  ·  128 ATTENDEES', 46, h - 47);
+  });
+}
+
+{
+  const A = chipByKey.iap.accent.getHex();
+  const g = new THREE.Group();
+
+  // the screen on its stand
+  const screen = new THREE.Group();
+  screen.position.set(0, 0, -0.45);
+  g.add(screen);
+  const frame = new THREE.Mesh(rbox(2.05, 1.32, 0.08, 0.06), M.chip);
+  frame.position.y = 1.72;
+  screen.add(frame);
+  const slide = new THREE.Mesh(new THREE.PlaneGeometry(1.92, 1.2), new THREE.MeshBasicMaterial({ map: awarenessSlide(), toneMapped: false }));
+  slide.position.set(0, 1.72, 0.042);
+  screen.add(slide);
+  [-0.62, 0.62].forEach((x) => {
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.06, 10), M.metal);
+    leg.position.set(x, 0.53, -0.04);
+    screen.add(leg);
+  });
+  const foot = new THREE.Mesh(rbox(1.6, 0.06, 0.34, 0.03), M.metal);
+  foot.position.set(0, 0.03, -0.04);
+  screen.add(foot);
+
+  // the audience, facing the screen, each with a check-in tick
+  const headMat = accentMat(A, 0.18);
+  const bodyGeo = new THREE.CapsuleGeometry(0.15, 0.2, 6, 16);
+  const tickMat = accentMat(0x22c55e, 0.35);
+  const tickLine = glowMat(0xffffff);
+  const people = [-0.84, -0.28, 0.28, 0.84].map((x, k) => {
+    const p = new THREE.Group();
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.15, 24, 18), k % 2 ? M.panel : headMat);
+    head.position.y = 0.62;
+    const body = new THREE.Mesh(bodyGeo, k % 2 ? headMat : M.panel);
+    body.position.y = 0.25;
+    p.add(head, body);
+    p.position.set(x, 0, 0.62 + (k % 2) * 0.12);
+    g.add(p);
+
+    const badge = new THREE.Group();
+    const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.04, 28), tickMat);
+    disc.rotation.x = Math.PI / 2;
+    badge.add(disc);
+    const tick = linePath([new THREE.Vector3(-0.06, 0, 0.025), new THREE.Vector3(-0.015, -0.045, 0.025), new THREE.Vector3(0.065, 0.045, 0.025)]);
+    badge.add(new THREE.Mesh(new THREE.TubeGeometry(tick, 12, 0.017, 6, false), tickLine));
+    badge.position.set(x, 1.0, p.position.z);
+    g.add(badge);
+    return { p, badge };
+  });
+
+  // an idea lighting up
+  const bulb = new THREE.Group();
+  bulb.position.set(1.18, 2.6, -0.3);
+  g.add(bulb);
+  const glassMat = new THREE.MeshPhysicalMaterial({
+    color: 0xfff6c8, emissive: 0xffd24a, emissiveIntensity: 0.4, roughness: 0.15, clearcoat: 1,
+  });
+  const glass = new THREE.Mesh(new THREE.SphereGeometry(0.24, 28, 20), glassMat);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.16, 20), M.metal);
+  neck.position.y = -0.26;
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.08, 20), M.chip);
+  cap.position.y = -0.37;
+  bulb.add(glass, neck, cap);
+  // short rays fanned over the top of the bulb, each pointing outward
+  const rayMat = glowMat(0xffd24a, 0.85);
+  const rays = [-2, -1, 0, 1, 2].map((k) => {
+    const a = k * 0.55;
+    const r = new THREE.Mesh(rbox(0.05, 0.16, 0.05, 0.02), rayMat);
+    r.position.set(Math.sin(a) * 0.42, Math.cos(a) * 0.42, 0);
+    r.rotation.z = -a;
+    bulb.add(r);
+    return r;
+  });
+
+  attach('iap', g, (t, mix) => {
+    screen.position.y = Math.sin(t * 0.9) * 0.02;
+    // attendees check in one after another, then the round starts again
+    const round = (t * 0.35) % 1;
+    people.forEach(({ p, badge }, k) => {
+      p.position.y = Math.abs(Math.sin(t * 1.6 + k)) * 0.03;
+      const on = THREE.MathUtils.clamp((round * 5 - k - 0.2) * 3, 0, 1) * THREE.MathUtils.clamp(mix * 1.5 - 0.3, 0, 1);
+      badge.scale.setScalar(Math.max(0.001, on));
+      badge.position.y = 1.0 + Math.sin(t * 2 + k) * 0.04;
+      badge.rotation.y = Math.sin(t * 1.3 + k) * 0.4;
+    });
+    const glow = 0.5 + 0.5 * Math.sin(t * 2.2);
+    glassMat.emissiveIntensity = 0.25 + glow * 0.9;
+    rays.forEach((r) => (r.scale.y = 0.6 + glow * 0.6));
+    bulb.position.y = 2.6 + Math.sin(t * 1.2) * 0.06;
+    bulb.rotation.z = Math.sin(t * 0.8) * 0.08;
+  });
+}
+
+// --- ROBO ADVISORY: a friendly advisor bot reading the market --------
 {
   const A = chipByKey.robo.accent.getHex();
   const g = new THREE.Group();
@@ -910,146 +1099,9 @@ function linePath(points) {
   });
 }
 
-// --- SWIFTONBOARD: a phone doing digital KYC --------------------------
-function onboardScreen(mode) {
-  const dark = mode === 'dark';
-  const A = chipByKey.onboard.accent;
-  return makeTexture(372, 744, (ctx, w, h) => {
-    const bg = dark ? '#111a31' : '#ffffff';
-    const card = dark ? '#1b2644' : '#eef3fb';
-    const ink = dark ? '#e8edff' : '#15203a';
-    const mute = dark ? 'rgba(232,237,255,0.35)' : 'rgba(21,32,58,0.3)';
-    const hex = '#' + A.getHexString();
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = mute;
-    rr(ctx, w / 2 - 44, 18, 88, 16, 8);
-    ctx.fill();
-    ctx.fillStyle = ink;
-    ctx.font = '700 34px Inter, sans-serif';
-    ctx.fillText('Onboarding', 28, 100);
-    ['#22c55e', hex, mute].forEach((c, k) => {
-      ctx.fillStyle = c;
-      rr(ctx, 28 + k * 108, 124, 96, 10, 5);
-      ctx.fill();
-    });
-    // face scan
-    const cx = w / 2;
-    const cy = 262;
-    ctx.fillStyle = card;
-    ctx.beginPath();
-    ctx.arc(cx, cy, 78, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = mute;
-    ctx.beginPath();
-    ctx.arc(cx, cy - 18, 28, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.beginPath();
-    ctx.ellipse(cx, cy + 46, 48, 30, 0, Math.PI, 0);
-    ctx.fill();
-    ctx.strokeStyle = hex;
-    ctx.lineWidth = 7;
-    ctx.lineCap = 'round';
-    [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sy]) => {
-      ctx.beginPath();
-      ctx.moveTo(cx + sx * 100, cy + sy * 70);
-      ctx.lineTo(cx + sx * 100, cy + sy * 100);
-      ctx.lineTo(cx + sx * 70, cy + sy * 100);
-      ctx.stroke();
-    });
-    // fields
-    [['PAN', 0.62], ['Aadhaar e-KYC', 0.8], ['Bank account', 0.5]].forEach(([label, fill], k) => {
-      const y = 404 + k * 82;
-      ctx.fillStyle = card;
-      rr(ctx, 28, y, w - 56, 62, 14);
-      ctx.fill();
-      ctx.fillStyle = mute;
-      ctx.font = '600 17px Inter, sans-serif';
-      ctx.fillText(label, 46, y + 26);
-      ctx.fillStyle = ink;
-      rr(ctx, 46, y + 38, (w - 120) * fill, 10, 5);
-      ctx.fill();
-      ctx.fillStyle = '#22c55e';
-      ctx.beginPath();
-      ctx.arc(w - 54, y + 31, 12, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    ctx.fillStyle = hex;
-    rr(ctx, 28, h - 102, w - 56, 64, 32);
-    ctx.fill();
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 24px Inter, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('Continue', w / 2, h - 61);
-  });
-}
-
+// --- DATA ANALYTICS & VISUALISATION: live bars, a trace and a donut --
 {
-  const A = chipByKey.onboard.accent;
-  const g = new THREE.Group();
-  const phone = new THREE.Group();
-  phone.rotation.y = -0.22;
-  g.add(phone);
-  phone.add(new THREE.Mesh(rbox(1.05, 2.0, 0.12, 0.16), M.chip));
-  const screenMat = new THREE.MeshBasicMaterial({ map: onboardScreen('light'), toneMapped: false });
-  themedFaces.push({ mat: screenMat, draw: onboardScreen });
-  const screen = new THREE.Mesh(new THREE.PlaneGeometry(0.93, 1.86), screenMat);
-  screen.position.z = 0.062;
-  phone.add(screen);
-
-  const idTex = makeTexture(330, 210, (ctx, w, h) => {
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = '#' + A.getHexString();
-    ctx.fillRect(0, 0, w, 46);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 22px Inter, sans-serif';
-    ctx.fillText('e-KYC  ·  VERIFIED', 18, 31);
-    ctx.fillStyle = '#dbe5f5';
-    rr(ctx, 18, 64, 88, 110, 10);
-    ctx.fill();
-    ctx.fillStyle = '#9fb2d4';
-    ctx.beginPath();
-    ctx.arc(62, 104, 20, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.beginPath();
-    ctx.ellipse(62, 160, 32, 22, 0, Math.PI, 0);
-    ctx.fill();
-    ctx.fillStyle = '#c9d5ea';
-    [[124, 76, 170], [124, 104, 130], [124, 132, 150], [124, 160, 96]].forEach(([x, y, lw]) => {
-      rr(ctx, x, y, lw, 12, 6);
-      ctx.fill();
-    });
-  });
-  const card = new THREE.Group();
-  card.add(new THREE.Mesh(rbox(1.1, 0.7, 0.04, 0.07), M.panel));
-  const cardFace = new THREE.Mesh(new THREE.PlaneGeometry(1.02, 0.63), new THREE.MeshBasicMaterial({ map: idTex, toneMapped: false }));
-  cardFace.position.z = 0.022;
-  card.add(cardFace);
-  card.rotation.set(0, 0.35, 0.08);
-  g.add(card);
-
-  const badge = new THREE.Group();
-  const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.08, 40), accentMat(0x22c55e, 0.3));
-  disc.rotation.x = Math.PI / 2;
-  badge.add(disc);
-  const tick = linePath([new THREE.Vector3(-0.13, 0.0, 0.05), new THREE.Vector3(-0.03, -0.1, 0.05), new THREE.Vector3(0.14, 0.1, 0.05)]);
-  badge.add(new THREE.Mesh(new THREE.TubeGeometry(tick, 24, 0.035, 8, false), glowMat(0xffffff)));
-  g.add(badge);
-
-  attach('onboard', g, (t, mix) => {
-    phone.position.set(0.28, 1.2 + Math.sin(t * 1.1) * 0.05, 0);
-    const out = THREE.MathUtils.clamp(mix * 1.3 - 0.3, 0, 1);
-    card.position.set(THREE.MathUtils.lerp(0.2, -0.8, out), 0.95 + Math.sin(t * 1.3 + 1) * 0.07, 0.35);
-    badge.position.set(0.9, 2.2 + Math.sin(t * 1.6) * 0.06, 0.25);
-    badge.scale.setScalar(out * (1 + Math.sin(t * 3) * 0.05) + 0.001);
-    badge.rotation.y = Math.sin(t * 1.2) * 0.3;
-  });
-}
-
-// --- DATAPULSE: live bars, a heartbeat trace and a donut --------------
-{
-  const A = chipByKey.datapulse.accent.getHex();
+  const A = chipByKey.analytics.accent.getHex();
   const g = new THREE.Group();
   const heights = [0.55, 0.9, 0.7, 1.25, 1.05];
   const barHi = accentMat(A, 0.25);
@@ -1086,7 +1138,7 @@ function onboardScreen(mode) {
   });
 
   const scratch = new THREE.Vector3();
-  attach('datapulse', g, (t, mix) => {
+  attach('analytics', g, (t, mix) => {
     bars.forEach((b, k) => (b.scale.y = b.userData.h * (0.82 + 0.18 * Math.sin(t * 1.6 + k)) * THREE.MathUtils.clamp(mix * 1.2, 0.01, 1)));
     const p = (t * 0.32) % 1;
     ecgGeo.setDrawRange(0, Math.floor(ecgSegs * p) * (ecgCount / ecgSegs));
@@ -1096,54 +1148,122 @@ function onboardScreen(mode) {
   });
 }
 
-// --- COLLABHUB: partners orbiting a shared hub ------------------------
+// --- DOCUMENT MANAGEMENT: files dropping into a locked folder ---------
+// Pages file themselves into a folder while a magnifier scans across,
+// and a padlock on the folder keeps the whole archive secure.
 {
-  const A = chipByKey.collab.accent.getHex();
+  const s = chipByKey.documents;
+  const A = s.accent.getHex();
+  const hex = '#' + s.accent.getHexString();
   const g = new THREE.Group();
-  const hubY = 1.45;
-  const hub = new THREE.Mesh(new THREE.SphereGeometry(0.4, 40, 30), accentMat(A, 0.3));
-  hub.position.y = hubY;
-  const halo = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.022, 8, 80), glowMat(A, 0.7));
-  halo.rotation.x = Math.PI / 2;
-  halo.position.y = hubY;
-  g.add(hub, halo);
 
-  const ring = new THREE.Group();
-  ring.position.y = hubY;
-  g.add(ring);
-  const headMat = accentMat(A, 0.2);
-  const linkMat = glowMat(A, 0.5);
-  const packetMat = glowMat(0xffffff);
-  const bodyGeo = new THREE.CapsuleGeometry(0.13, 0.16, 6, 16);
-  const links = Array.from({ length: 5 }, (_, k) => {
-    const a = (k / 5) * Math.PI * 2;
-    const pos = new THREE.Vector3(Math.cos(a) * 1.25, Math.sin(a * 2) * 0.14 - 0.1, Math.sin(a) * 0.95);
-    const person = new THREE.Group();
-    const headM = new THREE.Mesh(new THREE.SphereGeometry(0.13, 24, 18), k % 2 ? M.panel : headMat);
-    headM.position.y = 0.16;
-    const body = new THREE.Mesh(bodyGeo, k % 2 ? headMat : M.panel);
-    body.position.y = -0.12;
-    person.add(headM, body);
-    person.position.copy(pos);
-    ring.add(person);
-    const start = pos.clone().setLength(0.45);
-    ring.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.LineCurve3(start, pos), 8, 0.014, 6, false), linkMat));
-    const packet = new THREE.Mesh(new THREE.SphereGeometry(0.045, 10, 8), packetMat);
-    ring.add(packet);
-    return { start, pos, packet };
+  const pageTex = (kind) =>
+    makeTexture(256, 330, (ctx, w, h) => {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = kind === 0 ? hex : kind === 1 ? '#2563eb' : '#22c55e';
+      rr(ctx, 20, 20, 64, 30, 8);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '700 17px "JetBrains Mono", ui-monospace, monospace';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(['PDF', 'KYC', 'SIGN'][kind], 30, 36);
+      ctx.fillStyle = '#1c2a4c';
+      rr(ctx, 20, 72, 150, 14, 7);
+      ctx.fill();
+      ctx.fillStyle = '#d3ddef';
+      for (let k = 0; k < 7; k++) {
+        rr(ctx, 20, 104 + k * 26, k % 3 === 2 ? 120 : 212, 10, 5);
+        ctx.fill();
+      }
+      if (kind === 2) {
+        ctx.strokeStyle = '#2563eb';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(130, h - 34);
+        ctx.bezierCurveTo(150, h - 64, 170, h - 10, 190, h - 44);
+        ctx.bezierCurveTo(200, h - 58, 212, h - 30, 232, h - 40);
+        ctx.stroke();
+      }
+    });
+  const pageMats = [0, 1, 2].map((k) => new THREE.MeshBasicMaterial({ map: pageTex(k), toneMapped: false }));
+
+  // the folder: back with its tab, the pages' slot, and a front leaning open
+  const folder = new THREE.Group();
+  folder.position.set(0, 0.05, 0.1);
+  g.add(folder);
+  const folderMat = accentMat(A, 0.12);
+  const folderFront = new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color(A).lerp(new THREE.Color(0xffffff), 0.28), roughness: 0.3, clearcoat: 1, clearcoatRoughness: 0.15,
+  });
+  const back = new THREE.Mesh(rbox(2.0, 1.45, 0.06, 0.06), folderMat);
+  back.position.set(0, 0.78, -0.2);
+  back.rotation.x = -0.08;
+  const tab = new THREE.Mesh(rbox(0.72, 0.22, 0.06, 0.05), folderMat);
+  tab.position.set(-0.55, 1.55, -0.26);
+  tab.rotation.x = -0.08;
+  const bottom = new THREE.Mesh(rbox(2.0, 0.06, 0.46, 0.03), folderMat);
+  bottom.position.set(0, 0.06, 0.02);
+  const front = new THREE.Mesh(rbox(2.0, 1.1, 0.06, 0.06), folderFront);
+  front.geometry.translate(0, 0.55, 0);
+  front.position.set(0, 0.06, 0.26);
+  front.rotation.x = 0.32;
+  folder.add(back, tab, bottom, front);
+
+  // a padlock on the front
+  const lock = new THREE.Group();
+  lock.position.set(0.62, 0.5, 0.07); // on the front cover, so it leans with it
+  front.add(lock);
+  lock.add(new THREE.Mesh(rbox(0.3, 0.24, 0.1, 0.05), M.chip));
+  const shackle = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.025, 10, 24, Math.PI), M.metal);
+  shackle.position.y = 0.12;
+  lock.add(shackle);
+  const keyhole = new THREE.Mesh(new THREE.CircleGeometry(0.03, 16), glowMat(A));
+  keyhole.position.z = 0.052;
+  lock.add(keyhole);
+
+  // pages filing in, one after another
+  const pages = pageMats.map((mat) => {
+    const p = new THREE.Group();
+    p.add(new THREE.Mesh(rbox(0.9, 1.15, 0.025, 0.03), M.panel));
+    const face = new THREE.Mesh(new THREE.PlaneGeometry(0.84, 1.08), mat);
+    face.position.z = 0.014;
+    p.add(face);
+    folder.add(p);
+    return p;
   });
 
-  attach('collab', g, (t) => {
-    ring.rotation.y = t * 0.35;
-    hub.scale.setScalar(1 + Math.sin(t * 2.4) * 0.04);
-    halo.scale.setScalar(1 + Math.sin(t * 2.4) * 0.08);
-    links.forEach(({ start, pos, packet }, k) => packet.position.lerpVectors(start, pos, 0.5 + 0.5 * Math.sin(t * 2 + k * 1.3)));
+  // a magnifier scanning the files
+  const lens = new THREE.Group();
+  g.add(lens);
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.055, 14, 48), M.chip);
+  const glass = new THREE.Mesh(
+    new THREE.CircleGeometry(0.28, 40),
+    new THREE.MeshPhysicalMaterial({ color: 0xdbeafe, transparent: true, opacity: 0.35, roughness: 0.05, clearcoat: 1, depthWrite: false })
+  );
+  const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.06, 0.52, 16), accentMat(A, 0.2));
+  handle.position.set(0.3, -0.36, 0);
+  handle.rotation.z = Math.PI / 4;
+  lens.add(rim, glass, handle);
+
+  attach('documents', g, (t, mix) => {
+    pages.forEach((p, k) => {
+      const u = (t * 0.22 + k / pages.length) % 1;
+      const fall = THREE.MathUtils.smootherstep(u, 0.15, 0.85);
+      p.position.set(-0.45 + k * 0.45, THREE.MathUtils.lerp(2.35, 0.72, fall), -0.02 + k * 0.03);
+      p.rotation.set(-0.05, (k - 1) * 0.12, Math.sin(u * Math.PI) * 0.12 * (k - 1));
+      const show = Math.min(1, u * 8) * THREE.MathUtils.clamp(mix * 1.4 - 0.2, 0, 1);
+      p.scale.setScalar(Math.max(0.001, show));
+    });
+    front.rotation.x = 0.32 + Math.sin(t * 1.1) * 0.04;
+    lens.position.set(Math.sin(t * 0.8) * 0.75, 1.75 + Math.sin(t * 1.6) * 0.1, 0.75);
+    lens.rotation.set(-0.15, Math.sin(t * 0.8) * 0.3, 0);
   });
 }
 
-// --- REGUSURE: a shield that signs off the paperwork ------------------
+// --- REGULATORY COMPLIANCE AUTOMATION: a shield that signs off -------
 {
-  const A = chipByKey.regusure.accent.getHex();
+  const A = chipByKey.compliance.accent.getHex();
   const g = new THREE.Group();
   const shieldShape = (k) => {
     const s = new THREE.Shape();
@@ -1219,7 +1339,7 @@ function onboardScreen(mode) {
     return n;
   });
 
-  attach('regusure', g, (t, mix) => {
+  attach('compliance', g, (t, mix) => {
     shield.position.set(0.05, 1.45 + Math.sin(t * 1.1) * 0.06, 0.3);
     shield.rotation.y = Math.sin(t * 0.7) * 0.25;
     const draw = THREE.MathUtils.clamp((mix - 0.35) / 0.65, 0, 1);
@@ -1229,79 +1349,6 @@ function onboardScreen(mode) {
     nodes.forEach((n, k) => {
       const a = (k * Math.PI * 2) / 3;
       n.position.set(Math.cos(a) * 1.12, Math.sin(a) * 1.12, 0);
-    });
-  });
-}
-
-// --- OPSOPTIMA: gears driving a conveyor of finished tasks ------------
-function gearShape(outer, inner, teeth, hole) {
-  const s = new THREE.Shape();
-  const step = (Math.PI * 2) / teeth;
-  for (let k = 0; k < teeth; k++) {
-    const a0 = k * step;
-    [[inner, a0], [outer, a0 + step * 0.18], [outer, a0 + step * 0.48], [inner, a0 + step * 0.66]].forEach(([r, a], j) => {
-      const x = Math.cos(a) * r;
-      const y = Math.sin(a) * r;
-      if (k === 0 && j === 0) s.moveTo(x, y);
-      else s.lineTo(x, y);
-    });
-  }
-  s.closePath();
-  const h = new THREE.Path();
-  h.absarc(0, 0, hole, 0, Math.PI * 2, true);
-  s.holes.push(h);
-  return s;
-}
-
-{
-  const A = chipByKey.opsoptima.accent.getHex();
-  const g = new THREE.Group();
-  const gear = (outer, inner, teeth, mat) => {
-    const geo = new THREE.ExtrudeGeometry(gearShape(outer, inner, teeth, outer * 0.24), {
-      depth: 0.18, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 2, curveSegments: 12,
-    });
-    geo.translate(0, 0, -0.09);
-    const m = new THREE.Mesh(geo, mat);
-    const axle = new THREE.Mesh(new THREE.CylinderGeometry(outer * 0.2, outer * 0.2, 0.34, 20), M.metal);
-    axle.rotation.x = Math.PI / 2;
-    const grp = new THREE.Group();
-    grp.add(m, axle);
-    grp.userData.gear = m;
-    g.add(grp);
-    return grp;
-  };
-  const gA = gear(0.72, 0.58, 12, accentMat(A, 0.15));
-  gA.position.set(-0.35, 1.6, -0.2);
-  const gB = gear(0.48, 0.36, 8, M.panel);
-  gB.position.set(-0.35 + 1.07 * Math.cos(0.61), 1.6 + 1.07 * Math.sin(0.61), -0.2);
-  const gC = gear(0.4, 0.3, 7, accentMat(0x3b82f6, 0.12));
-  gC.position.set(-0.35 + 0.99 * Math.cos(-0.7), 1.6 + 0.99 * Math.sin(-0.7), -0.2);
-
-  const belt = new THREE.Mesh(rbox(2.2, 0.12, 0.6, 0.06), M.chip);
-  belt.position.set(0, 0.2, 0.55);
-  g.add(belt);
-  [-1.1, 1.1].forEach((x) => {
-    const roller = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.66, 20), M.metal);
-    roller.rotation.x = Math.PI / 2;
-    roller.position.set(x, 0.2, 0.55);
-    g.add(roller);
-  });
-  const doneMat = accentMat(A, 0.25);
-  const parcels = [0, 1, 2, 3].map(() => {
-    const p = new THREE.Mesh(rbox(0.28, 0.24, 0.28, 0.06), M.panel);
-    g.add(p);
-    return p;
-  });
-
-  attach('opsoptima', g, (t) => {
-    gA.userData.gear.rotation.z = t * 0.8;
-    gB.userData.gear.rotation.z = -t * 0.8 * (12 / 8) + 0.2;
-    gC.userData.gear.rotation.z = -t * 0.8 * (12 / 7) + 0.1;
-    parcels.forEach((p, k) => {
-      const u = (t * 0.18 + k / parcels.length) % 1;
-      p.position.set(-1.0 + u * 2.0, 0.39, 0.55);
-      p.material = u > 0.5 ? doneMat : M.panel; // processed once it passes the gears
-      p.scale.setScalar(Math.min(1, Math.sin(u * Math.PI) * 4));
     });
   });
 }

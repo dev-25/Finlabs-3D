@@ -7,16 +7,19 @@
  * via onSceneChange() and onFitChange().
  * ===================================================== */
 
-/** The eight solutions, in page order. Shared with the 3D board. */
+/**
+ * The seven solutions, in page order. Shared with the 3D board: `label`
+ * is printed on the chip (a line break splits it in two) and `sub` under
+ * it — the Finlabs product a solution runs on, or a short descriptor.
+ */
 export const SOLUTIONS = [
-  { key: 'learning', name: 'Learning Hub', label: 'LEARNING HUB', accent: '#6366f1' },
-  { key: 'nps', name: 'NPS Systems', label: 'NPS SYSTEMS', accent: '#0ea5e9' },
-  { key: 'robo', name: 'RoboInsights', label: 'ROBOINSIGHTS', accent: '#3b82f6' },
-  { key: 'onboard', name: 'SwiftOnboard', label: 'SWIFTONBOARD', accent: '#06b6d4' },
-  { key: 'datapulse', name: 'DataPulse', label: 'DATAPULSE', accent: '#14b8a6' },
-  { key: 'collab', name: 'CollabHub', label: 'COLLABHUB', accent: '#8b5cf6' },
-  { key: 'regusure', name: 'ReguSure', label: 'REGUSURE', accent: '#22c55e' },
-  { key: 'opsoptima', name: 'OpsOptima', label: 'OPSOPTIMA', accent: '#f59e0b' },
+  { key: 'wealth', name: 'Wealth Management', label: 'WEALTH\nMANAGEMENT', sub: 'Finexa GenNxt', accent: '#2f6fd0' },
+  { key: 'learning', name: 'Learning and Development', label: 'LEARNING &\nDEVELOPMENT', sub: 'Learngenie', accent: '#6366f1' },
+  { key: 'iap', name: 'Investor Awareness Programs (IAP)', label: 'INVESTOR\nAWARENESS', sub: 'Finaware', accent: '#0f9b8e' },
+  { key: 'robo', name: 'Robo Advisory', label: 'ROBO\nADVISORY', sub: 'Goal-based advice', accent: '#0ea5e9' },
+  { key: 'analytics', name: 'Data Analytics and Visualisation', label: 'DATA\nANALYTICS', sub: '& Visualisation', accent: '#8b5cf6' },
+  { key: 'documents', name: 'Document Management', label: 'DOCUMENT\nMANAGEMENT', sub: 'Secure · Paperless', accent: '#f59e0b' },
+  { key: 'compliance', name: 'Regulatory Compliance Automation', label: 'COMPLIANCE\nAUTOMATION', sub: 'RegTech · Audit-ready', accent: '#22c55e' },
 ];
 export const BRAND = '#2563eb';
 
@@ -147,7 +150,7 @@ function selectGoal(btn) {
     p.classList.toggle('match', on);
     p.style.order = on ? fitKeys.indexOf(p.dataset.pick) : 20;
   });
-  if (fitCount) fitCount.textContent = `${fitKeys.length} of 8 solutions match`;
+  if (fitCount) fitCount.textContent = `${fitKeys.length} of ${SOLUTIONS.length} solutions match`;
   if (fitCta) {
     fitCta.dataset.solution = BY_KEY[fitKeys[0]].name;
     fitCta.dataset.message = `I'm interested in: ${fitKeys.map((k) => BY_KEY[k].name).join(', ')}.`;
