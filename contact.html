@@ -109,17 +109,38 @@
         </div>
         <label>Your company's website<input name="website" type="url" autocomplete="url" placeholder="https://" /></label>
         <fieldset>
-          <legend>Product / Solution / Services</legend>
-          <div class="interests">
-            <label><input type="checkbox" name="interest" value="Finexa - Wealth Management MFD Platform" />Finexa — Wealth Management MFD Platform</label>
-            <label><input type="checkbox" name="interest" value="Finexa Nova - Client App For Wealth Management" />Finexa Nova — Client App for Wealth Management</label>
-            <label><input type="checkbox" name="interest" value="Learngenie - Learning Management System" />Learngenie — Learning Management System</label>
-            <label><input type="checkbox" name="interest" value="FinexaGenNxt - Multi-Asset Wealth Management Platform" />FinexaGenNxt — Multi-Asset Wealth Management Platform</label>
-            <label><input type="checkbox" name="interest" value="Finaware - Investor Awareness Programs" />Finaware — Investor Awareness Programs</label>
-            <label><input type="checkbox" name="interest" value="Finlabs Learning Hub - Ready-to-use learning content" />Finlabs Learning Hub — Ready-to-use learning content</label>
-            <label><input type="checkbox" name="interest" value="Technology Consulting Service" />Technology Consulting Service</label>
-            <label><input type="checkbox" name="interest" value="Technology Implementation Service" />Technology Implementation Service</label>
-            <label><input type="checkbox" name="interest" value="Managed Services" />Managed Services</label>
+          <legend><span>Products, solutions and services you’re interested in <em>(optional)</em></span></legend>
+          <div class="interest-group" role="group" aria-labelledby="int-products">
+            <p class="interest-group__label" id="int-products">Products</p>
+            <div class="interests">
+              <label><input type="checkbox" name="product" value="Finexa" />Finexa <em>· Wealth management</em></label>
+              <label><input type="checkbox" name="product" value="Finexa GenNxt" />Finexa GenNxt <em>· Asset aggregation</em></label>
+              <label><input type="checkbox" name="product" value="Finaware" />Finaware <em>· Investor awareness</em></label>
+              <label><input type="checkbox" name="product" value="Fiscus" />Fiscus <em>· Personal finance</em></label>
+              <label><input type="checkbox" name="product" value="Learngenie" />Learngenie <em>· Learning &amp; development</em></label>
+            </div>
+          </div>
+          <div class="interest-group" role="group" aria-labelledby="int-solutions">
+            <p class="interest-group__label" id="int-solutions">Solutions</p>
+            <div class="interests">
+              <label><input type="checkbox" name="solution" value="Wealth Management" />Wealth Management</label>
+              <label><input type="checkbox" name="solution" value="Learning and Development" />Learning and Development</label>
+              <label><input type="checkbox" name="solution" value="Investor Awareness Programs (IAP)" />Investor Awareness Programs (IAP)</label>
+              <label><input type="checkbox" name="solution" value="Robo Advisory" />Robo Advisory</label>
+              <label><input type="checkbox" name="solution" value="Data Analytics and Visualisation" />Data Analytics and Visualisation</label>
+              <label><input type="checkbox" name="solution" value="Document Management" />Document Management</label>
+              <label><input type="checkbox" name="solution" value="Regulatory Compliance Automation" />Regulatory Compliance Automation</label>
+            </div>
+          </div>
+          <div class="interest-group" role="group" aria-labelledby="int-services">
+            <p class="interest-group__label" id="int-services">Services</p>
+            <div class="interests">
+              <label><input type="checkbox" name="service" value="UI / UX Consulting" />UI / UX Consulting</label>
+              <label><input type="checkbox" name="service" value="Application &amp; Infra Audits" />Application &amp; Infra Audits</label>
+              <label><input type="checkbox" name="service" value="Cybersecurity" />Cybersecurity</label>
+              <label><input type="checkbox" name="service" value="Cloud Architecture Review" />Cloud Architecture Review</label>
+              <label><input type="checkbox" name="service" value="Digital Transformation Strategy" />Digital Transformation Strategy</label>
+            </div>
           </div>
         </fieldset>
         <label><span>Your message <em>(optional)</em></span><textarea name="message" rows="4" placeholder="How can we help?"></textarea></label>
@@ -137,7 +158,7 @@
     <div class="foot__panel">
       <div class="foot__brand">
         <img src="/finlabs-logo.png" alt="Finlabs" />
-        <a class="foot__mail" href="mailto:info@finlabsindia.com">info@finlabsindia.com</a>
+        <a class="foot__mail" href="mailto:info@finlabsindia.com"><span class="foot__mail-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7.5 8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>info@finlabsindia.com</a>
         <ul class="social" aria-label="Finlabs on social media">
           <li><a href="https://www.linkedin.com/company/14438243/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v12H3zM9 9h2.9v1.7h.1c.4-.8 1.4-1.9 3-1.9 3.2 0 3.9 2.1 3.9 4.9V21h-3v-6.4c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9z"/></svg></a></li>
           <li><a href="https://www.instagram.com/finlabsindia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></li>

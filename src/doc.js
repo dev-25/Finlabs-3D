@@ -73,7 +73,7 @@ form?.addEventListener('submit', (e) => {
   }
 
   const company = get('company');
-  const interests = data.getAll('interest').map(String);
+  const picked = (k) => data.getAll(k).map(String).join(', ');
   const subject = `Enquiry from ${name}${company ? ` — ${company}` : ''}`;
   const body = [
     `Name: ${name}`,
@@ -81,7 +81,9 @@ form?.addEventListener('submit', (e) => {
     phone && `Phone: ${phone}`,
     company && `Company: ${company}`,
     get('website') && `Website: ${get('website')}`,
-    interests.length && `Interested in: ${interests.join(', ')}`,
+    picked('product') && `Products: ${picked('product')}`,
+    picked('solution') && `Solutions: ${picked('solution')}`,
+    picked('service') && `Services: ${picked('service')}`,
     '',
     get('message') || '(no message)',
   ]

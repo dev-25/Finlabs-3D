@@ -453,16 +453,16 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 }
 .foot__brand img { height: 46px; width: auto; margin-bottom: 16px; }
 :root[data-theme="dark"] .foot__brand img { filter: brightness(1.8) saturate(0.7); }
-.foot__mail { display: inline-block; color: var(--ink-2); font-size: 14.5px; margin-bottom: 16px; }
+.foot__mail { display: inline-flex; align-items: center; gap: 10px; color: var(--ink-2); font-size: 14.5px; margin-bottom: 16px; }
 .foot__mail:hover { color: var(--brand); }
 .social { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
-.social a {
+.social a, .foot__mail-ico {
   display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px;
   color: var(--brand); background: color-mix(in srgb, var(--brand) 12%, transparent);
   transition: transform 0.2s, background 0.2s, color 0.2s;
 }
-.social a:hover { transform: translateY(-3px); background: var(--brand); color: #fff; }
-.social svg { width: 18px; height: 18px; }
+.social a:hover, .foot__mail:hover .foot__mail-ico { transform: translateY(-3px); background: var(--brand); color: #fff; }
+.social svg, .foot__mail-ico svg { width: 18px; height: 18px; }
 .foot__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .foot__cols ul { list-style: none; display: grid; gap: 11px; align-content: start; }
 .foot__cols a { color: var(--ink-2); font-size: 14.5px; transition: color 0.2s; }

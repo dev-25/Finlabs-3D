@@ -470,11 +470,12 @@ body.no3d #canvas {
   filter: brightness(1.9) saturate(0.6);
 }
 .endwall__mail {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 13.5px;
   color: var(--ink-soft);
   margin-bottom: 18px;
-  border-bottom: 1px solid var(--line);
 }
 .endwall__mail:hover {
   color: var(--teal);
@@ -487,7 +488,8 @@ body.no3d #canvas {
   list-style: none;
 }
 /* same icon tiles as the other pages' footers */
-.social a {
+.social a,
+.foot__mail-ico {
   display: grid;
   place-items: center;
   width: 36px;
@@ -497,20 +499,24 @@ body.no3d #canvas {
   background: rgba(37, 99, 235, 0.12);
   transition: transform 0.2s, background 0.2s, color 0.2s;
 }
-.social a:hover {
+.social a:hover,
+.endwall__mail:hover .foot__mail-ico {
   transform: translateY(-3px);
   background: #2563eb;
   color: #fff;
 }
-.social svg {
+.social svg,
+.foot__mail-ico svg {
   width: 18px;
   height: 18px;
 }
-:root[data-theme="dark"] .social a {
+:root[data-theme="dark"] .social a,
+:root[data-theme="dark"] .foot__mail-ico {
   color: #4f86ff;
   background: rgba(79, 134, 255, 0.14);
 }
-:root[data-theme="dark"] .social a:hover {
+:root[data-theme="dark"] .social a:hover,
+:root[data-theme="dark"] .endwall__mail:hover .foot__mail-ico {
   background: #4f86ff;
   color: #fff;
 }
