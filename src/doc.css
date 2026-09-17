@@ -148,6 +148,9 @@ a.channel:hover { transform: translateY(-3px); border-color: var(--brand); }
   color: var(--brand); background: var(--soft);
 }
 .channel--wa .channel__icon { color: #fff; background: #25d366; }
+/* email, calendar and Google Maps logos: shown as-is on a white tile, in both themes */
+.channel__icon--logo { background: #fff; border: 1px solid var(--line); }
+.channel__icon--logo img { width: 34px; height: 34px; object-fit: contain; }
 .channel b { font-family: var(--display); font-size: 18px; color: var(--ink); line-height: 1.25; }
 .channel span { font-size: 14.5px; color: var(--ink-2); line-height: 1.45; }
 .channel--wa b { color: var(--wa); }
