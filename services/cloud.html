@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cloud consulting, migration, modernisation, DevSecOps, disaster recovery and managed services on AWS, Microsoft Azure and Google Cloud, for banks, NBFCs, wealth managers and fintechs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <title>Cloud Services — AWS, Microsoft Azure and Google Cloud | Finlabs</title>
+
+  <!-- tab icon, and how the link looks when it is shared -->
+  <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finlabs India" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Cloud Services — AWS, Microsoft Azure and Google Cloud | Finlabs" />
+  <meta property="og:description" content="Plan, migrate, secure and run your workloads on AWS, Microsoft Azure or Google Cloud with Finlabs." />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{site}}/og-finlabs.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cloud Services — AWS, Microsoft Azure and Google Cloud | Finlabs" />
+  <meta name="twitter:description" content="Plan, migrate, secure and run your workloads on AWS, Microsoft Azure or Google Cloud with Finlabs." />
+  <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+</head>
+
+<body class="doc-page cl-page">
+
+  <!-- line icons used on this page -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="c-flex" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+      <symbol id="c-uptime" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 5 12 2.5-6H21"/></symbol>
+      <symbol id="c-scale" viewBox="0 0 24 24"><path d="M4 20V14M10 20V9M16 20V5M4 20h17"/><path d="m14 5 2-2 2 2"/></symbol>
+      <symbol id="c-rupee" viewBox="0 0 24 24"><path d="M7 5h11M7 9h11M9.5 5c3.6 0 5.5 1.8 5.5 4s-2 4-5.5 4H7l8 7"/></symbol>
+      <symbol id="c-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5.5c0 4.3-2.9 7.8-7 9.2-4.1-1.4-7-4.9-7-9.2V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="c-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.4 3.5 5.2 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.2-3.5-8.5s1.2-6.1 3.5-8.5z"/></symbol>
+      <symbol id="c-assess" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 8h8M8 12h5"/><circle cx="15.5" cy="15.5" r="2.2"/><path d="m17.2 17.2 1.8 1.8"/></symbol>
+      <symbol id="c-migrate" viewBox="0 0 24 24"><path d="M7 18.5a4 4 0 0 1-.4-8 5.5 5.5 0 0 1 10.6-1.3A4.2 4.2 0 0 1 17.5 18.5"/><path d="M12 21v-8M9 16l3-3 3 3"/></symbol>
+      <symbol id="c-modern" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><path d="M17 13.5v7M13.5 17h7"/></symbol>
+      <symbol id="c-devsecops" viewBox="0 0 24 24"><path d="M8.5 8.5c-2.5 0-4.5 1.6-4.5 3.5s2 3.5 4.5 3.5c3.5 0 3.5-7 7-7 2.5 0 4.5 1.6 4.5 3.5s-2 3.5-4.5 3.5c-3.5 0-3.5-7-7-7z"/></symbol>
+      <symbol id="c-backup" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6M5 12v6c0 1.4 3.1 2.5 7 2.5"/><path d="M16 17.5a2.5 2.5 0 1 0 2.5-2.5h-1M18 13.5l-1 1.5 1.5 1"/></symbol>
+      <symbol id="c-managed" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 12l2.5-3 2.5 2 3-4 2 2"/></symbol>
+      <symbol id="c-exit" viewBox="0 0 24 24"><rect x="4" y="4" width="9" height="16" rx="1.5"/><path d="M7 8h3M7 11h3M7 14h3M15 12h6M18 9l3 3-3 3"/></symbol>
+      <symbol id="c-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></symbol>
+      <symbol id="c-dr" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.7M20 4v4.7h-4.7"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.3M4 20v-4.7h4.7"/></symbol>
+      <symbol id="c-wealth" viewBox="0 0 24 24"><path d="M4 19V11M9 19V7M14 19v-6M19 19V4M3 19.5h18"/></symbol>
+      <symbol id="c-bank" viewBox="0 0 24 24"><path d="M3.5 9 12 4l8.5 5M5 9.5v8M9.5 9.5v8M14.5 9.5v8M19 9.5v8M3.5 19.5h17"/></symbol>
+      <symbol id="c-chart" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="15" rx="2"/><path d="m7 15 3-4 3 2 4-5"/></symbol>
+      <symbol id="c-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2.5"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- include: src/partials/service-page/nav.html -->
+
+  <main class="cl">
+    <!-- ===================== hero: three clouds over your data centre ===================== -->
+    <section class="cl-hero" aria-labelledby="clTitle">
+      <div class="cl-hero__copy">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li aria-current="page">Cloud</li>
+        </ol>
+        <p class="cl-eyebrow"><span class="cl-dot"></span>Cloud services · AWS · Azure · Google Cloud</p>
+        <h1 id="clTitle">Move to the cloud <em>with confidence</em></h1>
+        <p class="cl-lead">
+          We plan, migrate, secure and run workloads on Amazon Web Services, Microsoft Azure and Google Cloud for
+          banks, NBFCs, wealth managers and fintechs, with the uptime, security and compliance that financial
+          services demand.
+        </p>
+        <div class="cl-hero__ctas">
+          <a class="cl-btn" href="../contact.html">Plan your migration <span aria-hidden="true">→</span></a>
+          <a class="cl-btn cl-btn--ghost" href="#journey">See how we work</a>
+        </div>
+        <div class="cl-logos" role="group" aria-label="Choose a cloud platform">
+          <button class="cl-logo" type="button" data-cloud="aws" aria-pressed="false">
+            <img class="for-light" src="/services/cloud/aws.svg" alt="Amazon Web Services" width="304" height="182" />
+            <img class="for-dark" src="/services/cloud/aws-light.svg" alt="" width="304" height="182" />
+          </button>
+          <button class="cl-logo" type="button" data-cloud="azure" aria-pressed="false">
+            <img src="/services/cloud/azure.svg" alt="" width="96" height="96" /><span>Microsoft Azure</span>
+          </button>
+          <button class="cl-logo" type="button" data-cloud="gcp" aria-pressed="false">
+            <img class="for-light" src="/services/cloud/google-cloud.svg" alt="Google Cloud" width="181" height="28" />
+            <img class="for-dark" src="/services/cloud/google-cloud-light.svg" alt="" width="181" height="28" />
+          </button>
+        </div>
+      </div>
+      <div class="cl-hero__stage" aria-hidden="true">
+        <canvas></canvas>
+        <p class="cl-hero__hint">Pick a cloud</p>
+      </div>
+    </section>
+
+    <!-- ===================== why the cloud ===================== -->
+    <section class="cl-sec" aria-labelledby="whyTitle">
+      <header class="cl-head">
+        <p class="cl-eyebrow"><span class="cl-dot"></span>Why the cloud</p>
+        <h2 id="whyTitle">Is the cloud right for your business?</h2>
+        <p>For most financial firms it now is. Here is what changes when your platforms run on a hyperscale cloud instead of a server room.</p>
+      </header>
+      <ul class="cl-benefits">
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-flex"/></svg></span><h3>Flexibility</h3><p>Pick from hundreds of managed services and shape them around your products, instead of shaping your products around the hardware you own.</p></li>
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-uptime"/></svg></span><h3>Reliability</h3><p>Several availability zones and automatic failover keep client-facing platforms running through hardware faults and traffic spikes.</p></li>
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-scale"/></svg></span><h3>Scale and performance</h3><p>Capacity grows for market-open rushes, NFO launches and month-end runs, then shrinks again when the rush is over.</p></li>
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-rupee"/></svg></span><h3>Pay for what you use</h3><p>Swap up-front hardware spend for usage-based pricing, with reserved capacity and savings plans that keep the bill predictable.</p></li>
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-shield"/></svg></span><h3>Security and compliance</h3><p>Encryption, identity controls and audit trails come built in, backed by certifications that support your own regulatory obligations.</p></li>
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-globe"/></svg></span><h3>India regions, global reach</h3><p>Data centres in India keep data close to your clients, and in the country when the rules require it, with worldwide regions for everything else.</p></li>
+      </ul>
+    </section>
+
+    <!-- ===================== the three platforms ===================== -->
+    <section class="cl-sec" id="platforms" aria-labelledby="platformsTitle">
+      <header class="cl-head">
+        <p class="cl-eyebrow"><span class="cl-dot"></span>Three clouds, one team</p>
+        <h2 id="platformsTitle">AWS, Azure or Google Cloud? We work on all three.</h2>
+        <p>We recommend the platform that fits your systems, skills and budget, not the one we happen to prefer. Many clients run one main cloud and use a second for recovery or a specific service.</p>
+      </header>
+
+      <div class="cl-tabs" role="tablist" aria-label="Cloud platforms">
+        <button class="cl-tab" role="tab" id="tab-aws" aria-controls="panel-aws" aria-selected="true" data-cloud="aws">
+          <img class="for-light" src="/services/cloud/aws.svg" alt="" width="304" height="182" /><img class="for-dark" src="/services/cloud/aws-light.svg" alt="" width="304" height="182" /><span>Amazon Web Services</span>
+        </button>
+        <button class="cl-tab" role="tab" id="tab-azure" aria-controls="panel-azure" aria-selected="false" tabindex="-1" data-cloud="azure">
+          <img src="/services/cloud/azure.svg" alt="" width="96" height="96" /><span>Microsoft Azure</span>
+        </button>
+        <button class="cl-tab" role="tab" id="tab-gcp" aria-controls="panel-gcp" aria-selected="false" tabindex="-1" data-cloud="gcp">
+          <img src="/services/cloud/google-cloud-icon.svg" alt="" width="34" height="27" /><span>Google Cloud</span>
+        </button>
+      </div>
+
+      <article class="cl-panel" role="tabpanel" id="panel-aws" aria-labelledby="tab-aws" data-cloud="aws">
+        <div class="cl-panel__intro">
+          <div class="cl-panel__brand">
+            <img class="for-light" src="/services/cloud/aws.svg" alt="Amazon Web Services" width="304" height="182" />
+            <img class="for-dark" src="/services/cloud/aws-light.svg" alt="" width="304" height="182" />
+          </div>
+          <h3>Amazon Web Services</h3>
+          <p class="cl-panel__best"><b>Best for:</b> the broadest catalogue of services and the most mature partner ecosystem. A strong default for new digital platforms and full data-centre exits.</p>
+          <dl class="cl-facts">
+            <div><dt>India regions</dt><dd>Mumbai · Hyderabad</dd></div>
+            <div><dt>We review against</dt><dd>AWS Well-Architected Framework</dd></div>
+            <div><dt>Migration tooling</dt><dd>AWS Migration Hub, Application Migration Service, Database Migration Service</dd></div>
+          </dl>
+        </div>
+        <div class="cl-panel__services">
+          <h4>Services we build with most</h4>
+          <ul class="cl-chips">
+            <li>Amazon EC2</li><li>Amazon S3</li><li>Amazon RDS &amp; Aurora</li><li>AWS Lambda</li><li>Amazon EKS</li><li>Amazon CloudFront</li><li>AWS WAF &amp; Shield</li><li>AWS Backup</li><li>Amazon CloudWatch</li><li>AWS IAM Identity Center</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cl-panel" role="tabpanel" id="panel-azure" aria-labelledby="tab-azure" data-cloud="azure" hidden>
+        <div class="cl-panel__intro">
+          <div class="cl-panel__brand cl-panel__brand--azure"><img src="/services/cloud/azure.svg" alt="" width="96" height="96" /><span>Microsoft Azure</span></div>
+          <h3>Microsoft Azure</h3>
+          <p class="cl-panel__best"><b>Best for:</b> organisations already on Microsoft 365, Active Directory, Windows Server or SQL Server, and hybrid set-ups that keep some systems on-premises.</p>
+          <dl class="cl-facts">
+            <div><dt>India regions</dt><dd>Central India (Pune) · South India (Chennai) · West India (Mumbai)</dd></div>
+            <div><dt>We review against</dt><dd>Azure Well-Architected Framework and Cloud Adoption Framework</dd></div>
+            <div><dt>Migration tooling</dt><dd>Azure Migrate, Azure Database Migration Service, Azure Site Recovery</dd></div>
+          </dl>
+        </div>
+        <div class="cl-panel__services">
+          <h4>Services we build with most</h4>
+          <ul class="cl-chips">
+            <li>Azure Virtual Machines</li><li>Azure Kubernetes Service</li><li>Azure SQL Database</li><li>Azure Functions</li><li>Azure App Service</li><li>Azure Blob Storage</li><li>Azure Front Door</li><li>Microsoft Entra ID</li><li>Microsoft Defender for Cloud</li><li>Azure Backup</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cl-panel" role="tabpanel" id="panel-gcp" aria-labelledby="tab-gcp" data-cloud="gcp" hidden>
+        <div class="cl-panel__intro">
+          <div class="cl-panel__brand">
+            <img class="for-light" src="/services/cloud/google-cloud.svg" alt="Google Cloud" width="181" height="28" />
+            <img class="for-dark" src="/services/cloud/google-cloud-light.svg" alt="" width="181" height="28" />
+          </div>
+          <h3>Google Cloud</h3>
+          <p class="cl-panel__best"><b>Best for:</b> data-heavy and analytics-led work, with BigQuery, managed Kubernetes and AI services, and for teams that want to go container-first.</p>
+          <dl class="cl-facts">
+            <div><dt>India regions</dt><dd>Mumbai · Delhi</dd></div>
+            <div><dt>We review against</dt><dd>Google Cloud Well-Architected Framework</dd></div>
+            <div><dt>Migration tooling</dt><dd>Migrate to Virtual Machines, Database Migration Service, Storage Transfer Service</dd></div>
+          </dl>
+        </div>
+        <div class="cl-panel__services">
+          <h4>Services we build with most</h4>
+          <ul class="cl-chips">
+            <li>Compute Engine</li><li>Google Kubernetes Engine</li><li>Cloud Run</li><li>Cloud SQL</li><li>BigQuery</li><li>Cloud Storage</li><li>Cloud Armor</li><li>Cloud Load Balancing</li><li>Vertex AI</li><li>Cloud Monitoring</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== what we do ===================== -->
+    <section class="cl-sec" aria-labelledby="doTitle">
+      <header class="cl-head">
+        <p class="cl-eyebrow"><span class="cl-dot"></span>What we do</p>
+        <h2 id="doTitle">From the first assessment to running it for you</h2>
+        <p>Take the whole journey with us, or just the part you need.</p>
+      </header>
+      <ul class="cl-services">
+        <li class="cl-card cl-card--tilt"><span class="cl-ico"><svg><use href="#c-assess"/></svg></span><h3>Cloud readiness assessment</h3><p>We map your applications, data and dependencies, score each one for the move, and hand you a costed plan: what to migrate, in what order, and what it will cost to run.</p></li>
+        <li class="cl-card cl-card--tilt"><span class="cl-ico"><svg><use href="#c-migrate"/></svg></span><h3>Cloud migration</h3><p>Servers, databases and files moved with rehearsed cut-overs, rollback plans and data checks, so your clients barely notice the switch.</p></li>
+        <li class="cl-card cl-card--tilt"><span class="cl-ico"><svg><use href="#c-modern"/></svg></span><h3>Application modernisation</h3><p>Break monoliths into services, adopt containers and serverless, and move to managed databases, AI and analytics where it pays off.</p></li>
+        <li class="cl-card cl-card--tilt"><span class="cl-ico"><svg><use href="#c-devsecops"/></svg></span><h3>DevSecOps</h3><p>CI/CD pipelines with security scans, infrastructure as code and policy checks built in, so every release is repeatable and audit-ready.</p></li>
+        <li class="cl-card cl-card--tilt"><span class="cl-ico"><svg><use href="#c-backup"/></svg></span><h3>Backup and disaster recovery</h3><p>Automated backups, cross-region copies and tested recovery runbooks, with recovery point and recovery time targets agreed up front.</p></li>
+        <li class="cl-card cl-card--tilt"><span class="cl-ico"><svg><use href="#c-managed"/></svg></span><h3>Managed cloud services</h3><p>Monitoring, patching, security reviews and monthly cost check-ins once you are live, run by the team that built it.</p></li>
+      </ul>
+    </section>
+
+    <!-- ===================== migration scenarios and the 7 Rs ===================== -->
+    <section class="cl-sec" id="migration" aria-labelledby="migTitle">
+      <header class="cl-head">
+        <p class="cl-eyebrow"><span class="cl-dot"></span>Migration</p>
+        <h2 id="migTitle">Every workload gets its own path</h2>
+        <p>We handle everything from a straight lift-and-shift to a complex hybrid set-up. These are the moves we make most often.</p>
+      </header>
+      <ul class="cl-cases">
+        <li class="cl-case"><span class="cl-ico"><svg><use href="#c-exit"/></svg></span><div><h3>Data-centre exit</h3><p>Retire ageing on-premises hardware and hand the facility, refresh cycles and power bills to the cloud provider.</p></div></li>
+        <li class="cl-case"><span class="cl-ico"><svg><use href="#c-modern"/></svg></span><div><h3>Application modernisation</h3><p>Re-platform or refactor core applications to use serverless functions, microservices and managed AI services.</p></div></li>
+        <li class="cl-case"><span class="cl-ico"><svg><use href="#c-db"/></svg></span><div><h3>Database migration</h3><p>Move Oracle, SQL Server, MySQL or PostgreSQL with continuous replication and a short, planned switch-over.</p></div></li>
+        <li class="cl-case"><span class="cl-ico"><svg><use href="#c-dr"/></svg></span><div><h3>Disaster recovery</h3><p>Stand up a recovery site in another region with automated failover, without buying a second data centre.</p></div></li>
+      </ul>
+
+      <div class="cl-rs">
+        <div class="cl-rs__head">
+          <h3>The 7 Rs: how each application moves</h3>
+          <p>Pick one to see when we use it.</p>
+        </div>
+        <div class="cl-rs__list" role="tablist" aria-label="Migration strategies">
+          <button class="cl-r" role="tab" aria-selected="true" aria-controls="rDesc" data-r="0"><b>01</b>Rehost</button>
+          <button class="cl-r" role="tab" aria-selected="false" aria-controls="rDesc" tabindex="-1" data-r="1"><b>02</b>Relocate</button>
+          <button class="cl-r" role="tab" aria-selected="false" aria-controls="rDesc" tabindex="-1" data-r="2"><b>03</b>Replatform</button>
+          <button class="cl-r" role="tab" aria-selected="false" aria-controls="rDesc" tabindex="-1" data-r="3"><b>04</b>Refactor</button>
+          <button class="cl-r" role="tab" aria-selected="false" aria-controls="rDesc" tabindex="-1" data-r="4"><b>05</b>Repurchase</button>
+          <button class="cl-r" role="tab" aria-selected="false" aria-controls="rDesc" tabindex="-1" data-r="5"><b>06</b>Retain</button>
+          <button class="cl-r" role="tab" aria-selected="false" aria-controls="rDesc" tabindex="-1" data-r="6"><b>07</b>Retire</button>
+        </div>
+        <div class="cl-rs__desc" id="rDesc" role="tabpanel" aria-live="polite">
+          <template data-r="0"><p class="cl-rs__tag">Lift and shift</p><h4>Rehost</h4><p>Move the application as it is onto cloud virtual machines. It is the fastest route out of a data centre, and a good first step before optimising later.</p><p class="cl-rs__when"><b>We use it when</b> a deadline is tight, such as a hardware refresh or a lease ending.</p></template>
+          <template data-r="1"><p class="cl-rs__tag">Hypervisor-level move</p><h4>Relocate</h4><p>Move whole virtualised environments, such as VMware clusters, into the cloud without changing the machines inside them.</p><p class="cl-rs__when"><b>We use it when</b> you already run a large virtual estate and want the smallest possible change.</p></template>
+          <template data-r="2"><p class="cl-rs__tag">Lift, tinker and shift</p><h4>Replatform</h4><p>Make a few targeted changes on the way, like moving the database to a managed service or the app to containers, without rewriting the code.</p><p class="cl-rs__when"><b>We use it when</b> a small change removes a lot of maintenance work.</p></template>
+          <template data-r="3"><p class="cl-rs__tag">Re-architect</p><h4>Refactor</h4><p>Redesign the application around cloud-native services: microservices, serverless, event streams and managed data.</p><p class="cl-rs__when"><b>We use it when</b> the application needs to scale, release faster or add capabilities the old design cannot support.</p></template>
+          <template data-r="4"><p class="cl-rs__tag">Drop and shop</p><h4>Repurchase</h4><p>Replace a self-hosted system with a software-as-a-service product that does the same job.</p><p class="cl-rs__when"><b>We use it when</b> a good SaaS option exists and the system gives you no competitive edge.</p></template>
+          <template data-r="5"><p class="cl-rs__tag">Revisit later</p><h4>Retain</h4><p>Keep the application where it is for now and connect it securely to what has moved.</p><p class="cl-rs__when"><b>We use it when</b> licensing, latency or a regulatory reason makes moving it premature.</p></template>
+          <template data-r="6"><p class="cl-rs__tag">Switch it off</p><h4>Retire</h4><p>Decommission applications nobody needs any more, and archive their data where the rules require it.</p><p class="cl-rs__when"><b>We use it when</b> the assessment finds duplicate or unused systems, which it usually does.</p></template>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== how we engage ===================== -->
+    <section class="cl-sec" id="journey" aria-labelledby="journeyTitle">
+      <header class="cl-head">
+        <p class="cl-eyebrow"><span class="cl-dot"></span>How we engage</p>
+        <h2 id="journeyTitle">Four stages, and a clear hand-off at each</h2>
+        <p>Every engagement starts with a conversation about your goals, then moves through four stages.</p>
+      </header>
+      <ol class="cl-journey">
+        <li class="cl-step"><span class="cl-step__n">01</span><h3>Discover and assess</h3><p>Workshops and automated discovery to understand your estate, dependencies, costs and constraints.</p><p class="cl-step__out">You get: a readiness report and roadmap</p></li>
+        <li class="cl-step"><span class="cl-step__n">02</span><h3>Plan</h3><p>Choose the cloud and target architecture, pick a migration path for each workload, and fix timelines, tooling and success measures.</p><p class="cl-step__out">You get: a signed-off migration plan</p></li>
+        <li class="cl-step"><span class="cl-step__n">03</span><h3>Migrate</h3><p>Move in waves, starting with lower-risk systems. Every wave is rehearsed, validated and signed off before the next begins.</p><p class="cl-step__out">You get: workloads live, with data checked</p></li>
+        <li class="cl-step"><span class="cl-step__n">04</span><h3>Optimise and support</h3><p>Tune performance, right-size and cut costs, then keep everything healthy with ongoing managed support.</p><p class="cl-step__out">You get: a leaner bill and a steady platform</p></li>
+      </ol>
+    </section>
+
+    <!-- ===================== who we work with ===================== -->
+    <section class="cl-sec" aria-labelledby="whoTitle">
+      <header class="cl-head">
+        <p class="cl-eyebrow"><span class="cl-dot"></span>Built for financial services</p>
+        <h2 id="whoTitle">Who we move to the cloud</h2>
+      </header>
+      <ul class="cl-who">
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-wealth"/></svg></span><h3>Wealth managers and distributors</h3><p>Advisory, portfolio and reporting platforms that must stay fast on the busiest market days.</p></li>
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-bank"/></svg></span><h3>NBFCs and lenders</h3><p>Loan origination, collections and customer apps that need to scale without adding servers.</p></li>
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-chart"/></svg></span><h3>AMCs, brokers and fintechs</h3><p>Fast-growing platforms that want to ship quickly, with security and cost under control.</p></li>
+        <li class="cl-card"><span class="cl-ico"><svg><use href="#c-lock"/></svg></span><h3>Teams with strict data rules</h3><p>Plans built around data residency, audit trails, access controls and vendor due diligence from day one.</p></li>
+      </ul>
+    </section>
+
+    <!-- ===================== questions ===================== -->
+    <section class="cl-sec cl-faq" aria-labelledby="faqTitle">
+      <header class="cl-head">
+        <p class="cl-eyebrow"><span class="cl-dot"></span>Questions</p>
+        <h2 id="faqTitle">What clients ask us first</h2>
+      </header>
+      <div class="cl-faq__list">
+        <details class="cl-q" open>
+          <summary>Which cloud should we choose?</summary>
+          <p>It depends on what you already run, the skills in your team and the services you need. Microsoft-heavy estates often suit Azure, analytics-led work often suits Google Cloud, and AWS has the widest catalogue. We compare them for your workloads, costs included, before you commit.</p>
+        </details>
+        <details class="cl-q">
+          <summary>Can you migrate us without downtime?</summary>
+          <p>Most moves need a short, planned window for the final switch-over. Continuous replication keeps it down to minutes, we schedule it outside business hours, and there is always a tested rollback plan.</p>
+        </details>
+        <details class="cl-q">
+          <summary>Will our data stay in India?</summary>
+          <p>It can. AWS, Azure and Google Cloud all have regions in India. We deploy there and set up backups and replicas so data stays in the country whenever your obligations require it.</p>
+        </details>
+        <details class="cl-q">
+          <summary>Do you support hybrid and multi-cloud set-ups?</summary>
+          <p>Yes. We connect on-premises systems through VPNs or private links such as AWS Direct Connect, Azure ExpressRoute and Google Cloud Interconnect, and keep tooling consistent across clouds with Terraform and Kubernetes.</p>
+        </details>
+        <details class="cl-q">
+          <summary>What happens after go-live?</summary>
+          <p>You choose. We can run the environment for you with managed services and regular cost reviews, or hand it over to your team with documentation, runbooks and training.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===================== closing call to action ===================== -->
+    <section class="cl-cta" aria-labelledby="ctaTitle">
+      <div>
+        <p class="cl-eyebrow"><span class="cl-dot"></span>Take the next step</p>
+        <h2 id="ctaTitle">Let's talk about your cloud</h2>
+        <p>Tell us what you run today and where you want to be. We'll come back with a view on the right platform, the path to get there and a rough cost.</p>
+      </div>
+      <div class="cl-cta__btns">
+        <a class="cl-btn" href="../contact.html">Contact us <span aria-hidden="true">→</span></a>
+        <a class="cl-btn cl-btn--ghost" href="https://calendly.com/finlabsindia/book-a-call-on-teams" target="_blank" rel="noopener">Book a call</a>
+        <a class="cl-back" href="../services.html#cloud">← Back to all services</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- include: src/partials/service-page/footer.html -->
+
+  <script type="module" src="/src/cloud.js"></script>
+</body>
+</html>

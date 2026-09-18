@@ -73,6 +73,8 @@ export default defineConfig(({ command, isPreview }) => ({
         'kc-blogs': resolve(ROOT, 'knowledge-centre/blogs.html'),
         'kc-infographics': resolve(ROOT, 'knowledge-centre/infographics.html'),
         'kc-summariwise': resolve(ROOT, 'knowledge-centre/summariwise.html'),
+        // the services' own pages
+        'service-cloud': resolve(ROOT, 'services/cloud.html'),
         // one page per product, sharing its body with the showroom's monitor
         'product-finexa': resolve(ROOT, 'products/finexa.html'),
         'product-finexa-gennxt': resolve(ROOT, 'products/finexa-gennxt.html'),

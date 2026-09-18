@@ -126,6 +126,7 @@ main { position: relative; z-index: 2; }
 }
 .btn--ghost:hover { border-color: var(--brand); }
 .btn--sm { padding: 10px 18px; font-size: 14px; }
+.service__cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .icon-btn {
   display: inline-grid; place-items: center;
