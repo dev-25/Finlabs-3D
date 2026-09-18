@@ -50,11 +50,36 @@ function htmlIncludes() {
   };
 }
 
+/* The saved light/dark choice, applied before the first paint. src/theme.js
+ * only runs once the page has loaded, so without this a visitor in dark mode
+ * sees every page flash light first. Every page gets it at the top of its
+ * <head>; keep the key and the fallback in step with src/theme.js. */
+const THEME_BOOT = `(function () {
+  var t;
+  try { t = localStorage.getItem('finlabs-theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.dataset.theme = t;
+})();`;
+
+function themeBoot() {
+  const CHARSET = /<meta charset=[^>]*>/i;
+  return {
+    name: 'theme-boot',
+    transformIndexHtml(html) {
+      // straight after the charset, which should stay first in the <head>
+      if (CHARSET.test(html)) return html.replace(CHARSET, (tag) => `${tag}\n  <script>${THEME_BOOT}</script>`);
+      return [{ tag: 'script', children: THEME_BOOT, injectTo: 'head-prepend' }];
+    },
+  };
+}
+
 // GitHub Pages serves this project at https://dev-25.github.io/Finlabs-3D/,
 // so production URLs need that prefix. The dev server keeps serving from /.
 export default defineConfig(({ command, isPreview }) => ({
   base: command === 'build' || isPreview ? '/Finlabs-3D/' : '/',
-  plugins: [htmlIncludes()],
+  plugins: [htmlIncludes(), themeBoot()],
   build: {
     rollupOptions: {
       input: {

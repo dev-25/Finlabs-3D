@@ -3,7 +3,10 @@
  * =====================================================
  * Shared light/dark switch for both pages. The choice is
  * stored per browser and applied to <html data-theme>, and
- * scenes can subscribe to recolour their materials.
+ * scenes can subscribe to recolour their materials. A small
+ * script in every page's <head> (see vite.config.js) sets
+ * the same attribute before the first paint, so pages open
+ * in the right theme without a flash.
  * ===================================================== */
 
 const KEY = 'finlabs-theme';
