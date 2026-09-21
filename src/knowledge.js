@@ -12,7 +12,7 @@ const PAGES = {
   blogs: 'knowledge-centre/blogs.html',
   infographics: 'knowledge-centre/infographics.html',
   summariwise: 'knowledge-centre/summariwise.html',
-  calculators: 'knowledge-centre/calculators.html',
+  calculators: 'knowledge-centre/sip-calculator.html',
 };
 const doors = [...document.querySelectorAll('.kc-door')];
 const stage = document.querySelector('.kc-hero__stage');

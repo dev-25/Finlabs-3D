@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Work out what a monthly SIP could grow into. Move the sliders for the amount, the expected return and the number of years, and see the invested amount, the estimated returns and the total value year by year." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <title>SIP Calculator — what a monthly investment could grow into | Finlabs</title>
+
+  <!-- tab icon, and how the link looks when it is shared -->
+  <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finlabs India" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="SIP Calculator — what a monthly investment could grow into | Finlabs" />
+  <meta property="og:description" content="See what a fixed amount invested every month could grow into, year by year." />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{site}}/og-finlabs.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SIP Calculator — what a monthly investment could grow into | Finlabs" />
+  <meta name="twitter:description" content="See what a fixed amount invested every month could grow into, year by year." />
+  <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+
+  <style>
+    /* The calculator: sliders on the left, the donut and the figures on the
+           right, the year-by-year chart across the bottom, the breakdown under
+           that. These styles belong to this page alone. */
+
+    .kc-calc {
+      --inv: #2563eb; /* the money you put in */
+      --ret: #059669; /* what it earns */
+    }
+    :root[data-theme="dark"] .kc-calc {
+      --inv: #60a5fa;
+      --ret: #34d399;
+    }
+
+    .kc-visually-hidden {
+      position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+      overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+    }
+
+    .calc { margin-bottom: clamp(30px, 5vw, 56px); }
+
+    /* ---- the pair of links between the two calculators */
+    .calc__pick { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .calc__pick a {
+      flex: 1 1 220px; display: grid; gap: 2px; text-align: left; cursor: pointer;
+      padding: 14px 20px; border-radius: 18px; color: var(--ink-2);
+      background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+      transition: color 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .calc__pick b { font: 700 19px/1.2 var(--display); letter-spacing: -0.01em; }
+    .calc__pick span { font-size: 13.5px; color: var(--ink-3); }
+    .calc__pick a:hover { transform: translateY(-2px); border-color: var(--brand); }
+    .calc__pick a[aria-current="page"] { color: #fff; background: var(--brand); border-color: var(--brand); }
+    .calc__pick a[aria-current="page"] span { color: rgba(255, 255, 255, 0.8); }
+    :root[data-theme="dark"] .calc__pick a[aria-current="page"] { color: #06102a; }
+    :root[data-theme="dark"] .calc__pick a[aria-current="page"] span { color: rgba(6, 16, 42, 0.7); }
+
+    /* ---- the panel: controls, result, chart, table */
+    .calc__panel {
+      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: clamp(18px, 3vw, 34px); align-items: start;
+      padding: clamp(20px, 3vw, 32px); border-radius: 26px;
+      background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+    }
+    .calc__chart, .calc__table { grid-column: 1 / -1; }
+
+    /* ---- the sliders */
+    .calc__form { display: grid; gap: 22px; margin: 0; }
+    .calc__field { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 16px; align-items: center; }
+    .calc__field label { font-weight: 600; font-size: 15.5px; }
+    .calc__field label em { font-style: normal; color: var(--ink-3); font-weight: 500; }
+    .calc__entry {
+      display: inline-flex; align-items: center; gap: 4px; padding: 8px 14px; border-radius: 12px;
+      background: var(--soft); border: 1px solid transparent; color: var(--brand); font-weight: 700;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .calc__entry:focus-within { border-color: var(--brand); background: var(--bg); }
+    .calc__entry span { font-size: 15px; }
+    .calc__entry input {
+      width: 8.5ch; padding: 0; border: 0; background: none; color: inherit; text-align: right;
+      font: 700 16px/1.2 var(--display); letter-spacing: -0.01em;
+    }
+    .calc__entry input:focus { outline: none; }
+    .calc__entry input::-webkit-outer-spin-button, .calc__entry input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .calc__entry input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+
+    .calc__slider { grid-column: 1 / -1; width: 100%; margin: 0; accent-color: var(--brand); height: 22px; cursor: pointer; }
+    .calc__scale {
+      grid-column: 1 / -1; display: flex; justify-content: space-between; margin: -8px 0 0;
+      font: 500 11.5px/1 var(--mono); color: var(--ink-3);
+    }
+
+    .calc__quick { display: flex; flex-wrap: wrap; gap: 8px; }
+    .calc__chip {
+      padding: 8px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 13.5px;
+      color: var(--ink-2); background: transparent; border: 1px solid var(--line);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .calc__chip:hover { color: var(--brand); border-color: var(--brand); background: var(--soft); }
+
+    /* ---- the donut and the three figures */
+    .calc__result { display: grid; gap: 18px; justify-items: center; }
+    .calc__donut { position: relative; width: min(230px, 62vw); margin: 0; }
+    .calc__donut svg { display: block; width: 100%; height: auto; transform: rotate(-90deg); }
+    .calc__ring { fill: none; stroke: var(--inv); stroke-width: 15; }
+    .calc__arc {
+      fill: none; stroke: var(--ret); stroke-width: 15; stroke-linecap: butt;
+      transition: stroke-dasharray 0.45s cubic-bezier(0.22, 0.8, 0.28, 1);
+    }
+    .calc__donut figcaption {
+      position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 2px;
+    }
+    .calc__donut figcaption b { font: 800 30px/1 var(--display); letter-spacing: -0.02em; color: var(--ret); }
+    .calc__donut figcaption span { font-size: 12.5px; color: var(--ink-3); max-width: 11ch; margin: 0 auto; }
+
+    .calc__figures { display: grid; gap: 10px; width: 100%; margin: 0; }
+    .calc__fig {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+      padding: 11px 16px; border-radius: 14px; background: var(--soft);
+      border-left: 4px solid transparent;
+    }
+    .calc__fig dt { font-size: 14px; color: var(--ink-2); }
+    .calc__fig dd { margin: 0; font: 700 19px/1.2 var(--display); letter-spacing: -0.01em; }
+    .calc__fig--inv { border-left-color: var(--inv); }
+    .calc__fig--ret { border-left-color: var(--ret); }
+    .calc__fig--total { background: var(--brand); color: #fff; border-left-color: var(--brand); }
+    .calc__fig--total dt { color: rgba(255, 255, 255, 0.82); }
+    .calc__fig--total dd { font-size: 23px; }
+    :root[data-theme="dark"] .calc__fig--total { color: #06102a; }
+    :root[data-theme="dark"] .calc__fig--total dt { color: rgba(6, 16, 42, 0.72); }
+
+    .calc__words { margin: 0; font-size: 14px; color: var(--ink-2); text-align: center; text-wrap: balance; }
+
+    .calc__actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .calc__btn {
+      padding: 10px 18px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 14px;
+      color: #fff; background: var(--brand); border: 1px solid var(--brand);
+      transition: transform 0.2s, background 0.2s, color 0.2s;
+    }
+    :root[data-theme="dark"] .calc__btn { color: #06102a; }
+    .calc__btn:hover { transform: translateY(-2px); }
+    .calc__btn--ghost { color: var(--ink-2); background: transparent; border-color: var(--line); }
+    :root[data-theme="dark"] .calc__btn--ghost { color: var(--ink-2); }
+    .calc__btn--ghost:hover { color: var(--brand); border-color: var(--brand); }
+    .calc__btn.is-done { background: var(--ret); border-color: var(--ret); color: #fff; }
+
+    /* ---- the year-by-year chart */
+    .calc__chart { margin: 4px 0 0; }
+    .calc__chart figcaption {
+      display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px;
+      margin-bottom: 10px;
+    }
+    .calc__chart figcaption b { font: 700 17px/1.2 var(--display); }
+    .calc__legend { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-3); }
+    .calc__legend i { width: 12px; height: 12px; border-radius: 4px; display: inline-block; }
+    .calc__legend i.is-inv { background: var(--inv); margin-left: 6px; }
+    .calc__legend i.is-val { background: var(--ret); margin-left: 12px; }
+
+    .calc__plot { position: relative; height: clamp(190px, 26vw, 250px); touch-action: pan-y; }
+    .calc__plot svg { display: block; width: 100%; height: 100%; overflow: visible; }
+    .calc__grid line { stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .calc__area { fill: color-mix(in srgb, var(--ret) 18%, transparent); stroke: none; }
+    .calc__line { fill: none; stroke: var(--ret); stroke-width: 2.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+    .calc__base {
+      fill: none; stroke: var(--inv); stroke-width: 2; stroke-dasharray: 6 5;
+      vector-effect: non-scaling-stroke; stroke-linejoin: round;
+    }
+    .calc__marker line { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; }
+    .calc__marker circle { fill: var(--ret); stroke: var(--paper); stroke-width: 2; vector-effect: non-scaling-stroke; }
+
+    .calc__tip {
+      position: absolute; top: 6px; transform: translateX(-50%); pointer-events: none; display: grid; gap: 1px;
+      padding: 8px 12px; border-radius: 12px; white-space: nowrap; font-size: 12.5px;
+      background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow); color: var(--ink-2);
+    }
+    .calc__tip b { font: 700 13px/1.3 var(--display); color: var(--ink); }
+
+    .calc__xaxis {
+      position: relative; list-style: none; height: 20px; margin: 6px 0 0; padding: 0;
+      font: 500 11.5px/1 var(--mono); color: var(--ink-3);
+    }
+    .calc__xaxis li { position: absolute; transform: translateX(-50%); }
+    .calc__reading { min-height: 1.2em; margin: 2px 0 0; font-size: 13px; color: var(--ink-3); }
+
+    /* ---- the breakdown */
+    .calc__table { margin-top: 6px; }
+    .calc__table summary {
+      cursor: pointer; padding: 12px 16px; border-radius: 14px; font-weight: 600; font-size: 14.5px;
+      background: var(--soft); color: var(--ink-2);
+    }
+    .calc__table summary:hover { color: var(--brand); }
+    .calc__tablewrap { max-height: 320px; overflow: auto; margin-top: 12px; border-radius: 14px; border: 1px solid var(--line); }
+    .calc__table table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .calc__table th, .calc__table td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--line); }
+    .calc__table thead th {
+      position: sticky; top: 0; background: var(--paper); text-align: right; z-index: 1;
+      font: 600 11.5px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+    }
+    .calc__table tbody th { text-align: left; font-weight: 600; }
+    .calc__table tbody tr:last-child th, .calc__table tbody tr:last-child td { border-bottom: 0; }
+
+    /* ---- how the maths works */
+    .calc__explain { margin-bottom: clamp(24px, 4vw, 44px); }
+    .calc__explain-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .calc__explain-grid article {
+      display: grid; gap: 10px; align-content: start; padding: 22px 24px; border-radius: 22px;
+      background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+    }
+    .calc__explain-grid h3 { font: 700 19px/1.2 var(--display); }
+    .calc__explain-grid p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+    .calc__formula {
+      padding: 12px 14px; border-radius: 12px; background: var(--soft);
+      font: 600 14.5px/1.5 var(--mono) !important; color: var(--ink) !important;
+    }
+    .calc__legendkey { font-size: 13.5px !important; color: var(--ink-3) !important; }
+    .calc__note {
+      margin: 18px 0 0; padding: 16px 20px; border-radius: 18px; font-size: 13.5px; color: var(--ink-2);
+      background: var(--soft); border-left: 4px solid var(--brand);
+    }
+
+    @media (max-width: 1040px) {
+      .calc__explain-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .calc__panel { grid-template-columns: minmax(0, 1fr); }
+      .calc__result { justify-items: stretch; }
+      .calc__donut { justify-self: center; }
+    }
+    @media (max-width: 560px) {
+      .calc__field { grid-template-columns: minmax(0, 1fr); }
+      .calc__entry { justify-self: start; }
+      .calc__pick a { flex-basis: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .calc__arc, .calc__btn, .calc__pick a, .calc__chip { transition: none; }
+    }
+
+    /* the links sit in a row, and the current one is filled in */
+    .calc__pick a { text-decoration: none; }
+    .calc__pick a[aria-current="page"] { pointer-events: none; }
+    .calc__link { font-weight: 600; color: var(--brand); text-decoration: none; }
+    .calc__link:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body class="doc-page kc-page kc-calc">
+
+  <!-- include: src/partials/knowledge/nav.html -->
+
+  <main class="kc">
+    <header class="kc-pagehead">
+      <div class="kc-pagehead__copy">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../knowledge-centre.html">Knowledge Centre</a></li>
+          <li aria-current="page">SIP calculator</li>
+        </ol>
+        <h1>SIP calculator</h1>
+        <p class="kc-lead">A Systematic Investment Plan puts the same amount in every month. Set the amount, the return you expect and how long you will keep going — the numbers, the split and the year-by-year curve follow as you move the sliders.</p>
+      </div>
+      <nav class="kc-switch" aria-label="Knowledge Centre sections">
+        <a href="blogs.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M15 3.5V7h3.5M9 11h6.5M9 14h6.5M9 17h4"/></svg>Blogs</a>
+        <a href="infographics.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5h16"/><path d="M6.5 17v-5M11 17V7.5M15.5 17v-3.5"/><circle cx="18.5" cy="6.5" r="2.5"/></svg>Infographics</a>
+        <a href="summariwise.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5c-2-1.6-4.8-2-8-1.5v13.5c3.2-.5 6 0 8 1.5 2-1.5 4.8-2 8-1.5V5c-3.2-.5-6-.1-8 1.5z"/><path d="M12 6.5V20"/></svg>SummariWise</a>
+        <a href="sip-calculator.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="2.8" width="15" height="18.4" rx="2.6"/><path d="M8 7h8M8.2 11.4h.01M12 11.4h.01M15.8 11.4h.01M8.2 14.8h.01M12 14.8h.01M15.8 14.8h.01M8.2 18.2h3.8M15.8 18.2h.01"/></svg>Calculators</a>
+      </nav>
+    </header>
+
+    <nav class="calc__pick" aria-label="Choose a calculator">
+      <a href="sip-calculator.html" aria-current="page"><b>SIP</b><span>A fixed amount every month</span></a>
+      <a href="lumpsum-calculator.html"><b>Lumpsum</b><span>One amount, invested once</span></a>
+    </nav>
+
+    <section class="calc" aria-labelledby="calcTitle">
+      <h2 class="kc-visually-hidden" id="calcTitle">SIP calculator</h2>
+
+      <div class="calc__panel">
+        <form class="calc__form" novalidate>
+          <div class="calc__field">
+            <label for="amount">Monthly investment</label>
+            <div class="calc__entry"><span aria-hidden="true">₹</span><input id="amount" name="amount" type="number" inputmode="numeric" min="500" max="100000" step="500" value="10000" /></div>
+            <input class="calc__slider" type="range" min="500" max="100000" step="500" value="10000" aria-label="Monthly investment, slider" data-for="amount" />
+            <p class="calc__scale"><span>₹500</span><span>₹1,00,000</span></p>
+          </div>
+          <div class="calc__field">
+            <label for="rate">Expected return rate <em>(p.a.)</em></label>
+            <div class="calc__entry"><input id="rate" name="rate" type="number" inputmode="decimal" min="1" max="30" step="0.5" value="12" /><span aria-hidden="true">%</span></div>
+            <input class="calc__slider" type="range" min="1" max="30" step="0.5" value="12" aria-label="Expected return rate, slider" data-for="rate" />
+            <p class="calc__scale"><span>1%</span><span>30%</span></p>
+          </div>
+          <div class="calc__field">
+            <label for="years">Time period</label>
+            <div class="calc__entry"><input id="years" name="years" type="number" inputmode="numeric" min="1" max="30" step="1" value="10" /><span aria-hidden="true">Yr</span></div>
+            <input class="calc__slider" type="range" min="1" max="30" step="1" value="10" aria-label="Time period in years, slider" data-for="years" />
+            <p class="calc__scale"><span>1 year</span><span>30 years</span></p>
+          </div>
+          <div class="calc__quick" role="group" aria-label="Common monthly amounts">
+            <button class="calc__chip" type="button" data-set="amount" data-value="2500">₹2,500</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="5000">₹5,000</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="10000">₹10,000</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="25000">₹25,000</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="50000">₹50,000</button>
+          </div>
+        </form>
+
+        <div class="calc__result">
+          <figure class="calc__donut">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="calc__ring" cx="60" cy="60" r="47" />
+              <circle class="calc__arc" cx="60" cy="60" r="47" />
+            </svg>
+            <figcaption><b data-out="share">—</b><span>of the total is returns</span></figcaption>
+          </figure>
+          <dl class="calc__figures" aria-live="polite">
+            <div class="calc__fig calc__fig--inv"><dt>Invested amount</dt><dd data-out="invested">—</dd></div>
+            <div class="calc__fig calc__fig--ret"><dt>Est. returns</dt><dd data-out="returns">—</dd></div>
+            <div class="calc__fig calc__fig--total"><dt>Total value</dt><dd data-out="total">—</dd></div>
+          </dl>
+          <p class="calc__words" data-out="words"></p>
+          <div class="calc__actions">
+            <button class="calc__btn" type="button" data-act="copy">Copy link to this plan</button>
+            <button class="calc__btn calc__btn--ghost" type="button" data-act="reset">Reset</button>
+          </div>
+        </div>
+
+        <figure class="calc__chart">
+          <figcaption>
+            <b>Year by year</b>
+            <span class="calc__legend"><i class="is-inv"></i>Invested<i class="is-val"></i>Value</span>
+          </figcaption>
+          <div class="calc__plot">
+            <svg viewBox="0 0 640 240" preserveAspectRatio="none" aria-hidden="true">
+              <g class="calc__grid"></g>
+              <path class="calc__area" />
+              <path class="calc__line" />
+              <path class="calc__base" />
+              <g class="calc__marker" hidden><line y1="0" y2="240" /><circle r="6" /></g>
+            </svg>
+            <div class="calc__tip" hidden></div>
+          </div>
+          <ol class="calc__xaxis"></ol>
+          <p class="calc__reading" data-out="reading"></p>
+        </figure>
+
+        <details class="calc__table">
+          <summary>See the year-by-year breakdown</summary>
+          <div class="calc__tablewrap">
+            <table>
+              <caption class="kc-visually-hidden">Invested amount, estimated returns and total value at the end of each year</caption>
+              <thead><tr><th scope="col">Year</th><th scope="col">Invested</th><th scope="col">Est. returns</th><th scope="col">Total value</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+
+      <noscript><p class="calc__note">This calculator needs JavaScript to work out the numbers. The formula is below if you would rather do the sums yourself.</p></noscript>
+    </section>
+
+    <!-- ===================== how it is worked out ===================== -->
+    <section class="calc__explain" aria-labelledby="mathsTitle">
+      <header class="kc-head">
+        <p class="kc-eyebrow"><span class="kc-dot"></span>Behind the numbers</p>
+        <h2 id="mathsTitle">How the maths works</h2>
+      </header>
+      <div class="calc__explain-grid">
+        <article>
+          <h3>The formula</h3>
+          <p class="calc__formula"><b>Total</b> = P × [ (1 + i)<sup>n</sup> − 1 ] ÷ i × (1 + i)</p>
+          <p class="calc__legendkey">P is the monthly amount, <b>i</b> the monthly rate (the yearly rate ÷ 12) and <b>n</b> the number of instalments. Each instalment is counted from the start of its month.</p>
+        </article>
+        <article>
+          <h3>What it means</h3>
+          <p>Each month buys at whatever the price is that month, so the price you pay averages out over time — and the habit does the saving for you. The earliest instalments do the most work, because they have the most months left to grow.</p>
+        </article>
+        <article>
+          <h3>The other way round</h3>
+          <p>Already holding the money rather than saving it month by month? A lumpsum puts all of it to work from day one, and compounds on itself from there.</p>
+          <p><a class="calc__link" href="lumpsum-calculator.html">Open the lumpsum calculator →</a></p>
+        </article>
+      </div>
+      <p class="calc__note">
+        These figures are illustrations, not promises. They assume a steady rate of return every year, and real markets do not work that way. They leave out taxes, exit loads and fund charges, and nothing here is investment advice — talk to your advisor before you commit money.
+      </p>
+    </section>
+
+    <aside class="kc-next" aria-label="More from the Knowledge Centre">
+      <a href="lumpsum-calculator.html"><span>The other calculator</span><b>Lumpsum calculator</b><em>One amount, invested once →</em></a>
+      <a href="blogs.html"><span>Learn the thinking behind it</span><b>Blogs</b><em>Guides on saving and investing →</em></a>
+    </aside>
+  </main>
+
+  <!-- include: src/partials/knowledge/footer.html -->
+
+  <script type="module">
+    import { REDUCED } from '/src/kc-ui.js';
+
+    /* =====================================================
+     * SIP calculator
+     * =====================================================
+     * Three sliders, a donut of invested against returns, a
+     * chart you can run the pointer along, and the year-by-
+     * year table. The numbers live in the address bar, so a
+     * plan can be sent to someone.
+     * ===================================================== */
+
+    const DEFAULTS = { amount: 10000, rate: 12, years: 10 };
+
+    // year 0 first, so the chart starts where the money starts
+    function every(years, at) {
+      const rows = [{ year: 0, ...at(0) }];
+      for (let y = 1; y <= years; y++) rows.push({ year: y, ...at(y) });
+      return rows;
+    }
+
+    function series(v) {
+      // every instalment earns for the months that follow it
+      const i = v.rate / 1200;
+      return every(v.years, (y) => {
+        const n = y * 12;
+        const value = i ? v.amount * ((Math.pow(1 + i, n) - 1) / i) * (1 + i) : v.amount * n;
+        return { invested: v.amount * n, value };
+      });
+    }
+
+    // ---- numbers, the way they are read in India
+    const rupees = (n) => `₹${Math.round(n).toLocaleString('en-IN')}`;
+    const trim = (s) => s.replace(/\.?0+$/, '');
+    function inWords(n) {
+      if (n >= 1e7) return `₹${trim((n / 1e7).toFixed(2))} crore`;
+      if (n >= 1e5) return `₹${trim((n / 1e5).toFixed(2))} lakh`;
+      if (n >= 1e3) return `₹${trim((n / 1e3).toFixed(1))} thousand`;
+      return rupees(n);
+    }
+
+    const seen = new WeakMap();
+    function show(el, value, format = rupees) {
+      const from = seen.get(el) ?? 0;
+      seen.set(el, value);
+      if (REDUCED || Math.abs(value - from) < 1) {
+        el.textContent = format(value);
+        return;
+      }
+      const t0 = performance.now();
+      const step = (now) => {
+        const k = Math.min(1, (now - t0) / 340);
+        el.textContent = format(from + (value - from) * (1 - Math.pow(1 - k, 3)));
+        if (k < 1 && seen.get(el) === value) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    // ---- the page's pieces
+    const W = 640; // the chart's own coordinates
+    const H = 240;
+    const TOP = 14;
+    const panel = document.querySelector('.calc__panel');
+    const form = panel.querySelector('.calc__form');
+    const inputs = {
+      amount: form.querySelector('[name="amount"]'),
+      rate: form.querySelector('[name="rate"]'),
+      years: form.querySelector('[name="years"]'),
+    };
+    const sliders = [...form.querySelectorAll('.calc__slider')];
+    const out = Object.fromEntries([...panel.querySelectorAll('[data-out]')].map((el) => [el.dataset.out, el]));
+    const arc = panel.querySelector('.calc__arc');
+    const plot = panel.querySelector('.calc__plot');
+    const svg = plot.querySelector('svg');
+    const grid = svg.querySelector('.calc__grid');
+    const area = svg.querySelector('.calc__area');
+    const line = svg.querySelector('.calc__line');
+    const base = svg.querySelector('.calc__base');
+    const marker = svg.querySelector('.calc__marker');
+    const tip = panel.querySelector('.calc__tip');
+    const xaxis = panel.querySelector('.calc__xaxis');
+    const tbody = panel.querySelector('tbody');
+    const ARC = 2 * Math.PI * 47;
+
+    let rows = [];
+    let pinned = null; // the year the pointer is over
+
+    function clamp(el, fallback) {
+      const n = Number(el.value);
+      if (!Number.isFinite(n)) return fallback;
+      return Math.min(Number(el.max), Math.max(Number(el.min), n));
+    }
+    const read = () => ({
+      amount: clamp(inputs.amount, DEFAULTS.amount),
+      rate: clamp(inputs.rate, DEFAULTS.rate),
+      years: Math.round(clamp(inputs.years, DEFAULTS.years)),
+    });
+
+    function draw() {
+      const v = read();
+      sliders.forEach((s) => (s.value = String(v[s.dataset.for])));
+      rows = series(v);
+      const last = rows[rows.length - 1];
+      const returns = last.value - last.invested;
+
+      show(out.invested, last.invested);
+      show(out.returns, returns);
+      show(out.total, last.value);
+      const share = last.value > 0 ? returns / last.value : 0;
+      show(out.share, share * 100, (n) => `${Math.round(n)}%`);
+      arc.style.strokeDasharray = `${(ARC * share).toFixed(2)} ${ARC.toFixed(2)}`;
+      out.words.textContent =
+        `About ${inWords(last.value)} after ${v.years} ${v.years === 1 ? 'year' : 'years'} — ` +
+        `${inWords(returns)} of it returns, at ${trim(v.rate.toFixed(2))}% a year.`;
+
+      // ---- the chart
+      const top = Math.max(last.value, 1);
+      const x = (y) => (y / v.years) * W;
+      const yOf = (n) => H - (n / top) * (H - TOP);
+      const path = rows.map((r, k) => `${k ? 'L' : 'M'}${x(r.year).toFixed(1)},${yOf(r.value).toFixed(1)}`).join(' ');
+      line.setAttribute('d', path);
+      area.setAttribute('d', `${path} L${W},${H} L0,${H} Z`);
+      base.setAttribute('d', rows.map((r, k) => `${k ? 'L' : 'M'}${x(r.year).toFixed(1)},${yOf(r.invested).toFixed(1)}`).join(' '));
+      grid.innerHTML = [0.25, 0.5, 0.75, 1]
+        .map((f) => {
+          const gy = (H - f * (H - TOP)).toFixed(1);
+          return `<line x1="0" x2="${W}" y1="${gy}" y2="${gy}" />`;
+        })
+        .join('');
+
+      // year labels: every year while there is room, then every second or fifth
+      const stepY = v.years <= 12 ? 1 : v.years <= 20 ? 2 : 5;
+      xaxis.innerHTML = rows
+        .filter((r) => r.year && (r.year % stepY === 0 || r.year === v.years))
+        .map((r) => `<li style="left:${((r.year / v.years) * 100).toFixed(2)}%">${r.year}</li>`)
+        .join('');
+
+      tbody.innerHTML = rows
+        .filter((r) => r.year)
+        .map(
+          (r) =>
+            `<tr><th scope="row">${r.year}</th><td>${rupees(r.invested)}</td><td>${rupees(r.value - r.invested)}</td><td>${rupees(r.value)}</td></tr>`
+        )
+        .join('');
+
+      if (pinned !== null) mark(Math.min(pinned, v.years));
+      else clearMark();
+
+      const q = new URLSearchParams({ a: String(v.amount), r: String(v.rate), y: String(v.years) });
+      history.replaceState(null, '', `?${q}`);
+    }
+
+    // ---- running the pointer along the chart
+    function mark(year) {
+      const r = rows[year];
+      if (!r) return;
+      pinned = year;
+      const top = Math.max(rows[rows.length - 1].value, 1);
+      const px = (year / (rows.length - 1)) * W;
+      const py = H - (r.value / top) * (H - TOP);
+      marker.hidden = false;
+      marker.querySelector('line').setAttribute('x1', px);
+      marker.querySelector('line').setAttribute('x2', px);
+      marker.querySelector('circle').setAttribute('cx', px);
+      marker.querySelector('circle').setAttribute('cy', py);
+      tip.hidden = false;
+      tip.style.left = `${((year / (rows.length - 1)) * 100).toFixed(2)}%`;
+      tip.innerHTML = `<b>Year ${year}</b><span>Invested ${rupees(r.invested)}</span><span>Value ${rupees(r.value)}</span>`;
+      out.reading.textContent = `Year ${year}: ${rupees(r.invested)} invested, worth ${rupees(r.value)}.`;
+    }
+
+    function clearMark() {
+      pinned = null;
+      marker.hidden = true;
+      tip.hidden = true;
+      out.reading.textContent = '';
+    }
+
+    function yearAt(event) {
+      const box = plot.getBoundingClientRect();
+      const k = (event.clientX - box.left) / box.width;
+      return Math.max(0, Math.min(rows.length - 1, Math.round(k * (rows.length - 1))));
+    }
+    plot.addEventListener('pointermove', (e) => mark(yearAt(e)));
+    plot.addEventListener('pointerdown', (e) => mark(yearAt(e)));
+    plot.addEventListener('pointerleave', clearMark);
+
+    // ---- the controls
+    sliders.forEach((s) => {
+      const field = inputs[s.dataset.for];
+      s.addEventListener('input', () => {
+        field.value = s.value;
+        draw();
+      });
+    });
+    Object.values(inputs).forEach((el) => {
+      el.addEventListener('input', draw);
+      el.addEventListener('blur', () => {
+        el.value = String(clamp(el, Number(el.defaultValue)));
+        draw();
+      });
+    });
+    panel.querySelectorAll('[data-set]').forEach((chip) =>
+      chip.addEventListener('click', () => {
+        inputs[chip.dataset.set].value = chip.dataset.value;
+        draw();
+      })
+    );
+    panel.querySelector('[data-act="reset"]').addEventListener('click', () => {
+      Object.entries(DEFAULTS).forEach(([k, val]) => (inputs[k].value = String(val)));
+      clearMark();
+      draw();
+    });
+
+    const copyBtn = panel.querySelector('[data-act="copy"]');
+    copyBtn.addEventListener('click', async () => {
+      const was = copyBtn.textContent;
+      try {
+        await navigator.clipboard.writeText(location.href);
+        copyBtn.textContent = 'Link copied';
+      } catch {
+        copyBtn.textContent = 'Press Ctrl/Cmd + C';
+      }
+      copyBtn.classList.add('is-done');
+      setTimeout(() => {
+        copyBtn.textContent = was;
+        copyBtn.classList.remove('is-done');
+      }, 1600);
+    });
+
+    // ---- open with whatever the address asks for
+    const params = new URLSearchParams(location.search);
+    const asked = (key) => (params.has(key) ? Number(params.get(key)) : NaN);
+    [['amount', 'a'], ['rate', 'r'], ['years', 'y']].forEach(([field, key]) => {
+      const value = asked(key);
+      if (Number.isFinite(value)) inputs[field].value = String(value);
+    });
+    draw();
+  </script>
+</body>
+</html>

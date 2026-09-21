@@ -98,7 +98,8 @@ export default defineConfig(({ command, isPreview }) => ({
         'kc-blogs': resolve(ROOT, 'knowledge-centre/blogs.html'),
         'kc-infographics': resolve(ROOT, 'knowledge-centre/infographics.html'),
         'kc-summariwise': resolve(ROOT, 'knowledge-centre/summariwise.html'),
-        'kc-calculators': resolve(ROOT, 'knowledge-centre/calculators.html'),
+        'kc-sip': resolve(ROOT, 'knowledge-centre/sip-calculator.html'),
+        'kc-lumpsum': resolve(ROOT, 'knowledge-centre/lumpsum-calculator.html'),
         // the services' own pages
         'service-cloud': resolve(ROOT, 'services/cloud.html'),
         // one page per product, sharing its body with the showroom's monitor
