@@ -4,7 +4,7 @@ import { buildKnowledgeScene } from './kc-scene.js';
 /* =====================================================
  * KNOWLEDGE CENTRE — the hub page
  * =====================================================
- * The 3D stand and the three section cards light each
+ * The 3D stand and the four section cards light each
  * other up; the topic list filters by section.
  * ===================================================== */
 
@@ -12,6 +12,7 @@ const PAGES = {
   blogs: 'knowledge-centre/blogs.html',
   infographics: 'knowledge-centre/infographics.html',
   summariwise: 'knowledge-centre/summariwise.html',
+  calculators: 'knowledge-centre/calculators.html',
 };
 const doors = [...document.querySelectorAll('.kc-door')];
 const stage = document.querySelector('.kc-hero__stage');

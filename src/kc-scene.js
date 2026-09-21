@@ -21,6 +21,7 @@ import { onTheme } from './theme.js';
 const BLUE = '#2563eb';
 const VIOLET = '#7c3aed';
 const AQUA = '#0891b2';
+const GREEN = '#059669';
 
 export function buildKnowledgeScene(stage, { onPick, onHover } = {}) {
   const canvas = stage.querySelector('canvas');
@@ -82,7 +83,7 @@ export function buildKnowledgeScene(stage, { onPick, onHover } = {}) {
   }
 
   // ---------------------------------------------------------------- platform
-  const PLAT_R = 4.05;
+  const PLAT_R = 4.6;
   const platformMat = mat('#ffffff', { roughness: 0.3, clearcoat: 0.8 });
   const platform = new THREE.Mesh(new THREE.CylinderGeometry(PLAT_R, PLAT_R * 1.02, 0.34, 128), platformMat);
   platform.position.y = 0.17;
@@ -116,9 +117,10 @@ export function buildKnowledgeScene(stage, { onPick, onHover } = {}) {
 
   // ---------------------------------------------------------------- stations
   const STATIONS = [
-    { id: 'blogs', label: 'BLOGS', sub: '36 articles', x: -2.5, z: -0.3, color: BLUE },
-    { id: 'summariwise', label: 'SUMMARIWISE', sub: '31 book summaries', x: 0, z: 0.6, color: AQUA },
-    { id: 'infographics', label: 'INFOGRAPHICS', sub: '10 at a glance', x: 2.5, z: -0.3, color: VIOLET },
+    { id: 'blogs', label: 'BLOGS', sub: '36 articles', x: -3.15, z: -0.4, color: BLUE },
+    { id: 'infographics', label: 'INFOGRAPHICS', sub: '10 at a glance', x: -1.05, z: 0.5, color: VIOLET },
+    { id: 'summariwise', label: 'SUMMARIWISE', sub: '31 book summaries', x: 1.05, z: 0.5, color: AQUA },
+    { id: 'calculators', label: 'CALCULATORS', sub: 'SIP & lumpsum', x: 3.15, z: -0.4, color: GREEN },
   ];
   const stations = [];
   const pickables = [];
@@ -130,10 +132,10 @@ export function buildKnowledgeScene(stage, { onPick, onHover } = {}) {
     root.add(g);
     const baseMat = mat('#f4f7ff', { roughness: 0.4 });
     baseMats.push(baseMat);
-    const base = new THREE.Mesh(new THREE.CylinderGeometry(1.05, 1.12, 0.22, 64), baseMat);
+    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.95, 1.01, 0.22, 64), baseMat);
     base.position.y = 0.11;
     g.add(base);
-    const band = new THREE.Mesh(new THREE.TorusGeometry(1.1, 0.025, 8, 96), mat(s.color, { emissive: s.color, emissiveIntensity: 0.4 }));
+    const band = new THREE.Mesh(new THREE.TorusGeometry(0.99, 0.025, 8, 96), mat(s.color, { emissive: s.color, emissiveIntensity: 0.4 }));
     band.rotation.x = Math.PI / 2;
     band.position.y = 0.2;
     g.add(band);
@@ -160,8 +162,8 @@ export function buildKnowledgeScene(stage, { onPick, onHover } = {}) {
     });
     const plateMat = new THREE.MeshBasicMaterial({ map: plate.tex, transparent: true, toneMapped: false });
     disposables.push(plateMat);
-    const plateMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.05, 0.48), plateMat);
-    plateMesh.position.set(0, 0.36, 1.18);
+    const plateMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.92, 0.45), plateMat);
+    plateMesh.position.set(0, 0.34, 1.1);
     plateMesh.rotation.x = -0.5;
     g.add(plateMesh);
 
@@ -428,7 +430,101 @@ export function buildKnowledgeScene(stage, { onPick, onHover } = {}) {
     };
   }
 
-  const builders = { blogs: buildBlogs, summariwise: buildBook, infographics: buildBoard };
+  // ---- Calculators: a pocket calculator, with a ₹ coin turning beside it
+  function buildCalc(holder) {
+    const g = new THREE.Group();
+    g.position.set(0, 0.05, -0.05);
+    g.rotation.set(-0.1, -0.16, 0);
+    holder.add(g);
+
+    const body = new THREE.Mesh(new RoundedBoxGeometry(1.34, 1.78, 0.26, 4, 0.12), mat('#f4f7ff', { roughness: 0.35 }));
+    body.position.y = 0.95;
+    g.add(body);
+
+    const screen = canvasTexture(512, 208, (c, w, h, dark) => {
+      c.fillStyle = dark ? '#0b1d33' : '#dff3ea';
+      roundRect(c, 0, 0, w, h, 26);
+      c.fill();
+      c.fillStyle = dark ? 'rgba(160,220,200,0.5)' : 'rgba(6,78,59,0.45)';
+      c.font = '600 30px "JetBrains Mono", ui-monospace, monospace';
+      c.fillText('TOTAL VALUE', 28, 52);
+      c.fillStyle = dark ? '#6ee7b7' : '#047857';
+      c.font = '800 74px Outfit, "Segoe UI", sans-serif';
+      c.textAlign = 'right';
+      c.fillText('₹23,23,391', w - 28, 140);
+      c.textAlign = 'left';
+      c.fillStyle = dark ? 'rgba(160,220,200,0.45)' : 'rgba(6,78,59,0.4)';
+      c.font = '600 26px "JetBrains Mono", ui-monospace, monospace';
+      c.fillText('10 YR · 12%', 28, 182);
+    });
+    const screenMat = new THREE.MeshBasicMaterial({ map: screen.tex, toneMapped: false });
+    disposables.push(screenMat);
+    const screenMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.06, 0.43), screenMat);
+    screenMesh.position.set(0, 1.5, 0.135);
+    g.add(screenMesh);
+
+    // four rows of keys, with the tall one on the right doing the adding up
+    const keyMat = mat('#dbe4f7', { roughness: 0.4 });
+    const warmMat = mat(GREEN, { roughness: 0.3, emissive: GREEN, emissiveIntensity: 0.25 });
+    const keys = [];
+    for (let row = 0; row < 4; row++) {
+      for (let col = 0; col < 4; col++) {
+        const last = col === 3;
+        const key = new THREE.Mesh(
+          new RoundedBoxGeometry(0.22, 0.2, 0.07, 3, 0.035),
+          last && row > 1 ? warmMat : keyMat
+        );
+        key.position.set(-0.39 + col * 0.26, 1.11 - row * 0.245, 0.13);
+        g.add(key);
+        keys.push(key);
+      }
+    }
+
+    const coin = new THREE.Group();
+    coin.position.set(0.92, 0.6, 0.5);
+    holder.add(coin);
+    const coinFace = canvasTexture(192, 192, (c, w, h, dark) => {
+      c.clearRect(0, 0, w, h);
+      c.fillStyle = dark ? '#f6cf6a' : '#f2c14e';
+      c.beginPath();
+      c.arc(96, 96, 92, 0, Math.PI * 2);
+      c.fill();
+      c.fillStyle = '#8a5a0b';
+      c.font = '700 116px Inter, "Segoe UI", sans-serif';
+      c.textAlign = 'center';
+      c.textBaseline = 'middle';
+      c.fillText('₹', 96, 104);
+      c.textAlign = 'left';
+      c.textBaseline = 'alphabetic';
+    });
+    const coinMat = new THREE.MeshBasicMaterial({ map: coinFace.tex, transparent: true, toneMapped: false });
+    disposables.push(coinMat);
+    const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.06, 32), mat('#f5c451', { roughness: 0.25, metalness: 0.6 }));
+    rim.rotation.x = Math.PI / 2;
+    coin.add(rim);
+    [0.035, -0.035].forEach((z, i) => {
+      const side = new THREE.Mesh(new THREE.CircleGeometry(0.285, 32), coinMat);
+      side.position.z = z;
+      side.rotation.y = i ? Math.PI : 0;
+      coin.add(side);
+    });
+
+    return {
+      face: screen,
+      tick(t) {
+        // a finger running over the keypad
+        const lit = REDUCED ? -1 : Math.floor(t * 2.2) % keys.length;
+        keys.forEach((key, i) => {
+          const press = i === lit ? 0.035 : 0;
+          key.position.z = 0.13 - press;
+        });
+        coin.rotation.y = REDUCED ? 0.4 : t * 1.1;
+        coin.position.y = 0.6 + (REDUCED ? 0 : Math.sin(t * 1.2) * 0.07);
+      },
+    };
+  }
+
+  const builders = { blogs: buildBlogs, summariwise: buildBook, infographics: buildBoard, calculators: buildCalc };
   STATIONS.forEach((s) => {
     const p = pedestal(s);
     const inner = builders[s.id](p.holder);
@@ -448,10 +544,10 @@ export function buildKnowledgeScene(stage, { onPick, onHover } = {}) {
   disposables.push(sparkMat);
   const sparks = new THREE.InstancedMesh(sparkGeo, sparkMat, SPARKS);
   const seeds = [];
-  const palette = [BLUE, VIOLET, AQUA].map((c) => new THREE.Color(c));
+  const palette = [BLUE, VIOLET, AQUA, GREEN].map((c) => new THREE.Color(c));
   for (let i = 0; i < SPARKS; i++) {
     seeds.push({ r: 2.2 + Math.random() * 2.4, a: Math.random() * Math.PI * 2, y: 0.8 + Math.random() * 2.4, s: 0.05 + Math.random() * 0.1 });
-    sparks.setColorAt(i, palette[i % 3]);
+    sparks.setColorAt(i, palette[i % 4]);
   }
   root.add(sparks);
   const tmp = new THREE.Object3D();
@@ -506,7 +602,7 @@ export function buildKnowledgeScene(stage, { onPick, onHover } = {}) {
     const vHalf = THREE.MathUtils.degToRad(camera.fov / 2);
     const hHalf = Math.atan(Math.tan(vHalf) * camera.aspect);
     // the stand is wide and fairly flat: fit its width and its height separately
-    const dist = Math.max(4.25 / Math.tan(hHalf), 2.05 / Math.tan(vHalf));
+    const dist = Math.max(4.9 / Math.tan(hHalf), 2.15 / Math.tan(vHalf));
     camera.position.copy(LOOK).addScaledVector(VIEW, dist);
     camera.lookAt(LOOK);
     camera.updateProjectionMatrix();

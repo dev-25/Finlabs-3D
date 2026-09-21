@@ -176,7 +176,7 @@ html.kc-lock { overflow: hidden; }
 
 /* the three doors */
 .kc-doors { margin-bottom: clamp(40px, 6vw, 80px); }
-.kc-doors__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.kc-doors__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .kc-door {
   --door: var(--brand);
   position: relative; display: flex; flex-direction: column;
@@ -185,6 +185,7 @@ html.kc-lock { overflow: hidden; }
   transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 .kc-door[data-door="infographics"] { --door: #7c3aed; }
+.kc-door[data-door="calculators"] { --door: #059669; }
 .kc-door[data-door="summariwise"] { --door: #0891b2; }
 :root[data-theme="dark"] .kc-door { --door: #7aa5ff; }
 :root[data-theme="dark"] .kc-door[data-door="infographics"] { --door: #b69cff; }

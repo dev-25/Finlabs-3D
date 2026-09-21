@@ -94,10 +94,11 @@ export default defineConfig(({ command, isPreview }) => ({
         about: resolve(ROOT, 'about.html'),
         careers: resolve(ROOT, 'careers.html'),
         'knowledge-centre': resolve(ROOT, 'knowledge-centre.html'),
-        // the Knowledge Centre's three sections
+        // the Knowledge Centre's four sections
         'kc-blogs': resolve(ROOT, 'knowledge-centre/blogs.html'),
         'kc-infographics': resolve(ROOT, 'knowledge-centre/infographics.html'),
         'kc-summariwise': resolve(ROOT, 'knowledge-centre/summariwise.html'),
+        'kc-calculators': resolve(ROOT, 'knowledge-centre/calculators.html'),
         // the services' own pages
         'service-cloud': resolve(ROOT, 'services/cloud.html'),
         // one page per product, sharing its body with the showroom's monitor

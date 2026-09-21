@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Finlabs calculators: work out what a monthly SIP or a one-time lumpsum could grow into. Move the sliders to see the invested amount, the estimated returns and the total value, year by year." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+  <title>Calculators — SIP and Lumpsum | Finlabs</title>
+
+  <!-- tab icon, and how the link looks when it is shared -->
+  <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finlabs India" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Calculators — SIP and Lumpsum | Finlabs" />
+  <meta property="og:description" content="See what a monthly SIP or a one-time investment could grow into, year by year." />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{site}}/og-finlabs.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calculators — SIP and Lumpsum | Finlabs" />
+  <meta name="twitter:description" content="See what a monthly SIP or a one-time investment could grow into, year by year." />
+  <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+</head>
+
+<body class="doc-page kc-page kc-calc">
+
+  <!-- include: src/partials/knowledge/nav.html -->
+
+  <main class="kc">
+    <header class="kc-pagehead">
+      <div class="kc-pagehead__copy">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../knowledge-centre.html">Knowledge Centre</a></li>
+          <li aria-current="page">Calculators</li>
+        </ol>
+        <h1>Calculators</h1>
+        <p class="kc-lead">Put a number on a plan. Move the sliders to see what a monthly SIP, or a one-time lumpsum, could grow into — the money you put in, the returns it could earn, and the total at the end. The chart fills in year by year as you go.</p>
+      </div>
+      <nav class="kc-switch" aria-label="Knowledge Centre sections">
+        <a href="blogs.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M15 3.5V7h3.5M9 11h6.5M9 14h6.5M9 17h4"/></svg>Blogs</a>
+        <a href="infographics.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5h16"/><path d="M6.5 17v-5M11 17V7.5M15.5 17v-3.5"/><circle cx="18.5" cy="6.5" r="2.5"/></svg>Infographics</a>
+        <a href="summariwise.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5c-2-1.6-4.8-2-8-1.5v13.5c3.2-.5 6 0 8 1.5 2-1.5 4.8-2 8-1.5V5c-3.2-.5-6-.1-8 1.5z"/><path d="M12 6.5V20"/></svg>SummariWise</a>
+        <a href="calculators.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="2.8" width="15" height="18.4" rx="2.6"/><path d="M8 7h8M8.2 11.4h.01M12 11.4h.01M15.8 11.4h.01M8.2 14.8h.01M12 14.8h.01M15.8 14.8h.01M8.2 18.2h3.8M15.8 18.2h.01"/></svg>Calculators</a>
+      </nav>
+    </header>
+
+    <section class="calc" aria-labelledby="calcTitle">
+      <h2 class="kc-visually-hidden" id="calcTitle">Investment calculators</h2>
+
+      <div class="calc__tabs" role="tablist" aria-label="Choose a calculator">
+        <button class="calc__tab" type="button" role="tab" id="tab-sip" aria-controls="panel-sip" aria-selected="true" data-calc="sip">
+          <b>SIP</b><span>A fixed amount every month</span>
+        </button>
+        <button class="calc__tab" type="button" role="tab" id="tab-lumpsum" aria-controls="panel-lumpsum" aria-selected="false" tabindex="-1" data-calc="lumpsum">
+          <b>Lumpsum</b><span>One amount, invested once</span>
+        </button>
+      </div>
+
+      <!-- ===================== SIP ===================== -->
+      <div class="calc__panel" role="tabpanel" id="panel-sip" aria-labelledby="tab-sip" data-calc="sip" tabindex="0">
+        <form class="calc__form" data-form="sip" novalidate>
+          <div class="calc__field">
+            <label for="sip-amount">Monthly investment</label>
+            <div class="calc__entry"><span aria-hidden="true">₹</span><input id="sip-amount" name="amount" type="number" inputmode="numeric" min="500" max="100000" step="500" value="10000" /></div>
+            <input class="calc__slider" type="range" min="500" max="100000" step="500" value="10000" aria-label="Monthly investment, slider" data-for="sip-amount" />
+            <p class="calc__scale"><span>₹500</span><span>₹1,00,000</span></p>
+          </div>
+          <div class="calc__field">
+            <label for="sip-rate">Expected return rate <em>(p.a.)</em></label>
+            <div class="calc__entry"><input id="sip-rate" name="rate" type="number" inputmode="decimal" min="1" max="30" step="0.5" value="12" /><span aria-hidden="true">%</span></div>
+            <input class="calc__slider" type="range" min="1" max="30" step="0.5" value="12" aria-label="Expected return rate, slider" data-for="sip-rate" />
+            <p class="calc__scale"><span>1%</span><span>30%</span></p>
+          </div>
+          <div class="calc__field">
+            <label for="sip-years">Time period</label>
+            <div class="calc__entry"><input id="sip-years" name="years" type="number" inputmode="numeric" min="1" max="30" step="1" value="10" /><span aria-hidden="true">Yr</span></div>
+            <input class="calc__slider" type="range" min="1" max="30" step="1" value="10" aria-label="Time period in years, slider" data-for="sip-years" />
+            <p class="calc__scale"><span>1 year</span><span>30 years</span></p>
+          </div>
+          <div class="calc__quick" role="group" aria-label="Common monthly amounts">
+            <button class="calc__chip" type="button" data-set="amount" data-value="2500">₹2,500</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="5000">₹5,000</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="10000">₹10,000</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="25000">₹25,000</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="50000">₹50,000</button>
+          </div>
+        </form>
+
+        <div class="calc__result">
+          <figure class="calc__donut">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="calc__ring" cx="60" cy="60" r="47" />
+              <circle class="calc__arc" cx="60" cy="60" r="47" />
+            </svg>
+            <figcaption><b data-out="share">—</b><span>of the total is returns</span></figcaption>
+          </figure>
+          <dl class="calc__figures" aria-live="polite">
+            <div class="calc__fig calc__fig--inv"><dt>Invested amount</dt><dd data-out="invested">—</dd></div>
+            <div class="calc__fig calc__fig--ret"><dt>Est. returns</dt><dd data-out="returns">—</dd></div>
+            <div class="calc__fig calc__fig--total"><dt>Total value</dt><dd data-out="total">—</dd></div>
+          </dl>
+          <p class="calc__words" data-out="words"></p>
+          <div class="calc__actions">
+            <button class="calc__btn" type="button" data-act="copy">Copy link to this plan</button>
+            <button class="calc__btn calc__btn--ghost" type="button" data-act="reset">Reset</button>
+          </div>
+        </div>
+
+        <figure class="calc__chart">
+          <figcaption>
+            <b>Year by year</b>
+            <span class="calc__legend"><i class="is-inv"></i>Invested<i class="is-val"></i>Value</span>
+          </figcaption>
+          <div class="calc__plot">
+            <svg viewBox="0 0 640 240" preserveAspectRatio="none" aria-hidden="true">
+              <g class="calc__grid"></g>
+              <path class="calc__area" />
+              <path class="calc__line" />
+              <path class="calc__base" />
+              <g class="calc__marker" hidden><line y1="0" y2="240" /><circle r="6" /></g>
+            </svg>
+            <div class="calc__tip" hidden></div>
+          </div>
+          <ol class="calc__xaxis"></ol>
+          <p class="calc__reading" data-out="reading"></p>
+        </figure>
+
+        <details class="calc__table">
+          <summary>See the year-by-year breakdown</summary>
+          <div class="calc__tablewrap">
+            <table>
+              <caption class="kc-visually-hidden">Invested amount, estimated returns and total value at the end of each year</caption>
+              <thead><tr><th scope="col">Year</th><th scope="col">Invested</th><th scope="col">Est. returns</th><th scope="col">Total value</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+
+      <!-- ===================== LUMPSUM ===================== -->
+      <div class="calc__panel" role="tabpanel" id="panel-lumpsum" aria-labelledby="tab-lumpsum" data-calc="lumpsum" tabindex="0" hidden>
+        <form class="calc__form" data-form="lumpsum" novalidate>
+          <div class="calc__field">
+            <label for="lump-amount">Total investment</label>
+            <div class="calc__entry"><span aria-hidden="true">₹</span><input id="lump-amount" name="amount" type="number" inputmode="numeric" min="1000" max="10000000" step="1000" value="300000" /></div>
+            <input class="calc__slider" type="range" min="1000" max="10000000" step="1000" value="300000" aria-label="Total investment, slider" data-for="lump-amount" />
+            <p class="calc__scale"><span>₹1,000</span><span>₹1,00,00,000</span></p>
+          </div>
+          <div class="calc__field">
+            <label for="lump-rate">Expected return rate <em>(p.a.)</em></label>
+            <div class="calc__entry"><input id="lump-rate" name="rate" type="number" inputmode="decimal" min="1" max="30" step="0.5" value="12" /><span aria-hidden="true">%</span></div>
+            <input class="calc__slider" type="range" min="1" max="30" step="0.5" value="12" aria-label="Expected return rate, slider" data-for="lump-rate" />
+            <p class="calc__scale"><span>1%</span><span>30%</span></p>
+          </div>
+          <div class="calc__field">
+            <label for="lump-years">Time period</label>
+            <div class="calc__entry"><input id="lump-years" name="years" type="number" inputmode="numeric" min="1" max="30" step="1" value="10" /><span aria-hidden="true">Yr</span></div>
+            <input class="calc__slider" type="range" min="1" max="30" step="1" value="10" aria-label="Time period in years, slider" data-for="lump-years" />
+            <p class="calc__scale"><span>1 year</span><span>30 years</span></p>
+          </div>
+          <div class="calc__quick" role="group" aria-label="Common amounts">
+            <button class="calc__chip" type="button" data-set="amount" data-value="50000">₹50,000</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="100000">₹1 lakh</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="300000">₹3 lakh</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="500000">₹5 lakh</button>
+            <button class="calc__chip" type="button" data-set="amount" data-value="1000000">₹10 lakh</button>
+          </div>
+        </form>
+
+        <div class="calc__result">
+          <figure class="calc__donut">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="calc__ring" cx="60" cy="60" r="47" />
+              <circle class="calc__arc" cx="60" cy="60" r="47" />
+            </svg>
+            <figcaption><b data-out="share">—</b><span>of the total is returns</span></figcaption>
+          </figure>
+          <dl class="calc__figures" aria-live="polite">
+            <div class="calc__fig calc__fig--inv"><dt>Invested amount</dt><dd data-out="invested">—</dd></div>
+            <div class="calc__fig calc__fig--ret"><dt>Est. returns</dt><dd data-out="returns">—</dd></div>
+            <div class="calc__fig calc__fig--total"><dt>Total value</dt><dd data-out="total">—</dd></div>
+          </dl>
+          <p class="calc__words" data-out="words"></p>
+          <div class="calc__actions">
+            <button class="calc__btn" type="button" data-act="copy">Copy link to this plan</button>
+            <button class="calc__btn calc__btn--ghost" type="button" data-act="reset">Reset</button>
+          </div>
+        </div>
+
+        <figure class="calc__chart">
+          <figcaption>
+            <b>Year by year</b>
+            <span class="calc__legend"><i class="is-inv"></i>Invested<i class="is-val"></i>Value</span>
+          </figcaption>
+          <div class="calc__plot">
+            <svg viewBox="0 0 640 240" preserveAspectRatio="none" aria-hidden="true">
+              <g class="calc__grid"></g>
+              <path class="calc__area" />
+              <path class="calc__line" />
+              <path class="calc__base" />
+              <g class="calc__marker" hidden><line y1="0" y2="240" /><circle r="6" /></g>
+            </svg>
+            <div class="calc__tip" hidden></div>
+          </div>
+          <ol class="calc__xaxis"></ol>
+          <p class="calc__reading" data-out="reading"></p>
+        </figure>
+
+        <details class="calc__table">
+          <summary>See the year-by-year breakdown</summary>
+          <div class="calc__tablewrap">
+            <table>
+              <caption class="kc-visually-hidden">Invested amount, estimated returns and total value at the end of each year</caption>
+              <thead><tr><th scope="col">Year</th><th scope="col">Invested</th><th scope="col">Est. returns</th><th scope="col">Total value</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+
+      <noscript><p class="calc__note">These calculators need JavaScript to work out the numbers. The formulas are below if you would rather do the sums yourself.</p></noscript>
+    </section>
+
+    <!-- ===================== how it is worked out ===================== -->
+    <section class="calc__explain" aria-labelledby="mathsTitle">
+      <header class="kc-head">
+        <p class="kc-eyebrow"><span class="kc-dot"></span>Behind the numbers</p>
+        <h2 id="mathsTitle">How the maths works</h2>
+      </header>
+      <div class="calc__explain-grid">
+        <article>
+          <h3>SIP</h3>
+          <p>A Systematic Investment Plan puts the same amount in every month. Each instalment earns a return for the months that follow it, so the earliest ones do the most work.</p>
+          <p class="calc__formula"><b>Total</b> = P × [ (1 + i)<sup>n</sup> − 1 ] ÷ i × (1 + i)</p>
+          <p class="calc__legendkey">P is the monthly amount, <b>i</b> the monthly rate (the yearly rate ÷ 12) and <b>n</b> the number of instalments. Each instalment is counted from the start of its month.</p>
+        </article>
+        <article>
+          <h3>Lumpsum</h3>
+          <p>A lumpsum is one amount invested once and left alone. It compounds on itself every year, which is why the curve starts slowly and steepens later.</p>
+          <p class="calc__formula"><b>Total</b> = P × (1 + r)<sup>t</sup></p>
+          <p class="calc__legendkey">P is the amount invested, <b>r</b> the yearly rate and <b>t</b> the number of years.</p>
+        </article>
+        <article>
+          <h3>Which one?</h3>
+          <p>A SIP spreads the buying across months, so the price you pay averages out and the habit does the saving for you. A lumpsum puts the whole amount to work from day one, which helps when you already hold the money — and hurts more if markets fall soon after.</p>
+          <p>Many plans use both: a lumpsum for what you have today, a SIP for what you earn each month.</p>
+        </article>
+      </div>
+      <p class="calc__note">
+        These figures are illustrations, not promises. They assume a steady rate of return every year, and real markets do not work that way. They leave out taxes, exit loads and fund charges, and nothing here is investment advice — talk to your advisor before you commit money.
+      </p>
+    </section>
+
+    <aside class="kc-next" aria-label="More from the Knowledge Centre">
+      <a href="blogs.html"><span>Learn the thinking behind it</span><b>Blogs</b><em>Guides on saving and investing →</em></a>
+      <a href="summariwise.html"><span>Next in the Knowledge Centre</span><b>SummariWise</b><em>Bestselling books in minutes →</em></a>
+    </aside>
+  </main>
+
+  <!-- include: src/partials/knowledge/footer.html -->
+
+  <script type="module" src="/src/kc-calculators.js"></script>
+</body>
+</html>
