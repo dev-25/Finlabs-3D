@@ -236,8 +236,8 @@ function buildRide(renderer, ride, canvas) {
   });
 
 
-  // ---- the world the road runs through: lamps, greenery, a skyline,
-  // clouds and a few ₹ coins turning over the tarmac. Everything is
+  // ---- the world the road runs through: edge lines, lamp posts,
+  // planting and a few ₹ coins turning over the tarmac. Everything is
   // merged or instanced, so the whole lot costs a handful of draw calls.
   let seed = 11;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
@@ -286,53 +286,19 @@ function buildRide(renderer, ride, canvas) {
   });
   scene.add(bulbMesh);
 
-  // low planting on the far verge, with a few stones on the near one
+  // low planting along the far verge
   const bushes = [];
-  const stones = [];
-  for (let k = 0; k < 54; k++) {
+  for (let k = 0; k < 46; k++) {
     const { point, side } = at(rnd() * (END + 1) - 0.5);
-    const near = k % 5 === 0;
-    const away = (near ? 1 : -1) * (near ? 3.4 + rnd() * 2 : 4.4 + rnd() * 6);
-    const r = (near ? 0.14 : 0.24) + rnd() * 0.3;
+    const away = -(4.4 + rnd() * 6);
+    const r = 0.24 + rnd() * 0.3;
     const blob = new THREE.IcosahedronGeometry(r, 0);
     blob.scale(1, 0.75 + rnd() * 0.6, 1);
     blob.translate(point.x + side.x * away, r * 0.5, point.z + side.z * away);
-    (near ? stones : bushes).push(blob);
+    bushes.push(blob);
   }
   const bushMat = new THREE.MeshStandardMaterial({ color: 0xa5b4fc, roughness: 0.75 });
-  const stoneMat = new THREE.MeshStandardMaterial({ color: 0xd9dcfb, roughness: 0.6 });
-  scene.add(new THREE.Mesh(mergeGeometries(bushes), bushMat), new THREE.Mesh(mergeGeometries(stones), stoneMat));
-
-  // a city on the horizon, far enough back to sit in the fog
-  const towers = [];
-  for (let k = 0; k < 30; k++) {
-    const { point, side } = at(rnd() * (END + 1.5) - 0.75);
-    const away = -(20 + rnd() * 10);
-    const w = 0.8 + rnd() * 1.6;
-    const h = 1.8 + rnd() * 6;
-    const box = new THREE.BoxGeometry(w, h, w * (0.7 + rnd() * 0.6));
-    box.translate(point.x + side.x * away + (rnd() - 0.5) * 3, h / 2, point.z + side.z * away);
-    towers.push(box);
-  }
-  const towerMat = new THREE.MeshBasicMaterial({ color: 0xc3c7f3, transparent: true, opacity: 0.75 });
-  scene.add(new THREE.Mesh(mergeGeometries(towers), towerMat));
-
-  // clouds, drifting the other way
-  const cloudMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 });
-  const clouds = [];
-  for (let k = 0; k < 7; k++) {
-    const puffs = [[-0.9, 0, 0.55], [0, 0.26, 0.78], [0.95, -0.03, 0.6], [0.3, -0.2, 0.5]].map(([x, y, r]) => {
-      const s = new THREE.SphereGeometry(r * (0.8 + rnd() * 0.5), 16, 12);
-      s.translate(x, y, 0);
-      return s;
-    });
-    const cloud = new THREE.Mesh(mergeGeometries(puffs), cloudMat);
-    cloud.position.set(rnd() * (END * STEP + 20) - 10, 5.6 + rnd() * 3, -(6 + rnd() * 12));
-    cloud.scale.setScalar(0.8 + rnd() * 0.9);
-    cloud.userData.drift = 0.25 + rnd() * 0.35;
-    clouds.push(cloud);
-    scene.add(cloud);
-  }
+  scene.add(new THREE.Mesh(mergeGeometries(bushes), bushMat));
 
   // ₹ coins turning over the road — the point of the whole decade
   const coinCanvas = document.createElement('canvas');
@@ -377,11 +343,7 @@ function buildRide(renderer, ride, canvas) {
     scene.add(coin);
   }
 
-  function dressTick(now, dt) {
-    clouds.forEach((c) => {
-      c.position.x -= c.userData.drift * dt;
-      if (c.position.x < -14) c.position.x = END * STEP + 16;
-    });
+  function dressTick(now) {
     coins.forEach((c) => {
       c.rotation.y = now * 0.9 + c.userData.k;
       c.position.y = c.userData.y + Math.sin(now * 1.1 + c.userData.k) * 0.14;
@@ -486,7 +448,7 @@ function buildRide(renderer, ride, canvas) {
     camera.position.copy(camPos);
     camera.lookAt(camLook);
     trailGeo.setDrawRange(0, Math.floor((trailCount * tOf(s)) / 6) * 6);
-    dressTick(now, dt);
+    dressTick(now);
 
     stations.forEach((st, i) => {
       const on = i === active;
@@ -512,11 +474,6 @@ function buildRide(renderer, ride, canvas) {
     groundMat.opacity = dark ? 0.18 : 0.28;
     poleMat.color.setHex(dark ? 0x35406b : 0xf2f4ff);
     bushMat.color.setHex(dark ? 0x2a3566 : 0xa5b4fc);
-    stoneMat.color.setHex(dark ? 0x27325a : 0xd9dcfb);
-    towerMat.color.setHex(dark ? 0x1d2950 : 0xc3c7f3);
-    towerMat.opacity = dark ? 0.85 : 0.75;
-    cloudMat.color.setHex(dark ? 0x9fb0e8 : 0xffffff);
-    cloudMat.opacity = dark ? 0.16 : 0.55;
     edgeMat.opacity = dark ? 0.3 : 0.5;
     aheadMat.opacity = dark ? 0.3 : 0.22;
     hemi.intensity = dark ? 0.35 : 0.55;

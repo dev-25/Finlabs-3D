@@ -418,80 +418,101 @@ function buildPhone(o) {
   };
 }
 
-// SOLUTIONS — seven slices of one portfolio
-function ringSlice(rIn, rOut, a0, a1) {
-  const s = new THREE.Shape();
-  s.absarc(0, 0, rOut, a0, a1, false);
-  s.absarc(0, 0, rIn, a1, a0, true);
-  s.closePath();
-  return s;
-}
-
-function buildDonut(o) {
+// SOLUTIONS — one platform with seven modules plugged into it
+function buildHub(o) {
   const g = new THREE.Group();
-  const disc = new THREE.Group();
-  disc.rotation.x = 0.95; // tipped up, so the top face reads as a chart
-  g.add(disc);
-  const SL = 7;
-  const from = new THREE.Color(o.c[0]);
-  const to = new THREE.Color(o.c[2]);
-  const slices = [];
-  for (let k = 0; k < SL; k++) {
-    const a0 = (k / SL) * Math.PI * 2 + 0.03;
-    const a1 = ((k + 1) / SL) * Math.PI * 2 - 0.03;
-    const geo = new THREE.ExtrudeGeometry(ringSlice(0.33, 0.85, a0, a1), {
-      depth: 0.2, bevelEnabled: true, bevelThickness: 0.016, bevelSize: 0.016, bevelSegments: 2, curveSegments: 22,
-    });
-    geo.rotateX(-Math.PI / 2); // lie flat, growing upward
-    const m = new THREE.Mesh(geo, accentMat(from.clone().lerp(to, k / (SL - 1)).getHex(), 0.16));
-    const mid = (a0 + a1) / 2;
-    m.userData = { out: new THREE.Vector3(Math.cos(mid), 0, -Math.sin(mid)), k };
-    disc.add(m);
-    slices.push(m);
+  const accent = new THREE.Color(o.c[1]).getHex();
+  const light = new THREE.Color(o.c[2]).getHex();
+
+  const core = new THREE.Mesh(rbox(0.78, 0.78, 0.78, 0.16), accentMat(accent, 0.22));
+  g.add(core);
+  const halo = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.8, 2.8),
+    new THREE.MeshBasicMaterial({ map: glowTexture('rgba(34,211,238,0.8)'), transparent: true, depthWrite: false, opacity: 0.32, toneMapped: false })
+  );
+  halo.position.z = -0.7;
+  g.add(halo);
+
+  // the modules ride one tilted wheel around it, each on its own spoke
+  const tiltG = new THREE.Group();
+  tiltG.rotation.set(0.42, -0.2, 0);
+  g.add(tiltG);
+  const wheel = new THREE.Group();
+  tiltG.add(wheel);
+  wheel.add(new THREE.Mesh(new THREE.TorusGeometry(0.92, 0.012, 8, 96), glowMat(light, 0.5)));
+
+  const R = 0.92;
+  const spokeGeo = new THREE.CylinderGeometry(0.015, 0.015, R - 0.46, 6);
+  spokeGeo.rotateZ(Math.PI / 2); // lie along the spoke, not up it
+  const tiles = [];
+  for (let k = 0; k < 7; k++) {
+    const arm = new THREE.Group();
+    arm.rotation.z = (k / 7) * Math.PI * 2;
+    const spoke = new THREE.Mesh(spokeGeo, glowMat(light, 0.4));
+    spoke.position.x = 0.46 + (R - 0.46) / 2;
+    const tile = new THREE.Mesh(rbox(0.3, 0.3, 0.11, 0.06), k % 2 ? M.panel : accentMat(k % 3 ? light : accent, 0.2));
+    tile.position.x = R;
+    arm.add(spoke, tile);
+    wheel.add(arm);
+    tiles.push({ tile, arm });
   }
-  // the rim the slices sit on
-  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.96, 0.012, 8, 90), glowMat(new THREE.Color(o.c[2]).getHex(), 0.5));
-  ring.rotation.x = Math.PI / 2;
-  ring.position.y = -0.11;
-  disc.add(ring);
 
   return {
     group: g,
     animate(t) {
-      slices.forEach((m, k) => {
-        const lift = (1 + Math.sin(t * 0.9 - k * 0.7)) / 2; // each slice takes its turn
-        m.position.copy(m.userData.out).multiplyScalar(0.02 + lift * 0.05);
-        m.position.y = lift * 0.06;
+      wheel.rotation.z = t * 0.3;
+      tiles.forEach(({ tile }, k) => {
+        // each module keeps itself upright as the wheel turns, and breathes
+        tile.rotation.z = -t * 0.3 - (k / 7) * Math.PI * 2;
+        tile.position.x = R + Math.sin(t * 1.5 + k * 0.9) * 0.05;
       });
-      disc.rotation.y = t * 0.22;
-      g.rotation.z = Math.sin(t * 0.35) * 0.05;
+      core.rotation.set(t * 0.22, t * 0.38, 0);
+      core.scale.setScalar(1 + Math.sin(t * 1.8) * 0.03);
+      g.rotation.y = Math.sin(t * 0.3) * 0.12;
     },
   };
 }
 
-// SERVICES — what we do around the platforms: assure it, build it, run it
-function shieldShape(w, h) {
-  const s = new THREE.Shape();
-  s.moveTo(0, h / 2);
-  s.quadraticCurveTo(w / 2, h * 0.4, w / 2, h * 0.1);
-  s.quadraticCurveTo(w / 2, -h * 0.34, 0, -h / 2);
-  s.quadraticCurveTo(-w / 2, -h * 0.34, -w / 2, h * 0.1);
-  s.quadraticCurveTo(-w / 2, h * 0.4, 0, h / 2);
-  return s;
-}
+// SERVICES — we go over what you already run, then build and keep it running
+function auditFace(o, mode) {
+  return makeTexture(768, 512, (ctx, w, h) => {
+    const dark = mode === 'dark';
+    const card = dark ? '#18244a' : '#f2f6fd';
+    const mute = dark ? 'rgba(232,237,255,0.4)' : 'rgba(22,35,63,0.28)';
+    ctx.fillStyle = dark ? '#0f1a38' : '#ffffff';
+    ctx.fillRect(0, 0, w, h);
 
-function tickFace(hex) {
-  return makeTexture(256, 256, (ctx, w) => {
-    ctx.clearRect(0, 0, w, w);
-    ctx.strokeStyle = hex;
-    ctx.lineWidth = 26;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.beginPath();
-    ctx.moveTo(62, 132);
-    ctx.lineTo(108, 178);
-    ctx.lineTo(196, 84);
-    ctx.stroke();
+    ctx.fillStyle = card;
+    ctx.fillRect(0, 0, w, 84);
+    ['#f87171', '#fbbf24', '#34d399'].forEach((c, k) => {
+      ctx.fillStyle = c;
+      ctx.beginPath();
+      ctx.arc(46 + k * 38, 42, 11, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.fillStyle = mute;
+    ctx.font = `700 24px ${MONO}`;
+    ctx.fillText('SYSTEM REVIEW', 176, 52);
+
+    // four checks, three passing and one still being looked at
+    for (let k = 0; k < 4; k++) {
+      const y = 122 + k * 92;
+      ctx.fillStyle = card;
+      rr(ctx, 40, y, w - 80, 72, 18);
+      ctx.fill();
+      ctx.fillStyle = mute;
+      rr(ctx, 70, y + 26, 190 + (k % 3) * 60, 20, 10);
+      ctx.fill();
+      const on = k < 3;
+      ctx.fillStyle = on ? '#34d399' : o.c[1];
+      rr(ctx, w - 214, y + 20, 144, 32, 16);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `700 20px ${MONO}`;
+      ctx.textAlign = 'center';
+      ctx.fillText(on ? 'PASS' : 'IN REVIEW', w - 142, y + 42);
+      ctx.textAlign = 'left';
+    }
   });
 }
 
@@ -510,67 +531,68 @@ function gearGeo(radius, teeth, depth) {
   return mergeGeometries(parts, false);
 }
 
-function cloudGeo() {
-  const parts = [[-0.3, -0.04, 0.22], [0, 0.1, 0.3], [0.3, -0.02, 0.24], [0.08, -0.12, 0.2]].map(([x, y, r]) => {
-    const s = new THREE.SphereGeometry(r, 22, 16);
-    s.translate(x, y, 0);
-    return s;
-  });
-  return mergeGeometries(parts, false);
-}
-
-function buildShield(o) {
+function buildAudit(o) {
   const g = new THREE.Group();
   const accent = new THREE.Color(o.c[1]).getHex();
   const light = new THREE.Color(o.c[2]).getHex();
 
-  const shield = new THREE.Mesh(
-    new THREE.ExtrudeGeometry(shieldShape(1.05, 1.32), {
-      depth: 0.2, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 3, curveSegments: 18,
-    }),
-    accentMat(accent, 0.18)
-  );
-  shield.position.z = -0.1;
-  const tick = new THREE.Mesh(
-    new THREE.PlaneGeometry(0.52, 0.52),
-    new THREE.MeshBasicMaterial({ map: tickFace('#ffffff'), transparent: true, toneMapped: false, depthWrite: false })
-  );
-  tick.position.set(0, 0.02, 0.135);
-  const front = new THREE.Group();
-  front.add(shield, tick);
+  // the system under review, on a panel
+  const panel = new THREE.Group();
+  panel.rotation.set(-0.1, 0.26, 0);
+  panel.add(new THREE.Mesh(rbox(1.5, 1.0, 0.08, 0.05), M.chip));
+  const faceDraw = (m) => auditFace(o, m ?? themeMode);
+  const faceMat = new THREE.MeshBasicMaterial({ map: faceDraw(), toneMapped: false });
+  themedFaces.push({ mat: faceMat, draw: faceDraw });
+  typeFaces.push({ mat: faceMat, draw: faceDraw });
+  const face = new THREE.Mesh(new THREE.PlaneGeometry(1.42, 0.93), faceMat);
+  face.position.z = 0.043;
+  panel.add(face);
+  g.add(panel);
 
-  const gear = new THREE.Mesh(gearGeo(0.44, 11, 0.17), accentMat(light, 0.22));
-  gear.position.set(-0.8, 0.55, -0.15);
-  // a cloud stays white whatever the page is wearing
-  const cloud = new THREE.Mesh(cloudGeo(), new THREE.MeshPhysicalMaterial({
-    color: 0xeef3ff, roughness: 0.5, clearcoat: 0.6, transparent: true, opacity: 0.94,
-  }));
-  cloud.position.set(0.85, -0.3, -0.12);
-  g.add(front, gear, cloud);
+  // the magnifier going over it
+  const lens = new THREE.Group();
+  lens.add(new THREE.Mesh(new THREE.TorusGeometry(0.26, 0.045, 14, 40), accentMat(accent, 0.2)));
+  const glass = new THREE.Mesh(
+    new THREE.CircleGeometry(0.25, 36),
+    new THREE.MeshPhysicalMaterial({ color: 0xdbeafe, roughness: 0.06, clearcoat: 1, transparent: true, opacity: 0.35 })
+  );
+  lens.add(glass);
+  const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.36, 12), accentMat(light, 0.16));
+  handle.position.set(0.25, -0.25, 0);
+  handle.rotation.z = Math.PI / 4;
+  lens.add(handle);
+  lens.position.z = 0.42;
+  g.add(lens);
+
+  // and the work that follows the review
+  const gear = new THREE.Mesh(gearGeo(0.34, 10, 0.15), accentMat(light, 0.22));
+  gear.position.set(-0.95, -0.52, 0.12);
+  g.add(gear);
 
   return {
     group: g,
     animate(t) {
-      gear.rotation.z = t * 0.55;
-      cloud.position.y = -0.3 + Math.sin(t * 1.1) * 0.07;
-      front.rotation.y = Math.sin(t * 0.45) * 0.18;
-      front.position.y = Math.sin(t * 1.05) * 0.03;
-      g.rotation.y = Math.sin(t * 0.3) * 0.08;
+      lens.position.x = Math.sin(t * 0.55) * 0.42;
+      lens.position.y = Math.sin(t * 0.83 + 1) * 0.26;
+      lens.rotation.z = Math.sin(t * 0.55) * 0.12;
+      gear.rotation.z = -t * 0.6;
+      panel.rotation.y = 0.26 + Math.sin(t * 0.4) * 0.12;
+      g.position.y = Math.sin(t * 1.05) * 0.03;
     },
   };
 }
 
-const BUILD = { products: buildPhone, solutions: buildDonut, services: buildShield };
+const BUILD = { products: buildPhone, solutions: buildHub, services: buildAudit };
 // where each one floats, how big it stands, and where its name sits
 const SPOTS = [
   { p: [-1.85, 0.2, 0.3], size: 1.1, labelY: -1.3 },
-  { p: [1.45, 1.15, -0.45], size: 1.2, labelY: -1.12 },
-  { p: [1.2, -1.5, 0.2], size: 1.1, labelY: -1.15 },
+  { p: [1.45, 1.1, -0.45], size: 1.05, labelY: -1.15 },
+  { p: [1.15, -1.55, 0.2], size: 1.05, labelY: -1.0 },
 ];
 
 addView('hero', (v) => {
-  v.fitR = 3.6;
-  v.look.set(0, -0.3, 0);
+  v.fitR = 3.5;
+  v.look.set(0.1, -0.3, 0);
   v.dir.set(0, 0.1, 1);
 
   const glow = new THREE.Mesh(
