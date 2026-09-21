@@ -6,12 +6,16 @@ import { onTheme } from './theme.js';
 /* =====================================================
  * ABOUT — the journey, as a road through ten years
  * =====================================================
- * Scrolling through the milestones section carries the
- * camera along a winding road. Each year is a station
- * beside it: a pedestal a little taller than the year
- * before, with a pin for every milestone and the year on
- * a sign above. The road lights up behind you, and the
- * current year's milestones sit in a card alongside.
+ * The decade drives past by itself, right to left: the
+ * camera travels along a road whose stations come in
+ * from the right and leave to the left, a year at a
+ * time. Each station is a pedestal a little taller than
+ * the year before, with a pin for every milestone and
+ * the year on a sign above. The road lights up behind
+ * you, and the current year's milestones sit in a card
+ * alongside. The section is an ordinary block in the
+ * page, so scrolling past it takes one flick; the years
+ * can be paused, and any year can be picked by hand.
  * Without WebGL, or with reduced motion, the section
  * stays the plain list it is in the markup.
  * ===================================================== */
@@ -84,17 +88,20 @@ function buildRide(renderer, ride, canvas) {
   const years = [...ride.querySelectorAll('.a-year')];
   const N = years.length;
   const navButtons = [...ride.querySelectorAll('.a-ride__years button')];
-  const hint = ride.querySelector('.a-ride__hint');
+  const stage = ride.querySelector('.a-ride__stage');
+  const playBtn = ride.querySelector('.a-ride__play');
   let ready = false;
   let visible = false;
   let running = false;
   let mode = 'light';
-  let target = 0; // where the scroll says we are, in years (0 … N-1)
+  let target = 0; // the year being shown (0 … N-1)
   let s = 0; // where the camera is, easing toward the target
   let active = -1;
+  let playing = true;
+  let held = 0; // seconds the current year has been in front of us
+  let last = 0; // timestamp of the previous frame
 
-  // the stylesheet pins the stage and stacks the years into one card
-  ride.style.setProperty('--n', N);
+  // the stylesheet stacks the years into one card over the road
   ride.classList.add('is-live');
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -103,7 +110,7 @@ function buildRide(renderer, ride, canvas) {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0xe7e4fb, 16, 44); // matches the page, so the road fades into it
+  scene.fog = new THREE.Fog(0xe7e4fb, 20, 54); // matches the page, so the road fades into it
   // studio lighting, so white surfaces read as white rather than grey
   scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 140);
@@ -113,11 +120,13 @@ function buildRide(renderer, ride, canvas) {
   key.position.set(6, 12, 8);
   scene.add(hemi, key);
 
-  // ---- the road, one bend per year, with a short lead-in and run-out
-  const STEP = 7;
-  const pts = years.map((_, i) => new THREE.Vector3(Math.sin(i * 1.15) * 3.2, 0, -i * STEP));
-  pts.unshift(new THREE.Vector3(pts[0].x - 1, 0, 8));
-  pts.push(new THREE.Vector3(pts[N - 1].x + 1, 0, -(N - 1) * STEP - 10));
+  // ---- the road, running left to right with one bend per year, and a
+  // short lead-in and run-out at either end. The camera drives along it
+  // from left to right, so the years sweep across the screen the other way.
+  const STEP = 5.6;
+  const pts = years.map((_, i) => new THREE.Vector3(i * STEP, 0, Math.sin(i * 1.15) * 2.6));
+  pts.unshift(new THREE.Vector3(-10, 0, pts[0].z - 1));
+  pts.push(new THREE.Vector3((N - 1) * STEP + 10, 0, pts[N - 1].z + 1));
   const curve = new THREE.CatmullRomCurve3(pts);
   const tOf = (sv) => (sv + 1) / (pts.length - 1); // year index → curve parameter
   const SAMPLES = N * 40;
@@ -175,11 +184,11 @@ function buildRide(renderer, ride, canvas) {
   const dotTex = new THREE.CanvasTexture(dotCanvas);
   dotTex.wrapS = dotTex.wrapT = THREE.RepeatWrapping;
   const LEN = (N - 1) * STEP + 40;
-  dotTex.repeat.set(60 / 1.4, LEN / 1.4);
+  dotTex.repeat.set(LEN / 1.4, 44 / 1.4);
   const groundMat = new THREE.MeshBasicMaterial({ map: dotTex, color: 0x6d5cf6, transparent: true, opacity: 0.28, depthWrite: false });
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(60, LEN), groundMat);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(LEN, 44), groundMat);
   ground.rotation.x = -Math.PI / 2;
-  ground.position.set(0, -0.01, -LEN / 2 + 14);
+  ground.position.set(((N - 1) * STEP) / 2, -0.01, 0);
   scene.add(ground);
 
   // ---- a station for every year
@@ -190,7 +199,9 @@ function buildRide(renderer, ride, canvas) {
     const p = curve.getPoint(t);
     const side = new THREE.Vector3().crossVectors(curve.getTangent(t), UP).normalize();
     const g = new THREE.Group();
-    g.position.copy(p).addScaledVector(side, (i % 2 ? 1 : -1) * 2.25); // alternate sides of the road
+    // all of them on the far side of the road, so nothing passes between
+    // the camera and the year it is looking at
+    g.position.copy(p).addScaledVector(side, -2.3);
     const color = yearColor(i / (N - 1));
     const h = 0.3 + i * 0.17; // each year stands a little taller than the one before
 
@@ -221,22 +232,26 @@ function buildRide(renderer, ride, canvas) {
     return { pins, label, accent, pos: g.position, h };
   });
 
-  // ---- camera: it looks at the current year's station, gliding from one
-  // to the next as you scroll, from behind and above along the road — so
-  // the station stays in view whichever side of the road it stands on
+  // ---- camera: it rides along the road beside the current year, looking
+  // across it rather than down it. Driving along means the year in front
+  // slides off to the left while the next one comes in from the right.
   const camPos = new THREE.Vector3();
   const camLook = new THREE.Vector3();
   const t0 = new THREE.Vector3();
-  let backDist = 8.5; // further back on tall, narrow screens — see resize()
-  let upDist = 3.1;
+  let backDist = 11.5; // further back on tall, narrow screens — see resize()
+  let upDist = 3.9;
+  const leadDist = 3.4; // how far behind the year the camera sits, for some depth
   function viewAt(sv) {
     const i = Math.min(Math.floor(sv), N - 2);
     const f = THREE.MathUtils.clamp(sv - i, 0, 1);
     camLook.lerpVectors(stations[i].pos, stations[i + 1].pos, f);
-    camLook.y += 0.7 + THREE.MathUtils.lerp(stations[i].h, stations[i + 1].h, f) * 0.6;
+    camLook.y += 0.55 + THREE.MathUtils.lerp(stations[i].h, stations[i + 1].h, f) * 0.6;
     curve.getTangent(tOf(sv), t0);
-    camPos.copy(camLook).addScaledVector(t0, -backDist);
+    // back from the road, up a little, and a step behind along it
+    camPos.copy(camLook);
+    camPos.z += backDist;
     camPos.y += upDist;
+    camPos.addScaledVector(t0, -leadDist);
   }
 
   function setActive(i) {
@@ -244,7 +259,6 @@ function buildRide(renderer, ride, canvas) {
     active = i;
     years.forEach((el, k) => el.classList.toggle('is-on', k === i));
     navButtons.forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
-    hint?.classList.toggle('is-gone', i > 0);
     // on phones the year buttons scroll sideways; keep the current one in view
     const nav = navButtons[0]?.parentElement;
     const btn = navButtons[i];
@@ -253,34 +267,70 @@ function buildRide(renderer, ride, canvas) {
     }
   }
 
-  function readScroll() {
-    const r = ride.getBoundingClientRect();
-    const total = r.height - window.innerHeight;
-    const p = total > 0 ? THREE.MathUtils.clamp(-r.top / total, 0, 1) : 0;
-    target = p * (N - 1);
+  // ---- the years play by themselves: hold on one, glide to the next
+  const DWELL = 3.4; // seconds a year stays in front of us
+
+  function goTo(i) {
+    target = THREE.MathUtils.clamp(i, 0, N - 1);
+    held = 0;
     setActive(Math.round(target));
     start();
   }
-  window.addEventListener('scroll', readScroll, { passive: true });
 
-  // the year buttons jump to that year's stretch of the scroll
+  function setPlaying(on) {
+    playing = on;
+    held = 0;
+    playBtn?.setAttribute('aria-pressed', String(!on));
+    playBtn?.classList.toggle('is-paused', !on);
+    playBtn?.setAttribute('aria-label', on ? 'Pause the journey' : 'Play the journey');
+    if (on) start();
+  }
+  playBtn?.addEventListener('click', () => setPlaying(!playing));
+
+  // picking a year by hand stops the run there, so it can be read in peace
   navButtons.forEach((b, i) =>
     b.addEventListener('click', () => {
-      const top = window.scrollY + ride.getBoundingClientRect().top;
-      const total = ride.offsetHeight - window.innerHeight;
-      window.scrollTo({ top: top + (i / (N - 1)) * total + 1 });
+      setPlaying(false);
+      goTo(i);
     })
   );
 
+  // after the last year, slip back to the first behind a short fade
+  let hopping = false;
+  function hopToStart() {
+    if (hopping) return;
+    hopping = true;
+    stage?.classList.add('is-hop');
+    setTimeout(() => {
+      s = 0;
+      goTo(0);
+      stage?.classList.remove('is-hop');
+      hopping = false;
+    }, 380);
+  }
+
+  function advance(dt) {
+    if (!playing || hopping || !visible) return;
+    if (Math.abs(target - s) > 0.02) return; // still gliding to the last one
+    held += dt;
+    if (held < DWELL) return;
+    held = 0;
+    if (target >= N - 1) hopToStart();
+    else goTo(Math.round(target) + 1);
+  }
+
   function frame() {
-    s += (target - s) * 0.09;
+    const now = performance.now() / 1000;
+    const dt = last ? Math.min(0.1, now - last) : 0;
+    last = now;
+    advance(dt);
+    s += (target - s) * 0.045;
     if (Math.abs(target - s) < 0.0005) s = target;
     viewAt(s);
     camera.position.copy(camPos);
     camera.lookAt(camLook);
     trailGeo.setDrawRange(0, Math.floor((trailCount * tOf(s)) / 6) * 6);
 
-    const now = performance.now() / 1000;
     stations.forEach((st, i) => {
       const on = i === active;
       st.accent.emissiveIntensity += ((on ? 0.65 : 0.18) - st.accent.emissiveIntensity) * 0.15;
@@ -326,8 +376,8 @@ function buildRide(renderer, ride, canvas) {
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     // a portrait screen sees a narrow slice, so stand further back and higher
-    backDist = camera.aspect < 1 ? 12.5 : 8.5;
-    upDist = camera.aspect < 1 ? 4.4 : 3.1;
+    backDist = camera.aspect < 1 ? 15 : 11.5;
+    upDist = camera.aspect < 1 ? 5.2 : 3.9;
     if (window.innerWidth > 960) camera.setViewOffset(w, h, -w * 0.2, 0, w, h);
     else camera.setViewOffset(w, h, 0, h * 0.2, w, h);
     camera.updateProjectionMatrix();
@@ -358,13 +408,14 @@ function buildRide(renderer, ride, canvas) {
   ).observe(ride);
   document.addEventListener('visibilitychange', start);
 
-  readScroll();
+  setActive(0);
+  setPlaying(true);
   s = target;
   resize();
   ready = true;
   frame();
 
-  // dev-only: render(true) jumps the camera straight to the scroll position,
+  // dev-only: render(true) jumps the camera straight to the year being shown,
   // for checking frames in a tab that isn't animating
   if (import.meta.env.DEV) {
     window.__aboutRide = {
@@ -372,7 +423,23 @@ function buildRide(renderer, ride, canvas) {
         if (snap) s = target;
         frame();
       },
-      state: () => ({ target, s, active }),
+      go: (i) => {
+        setPlaying(false);
+        goTo(i);
+        s = target;
+        frame();
+      },
+      play: setPlaying,
+      // run the clock by hand, for a tab that isn't animating
+      step: (secs = 1, steps = 30) => {
+        for (let k = 0; k < steps; k++) {
+          advance(secs / steps);
+          s += (target - s) * 0.045;
+        }
+        frame();
+        return { target, s: +s.toFixed(2), active, camX: +camera.position.x.toFixed(2) };
+      },
+      state: () => ({ target, s, active, playing, held }),
     };
   }
 }

@@ -61,11 +61,11 @@
     </a>
     <nav class="site-nav__links" id="siteLinks" aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="about.html" aria-current="page">About Us</a>
       <a href="products.html">Products</a>
       <a href="solutions.html">Solutions</a>
       <a href="services.html">Services</a>
       <a href="knowledge-centre.html">Knowledge Centre</a>
+      <a href="about.html" aria-current="page">About Us</a>
     </nav>
     <div class="site-nav__actions">
       <button id="themeToggle" class="site-nav__theme" type="button" aria-pressed="false" aria-label="Switch to dark theme">
@@ -204,7 +204,13 @@
         <div class="a-ride__stage">
           <canvas class="a-ride__canvas" aria-hidden="true"></canvas>
           <div class="a-ride__panel">
-            <p class="a-ride__hint" aria-hidden="true">Scroll to travel through the decade ↓</p>
+            <div class="a-ride__ctrl">
+              <p class="a-ride__hint">The decade drives past on its own</p>
+              <button class="a-ride__play" type="button" aria-pressed="false" aria-label="Pause the journey">
+                <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.6" y="5" width="3.6" height="14" rx="1.2" fill="currentColor"/><rect x="13.8" y="5" width="3.6" height="14" rx="1.2" fill="currentColor"/></svg>
+                <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.4v13.2a1 1 0 0 0 1.53.84l10.2-6.6a1 1 0 0 0 0-1.68L9.53 4.56A1 1 0 0 0 8 5.4z" fill="currentColor"/></svg>
+              </button>
+            </div>
             <ol class="a-years">
               <li class="a-year" data-year="2016">
                 <h3>2016</h3>

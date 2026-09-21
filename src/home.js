@@ -6,6 +6,7 @@ import './home-ui.js';
 import * as THREE from 'three';
 import { Timer } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { initTheme, onTheme } from './theme.js';
 
@@ -16,9 +17,9 @@ import { initTheme, onTheme } from './theme.js';
  * small scenes, each into the box of the element that
  * asks for it ([data-view]). Rather than one backdrop
  * scene with a flying camera, the 3D sits in the layout
- * and scrolls with it: offering cards in the hero, a
- * model in each offering tile, and a gold trophy among
- * the awards.
+ * and scrolls with it: a small machine for each offering
+ * in the hero, a model in each offering tile, and a gold
+ * trophy among the awards.
  * ===================================================== */
 
 document.documentElement.classList.add('js');
@@ -28,6 +29,8 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const DISPLAY = '"Outfit", "Segoe UI", system-ui, sans-serif';
 const BODY = '"Inter", "Segoe UI", system-ui, sans-serif';
 const MONO = '"JetBrains Mono", ui-monospace, monospace';
+
+let themeMode = 'light'; // kept in step by onTheme, for redrawing labels
 
 const THEME3D = {
   light: { panel: 0xffffff, metal: 0xb9c6dc, chip: 0x1c2a4c, env: 1.0, exposure: 1.0, hemi: 0.6, sun: 1 },
@@ -88,22 +91,6 @@ function rr(ctx, x, y, w, h, r) {
   ctx.arcTo(x, y + h, x, y, r);
   ctx.arcTo(x, y, x + w, y, r);
   ctx.closePath();
-}
-
-function roundedRectShape(w, h, r) {
-  const s = new THREE.Shape();
-  const x = -w / 2;
-  const y = -h / 2;
-  s.moveTo(x + r, y);
-  s.lineTo(x + w - r, y);
-  s.quadraticCurveTo(x + w, y, x + w, y + r);
-  s.lineTo(x + w, y + h - r);
-  s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-  s.lineTo(x + r, y + h);
-  s.quadraticCurveTo(x, y + h, x, y + h - r);
-  s.lineTo(x, y + r);
-  s.quadraticCurveTo(x, y, x + r, y);
-  return s;
 }
 
 function starShape(outer, inner) {
@@ -250,181 +237,176 @@ function fitCamera(v, aspect) {
 }
 
 // =====================================================
-// HERO — the three offerings as glossy cards, with ₹ coins
+// HERO — a small machine for each of the three offerings
 // =====================================================
 
 const OFFERS = [
-  { key: 'products', title: 'Products', sub: 'Five platforms', n: '01', c: ['#1e3a8a', '#2563eb', '#60a5fa'] },
-  { key: 'solutions', title: 'Solutions', sub: 'Seven building blocks', n: '02', c: ['#155e75', '#0891b2', '#5eead4'] },
-  { key: 'services', title: 'Services', sub: 'Consult · build · run', n: '03', c: ['#4c1d95', '#7c3aed', '#c4b5fd'] },
+  { key: 'products', title: 'Products', c: ['#1e3a8a', '#2563eb', '#60a5fa'] },
+  { key: 'solutions', title: 'Solutions', c: ['#0e7490', '#0891b2', '#5eead4'] },
+  { key: 'services', title: 'Services', c: ['#4c1d95', '#7c3aed', '#c4b5fd'] },
 ];
 
-function drawIcon(ctx, key, x, y, size) {
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.scale(size / 24, size / 24);
-  ctx.lineWidth = 1.8;
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-  ctx.strokeStyle = '#ffffff';
-  ctx.fillStyle = '#ffffff';
-  const line = (pts) => {
-    ctx.beginPath();
-    pts.forEach(([px, py], k) => (k ? ctx.lineTo(px, py) : ctx.moveTo(px, py)));
-    ctx.stroke();
-  };
-  if (key === 'products') {
-    rr(ctx, 3, 4.5, 18, 11.5, 2);
-    ctx.stroke();
-    line([[1.5, 19.5], [22.5, 19.5]]);
-    line([[7, 12.5], [10, 9.5], [12.5, 12], [17, 7.5]]);
-  } else if (key === 'solutions') {
-    rr(ctx, 6, 6, 12, 12, 2.5);
-    ctx.stroke();
-    rr(ctx, 9.5, 9.5, 5, 5, 1);
-    ctx.stroke();
-    [[9, 2.5, 9, 6], [15, 2.5, 15, 6], [9, 18, 9, 21.5], [15, 18, 15, 21.5],
-      [2.5, 9, 6, 9], [2.5, 15, 6, 15], [18, 9, 21.5, 9], [18, 15, 21.5, 15]]
-      .forEach(([a, b, c, d]) => line([[a, b], [c, d]]));
-  } else {
-    ctx.beginPath();
-    ctx.arc(12, 12, 3, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.ellipse(12, 12, 9.5, 4, (-25 * Math.PI) / 180, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(19.6, 8.4, 1.3, 0, Math.PI * 2);
+// the offering's name, on a pill that always faces the camera
+function offerLabel(o, mode) {
+  return makeTexture(512, 140, (ctx, w, h) => {
+    ctx.clearRect(0, 0, w, h);
+    rr(ctx, 10, 10, w - 20, h - 20, (h - 20) / 2);
+    ctx.fillStyle = mode === 'dark' ? 'rgba(10,17,34,0.94)' : 'rgba(255,255,255,0.96)';
     ctx.fill();
-  }
-  ctx.restore();
-}
-
-const CW = 3.4; // card width, height and depth (credit-card proportions)
-const CH = 2.15;
-const CD = 0.07;
-const FACE_W = CW - 0.03;
-const FACE_H = CH - 0.03;
-
-function cardFace(o) {
-  return makeTexture(1024, 648, (ctx, w, h) => {
-    const g = ctx.createLinearGradient(0, h, w, 0);
-    g.addColorStop(0, o.c[0]);
-    g.addColorStop(0.55, o.c[1]);
-    g.addColorStop(1, o.c[2]);
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, w, h);
-    const shine = ctx.createRadialGradient(w * 0.82, h * 0.05, 0, w * 0.82, h * 0.05, w * 0.6);
-    shine.addColorStop(0, 'rgba(255,255,255,0.35)');
-    shine.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = shine;
-    ctx.fillRect(0, 0, w, h);
-    ctx.strokeStyle = 'rgba(255,255,255,0.13)';
-    ctx.lineWidth = 3;
-    for (let r = 140; r < 760; r += 64) {
-      ctx.beginPath();
-      ctx.arc(w + 40, h + 60, r, Math.PI, Math.PI * 1.5);
-      ctx.stroke();
-    }
-    // the title sits near the top, so the strip that peeks out of the fan names each card
-    ctx.fillStyle = '#ffffff';
-    ctx.font = `700 40px ${DISPLAY}`;
-    ctx.fillText('finlabs', 64, 88);
-    ctx.globalAlpha = 0.85;
-    ctx.textAlign = 'right';
-    ctx.font = `700 28px ${MONO}`;
-    ctx.fillText(`${o.n} / 03`, w - 64, 86);
-    ctx.textAlign = 'left';
-    ctx.globalAlpha = 1;
-    ctx.font = `800 120px ${DISPLAY}`;
-    ctx.fillText(o.title, 58, 228);
-    ctx.globalAlpha = 0.88;
-    ctx.font = `500 38px ${BODY}`;
-    ctx.fillText(o.sub, 64, 290);
-    ctx.globalAlpha = 0.72;
-    ctx.font = `600 22px ${MONO}`;
-    ctx.fillText('CELEBRATING A DECADE', 66, h - 70);
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = 'rgba(255,255,255,0.18)';
-    ctx.beginPath();
-    ctx.arc(w - 150, h - 150, 84, 0, Math.PI * 2);
-    ctx.fill();
-    drawIcon(ctx, o.key, w - 200, h - 200, 100);
-  });
-}
-
-function cardBack(o) {
-  return makeTexture(512, 324, (ctx, w, h) => {
-    const g = ctx.createLinearGradient(w, h, 0, 0);
-    g.addColorStop(0, o.c[0]);
-    g.addColorStop(1, o.c[1]);
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = 'rgba(255,255,255,0.16)';
-    ctx.font = `800 120px ${DISPLAY}`;
+    ctx.lineWidth = 6;
+    ctx.strokeStyle = o.c[1];
+    ctx.stroke();
+    ctx.fillStyle = mode === 'dark' ? o.c[2] : o.c[0];
+    ctx.font = `700 54px ${DISPLAY}`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('finlabs', w / 2, h / 2);
+    ctx.fillText(o.title, w / 2, h / 2 + 3);
   });
 }
 
-// ShapeGeometry UVs are raw shape coordinates; map them onto 0..1
-function fitFace(tex) {
-  tex.repeat.set(1 / FACE_W, 1 / FACE_H);
-  tex.offset.set(0.5, 0.5);
-  return tex;
+function labelSprite(o) {
+  const draw = (m) => offerLabel(o, m ?? themeMode);
+  const mat = new THREE.SpriteMaterial({ map: draw(), transparent: true, toneMapped: false, depthWrite: false });
+  themedFaces.push({ mat, draw }); // light ↔ dark
+  typeFaces.push({ mat, draw }); // once the webfonts have loaded
+  const sprite = new THREE.Sprite(mat);
+  sprite.scale.set(1.05, 0.287, 1);
+  return sprite;
 }
 
-const cardBodyGeo = new THREE.ExtrudeGeometry(roundedRectShape(CW - 0.04, CH - 0.04, 0.12), {
-  depth: CD - 0.03, bevelEnabled: true, bevelThickness: 0.015, bevelSize: 0.02, bevelSegments: 3, curveSegments: 12,
-});
-cardBodyGeo.translate(0, 0, -(CD - 0.03) / 2);
-const cardFaceGeo = new THREE.ShapeGeometry(roundedRectShape(FACE_W, FACE_H, 0.125), 12);
+// PRODUCTS — five platforms, stacked, with a rupee spinning on top
+function buildStack(o) {
+  const g = new THREE.Group();
+  const accent = new THREE.Color(o.c[1]).getHex();
+  const light = new THREE.Color(o.c[2]).getHex();
+  const blocks = [1.0, 0.92, 0.84, 0.74, 0.62].map((s, i) => {
+    const mat = i % 2 ? M.panel : accentMat(i === 4 ? light : accent, 0.14);
+    const m = new THREE.Mesh(rbox(s, 0.2, s, 0.05), mat);
+    m.position.y = -0.5 + i * 0.27;
+    m.userData.y = m.position.y;
+    g.add(m);
+    return m;
+  });
+  const coin = makeCoin(0.25);
+  g.add(coin);
+  return {
+    group: g,
+    animate(t) {
+      blocks.forEach((m, i) => {
+        m.position.y = m.userData.y + Math.sin(t * 1.1 + i * 0.7) * 0.022;
+        m.rotation.y = i * 0.34 + Math.sin(t * 0.5 + i) * 0.06;
+      });
+      coin.position.y = 0.85 + Math.sin(t * 1.3) * 0.05;
+      coin.rotation.set(0.22, t * 1.1, 0);
+    },
+  };
+}
+
+// SOLUTIONS — seven pieces that fit together, like a honeycomb
+function buildHoney(o) {
+  const g = new THREE.Group();
+  const accent = new THREE.Color(o.c[1]).getHex();
+  const light = new THREE.Color(o.c[2]).getHex();
+  const R = 0.3;
+  const D = 0.54; // centre to centre
+  const spots = [[0, 0]];
+  for (let k = 0; k < 6; k++) spots.push([Math.cos((k * Math.PI) / 3) * D, Math.sin((k * Math.PI) / 3) * D]);
+  const hexGeo = new THREE.CylinderGeometry(R, R, 0.24, 6);
+  hexGeo.rotateX(Math.PI / 2); // the flat faces look at the camera
+  const cells = spots.map(([x, y], i) => {
+    const mat = i === 0 ? accentMat(light, 0.3) : i % 2 ? M.panel : accentMat(accent, 0.16);
+    const m = new THREE.Mesh(hexGeo, mat);
+    m.position.set(x, y, 0);
+    g.add(m);
+    return m;
+  });
+  return {
+    group: g,
+    animate(t) {
+      // the middle piece stands proud; the ring around it breathes in turn
+      cells.forEach((m, i) => (m.position.z = i ? Math.sin(t * 1.25 + i * 0.9) * 0.07 : 0.1 + Math.sin(t * 1.25) * 0.05));
+      g.rotation.set(Math.sin(t * 0.27) * 0.12, Math.sin(t * 0.35) * 0.3, 0);
+    },
+  };
+}
+
+// SERVICES — consult, build and run, meshed together like gears
+function gearGeo(radius, teeth, depth) {
+  const parts = [];
+  const body = new THREE.CylinderGeometry(radius * 0.82, radius * 0.82, depth, 36);
+  body.rotateX(Math.PI / 2); // the wheel stands up, facing the camera
+  parts.push(body);
+  for (let k = 0; k < teeth; k++) {
+    const a = (k / teeth) * Math.PI * 2;
+    const tooth = new THREE.BoxGeometry(radius * 0.3, radius * 0.26, depth * 0.92);
+    tooth.rotateZ(a);
+    tooth.translate(Math.cos(a) * radius * 0.92, Math.sin(a) * radius * 0.92, 0);
+    parts.push(tooth);
+  }
+  return mergeGeometries(parts, false);
+}
+
+function buildGears(o) {
+  const g = new THREE.Group();
+  const accent = new THREE.Color(o.c[1]).getHex();
+  const light = new THREE.Color(o.c[2]).getHex();
+  const gears = [
+    { r: 0.62, teeth: 14, p: [-0.36, 0.16, 0], dir: 1, mat: accentMat(accent, 0.16) },
+    { r: 0.44, teeth: 10, p: [0.58, 0.5, -0.12], dir: -1, mat: M.panel },
+    { r: 0.36, teeth: 9, p: [0.38, -0.46, 0.1], dir: -1, mat: accentMat(light, 0.2) },
+  ].map((sp) => {
+    const m = new THREE.Mesh(gearGeo(sp.r, sp.teeth, 0.22), sp.mat);
+    m.position.set(...sp.p);
+    const hub = new THREE.Mesh(new THREE.TorusGeometry(sp.r * 0.3, sp.r * 0.08, 10, 26), M.metal);
+    hub.position.z = 0.1;
+    m.add(hub);
+    g.add(m);
+    return { m, speed: (sp.dir * 0.42) / sp.r };
+  });
+  return {
+    group: g,
+    animate(t) {
+      gears.forEach(({ m, speed }) => (m.rotation.z = t * speed));
+      g.rotation.y = Math.sin(t * 0.3) * 0.16;
+    },
+  };
+}
+
+const BUILD = { products: buildStack, solutions: buildHoney, services: buildGears };
+// where each one floats, in a loose triangle, and how big it stands there
+const SPOTS = [
+  { p: [-1.6, 0.7, 0.35], size: 1.5 },
+  { p: [1.7, 1.05, -0.45], size: 1.45 },
+  { p: [-0.05, -1.75, 0.3], size: 1.25 },
+];
 
 addView('hero', (v) => {
-  v.fitR = 2.95;
-  v.look.set(0.1, 0, 0);
-  v.dir.set(0, 0.08, 1);
+  v.fitR = 3.7;
+  v.look.set(0.05, -0.4, 0);
+  v.dir.set(0, 0.1, 1);
 
   const glow = new THREE.Mesh(
     new THREE.PlaneGeometry(9, 9),
     new THREE.MeshBasicMaterial({ map: glowTexture('rgba(34,211,238,0.9)'), transparent: true, depthWrite: false, opacity: 0.5, toneMapped: false })
   );
-  glow.position.z = -2.4;
+  glow.position.set(0, -0.3, -2.4);
   v.scene.add(glow);
 
   const root = new THREE.Group();
   v.scene.add(root);
 
-  // front to back: Products, Solutions, Services
-  // stepped far enough apart that each back card's title strip stays visible
-  const FAN = [
-    { p: [0.75, -0.9, 0.6], r: [-0.06, -0.3, -0.08] },
-    { p: [0.0, 0.05, 0], r: [-0.03, -0.24, 0.04] },
-    { p: [-0.75, 1.0, -0.6], r: [0.02, -0.18, 0.12] },
-  ];
-  const cards = OFFERS.map((o, i) => {
-    const g = new THREE.Group();
-    const body = new THREE.Mesh(cardBodyGeo, new THREE.MeshPhysicalMaterial({
-      color: o.c[1], roughness: 0.35, metalness: 0.3, clearcoat: 1, clearcoatRoughness: 0.15,
-    }));
-    const faceMat = new THREE.MeshPhysicalMaterial({
-      map: fitFace(cardFace(o)), roughness: 0.3, metalness: 0.05, clearcoat: 1, clearcoatRoughness: 0.1,
-    });
-    typeFaces.push({ mat: faceMat, draw: () => fitFace(cardFace(o)) });
-    const face = new THREE.Mesh(cardFaceGeo, faceMat);
-    face.position.z = CD / 2 + 0.002;
-    const backMat = new THREE.MeshPhysicalMaterial({ map: fitFace(cardBack(o)), roughness: 0.35, clearcoat: 1 });
-    typeFaces.push({ mat: backMat, draw: () => fitFace(cardBack(o)) });
-    const back = new THREE.Mesh(cardFaceGeo, backMat);
-    back.position.z = -CD / 2 - 0.002;
-    back.rotation.y = Math.PI;
-    g.add(body, face, back);
-    root.add(g);
-    return { g, home: FAN[i] };
+  const pieces = OFFERS.map((o, i) => {
+    const holder = new THREE.Group();
+    holder.position.set(...SPOTS[i].p);
+    const model = BUILD[o.key](o);
+    const label = labelSprite(o);
+    label.position.y = -0.92;
+    holder.add(model.group, label);
+    root.add(holder);
+    return { holder, model, home: SPOTS[i].p, size: SPOTS[i].size };
   });
 
-  const coins = [[-2.1, -1.25, 0.9, 0.34], [2.25, 1.35, -0.3, 0.3], [-2.35, 1.55, 0.5, 0.22], [1.95, -1.75, 1.0, 0.2]]
+  const coins = [[-3.0, -1.7, 0.9, 0.3], [3.05, 2.05, -0.3, 0.26], [-2.7, 2.2, 0.5, 0.2], [2.6, -2.4, 1.0, 0.18]]
     .map(([x, y, z, r], k) => {
       const c = makeCoin(r);
       c.userData = { x, y, z, k };
@@ -432,7 +414,7 @@ addView('hero', (v) => {
       return c;
     });
 
-  const beads = [[2.45, -0.95, -0.6, 0.26, 0x22d3ee], [-1.55, -1.8, 0.2, 0.17, 0xa78bfa], [0.6, 1.85, -0.9, 0.14, 0x60a5fa]]
+  const beads = [[2.9, -0.9, -0.6, 0.22, 0x22d3ee], [-2.5, -2.3, 0.2, 0.15, 0xa78bfa], [0.9, 2.5, -0.9, 0.13, 0x60a5fa]]
     .map(([x, y, z, r, hex], k) => {
       const m = new THREE.Mesh(new THREE.SphereGeometry(r, 32, 24), accentMat(hex, 0.25));
       m.userData = { x, y, z, k };
@@ -443,21 +425,21 @@ addView('hero', (v) => {
   const tilt = new THREE.Vector2();
   return {
     update(t, rect) {
-      // as the hero scrolls away the cards fan further apart
+      // as the hero scrolls away the three drift further apart
       const away = clamp01(-rect.top / (rect.height * 0.9));
       tilt.x += (pointer.y * 0.16 - tilt.x) * 0.06;
       tilt.y += (pointer.x * 0.26 - tilt.y) * 0.06;
       root.rotation.set(tilt.x, tilt.y, 0);
-      cards.forEach(({ g, home }, i) => {
-        const e = easeOutBack(clamp01(v.seen * 1.6 - i * 0.18));
-        const spread = 1 + away * 0.55;
-        g.position.set(
-          home.p[0] * spread,
-          home.p[1] * spread - (1 - e) * 2.2 + Math.sin(t * 0.9 + i * 1.7) * 0.07,
-          home.p[2] * spread
+      pieces.forEach(({ holder, model, home, size }, i) => {
+        const e = easeOutBack(clamp01(v.seen * 1.6 - i * 0.2));
+        const spread = 1 + away * 0.4;
+        holder.position.set(
+          home[0] * spread,
+          home[1] * spread - (1 - e) * 2.2 + Math.sin(t * 0.9 + i * 1.7) * 0.07,
+          home[2] * spread
         );
-        g.rotation.set(home.r[0] + Math.sin(t * 0.6 + i) * 0.03, home.r[1] - away * 0.25, home.r[2] * spread);
-        g.scale.setScalar(Math.max(0.001, e));
+        holder.scale.setScalar(Math.max(0.001, e * size));
+        model.animate(t);
       });
       const ce = Math.max(0.001, easeOutBack(clamp01(v.seen * 1.4 - 0.35)));
       coins.forEach((c) => {
@@ -764,6 +746,7 @@ addView('trophy', (v) => {
 // =====================================================
 
 onTheme((mode) => {
+  themeMode = mode;
   const t = THEME3D[mode];
   M.panel.color.setHex(t.panel);
   M.metal.color.setHex(t.metal);

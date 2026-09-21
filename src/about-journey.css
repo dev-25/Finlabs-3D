@@ -11,24 +11,40 @@
 .a-ride__panel { width: min(1180px, 100%); margin: 0 auto; }
 .a-ride__canvas, .a-ride__hint, .a-ride__years { display: none; }
 
-/* the section becomes a long scroll with the stage pinned inside it */
-.a-ride.is-live { position: relative; padding: 0; height: calc(var(--n, 11) * 55vh + 100vh); }
-.a-ride.is-live .a-ride__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+/* the ride is an ordinary block in the page — the years drive past by
+   themselves, so a flick of the wheel carries you straight past it */
+.a-ride.is-live { position: relative; padding: 0; }
+.a-ride.is-live .a-ride__stage {
+  position: relative; height: clamp(470px, 70vh, 680px); overflow: hidden;
+  transition: opacity 0.35s ease;
+}
+/* the short blackout as the road loops back to 2016 */
+.a-ride.is-live .a-ride__stage.is-hop { opacity: 0; }
 .a-ride.is-live .a-ride__canvas { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
 
 /* the current year's card */
 .a-ride.is-live .a-ride__panel {
   position: absolute; z-index: 1; top: 50%; left: max(var(--pad), calc((100% - 1180px) / 2));
-  width: min(430px, 40vw); margin: 0; transform: translateY(-44%);
+  width: min(430px, 40vw); margin: 0; transform: translateY(-46%);
   display: grid; gap: 16px; padding: 24px 24px 20px; border-radius: 24px;
   background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
 }
+/* the caption and the pause button, which only mean anything once the ride runs */
+.a-ride__ctrl { display: none; }
+.a-ride.is-live .a-ride__ctrl { display: flex; align-items: center; gap: 12px; justify-content: space-between; }
 .a-ride.is-live .a-ride__hint {
   display: block;
   font: 600 11.5px/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3);
-  transition: opacity 0.4s;
 }
-.a-ride.is-live .a-ride__hint.is-gone { opacity: 0; }
+.a-ride__play {
+  flex: none; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; cursor: pointer;
+  border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink-2);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.a-ride__play:hover { color: var(--brand); border-color: var(--brand); }
+.a-ride__play svg { width: 17px; height: 17px; }
+.a-ride__play .ico-play, .a-ride__play.is-paused .ico-pause { display: none; }
+.a-ride__play.is-paused .ico-play { display: block; }
 
 /* every year sits in the same grid cell; only the current one shows */
 .a-ride.is-live .a-years { display: grid; }
@@ -71,12 +87,12 @@
 @media (max-width: 960px) {
   .a-ride.is-live .a-ride__panel {
     top: auto; bottom: 14px; left: 12px; right: 12px; width: auto; transform: none;
-    padding: 18px 18px 14px; gap: 12px; max-height: 54svh; overflow: auto;
+    padding: 18px 18px 14px; gap: 12px; max-height: 62%; overflow: auto;
   }
   .a-ride.is-live .a-year h3 { font-size: 44px; margin-bottom: 10px; }
   /* anchored to the bottom, the card can simply fit the current year */
   .a-ride.is-live .a-year { display: none; }
   .a-ride.is-live .a-year.is-on { display: block; }
-  .a-ride.is-live .a-ride__hint { display: none; }
+  .a-ride.is-live .a-ride__hint { font-size: 10.5px; }
   .a-ride.is-live .a-ride__years { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
 }
