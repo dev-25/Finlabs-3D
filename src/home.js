@@ -242,7 +242,7 @@ function fitCamera(v, aspect) {
 
 const OFFERS = [
   { key: 'products', title: 'Products', c: ['#1e3a8a', '#2563eb', '#60a5fa'] },
-  { key: 'solutions', title: 'Solutions', c: ['#0e7490', '#0891b2', '#5eead4'] },
+  { key: 'solutions', title: 'Solutions', c: ['#0e7490', '#0891b2', '#22d3ee'] },
   { key: 'services', title: 'Services', c: ['#4c1d95', '#7c3aed', '#c4b5fd'] },
 ];
 
@@ -274,63 +274,227 @@ function labelSprite(o) {
   return sprite;
 }
 
-// PRODUCTS — five platforms, stacked, with a rupee spinning on top
-function buildStack(o) {
-  const g = new THREE.Group();
-  const accent = new THREE.Color(o.c[1]).getHex();
-  const light = new THREE.Color(o.c[2]).getHex();
-  const blocks = [1.0, 0.92, 0.84, 0.74, 0.62].map((s, i) => {
-    const mat = i % 2 ? M.panel : accentMat(i === 4 ? light : accent, 0.14);
-    const m = new THREE.Mesh(rbox(s, 0.2, s, 0.05), mat);
-    m.position.y = -0.5 + i * 0.27;
-    m.userData.y = m.position.y;
-    g.add(m);
-    return m;
+// PRODUCTS — the apps themselves: a portfolio ticking up, and ₹ on the side
+function phoneFace(o, mode) {
+  return makeTexture(512, 1024, (ctx, w, h) => {
+    const dark = mode === 'dark';
+    const card = dark ? '#132043' : '#ffffff';
+    const ink = dark ? '#e8edff' : '#16233f';
+    const mute = dark ? 'rgba(232,237,255,0.45)' : 'rgba(22,35,63,0.45)';
+    ctx.fillStyle = dark ? '#0b1430' : '#eef3fc';
+    ctx.fillRect(0, 0, w, h);
+
+    // the header: what the client is worth today
+    const g = ctx.createLinearGradient(0, 0, w, 340);
+    g.addColorStop(0, o.c[0]);
+    g.addColorStop(1, o.c[1]);
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, 340);
+    ctx.fillStyle = 'rgba(255,255,255,0.72)';
+    ctx.font = `600 30px ${BODY}`;
+    ctx.fillText('Portfolio value', 40, 104);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `800 74px ${DISPLAY}`;
+    ctx.fillText('₹ 24,80,500', 36, 186);
+    ctx.fillStyle = '#6ee7b7';
+    ctx.font = `700 28px ${MONO}`;
+    ctx.fillText('▲ 14.2%  this year', 40, 244);
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.font = `600 24px ${MONO}`;
+    ctx.fillText('FINLABS', 40, 300);
+
+    // the card the chart plays in
+    ctx.fillStyle = card;
+    rr(ctx, 36, 372, w - 72, 336, 26);
+    ctx.fill();
+    ctx.fillStyle = mute;
+    ctx.font = `600 24px ${MONO}`;
+    ctx.fillText('GROWTH · 12 MONTHS', 66, 416);
+
+    // two lines of the sort every plan has
+    [['SIP  ·  monthly', '₹ 25,000'], ['Goals on track', '6 of 7']].forEach(([label, value], k) => {
+      const y = 736 + k * 104;
+      ctx.fillStyle = card;
+      rr(ctx, 36, y, w - 72, 86, 22);
+      ctx.fill();
+      ctx.fillStyle = mute;
+      ctx.font = `600 26px ${BODY}`;
+      ctx.fillText(label, 66, y + 52);
+      ctx.fillStyle = ink;
+      ctx.font = `700 30px ${DISPLAY}`;
+      ctx.textAlign = 'right';
+      ctx.fillText(value, w - 66, y + 52);
+      ctx.textAlign = 'left';
+    });
+
+    // the app's own tab bar
+    ctx.fillStyle = card;
+    rr(ctx, 36, 946, w - 72, 56, 28);
+    ctx.fill();
+    for (let k = 0; k < 4; k++) {
+      ctx.fillStyle = k === 0 ? o.c[1] : mute;
+      ctx.beginPath();
+      ctx.arc(104 + k * 102, 974, 11, 0, Math.PI * 2);
+      ctx.fill();
+    }
   });
-  const coin = makeCoin(0.25);
-  g.add(coin);
+}
+
+// a growth line that can slide past for ever, drawn from repeating waves
+function chartStrip(o) {
+  return makeTexture(1024, 512, (ctx, w, h) => {
+    ctx.clearRect(0, 0, w, h);
+    const at = (x) => {
+      const u = (x / w) * Math.PI * 2;
+      return h * 0.62 - (Math.sin(u) * 0.2 + Math.sin(u * 2 + 1.1) * 0.12 + Math.sin(u * 3 + 0.4) * 0.06) * h;
+    };
+    ctx.beginPath();
+    ctx.moveTo(0, at(0));
+    for (let x = 4; x <= w; x += 4) ctx.lineTo(x, at(x));
+    ctx.lineTo(w, h);
+    ctx.lineTo(0, h);
+    ctx.closePath();
+    const fill = ctx.createLinearGradient(0, h * 0.1, 0, h);
+    fill.addColorStop(0, `${o.c[2]}cc`);
+    fill.addColorStop(1, `${o.c[2]}00`);
+    ctx.fillStyle = fill;
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(0, at(0));
+    for (let x = 4; x <= w; x += 4) ctx.lineTo(x, at(x));
+    ctx.strokeStyle = o.c[2];
+    ctx.lineWidth = 9;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+  });
+}
+
+function buildPhone(o) {
+  const g = new THREE.Group();
+  const phone = new THREE.Group();
+  g.add(phone);
+
+  phone.add(new THREE.Mesh(rbox(0.98, 1.92, 0.14, 0.09), M.chip));
+  const faceDraw = (m) => phoneFace(o, m ?? themeMode);
+  const faceMat = new THREE.MeshBasicMaterial({ map: faceDraw(), toneMapped: false });
+  themedFaces.push({ mat: faceMat, draw: faceDraw });
+  typeFaces.push({ mat: faceMat, draw: faceDraw });
+  const screen = new THREE.Mesh(new THREE.PlaneGeometry(0.86, 1.74), faceMat);
+  screen.position.z = 0.073;
+  phone.add(screen);
+
+  const strip = chartStrip(o);
+  strip.wrapS = THREE.RepeatWrapping;
+  const chart = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.71, 0.54),
+    new THREE.MeshBasicMaterial({ map: strip, transparent: true, toneMapped: false, depthWrite: false })
+  );
+  chart.position.set(0, 0.075, 0.079);
+  phone.add(chart);
+
+  // a little ₹ beside it: three coins on the table and one still spinning
+  const stack = new THREE.Group();
+  stack.position.set(-0.72, -0.86, 0.3);
+  [0, 1, 2].forEach((k) => {
+    const c = makeCoin(0.24);
+    c.rotation.x = -Math.PI / 2;
+    c.position.y = k * 0.056;
+    stack.add(c);
+  });
+  const spinner = makeCoin(0.22);
+  spinner.position.set(0.7, -0.62, 0.34);
+  g.add(stack, spinner);
+
   return {
     group: g,
     animate(t) {
-      blocks.forEach((m, i) => {
-        m.position.y = m.userData.y + Math.sin(t * 1.1 + i * 0.7) * 0.022;
-        m.rotation.y = i * 0.34 + Math.sin(t * 0.5 + i) * 0.06;
+      strip.offset.x = (t * 0.05) % 1;
+      phone.rotation.y = Math.sin(t * 0.4) * 0.22;
+      phone.rotation.z = Math.sin(t * 0.33) * 0.03;
+      phone.position.y = Math.sin(t * 1.1) * 0.03;
+      spinner.rotation.set(0.22, t * 1.2, 0);
+      spinner.position.y = -0.62 + Math.sin(t * 1.4) * 0.06;
+    },
+  };
+}
+
+// SOLUTIONS — seven slices of one portfolio
+function ringSlice(rIn, rOut, a0, a1) {
+  const s = new THREE.Shape();
+  s.absarc(0, 0, rOut, a0, a1, false);
+  s.absarc(0, 0, rIn, a1, a0, true);
+  s.closePath();
+  return s;
+}
+
+function buildDonut(o) {
+  const g = new THREE.Group();
+  const disc = new THREE.Group();
+  disc.rotation.x = 0.95; // tipped up, so the top face reads as a chart
+  g.add(disc);
+  const SL = 7;
+  const from = new THREE.Color(o.c[0]);
+  const to = new THREE.Color(o.c[2]);
+  const slices = [];
+  for (let k = 0; k < SL; k++) {
+    const a0 = (k / SL) * Math.PI * 2 + 0.03;
+    const a1 = ((k + 1) / SL) * Math.PI * 2 - 0.03;
+    const geo = new THREE.ExtrudeGeometry(ringSlice(0.33, 0.85, a0, a1), {
+      depth: 0.2, bevelEnabled: true, bevelThickness: 0.016, bevelSize: 0.016, bevelSegments: 2, curveSegments: 22,
+    });
+    geo.rotateX(-Math.PI / 2); // lie flat, growing upward
+    const m = new THREE.Mesh(geo, accentMat(from.clone().lerp(to, k / (SL - 1)).getHex(), 0.16));
+    const mid = (a0 + a1) / 2;
+    m.userData = { out: new THREE.Vector3(Math.cos(mid), 0, -Math.sin(mid)), k };
+    disc.add(m);
+    slices.push(m);
+  }
+  // the rim the slices sit on
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.96, 0.012, 8, 90), glowMat(new THREE.Color(o.c[2]).getHex(), 0.5));
+  ring.rotation.x = Math.PI / 2;
+  ring.position.y = -0.11;
+  disc.add(ring);
+
+  return {
+    group: g,
+    animate(t) {
+      slices.forEach((m, k) => {
+        const lift = (1 + Math.sin(t * 0.9 - k * 0.7)) / 2; // each slice takes its turn
+        m.position.copy(m.userData.out).multiplyScalar(0.02 + lift * 0.05);
+        m.position.y = lift * 0.06;
       });
-      coin.position.y = 0.85 + Math.sin(t * 1.3) * 0.05;
-      coin.rotation.set(0.22, t * 1.1, 0);
+      disc.rotation.y = t * 0.22;
+      g.rotation.z = Math.sin(t * 0.35) * 0.05;
     },
   };
 }
 
-// SOLUTIONS — seven pieces that fit together, like a honeycomb
-function buildHoney(o) {
-  const g = new THREE.Group();
-  const accent = new THREE.Color(o.c[1]).getHex();
-  const light = new THREE.Color(o.c[2]).getHex();
-  const R = 0.3;
-  const D = 0.54; // centre to centre
-  const spots = [[0, 0]];
-  for (let k = 0; k < 6; k++) spots.push([Math.cos((k * Math.PI) / 3) * D, Math.sin((k * Math.PI) / 3) * D]);
-  const hexGeo = new THREE.CylinderGeometry(R, R, 0.24, 6);
-  hexGeo.rotateX(Math.PI / 2); // the flat faces look at the camera
-  const cells = spots.map(([x, y], i) => {
-    const mat = i === 0 ? accentMat(light, 0.3) : i % 2 ? M.panel : accentMat(accent, 0.16);
-    const m = new THREE.Mesh(hexGeo, mat);
-    m.position.set(x, y, 0);
-    g.add(m);
-    return m;
+// SERVICES — what we do around the platforms: assure it, build it, run it
+function shieldShape(w, h) {
+  const s = new THREE.Shape();
+  s.moveTo(0, h / 2);
+  s.quadraticCurveTo(w / 2, h * 0.4, w / 2, h * 0.1);
+  s.quadraticCurveTo(w / 2, -h * 0.34, 0, -h / 2);
+  s.quadraticCurveTo(-w / 2, -h * 0.34, -w / 2, h * 0.1);
+  s.quadraticCurveTo(-w / 2, h * 0.4, 0, h / 2);
+  return s;
+}
+
+function tickFace(hex) {
+  return makeTexture(256, 256, (ctx, w) => {
+    ctx.clearRect(0, 0, w, w);
+    ctx.strokeStyle = hex;
+    ctx.lineWidth = 26;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(62, 132);
+    ctx.lineTo(108, 178);
+    ctx.lineTo(196, 84);
+    ctx.stroke();
   });
-  return {
-    group: g,
-    animate(t) {
-      // the middle piece stands proud; the ring around it breathes in turn
-      cells.forEach((m, i) => (m.position.z = i ? Math.sin(t * 1.25 + i * 0.9) * 0.07 : 0.1 + Math.sin(t * 1.25) * 0.05));
-      g.rotation.set(Math.sin(t * 0.27) * 0.12, Math.sin(t * 0.35) * 0.3, 0);
-    },
-  };
 }
 
-// SERVICES — consult, build and run, meshed together like gears
 function gearGeo(radius, teeth, depth) {
   const parts = [];
   const body = new THREE.CylinderGeometry(radius * 0.82, radius * 0.82, depth, 36);
@@ -346,43 +510,67 @@ function gearGeo(radius, teeth, depth) {
   return mergeGeometries(parts, false);
 }
 
-function buildGears(o) {
+function cloudGeo() {
+  const parts = [[-0.3, -0.04, 0.22], [0, 0.1, 0.3], [0.3, -0.02, 0.24], [0.08, -0.12, 0.2]].map(([x, y, r]) => {
+    const s = new THREE.SphereGeometry(r, 22, 16);
+    s.translate(x, y, 0);
+    return s;
+  });
+  return mergeGeometries(parts, false);
+}
+
+function buildShield(o) {
   const g = new THREE.Group();
   const accent = new THREE.Color(o.c[1]).getHex();
   const light = new THREE.Color(o.c[2]).getHex();
-  const gears = [
-    { r: 0.62, teeth: 14, p: [-0.36, 0.16, 0], dir: 1, mat: accentMat(accent, 0.16) },
-    { r: 0.44, teeth: 10, p: [0.58, 0.5, -0.12], dir: -1, mat: M.panel },
-    { r: 0.36, teeth: 9, p: [0.38, -0.46, 0.1], dir: -1, mat: accentMat(light, 0.2) },
-  ].map((sp) => {
-    const m = new THREE.Mesh(gearGeo(sp.r, sp.teeth, 0.22), sp.mat);
-    m.position.set(...sp.p);
-    const hub = new THREE.Mesh(new THREE.TorusGeometry(sp.r * 0.3, sp.r * 0.08, 10, 26), M.metal);
-    hub.position.z = 0.1;
-    m.add(hub);
-    g.add(m);
-    return { m, speed: (sp.dir * 0.42) / sp.r };
-  });
+
+  const shield = new THREE.Mesh(
+    new THREE.ExtrudeGeometry(shieldShape(1.05, 1.32), {
+      depth: 0.2, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 3, curveSegments: 18,
+    }),
+    accentMat(accent, 0.18)
+  );
+  shield.position.z = -0.1;
+  const tick = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.52, 0.52),
+    new THREE.MeshBasicMaterial({ map: tickFace('#ffffff'), transparent: true, toneMapped: false, depthWrite: false })
+  );
+  tick.position.set(0, 0.02, 0.135);
+  const front = new THREE.Group();
+  front.add(shield, tick);
+
+  const gear = new THREE.Mesh(gearGeo(0.44, 11, 0.17), accentMat(light, 0.22));
+  gear.position.set(-0.8, 0.55, -0.15);
+  // a cloud stays white whatever the page is wearing
+  const cloud = new THREE.Mesh(cloudGeo(), new THREE.MeshPhysicalMaterial({
+    color: 0xeef3ff, roughness: 0.5, clearcoat: 0.6, transparent: true, opacity: 0.94,
+  }));
+  cloud.position.set(0.85, -0.3, -0.12);
+  g.add(front, gear, cloud);
+
   return {
     group: g,
     animate(t) {
-      gears.forEach(({ m, speed }) => (m.rotation.z = t * speed));
-      g.rotation.y = Math.sin(t * 0.3) * 0.16;
+      gear.rotation.z = t * 0.55;
+      cloud.position.y = -0.3 + Math.sin(t * 1.1) * 0.07;
+      front.rotation.y = Math.sin(t * 0.45) * 0.18;
+      front.position.y = Math.sin(t * 1.05) * 0.03;
+      g.rotation.y = Math.sin(t * 0.3) * 0.08;
     },
   };
 }
 
-const BUILD = { products: buildStack, solutions: buildHoney, services: buildGears };
-// where each one floats, in a loose triangle, and how big it stands there
+const BUILD = { products: buildPhone, solutions: buildDonut, services: buildShield };
+// where each one floats, how big it stands, and where its name sits
 const SPOTS = [
-  { p: [-1.6, 0.7, 0.35], size: 1.5 },
-  { p: [1.7, 1.05, -0.45], size: 1.45 },
-  { p: [-0.05, -1.75, 0.3], size: 1.25 },
+  { p: [-1.85, 0.2, 0.3], size: 1.1, labelY: -1.3 },
+  { p: [1.45, 1.15, -0.45], size: 1.2, labelY: -1.12 },
+  { p: [1.2, -1.5, 0.2], size: 1.1, labelY: -1.15 },
 ];
 
 addView('hero', (v) => {
-  v.fitR = 3.7;
-  v.look.set(0.05, -0.4, 0);
+  v.fitR = 3.6;
+  v.look.set(0, -0.3, 0);
   v.dir.set(0, 0.1, 1);
 
   const glow = new THREE.Mesh(
@@ -400,7 +588,7 @@ addView('hero', (v) => {
     holder.position.set(...SPOTS[i].p);
     const model = BUILD[o.key](o);
     const label = labelSprite(o);
-    label.position.y = -0.92;
+    label.position.y = SPOTS[i].labelY;
     holder.add(model.group, label);
     root.add(holder);
     return { holder, model, home: SPOTS[i].p, size: SPOTS[i].size };

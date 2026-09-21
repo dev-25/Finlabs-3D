@@ -1,6 +1,7 @@
 import './about-journey.css';
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { onTheme } from './theme.js';
 
 /* =====================================================
@@ -131,7 +132,7 @@ function buildRide(renderer, ride, canvas) {
   const tOf = (sv) => (sv + 1) / (pts.length - 1); // year index → curve parameter
   const SAMPLES = N * 40;
 
-  function ribbon(width, y, colored) {
+  function ribbon(width, y, colored, shift = 0) {
     const pos = [];
     const col = [];
     const idx = [];
@@ -142,7 +143,9 @@ function buildRide(renderer, ride, canvas) {
       const t = k / SAMPLES;
       curve.getPoint(t, p);
       curve.getTangent(t, tan);
-      side.crossVectors(tan, UP).normalize().multiplyScalar(width / 2);
+      side.crossVectors(tan, UP).normalize();
+      if (shift) p.addScaledVector(side, shift);
+      side.multiplyScalar(width / 2);
       pos.push(p.x - side.x, y, p.z - side.z, p.x + side.x, y, p.z + side.z);
       if (colored) {
         const c = yearColor(THREE.MathUtils.clamp((t * (pts.length - 1) - 1) / (N - 1), 0, 1));
@@ -184,9 +187,9 @@ function buildRide(renderer, ride, canvas) {
   const dotTex = new THREE.CanvasTexture(dotCanvas);
   dotTex.wrapS = dotTex.wrapT = THREE.RepeatWrapping;
   const LEN = (N - 1) * STEP + 40;
-  dotTex.repeat.set(LEN / 1.4, 44 / 1.4);
+  dotTex.repeat.set(LEN / 1.4, 84 / 1.4);
   const groundMat = new THREE.MeshBasicMaterial({ map: dotTex, color: 0x6d5cf6, transparent: true, opacity: 0.28, depthWrite: false });
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(LEN, 44), groundMat);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(LEN, 84), groundMat);
   ground.rotation.x = -Math.PI / 2;
   ground.position.set(((N - 1) * STEP) / 2, -0.01, 0);
   scene.add(ground);
@@ -231,6 +234,159 @@ function buildRide(renderer, ride, canvas) {
     scene.add(g);
     return { pins, label, accent, pos: g.position, h };
   });
+
+
+  // ---- the world the road runs through: lamps, greenery, a skyline,
+  // clouds and a few ₹ coins turning over the tarmac. Everything is
+  // merged or instanced, so the whole lot costs a handful of draw calls.
+  let seed = 11;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+  const at = (sv) => {
+    const tt = tOf(sv);
+    const point = curve.getPoint(tt);
+    const side = new THREE.Vector3().crossVectors(curve.getTangent(tt), UP).normalize();
+    return { point, side };
+  };
+  const END = N - 1;
+
+  // white lines down both edges of the road
+  const edgeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5, toneMapped: false, side: THREE.DoubleSide });
+  scene.add(new THREE.Mesh(mergeGeometries([ribbon(0.07, 0.02, false, 0.72), ribbon(0.07, 0.02, false, -0.72)]), edgeMat));
+
+  // lamp posts along the near verge, one every half year, lit in that year's colour
+  const poles = [];
+  const bulbs = [];
+  for (let k = 0; k <= END * 2 + 1; k++) {
+    const sv = k / 2 - 0.5;
+    const { point, side } = at(sv);
+    const foot = point.clone().addScaledVector(side, 1.75);
+    const pole = new THREE.CylinderGeometry(0.03, 0.055, 1.7, 8);
+    pole.translate(0, 0.85, 0);
+    const head = new THREE.CylinderGeometry(0.17, 0.09, 0.13, 10);
+    head.translate(0, 1.78, 0);
+    const arm = mergeGeometries([pole, head]);
+    arm.translate(foot.x, 0, foot.z);
+    poles.push(arm);
+    bulbs.push({ p: new THREE.Vector3(foot.x, 1.71, foot.z), c: yearColor(THREE.MathUtils.clamp(sv / END, 0, 1)) });
+  }
+  const poleMat = new THREE.MeshStandardMaterial({ color: 0xf2f4ff, roughness: 0.45, metalness: 0.25 });
+  scene.add(new THREE.Mesh(mergeGeometries(poles), poleMat));
+
+  const bulbMesh = new THREE.InstancedMesh(
+    new THREE.SphereGeometry(0.12, 14, 10),
+    new THREE.MeshBasicMaterial({ toneMapped: false }),
+    bulbs.length
+  );
+  const slot = new THREE.Object3D();
+  bulbs.forEach((b, i) => {
+    slot.position.copy(b.p);
+    slot.updateMatrix();
+    bulbMesh.setMatrixAt(i, slot.matrix);
+    bulbMesh.setColorAt(i, b.c);
+  });
+  scene.add(bulbMesh);
+
+  // low planting on the far verge, with a few stones on the near one
+  const bushes = [];
+  const stones = [];
+  for (let k = 0; k < 54; k++) {
+    const { point, side } = at(rnd() * (END + 1) - 0.5);
+    const near = k % 5 === 0;
+    const away = (near ? 1 : -1) * (near ? 3.4 + rnd() * 2 : 4.4 + rnd() * 6);
+    const r = (near ? 0.14 : 0.24) + rnd() * 0.3;
+    const blob = new THREE.IcosahedronGeometry(r, 0);
+    blob.scale(1, 0.75 + rnd() * 0.6, 1);
+    blob.translate(point.x + side.x * away, r * 0.5, point.z + side.z * away);
+    (near ? stones : bushes).push(blob);
+  }
+  const bushMat = new THREE.MeshStandardMaterial({ color: 0xa5b4fc, roughness: 0.75 });
+  const stoneMat = new THREE.MeshStandardMaterial({ color: 0xd9dcfb, roughness: 0.6 });
+  scene.add(new THREE.Mesh(mergeGeometries(bushes), bushMat), new THREE.Mesh(mergeGeometries(stones), stoneMat));
+
+  // a city on the horizon, far enough back to sit in the fog
+  const towers = [];
+  for (let k = 0; k < 30; k++) {
+    const { point, side } = at(rnd() * (END + 1.5) - 0.75);
+    const away = -(20 + rnd() * 10);
+    const w = 0.8 + rnd() * 1.6;
+    const h = 1.8 + rnd() * 6;
+    const box = new THREE.BoxGeometry(w, h, w * (0.7 + rnd() * 0.6));
+    box.translate(point.x + side.x * away + (rnd() - 0.5) * 3, h / 2, point.z + side.z * away);
+    towers.push(box);
+  }
+  const towerMat = new THREE.MeshBasicMaterial({ color: 0xc3c7f3, transparent: true, opacity: 0.75 });
+  scene.add(new THREE.Mesh(mergeGeometries(towers), towerMat));
+
+  // clouds, drifting the other way
+  const cloudMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 });
+  const clouds = [];
+  for (let k = 0; k < 7; k++) {
+    const puffs = [[-0.9, 0, 0.55], [0, 0.26, 0.78], [0.95, -0.03, 0.6], [0.3, -0.2, 0.5]].map(([x, y, r]) => {
+      const s = new THREE.SphereGeometry(r * (0.8 + rnd() * 0.5), 16, 12);
+      s.translate(x, y, 0);
+      return s;
+    });
+    const cloud = new THREE.Mesh(mergeGeometries(puffs), cloudMat);
+    cloud.position.set(rnd() * (END * STEP + 20) - 10, 5.6 + rnd() * 3, -(6 + rnd() * 12));
+    cloud.scale.setScalar(0.8 + rnd() * 0.9);
+    cloud.userData.drift = 0.25 + rnd() * 0.35;
+    clouds.push(cloud);
+    scene.add(cloud);
+  }
+
+  // ₹ coins turning over the road — the point of the whole decade
+  const coinCanvas = document.createElement('canvas');
+  coinCanvas.width = coinCanvas.height = 192;
+  const cctx = coinCanvas.getContext('2d');
+  const grad = cctx.createRadialGradient(72, 62, 8, 96, 96, 96);
+  grad.addColorStop(0, '#fff4c8');
+  grad.addColorStop(0.55, '#f2c14e');
+  grad.addColorStop(1, '#b7791f');
+  cctx.fillStyle = grad;
+  cctx.beginPath();
+  cctx.arc(96, 96, 94, 0, Math.PI * 2);
+  cctx.fill();
+  cctx.fillStyle = '#8a5a0b';
+  cctx.font = '700 112px Inter, "Segoe UI", Arial, sans-serif';
+  cctx.textAlign = 'center';
+  cctx.textBaseline = 'middle';
+  cctx.fillText('₹', 96, 104);
+  const coinTex = new THREE.CanvasTexture(coinCanvas);
+  coinTex.colorSpace = THREE.SRGBColorSpace;
+  const coinFace = new THREE.MeshStandardMaterial({ map: coinTex, metalness: 0.5, roughness: 0.32 });
+  const coinRim = new THREE.MeshStandardMaterial({ color: 0xf5c451, metalness: 1, roughness: 0.25 });
+  const coins = [];
+  for (let k = 0; k < 9; k++) {
+    const { point, side } = at(rnd() * END);
+    const r = 0.22 + rnd() * 0.12;
+    const coin = new THREE.Group();
+    const rim = new THREE.CylinderGeometry(r, r, r * 0.2, 28);
+    rim.rotateX(Math.PI / 2);
+    coin.add(new THREE.Mesh(rim, coinRim));
+    const face = new THREE.CircleGeometry(r * 0.93, 28);
+    const front = new THREE.Mesh(face, coinFace);
+    front.position.z = r * 0.101;
+    const back = new THREE.Mesh(face, coinFace);
+    back.position.z = -r * 0.101;
+    back.rotation.y = Math.PI;
+    coin.add(front, back);
+    coin.position.copy(point).addScaledVector(side, 0.6 + rnd() * 2.6);
+    coin.position.y = 1.4 + rnd() * 1.7;
+    coin.userData = { y: coin.position.y, k };
+    coins.push(coin);
+    scene.add(coin);
+  }
+
+  function dressTick(now, dt) {
+    clouds.forEach((c) => {
+      c.position.x -= c.userData.drift * dt;
+      if (c.position.x < -14) c.position.x = END * STEP + 16;
+    });
+    coins.forEach((c) => {
+      c.rotation.y = now * 0.9 + c.userData.k;
+      c.position.y = c.userData.y + Math.sin(now * 1.1 + c.userData.k) * 0.14;
+    });
+  }
 
   // ---- camera: it rides along the road beside the current year, looking
   // across it rather than down it. Driving along means the year in front
@@ -330,6 +486,7 @@ function buildRide(renderer, ride, canvas) {
     camera.position.copy(camPos);
     camera.lookAt(camLook);
     trailGeo.setDrawRange(0, Math.floor((trailCount * tOf(s)) / 6) * 6);
+    dressTick(now, dt);
 
     stations.forEach((st, i) => {
       const on = i === active;
@@ -353,6 +510,14 @@ function buildRide(renderer, ride, canvas) {
     pedMat.color.setHex(dark ? 0x1b2744 : 0xffffff);
     groundMat.color.setHex(dark ? 0x8fa6ff : 0x6d5cf6);
     groundMat.opacity = dark ? 0.18 : 0.28;
+    poleMat.color.setHex(dark ? 0x35406b : 0xf2f4ff);
+    bushMat.color.setHex(dark ? 0x2a3566 : 0xa5b4fc);
+    stoneMat.color.setHex(dark ? 0x27325a : 0xd9dcfb);
+    towerMat.color.setHex(dark ? 0x1d2950 : 0xc3c7f3);
+    towerMat.opacity = dark ? 0.85 : 0.75;
+    cloudMat.color.setHex(dark ? 0x9fb0e8 : 0xffffff);
+    cloudMat.opacity = dark ? 0.16 : 0.55;
+    edgeMat.opacity = dark ? 0.3 : 0.5;
     aheadMat.opacity = dark ? 0.3 : 0.22;
     hemi.intensity = dark ? 0.35 : 0.55;
     hemi.groundColor.setHex(dark ? 0x1a2240 : 0xb8c0ef);
