@@ -28,6 +28,13 @@
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   /* the page gutter — the same on every page, so content lines up from page to page */
   --pad: clamp(18px, 5vw, 72px);
+  /* how far the first line of a page sits from the top, so every page
+     starts the same distance below the menu bar */
+  --top: 120px;
+  /* one type scale: page title, section title, card title */
+  --h1: clamp(38px, 5.2vw, 66px);
+  --h2: clamp(26px, 3.1vw, 40px);
+  --h3: clamp(19px, 2vw, 26px);
   /* how far the content sits from the edge: the page gutter until there is room
      for the full column, then whatever centres a 1280px column — the same width
      as the menu bar, so every page lines up with it and with every other page */
@@ -71,12 +78,12 @@ a { color: inherit; }
 }
 
 /* ---------- page hero ---------- */
-.doc { padding: 120px var(--gut) 40px; }
+.doc { padding: var(--top) var(--gut) 40px; }
 .doc__hero { width: min(1280px, 100%); margin: 0 auto 32px; }
 .doc__hero h1 {
   font-family: var(--display); font-weight: 800;
-  font-size: clamp(38px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.035em;
-  margin: 14px 0 12px;
+  font-size: var(--h1); line-height: 1.04; letter-spacing: -0.035em;
+  margin: 0 0 12px; /* the page starts here — see --top */
 }
 .doc__lead { font-size: clamp(16px, 1.3vw, 18.5px); color: var(--ink-2); max-width: 64ch; }
 .doc__meta { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 18px; list-style: none; }
@@ -157,7 +164,7 @@ a.channel:hover { transform: translateY(-3px); border-color: var(--brand); }
 .channel .map:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .form { display: grid; gap: 16px; }
-.form h2 { font-family: var(--display); font-size: 24px; letter-spacing: -0.01em; }
+.form h2 { font-family: var(--display); font-size: var(--h3); letter-spacing: -0.01em; }
 .form__sub { color: var(--ink-3); font-size: 14.5px; margin-top: -8px; }
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form label, .form legend { display: grid; gap: 7px; font-size: 14px; font-weight: 600; color: var(--ink); }
