@@ -9,8 +9,8 @@
  * ===================================================== */
 
 .about-page main { overflow-x: clip; }
-.a-wrap { width: min(1180px, 100%); margin: 0 auto; }
-.a-sec { padding: clamp(64px, 8vw, 112px) var(--pad) 0; }
+.a-wrap { width: min(1280px, 100%); margin: 0 auto; }
+.a-sec { padding: clamp(64px, 8vw, 112px) var(--gut) 0; }
 .a-head { margin-bottom: clamp(26px, 3vw, 40px); }
 .a-head--center { text-align: center; }
 .a-head--center .a-sub { margin-inline: auto; }
@@ -56,7 +56,7 @@
 }
 
 /* ---------- hero ---------- */
-.a-hero { padding: 116px var(--pad) 0; }
+.a-hero { padding: 116px var(--gut) 0; }
 .a-hero > .a-wrap {
   display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: clamp(16px, 3vw, 44px); align-items: center;

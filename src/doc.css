@@ -26,7 +26,12 @@
   --display: "Outfit", "Segoe UI", system-ui, sans-serif;
   --body: "Inter", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* the page gutter — the same on every page, so content lines up from page to page */
   --pad: clamp(18px, 5vw, 72px);
+  /* how far the content sits from the edge: the page gutter until there is room
+     for the full column, then whatever centres a 1280px column — the same width
+     as the menu bar, so every page lines up with it and with every other page */
+  --gut: max(var(--pad), calc((100% - 1280px) / 2));
 }
 
 :root[data-theme="dark"] {
@@ -66,15 +71,8 @@ a { color: inherit; }
 }
 
 /* ---------- page hero ---------- */
-.doc { padding: 120px var(--pad) 40px; }
-.doc__hero { width: min(1180px, 100%); margin: 0 auto 32px; }
-.crumbs {
-  display: flex; flex-wrap: wrap; gap: 8px; list-style: none;
-  font: 600 12px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
-}
-.crumbs li + li::before { content: "/"; margin-right: 8px; color: var(--line); }
-.crumbs a { text-decoration: none; }
-.crumbs a:hover { color: var(--brand); }
+.doc { padding: 120px var(--gut) 40px; }
+.doc__hero { width: min(1280px, 100%); margin: 0 auto 32px; }
 .doc__hero h1 {
   font-family: var(--display); font-weight: 800;
   font-size: clamp(38px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.035em;
@@ -90,7 +88,7 @@ a { color: inherit; }
 
 /* ---------- legal layout: contents list + paper ---------- */
 .doc__layout {
-  width: min(1180px, 100%); margin: 0 auto;
+  width: min(1280px, 100%); margin: 0 auto;
   display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 28px; align-items: start;
 }
 .toc {
@@ -132,7 +130,7 @@ a { color: inherit; }
 
 /* ---------- contact ---------- */
 .contact-grid {
-  width: min(1180px, 100%); margin: 0 auto;
+  width: min(1280px, 100%); margin: 0 auto;
   display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 24px; align-items: start;
 }
 .channels { display: grid; gap: 14px; }
@@ -208,9 +206,9 @@ a.channel:hover { transform: translateY(-3px); border-color: var(--brand); }
 .form__legal a { color: var(--brand); }
 
 /* ---------- footer ---------- */
-.foot { padding: 40px var(--pad) 40px; }
+.foot { padding: 40px var(--gut) 40px; }
 .foot__panel {
-  width: min(1180px, 100%); margin: 0 auto;
+  width: min(1280px, 100%); margin: 0 auto;
   display: grid; grid-template-columns: 1.1fr 2fr 1.2fr; gap: clamp(22px, 3vw, 44px);
   padding: clamp(24px, 3.2vw, 42px); border-radius: 24px;
   background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);

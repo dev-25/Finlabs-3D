@@ -7,9 +7,7 @@
 
 html { scroll-padding-top: 160px; }
 
-.pp-main { padding: 104px var(--pad) 36px; }
-.pp-crumbs { max-width: 1240px; margin: 0 auto 14px; }
-.pp-crumbs [aria-current="page"] { color: var(--ink); font-weight: 600; }
+.pp-main { padding: 104px var(--gut) 36px; }
 
 .fx--page {
   max-width: 1240px;

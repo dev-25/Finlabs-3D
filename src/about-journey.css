@@ -7,8 +7,8 @@
  * about.css.
  * ===================================================== */
 
-.a-ride { padding: 0 var(--pad); }
-.a-ride__panel { width: min(1180px, 100%); margin: 0 auto; }
+.a-ride { padding: 0 var(--gut); }
+.a-ride__panel { width: min(1280px, 100%); margin: 0 auto; }
 .a-ride__canvas, .a-ride__hint, .a-ride__years { display: none; }
 
 /* the ride is an ordinary block in the page — the years drive past by
@@ -24,7 +24,7 @@
 
 /* the current year's card */
 .a-ride.is-live .a-ride__panel {
-  position: absolute; z-index: 1; top: 50%; left: max(var(--pad), calc((100% - 1180px) / 2));
+  position: absolute; z-index: 1; top: 50%; left: var(--gut);
   width: min(430px, 40vw); margin: 0; transform: translateY(-46%);
   display: grid; gap: 16px; padding: 24px 24px 20px; border-radius: 24px;
   background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);

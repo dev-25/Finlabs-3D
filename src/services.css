@@ -26,7 +26,12 @@
   --display: "Outfit", "Segoe UI", system-ui, sans-serif;
   --body: "Inter", "Segoe UI", system-ui, sans-serif;
   --col: min(600px, 46vw);
-  --pad: clamp(20px, 5.5vw, 88px);
+  /* the page gutter — the same on every page, so content lines up from page to page */
+  --pad: clamp(18px, 5vw, 72px);
+  /* how far the content sits from the edge: the page gutter until there is room
+     for the full column, then whatever centres a 1280px column — the same width
+     as the menu bar, so every page lines up with it and with every other page */
+  --gut: max(var(--pad), calc((100% - 1280px) / 2));
 }
 
 :root[data-theme="dark"] {
@@ -162,9 +167,9 @@ main { position: relative; z-index: 2; }
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
 }
-.col { width: var(--col); margin-left: var(--pad); }
+.col { width: var(--col); margin-left: var(--gut); }
 
-.section-head { width: var(--col); margin-left: var(--pad); margin-bottom: 44px; }
+.section-head { width: var(--col); margin-left: var(--gut); margin-bottom: 44px; }
 .section-head h2 {
   font-family: var(--display); font-weight: 700;
   font-size: clamp(32px, 4.2vw, 56px); line-height: 1.08; letter-spacing: -0.025em;
@@ -282,7 +287,7 @@ main { position: relative; z-index: 2; }
 .js [data-reveal].in { opacity: 1; transform: none; }
 
 /* ---------- process ---------- */
-.process, .why, .contact { padding: 16vh var(--pad) 8vh; }
+.process, .why, .contact { padding: 16vh var(--gut) 8vh; }
 .process .section-head, .why .section-head { margin-left: 0; width: min(760px, 100%); }
 .lines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .line {
@@ -381,7 +386,7 @@ main { position: relative; z-index: 2; }
 .form__note.err { color: #ef4444; }
 
 /* ---------- footer ---------- */
-.foot { padding: 0 var(--pad) 40px; }
+.foot { padding: 0 var(--gut) 40px; }
 .foot__panel {
   display: grid; grid-template-columns: 1.1fr 2fr 1.2fr; gap: clamp(22px, 3vw, 44px);
   padding: clamp(24px, 3.2vw, 42px); border-radius: 26px;
@@ -416,7 +421,7 @@ main { position: relative; z-index: 2; }
   .tiles { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 900px) {
-  :root { --col: calc(100% - 2 * var(--pad)); }
+  :root { --col: calc(100% - 2 * var(--gut)); }
   .nav__links, .rail { display: none; }
   #scene { opacity: 0.35; }
   .service { min-height: auto; padding: 12vh 0; }

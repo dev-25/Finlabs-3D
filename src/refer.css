@@ -22,10 +22,10 @@
 }
 
 .refer {
-  width: min(1180px, 100%); margin: 0 auto;
   /* the menu bar is fixed at the top: start below it, as the other pages do */
-  padding: 120px var(--pad) clamp(40px, 6vw, 80px);
+  padding: 120px var(--gut) clamp(40px, 6vw, 80px);
 }
+.refer > * { width: min(1280px, 100%); margin-left: auto; margin-right: auto; }
 
 /* ---- shared bits */
 .refer__eyebrow {

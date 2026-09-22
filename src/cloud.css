@@ -8,7 +8,7 @@
  * ===================================================== */
 
 body.cl-page {
-  --wrap: min(1180px, 100%);
+  --wrap: min(1280px, 100%);
   --sky: #0ea5e9;
   --aws: #ff9900;
   --aws-ink: #b45309; /* AWS orange is too light for text on white */
@@ -37,7 +37,7 @@ body.cl-page {
     linear-gradient(180deg, #071630 0%, #060b18 55%);
 }
 
-.cl { padding: 112px var(--pad) 30px; }
+.cl { padding: 112px var(--gut) 30px; }
 .cl > * { width: var(--wrap); margin-left: auto; margin-right: auto; }
 
 .for-dark { display: none !important; }
@@ -89,7 +89,6 @@ body.cl-page {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); align-items: center; gap: clamp(16px, 3vw, 44px);
   margin-bottom: clamp(36px, 6vw, 80px);
 }
-.cl-hero .crumbs { margin-bottom: 18px; }
 .cl-hero h1 {
   font-family: var(--display); font-weight: 800; letter-spacing: -0.03em; line-height: 1.04;
   font-size: clamp(38px, 5.2vw, 66px); margin: 12px 0 16px;

@@ -6,8 +6,8 @@
  * Built on the reading pages' tokens (doc.css).
  * ===================================================== */
 
-.careers { padding: 120px var(--pad) 40px; }
-.careers__hero { width: min(1180px, 100%); margin: 0 auto clamp(26px, 4vw, 44px); }
+.careers { padding: 120px var(--gut) 40px; }
+.careers__hero { width: min(1280px, 100%); margin: 0 auto clamp(26px, 4vw, 44px); }
 .careers__hero h1 {
   font-family: var(--display); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;
   font-size: clamp(34px, 5.4vw, 60px); margin: 12px 0 14px;
@@ -21,7 +21,7 @@
 .careers__facts a { color: var(--brand); text-decoration: none; }
 
 /* ---------- finding a role ---------- */
-.roles { width: min(1180px, 100%); margin: 0 auto; }
+.roles { width: min(1280px, 100%); margin: 0 auto; }
 .roles__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; }
 .roles__head h2 { font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; }
 .roles__count { font-size: 14px; color: var(--ink-3); }
@@ -111,7 +111,7 @@
 .roles__empty[hidden] { display: none; }
 
 /* ---------- culture and how to apply ---------- */
-.culture { width: min(1180px, 100%); margin: clamp(40px, 6vw, 70px) auto 0; }
+.culture { width: min(1280px, 100%); margin: clamp(40px, 6vw, 70px) auto 0; }
 .culture h2 { font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; margin-bottom: 8px; }
 .culture > p { color: var(--ink-2); max-width: 78ch; margin-bottom: 22px; }
 .culture__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
@@ -127,7 +127,7 @@
 .culture__ico svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
 .apply-box {
-  width: min(1180px, 100%); margin: clamp(34px, 5vw, 54px) auto 0;
+  width: min(1280px, 100%); margin: clamp(34px, 5vw, 54px) auto 0;
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px;
   padding: clamp(22px, 3vw, 34px); border-radius: 22px; color: #fff;
   background: linear-gradient(135deg, #12306e, var(--brand));
