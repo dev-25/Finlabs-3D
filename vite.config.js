@@ -93,6 +93,7 @@ export default defineConfig(({ command, isPreview }) => ({
         contact: resolve(ROOT, 'contact.html'),
         about: resolve(ROOT, 'about.html'),
         careers: resolve(ROOT, 'careers.html'),
+        refer: resolve(ROOT, 'refer.html'),
         'knowledge-centre': resolve(ROOT, 'knowledge-centre.html'),
         // the Knowledge Centre's four sections
         'kc-blogs': resolve(ROOT, 'knowledge-centre/blogs.html'),

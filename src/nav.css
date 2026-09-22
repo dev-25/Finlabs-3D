@@ -83,6 +83,12 @@
   background: var(--n-brand);
 }
 
+/* seven links is a lot for one bar: tighten them before the drop-down takes over */
+@media (max-width: 1180px) {
+  .site-nav__links a { padding: 9px 10px; font-size: 14px; }
+  .site-nav__links a[aria-current="page"]::after { left: 10px; right: 10px; }
+}
+
 /* right: theme switch + Contact Us */
 .site-nav__actions { justify-self: end; display: flex; align-items: center; gap: 8px; }
 .site-nav__theme,
@@ -139,7 +145,7 @@
 .site-nav.open .site-nav__menu span:nth-child(2) { opacity: 0; }
 .site-nav.open .site-nav__menu span:nth-child(3) { transform: rotate(-45deg); }
 
-@media (max-width: 960px) {
+@media (max-width: 1040px) {
   .site-nav { grid-template-columns: 1fr auto; }
   .site-nav__menu { display: inline-grid; }
   /* the links drop down as a panel under the bar */

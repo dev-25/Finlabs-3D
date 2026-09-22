@@ -1,0 +1,270 @@
+/* =====================================================
+ * REFER & EARN
+ * =====================================================
+ * The introduction page for the referral programme: the
+ * idea in one picture, the four steps, what the rates are
+ * worth, the rules, and the form that registers a lead.
+ * Money is green here; everything else follows the site.
+ * ===================================================== */
+
+.refer-page {
+  --ref: #059669;
+  --ref-soft: rgba(5, 150, 105, 0.1);
+}
+:root[data-theme="dark"] .refer-page {
+  --ref: #34d399;
+  --ref-soft: rgba(52, 211, 153, 0.14);
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+.refer {
+  width: min(1180px, 100%); margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px) var(--pad) clamp(40px, 6vw, 80px);
+}
+
+/* ---- shared bits */
+.refer__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 10px;
+  font: 600 11.5px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+}
+.refer__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ref); }
+.refer__head { margin-bottom: clamp(18px, 2.6vw, 30px); max-width: 74ch; }
+.refer__head h2 { font: 700 clamp(26px, 3.4vw, 38px)/1.12 var(--display); letter-spacing: -0.025em; margin: 0; }
+.refer__sub { margin: 12px 0 0; color: var(--ink-2); font-size: 15.5px; max-width: 72ch; }
+.refer__sec { margin-bottom: clamp(38px, 6vw, 74px); scroll-margin-top: 92px; }
+.refer__fineprint { margin: 14px 0 0; font-size: 13px; color: var(--ink-3); max-width: 68ch; }
+
+.refer__btn {
+  display: inline-flex; align-items: center; gap: 9px; padding: 13px 22px; border-radius: 999px;
+  font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer;
+  color: #fff; background: var(--brand); border: 1px solid var(--brand);
+  transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+}
+:root[data-theme="dark"] .refer__btn { color: #06102a; }
+.refer__btn:hover { transform: translateY(-2px); }
+.refer__btn--ghost { color: var(--ink); background: transparent; border-color: var(--line); }
+:root[data-theme="dark"] .refer__btn--ghost { color: var(--ink); }
+.refer__btn--ghost:hover { color: var(--brand); border-color: var(--brand); }
+.refer__btn span { transition: transform 0.2s; }
+.refer__btn:hover span { transform: translateX(3px); }
+
+/* ---- hero */
+.refer__hero {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(20px, 4vw, 54px); align-items: center;
+  margin-bottom: clamp(38px, 6vw, 74px);
+}
+.refer__hero h1 {
+  margin: 0 0 16px; font: 800 clamp(34px, 5.4vw, 58px)/1.05 var(--display); letter-spacing: -0.035em;
+}
+.refer__hero h1 em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--brand), var(--ref));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.refer__lead { margin: 0 0 22px; font-size: 16.5px; line-height: 1.65; color: var(--ink-2); max-width: 62ch; }
+.refer__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+.refer__facts { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; }
+.refer__facts li {
+  display: grid; gap: 2px; padding: 12px 18px; border-radius: 16px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.refer__facts b { font: 700 19px/1.1 var(--display); letter-spacing: -0.02em; color: var(--ref); }
+.refer__facts span { font-size: 12.5px; color: var(--ink-3); }
+
+/* ---- the idea in one picture */
+.refer__flow { margin: 0; }
+.refer__flow svg { display: block; width: 100%; height: auto; }
+.refer__wire { fill: none; stroke: url(#refLine); stroke-width: 2.5; stroke-dasharray: 7 7; opacity: 0.75; }
+.refer__spark { fill: var(--brand); }
+.refer__spark--coin { fill: var(--ref); }
+.refer__node rect { fill: var(--paper); stroke: var(--paper-edge); stroke-width: 1.5; }
+.refer__node text {
+  text-anchor: middle; fill: var(--ink); font: 700 16px var(--display); dominant-baseline: middle;
+}
+.refer__node-sub { fill: var(--ink-3) !important; font: 500 9.5px var(--mono) !important; }
+.refer__node--us rect { stroke: var(--brand); }
+.refer__node--pay rect { stroke: var(--ref); }
+.refer__node--pay text:first-of-type { fill: var(--ref); }
+.refer__flow figcaption { margin-top: 10px; text-align: center; font-size: 13px; color: var(--ink-3); }
+
+/* ---- four steps */
+.refer__steps { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; }
+.refer__steps li {
+  position: relative; display: grid; gap: 8px; align-content: start; padding: 24px 22px; border-radius: 22px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.refer__num { font: 600 12px/1 var(--mono); letter-spacing: 0.1em; color: var(--ref); }
+.refer__steps h3 { margin: 0; font: 700 18px/1.25 var(--display); }
+.refer__steps p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+
+/* ---- the five products */
+.refer__products { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 0; padding: 0; }
+.refer__products li {
+  display: grid; gap: 8px; align-content: start; padding: 22px 20px; border-radius: 20px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+  border-top: 3px solid var(--ref);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.refer__products li:hover { transform: translateY(-3px); }
+.refer__products h3 { margin: 0; font: 700 19px/1.2 var(--display); }
+.refer__products h3 a { color: inherit; text-decoration: none; }
+.refer__products h3 a:hover { color: var(--brand); }
+.refer__who { margin: 0; font-size: 14px; color: var(--ink-2); }
+
+/* ---- what you earn */
+.refer__earn-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: clamp(16px, 3vw, 30px); align-items: start; }
+.refer__tiers table {
+  width: 100%; border-collapse: collapse; border-radius: 20px; overflow: hidden;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.refer__tiers thead th {
+  text-align: left; padding: 14px 20px; background: var(--soft);
+  font: 600 11.5px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+}
+.refer__tiers tbody th {
+  display: grid; gap: 2px; text-align: left; padding: 16px 20px; font-weight: 600; font-size: 15.5px;
+  border-top: 1px solid var(--line);
+}
+.refer__tiers tbody th span { font: 500 11.5px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.refer__tiers tbody td { padding: 16px 20px; border-top: 1px solid var(--line); font-size: 14.5px; color: var(--ink-2); text-align: right; }
+.refer__tiers tbody td b { display: block; font: 700 22px/1.1 var(--display); color: var(--ref); }
+/* the rate the estimator is using */
+.refer__tiers tbody tr.is-on th, .refer__tiers tbody tr.is-on td { background: var(--ref-soft); }
+
+.refer__calc {
+  display: grid; gap: 18px; padding: clamp(20px, 3vw, 28px); border-radius: 22px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.refer__calc h3 { margin: 0; font: 700 19px/1.2 var(--display); }
+.refer__calc-field { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 14px; align-items: center; }
+.refer__calc-field label { font-weight: 600; font-size: 15px; }
+.refer__entry {
+  display: inline-flex; align-items: center; gap: 4px; padding: 8px 14px; border-radius: 12px;
+  background: var(--soft); border: 1px solid transparent; color: var(--brand); font-weight: 700;
+  transition: border-color 0.2s;
+}
+.refer__entry:focus-within { border-color: var(--brand); }
+.refer__entry input {
+  width: 9ch; padding: 0; border: 0; background: none; color: inherit; text-align: right;
+  font: 700 16px/1.2 var(--display);
+}
+.refer__entry input:focus { outline: none; }
+.refer__entry input::-webkit-outer-spin-button, .refer__entry input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.refer__entry input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.refer__slider { grid-column: 1 / -1; width: 100%; margin: 0; accent-color: var(--brand); height: 22px; cursor: pointer; }
+.refer__scale { grid-column: 1 / -1; display: flex; justify-content: space-between; margin: -8px 0 0; font: 500 11.5px/1 var(--mono); color: var(--ink-3); }
+.refer__calc select, .refer__form select {
+  width: 100%; padding: 11px 14px; border-radius: 12px; font: inherit; font-size: 15px;
+  color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+}
+.refer__calc-field select { grid-column: 1 / -1; }
+.refer__payout {
+  display: grid; gap: 2px; margin: 0; padding: 18px 20px; border-radius: 18px;
+  background: var(--ref-soft); border: 1px solid transparent;
+}
+.refer__payout span { font: 600 11.5px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+.refer__payout b { font: 800 clamp(28px, 4vw, 38px)/1.1 var(--display); letter-spacing: -0.03em; color: var(--ref); }
+.refer__payout em { font-style: normal; font-size: 13.5px; color: var(--ink-2); }
+
+/* ---- who it is for */
+.refer__who-grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 0; padding: 0; }
+.refer__who-grid li {
+  display: grid; gap: 8px; align-content: start; padding: 22px 22px; border-radius: 20px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.refer__who-grid h3 { margin: 0; font: 700 17px/1.25 var(--display); }
+.refer__who-grid p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+
+/* ---- the rules */
+.refer__rules { list-style: none; display: grid; gap: 10px; margin: 0; padding: 0; }
+.refer__rules li {
+  position: relative; padding: 16px 20px 16px 46px; border-radius: 16px; font-size: 15px; color: var(--ink-2);
+  background: var(--paper); border: 1px solid var(--paper-edge);
+}
+.refer__rules li::before {
+  content: ""; position: absolute; left: 20px; top: 22px; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--ref);
+}
+.refer__rules b { color: var(--ink); }
+
+/* ---- the form */
+.refer__form-sec { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(18px, 3vw, 40px); align-items: start; }
+.refer__form-copy h2 { font: 700 clamp(24px, 3.2vw, 34px)/1.12 var(--display); letter-spacing: -0.025em; margin: 0; }
+.refer__assure { list-style: none; display: grid; gap: 10px; margin: 20px 0 0; padding: 0; font-size: 14.5px; color: var(--ink-2); }
+.refer__assure li { padding-left: 24px; position: relative; }
+.refer__assure li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; color: var(--ref); font-weight: 700;
+}
+.refer__form {
+  display: grid; gap: 18px; padding: clamp(22px, 3vw, 32px); border-radius: 24px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.refer__form fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 14px; }
+.refer__form legend { padding: 0; margin-bottom: 6px; }
+.refer__form legend span { font: 600 11.5px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+.refer__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.refer__form label { display: grid; gap: 6px; font-weight: 600; font-size: 14px; }
+.refer__form label em { font-style: normal; font-weight: 500; color: var(--ink-3); }
+.refer__form input[type="text"], .refer__form input[type="email"], .refer__form input[type="tel"], .refer__form textarea {
+  width: 100%; padding: 11px 14px; border-radius: 12px; font: inherit; font-size: 15px;
+  color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.refer__form input:focus, .refer__form textarea:focus, .refer__form select:focus {
+  outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+.refer__form [aria-invalid="true"] { border-color: #e11d48; }
+.refer__form textarea { resize: vertical; }
+.refer__check { display: flex !important; align-items: flex-start; gap: 10px; font-weight: 500 !important; font-size: 14px; color: var(--ink-2); }
+.refer__check input { margin-top: 2px; accent-color: var(--brand); width: 17px; height: 17px; }
+.refer__form .refer__btn { justify-self: start; }
+.refer__note { margin: 0; min-height: 1.2em; font-size: 14px; }
+.refer__note.ok { color: var(--ref); }
+.refer__note.err { color: #e11d48; }
+
+/* ---- questions */
+.refer__faq { display: grid; gap: 10px; }
+.refer__faq details {
+  padding: 16px 20px; border-radius: 16px;
+  background: var(--paper); border: 1px solid var(--paper-edge);
+}
+.refer__faq summary { cursor: pointer; font-weight: 600; font-size: 15.5px; }
+.refer__faq summary:hover { color: var(--brand); }
+.refer__faq p { margin: 10px 0 0; font-size: 14.5px; color: var(--ink-2); }
+
+/* ---- closing */
+.refer__cta {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center;
+  padding: clamp(24px, 4vw, 40px); border-radius: 26px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.refer__cta h2 { margin: 0 0 8px; font: 700 clamp(22px, 3vw, 30px)/1.15 var(--display); letter-spacing: -0.02em; }
+.refer__cta p { margin: 0; color: var(--ink-2); font-size: 15px; max-width: 62ch; }
+.refer__cta-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 1040px) {
+  .refer__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .refer__earn-grid, .refer__form-sec { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 860px) {
+  .refer__hero { grid-template-columns: minmax(0, 1fr); }
+  .refer__flow { max-width: 420px; }
+  .refer__cta { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .refer__steps { grid-template-columns: minmax(0, 1fr); }
+  .refer__row { grid-template-columns: minmax(0, 1fr); }
+  .refer__calc-field { grid-template-columns: minmax(0, 1fr); }
+  .refer__entry { justify-self: start; }
+  .refer__tiers tbody td { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refer__btn, .refer__products li { transition: none; }
+  .refer__spark { display: none; }
+}

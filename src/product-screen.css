@@ -595,3 +595,10 @@ body.over-computer { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   .fx *, .pv * { transition: none !important; animation: none !important; }
 }
+
+/* a quiet line under the hero index, for the referral programme */
+.hero__refer { margin: 14px 0 0; font-size: 13.5px; color: var(--ink-2); }
+.hero__refer a { color: var(--brand); font-weight: 600; text-decoration: none; }
+.hero__refer a:hover { text-decoration: underline; }
+.hero__refer span { display: inline-block; transition: transform 0.2s; }
+.hero__refer a:hover span { transform: translateX(3px); }
