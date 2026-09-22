@@ -21,7 +21,7 @@
 }
 .a-eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: currentColor; }
 .a-h2 {
-  font-family: var(--display); font-weight: 800;
+  font-family: var(--display); font-weight: 700;
   font-size: var(--h2); line-height: 1.1; letter-spacing: -0.03em;
   margin: 12px 0;
 }
@@ -376,7 +376,7 @@
   background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
 }
 .a-cta__panel h2 {
-  font-family: var(--display); font-weight: 800;
+  font-family: var(--display); font-weight: 700;
   font-size: var(--h2); line-height: 1.12; letter-spacing: -0.02em;
 }
 .a-cta__panel p { color: var(--ink-2); margin-top: 8px; max-width: 52ch; }

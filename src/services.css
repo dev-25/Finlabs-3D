@@ -354,7 +354,7 @@ main { position: relative; z-index: 2; }
 /* ---------- contact ---------- */
 .contact { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 5vw, 80px); align-items: start; padding-bottom: 12vh; }
 .contact__intro h2 {
-  font-family: var(--display); font-weight: 800;
+  font-family: var(--display); font-weight: 700;
   font-size: var(--h2); line-height: 1.1; letter-spacing: -0.03em; margin: 18px 0 16px;
 }
 .contact__intro > p:not(.eyebrow) { color: var(--ink-2); font-size: 17px; max-width: 46ch; }
