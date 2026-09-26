@@ -418,57 +418,111 @@ function buildPhone(o) {
   };
 }
 
-// SOLUTIONS — one platform with seven modules plugged into it
-function buildHub(o) {
+// SOLUTIONS — one platform, put together a module at a time
+function buildStack(o) {
   const g = new THREE.Group();
+  const deep = new THREE.Color(o.c[0]).getHex();
   const accent = new THREE.Color(o.c[1]).getHex();
   const light = new THREE.Color(o.c[2]).getHex();
 
-  const core = new THREE.Mesh(rbox(0.78, 0.78, 0.78, 0.16), accentMat(accent, 0.22));
-  g.add(core);
   const halo = new THREE.Mesh(
-    new THREE.PlaneGeometry(2.8, 2.8),
-    new THREE.MeshBasicMaterial({ map: glowTexture('rgba(34,211,238,0.8)'), transparent: true, depthWrite: false, opacity: 0.32, toneMapped: false })
+    new THREE.PlaneGeometry(2.9, 2.9),
+    new THREE.MeshBasicMaterial({ map: glowTexture('rgba(34,211,238,0.8)'), transparent: true, depthWrite: false, opacity: 0.3, toneMapped: false })
   );
-  halo.position.z = -0.7;
+  halo.position.z = -0.85;
   g.add(halo);
 
-  // the modules ride one tilted wheel around it, each on its own spoke
-  const tiltG = new THREE.Group();
-  tiltG.rotation.set(0.42, -0.2, 0);
-  g.add(tiltG);
-  const wheel = new THREE.Group();
-  tiltG.add(wheel);
-  wheel.add(new THREE.Mesh(new THREE.TorusGeometry(0.92, 0.012, 8, 96), glowMat(light, 0.5)));
+  const rig = new THREE.Group(); // the platform and everything standing on it
+  g.add(rig);
 
-  const R = 0.92;
-  const spokeGeo = new THREE.CylinderGeometry(0.015, 0.015, R - 0.46, 6);
-  spokeGeo.rotateZ(Math.PI / 2); // lie along the spoke, not up it
-  const tiles = [];
-  for (let k = 0; k < 7; k++) {
-    const arm = new THREE.Group();
-    arm.rotation.z = (k / 7) * Math.PI * 2;
-    const spoke = new THREE.Mesh(spokeGeo, glowMat(light, 0.4));
-    spoke.position.x = 0.46 + (R - 0.46) / 2;
-    const tile = new THREE.Mesh(rbox(0.3, 0.3, 0.11, 0.06), k % 2 ? M.panel : accentMat(k % 3 ? light : accent, 0.2));
-    tile.position.x = R;
-    arm.add(spoke, tile);
-    wheel.add(arm);
-    tiles.push({ tile, arm });
-  }
+  // the platform itself
+  const plate = new THREE.Mesh(rbox(1.46, 0.14, 1.46, 0.05), M.panel);
+  plate.position.y = -0.84;
+  rig.add(plate);
+  const trim = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.012, 8, 64), glowMat(light, 0.5));
+  trim.rotation.x = -Math.PI / 2;
+  trim.position.y = -0.76;
+  rig.add(trim);
 
+  // three modules already running, each a little turned from the one below
+  const BLK = 0.46;
+  const blockGeo = rbox(BLK, BLK, BLK, 0.1);
+  const SLOT = 0.94; // where the next one belongs
+  [[-0.5, accentMat(deep, 0.14), -0.1], [-0.02, M.panel, 0.08], [0.46, accentMat(accent, 0.2), -0.06]]
+    .forEach(([y, mat, turn]) => {
+      const b = new THREE.Mesh(blockGeo, mat);
+      b.position.y = y;
+      b.rotation.y = turn;
+      rig.add(b);
+    });
+
+  // the slot the next module drops into
+  const slot = new THREE.LineSegments(
+    new THREE.EdgesGeometry(new THREE.PlaneGeometry(BLK + 0.12, BLK + 0.12)),
+    new THREE.LineBasicMaterial({ color: light, transparent: true, opacity: 0.55 })
+  );
+  slot.rotation.x = -Math.PI / 2;
+  slot.position.y = 0.7;
+  rig.add(slot);
+
+  // ...and the module on its way in
+  const nextMat = accentMat(light, 0.28);
+  nextMat.transparent = true;
+  const next = new THREE.Mesh(blockGeo, nextMat);
+  rig.add(next);
+
+  // the ring that spreads when it lands
+  const pulseMat = glowMat(light, 0.6);
+  const pulse = new THREE.Mesh(new THREE.TorusGeometry(0.29, 0.015, 8, 48), pulseMat);
+  pulse.rotation.x = -Math.PI / 2;
+  rig.add(pulse);
+
+  // what the platform is there to move
+  const coin = makeCoin(0.26);
+  coin.position.set(0.86, -0.6, 0.5);
+  g.add(coin);
+
+  const CYCLE = 3.6;
   return {
     group: g,
     animate(t) {
-      wheel.rotation.z = t * 0.3;
-      tiles.forEach(({ tile }, k) => {
-        // each module keeps itself upright as the wheel turns, and breathes
-        tile.rotation.z = -t * 0.3 - (k / 7) * Math.PI * 2;
-        tile.position.x = R + Math.sin(t * 1.5 + k * 0.9) * 0.05;
-      });
-      core.rotation.set(t * 0.22, t * 0.38, 0);
-      core.scale.setScalar(1 + Math.sin(t * 1.8) * 0.03);
-      g.rotation.y = Math.sin(t * 0.3) * 0.12;
+      rig.rotation.y = t * 0.2;
+      const ph = (t % CYCLE) / CYCLE;
+      if (ph < 0.52) {
+        // falls in, slowing as it meets the stack
+        const e = 1 - (1 - ph / 0.52) ** 3;
+        next.position.y = SLOT + (1 - e) * 1.1;
+        next.rotation.y = (1 - e) * 1.4;
+        nextMat.opacity = Math.min(1, ph / 0.3);
+        next.scale.setScalar(1);
+        pulseMat.opacity = 0;
+        pulse.visible = false;
+      } else if (ph < 0.86) {
+        // settles, and the platform takes the weight
+        const since = ph - 0.52;
+        const bump = Math.sin(since * 30) * Math.exp(-since * 14) * 0.2;
+        next.position.y = SLOT;
+        next.rotation.y = 0;
+        nextMat.opacity = 1;
+        next.scale.set(1 + bump * 0.5, 1 - bump, 1 + bump * 0.5);
+        const f = Math.min(1, since / 0.26);
+        pulse.visible = f < 1;
+        pulse.position.y = SLOT - BLK / 2;
+        pulse.scale.setScalar(0.8 + f * 1.6);
+        pulseMat.opacity = 0.6 * (1 - f);
+      } else {
+        // and off it goes into the platform, making room for the next
+        const f = (ph - 0.86) / 0.14;
+        next.position.y = SLOT + f * 0.3;
+        next.scale.setScalar(1);
+        nextMat.opacity = 1 - f;
+        pulse.visible = false;
+      }
+      slot.position.y = 0.7 + Math.sin(t * 1.6) * 0.02;
+      coin.rotation.set(0.24, t * 1.1, 0);
+      coin.position.y = -0.6 + Math.sin(t * 1.3) * 0.05;
+      g.rotation.y = Math.sin(t * 0.3) * 0.1;
+      g.position.y = Math.sin(t * 0.9) * 0.03;
     },
   };
 }
@@ -582,16 +636,16 @@ function buildAudit(o) {
   };
 }
 
-const BUILD = { products: buildPhone, solutions: buildHub, services: buildAudit };
+const BUILD = { products: buildPhone, solutions: buildStack, services: buildAudit };
 // where each one floats, how big it stands, and where its name sits
 const SPOTS = [
-  { p: [-1.85, 0.2, 0.3], size: 1.1, labelY: -1.3 },
-  { p: [1.45, 1.1, -0.45], size: 1.05, labelY: -1.15 },
-  { p: [1.15, -1.55, 0.2], size: 1.05, labelY: -1.0 },
+  { p: [-1.6, 0.25, 0.3], size: 1.25, labelY: -1.3 },
+  { p: [1.35, 1.0, -0.45], size: 1.2, labelY: -1.25 },
+  { p: [1.1, -1.42, 0.2], size: 1.18, labelY: -1.0 },
 ];
 
 addView('hero', (v) => {
-  v.fitR = 3.5;
+  v.fitR = 3.0;
   v.look.set(0.1, -0.3, 0);
   v.dir.set(0, 0.1, 1);
 
@@ -616,7 +670,7 @@ addView('hero', (v) => {
     return { holder, model, home: SPOTS[i].p, size: SPOTS[i].size };
   });
 
-  const coins = [[-3.0, -1.7, 0.9, 0.3], [3.05, 2.05, -0.3, 0.26], [-2.7, 2.2, 0.5, 0.2], [2.6, -2.4, 1.0, 0.18]]
+  const coins = [[-2.6, -1.8, 0.9, 0.3], [2.7, 1.95, -0.3, 0.26], [-2.35, 2.1, 0.5, 0.2], [2.3, -2.35, 1.0, 0.18]]
     .map(([x, y, z, r], k) => {
       const c = makeCoin(r);
       c.userData = { x, y, z, k };
@@ -624,7 +678,7 @@ addView('hero', (v) => {
       return c;
     });
 
-  const beads = [[2.9, -0.9, -0.6, 0.22, 0x22d3ee], [-2.5, -2.3, 0.2, 0.15, 0xa78bfa], [0.9, 2.5, -0.9, 0.13, 0x60a5fa]]
+  const beads = [[2.55, -0.85, -0.6, 0.22, 0x22d3ee], [-2.2, -2.2, 0.2, 0.15, 0xa78bfa], [0.8, 2.35, -0.9, 0.13, 0x60a5fa]]
     .map(([x, y, z, r, hex], k) => {
       const m = new THREE.Mesh(new THREE.SphereGeometry(r, 32, 24), accentMat(hex, 0.25));
       m.userData = { x, y, z, k };
@@ -947,6 +1001,149 @@ addView('trophy', (v) => {
         dPos[i * 3 + 1] = y > 4.2 ? 0 : y;
       }
       dGeo.attributes.position.needsUpdate = true;
+    },
+  };
+});
+
+// =====================================================
+// CTA — the decade so far on one side, the next on the other
+// =====================================================
+
+addView('cta', (v) => {
+  v.fitR = 2.4;
+  v.look.set(0, 0, 0);
+  v.dir.set(0, 0.05, 1);
+  v.sun.intensity = v.sunBase = 1.6; // a touch brighter, against the deep panel
+
+  // the panel behind this one is deep blue in either theme, so these keep
+  // their own light colours rather than following the page
+  const pale = new THREE.MeshPhysicalMaterial({ color: 0xe9f1ff, roughness: 0.3, clearcoat: 0.85, clearcoatRoughness: 0.15 });
+  const cyan = accentMat(0x22d3ee, 0.35);
+  const sky = accentMat(0x7cb0ff, 0.28);
+
+  const softGlow = (size, opacity) => new THREE.Mesh(
+    new THREE.PlaneGeometry(size, size),
+    new THREE.MeshBasicMaterial({ map: glowTexture('rgba(125,211,252,0.85)'), transparent: true, depthWrite: false, opacity, toneMapped: false })
+  );
+
+  // LEFT — ten years of compounding: four columns and the line over them
+  const left = new THREE.Group();
+  const back = softGlow(3.4, 0.22);
+  back.position.z = -0.9;
+  left.add(back);
+  const BASE = -0.95;
+  const bars = [0.52, 0.8, 1.12, 1.5].map((h, k) => {
+    const m = new THREE.Mesh(rbox(0.29, h, 0.29, 0.07), k === 3 ? cyan : k === 2 ? sky : pale);
+    m.position.set(-0.58 + k * 0.39, BASE + h / 2, 0);
+    left.add(m);
+    return { m, h };
+  });
+  const floor = new THREE.Mesh(rbox(1.66, 0.08, 0.5, 0.03), pale);
+  floor.position.y = BASE - 0.04;
+  left.add(floor);
+
+  // the trend that carries on past the last column
+  const rod = new THREE.Group();
+  const ROD_A = -0.86; // leaning up and to the right
+  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.7, 10), glowMat(0xcfeaff, 0.85));
+  const head = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.34, 18), glowMat(0xcfeaff, 0.95));
+  head.position.y = 0.98;
+  rod.add(shaft, head);
+  rod.rotation.z = ROD_A;
+  rod.position.set(-0.05, BASE + 1.2, 0.34);
+  left.add(rod);
+
+  // RIGHT — the money at the middle of it, and the platform around it
+  const right = new THREE.Group();
+  const rGlow = softGlow(3.4, 0.24);
+  rGlow.position.z = -0.9;
+  right.add(rGlow);
+  const core = makeCoin(0.4);
+  right.add(core);
+  const rings = [0, 1].map((k) => {
+    const r = new THREE.Mesh(new THREE.TorusGeometry(0.78, 0.014, 8, 84), glowMat(0x9ae6ff, 0.55));
+    r.rotation.set(k ? 1.15 : 0.45, k ? 0.55 : -0.4, 0);
+    right.add(r);
+    return r;
+  });
+  const beads = [[0x7cb0ff, 0.09, 1.0], [0xa5f3fc, 0.075, -0.72], [0xe9f1ff, 0.065, 1.35]].map(([hex, r, sp], k) => {
+    const m = new THREE.Mesh(new THREE.SphereGeometry(r, 24, 18), glowMat(hex, 0.95));
+    right.add(m);
+    return { m, sp, ring: k % 2 };
+  });
+
+  v.scene.add(left, right);
+
+  // the copy in the middle of the panel decides how much room is left at the
+  // sides, so measure it rather than guessing from the panel's shape. A
+  // heading's box is as wide as the panel, so measure the words themselves.
+  const copyEls = [...(v.el.parentElement?.querySelectorAll('h2, p, .btn') || [])];
+  const range = document.createRange();
+  const inkOf = (el) => {
+    range.selectNodeContents(el);
+    const r = range.getBoundingClientRect();
+    return r.width ? r : el.getBoundingClientRect();
+  };
+  const GRP = 0.85; // how wide each side piece stands, at full size
+
+  // loose change in the corners the copy leaves free
+  const drift = [[-0.9, 0.74, 0.26], [0.9, 0.78, 0.22], [-0.44, -0.88, 0.17], [0.46, -0.9, 0.15]]
+    .map(([fx, fy, r], k) => {
+      const m = makeCoin(r);
+      v.scene.add(m);
+      return { m, fx, fy, k };
+    });
+
+  return {
+    update(t, rect) {
+      const aspect = rect.width / Math.max(1, rect.height);
+      const halfW = v.fitR * Math.max(1, aspect);
+      const perPx = (halfW * 2) / Math.max(1, rect.width);
+
+      // how far the widest line reaches from the middle...
+      const cx = rect.left + rect.width / 2;
+      let reach = 0;
+      copyEls.forEach((el) => {
+        const r = inkOf(el);
+        reach = Math.max(reach, Math.abs(cx - r.left), Math.abs(r.right - cx));
+      });
+      // ...and so how much is left at each side. They shrink to fit that gap,
+      // and step aside altogether when it stops being worth drawing.
+      const gap = halfW - reach * perPx;
+      const fit = Math.min(1, (gap - 0.2) / (GRP * 2.2));
+      const e = easeOutBack(clamp01(v.seen * 1.3)) * clamp01((fit - 0.45) / 0.15);
+      const x = halfW - gap / 2;
+
+      [left, right].forEach((grp, i) => {
+        grp.position.set(i ? x : -x, Math.sin(t * 0.7 + i * 1.6) * 0.06, 0);
+        grp.scale.setScalar(Math.max(0.001, e * fit));
+        grp.rotation.y = pointer.x * 0.18 + Math.sin(t * 0.32 + i) * 0.1;
+      });
+
+      bars.forEach(({ m, h }, k) => {
+        // each year's bar breathes, the last one hardest
+        const s = 1 + Math.sin(t * 1.1 + k * 0.7) * (0.02 + k * 0.012);
+        m.scale.y = s;
+        m.position.y = BASE + (h * s) / 2;
+      });
+      rod.position.y = BASE + 1.2 + Math.sin(t * 1.2) * 0.05;
+      rod.rotation.z = ROD_A + Math.sin(t * 0.8) * 0.04;
+
+      // the coin rocks rather than spins, so it never goes edge-on for long
+      core.rotation.set(0.06, Math.sin(t * 0.5) * 0.6, 0);
+      rings.forEach((r, k) => { r.rotation.z = (k ? -1 : 1) * t * 0.35; });
+      beads.forEach(({ m, sp, ring }, k) => {
+        const a = t * sp + k * 2.1;
+        const R = 0.78;
+        const p = new THREE.Vector3(Math.cos(a) * R, Math.sin(a) * R, 0).applyEuler(rings[ring].rotation);
+        m.position.copy(p);
+      });
+
+      drift.forEach(({ m, fx, fy, k }) => {
+        m.position.set(fx * halfW, fy * v.fitR + Math.sin(t * 0.9 + k * 1.7) * 0.1, 0.5);
+        m.rotation.set(0.22, Math.sin(t * 0.45 + k * 1.3) * 0.85, 0);
+        m.scale.setScalar(Math.max(0.001, easeOutBack(clamp01(v.seen * 1.2 - 0.25))));
+      });
     },
   };
 });
