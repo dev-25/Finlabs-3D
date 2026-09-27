@@ -7,8 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <title>Solutions — Finlabs</title>
+  <title>Solutions — Wealth, Learning, IAP and Compliance | Finlabs</title>
 
+  <!-- what this page is about, and where it lives, for search engines -->
+  <meta name="keywords" content="fintech solutions, wealth management solution, learning and development solution, investor awareness programs, robo advisory, data analytics and visualisation, document management, regulatory compliance automation, ReguSure, RegTech India" />
+  <link rel="canonical" href="{{url}}" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <!-- tab icon, and how the link looks when it is shared -->
   <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
@@ -16,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Finlabs India" />
   <meta property="og:locale" content="en_IN" />
-  <meta property="og:title" content="Solutions — Finlabs" />
+  <meta property="og:title" content="Solutions — Wealth, Learning, IAP and Compliance | Finlabs" />
   <meta property="og:description" content="Finlabs solutions for financial services — Wealth Management on Finexa GenNxt, Learning and Development on Learngenie, Investor Awareness Programs on Finaware, Robo Advisory, Data Analytics and Visualisation, Document Management and Regulatory Compliance Automation." />
   <meta property="og:url" content="{{url}}" />
   <meta property="og:image" content="{{site}}/og-finlabs.png" />
@@ -24,9 +28,178 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Finlabs India — celebrating a decade of impact" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Solutions — Finlabs" />
+  <meta name="twitter:title" content="Solutions — Wealth, Learning, IAP and Compliance | Finlabs" />
   <meta name="twitter:description" content="Finlabs solutions for financial services — Wealth Management on Finexa GenNxt, Learning and Development on Learngenie, Investor Awareness Programs on Finaware, Robo Advisory, Data Analytics and Visualisation, Document Management and Regulatory Compliance Automation." />
   <meta name="twitter:image" content="{{site}}/og-finlabs.png" />
+
+  <!-- structured data: the page, in the form search engines read -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Finlabs solutions",
+    "description": "Seven solutions for financial services, each built on the products behind it.",
+    "url": "{{url}}",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Finlabs India",
+      "url": "{{site}}/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Finlabs India",
+      "url": "{{site}}/",
+      "logo": "{{site}}/finlabs-logo.png"
+    },
+    "inLanguage": "en-IN",
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Finlabs solutions",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Service",
+            "name": "Wealth Management",
+            "description": "Wealth management built on Finexa GenNxt, for family offices and wealth firms.",
+            "serviceType": "Wealth Management",
+            "provider": {
+              "@type": "Organization",
+              "name": "Finlabs India",
+              "url": "{{site}}/",
+              "logo": "{{site}}/finlabs-logo.png"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Service",
+            "name": "Learning and Development",
+            "description": "Learning and development delivered on Learngenie, for teams and distribution networks.",
+            "serviceType": "Learning and Development",
+            "provider": {
+              "@type": "Organization",
+              "name": "Finlabs India",
+              "url": "{{site}}/",
+              "logo": "{{site}}/finlabs-logo.png"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Service",
+            "name": "Investor Awareness Programs (IAP)",
+            "description": "Investor Awareness Programs run end to end on Finaware, with SEBI-aligned reporting.",
+            "serviceType": "Investor Awareness Programs (IAP)",
+            "provider": {
+              "@type": "Organization",
+              "name": "Finlabs India",
+              "url": "{{site}}/",
+              "logo": "{{site}}/finlabs-logo.png"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Service",
+            "name": "Robo Advisory",
+            "description": "Rule-based, automated advice and model portfolios for digital-first distribution.",
+            "serviceType": "Robo Advisory",
+            "provider": {
+              "@type": "Organization",
+              "name": "Finlabs India",
+              "url": "{{site}}/",
+              "logo": "{{site}}/finlabs-logo.png"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Service",
+            "name": "Data Analytics and Visualisation",
+            "description": "Reporting and dashboards that turn transaction and client data into decisions.",
+            "serviceType": "Data Analytics and Visualisation",
+            "provider": {
+              "@type": "Organization",
+              "name": "Finlabs India",
+              "url": "{{site}}/",
+              "logo": "{{site}}/finlabs-logo.png"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Service",
+            "name": "Document Management",
+            "description": "Document capture, storage and retrieval for regulated financial operations.",
+            "serviceType": "Document Management",
+            "provider": {
+              "@type": "Organization",
+              "name": "Finlabs India",
+              "url": "{{site}}/",
+              "logo": "{{site}}/finlabs-logo.png"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "Service",
+            "name": "Regulatory Compliance Automation",
+            "description": "ReguSure automates the checks, filings and evidence regulators expect.",
+            "serviceType": "Regulatory Compliance Automation",
+            "provider": {
+              "@type": "Organization",
+              "name": "Finlabs India",
+              "url": "{{site}}/",
+              "logo": "{{site}}/finlabs-logo.png"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            }
+          }
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 
 <body class="sol-page">

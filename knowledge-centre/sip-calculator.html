@@ -9,6 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
   <title>SIP Calculator — what a monthly investment could grow into | Finlabs</title>
 
+  <!-- what this page is about, and where it lives, for search engines -->
+  <meta name="keywords" content="SIP calculator, SIP return calculator, mutual fund SIP calculator, monthly investment calculator, SIP maturity value, systematic investment plan calculator, SIP growth calculator India, compounding calculator" />
+  <link rel="canonical" href="{{url}}" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <!-- tab icon, and how the link looks when it is shared -->
   <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
@@ -252,6 +256,28 @@
     .calc__link { font-weight: 600; color: var(--brand); text-decoration: none; }
     .calc__link:hover { text-decoration: underline; }
   </style>
+
+  <!-- structured data: the page, in the form search engines read -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SIP Calculator",
+    "url": "{{url}}",
+    "description": "Work out what a monthly SIP could grow into: invested amount, estimated returns and total value, year by year.",
+    "applicationCategory": "FinanceApplication",
+    "browserRequirements": "Requires JavaScript",
+    "operatingSystem": "Web browser",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Finlabs India",
+      "url": "{{site}}/",
+      "logo": "{{site}}/finlabs-logo.png"
+    },
+    "inLanguage": "en-IN"
+  }
+  </script>
 </head>
 
 <body class="doc-page kc-page kc-calc">

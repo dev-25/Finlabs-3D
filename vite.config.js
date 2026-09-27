@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 import { resolve, relative, dirname, sep } from 'node:path';
 
 const ROOT = __dirname;
@@ -75,41 +75,79 @@ function themeBoot() {
   };
 }
 
+/* Every page of the site, in the order a visitor would meet them. Rollup uses
+ * it to know what to build; the sitemap uses it to know what to list. */
+const PAGES = {
+  home: 'index.html',
+  products: 'products.html',
+  services: 'services.html',
+  solutions: 'solutions.html',
+  terms: 'terms.html',
+  privacy: 'privacy.html',
+  'privacy-learngenie': 'privacy-learngenie.html',
+  contact: 'contact.html',
+  about: 'about.html',
+  careers: 'careers.html',
+  refer: 'refer.html',
+  'knowledge-centre': 'knowledge-centre.html',
+  // the Knowledge Centre's four sections
+  'kc-blogs': 'knowledge-centre/blogs.html',
+  'kc-infographics': 'knowledge-centre/infographics.html',
+  'kc-summariwise': 'knowledge-centre/summariwise.html',
+  'kc-sip': 'knowledge-centre/sip-calculator.html',
+  'kc-lumpsum': 'knowledge-centre/lumpsum-calculator.html',
+  // the services' own pages
+  'service-cloud': 'services/cloud.html',
+  // one page per product, sharing its body with the showroom's monitor
+  'product-finexa': 'products/finexa.html',
+  'product-finexa-gennxt': 'products/finexa-gennxt.html',
+  'product-finaware': 'products/finaware.html',
+  'product-fiscus': 'products/fiscus.html',
+  'product-learngenie': 'products/learngenie.html',
+};
+
+/* robots.txt and sitemap.xml, written at build time so the addresses in them
+ * always match the site they were built for (SITE_URL, above). A page's
+ * lastmod is the date its own file last changed. Note that a crawler only
+ * reads robots.txt from the root of a domain, so on GitHub Pages — where the
+ * site sits in a folder — the file is there for when this moves to
+ * finlabsindia.org, while the sitemap can be submitted from anywhere. */
+function sitemap() {
+  const loc = (page) => (page === 'index.html' ? `${SITE}/` : `${SITE}/${page}`);
+  return {
+    name: 'sitemap',
+    apply: 'build',
+    generateBundle() {
+      const urls = Object.values(PAGES)
+        .map((page) => {
+          const when = statSync(resolve(ROOT, page)).mtime.toISOString().slice(0, 10);
+          return `  <url>\n    <loc>${loc(page)}</loc>\n    <lastmod>${when}</lastmod>\n  </url>`;
+        })
+        .join('\n');
+      this.emitFile({
+        type: 'asset',
+        fileName: 'sitemap.xml',
+        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+      });
+      this.emitFile({
+        type: 'asset',
+        fileName: 'robots.txt',
+        source: `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`,
+      });
+    },
+  };
+}
+
 // GitHub Pages serves this project at https://dev-25.github.io/Finlabs-3D/,
 // so production URLs need that prefix. The dev server keeps serving from /.
 export default defineConfig(({ command, isPreview }) => ({
   base: command === 'build' || isPreview ? '/Finlabs-3D/' : '/',
-  plugins: [htmlIncludes(), themeBoot()],
+  plugins: [htmlIncludes(), themeBoot(), sitemap()],
   build: {
     rollupOptions: {
-      input: {
-        home: resolve(ROOT, 'index.html'),
-        products: resolve(ROOT, 'products.html'),
-        services: resolve(ROOT, 'services.html'),
-        solutions: resolve(ROOT, 'solutions.html'),
-        terms: resolve(ROOT, 'terms.html'),
-        privacy: resolve(ROOT, 'privacy.html'),
-        'privacy-learngenie': resolve(ROOT, 'privacy-learngenie.html'),
-        contact: resolve(ROOT, 'contact.html'),
-        about: resolve(ROOT, 'about.html'),
-        careers: resolve(ROOT, 'careers.html'),
-        refer: resolve(ROOT, 'refer.html'),
-        'knowledge-centre': resolve(ROOT, 'knowledge-centre.html'),
-        // the Knowledge Centre's four sections
-        'kc-blogs': resolve(ROOT, 'knowledge-centre/blogs.html'),
-        'kc-infographics': resolve(ROOT, 'knowledge-centre/infographics.html'),
-        'kc-summariwise': resolve(ROOT, 'knowledge-centre/summariwise.html'),
-        'kc-sip': resolve(ROOT, 'knowledge-centre/sip-calculator.html'),
-        'kc-lumpsum': resolve(ROOT, 'knowledge-centre/lumpsum-calculator.html'),
-        // the services' own pages
-        'service-cloud': resolve(ROOT, 'services/cloud.html'),
-        // one page per product, sharing its body with the showroom's monitor
-        'product-finexa': resolve(ROOT, 'products/finexa.html'),
-        'product-finexa-gennxt': resolve(ROOT, 'products/finexa-gennxt.html'),
-        'product-finaware': resolve(ROOT, 'products/finaware.html'),
-        'product-fiscus': resolve(ROOT, 'products/fiscus.html'),
-        'product-learngenie': resolve(ROOT, 'products/learngenie.html'),
-      },
+      input: Object.fromEntries(
+        Object.entries(PAGES).map(([name, page]) => [name, resolve(ROOT, page)])
+      ),
     },
   },
 }));
