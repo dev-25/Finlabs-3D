@@ -95,7 +95,15 @@ function runScene(doc) {
   });
   const host = doc.querySelector('[data-scene]');
   if (!host) return;
-  if (!scenes.has(host)) scenes.set(host, buildScene(host));
+  if (!scenes.has(host)) {
+    scenes.set(host, null); // claim the slot while the piece loads
+    buildScene(host).then((piece) => {
+      scenes.set(host, piece);
+      // start it only if this product is still the one on the monitor
+      if (host.isConnected && !host.closest('[hidden]')) piece?.start();
+    });
+    return;
+  }
   scenes.get(host)?.start();
 }
 

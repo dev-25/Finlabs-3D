@@ -4,7 +4,7 @@ import './nav.js';
 import './whatsapp.js';
 import './cloud.css';
 import { initTheme } from './theme.js';
-import { buildCloudScene } from './cloud-scene.js';
+import { afterPaint } from './after-paint.js';
 
 /* =====================================================
  * SERVICES › CLOUD — page interactions
@@ -29,6 +29,9 @@ const logos = [...document.querySelectorAll('.cl-logo')];
 const platforms = document.querySelector('#platforms');
 const stage = document.querySelector('.cl-hero__stage');
 let scene = null;
+// which platform the 3D is showing — null lights all three. Kept here so the
+// scene can catch up with a choice made before it finished loading.
+let chosen = null;
 
 function pick(id, { focus = false, scroll = false } = {}) {
   tabs.forEach((t) => {
@@ -39,6 +42,7 @@ function pick(id, { focus = false, scroll = false } = {}) {
   });
   panels.forEach((p) => (p.hidden = p.dataset.cloud !== id));
   logos.forEach((l) => l.setAttribute('aria-pressed', String(l.dataset.cloud === id)));
+  chosen = id;
   scene?.select(id);
   if (scroll) platforms.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' });
 }
@@ -59,14 +63,21 @@ tabs.forEach((tab, i) => {
 logos.forEach((l) => l.addEventListener('click', () => pick(l.dataset.cloud, { scroll: true })));
 
 if (stage) {
-  scene = buildCloudScene(stage, {
-    onPick: (id) => pick(id, { scroll: true }),
-    onHover: (id) => logos.forEach((l) => l.classList.toggle('is-hover', l.dataset.cloud === id)),
+  // 3D, so it comes after the page; the picker below works without it
+  afterPaint(async () => {
+    const { buildCloudScene } = await import('./cloud-scene.js');
+    scene = buildCloudScene(stage, {
+      onPick: (id) => pick(id, { scroll: true }),
+      onHover: (id) => logos.forEach((l) => l.classList.toggle('is-hover', l.dataset.cloud === id)),
+    });
+    // catch the clouds up with whatever has been chosen in the meantime
+    scene.select(chosen);
   });
 }
 // start on AWS in the tabs, with all three clouds lit in 3D until someone chooses
 pick('aws');
 logos.forEach((l) => l.setAttribute('aria-pressed', 'false'));
+chosen = null;
 scene?.select(null);
 
 // #aws, #azure or #gcp in the address opens that platform

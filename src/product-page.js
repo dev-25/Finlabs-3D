@@ -6,6 +6,7 @@ import { initTheme } from './theme.js';
 import './product-screen.css';
 import './product-page.css';
 import { buildScene, wireTabs, wireFaqs, createLightbox } from './product-ui.js';
+import { afterPaint } from './after-paint.js';
 
 /* =====================================================
  * PRODUCT PAGES — products/*.html
@@ -30,16 +31,18 @@ if (doc) {
   });
 
   const host = doc.querySelector('[data-scene]');
-  const piece = host ? buildScene(host) : null;
-  if (piece) {
+  // the page reads before its 3D arrives
+  if (host) afterPaint(() => buildScene(host).then((piece) => piece && runPiece(host, piece)));
+
+  function runPiece(el, piece) {
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(([entry]) => (entry.isIntersecting ? piece.start() : piece.stop())).observe(host);
+      new IntersectionObserver(([entry]) => (entry.isIntersecting ? piece.start() : piece.stop())).observe(el);
     } else {
       piece.start();
     }
     // the loop pauses in a background tab; pick it up again on return
     document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && host.getBoundingClientRect().bottom > 0) piece.start();
+      if (!document.hidden && el.getBoundingClientRect().bottom > 0) piece.start();
     });
   }
 }

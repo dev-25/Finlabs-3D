@@ -1,8 +1,3 @@
-import { createHub } from './finexa-hub.js';
-import { createStack } from './gennxt-stack.js';
-import { createFlow } from './finaware-flow.js';
-import { createPicture } from './fiscus-picture.js';
-import { createClimb } from './learngenie-climb.js';
 
 /* =====================================================
  * PRODUCTS — what a product page does, wherever it is
@@ -13,12 +8,21 @@ import { createClimb } from './learngenie-climb.js';
  * piece, its tabs, its FAQ search and its pop-up.
  * ===================================================== */
 
-const SCENES = { hub: createHub, stack: createStack, flow: createFlow, picture: createPicture, climb: createClimb };
+// Each piece brings three.js with it, so it is fetched only when a page
+// actually asks for that piece — and only after the page itself is up.
+const SCENES = {
+  hub: () => import('./finexa-hub.js').then((m) => m.createHub),
+  stack: () => import('./gennxt-stack.js').then((m) => m.createStack),
+  flow: () => import('./finaware-flow.js').then((m) => m.createFlow),
+  picture: () => import('./fiscus-picture.js').then((m) => m.createPicture),
+  climb: () => import('./learngenie-climb.js').then((m) => m.createClimb),
+};
 
 /** Build the 3D piece named by a `[data-scene]` host, or mark the host flat
  *  (so the stylesheet shows its stand-in) when there is no WebGL. */
-export function buildScene(host) {
-  const build = SCENES[host?.dataset.scene];
+export async function buildScene(host) {
+  const load = SCENES[host?.dataset.scene];
+  const build = load ? await load().catch(() => null) : null;
   const piece = build ? build(host.querySelector('canvas')) : null;
   if (host && !piece) host.classList.add('is-flat');
   return piece;

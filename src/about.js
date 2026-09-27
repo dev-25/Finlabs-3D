@@ -4,8 +4,7 @@ import './nav.css';
 import './nav.js';
 import './whatsapp.js';
 import { initTheme } from './theme.js';
-import './about-hero.js';
-import './about-journey.js';
+import { afterPaint } from './after-paint.js';
 
 /* =====================================================
  * FINLABS ABOUT US — page interactions
@@ -18,6 +17,10 @@ import './about-journey.js';
 
 document.documentElement.classList.add('js');
 initTheme();
+
+// the hero's 3D and the journey ride bring three.js with them, and the page
+// reads perfectly well before they arrive
+afterPaint(() => Promise.all([import('./about-hero.js'), import('./about-journey.js')]));
 
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const FINE = window.matchMedia('(pointer: fine)').matches;
@@ -74,6 +77,10 @@ document.addEventListener('click', (e) => {
   if (!bio || !card) return;
   const img = card.querySelector('img');
   dPhoto.src = img.currentSrc || img.src;
+  // the card's own dimensions come across too, so the dialog holds its shape
+  // while the portrait loads
+  dPhoto.width = img.getAttribute('width') || img.naturalWidth;
+  dPhoto.height = img.getAttribute('height') || img.naturalHeight;
   dPhoto.alt = `Portrait of ${card.querySelector('.person__name').textContent}`;
   dName.textContent = card.querySelector('.person__name').textContent;
   dRole.textContent = card.querySelector('.person__role').textContent;

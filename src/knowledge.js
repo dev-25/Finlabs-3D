@@ -1,5 +1,5 @@
 import './kc-ui.js';
-import { buildKnowledgeScene } from './kc-scene.js';
+import { afterPaint } from './after-paint.js';
 
 /* =====================================================
  * KNOWLEDGE CENTRE — the hub page
@@ -21,12 +21,18 @@ function light(id) {
   doors.forEach((d) => d.classList.toggle('is-lit', d.dataset.door === id));
 }
 
-const scene = stage
-  ? buildKnowledgeScene(stage, {
+// the stand is 3D, so it follows the page rather than holding it up; every
+// use of it below is written to cope with it not being here yet
+let scene = null;
+if (stage) {
+  afterPaint(async () => {
+    const { buildKnowledgeScene } = await import('./kc-scene.js');
+    scene = buildKnowledgeScene(stage, {
       onPick: (id) => (location.href = PAGES[id]),
       onHover: light,
-    })
-  : null;
+    });
+  });
+}
 
 doors.forEach((door) => {
   const id = door.dataset.door;
