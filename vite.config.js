@@ -89,6 +89,7 @@ const PAGES = {
   about: 'about.html',
   careers: 'careers.html',
   refer: 'refer.html',
+  brochure: 'brochure.html',
   'knowledge-centre': 'knowledge-centre.html',
   // the Knowledge Centre's four sections
   'kc-blogs': 'knowledge-centre/blogs.html',

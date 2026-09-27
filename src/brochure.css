@@ -1,0 +1,165 @@
+/* =====================================================
+ * BROCHURE — the corporate deck, as a page
+ * =====================================================
+ * Reads the deck rather than downloading it: the same
+ * sections, in the site's own type, with the PDF a click
+ * away for anyone who wants the file itself. Tokens,
+ * gutters and the type scale all come from doc.css.
+ * ===================================================== */
+
+.bro { padding-bottom: 0; }
+
+.bro__eyebrow {
+  display: flex; align-items: center; gap: 10px; width: fit-content;
+  font: 600 12px/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-2); margin-bottom: 16px;
+  padding: 7px 14px 7px 12px; border-radius: 999px;
+  background: var(--paper); border: 1px solid var(--paper-edge);
+}
+.bro__dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--brand-2); box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-2) 22%, transparent);
+}
+
+/* ---------- the download ---------- */
+.bro__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.bro__btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--body); font-weight: 600; font-size: 15px; text-decoration: none;
+  padding: 14px 22px; border-radius: 999px; border: 1px solid transparent; color: #fff;
+  background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--brand) 55%, var(--brand-2)));
+  box-shadow: 0 14px 30px -12px var(--brand);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s, border-color 0.25s;
+}
+.bro__btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -12px var(--brand); }
+.bro__size {
+  font: 500 12px/1 var(--mono); letter-spacing: 0.04em;
+  padding: 5px 9px; border-radius: 999px; background: rgba(255, 255, 255, 0.18);
+}
+.bro__btn--ghost {
+  color: var(--ink); background: var(--paper); border-color: var(--line); box-shadow: none;
+}
+.bro__btn--ghost:hover { border-color: var(--brand); box-shadow: none; }
+
+/* ---------- sections ---------- */
+.bro__sec { width: min(1280px, 100%); margin: 0 auto; padding: clamp(46px, 6vw, 78px) 0 0; }
+.bro__sec h2 {
+  font-family: var(--display); font-weight: 700; color: var(--ink);
+  font-size: var(--h2); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 8px;
+}
+.bro__sub { color: var(--ink-3); font-size: 15.5px; max-width: 70ch; margin-bottom: 22px; }
+.bro__sub a { color: var(--brand); }
+.bro__sec h2 + .bro__two, .bro__sec h2 + .bro__grid,
+.bro__sec h2 + .bro__toc, .bro__sec h2 + .bro__stack, .bro__sec h2 + .bro__chips { margin-top: 22px; }
+.bro__sec h3 {
+  font-family: var(--display); font-weight: 700; color: var(--ink);
+  font-size: var(--h3); line-height: 1.25; margin-bottom: 12px;
+}
+
+.bro__two { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+
+.bro__card {
+  padding: clamp(20px, 2.6vw, 30px); border-radius: 22px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.bro__card--story p { color: var(--ink-2); font-size: 16px; line-height: 1.7; }
+
+.bro__list { list-style: none; display: grid; gap: 10px; }
+.bro__list li {
+  position: relative; padding-left: 20px; color: var(--ink-2); font-size: 15.5px; line-height: 1.6;
+}
+.bro__list li::before {
+  content: ""; position: absolute; left: 0; top: 0.62em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--brand);
+}
+.bro__list b { color: var(--ink); font-weight: 600; }
+.bro__list a { color: var(--brand); }
+
+/* ---------- the numbers beside the story ---------- */
+.bro__facts {
+  list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  border-radius: 22px; overflow: hidden;
+  background: var(--line); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.bro__facts li { display: grid; gap: 4px; padding: 20px 22px; background: var(--paper); }
+.bro__facts b { font-family: var(--display); font-size: 30px; font-weight: 800; color: var(--brand); line-height: 1; }
+.bro__facts span { color: var(--ink-3); font-size: 13.5px; }
+
+/* ---------- contents ---------- */
+.bro__toc { list-style: none; counter-reset: page; display: grid; gap: 1px; background: var(--line);
+  border-radius: 22px; overflow: hidden; border: 1px solid var(--paper-edge); box-shadow: var(--shadow); }
+.bro__toc li {
+  counter-increment: page; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 14px;
+  align-items: baseline; padding: 16px 22px; background: var(--paper);
+}
+.bro__toc li::before {
+  content: counter(page, decimal-leading-zero);
+  font: 600 12px/1.6 var(--mono); color: var(--brand); letter-spacing: 0.08em;
+}
+.bro__toc b { font-family: var(--display); font-weight: 700; font-size: 16.5px; color: var(--ink); }
+.bro__toc span { grid-column: 2; color: var(--ink-3); font-size: 14.5px; line-height: 1.5; }
+
+/* ---------- the suite ---------- */
+.bro__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.bro__tile {
+  display: grid; align-content: start; gap: 8px; text-decoration: none;
+  padding: 22px; border-radius: 20px;
+  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s;
+}
+.bro__tile:hover { transform: translateY(-3px); border-color: var(--brand); }
+.bro__tag { font: 600 11px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand-2); }
+.bro__tile b { font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--ink); }
+.bro__tile span:last-child { color: var(--ink-2); font-size: 14.5px; line-height: 1.6; }
+
+/* ---------- the stack ---------- */
+.bro__stack {
+  display: grid; gap: 1px; background: var(--line);
+  border-radius: 22px; overflow: hidden; border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+.bro__stack > div {
+  display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 6px 18px;
+  padding: 16px 22px; background: var(--paper); align-items: baseline;
+}
+.bro__stack dt { font: 600 12px/1.6 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.bro__stack dd { color: var(--ink); font-size: 15.5px; }
+
+/* ---------- client kinds ---------- */
+.bro__chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.bro__chips li {
+  font-size: 14.5px; font-weight: 500; color: var(--ink-2);
+  padding: 9px 16px; border-radius: 999px; background: var(--paper); border: 1px solid var(--paper-edge);
+}
+
+/* ---------- closing ---------- */
+.bro__cta {
+  width: min(1280px, 100%); margin: clamp(56px, 7vw, 92px) auto 0;
+  padding: clamp(30px, 4vw, 52px); border-radius: 28px; text-align: center;
+  background: linear-gradient(125deg, #1d4ed8 0%, #2563eb 42%, #0891b2 100%); color: #fff;
+  border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
+}
+:root[data-theme="dark"] .bro__cta {
+  background: radial-gradient(120% 90% at 50% 0%, rgba(79, 134, 255, 0.2), transparent 60%), rgba(10, 16, 34, 0.94);
+}
+.bro__cta h2 {
+  font-family: var(--display); font-weight: 700; font-size: var(--h2); line-height: 1.15;
+  letter-spacing: -0.02em; margin-bottom: 8px;
+}
+.bro__cta p { color: rgba(255, 255, 255, 0.86); font-size: 16.5px; max-width: 56ch; margin: 0 auto; }
+.bro__cta .bro__ctas { justify-content: center; }
+.bro__cta .bro__btn { color: #1d4ed8; background: #fff; box-shadow: 0 16px 34px -14px rgba(8, 20, 60, 0.55); }
+.bro__cta .bro__size { background: rgba(29, 78, 216, 0.12); }
+.bro__cta .bro__btn--ghost { color: #fff; background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.4); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  .bro__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .bro__two { grid-template-columns: 1fr; }
+  .bro__stack > div { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .bro__grid, .bro__facts { grid-template-columns: 1fr; }
+  .bro__btn { width: 100%; justify-content: center; }
+}
