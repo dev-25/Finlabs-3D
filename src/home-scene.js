@@ -419,13 +419,6 @@ function buildStack(o) {
   const accent = new THREE.Color(o.c[1]).getHex();
   const light = new THREE.Color(o.c[2]).getHex();
 
-  const halo = new THREE.Mesh(
-    new THREE.PlaneGeometry(2.9, 2.9),
-    new THREE.MeshBasicMaterial({ map: glowTexture('rgba(34,211,238,0.8)'), transparent: true, depthWrite: false, opacity: 0.3, toneMapped: false })
-  );
-  halo.position.z = -0.85;
-  g.add(halo);
-
   const rig = new THREE.Group(); // the platform and everything standing on it
   g.add(rig);
 
@@ -642,13 +635,6 @@ addView('hero', (v) => {
   v.fitR = 3.0;
   v.look.set(0.1, -0.3, 0);
   v.dir.set(0, 0.1, 1);
-
-  const glow = new THREE.Mesh(
-    new THREE.PlaneGeometry(9, 9),
-    new THREE.MeshBasicMaterial({ map: glowTexture('rgba(34,211,238,0.9)'), transparent: true, depthWrite: false, opacity: 0.5, toneMapped: false })
-  );
-  glow.position.set(0, -0.3, -2.4);
-  v.scene.add(glow);
 
   const root = new THREE.Group();
   v.scene.add(root);
@@ -917,6 +903,38 @@ addOfferView('services', buildOrbit);
 // AWARDS — a gold star trophy on a black plinth
 // =====================================================
 
+// The real Finlabs logo, cut from the site's logo file, for engraving on the
+// trophy's nameplate. The two pieces are stacked side by side the way the
+// logo itself sets them.
+const finlabsLogo = new Image();
+finlabsLogo.src = `${import.meta.env.BASE_URL}finlabs-logo.png`;
+const LOGO_MARK = [8, 0, 487, 360]; // x, y, w, h in the 2048 x 523 file
+const LOGO_WORD = [500, 20, 1006, 330];
+
+function plateLogo() {
+  return makeTexture(768, 234, (ctx, w, h) => {
+    ctx.clearRect(0, 0, w, h);
+    if (!finlabsLogo.complete || !finlabsLogo.naturalWidth) return;
+
+    const [mx, my, mw, mh] = LOGO_MARK;
+    const markH = 148;
+    const markW = (markH * mw) / mh;
+    const [wx, wy, ww, wh] = LOGO_WORD;
+    const wordH = 112;
+    const wordW = (wordH * ww) / wh;
+    const gap = 30;
+    const left = (w - (markW + gap + wordW)) / 2;
+    ctx.drawImage(finlabsLogo, mx, my, mw, mh, left, (h - markH) / 2, markW, markH);
+    ctx.drawImage(finlabsLogo, wx, wy, ww, wh, left + markW + gap, (h - wordH) / 2, wordW, wordH);
+
+    // one dark tone over whatever was drawn, so it reads as engraved gold
+    ctx.globalCompositeOperation = 'source-in';
+    ctx.fillStyle = 'rgba(62, 41, 6, 0.9)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'source-over';
+  });
+}
+
 addView('trophy', (v) => {
   v.fitR = 2.15;
   v.look.set(0, 2.0, 0);
@@ -937,6 +955,16 @@ addView('trophy', (v) => {
   plinth.position.y = 0.4;
   const plate = new THREE.Mesh(rbox(1.12, 0.34, 0.04, 0.015), M.gold);
   plate.position.set(0, 0.4, 0.66);
+  // the name on the plate, sitting just proud of the gold so the metal still
+  // catches the light around it
+  const plateMat = new THREE.MeshBasicMaterial({ map: plateLogo(), transparent: true, toneMapped: false });
+  const plateName = new THREE.Mesh(new THREE.PlaneGeometry(0.92, 0.28), plateMat);
+  plateName.position.set(0, 0.4, 0.6825);
+  finlabsLogo.addEventListener('load', () => {
+    plateMat.map?.dispose();
+    plateMat.map = plateLogo();
+    plateMat.needsUpdate = true;
+  });
   const base = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 0.7, 0.16, 64), M.gold);
   base.position.y = 0.88;
   const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.46, 0.14, 64), M.gold);
@@ -951,7 +979,7 @@ addView('trophy', (v) => {
   const star = new THREE.Mesh(starGeo, M.gold);
   star.position.set(0.16, 2.95, 0);
   star.rotation.z = 0.28;
-  trophy.add(plinth, plate, base, collar, stem, star);
+  trophy.add(plinth, plate, plateName, base, collar, stem, star);
 
   const sparkMat = glowMat(0xffe7a3);
   const sparks = Array.from({ length: 6 }, () => {
