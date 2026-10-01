@@ -138,6 +138,46 @@
 
 <body class="home">
 
+  <!-- the opening: the logo alone on a dark field, then the page out of it -->
+  <div class="bang" id="bang" aria-hidden="true">
+    <div class="bang__core">
+      <span class="bang__ring"></span>
+      <img class="bang__logo" width="2048" height="523" src="/finlabs-logo.png" alt="" fetchpriority="high" />
+      <ul class="bang__sparks">
+        <li style="--a:-2.5deg;--d:29.9vmin;--s:13px;--dl:0.79s;--c:#7fdcec"></li>
+        <li style="--a:24.5deg;--d:28.4vmin;--s:11px;--dl:0.79s;--c:#86adff"></li>
+        <li style="--a:40.1deg;--d:27.0vmin;--s:9px;--dl:0.85s;--c:#bba6ff"></li>
+        <li style="--a:56.4deg;--d:40.3vmin;--s:6px;--dl:0.91s;--c:#ffcf9c"></li>
+        <li style="--a:74.7deg;--d:31.8vmin;--s:13px;--dl:0.87s;--c:#ffffff"></li>
+        <li style="--a:93.9deg;--d:41.2vmin;--s:6px;--dl:0.94s;--c:#7fdcec"></li>
+        <li style="--a:113.7deg;--d:48.3vmin;--s:8px;--dl:0.85s;--c:#86adff"></li>
+        <li style="--a:140.6deg;--d:40.8vmin;--s:11px;--dl:0.91s;--c:#bba6ff"></li>
+        <li style="--a:155.5deg;--d:41.1vmin;--s:13px;--dl:0.81s;--c:#ffcf9c"></li>
+        <li style="--a:174.4deg;--d:44.5vmin;--s:11px;--dl:0.79s;--c:#ffffff"></li>
+        <li style="--a:195.9deg;--d:43.7vmin;--s:9px;--dl:0.9s;--c:#7fdcec"></li>
+        <li style="--a:219.5deg;--d:50.0vmin;--s:8px;--dl:0.83s;--c:#86adff"></li>
+        <li style="--a:244.1deg;--d:44.2vmin;--s:7px;--dl:0.79s;--c:#bba6ff"></li>
+        <li style="--a:257.2deg;--d:38.9vmin;--s:8px;--dl:0.9s;--c:#ffcf9c"></li>
+        <li style="--a:277.0deg;--d:51.5vmin;--s:6px;--dl:0.86s;--c:#ffffff"></li>
+        <li style="--a:295.3deg;--d:34.9vmin;--s:9px;--dl:0.85s;--c:#7fdcec"></li>
+        <li style="--a:326.5deg;--d:28.0vmin;--s:11px;--dl:0.87s;--c:#86adff"></li>
+        <li style="--a:345.3deg;--d:34.2vmin;--s:13px;--dl:0.84s;--c:#bba6ff"></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    /* It plays once a visit: on the way back to the home page the site should
+       simply be there. Wrapped because private windows can refuse storage. */
+    try {
+      if (sessionStorage.getItem('finlabs-opened')) {
+        document.documentElement.classList.add('no-bang');
+        document.getElementById('bang').remove();
+      } else {
+        sessionStorage.setItem('finlabs-opened', '1');
+      }
+    } catch (e) {}
+  </script>
+
   <!-- icon sprite, referenced with <use href="#i-…"> -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
@@ -170,7 +210,6 @@
   <div class="backdrop" aria-hidden="true">
     <span class="glow glow--a"></span>
     <span class="glow glow--b"></span>
-    <div class="backdrop__dots"></div>
   </div>
   <canvas id="scene" aria-hidden="true"></canvas>
 

@@ -244,19 +244,8 @@ body.no3d #canvas {
   font-size: clamp(40px, 5.4vw, 74px);
   line-height: 1;
   letter-spacing: -0.02em;
-  background: linear-gradient(
-    102deg,
-    #072133 0%,
-    #0a2c40 26%,
-    #14688c 52%,
-    #0a2c40 74%,
-    #072133 100%
-  );
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: sheen 12s linear infinite;
+  /* one colour, rather than a gradient with a sheen running over it */
+  color: #29588a;
 }
 @keyframes sheen {
   to {
@@ -694,18 +683,8 @@ body.no3d #canvas {
 :root[data-theme="dark"] .hero__index i { color: #8fb3c9; }
 
 :root[data-theme="dark"] .hero__title {
-  background: linear-gradient(
-    102deg,
-    #cfeeff 0%,
-    #6fd3ff 28%,
-    #35d6ff 52%,
-    #6fd3ff 74%,
-    #cfeeff 100%
-  );
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  /* lifted for the dark page — rgb(41, 88, 138) there is 2.4:1 */
+  color: #93bce0;
 }
 
 :root[data-theme="dark"] .product__card {

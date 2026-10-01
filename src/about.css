@@ -66,11 +66,10 @@
   font-size: var(--h1); line-height: 1.02; letter-spacing: -0.035em;
   margin: 0 0 18px;
 }
-.a-hero h1 em {
-  font-style: normal;
-  background: linear-gradient(100deg, var(--brand), var(--brand-2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+  /* one colour for the lead words of a page title, rather than a gradient.
+     Dark mode lifts it: rgb(41, 88, 138) on the dark page is 2.4:1. */
+.a-hero h1 em { font-style: normal; color: #29588a; }
+:root[data-theme="dark"] .a-hero h1 em { color: #93bce0; }
 .a-lead { font-size: clamp(16.5px, 1.3vw, 19px); line-height: 1.7; color: var(--ink-2); max-width: 54ch; }
 .a-motto { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 26px; list-style: none; }
 .a-motto li {
@@ -103,11 +102,11 @@
 /* ---------- page wash: the same colours as the home page ---------- */
 :root {
   --a-glow-a: #86adff; --a-glow-b: #7fdcec; --a-glow-c: #bba6ff; --a-glow-d: #ffcf9c;
-  --a-glow-o: 0; --a-dots: rgba(37, 99, 235, 0.2);
+  --a-glow-o: 0;
 }
 :root[data-theme="dark"] {
   --a-glow-a: #16307e; --a-glow-b: #07465a; --a-glow-c: #2b1a70; --a-glow-d: #3d2710;
-  --a-glow-o: 0.55; --a-dots: rgba(120, 160, 255, 0.13);
+  --a-glow-o: 0.55;
 }
 .a-backdrop { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .a-glow {
@@ -122,12 +121,6 @@
   animation-delay: -18s; opacity: calc(var(--a-glow-o) * 0.7);
 }
 @keyframes a-drift { to { transform: translate3d(-4vw, 3vh, 0) scale(1.08); } }
-.a-backdrop__dots {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(var(--a-dots) 1.2px, transparent 1.4px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(ellipse 70% 80% at 70% 40%, #000 20%, transparent 75%);
-}
 .about-page main, .about-page .foot { position: relative; z-index: 1; }
 
 /* ---------- group photo ---------- */

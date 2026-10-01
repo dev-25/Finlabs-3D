@@ -141,11 +141,10 @@ html.kc-lock { overflow: hidden; }
   font-family: var(--display); font-weight: 800; letter-spacing: -0.03em; line-height: 1.04;
   font-size: var(--h1); margin: 12px 0 16px;
 }
-.kc-hero h1 em {
-  font-style: normal;
-  background: linear-gradient(90deg, var(--brand), #7c3aed 60%, var(--brand-2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+  /* one colour for the lead words of a page title, rather than a gradient.
+     Dark mode lifts it: rgb(41, 88, 138) on the dark page is 2.4:1. */
+.kc-hero h1 em { font-style: normal; color: #29588a; }
+:root[data-theme="dark"] .kc-hero h1 em { color: #93bce0; }
 :root[data-theme="dark"] .kc-hero h1 em { background-image: linear-gradient(90deg, #7aa5ff, #b69cff 60%, #22d3ee); }
 .kc-hero__stats { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin-top: 26px; }
 .kc-hero__stats a {

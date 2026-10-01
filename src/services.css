@@ -22,7 +22,6 @@
   --orb-a: #86adff;
   --orb-b: #bba6ff;
   --orb-c: #7fdcec;
-  --grid: rgba(47, 107, 255, 0.1);
 
   --display: "Outfit", "Segoe UI", system-ui, sans-serif;
   --body: "Inter", "Segoe UI", system-ui, sans-serif;
@@ -57,7 +56,6 @@
   --orb-a: #1d3aa0;
   --orb-b: #43269a;
   --orb-c: #0b5669;
-  --grid: rgba(120, 150, 255, 0.06);
 }
 
 /* light theme: the site's one background, with no wash over it */
@@ -89,14 +87,6 @@ img { max-width: 100%; display: block; }
 .orb--c { width: 36vw; height: 36vw; background: var(--orb-c); left: 30vw; bottom: -16vw; animation-delay: -16s; }
 @keyframes drift {
   to { transform: translate3d(4vw, 3vh, 0) scale(1.08); }
-}
-.backdrop__grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 80%);
 }
 #scene {
   position: fixed; inset: 0; width: 100%; height: 100%;
@@ -189,11 +179,10 @@ main { position: relative; z-index: 2; }
   font-size: var(--h1); line-height: 1.02; letter-spacing: -0.035em;
   margin: 22px 0 22px;
 }
-.hero__title em {
-  font-style: normal;
-  background: linear-gradient(100deg, var(--brand), var(--brand-2) 50%, #22d3ee);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+  /* one colour for the lead words of a page title, rather than a gradient.
+     Dark mode lifts it: rgb(41, 88, 138) on the dark page is 2.4:1. */
+.hero__title em { font-style: normal; color: #29588a; }
+:root[data-theme="dark"] .hero__title em { color: #93bce0; }
 .hero__lead { font-size: clamp(16px, 1.3vw, 19px); color: var(--ink-2); max-width: 52ch; }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 32px 0 38px; }
 .trust {

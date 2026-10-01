@@ -22,7 +22,6 @@
   --accent: var(--brand);
   --glow-a: #86adff;
   --glow-b: #7fdcec;
-  --dots: rgba(37, 99, 235, 0.22);
 
   --display: "Outfit", "Segoe UI", system-ui, sans-serif;
   --body: "Inter", "Segoe UI", system-ui, sans-serif;
@@ -57,7 +56,6 @@
   --brand-2: #22d3ee;
   --glow-a: #16307e;
   --glow-b: #07465a;
-  --dots: rgba(120, 160, 255, 0.14);
 }
 
 /* light theme: the site's one background, with no wash over it */
@@ -92,12 +90,6 @@ img { max-width: 100%; display: block; }
 .glow--a { width: 52vw; height: 52vw; background: var(--glow-a); right: -12vw; top: -14vw; }
 .glow--b { width: 40vw; height: 40vw; background: var(--glow-b); right: 10vw; bottom: -18vw; animation-delay: -12s; }
 @keyframes drift { to { transform: translate3d(-4vw, 3vh, 0) scale(1.08); } }
-.backdrop__dots {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(var(--dots) 1.2px, transparent 1.4px);
-  background-size: 22px 22px;
-  mask-image: radial-gradient(ellipse 70% 80% at 70% 45%, #000 20%, transparent 75%);
-}
 #scene {
   position: fixed; inset: 0; width: 100%; height: 100%;
   z-index: 1; pointer-events: none; display: block;
@@ -188,11 +180,10 @@ main { position: relative; z-index: 2; }
   font-size: var(--h1); line-height: 1.02; letter-spacing: -0.04em;
   margin: 22px 0 22px;
 }
-.hero__title em {
-  font-style: normal;
-  background: linear-gradient(100deg, var(--brand), var(--brand-2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+  /* one colour for the lead words of a page title, rather than a gradient.
+     Dark mode lifts it: rgb(41, 88, 138) on the dark page is 2.4:1. */
+.hero__title em { font-style: normal; color: #29588a; }
+:root[data-theme="dark"] .hero__title em { color: #93bce0; }
 .hero__lead { font-size: clamp(16px, 1.25vw, 18.5px); color: var(--ink-2); max-width: 52ch; }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 30px; }
 

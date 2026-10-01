@@ -1,4 +1,5 @@
 import './home.css';
+import './bang.css';
 import './nav.css';
 import './nav.js';
 import './whatsapp.js';
