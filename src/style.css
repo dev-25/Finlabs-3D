@@ -12,7 +12,8 @@
 
 :root {
   /* the site's blue-violet light palette, anchored by a dark blue */
-  --bg: #e4e6fc;
+  /* one background for the whole site in light mode — rgb(225, 231, 253) */
+  --bg: #e1e7fd;
   --navy: #0a2c40;
   --navy-soft: #11455e;
   --ink: #0b3348;
@@ -80,10 +81,7 @@ a {
 
 /* fallback backdrop when 3D is switched off */
 body.no3d {
-  background:
-    radial-gradient(900px 620px at 78% 18%, rgba(134, 173, 255, 0.35), transparent 62%),
-    radial-gradient(760px 560px at 12% 82%, rgba(187, 166, 255, 0.3), transparent 62%),
-    linear-gradient(165deg, #dce7ff 0%, #ebe4ff 42%, #ddf3fa 100%);
+  background: var(--bg);
 }
 body.no3d #canvas {
   opacity: 0;

@@ -6,7 +6,8 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #e6eeff;
+  /* one background for the whole site in light mode — rgb(225, 231, 253) */
+  --bg: #e1e7fd;
   --ink: #0c1424;
   --ink-2: #3a4760;
   --ink-3: #6b7892;
@@ -59,11 +60,8 @@
   --grid: rgba(120, 150, 255, 0.06);
 }
 
-/* light theme: a colour wash instead of flat white */
-:root:not([data-theme="dark"]) body.svc {
-  background: linear-gradient(165deg, #dce7ff 0%, #ebe4ff 45%, #ddf3fa 100%) fixed;
-}
-:root:not([data-theme="dark"]) .orb { opacity: 0.75; }
+/* light theme: the site's one background, with no wash over it */
+:root:not([data-theme="dark"]) .orb { opacity: 0; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body.svc {

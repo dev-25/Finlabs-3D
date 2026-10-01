@@ -9,8 +9,9 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #e9f0ff;
-  --page: linear-gradient(165deg, #e1eaff 0%, #eee9ff 45%, #e1f4fa 100%);
+  /* one background for the whole site in light mode — rgb(225, 231, 253) */
+  --bg: #e1e7fd;
+  --page: none;
   --paper: #ffffff;
   --paper-edge: rgba(15, 35, 75, 0.08);
   --ink: #0f1a33;

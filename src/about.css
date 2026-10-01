@@ -103,14 +103,11 @@
 /* ---------- page wash: the same colours as the home page ---------- */
 :root {
   --a-glow-a: #86adff; --a-glow-b: #7fdcec; --a-glow-c: #bba6ff; --a-glow-d: #ffcf9c;
-  --a-glow-o: 0.7; --a-dots: rgba(37, 99, 235, 0.2);
+  --a-glow-o: 0; --a-dots: rgba(37, 99, 235, 0.2);
 }
 :root[data-theme="dark"] {
   --a-glow-a: #16307e; --a-glow-b: #07465a; --a-glow-c: #2b1a70; --a-glow-d: #3d2710;
   --a-glow-o: 0.55; --a-dots: rgba(120, 160, 255, 0.13);
-}
-:root:not([data-theme="dark"]) body.about-page {
-  background: linear-gradient(165deg, #dce7ff 0%, #ebe4ff 42%, #ddf3fa 100%) fixed, #e6eeff;
 }
 .a-backdrop { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .a-glow {
