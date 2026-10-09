@@ -90,13 +90,10 @@ const PAGES = {
   careers: 'careers.html',
   refer: 'refer.html',
   brochure: 'brochure.html',
-  'knowledge-centre': 'knowledge-centre.html',
-  // the Knowledge Centre's four sections
+  partners: 'partners.html',
+  'case-study': 'case-study.html',
+  // the blog, reached from the footer of every page
   'kc-blogs': 'knowledge-centre/blogs.html',
-  'kc-infographics': 'knowledge-centre/infographics.html',
-  'kc-summariwise': 'knowledge-centre/summariwise.html',
-  'kc-sip': 'knowledge-centre/sip-calculator.html',
-  'kc-lumpsum': 'knowledge-centre/lumpsum-calculator.html',
   // the services' own pages
   'service-cloud': 'services/cloud.html',
   // one page per product, sharing its body with the showroom's monitor
