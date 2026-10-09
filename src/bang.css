@@ -14,7 +14,7 @@
 .bang {
   position: fixed; inset: 0; z-index: 999;
   display: grid; place-items: center;
-  background: radial-gradient(120% 90% at 50% 45%, #10224a 0%, #060d1f 55%, #03070f 100%);
+  background: radial-gradient(120% 90% at 50% 45%, #0c1b3e 0%, #050b1b 55%, #02050d 100%);
   pointer-events: none; /* a click during the opening should reach the page */
   animation: bang-clear 0.75s cubic-bezier(0.7, 0, 0.25, 1) 1.05s forwards;
 }
@@ -27,11 +27,14 @@
 .bang__logo {
   position: relative; z-index: 2;
   width: min(560px, 74vw); height: auto;
-  /* the logo is drawn in dark ink for light paper. Flattening it to white is
-     what makes it carry on a dark field, and the glow sets it off the ground. */
-  filter: brightness(0) invert(1)
-    drop-shadow(0 0 24px rgba(127, 220, 236, 0.55))
-    drop-shadow(0 0 70px rgba(86, 140, 255, 0.45));
+  /* the brand's own blue and teal, from the variant drawn for dark grounds —
+     the glow is what sets it off the field rather than a flat white */
+  content: url("/finlabs-logo-dark.png");
+  /* the brand's own blue and teal. Lifted, because that blue was drawn for
+     white paper and this field is navy; the glow does the rest. */
+  filter: brightness(1.5) saturate(1.15)
+    drop-shadow(0 0 26px rgba(127, 220, 236, 0.5))
+    drop-shadow(0 0 80px rgba(86, 140, 255, 0.55));
   transform-origin: 50% 50%;
   animation: bang-logo 1.5s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
 }

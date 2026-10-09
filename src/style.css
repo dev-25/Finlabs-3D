@@ -454,7 +454,8 @@ body.no3d #canvas {
   margin-bottom: 18px;
 }
 :root[data-theme="dark"] .endwall__brand img {
-  filter: brightness(1.9) saturate(0.6);
+  /* the variant whose "TH", anniversary line and tagline are white */
+  content: url("/finlabs-logo-dark.png");
 }
 .endwall__mail {
   display: inline-flex;

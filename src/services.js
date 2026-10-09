@@ -18,4 +18,8 @@ import { afterPaint } from './after-paint.js';
 document.documentElement.classList.add('js');
 initTheme();
 
-afterPaint(() => import('./services-scene.js'));
+// a phone gets the page without the workshop — the canvas is hidden at this
+// width anyway, so there is no reason to fetch three.js for it
+if (window.matchMedia('(min-width: 701px)').matches) {
+  afterPaint(() => import('./services-scene.js'));
+}

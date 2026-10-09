@@ -388,7 +388,12 @@ main { position: relative; z-index: 2; }
   backdrop-filter: blur(18px); box-shadow: var(--shadow);
 }
 .foot__brand img { height: 46px; width: auto; margin-bottom: 16px; }
-:root[data-theme="dark"] .foot__brand img { filter: brightness(1.8) saturate(0.7); }
+:root[data-theme="dark"] .foot__brand img {
+  /* the logo is drawn in dark ink; this variant lifts the "TH", the
+     anniversary line and the tagline to white, keeping the brand blue
+     and teal exactly as they are */
+  content: url("/finlabs-logo-dark.png");
+}
 .foot__mail { display: inline-flex; align-items: center; gap: 10px; color: var(--ink-2); font-size: 14.5px; margin-bottom: 16px; }
 .foot__mail:hover { color: var(--brand); }
 .social { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -437,6 +442,12 @@ main { position: relative; z-index: 2; }
   .trust { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
   .trust li:nth-child(3) { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
 }
+/* on a phone the 3D costs more than it gives: the canvas goes, and
+   services-scene.js does not even fetch three.js at these widths */
+@media (max-width: 700px) {
+  #scene, .backdrop { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js [data-reveal] { opacity: 1; transform: none; }

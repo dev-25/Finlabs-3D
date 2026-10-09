@@ -22,8 +22,10 @@
   --brand-3: #a78bfa;
 }
 
-.pt { padding: var(--top) 0 0; }
-.pt > * { width: min(1280px, 100%); margin-inline: auto; padding-inline: var(--gut); }
+/* the same column as every other page: the gutter on the section, a 1280
+   box inside it, so the copy starts where the menu bar starts */
+.pt { padding: var(--top) var(--gut) 0; }
+.pt > * { width: min(1280px, 100%); margin-inline: auto; }
 
 .pt__hero h1 {
   font-family: var(--display); font-weight: 800;

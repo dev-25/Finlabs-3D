@@ -1100,16 +1100,6 @@ addView('cta', (v) => {
   floor.position.y = BASE - 0.04;
   left.add(floor);
 
-  // the trend that carries on past the last column
-  const rod = new THREE.Group();
-  const ROD_A = -0.86; // leaning up and to the right
-  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.7, 10), glowMat(0xcfeaff, 0.85));
-  const head = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.34, 18), glowMat(0xcfeaff, 0.95));
-  head.position.y = 0.98;
-  rod.add(shaft, head);
-  rod.rotation.z = ROD_A;
-  rod.position.set(-0.05, BASE + 1.2, 0.34);
-  left.add(rod);
 
   // RIGHT — the money at the middle of it, and the platform around it
   const right = new THREE.Group();
@@ -1184,8 +1174,6 @@ addView('cta', (v) => {
         m.scale.y = s;
         m.position.y = BASE + (h * s) / 2;
       });
-      rod.position.y = BASE + 1.2 + Math.sin(t * 1.2) * 0.05;
-      rod.rotation.z = ROD_A + Math.sin(t * 0.8) * 0.04;
 
       // the coin rocks rather than spins, so it never goes edge-on for long
       core.rotation.set(0.06, Math.sin(t * 0.5) * 0.6, 0);

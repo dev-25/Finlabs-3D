@@ -56,7 +56,12 @@
 /* left: logo */
 .site-nav__brand { justify-self: start; display: inline-flex; align-items: center; }
 .site-nav__brand img { display: block; height: 38px; width: auto; }
-:root[data-theme="dark"] .site-nav__brand img { filter: brightness(1.8) saturate(0.7); }
+:root[data-theme="dark"] .site-nav__brand img {
+  /* the logo is drawn in dark ink; this variant lifts the "TH", the
+     anniversary line and the tagline to white, keeping the brand blue
+     and teal exactly as they are */
+  content: url("/finlabs-logo-dark.png");
+}
 
 /* centre: page links */
 .site-nav__links { display: flex; align-items: center; gap: 2px; }

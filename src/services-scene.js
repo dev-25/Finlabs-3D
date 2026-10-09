@@ -27,13 +27,14 @@ const ACCENTS = {
 };
 
 const THEME3D = {
-  /* Light was nearly white on a pale page, so the platform had little weight.
-   * These are a few steps darker — still light, but the piece now sits on the
-   * page rather than dissolving into it. */
+  /* The piece is dark in both browser modes: on the pale page a dark navy
+   * object is the contrast it wants, and it no longer dissolves into a
+   * background it was nearly the colour of. Only the particles differ, since
+   * those are seen against the page rather than against the platform. */
   light: {
-    base: 0xb3c4e4, top: 0xc8d5ee, panel: 0xe4ebf8, soft: 0x9aaed2,
-    metal: 0x8395bb, ink: 0x1b2640, env: 0.88, exposure: 0.92,
-    particles: 0x3f66bd, glow: 0.45, shadow: 0.44,
+    base: 0x2c3a66, top: 0x36456f, panel: 0x3d4c78, soft: 0x4a5a8c,
+    metal: 0x8795c6, ink: 0x121a30, env: 0.9, exposure: 1.1,
+    particles: 0x3f66bd, glow: 1.05, shadow: 0.34,
   },
   /* Dark used to sit almost on top of the page's own near-black, so the
    * platform read as one murky mass. These are lifted well clear of the
@@ -919,9 +920,10 @@ onTheme((mode) => {
   shadowMat.opacity = t.shadow;
   awsInk.color.setHex(mode === 'dark' ? 0xf4f6fb : 0x232f3e);
   awsInk.emissive.copy(awsInk.color);
-  hemi.intensity = mode === 'dark' ? 0.55 : 0.6;
-  key.intensity = mode === 'dark' ? 1.45 : 1.5;
-  rim.intensity = mode === 'dark' ? 1.3 : 0.9; // the edge that lifts it off the page
+  // the platform is the same dark object in both modes, so it is lit the same
+  hemi.intensity = 0.55;
+  key.intensity = 1.45;
+  rim.intensity = 1.3; // the edge that lifts it off the page
   uiFaces.forEach((f) => {
     f.mat.map?.dispose();
     f.mat.map = uiTexture(f.kind, mode);
