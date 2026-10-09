@@ -32,10 +32,14 @@ const THEME3D = {
     metal: 0xc5d0e3, ink: 0x1b2640, env: 0.95, exposure: 1.0,
     particles: 0x5f84d6, glow: 0.35, shadow: 0.32,
   },
+  /* Dark used to sit almost on top of the page's own near-black, so the
+   * platform read as one murky mass. These are lifted well clear of the
+   * background and the environment is turned back up, which is what gives
+   * the light version its bevels and its sheen. */
   dark: {
-    base: 0x18223c, top: 0x1c2746, panel: 0x27324f, soft: 0x323e61,
-    metal: 0x46537a, ink: 0x0a0f1d, env: 0.5, exposure: 1.12,
-    particles: 0x9bb6ff, glow: 0.95, shadow: 0.62,
+    base: 0x2c3a66, top: 0x36456f, panel: 0x3d4c78, soft: 0x4a5a8c,
+    metal: 0x8795c6, ink: 0x121a30, env: 0.9, exposure: 1.1,
+    particles: 0x9bb6ff, glow: 1.05, shadow: 0.62,
   },
 };
 
@@ -912,8 +916,9 @@ onTheme((mode) => {
   shadowMat.opacity = t.shadow;
   awsInk.color.setHex(mode === 'dark' ? 0xf4f6fb : 0x232f3e);
   awsInk.emissive.copy(awsInk.color);
-  hemi.intensity = mode === 'dark' ? 0.35 : 0.6;
-  key.intensity = mode === 'dark' ? 1.1 : 1.5;
+  hemi.intensity = mode === 'dark' ? 0.55 : 0.6;
+  key.intensity = mode === 'dark' ? 1.45 : 1.5;
+  rim.intensity = mode === 'dark' ? 1.3 : 0.9; // the edge that lifts it off the page
   uiFaces.forEach((f) => {
     f.mat.map?.dispose();
     f.mat.map = uiTexture(f.kind, mode);
