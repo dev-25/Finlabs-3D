@@ -143,79 +143,6 @@ function glowMat(hex, opacity = 1) {
   });
 }
 
-/* Data chips, where the ₹ coins used to be: a small card with a rising line
- * and two bars on it. The work Finlabs does is the numbers moving, not the
- * cash itself, and a chip says that without putting currency on the page. */
-function chipFace(mode) {
-  return makeTexture(256, 180, (ctx, w, h) => {
-    const dark = mode === 'dark';
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = dark ? '#16224a' : '#ffffff';
-    rr(ctx, 4, 4, w - 8, h - 8, 22);
-    ctx.fill();
-
-    // two bars holding up a line that climbs across the card
-    ctx.fillStyle = dark ? 'rgba(130,170,255,0.3)' : 'rgba(37,99,235,0.16)';
-    rr(ctx, 30, 104, 34, 44, 8);
-    ctx.fill();
-    rr(ctx, 76, 78, 34, 70, 8);
-    ctx.fill();
-
-    ctx.strokeStyle = '#16a34a';
-    ctx.lineWidth = 13;
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
-    ctx.beginPath();
-    ctx.moveTo(34, 92);
-    ctx.lineTo(92, 64);
-    ctx.lineTo(140, 86);
-    ctx.lineTo(214, 38);
-    ctx.stroke();
-
-    // the arrow head on the end of it
-    ctx.fillStyle = '#16a34a';
-    ctx.beginPath();
-    ctx.moveTo(224, 30);
-    ctx.lineTo(224, 74);
-    ctx.lineTo(186, 42);
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.fillStyle = dark ? 'rgba(200,215,255,0.5)' : 'rgba(21,32,58,0.26)';
-    rr(ctx, 132, 112, 90, 14, 7);
-    ctx.fill();
-    rr(ctx, 160, 136, 62, 12, 6);
-    ctx.fill();
-  });
-}
-// one material for every chip, made on first use — themedFaces, which it
-// registers with so it is redrawn on a theme change, is declared below
-let chipMat = null;
-function chipMaterial() {
-  if (!chipMat) {
-    const draw = (m) => chipFace(m ?? themeMode);
-    chipMat = new THREE.MeshBasicMaterial({ map: draw(), transparent: true, toneMapped: false });
-    themedFaces.push({ mat: chipMat, draw });
-  }
-  return chipMat;
-}
-
-function makeChip(r) {
-  const c = new THREE.Group();
-  const w = r * 2.1;
-  const h = r * 1.48;
-  c.add(new THREE.Mesh(rbox(w, h, r * 0.3, r * 0.26), M.panel));
-  const faceGeo = new THREE.PlaneGeometry(w * 0.94, h * 0.94);
-  const mat = chipMaterial();
-  const front = new THREE.Mesh(faceGeo, mat);
-  front.position.z = r * 0.152;
-  const back = new THREE.Mesh(faceGeo, mat);
-  back.position.z = -r * 0.152;
-  back.rotation.y = Math.PI;
-  c.add(front, back);
-  return c;
-}
-
 // =====================================================
 // VIEWS — one small scene per [data-view] box
 // =====================================================
@@ -422,19 +349,6 @@ function buildPhone(o) {
   chart.position.set(0, 0.075, 0.079);
   phone.add(chart);
 
-  // a little data beside it: three chips stacked and one still turning
-  const stack = new THREE.Group();
-  stack.position.set(-0.72, -0.86, 0.3);
-  [0, 1, 2].forEach((k) => {
-    const c = makeChip(0.24);
-    c.rotation.x = -Math.PI / 2;
-    c.position.y = k * 0.056;
-    stack.add(c);
-  });
-  const spinner = makeChip(0.22);
-  spinner.position.set(0.7, -0.62, 0.34);
-  g.add(stack, spinner);
-
   return {
     group: g,
     animate(t) {
@@ -442,8 +356,6 @@ function buildPhone(o) {
       phone.rotation.y = Math.sin(t * 0.4) * 0.22;
       phone.rotation.z = Math.sin(t * 0.33) * 0.03;
       phone.position.y = Math.sin(t * 1.1) * 0.03;
-      spinner.rotation.set(0.22, Math.sin(t * 0.6) * 0.9, 0);
-      spinner.position.y = -0.62 + Math.sin(t * 1.4) * 0.06;
     },
   };
 }
@@ -500,11 +412,6 @@ function buildStack(o) {
   pulse.rotation.x = -Math.PI / 2;
   rig.add(pulse);
 
-  // what the platform is there to move
-  const coin = makeChip(0.26);
-  coin.position.set(0.86, -0.6, 0.5);
-  g.add(coin);
-
   const CYCLE = 3.6;
   return {
     group: g,
@@ -542,8 +449,6 @@ function buildStack(o) {
         pulse.visible = false;
       }
       slot.position.y = 0.7 + Math.sin(t * 1.6) * 0.02;
-      coin.rotation.set(0.24, Math.sin(t * 0.55) * 0.9, 0);
-      coin.position.y = -0.6 + Math.sin(t * 1.3) * 0.05;
       g.rotation.y = Math.sin(t * 0.3) * 0.1;
       g.position.y = Math.sin(t * 0.9) * 0.03;
     },
@@ -686,14 +591,6 @@ addView('hero', (v) => {
     return { holder, model, home: SPOTS[i].p, size: SPOTS[i].size };
   });
 
-  const coins = [[-2.6, -1.8, 0.9, 0.3], [2.7, 1.95, -0.3, 0.26], [-2.35, 2.1, 0.5, 0.2], [2.3, -2.35, 1.0, 0.18]]
-    .map(([x, y, z, r], k) => {
-      const c = makeChip(r);
-      c.userData = { x, y, z, k };
-      root.add(c);
-      return c;
-    });
-
   const beads = [[2.55, -0.85, -0.6, 0.22, 0x22d3ee], [-2.2, -2.2, 0.2, 0.15, 0xa78bfa], [0.8, 2.35, -0.9, 0.13, 0x60a5fa]]
     .map(([x, y, z, r, hex], k) => {
       const m = new THREE.Mesh(new THREE.SphereGeometry(r, 32, 24), accentMat(hex, 0.25));
@@ -722,12 +619,6 @@ addView('hero', (v) => {
         model.animate(t);
       });
       const ce = Math.max(0.001, easeOutBack(clamp01(v.seen * 1.4 - 0.35)));
-      coins.forEach((c) => {
-        const { x, y, z, k } = c.userData;
-        c.position.set(x, y + Math.sin(t * 1.2 + k) * 0.12, z);
-        c.rotation.set(0.25, Math.sin(t * 0.5 + k * 1.2) * 0.85, 0);
-        c.scale.setScalar(ce);
-      });
       beads.forEach((m) => {
         const { x, y, z, k } = m.userData;
         m.position.set(x, y + Math.sin(t * 0.8 + k * 2) * 0.15, z);
@@ -1106,7 +997,8 @@ addView('cta', (v) => {
   const rGlow = softGlow(3.4, 0.24);
   rGlow.position.z = -0.9;
   right.add(rGlow);
-  const core = makeChip(0.4);
+  // the rings turn around a lit point, now that the chip is gone
+  const core = new THREE.Mesh(new THREE.SphereGeometry(0.17, 28, 20), glowMat(0xdff0ff));
   right.add(core);
   const rings = [0, 1].map((k) => {
     const r = new THREE.Mesh(new THREE.TorusGeometry(0.78, 0.014, 8, 84), glowMat(0x9ae6ff, 0.55));
@@ -1133,14 +1025,6 @@ addView('cta', (v) => {
     return r.width ? r : el.getBoundingClientRect();
   };
   const GRP = 0.85; // how wide each side piece stands, at full size
-
-  // loose change in the corners the copy leaves free
-  const drift = [[-0.9, 0.74, 0.26], [0.9, 0.78, 0.22], [-0.44, -0.88, 0.17], [0.46, -0.9, 0.15]]
-    .map(([fx, fy, r], k) => {
-      const m = makeChip(r);
-      v.scene.add(m);
-      return { m, fx, fy, k };
-    });
 
   return {
     update(t, rect) {
@@ -1175,8 +1059,7 @@ addView('cta', (v) => {
         m.position.y = BASE + (h * s) / 2;
       });
 
-      // the coin rocks rather than spins, so it never goes edge-on for long
-      core.rotation.set(0.06, Math.sin(t * 0.5) * 0.6, 0);
+      core.scale.setScalar(1 + Math.sin(t * 1.6) * 0.09);
       rings.forEach((r, k) => { r.rotation.z = (k ? -1 : 1) * t * 0.35; });
       beads.forEach(({ m, sp, ring }, k) => {
         const a = t * sp + k * 2.1;
@@ -1185,11 +1068,6 @@ addView('cta', (v) => {
         m.position.copy(p);
       });
 
-      drift.forEach(({ m, fx, fy, k }) => {
-        m.position.set(fx * halfW, fy * v.fitR + Math.sin(t * 0.9 + k * 1.7) * 0.1, 0.5);
-        m.rotation.set(0.22, Math.sin(t * 0.45 + k * 1.3) * 0.85, 0);
-        m.scale.setScalar(Math.max(0.001, easeOutBack(clamp01(v.seen * 1.2 - 0.25))));
-      });
     },
   };
 });
