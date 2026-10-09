@@ -19,7 +19,8 @@ const FONT = '"Plus Jakarta Sans", "Inter", system-ui, -apple-system, "Segoe UI"
 const CARD_W = 2.18;
 const CARD_H = 1.08;
 const INDIGO = '#5b5bd6';
-const AMBER = '#f9a825';
+// the page this sits on is all one blue, so the accent is too
+const AMBER = '#4f6ae0';
 
 const STEPS = [
   { no: '01', title: 'Learning path', sub: 'Personalised journey', x: -3.36, y: -1.2, z: 0.52 },

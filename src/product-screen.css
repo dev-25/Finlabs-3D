@@ -53,23 +53,24 @@
 /* =====================================================
  * THE PRODUCT PAGE SHOWN ON THE SCREEN
  * =====================================================
- * Shared by every product: each one is an `.fx` article
- * and sets its own brand colours through these tokens.
+ * Shared by every product: each one is an `.fx` article.
+ * They all take the same blue — the colours below — and
+ * differ only in the blocks they lay out.
  * ===================================================== */
 
 .fx {
-  --fx-brand: #1a8fb5;
-  --fx-deep: #0f6d8c;
-  --fx-navy: #0a2c40;
-  --fx-ink: #0b2c3f;
-  --fx-ink-2: #4a6b82;
-  --fx-ink-3: #7ba3ba;
-  --fx-line: rgba(20, 110, 145, 0.16);
-  --fx-soft: rgba(26, 143, 181, 0.08);
-  --fx-wash: #eef7fb;
-  --fx-alt: #f6fafd;
-  --fx-glow: rgba(69, 190, 222, 0.28);
-  --fx-glow-cta: rgba(69, 190, 222, 0.5);
+  --fx-brand: #2563eb;
+  --fx-deep: #1d4ed8;
+  --fx-navy: #12244e;
+  --fx-ink: #14254a;
+  --fx-ink-2: #4b5d84;
+  --fx-ink-3: #8491b3;
+  --fx-line: rgba(37, 99, 235, 0.16);
+  --fx-soft: rgba(37, 99, 235, 0.08);
+  --fx-wash: #eef2fd;
+  --fx-alt: #f6f8fe;
+  --fx-glow: rgba(37, 99, 235, 0.24);
+  --fx-glow-cta: rgba(37, 99, 235, 0.5);
   --fx-surface: #fff;
   --fx-top: rgba(255, 255, 255, 0.92);
   --fx-pad: clamp(18px, 3.4cqw, 46px);
@@ -320,20 +321,6 @@
  * FINEXA GenNxt — its own colours and its own blocks
  * ===================================================== */
 
-.fx--gx {
-  --fx-brand: #2f6fd0;
-  --fx-deep: #1f4fa0;
-  --fx-navy: #12244e;
-  --fx-ink: #16294f;
-  --fx-ink-2: #4d5f84;
-  --fx-ink-3: #8794b5;
-  --fx-line: rgba(47, 111, 208, 0.16);
-  --fx-soft: rgba(47, 111, 208, 0.08);
-  --fx-wash: #eef1fd;
-  --fx-alt: #f6f8fe;
-  --fx-glow: rgba(107, 92, 231, 0.26);
-  --fx-glow-cta: rgba(107, 92, 231, 0.55);
-}
 .fx--gx .fx-top__brand { font-size: 1.6em; }
 
 /* GenNxt's hero runs full width, since its 3D piece has a stage of its own */
@@ -432,20 +419,6 @@
  * FINAWARE — its own colours and its own blocks
  * ===================================================== */
 
-.fx--fw {
-  --fx-brand: #0f9b8e;
-  --fx-deep: #0a6f70;
-  --fx-navy: #0d2f3a;
-  --fx-ink: #133540;
-  --fx-ink-2: #4c6f78;
-  --fx-ink-3: #7fa0a8;
-  --fx-line: rgba(15, 155, 142, 0.18);
-  --fx-soft: rgba(15, 155, 142, 0.09);
-  --fx-wash: #ecf8f6;
-  --fx-alt: #f4fbfa;
-  --fx-glow: rgba(242, 103, 34, 0.16);
-  --fx-glow-cta: rgba(242, 103, 34, 0.4);
-}
 .fx--fw .fx-hero__intro > div { max-width: 72ch; }
 .fx--fw .fx-hero > .fx__wrap > div > p { max-width: 66ch; }
 /* the lifecycle runs the width of the hero, under the copy */
@@ -471,34 +444,6 @@
  * FISCUS and LEARNGENIE — their colours and blocks
  * ===================================================== */
 
-.fx--fs {
-  --fx-brand: #15629b;
-  --fx-deep: #0f4a77;
-  --fx-navy: #0f2f45;
-  --fx-ink: #123449;
-  --fx-ink-2: #4d6c80;
-  --fx-ink-3: #7f9cad;
-  --fx-line: rgba(21, 98, 155, 0.16);
-  --fx-soft: rgba(21, 98, 155, 0.08);
-  --fx-wash: #eaf3fa;
-  --fx-alt: #f4f9fd;
-  --fx-glow: rgba(43, 181, 152, 0.2);
-  --fx-glow-cta: rgba(43, 181, 152, 0.42);
-}
-.fx--lg {
-  --fx-brand: #5b5bd6;
-  --fx-deep: #4040ad;
-  --fx-navy: #211d47;
-  --fx-ink: #25224d;
-  --fx-ink-2: #5e5b85;
-  --fx-ink-3: #918eb4;
-  --fx-line: rgba(91, 91, 214, 0.16);
-  --fx-soft: rgba(91, 91, 214, 0.08);
-  --fx-wash: #f0efff;
-  --fx-alt: #f7f6ff;
-  --fx-glow: rgba(249, 168, 37, 0.2);
-  --fx-glow-cta: rgba(249, 168, 37, 0.45);
-}
 .fx--fs .fx-hero__intro > div,
 .fx--lg .fx-hero__intro > div { max-width: 72ch; }
 .fx--fs .fx-hero > .fx__wrap > div > p,
@@ -597,8 +542,3 @@ body.over-computer { cursor: pointer; }
 }
 
 /* a quiet line under the hero index, for the referral programme */
-.hero__refer { margin: 14px 0 0; font-size: 13.5px; color: var(--ink-2); }
-.hero__refer a { color: var(--brand); font-weight: 600; text-decoration: none; }
-.hero__refer a:hover { text-decoration: underline; }
-.hero__refer span { display: inline-block; transition: transform 0.2s; }
-.hero__refer a:hover span { transform: translateX(3px); }

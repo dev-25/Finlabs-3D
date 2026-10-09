@@ -32,7 +32,8 @@ const SOURCES = [
 ];
 
 const BRAND = '#15629b';
-const MINT = '#2bb598';
+// the page this sits on is all one blue
+const MINT = '#3d7fe0';
 
 function label(w, h, draw) {
   const cv = document.createElement('canvas');

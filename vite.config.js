@@ -88,7 +88,6 @@ const PAGES = {
   contact: 'contact.html',
   about: 'about.html',
   careers: 'careers.html',
-  refer: 'refer.html',
   brochure: 'brochure.html',
   partners: 'partners.html',
   'case-study': 'case-study.html',

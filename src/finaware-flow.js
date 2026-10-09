@@ -23,11 +23,11 @@ const STEP = 2.12;
 const SPAN = STEP * 2; // the outermost card's distance from the middle
 
 const STAGES = [
-  { no: '01', title: 'Plan', sub: 'Create & schedule', accent: '#0f9b8e' },
-  { no: '02', title: 'Approve', sub: 'Admin sign-off', accent: '#0f9b8e' },
-  { no: '03', title: 'Deliver', sub: 'Online or offline', accent: '#f26722' },
-  { no: '04', title: 'Attend', sub: 'QR check-in', accent: '#f26722' },
-  { no: '05', title: 'Report', sub: 'Audit & invoice', accent: '#0f9b8e' },
+  { no: '01', title: 'Plan', sub: 'Create & schedule', accent: '#2563eb' },
+  { no: '02', title: 'Approve', sub: 'Admin sign-off', accent: '#2563eb' },
+  { no: '03', title: 'Deliver', sub: 'Online or offline', accent: '#2f6fd0' },
+  { no: '04', title: 'Attend', sub: 'QR check-in', accent: '#2f6fd0' },
+  { no: '05', title: 'Report', sub: 'Audit & invoice', accent: '#2563eb' },
 ];
 
 // where a stage sits: a shallow arc, its ends nearer the reader
@@ -151,7 +151,7 @@ export function createFlow(canvas) {
 
   const runner = new THREE.Mesh(
     new THREE.SphereGeometry(0.075, 18, 14),
-    new THREE.MeshBasicMaterial({ color: 0xf26722 })
+    new THREE.MeshBasicMaterial({ color: 0x2f6fd0 })
   );
   root.add(runner);
 

@@ -27,10 +27,13 @@ const ACCENTS = {
 };
 
 const THEME3D = {
+  /* Light was nearly white on a pale page, so the platform had little weight.
+   * These are a few steps darker — still light, but the piece now sits on the
+   * page rather than dissolving into it. */
   light: {
-    base: 0xf2f6fd, top: 0xe8eefa, panel: 0xffffff, soft: 0xd9e3f4,
-    metal: 0xc5d0e3, ink: 0x1b2640, env: 0.95, exposure: 1.0,
-    particles: 0x5f84d6, glow: 0.35, shadow: 0.32,
+    base: 0xb3c4e4, top: 0xc8d5ee, panel: 0xe4ebf8, soft: 0x9aaed2,
+    metal: 0x8395bb, ink: 0x1b2640, env: 0.88, exposure: 0.92,
+    particles: 0x3f66bd, glow: 0.45, shadow: 0.44,
   },
   /* Dark used to sit almost on top of the page's own near-black, so the
    * platform read as one murky mass. These are lifted well clear of the

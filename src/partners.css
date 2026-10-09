@@ -24,8 +24,6 @@
 
 .pt { padding: var(--top) 0 0; }
 .pt > * { width: min(1280px, 100%); margin-inline: auto; padding-inline: var(--gut); }
-/* the marquee runs the full width, so it opts out of the column */
-.pt > .clients { width: 100%; padding-inline: 0; }
 
 .pt__hero h1 {
   font-family: var(--display); font-weight: 800;
@@ -59,27 +57,6 @@
   line-height: 1.15; letter-spacing: -0.02em; margin: 14px 0 10px;
 }
 .pt__head .pt__sub { color: var(--ink-2); font-size: 17px; max-width: 58ch; margin-inline: auto; }
-
-/* ---------- the clients, on the move ---------- */
-.clients { padding: 2vh 0 4vh; overflow: hidden; }
-.clients__title {
-  text-align: center; margin-bottom: 20px;
-  font: 600 12px/1.4 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
-}
-.marquee {
-  overflow: hidden; background: var(--band); color: var(--band-ink);
-  transform: rotate(-1.2deg) scale(1.03);
-  border-block: 1px solid var(--line);
-}
-.marquee + .marquee { border-top: 0; }
-.marquee__track { display: flex; width: max-content; animation: marquee 48s linear infinite; }
-.marquee--rev .marquee__track { animation-direction: reverse; animation-duration: 56s; }
-.marquee span {
-  font-family: var(--display); font-weight: 700; font-size: clamp(18px, 1.8vw, 24px); letter-spacing: -0.01em;
-  padding: 15px 30px; white-space: nowrap;
-}
-.marquee span::after { content: "✦"; margin-left: 30px; color: var(--band-dot); font-size: 0.7em; vertical-align: middle; }
-@keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ---------- what they say ---------- */
 .voices__bar {
@@ -126,14 +103,22 @@
   list-style: none; display: grid; gap: 14px;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
+/* A logo wall is a mix: some of these files are dark ink on nothing, some
+   carry their own white background. One white tile in both themes is the only
+   thing that shows all of them properly — filtering the dark ones to white
+   turns the others into blank blocks. */
 .pt__wall li {
-  display: grid; place-items: center; min-height: 96px; padding: 18px 20px; border-radius: 18px;
-  background: var(--paper); border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s;
+  display: grid; place-items: center; min-height: 100px; padding: 18px 20px; border-radius: 18px;
+  background: #fff; border: 1px solid rgba(15, 35, 75, 0.08);
+  box-shadow: 0 18px 34px -24px rgba(15, 40, 100, 0.45);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
 }
-.pt__wall li:hover { transform: translateY(-3px); border-color: var(--brand); }
-.pt__wall img { max-width: 100%; max-height: 46px; width: auto; height: auto; object-fit: contain; }
-:root[data-theme="dark"] .pt__wall img { filter: brightness(0) invert(1); opacity: 0.82; }
+.pt__wall li:hover { transform: translateY(-3px); box-shadow: 0 26px 44px -22px rgba(15, 40, 100, 0.5); }
+.pt__wall img { max-width: 100%; max-height: 52px; width: auto; height: auto; object-fit: contain; }
+:root[data-theme="dark"] .pt__wall li {
+  border-color: rgba(160, 185, 255, 0.22);
+  box-shadow: 0 18px 34px -20px rgba(0, 0, 0, 0.8);
+}
 
 /* ---------- what each kind of partner brings ---------- */
 .pt__kinds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -201,3 +186,13 @@
 .cs__soon > p { color: var(--ink-2); font-size: 16.5px; line-height: 1.7; max-width: 62ch; margin: 0 auto 24px; }
 .cs .pt__btn { color: #fff; background: var(--brand); }
 .cs .pt__btn--ghost { color: var(--ink); background: var(--paper); border-color: var(--line); }
+
+/* ---------- the connections, in 3D ---------- */
+.pt__hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(20px, 4vw, 56px); align-items: center; }
+.pt__hero-copy { min-width: 0; }
+.pt__stage { position: relative; width: 100%; aspect-ratio: 1 / 1; max-height: 440px; justify-self: center; }
+.pt__stage canvas { display: block; width: 100%; height: 100%; }
+@media (max-width: 900px) {
+  .pt__hero { grid-template-columns: 1fr; }
+  .pt__stage { max-width: 380px; max-height: 340px; }
+}

@@ -117,8 +117,8 @@ const PRODUCTS = [
   { name: 'FINEXA', screen: 'wealth', accent: 0x1a8fb5, prop: 'goldbars' },
   { name: 'FINEXA GenNxt', screen: 'aggregate', accent: 0x3fb9dd, prop: 'coins' },
   { name: 'FINAWARE', screen: 'awareness', accent: 0x2f6fd0, prop: 'calculator' },
-  { name: 'FISCUS', screen: 'finance', accent: 0x0d5f7d, prop: 'cards' },
   { name: 'LEARNGENIE', screen: 'learning', accent: 0x6d7fe8, prop: 'vault' },
+  { name: 'FISCUS', screen: 'finance', accent: 0x0d5f7d, prop: 'cards' },
 ];
 
 const STATION_GAP = 13;

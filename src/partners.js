@@ -4,6 +4,7 @@ import './nav.js';
 import './whatsapp.js';
 import './partners.css';
 import { initTheme } from './theme.js';
+import { afterPaint } from './after-paint.js';
 
 /* =====================================================
  * OUR PARTNERS (and the case study page, which shares
@@ -15,6 +16,9 @@ import { initTheme } from './theme.js';
  * ===================================================== */
 
 initTheme();
+
+// the connections piece is 3D, so it follows the page
+afterPaint(() => import('./partners-scene.js'));
 
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
