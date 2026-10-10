@@ -14,7 +14,7 @@
  */
 export const SOLUTIONS = [
   { key: 'wealth', name: 'Wealth Management', label: 'WEALTH\nMANAGEMENT', sub: 'Finexa GenNxt', accent: '#2f6fd0' },
-  { key: 'learning', name: 'Learning and Development', label: 'LEARNING &\nDEVELOPMENT', sub: 'Learngenie', accent: '#6366f1' },
+  { key: 'webapp', name: 'Website and Application Development', label: 'WEBSITE & APP\nDEVELOPMENT', sub: 'Web · Mobile · Cloud', accent: '#6366f1' },
   { key: 'iap', name: 'Investor Awareness Programs (IAP)', label: 'INVESTOR\nAWARENESS', sub: 'Finaware', accent: '#0f9b8e' },
   { key: 'robo', name: 'Robo Advisory', label: 'ROBO\nADVISORY', sub: 'Goal-based advice', accent: '#0ea5e9' },
   { key: 'analytics', name: 'Data Analytics and Visualisation', label: 'DATA\nANALYTICS', sub: '& Visualisation', accent: '#8b5cf6' },

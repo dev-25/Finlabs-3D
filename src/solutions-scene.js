@@ -794,60 +794,215 @@ function linePath(points) {
   });
 }
 
-// --- LEARNING & DEVELOPMENT (LEARNGENIE): books under a mortarboard ---
+// --- WEBSITE & APP DEVELOPMENT: a build coming together ---------------
+// A browser window on a stand with the same page on a phone beside it.
+// The wireframe fades into the finished site as the section arrives, a
+// </> plate turns overhead and build blocks ride up into the cloud.
 {
-  const A = chipByKey.learning.accent.getHex();
+  const s = chipByKey.webapp;
+  const A = s.accent.getHex();
+  const hex = '#' + s.accent.getHexString();
   const g = new THREE.Group();
-  const pageMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.7 });
-  const covers = [accentMat(A, 0.15), M.panel, accentMat(0x3b82f6, 0.12)];
-  let y = 0;
-  const books = [[1.75, 0.27, 1.25, 0.1], [1.6, 0.25, 1.15, -0.14], [1.66, 0.23, 1.18, 0.22]].map(([w, h, d, rot], k) => {
-    const b = new THREE.Group();
-    b.add(new THREE.Mesh(rbox(w, h, d, 0.05), covers[k]));
-    const pages = new THREE.Mesh(new THREE.BoxGeometry(w - 0.12, h * 0.7, d - 0.12), pageMat);
-    pages.position.set(0.07, 0, 0.07);
-    b.add(pages);
-    b.rotation.y = rot;
-    b.userData.y = y + h / 2;
-    b.position.y = b.userData.y;
-    y += h;
-    g.add(b);
-    return b;
+
+  // the page is drawn twice — grey wireframe first, then the live site
+  const pageTex = (done) =>
+    makeTexture(512, 320, (ctx, w) => {
+      const grey = '#cbd5e1';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, 320);
+
+      // window chrome: three dots and the address bar
+      ctx.fillStyle = '#eef2f7';
+      ctx.fillRect(0, 0, w, 34);
+      ['#ef4444', '#f59e0b', '#22c55e'].forEach((c, k) => {
+        ctx.fillStyle = done ? c : grey;
+        ctx.beginPath();
+        ctx.arc(20 + k * 18, 17, 5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.fillStyle = '#ffffff';
+      rr(ctx, 76, 7, w - 100, 20, 10);
+      ctx.fill();
+      ctx.fillStyle = done ? hex : grey;
+      ctx.font = `600 13px ${MONO}`;
+      ctx.textBaseline = 'middle';
+      ctx.fillText(done ? 'www.yourbrand.in' : 'localhost:5173', 88, 18);
+
+      // the hero band
+      ctx.fillStyle = done ? hex : grey;
+      rr(ctx, 24, 52, w - 48, 92, 10);
+      ctx.fill();
+      ctx.fillStyle = done ? 'rgba(255,255,255,0.94)' : '#e2e8f0';
+      rr(ctx, 44, 72, 228, 16, 8);
+      ctx.fill();
+      rr(ctx, 44, 98, 158, 12, 6);
+      ctx.fill();
+      ctx.fillStyle = done ? '#ffffff' : '#e2e8f0';
+      rr(ctx, 44, 118, 84, 16, 8);
+      ctx.fill();
+
+      // three feature cards
+      const cw = (w - 48) / 3 - 14;
+      for (let k = 0; k < 3; k++) {
+        const x = 24 + k * ((w - 48) / 3);
+        ctx.fillStyle = done ? '#f1f5f9' : '#f8fafc';
+        rr(ctx, x, 160, cw, 98, 8);
+        ctx.fill();
+        ctx.fillStyle = done ? hex : grey;
+        rr(ctx, x + 12, 172, 26, 26, 6);
+        ctx.fill();
+        ctx.fillStyle = '#cbd5e1';
+        rr(ctx, x + 12, 212, cw - 34, 8, 4);
+        ctx.fill();
+        rr(ctx, x + 12, 228, cw - 56, 8, 4);
+        ctx.fill();
+      }
+
+      ctx.fillStyle = '#e2e8f0';
+      ctx.fillRect(24, 278, w - 48, 6);
+    });
+
+  // the same page as it falls into a phone: one column, nav at the foot
+  const appTex = (done) =>
+    makeTexture(256, 512, (ctx, w) => {
+      const grey = '#cbd5e1';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, 512);
+      ctx.fillStyle = done ? hex : grey;
+      rr(ctx, 14, 20, w - 28, 120, 10);
+      ctx.fill();
+      ctx.fillStyle = done ? 'rgba(255,255,255,0.94)' : '#e2e8f0';
+      rr(ctx, 30, 46, 150, 14, 7);
+      ctx.fill();
+      rr(ctx, 30, 70, 104, 10, 5);
+      ctx.fill();
+      for (let k = 0; k < 3; k++) {
+        const y = 164 + k * 86;
+        ctx.fillStyle = done ? '#f1f5f9' : '#f8fafc';
+        rr(ctx, 14, y, w - 28, 72, 8);
+        ctx.fill();
+        ctx.fillStyle = done ? hex : grey;
+        rr(ctx, 26, y + 14, 22, 22, 5);
+        ctx.fill();
+        ctx.fillStyle = '#cbd5e1';
+        rr(ctx, 58, y + 18, w - 96, 7, 3);
+        ctx.fill();
+        rr(ctx, 58, y + 32, w - 130, 7, 3);
+        ctx.fill();
+      }
+      // tab bar
+      ctx.fillStyle = '#eef2f7';
+      ctx.fillRect(0, 440, w, 72);
+      for (let k = 0; k < 4; k++) {
+        ctx.fillStyle = done && k === 0 ? hex : grey;
+        rr(ctx, 26 + k * 54, 466, 22, 22, 6);
+        ctx.fill();
+      }
+    });
+
+  // ---- the monitor -------------------------------------------------
+  const monitor = new THREE.Group();
+  monitor.position.set(-0.2, 1.3, 0.08);
+  monitor.rotation.x = -0.06;
+  monitor.add(new THREE.Mesh(rbox(1.98, 1.32, 0.1, 0.07), M.panel));
+  const screenGeo = new THREE.PlaneGeometry(1.78, 1.12);
+  const wireMat = new THREE.MeshBasicMaterial({ map: pageTex(false), toneMapped: false });
+  const liveMat = new THREE.MeshBasicMaterial({
+    map: pageTex(true), toneMapped: false, transparent: true, opacity: 0,
   });
-  const stackTop = y;
+  const wire = new THREE.Mesh(screenGeo, wireMat);
+  wire.position.z = 0.054;
+  const live = new THREE.Mesh(screenGeo, liveMat);
+  live.position.z = 0.058;
+  monitor.add(wire, live);
+  g.add(monitor);
 
-  const cap = new THREE.Group();
-  cap.add(new THREE.Mesh(rbox(1.25, 0.07, 1.25, 0.03), M.chip));
-  const skull = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.5, 0.36, 40), M.chip);
-  skull.position.y = -0.2;
-  cap.add(skull);
-  const tasselMat = accentMat(A, 0.45);
-  const button = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 12), tasselMat);
-  button.position.y = 0.05;
-  const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.6, 6), tasselMat);
-  cord.rotation.z = Math.PI / 2;
-  cord.position.set(0.3, 0.045, 0);
-  const tassel = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.065, 0.34, 12), tasselMat);
-  tassel.position.set(0.6, -0.14, 0);
-  cap.add(button, cord, tassel);
-  g.add(cap);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.095, 0.56, 20), M.metal);
+  neck.position.set(-0.2, 0.37, 0.08);
+  const foot = new THREE.Mesh(rbox(0.9, 0.08, 0.52, 0.04), M.metal);
+  foot.position.set(-0.2, 0.1, 0.08);
+  g.add(neck, foot);
 
-  const sparkMat = accentMat(A, 0.5);
-  const sparks = [0, 1, 2].map(() => {
-    const m = new THREE.Mesh(new THREE.OctahedronGeometry(0.1), sparkMat);
+  // ---- the phone, the same build on a small screen -------------------
+  const phone = new THREE.Group();
+  phone.position.set(1.26, 0.66, 0.5);
+  phone.rotation.y = -0.5;
+  phone.add(new THREE.Mesh(rbox(0.56, 1.06, 0.07, 0.08), M.chip));
+  const phoneGeo = new THREE.PlaneGeometry(0.47, 0.94);
+  const phoneWire = new THREE.Mesh(phoneGeo, new THREE.MeshBasicMaterial({
+    map: appTex(false), toneMapped: false,
+  }));
+  phoneWire.position.z = 0.038;
+  const phoneLiveMat = new THREE.MeshBasicMaterial({
+    map: appTex(true), toneMapped: false, transparent: true, opacity: 0,
+  });
+  const phoneLive = new THREE.Mesh(phoneGeo, phoneLiveMat);
+  phoneLive.position.z = 0.041;
+  phone.add(phoneWire, phoneLive);
+  g.add(phone);
+
+  // ---- the </> plate -------------------------------------------------
+  const tag = new THREE.Group();
+  tag.add(new THREE.Mesh(rbox(0.86, 0.6, 0.1, 0.1), accentMat(A, 0.22)));
+  const tagTex = makeTexture(256, 180, (ctx, w, h) => {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `700 92px ${MONO}`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('</>', w / 2, h / 2 + 4);
+  });
+  const tagFaceMat = new THREE.MeshBasicMaterial({ map: tagTex, transparent: true, toneMapped: false });
+  const tagFront = new THREE.Mesh(new THREE.PlaneGeometry(0.76, 0.53), tagFaceMat);
+  tagFront.position.z = 0.052;
+  const tagBack = tagFront.clone();
+  tagBack.position.z = -0.052;
+  tagBack.rotation.y = Math.PI;
+  tag.add(tagFront, tagBack);
+  g.add(tag);
+
+  // ---- the deploy: blocks riding up into a cloud ---------------------
+  const cloud = new THREE.Group();
+  cloud.position.set(0.62, 3.05, -0.3);
+  [[0, 0, 0.4], [0.37, 0.07, 0.3], [-0.35, 0.04, 0.27], [0.1, 0.2, 0.26]].forEach(([x, y, r]) => {
+    const puff = new THREE.Mesh(new THREE.SphereGeometry(r, 24, 18), M.soft);
+    puff.position.set(x, y, 0);
+    cloud.add(puff);
+  });
+  g.add(cloud);
+
+  const risePath = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(-0.55, 2.02, 0.1),
+    new THREE.Vector3(0.05, 2.34, -0.02),
+    new THREE.Vector3(0.45, 2.7, -0.2),
+    new THREE.Vector3(0.62, 2.98, -0.3),
+  ]);
+  const blockMat = accentMat(A, 0.4);
+  const blocks = [0, 1, 2].map(() => {
+    const m = new THREE.Mesh(rbox(0.2, 0.2, 0.2, 0.04), blockMat);
     g.add(m);
     return m;
   });
 
-  attach('learning', g, (t) => {
-    books.forEach((b, k) => (b.position.y = b.userData.y + Math.sin(t * 1.4 + k) * 0.012));
-    cap.position.y = stackTop + 0.72 + Math.sin(t * 1.3) * 0.1;
-    cap.rotation.y = Math.PI / 4 + t * 0.4;
-    cap.rotation.z = Math.sin(t * 0.9) * 0.08;
-    sparks.forEach((m, k) => {
-      const a = t * 0.9 + (k * Math.PI * 2) / 3;
-      m.position.set(Math.cos(a) * 1.25, stackTop + 0.55 + Math.sin(a * 2) * 0.3, Math.sin(a) * 0.9);
-      m.rotation.set(t * 2, t * 1.5, 0);
+  attach('webapp', g, (t, mix) => {
+    const built = THREE.MathUtils.clamp((mix - 0.25) / 0.5, 0, 1);
+    liveMat.opacity = built;
+    phoneLiveMat.opacity = built;
+    monitor.position.y = 1.3 + Math.sin(t * 1.1) * 0.015;
+    phone.position.y = 0.66 + Math.sin(t * 1.3 + 0.8) * 0.03;
+    phone.rotation.y = -0.5 + Math.sin(t * 0.5) * 0.12;
+    tag.position.set(-0.95, 2.45 + Math.sin(t * 1.4) * 0.09, 0.35);
+    tag.rotation.y = t * 0.8;
+    tag.rotation.z = Math.sin(t * 0.9) * 0.07;
+
+    const up = THREE.MathUtils.clamp(mix * 1.4 - 0.2, 0, 1);
+    cloud.position.y = 3.05 + Math.sin(t * 0.9) * 0.06;
+    cloud.scale.setScalar(Math.max(0.001, up));
+    blocks.forEach((m, k) => {
+      const u = (t * 0.26 + k / 3) % 1;
+      m.position.copy(risePath.getPointAt(u));
+      m.rotation.set(t * 1.5 + k, t * 1.1, 0);
+      m.scale.setScalar(Math.max(0.001, Math.sin(Math.PI * Math.min(1, u * 1.1)) * up));
     });
   });
 }
