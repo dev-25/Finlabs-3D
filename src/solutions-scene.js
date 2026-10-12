@@ -22,19 +22,19 @@ const BRAND_HEX = new THREE.Color(BRAND).getHex();
 
 const THEME3D = {
   light: {
-    board: 0xe3ebf9, chip: 0x1c2a4c, panel: 0xffffff, soft: 0xd9e3f4, metal: 0xb9c6dc, ink: 0x16213b,
+    board: 0xdcdfe6, chip: 0x1c2a4c, panel: 0xffffff, soft: 0xd9e3f4, metal: 0xb9c6dc, ink: 0x16213b,
     env: 0.95, exposure: 1.0, traceGlow: 0.0, route: 0.4, pad: 0.55, particles: 0x4f7fe0,
     tex: {
-      bg: '#e8effc', grid: 'rgba(37,99,235,0.07)', trace: '#c3d4f2', main: '#9ab6ea',
-      via: '#a9bfe8', silk: 'rgba(30,50,90,0.4)', finger: '#b7c4db',
+      bg: '#e2e4ea', grid: 'rgba(55,82,188,0.07)', trace: '#8c9ddf', main: '#3752bc',
+      via: '#3752bc', silk: 'rgba(30,45,85,0.45)', finger: '#b2b8c6',
     },
   },
   dark: {
-    board: 0x3a4157, chip: 0x1b2748, panel: 0x27324f, soft: 0x323e61, metal: 0x4d5b82, ink: 0x0a0f1d,
+    board: 0x212741, chip: 0x1b2748, panel: 0x27324f, soft: 0x323e61, metal: 0x4d5b82, ink: 0x0a0f1d,
     env: 0.5, exposure: 1.12, traceGlow: 0.9, route: 0.55, pad: 0.85, particles: 0x9bb6ff,
     tex: {
-      bg: '#3a4157', grid: 'rgba(205,220,255,0.12)', trace: '#7189c4', main: '#93aeee',
-      via: '#a3bdf8', silk: 'rgba(228,236,255,0.6)', finger: '#808faf',
+      bg: '#212741', grid: 'rgba(55,82,188,0.14)', trace: '#3752bc', main: '#5a79e0',
+      via: '#5a79e0', silk: 'rgba(205,216,255,0.55)', finger: '#44508a',
     },
   },
 };
@@ -272,12 +272,12 @@ const DECOR = (() => {
   const rand = seeded(20260911);
   const dirs = Array.from({ length: 8 }, (_, k) => [Math.cos((k * Math.PI) / 4), Math.sin((k * Math.PI) / 4)]);
   const list = [];
-  for (let n = 0; n < 90; n++) {
+  for (let n = 0; n < 34; n++) {
     let x = (rand() - 0.5) * (PW - 1.2);
     let z = (rand() - 0.5) * (PD - 1.6);
     let d = Math.floor(rand() * 8);
     const pts = [[x, z]];
-    const segs = 2 + Math.floor(rand() * 3);
+    const segs = 2 + Math.floor(rand() * 2);
     for (let s = 0; s < segs; s++) {
       const len = 0.5 + rand() * 2.2;
       x = THREE.MathUtils.clamp(x + dirs[d][0] * len, -PW / 2 + 0.4, PW / 2 - 0.4);
@@ -357,13 +357,13 @@ function boardTexture(mode) {
     // faint placement grid
     ctx.strokeStyle = c.grid;
     ctx.lineWidth = 1;
-    for (let x = 0; x < w; x += PX * 0.5) {
+    for (let x = 0; x < w; x += PX) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
       ctx.lineTo(x, h);
       ctx.stroke();
     }
-    for (let y = 0; y < h; y += PX * 0.5) {
+    for (let y = 0; y < h; y += PX) {
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(w, y);
