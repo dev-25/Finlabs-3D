@@ -992,9 +992,55 @@ addView('cta', (v) => {
   left.add(floor);
 
 
-  // The right of the panel is empty on purpose: the ring system that used
-  // to turn there is gone, and the columns carry the panel on their own.
-  v.scene.add(left);
+  // RIGHT — the decade ahead: a paper plane climbing its own trail
+  const right = new THREE.Group();
+  const rBack = softGlow(3.2, 0.2);
+  rBack.position.z = -0.9;
+  right.add(rBack);
+
+  const flight = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(-0.95, -0.9, 0.3),
+    new THREE.Vector3(-0.4, -0.35, -0.05),
+    new THREE.Vector3(0.2, 0.3, 0.12),
+    new THREE.Vector3(0.9, 1.2, -0.05),
+  ]);
+  const trailGeo = new THREE.TubeGeometry(flight, 90, 0.03, 8, false);
+  const trail = new THREE.Mesh(trailGeo, glowMat(0x7cb0ff, 0.5));
+  right.add(trail);
+  const trailCount = trailGeo.index.count;
+
+  // the plane itself — a folded dart, nose along +Y so it can be turned
+  // straight onto the tangent of the curve it is riding
+  const dart = new THREE.Shape();
+  dart.moveTo(0, 0.44);
+  dart.lineTo(0.3, -0.4);
+  dart.lineTo(0, -0.16);
+  dart.lineTo(-0.3, -0.4);
+  dart.closePath();
+  const planeGeo = new THREE.ExtrudeGeometry(dart, {
+    depth: 0.05, bevelEnabled: true, bevelSize: 0.014, bevelThickness: 0.014, bevelSegments: 2,
+  });
+  planeGeo.center();
+  const planeMesh = new THREE.Mesh(planeGeo, pale);
+  const keel = new THREE.Mesh(planeGeo, cyan); // the underside fold, just showing
+  keel.scale.set(0.82, 0.86, 0.9);
+  keel.position.z = -0.045;
+  planeMesh.add(keel);
+  const plane = new THREE.Group(); // the dart lies flat, the group does the aiming
+  plane.add(planeMesh);
+  planeMesh.rotation.x = -0.42; // tipped just enough to show the fold, not the edge
+  right.add(plane);
+
+  // three beads strung out behind it
+  const beadGeo = new THREE.SphereGeometry(0.06, 20, 20);
+  const beads = [0.07, 0.13, 0.19].map((back) => {
+    const b = new THREE.Mesh(beadGeo, cyan);
+    right.add(b);
+    return { m: b, back };
+  });
+
+  const UP = new THREE.Vector3(0, 1, 0);
+  v.scene.add(left, right);
 
   // the copy in the middle of the panel decides how much room is left at the
   // sides, so measure it rather than guessing from the panel's shape. A
@@ -1028,9 +1074,26 @@ addView('cta', (v) => {
       const e = easeOutBack(clamp01(v.seen * 1.3)) * clamp01((fit - 0.45) / 0.15);
       const x = halfW - gap / 2;
 
-      left.position.set(-x, Math.sin(t * 0.7) * 0.06, 0);
-      left.scale.setScalar(Math.max(0.001, e * fit));
-      left.rotation.y = pointer.x * 0.18 + Math.sin(t * 0.32) * 0.1;
+      [left, right].forEach((grp, k) => {
+        const side = k ? 1 : -1;
+        grp.position.set(side * x, Math.sin(t * 0.7 + k) * 0.06, 0);
+        grp.scale.setScalar(Math.max(0.001, e * fit));
+        grp.rotation.y = pointer.x * 0.18 + Math.sin(t * 0.32 + k * 0.8) * 0.1;
+      });
+
+      // the plane flies the curve on a loop, drawing the trail behind it
+      const p = (t * 0.14) % 1;
+      trailGeo.setDrawRange(0, Math.floor((trailCount * p) / 6) * 6);
+      plane.position.copy(flight.getPointAt(p));
+      plane.quaternion.setFromUnitVectors(UP, flight.getTangentAt(p).normalize());
+      plane.rotation.z += Math.sin(t * 1.4) * 0.05;
+      plane.scale.setScalar(1 + p * 0.14);
+      beads.forEach(({ m, back }, i) => {
+        const q = p - back;
+        m.visible = q > 0.02;
+        if (m.visible) m.position.copy(flight.getPointAt(q));
+        m.scale.setScalar(0.9 - i * 0.22);
+      });
 
       bars.forEach(({ m, h }, k) => {
         // each year's bar breathes, the last one hardest

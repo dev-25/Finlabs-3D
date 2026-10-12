@@ -1054,28 +1054,16 @@
       "source_location": "L182"
     },
     {
-      "id": "src_product_ui_wirefaqs",
-      "label": "wireFaqs()",
+      "id": "src_nav_setopen",
+      "label": "setOpen()",
       "_callable": true,
       "_origin": "ast",
       "community": 13,
       "community_name": "kc-blogs.js",
       "file_type": "code",
-      "norm_label": "wirefaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L48"
-    },
-    {
-      "id": "src_product_ui_wirefaqs_filterfaqs",
-      "label": "filterFaqs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "kc-blogs.js",
-      "file_type": "code",
-      "norm_label": "filterfaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L55"
+      "norm_label": "setopen()",
+      "source_file": "src/nav.js",
+      "source_location": "L16"
     },
     {
       "id": "src_solutions_ui_selectgoal",
@@ -1148,6 +1136,18 @@
       "norm_label": "inittheme()",
       "source_file": "src/theme.js",
       "source_location": "L49"
+    },
+    {
+      "id": "src_theme_ontheme",
+      "label": "onTheme()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "ontheme()",
+      "source_file": "src/theme.js",
+      "source_location": "L43"
     },
     {
       "id": "src_theme_paint",
@@ -1342,162 +1342,6 @@
       "source_location": "L24"
     },
     {
-      "id": "src_cloud_scene_asset",
-      "label": "asset()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "asset()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene",
-      "label": "buildCloudScene()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "buildcloudscene()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L47"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_canvastexture",
-      "label": "canvasTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "canvastexture()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L80"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_cloudat",
-      "label": "cloudAt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "cloudat()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L303"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L342"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_kick",
-      "label": "kick()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "kick()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L389"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L375"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L278"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_retarget",
-      "label": "retarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "retarget()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L310"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_start",
-      "label": "start()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "start()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L383"
-    },
-    {
-      "id": "src_cloud_scene_cloudgeometry",
-      "label": "cloudGeometry()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "cloudgeometry()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L30"
-    },
-    {
-      "id": "src_theme_ontheme",
-      "label": "onTheme()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "ontheme()",
-      "source_file": "src/theme.js",
-      "source_location": "L43"
-    },
-    {
-      "id": "src_product_page_runpiece",
-      "label": "runPiece()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "runpiece()",
-      "source_file": "src/product-page.js",
-      "source_location": "L37"
-    },
-    {
       "id": "src_partners_step",
       "label": "step()",
       "_callable": true,
@@ -1666,16 +1510,16 @@
       "source_location": "L39"
     },
     {
-      "id": "src_after_paint_onceloaded",
-      "label": "onceLoaded()",
+      "id": "src_product_page_runpiece",
+      "label": "runPiece()",
       "_callable": true,
       "_origin": "ast",
       "community": 22,
       "community_name": "after-paint.js",
       "file_type": "code",
-      "norm_label": "onceloaded()",
-      "source_file": "src/after-paint.js",
-      "source_location": "L46"
+      "norm_label": "runpiece()",
+      "source_file": "src/product-page.js",
+      "source_location": "L37"
     },
     {
       "id": "src_nav_drawline",
@@ -1688,18 +1532,6 @@
       "norm_label": "drawline()",
       "source_file": "src/nav.js",
       "source_location": "L45"
-    },
-    {
-      "id": "src_nav_setopen",
-      "label": "setOpen()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "setopen()",
-      "source_file": "src/nav.js",
-      "source_location": "L16"
     },
     {
       "id": "src_learngenie_climb_createclimb",
@@ -1784,6 +1616,138 @@
       "norm_label": "starshape()",
       "source_file": "src/learngenie-climb.js",
       "source_location": "L75"
+    },
+    {
+      "id": "src_cloud_scene_asset",
+      "label": "asset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "asset()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene",
+      "label": "buildCloudScene()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "buildcloudscene()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_canvastexture",
+      "label": "canvasTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "canvastexture()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_cloudat",
+      "label": "cloudAt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloudat()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L303"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L342"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_kick",
+      "label": "kick()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "kick()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L389"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L375"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L278"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_retarget",
+      "label": "retarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "retarget()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L310"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_start",
+      "label": "start()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "start()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L383"
+    },
+    {
+      "id": "src_cloud_scene_cloudgeometry",
+      "label": "cloudGeometry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloudgeometry()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L30"
     },
     {
       "id": "src_solutions_scene_awarenessslide",
@@ -1904,6 +1868,18 @@
       "norm_label": "rr()",
       "source_file": "src/solutions-scene.js",
       "source_location": "L107"
+    },
+    {
+      "id": "src_after_paint_onceloaded",
+      "label": "onceLoaded()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "home-scene.js",
+      "file_type": "code",
+      "norm_label": "onceloaded()",
+      "source_file": "src/after-paint.js",
+      "source_location": "L46"
     },
     {
       "id": "src_home_scene_accentmat",
@@ -2095,7 +2071,7 @@
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/home-scene.js",
-      "source_location": "L1154"
+      "source_location": "L1125"
     },
     {
       "id": "src_home_scene_geargeo",
@@ -2143,7 +2119,7 @@
       "file_type": "code",
       "norm_label": "handleresize()",
       "source_file": "src/home-scene.js",
-      "source_location": "L1196"
+      "source_location": "L1167"
     },
     {
       "id": "src_home_scene_labelsprite",
@@ -2179,7 +2155,7 @@
       "file_type": "code",
       "norm_label": "loop()",
       "source_file": "src/home-scene.js",
-      "source_location": "L1144"
+      "source_location": "L1115"
     },
     {
       "id": "src_home_scene_maketexture",
@@ -2251,7 +2227,7 @@
       "file_type": "code",
       "norm_label": "redrawtype()",
       "source_file": "src/home-scene.js",
-      "source_location": "L1100"
+      "source_location": "L1071"
     },
     {
       "id": "src_home_scene_rr",
@@ -2311,6 +2287,90 @@
       "file_type": "code",
       "norm_label": "selecttab()",
       "source_file": "src/about.js",
+      "source_location": "L34"
+    },
+    {
+      "id": "src_finaware_flow_createflow",
+      "label": "createFlow()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "createflow()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L82"
+    },
+    {
+      "id": "src_finaware_flow_createflow_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L189"
+    },
+    {
+      "id": "src_finaware_flow_createflow_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L245"
+    },
+    {
+      "id": "src_finaware_flow_createflow_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L214"
+    },
+    {
+      "id": "src_finaware_flow_drawstage",
+      "label": "drawStage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "drawstage()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L40"
+    },
+    {
+      "id": "src_finaware_flow_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "src_finaware_flow_stagepos",
+      "label": "stagePos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "stagepos()",
+      "source_file": "src/finaware-flow.js",
       "source_location": "L34"
     },
     {
@@ -3442,90 +3502,6 @@
       "source_location": "L310"
     },
     {
-      "id": "src_finaware_flow_createflow",
-      "label": "createFlow()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "createflow()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L82"
-    },
-    {
-      "id": "src_finaware_flow_createflow_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L189"
-    },
-    {
-      "id": "src_finaware_flow_createflow_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L245"
-    },
-    {
-      "id": "src_finaware_flow_createflow_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L214"
-    },
-    {
-      "id": "src_finaware_flow_drawstage",
-      "label": "drawStage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "drawstage()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L40"
-    },
-    {
-      "id": "src_finaware_flow_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L70"
-    },
-    {
-      "id": "src_finaware_flow_stagepos",
-      "label": "stagePos()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "stagepos()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L34"
-    },
-    {
       "id": "src_product_ui_asset",
       "label": "asset()",
       "_callable": true,
@@ -3584,6 +3560,30 @@
       "norm_label": "open()",
       "source_file": "src/product-ui.js",
       "source_location": "L97"
+    },
+    {
+      "id": "src_product_ui_wirefaqs",
+      "label": "wireFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "wirefaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_product_ui_wirefaqs_filterfaqs",
+      "label": "filterFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "filterfaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L55"
     },
     {
       "id": "src_product_ui_wiretabs",
@@ -6038,15 +6038,48 @@
       "source_location": "L1"
     },
     {
-      "id": "src_home",
-      "label": "home.js",
+      "id": "src_doc",
+      "label": "doc.js",
       "_origin": "ast",
       "community": 14,
       "community_name": "theme.js",
       "file_type": "code",
-      "norm_label": "home.js",
-      "source_file": "src/home.js",
+      "norm_label": "doc.js",
+      "source_file": "src/doc.js",
       "source_location": "L1"
+    },
+    {
+      "id": "src_doc_form",
+      "label": "form",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "form",
+      "source_file": "src/doc.js",
+      "source_location": "L49"
+    },
+    {
+      "id": "src_doc_note",
+      "label": "note",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "note",
+      "source_file": "src/doc.js",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_doc_toclinks",
+      "label": "tocLinks",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "toclinks",
+      "source_file": "src/doc.js",
+      "source_location": "L22"
     },
     {
       "id": "src_theme",
@@ -6137,92 +6170,169 @@
       "source_location": "L20"
     },
     {
-      "id": "src_cloud_scene",
-      "label": "cloud-scene.js",
+      "id": "package",
+      "label": "package.json",
       "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
+      "community": 17,
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "cloud-scene.js",
-      "source_file": "src/cloud-scene.js",
+      "norm_label": "package.json",
+      "source_file": "package.json",
       "source_location": "L1"
     },
     {
-      "id": "src_cloud_scene_clouds",
-      "label": "CLOUDS",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "clouds",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "src_doc",
-      "label": "doc.js",
+      "id": "package_dependencies",
+      "label": "dependencies",
       "_origin": "ast",
       "community": 17,
-      "community_name": "doc.js",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "doc.js",
-      "source_file": "src/doc.js",
-      "source_location": "L1"
+      "norm_label": "dependencies",
+      "source_file": "package.json",
+      "source_location": "L15"
     },
     {
-      "id": "src_doc_form",
-      "label": "form",
+      "id": "package_dependencies_three",
+      "label": "three",
       "_origin": "ast",
       "community": 17,
-      "community_name": "doc.js",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "form",
-      "source_file": "src/doc.js",
-      "source_location": "L49"
+      "norm_label": "three",
+      "source_file": "package.json",
+      "source_location": "L16"
     },
     {
-      "id": "src_doc_note",
-      "label": "note",
+      "id": "package_devdependencies",
+      "label": "devDependencies",
       "_origin": "ast",
       "community": 17,
-      "community_name": "doc.js",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "note",
-      "source_file": "src/doc.js",
-      "source_location": "L50"
+      "norm_label": "devdependencies",
+      "source_file": "package.json",
+      "source_location": "L12"
     },
     {
-      "id": "src_doc_toclinks",
-      "label": "tocLinks",
+      "id": "package_devdependencies_vite",
+      "label": "vite",
       "_origin": "ast",
       "community": 17,
-      "community_name": "doc.js",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "toclinks",
-      "source_file": "src/doc.js",
-      "source_location": "L22"
+      "norm_label": "vite",
+      "source_file": "package.json",
+      "source_location": "L13"
     },
     {
-      "id": "src_product_page",
-      "label": "product-page.js",
+      "id": "package_name",
+      "label": "name",
       "_origin": "ast",
       "community": 17,
-      "community_name": "doc.js",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "product-page.js",
-      "source_file": "src/product-page.js",
-      "source_location": "L1"
+      "norm_label": "name",
+      "source_file": "package.json",
+      "source_location": "L2"
     },
     {
-      "id": "src_product_page_doc",
-      "label": "doc",
+      "id": "package_private",
+      "label": "private",
       "_origin": "ast",
       "community": 17,
-      "community_name": "doc.js",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "doc",
-      "source_file": "src/product-page.js",
-      "source_location": "L22"
+      "norm_label": "private",
+      "source_file": "package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "package_scripts_i18n_extract",
+      "label": "i18n:extract",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "i18n:extract",
+      "source_file": "package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "package_scripts_preview",
+      "label": "preview",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "preview",
+      "source_file": "package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "package_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "package_version",
+      "label": "version",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "version",
+      "source_file": "package.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "ref_vite",
+      "label": "vite",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "vite",
+      "source_file": "package.json",
+      "source_location": "L13"
     },
     {
       "id": "src_partners",
@@ -6555,39 +6665,6 @@
       "source_location": "L22"
     },
     {
-      "id": "src_case_study_scene",
-      "label": "case-study-scene.js",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "case-study-scene.js",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_case_study_scene_canvas",
-      "label": "canvas",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "canvas",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "src_case_study_scene_host",
-      "label": "host",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "host",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L20"
-    },
-    {
       "id": "src_case_study_studies",
       "label": "studies",
       "_origin": "ast",
@@ -6621,6 +6698,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_home",
+      "label": "home.js",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "home.js",
+      "source_file": "src/home.js",
+      "source_location": "L1"
+    },
+    {
       "id": "src_main",
       "label": "main.js",
       "_origin": "ast",
@@ -6630,6 +6718,28 @@
       "norm_label": "main.js",
       "source_file": "src/main.js",
       "source_location": "L1"
+    },
+    {
+      "id": "src_product_page",
+      "label": "product-page.js",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "product-page.js",
+      "source_file": "src/product-page.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_product_page_doc",
+      "label": "doc",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "doc",
+      "source_file": "src/product-page.js",
+      "source_location": "L22"
     },
     {
       "id": "src_services",
@@ -6751,6 +6861,28 @@
       "norm_label": "steps",
       "source_file": "src/learngenie-climb.js",
       "source_location": "L25"
+    },
+    {
+      "id": "src_cloud_scene",
+      "label": "cloud-scene.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloud-scene.js",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_cloud_scene_clouds",
+      "label": "CLOUDS",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "clouds",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L21"
     },
     {
       "id": "src_solutions_scene_chips",
@@ -6948,7 +7080,7 @@
       "file_type": "code",
       "norm_label": "timer",
       "source_file": "src/home-scene.js",
-      "source_location": "L1133"
+      "source_location": "L1104"
     },
     {
       "id": "src_home_scene_toggle3d",
@@ -6959,7 +7091,7 @@
       "file_type": "code",
       "norm_label": "toggle3d",
       "source_file": "src/home-scene.js",
-      "source_location": "L1121"
+      "source_location": "L1092"
     },
     {
       "id": "src_home_scene_typefaces",
@@ -7083,158 +7215,59 @@
       "source_location": "L32"
     },
     {
-      "id": "package",
-      "label": "package.json",
+      "id": "src_case_study_scene",
+      "label": "case-study-scene.js",
       "_origin": "ast",
       "community": 35,
       "community_name": "three",
       "file_type": "code",
-      "norm_label": "package.json",
-      "source_file": "package.json",
+      "norm_label": "case-study-scene.js",
+      "source_file": "src/case-study-scene.js",
       "source_location": "L1"
     },
     {
-      "id": "package_dependencies",
-      "label": "dependencies",
+      "id": "src_case_study_scene_canvas",
+      "label": "canvas",
       "_origin": "ast",
       "community": 35,
       "community_name": "three",
       "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "package.json",
-      "source_location": "L15"
+      "norm_label": "canvas",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L21"
     },
     {
-      "id": "package_dependencies_three",
-      "label": "three",
+      "id": "src_case_study_scene_host",
+      "label": "host",
       "_origin": "ast",
       "community": 35,
       "community_name": "three",
       "file_type": "code",
-      "norm_label": "three",
-      "source_file": "package.json",
-      "source_location": "L16"
+      "norm_label": "host",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L20"
     },
     {
-      "id": "package_devdependencies",
-      "label": "devDependencies",
+      "id": "src_finaware_flow",
+      "label": "finaware-flow.js",
       "_origin": "ast",
       "community": 35,
       "community_name": "three",
       "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "package.json",
-      "source_location": "L12"
+      "norm_label": "finaware-flow.js",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L1"
     },
     {
-      "id": "package_devdependencies_vite",
-      "label": "vite",
+      "id": "src_finaware_flow_stages",
+      "label": "STAGES",
       "_origin": "ast",
       "community": 35,
       "community_name": "three",
       "file_type": "code",
-      "norm_label": "vite",
-      "source_file": "package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "package_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "package.json",
-      "source_location": "L2"
-    },
-    {
-      "id": "package_private",
-      "label": "private",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "private",
-      "source_file": "package.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "package.json",
-      "source_location": "L6"
-    },
-    {
-      "id": "package_scripts_build",
-      "label": "build",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "build",
-      "source_file": "package.json",
-      "source_location": "L8"
-    },
-    {
-      "id": "package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "package.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "package_scripts_i18n_extract",
-      "label": "i18n:extract",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "i18n:extract",
-      "source_file": "package.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "package_scripts_preview",
-      "label": "preview",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "preview",
-      "source_file": "package.json",
-      "source_location": "L9"
-    },
-    {
-      "id": "package_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "package.json",
-      "source_location": "L5"
-    },
-    {
-      "id": "package_version",
-      "label": "version",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "version",
-      "source_file": "package.json",
-      "source_location": "L3"
+      "norm_label": "stages",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L25"
     },
     {
       "id": "src_finexa_hub",
@@ -7334,17 +7367,6 @@
       "norm_label": "three",
       "source_file": "package.json",
       "source_location": "L16"
-    },
-    {
-      "id": "ref_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "three",
-      "file_type": "concept",
-      "norm_label": "vite",
-      "source_file": "package.json",
-      "source_location": "L13"
     },
     {
       "id": "src_services_scene_dottex",
@@ -7908,6 +7930,61 @@
       "source_location": "L1"
     },
     {
+      "id": "scripts_i18n_dates",
+      "label": "i18n-dates.mjs",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "i18n-dates.mjs",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_i18n_dates_idx",
+      "label": "idx",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "idx",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L20"
+    },
+    {
+      "id": "scripts_i18n_dates_months",
+      "label": "MONTHS",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "months",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L11"
+    },
+    {
+      "id": "scripts_i18n_dates_root",
+      "label": "ROOT",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "root",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L10"
+    },
+    {
+      "id": "scripts_i18n_dates_rules",
+      "label": "RULES",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "rules",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L22"
+    },
+    {
       "id": "scripts_i18n_ent",
       "label": "ENT",
       "_origin": "ast",
@@ -8214,28 +8291,6 @@
       "norm_label": "glowtex",
       "source_file": "src/solutions-scene.js",
       "source_location": "L404"
-    },
-    {
-      "id": "src_finaware_flow",
-      "label": "finaware-flow.js",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "finaware-flow.js",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_finaware_flow_stages",
-      "label": "STAGES",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "stages",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L25"
     },
     {
       "id": "src_product_ui",
@@ -14617,23 +14672,11 @@
       "id": "src_bang",
       "label": "src_bang",
       "_origin": "semantic",
-      "community": 14,
-      "community_name": "theme.js",
+      "community": 22,
+      "community_name": "after-paint.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_bang",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "src_product_screen",
-      "label": "src_product_screen",
-      "_origin": "semantic",
-      "community": 17,
-      "community_name": "doc.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "src_product_screen",
       "source_file": "",
       "type": "external"
     },
@@ -14676,11 +14719,24 @@
     {
       "id": "ref_node_url",
       "label": "ref_node_url",
+      "_origin": "semantic",
       "community": 5,
       "community_name": "i18n.mjs",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_node_url",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "src_product_screen",
+      "label": "src_product_screen",
+      "_origin": "semantic",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "src_product_screen",
       "source_file": "",
       "type": "external"
     }
@@ -15907,7 +15963,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/home-scene.js",
-      "source_location": "L1159",
+      "source_location": "L1130",
       "weight": 1.0
     },
     {
@@ -15919,7 +15975,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/home-scene.js",
-      "source_location": "L1161",
+      "source_location": "L1132",
       "weight": 1.0
     },
     {
@@ -15931,7 +15987,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/home-scene.js",
-      "source_location": "L1179",
+      "source_location": "L1150",
       "weight": 1.0
     },
     {
@@ -15991,7 +16047,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/home-scene.js",
-      "source_location": "L1151",
+      "source_location": "L1122",
       "weight": 1.0
     },
     {
@@ -16099,7 +16155,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/i18n.js",
-      "source_location": "L75",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -17899,7 +17955,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/home-scene.js",
-      "source_location": "L1144",
+      "source_location": "L1115",
       "weight": 1.0
     },
     {
@@ -18533,6 +18589,18 @@
       "context": "import",
       "source_file": "package.json",
       "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_i18n_dates",
+      "target": "scripts_i18n_locales",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -19433,6 +19501,54 @@
       "context": "import",
       "source_file": "vite.config.js",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_i18n_dates",
+      "target": "ref_node_fs",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_i18n_dates",
+      "target": "ref_node_path",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_i18n_dates",
+      "target": "ref_node_url",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_i18n_dates",
+      "target": "scripts_i18n",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -21163,6 +21279,50 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_i18n_dates",
+      "target": "scripts_i18n_dates_root",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_i18n_dates",
+      "target": "scripts_i18n_dates_months",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_i18n_dates",
+      "target": "scripts_i18n_dates_idx",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_i18n_dates",
+      "target": "scripts_i18n_dates_rules",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/i18n-dates.mjs",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_i18n_extract",
       "target": "scripts_i18n_extract_root",
       "relation": "contains",
@@ -22490,7 +22650,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/home-scene.js",
-      "source_location": "L1030",
+      "source_location": "L1012",
+      "weight": 1.0
+    },
+    {
+      "source": "src_home_scene",
+      "target": "src_home_scene_toggle3d",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/home-scene.js",
+      "source_location": "L1092",
+      "weight": 1.0
+    },
+    {
+      "source": "src_home_scene",
+      "target": "src_home_scene_timer",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/home-scene.js",
+      "source_location": "L1104",
       "weight": 1.0
     },
     {
@@ -22506,35 +22688,13 @@
     },
     {
       "source": "src_home_scene",
-      "target": "src_home_scene_toggle3d",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/home-scene.js",
-      "source_location": "L1121",
-      "weight": 1.0
-    },
-    {
-      "source": "src_home_scene",
-      "target": "src_home_scene_timer",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/home-scene.js",
-      "source_location": "L1133",
-      "weight": 1.0
-    },
-    {
-      "source": "src_home_scene",
       "target": "src_home_scene_frame",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/home-scene.js",
-      "source_location": "L1154",
+      "source_location": "L1125",
       "weight": 1.0
     },
     {
@@ -27273,7 +27433,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/home-scene.js",
-      "source_location": "L1112",
+      "source_location": "L1083",
       "weight": 1.0
     },
     {
@@ -27285,7 +27445,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/home-scene.js",
-      "source_location": "L1203",
+      "source_location": "L1174",
       "weight": 1.0
     },
     {
@@ -30969,5 +31129,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "386539c52079d66f88f5b4434bc633bdb945a309"
+  "built_at_commit": "5559459d80e50a71098a700f8d17932b8defa987"
 }

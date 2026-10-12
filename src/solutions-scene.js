@@ -706,91 +706,107 @@ function linePath(points) {
   return path;
 }
 
-// --- WEALTH MANAGEMENT (FINEXA GENNXT): a growing portfolio ----------
-// Coin stacks grow, a rupee turns overhead, a growth line draws itself
-// and an asset-allocation ring floats beside them.
+// --- CLOUD SOLUTIONS: a workload lifting off the rack -----------------
+// A server rack on the chip, three arcs carrying packets up into a solid
+// cloud above it, and a shield badge turning beside the cloud.
 {
-  const s = chipByKey.wealth;
+  const s = chipByKey.cloud;
   const A = s.accent.getHex();
   const g = new THREE.Group();
-  const coinMat = new THREE.MeshPhysicalMaterial({
-    color: A, metalness: 0.55, roughness: 0.25, clearcoat: 1, emissive: A, emissiveIntensity: 0.08,
+  const accent = accentMat(A, 0.18);
+  const lit = glowMat(A);
+
+  // the rack: a cabinet with four blade servers and their status lights
+  const rack = new THREE.Group();
+  const cabinet = new THREE.Mesh(rbox(1.1, 1.25, 0.72, 0.07), M.metal);
+  cabinet.position.y = 0.63;
+  rack.add(cabinet);
+  const lights = [];
+  for (let k = 0; k < 4; k++) {
+    const blade = new THREE.Mesh(rbox(0.92, 0.2, 0.06, 0.03), M.panel);
+    blade.position.set(0, 0.24 + k * 0.26, 0.37);
+    rack.add(blade);
+    const led = new THREE.Mesh(new THREE.SphereGeometry(0.035, 16, 16), lit);
+    led.position.set(0.37, 0.24 + k * 0.26, 0.42);
+    rack.add(led);
+    lights.push(led);
+  }
+  g.add(rack);
+
+  // the cloud itself — overlapping solid lobes, not a sprite
+  const cloud = new THREE.Group();
+  cloud.position.set(0, 2.25, -0.1);
+  const lobeMat = new THREE.MeshPhysicalMaterial({
+    color: 0xf2f7ff, roughness: 0.3, clearcoat: 0.9, clearcoatRoughness: 0.2,
   });
-  const coinGeo = new THREE.CylinderGeometry(0.34, 0.34, 0.1, 40);
-  const stacks = [[-0.74, 0.4, 4], [0, 0.05, 7], [0.74, 0.35, 10]].map(([x, z, n]) =>
-    Array.from({ length: n }, (_, k) => {
-      const c = new THREE.Mesh(coinGeo, coinMat);
-      c.position.set(x + ((k % 3) - 1) * 0.014, 0.05 + k * 0.104, z);
-      g.add(c);
-      return c;
+  [[-0.62, -0.04, 0.38], [-0.12, 0.2, 0.5], [0.46, 0.02, 0.42], [0.86, -0.12, 0.3]].forEach(([x, y, r]) => {
+    const lobe = new THREE.Mesh(new THREE.SphereGeometry(r, 28, 24), lobeMat);
+    lobe.position.set(x - 0.14, y, 0);
+    cloud.add(lobe);
+  });
+  const base = new THREE.Mesh(rbox(1.72, 0.34, 0.6, 0.16), lobeMat);
+  base.position.set(-0.02, -0.16, 0);
+  cloud.add(base);
+  const underline = new THREE.Mesh(rbox(1.1, 0.07, 0.07, 0.03), accent);
+  underline.position.set(-0.02, -0.36, 0.2);
+  cloud.add(underline);
+  g.add(cloud);
+
+  // three arcs from the rack up into the cloud, with packets riding them
+  const lanes = [-0.42, 0, 0.42].map((x, k) =>
+    new THREE.CatmullRomCurve3([
+      new THREE.Vector3(x * 0.6, 1.3, 0.3),
+      new THREE.Vector3(x * 1.35, 1.6 + k * 0.05, 0.1),
+      new THREE.Vector3(x * 1.2, 1.95, 0),
+      new THREE.Vector3(x * 0.55, 2.0, 0),
+    ])
+  );
+  lanes.forEach((lane) => {
+    const tube = new THREE.Mesh(new THREE.TubeGeometry(lane, 50, 0.018, 8, false), glowMat(A, 0.45));
+    g.add(tube);
+  });
+  const packetGeo = rbox(0.17, 0.17, 0.17, 0.04);
+  const packets = lanes.flatMap((lane, k) =>
+    [0, 0.5].map((off) => {
+      const m = new THREE.Mesh(packetGeo, accent);
+      g.add(m);
+      return { m, lane, off: off + k * 0.17 };
     })
   );
 
-  const rupeeTex = makeTexture(256, 256, (ctx, w) => {
-    ctx.fillStyle = '#ffffff';
-    ctx.beginPath();
-    ctx.arc(w / 2, w / 2, w / 2 - 2, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = s.accent;
-    ctx.lineWidth = 9;
-    ctx.beginPath();
-    ctx.arc(w / 2, w / 2, w / 2 - 22, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.fillStyle = s.accent;
-    ctx.font = '700 150px Inter, "Segoe UI", Arial, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('₹', w / 2, w / 2 + 8);
-  });
-  const big = new THREE.Group();
-  const edge = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.14, 56), coinMat);
-  edge.rotation.x = Math.PI / 2;
-  big.add(edge);
-  const faceMat = new THREE.MeshStandardMaterial({ map: rupeeTex, roughness: 0.35, metalness: 0.15 });
-  const front = new THREE.Mesh(new THREE.CircleGeometry(0.57, 56), faceMat);
-  front.position.z = 0.072;
-  const back = front.clone();
-  back.rotation.y = Math.PI;
-  back.position.z = -0.072;
-  big.add(front, back);
-  g.add(big);
+  // the shield: cloud that is ready for an audit
+  const shieldShape = new THREE.Shape();
+  shieldShape.moveTo(0, 0.42);
+  shieldShape.quadraticCurveTo(0.34, 0.3, 0.34, 0.06);
+  shieldShape.quadraticCurveTo(0.34, -0.3, 0, -0.46);
+  shieldShape.quadraticCurveTo(-0.34, -0.3, -0.34, 0.06);
+  shieldShape.quadraticCurveTo(-0.34, 0.3, 0, 0.42);
+  const shield = new THREE.Mesh(
+    new THREE.ExtrudeGeometry(shieldShape, { depth: 0.12, bevelEnabled: true, bevelSize: 0.03, bevelThickness: 0.03, bevelSegments: 2 }),
+    accent
+  );
+  const shieldPivot = new THREE.Group();
+  shieldPivot.position.set(1.35, 1.5, 0.3);
+  shieldPivot.add(shield);
+  g.add(shieldPivot);
 
-  const arrowPath = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(-1.1, 0.75, 0.7), new THREE.Vector3(-0.35, 1.05, 0.72),
-    new THREE.Vector3(0.35, 1.3, 0.7), new THREE.Vector3(1.1, 1.85, 0.6),
-  ]);
-  const arrowGeo = new THREE.TubeGeometry(arrowPath, 60, 0.035, 8, false);
-  const arrowMat = glowMat(A);
-  g.add(new THREE.Mesh(arrowGeo, arrowMat));
-  const tip = new THREE.Mesh(new THREE.ConeGeometry(0.11, 0.26, 20), arrowMat);
-  tip.position.copy(arrowPath.getPointAt(1));
-  tip.quaternion.setFromUnitVectors(Y_AXIS, arrowPath.getTangentAt(1).normalize());
-  g.add(tip);
-  const arrowCount = arrowGeo.index.count;
-
-  const ring = new THREE.Group();
-  ring.position.set(-1.12, 1.95, -0.35);
-  g.add(ring);
-  let from = 0;
-  [[2.6, accentMat(A, 0.2)], [1.9, M.panel], [1.6, accentMat(0x22c55e, 0.15)]].forEach(([arc, mat]) => {
-    const seg = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.1, 14, 40, arc - 0.07), mat);
-    seg.rotation.z = from;
-    ring.add(seg);
-    from += arc;
-  });
-
-  attach('wealth', g, (t, mix) => {
-    const grow = THREE.MathUtils.clamp(mix * 1.25, 0, 1);
-    stacks.forEach((coins) => coins.forEach((c, k) => (c.visible = k < Math.ceil(coins.length * grow))));
-    big.position.set(0, 2.2 + Math.sin(t * 1.2) * 0.08, -0.15);
-    big.rotation.y = t * 0.9;
-    const draw = THREE.MathUtils.clamp((mix - 0.3) / 0.7, 0, 1);
-    arrowGeo.setDrawRange(0, Math.floor((arrowCount * draw) / 6) * 6);
-    tip.visible = draw > 0.98;
-    ring.rotation.z = t * 0.45;
-    ring.rotation.y = Math.sin(t * 0.7) * 0.35;
-    ring.position.y = 1.95 + Math.sin(t * 1.3 + 1) * 0.07;
-    ring.scale.setScalar(Math.max(0.001, THREE.MathUtils.clamp(mix * 1.4 - 0.2, 0, 1)));
+  attach('cloud', g, (t, mix) => {
+    const up = THREE.MathUtils.clamp(mix * 1.3, 0, 1);
+    cloud.position.y = 2.25 + Math.sin(t * 0.9) * 0.08;
+    cloud.rotation.y = Math.sin(t * 0.4) * 0.18;
+    cloud.scale.setScalar(Math.max(0.001, up));
+    lights.forEach((led, k) => (led.visible = ((t * 1.6 + k * 0.5) % 1.4) > 0.35));
+    const flow = THREE.MathUtils.clamp((mix - 0.2) / 0.6, 0, 1);
+    packets.forEach(({ m, lane, off }) => {
+      const q = (t * 0.28 + off) % 1;
+      m.visible = flow > 0.05;
+      m.position.copy(lane.getPointAt(q));
+      m.rotation.set(q * 3, q * 4, 0);
+      m.scale.setScalar(Math.max(0.001, flow * (0.6 + Math.sin(q * Math.PI) * 0.5)));
+    });
+    shieldPivot.rotation.y = t * 0.8;
+    shieldPivot.position.y = 1.5 + Math.sin(t * 1.1 + 0.6) * 0.1;
+    shieldPivot.scale.setScalar(Math.max(0.001, THREE.MathUtils.clamp(mix * 1.4 - 0.25, 0, 1)));
   });
 }
 

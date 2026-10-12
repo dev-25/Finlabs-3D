@@ -785,13 +785,6 @@
   "contact.html",
   "brochure.html"
  ],
- "Finexa GenNxt": [
-  "index.html",
-  "products.html",
-  "solutions.html",
-  "contact.html",
-  "brochure.html"
- ],
  "Learngenie": [
   "index.html",
   "products.html",
@@ -830,6 +823,12 @@
   "contact.html",
   "brochure.html"
  ],
+ "Finexa GenNxt": [
+  "index.html",
+  "products.html",
+  "contact.html",
+  "brochure.html"
+ ],
  "Fiscus": [
   "index.html",
   "products.html",
@@ -858,9 +857,19 @@
   "services.html",
   "contact.html"
  ],
+ "Audit-ready by default": [
+  "products.html",
+  "solutions.html",
+  "products/finaware.html"
+ ],
  "Cloud Architecture Review": [
   "index.html",
   "services.html",
+  "contact.html"
+ ],
+ "Cloud Solutions": [
+  "index.html",
+  "solutions.html",
   "contact.html"
  ],
  "Digital Transformation Strategy": [
@@ -992,16 +1001,6 @@
   "products.html",
   "solutions.html",
   "products/finexa-gennxt.html"
- ],
- "Wealth management": [
-  "products.html",
-  "solutions.html",
-  "brochure.html"
- ],
- "Wealth Management": [
-  "index.html",
-  "solutions.html",
-  "contact.html"
  ],
  ", giving you a clear picture of your financial health in one central location.": [
   "products.html",
@@ -1348,10 +1347,6 @@
   "products/finexa-gennxt.html"
  ],
  "Audit & invoice": [
-  "products.html",
-  "products/finaware.html"
- ],
- "Audit-ready by default": [
   "products.html",
   "products/finaware.html"
  ],
@@ -4175,6 +4170,10 @@
   "products.html",
   "products/finexa.html"
  ],
+ "Wealth management": [
+  "products.html",
+  "brochure.html"
+ ],
  "Wealth management stack": [
   "products.html",
   "products/finexa-gennxt.html"
@@ -4190,6 +4189,10 @@
  "Website & App Development": [
   "index.html",
   "solutions.html"
+ ],
+ "Website and Application Development": [
+  "solutions.html",
+  "contact.html"
  ],
  "Welcome to Fiscus, where financial management becomes simple, efficient and convenient. With Fiscus you can effortlessly take control of your finances, making informed decisions that align with your financial goals.": [
   "products.html",
@@ -4939,9 +4942,6 @@
  "9 Reasons Why You Should Do Personal Financial Planning": [
   "knowledge-centre/blogs.html"
  ],
- "A better client experience": [
-  "solutions.html"
- ],
  "A central, encrypted repository with role-based access": [
   "solutions.html"
  ],
@@ -4989,9 +4989,6 @@
  ],
  "A full user always has the option of not providing the information which is not mandatory. You are solely responsible for maintaining confidentiality of the User password and user identification and all activities and transmission performed by the User through his user identification and shall be solely responsible for carrying out any online or off-line transaction involving credit cards / debit cards or such other forms of instruments or documents for making such transactions and Finlabs India assumes no responsibility or liability for their improper use of information relating to such usage of credit cards / debit cards used by the subscriber online / off-line.": [
   "privacy.html"
- ],
- "A fully integrated digital platform for wealth management firms, family offices and distributors. Aggregate every asset your clients hold, give relationship managers insights they can act on, and give clients a clear view of their money — from onboarding through to revenue reconciliation, on web and mobile.": [
-  "solutions.html"
  ],
  "A genuine interest in financial technology and innovation": [
   "careers.html"
@@ -5052,6 +5049,9 @@
  ],
  "A short call on Microsoft Teams about what you need.": [
   "services.html"
+ ],
+ "A smaller monthly bill": [
+  "solutions.html"
  ],
  "A target architecture and migration sequence": [
   "services.html"
@@ -5389,6 +5389,9 @@
  "Award · Mint W3 Awards 2023": [
   "about.html"
  ],
+ "AWS &middot; Azure &middot; Google Cloud": [
+  "solutions.html"
+ ],
  "AWS Backup": [
   "services/cloud.html"
  ],
@@ -5470,6 +5473,9 @@
  "Backup and disaster recovery": [
   "services/cloud.html"
  ],
+ "Backups, disaster recovery and 24×7 monitoring with audit trails": [
+  "solutions.html"
+ ],
  "Bajaj Finserv": [
   "index.html"
  ],
@@ -5545,6 +5551,9 @@
  "Book a call with us on Microsoft Teams": [
   "contact.html"
  ],
+ "Book a cloud review": [
+  "solutions.html"
+ ],
  "Book a Compliance Automation demo": [
   "solutions.html"
  ],
@@ -5565,9 +5574,6 @@
  ],
  "Book a Strategy Call": [
   "index.html"
- ],
- "Book a Wealth Management demo": [
-  "solutions.html"
  ],
  "Book an audit conversation": [
   "services.html"
@@ -5595,9 +5601,6 @@
  ],
  "BSE StAR MF": [
   "partners.html"
- ],
- "BSE StAR MF, MFU and KYC API integrations built in": [
-  "solutions.html"
  ],
  "Build a culture of accountability, continuous improvement and technical excellence": [
   "careers.html"
@@ -5818,6 +5821,9 @@
  "Cloud": [
   "brochure.html"
  ],
+ "Cloud & infrastructure": [
+  "solutions.html"
+ ],
  "Cloud Armor": [
   "services/cloud.html"
  ],
@@ -5848,6 +5854,9 @@
  "Cloud readiness assessment": [
   "services/cloud.html"
  ],
+ "Cloud readiness assessment and a migration plan, app by app": [
+  "solutions.html"
+ ],
  "Cloud Run": [
   "services/cloud.html"
  ],
@@ -5859,6 +5868,9 @@
  ],
  "cloud services for BFSI, AWS migration, Microsoft Azure, Google Cloud, cloud consulting India, DevSecOps, disaster recovery, managed cloud services, cloud modernisation for banks, cloud for NBFCs and fintechs": [
   "services/cloud.html"
+ ],
+ "Cloud solutions": [
+  "solutions.html"
  ],
  "Cloud SQL": [
   "services/cloud.html"
@@ -5986,6 +5998,9 @@
  "Corporate websites, microsites and campaign landing pages": [
   "solutions.html"
  ],
+ "Cost right-sizing and FinOps reporting every month": [
+  "solutions.html"
+ ],
  "Courts at Mumbai, India alone shall have the exclusive jurisdiction in all matters relating to Finlabs India and these Terms and Conditions, irrespective of the territory and jurisdiction of your access to Finlabs India.": [
   "terms.html"
  ],
@@ -6074,6 +6089,9 @@
   "careers.html"
  ],
  "Delivered by": [
+  "solutions.html"
+ ],
+ "Delivered on": [
   "solutions.html"
  ],
  "Delivery metrics tracked against DORA": [
@@ -6409,11 +6427,11 @@
  "Explore a range of innovative financial tools designed to streamline your operations and maximize growth.": [
   "index.html"
  ],
+ "Explore cloud services": [
+  "solutions.html"
+ ],
  "Explore Finexa": [
   "products.html"
- ],
- "Explore Finexa GenNxt": [
-  "solutions.html"
  ],
  "Explore Fiscus": [
   "products.html"
@@ -6450,9 +6468,6 @@
  ],
  "Exposure to modern backend technologies, practices and deployment processes": [
   "careers.html"
- ],
- "Family offices": [
-  "solutions.html"
  ],
  "Fast-growing platforms that want to ship quickly, with security and cost under control.": [
   "services/cloud.html"
@@ -6691,7 +6706,7 @@
  "Finlabs services for financial institutions — UI/UX, application and infrastructure audits, cybersecurity, cloud architecture review and digital transformation strategy.": [
   "services.html"
  ],
- "Finlabs solutions for financial services — Wealth Management on Finexa GenNxt, Website and Application Development, Investor Awareness Programs on Finaware, Robo Advisory, Data Analytics and Visualisation, Document Management and Regulatory Compliance Automation.": [
+ "Finlabs solutions for financial services — Cloud Solutions on AWS, Azure and Google Cloud, Website and Application Development, Investor Awareness Programs on Finaware, Robo Advisory, Data Analytics and Visualisation, Document Management and Regulatory Compliance Automation.": [
   "solutions.html"
  ],
  "Finlabs was a finalist at India FinTech Forum’s IFTA 2023 for Best Initiative for Financial Literacy. Online: 30–31 October 2023; in person: 1 November 2023 at Courtyard by Marriott, Mumbai.": [
@@ -6718,7 +6733,7 @@
  "Fintech Program with Hinduja Foundation": [
   "about.html"
  ],
- "fintech solutions, wealth management solution, website and application development, web development company india, fintech app development, investor awareness programs, robo advisory, data analytics and visualisation, document management, regulatory compliance automation, ReguSure, RegTech India": [
+ "fintech solutions, cloud solutions for financial services, cloud migration india, website and application development, web development company india, fintech app development, investor awareness programs, robo advisory, data analytics and visualisation, document management, regulatory compliance automation, ReguSure, RegTech India": [
   "solutions.html"
  ],
  "Fintech startups": [
@@ -7032,9 +7047,6 @@
  ],
  "High ownership — you act without waiting for direction": [
   "careers.html"
- ],
- "Higher AUM per RM": [
-  "solutions.html"
  ],
  "Hinduja Foundation": [
   "index.html"
@@ -7462,9 +7474,6 @@
  "Learning & Development App": [
   "products.html"
  ],
- "Learning and Development": [
-  "contact.html"
- ],
  "Learning Hub Launch": [
   "about.html"
  ],
@@ -7473,6 +7482,9 @@
  ],
  "Legal compliance": [
   "privacy.html"
+ ],
+ "Less downtime": [
+  "solutions.html"
  ],
  "Let’s build the next decade together": [
   "about.html"
@@ -7642,6 +7654,9 @@
  "Migration tooling": [
   "services/cloud.html"
  ],
+ "Migration, hosting and FinOps": [
+  "solutions.html"
+ ],
  "Milestones since 2016": [
   "about.html"
  ],
@@ -7661,9 +7676,6 @@
   "services.html"
  ],
  "Model portfolios": [
-  "solutions.html"
- ],
- "Model portfolios, recommendations and rebalancing": [
   "solutions.html"
  ],
  "Modern stacks: React or Angular, Node.js, Python, Java/Spring Boot, Flutter, AWS/Azure/GCP": [
@@ -7693,14 +7705,11 @@
  "Move to the cloud": [
   "services/cloud.html"
  ],
- "Multi-asset aggregation into one consolidated portfolio view": [
+ "Move your platforms to the cloud without losing a night’s sleep. We review what you run today, plan the migration application by application, build a landing zone that meets RBI and SEBI expectations, and then keep it running — right-sized, monitored, backed up and ready for the next audit.": [
   "solutions.html"
  ],
  "Multi-Asset Analytics": [
   "products.html"
- ],
- "Multi-asset wealth platform": [
-  "solutions.html"
  ],
  "Mumbai · Delhi": [
   "services/cloud.html"
@@ -7827,9 +7836,6 @@
  ],
  "One of the simplest yet most effective ways of ensuring that you have enough money to take care of your critical goals is to start early and stay invested for the long term. The combined effect of these three factors is truly magical, but it is more to do with pure mathematics than any sort of magic.": [
   "knowledge-centre/blogs.html"
- ],
- "One platform, from the back office to the end client": [
-  "solutions.html"
  ],
  "One team, ten years of building": [
   "about.html"
@@ -7977,6 +7983,9 @@
  ],
  "Pay for the cloud you need — and nothing you don't": [
   "index.html"
+ ],
+ "Pay for the cloud you need — and nothing you don’t": [
+  "solutions.html"
  ],
  "Pay for the cloud you need — and nothing you don't.": [
   "services.html"
@@ -8410,9 +8419,6 @@
  "Retirement and pension": [
   "brochure.html"
  ],
- "Revenue tracked and reconciled": [
-  "solutions.html"
- ],
  "Review workflows, e-sign and retention policies": [
   "solutions.html"
  ],
@@ -8424,9 +8430,6 @@
  ],
  "Ritwika Roy, Founder’s Office — view profile": [
   "about.html"
- ],
- "RM and client dashboards with real-time reports": [
-  "solutions.html"
  ],
  "Robo advisory, analytics, NPS, documents, compliance — and the practices around them": [
   "brochure.html"
@@ -8542,6 +8545,9 @@
  "Secure coding practices and code review": [
   "careers.html"
  ],
+ "Secure landing zones on AWS, Azure or Google Cloud": [
+  "solutions.html"
+ ],
  "Security and cloud reviews": [
   "services.html"
  ],
@@ -8620,7 +8626,7 @@
  "Services we build with most": [
   "services/cloud.html"
  ],
- "Seven solutions for wealth managers, distributors, advisers, AMCs and financial institutions — from wealth management and robo-advisory to investor awareness, websites and apps, analytics, documents and compliance. Start with the one you need today and add more as you grow.": [
+ "Seven solutions for wealth managers, distributors, advisers, AMCs and financial institutions — from cloud and robo-advisory to investor awareness, websites and apps, analytics, documents and compliance. Start with the one you need today and add more as you grow.": [
   "solutions.html"
  ],
  "Severability of Provisions": [
@@ -8713,7 +8719,7 @@
  "solutions": [
   "index.html"
  ],
- "Solutions — Wealth, Websites & Apps, IAP and Compliance | Finlabs": [
+ "Solutions — Cloud, Websites & Apps, IAP and Compliance | Finlabs": [
   "solutions.html"
  ],
  "Solutions and services": [
@@ -9493,9 +9499,6 @@
  "Wealth Firms · Enterprises": [
   "products.html"
  ],
- "Wealth management firms": [
-  "solutions.html"
- ],
  "Wealth Management Platform": [
   "products.html"
  ],
@@ -9521,9 +9524,6 @@
   "solutions.html"
  ],
  "Website & Application Development": [
-  "solutions.html"
- ],
- "Website and Application Development": [
   "solutions.html"
  ],
  "website Privacy Policy": [
