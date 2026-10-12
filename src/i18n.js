@@ -62,10 +62,8 @@ export function mountSwitcher() {
   button.className = 'lang__btn';
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-label', t('Choose a language'));
-  button.innerHTML =
-    '<svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">' +
-    '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>' +
-    `<span>${(LOCALES.find((l) => l.code === lang) || LOCALES[0]).short}</span>`;
+  // the short code alone: EN, हि, मर
+  button.innerHTML = `<span>${(LOCALES.find((l) => l.code === lang) || LOCALES[0]).short}</span>`;
 
   const list = document.createElement('div');
   list.className = 'lang__menu';

@@ -305,12 +305,10 @@
 }
 
 @media (max-width: 520px) {
-  /* just the globe: the two-letter label is the first thing to go */
-  .lang__btn span { display: none; }
-  .lang__btn { padding: 0 8px; }
+  .lang__btn { padding: 0 9px; }
 }
 
 @media (max-width: 480px) {
   /* down a size with the theme toggle beside it */
-  .lang__btn { height: 36px; padding: 0 7px; }
+  .lang__btn { height: 36px; padding: 0 8px; }
 }

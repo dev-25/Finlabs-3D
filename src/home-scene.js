@@ -992,27 +992,9 @@ addView('cta', (v) => {
   left.add(floor);
 
 
-  // RIGHT — the money at the middle of it, and the platform around it
-  const right = new THREE.Group();
-  const rGlow = softGlow(3.4, 0.24);
-  rGlow.position.z = -0.9;
-  right.add(rGlow);
-  // the rings turn around a lit point, now that the chip is gone
-  const core = new THREE.Mesh(new THREE.SphereGeometry(0.17, 28, 20), glowMat(0xdff0ff));
-  right.add(core);
-  const rings = [0, 1].map((k) => {
-    const r = new THREE.Mesh(new THREE.TorusGeometry(0.78, 0.014, 8, 84), glowMat(0x9ae6ff, 0.55));
-    r.rotation.set(k ? 1.15 : 0.45, k ? 0.55 : -0.4, 0);
-    right.add(r);
-    return r;
-  });
-  const beads = [[0x7cb0ff, 0.09, 1.0], [0xa5f3fc, 0.075, -0.72], [0xe9f1ff, 0.065, 1.35]].map(([hex, r, sp], k) => {
-    const m = new THREE.Mesh(new THREE.SphereGeometry(r, 24, 18), glowMat(hex, 0.95));
-    right.add(m);
-    return { m, sp, ring: k % 2 };
-  });
-
-  v.scene.add(left, right);
+  // The right of the panel is empty on purpose: the ring system that used
+  // to turn there is gone, and the columns carry the panel on their own.
+  v.scene.add(left);
 
   // the copy in the middle of the panel decides how much room is left at the
   // sides, so measure it rather than guessing from the panel's shape. A
@@ -1046,26 +1028,15 @@ addView('cta', (v) => {
       const e = easeOutBack(clamp01(v.seen * 1.3)) * clamp01((fit - 0.45) / 0.15);
       const x = halfW - gap / 2;
 
-      [left, right].forEach((grp, i) => {
-        grp.position.set(i ? x : -x, Math.sin(t * 0.7 + i * 1.6) * 0.06, 0);
-        grp.scale.setScalar(Math.max(0.001, e * fit));
-        grp.rotation.y = pointer.x * 0.18 + Math.sin(t * 0.32 + i) * 0.1;
-      });
+      left.position.set(-x, Math.sin(t * 0.7) * 0.06, 0);
+      left.scale.setScalar(Math.max(0.001, e * fit));
+      left.rotation.y = pointer.x * 0.18 + Math.sin(t * 0.32) * 0.1;
 
       bars.forEach(({ m, h }, k) => {
         // each year's bar breathes, the last one hardest
         const s = 1 + Math.sin(t * 1.1 + k * 0.7) * (0.02 + k * 0.012);
         m.scale.y = s;
         m.position.y = BASE + (h * s) / 2;
-      });
-
-      core.scale.setScalar(1 + Math.sin(t * 1.6) * 0.09);
-      rings.forEach((r, k) => { r.rotation.z = (k ? -1 : 1) * t * 0.35; });
-      beads.forEach(({ m, sp, ring }, k) => {
-        const a = t * sp + k * 2.1;
-        const R = 0.78;
-        const p = new THREE.Vector3(Math.cos(a) * R, Math.sin(a) * R, 0).applyEuler(rings[ring].rotation);
-        m.position.copy(p);
       });
 
     },
