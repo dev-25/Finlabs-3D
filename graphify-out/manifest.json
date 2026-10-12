@@ -1656,15 +1656,15 @@
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1791819171.1674612,
-    "seen": 1791819176.410244,
-    "ast_hash": "3ed966be545548ba5a1840ce2a19b9c9",
+    "mtime": 1791819778.4008746,
+    "seen": 1791819783.397742,
+    "ast_hash": "9628eb316b347d384c29aee2441eeb3d",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1791819171.1717393,
-    "seen": 1791819176.4102452,
-    "ast_hash": "f4788de65ce81fc4c742b2337f5ef5d9",
+    "mtime": 1791819778.4050608,
+    "seen": 1791819783.397743,
+    "ast_hash": "772b8ca5ad86da2f4b4e4a3b823cc942",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
