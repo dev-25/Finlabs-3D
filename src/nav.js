@@ -8,13 +8,15 @@
  * wired up by theme.js.
  * ===================================================== */
 
+import { t, mountSwitcher } from './i18n.js';
+
 const nav = document.querySelector('.site-nav');
 const menu = nav?.querySelector('.site-nav__menu');
 
 function setOpen(open) {
   nav.classList.toggle('open', open);
   menu.setAttribute('aria-expanded', String(open));
-  menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  menu.setAttribute('aria-label', open ? t('Close menu') : t('Open menu'));
 }
 
 if (nav && menu) {
@@ -50,3 +52,6 @@ window.addEventListener('resize', drawLine);
 // pages whose height settles after load (images, the About journey) re-measure
 new ResizeObserver(drawLine).observe(document.documentElement);
 drawLine();
+
+// the language switcher sits beside the theme toggle on every page
+mountSwitcher();

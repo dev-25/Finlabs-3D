@@ -1,4 +1,5 @@
 import './doc.css';
+import { t } from './i18n.js';
 import './nav.css';
 import './nav.js';
 import './whatsapp.js';
@@ -37,7 +38,10 @@ function filter() {
     job.hidden = !hit;
     if (hit) shown++;
   });
-  count.textContent = shown === jobs.length ? `${jobs.length} open roles` : `${shown} of ${jobs.length} roles`;
+  count.textContent =
+    shown === jobs.length
+      ? t('{n} open roles', { n: jobs.length })
+      : t('{n} of {total} roles', { n: shown, total: jobs.length });
   empty.hidden = shown > 0;
 }
 

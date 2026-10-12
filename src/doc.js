@@ -1,4 +1,5 @@
 import './doc.css';
+import { t } from './i18n.js';
 import './nav.css';
 import './nav.js';
 import './whatsapp.js';
@@ -92,6 +93,6 @@ form?.addEventListener('submit', (e) => {
 
   window.location.href =
     `mailto:info@finlabsindia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  note.textContent = 'Your email app should open with the message ready to send.';
+  note.textContent = t('Your email app should open with the message ready to send.');
   note.className = 'form__note ok';
 });

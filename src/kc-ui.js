@@ -1,4 +1,5 @@
 import './doc.css';
+import { t } from './i18n.js';
 import './nav.css';
 import './nav.js';
 import './whatsapp.js';
@@ -81,12 +82,16 @@ export function createList({ list, group, noun, sorters, page = 0 }) {
     if (count) {
       const filtered = matches.length !== items.length;
       count.textContent = filtered
-        ? `${matches.length} of ${items.length} ${noun}`
-        : `Showing all ${items.length} ${noun}`;
+        ? t('{n} of {total} {noun}', { n: matches.length, total: items.length, noun: t(noun) })
+        : t('Showing all {n} {noun}', { n: items.length, noun: t(noun) });
     }
     if (empty) empty.hidden = matches.length > 0;
     if (more) more.parentElement.hidden = !page || matches.length <= shown;
-    if (more) more.textContent = `Show more ${noun} (${matches.length - Math.min(shown, matches.length)} left)`;
+    if (more)
+      more.textContent = t('Show more {noun} ({n} left)', {
+        noun: t(noun),
+        n: matches.length - Math.min(shown, matches.length),
+      });
     listeners.forEach((fn) => fn(matches));
   }
 

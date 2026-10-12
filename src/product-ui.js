@@ -8,6 +8,8 @@
  * piece, its tabs, its FAQ search and its pop-up.
  * ===================================================== */
 
+import { t } from './i18n.js';
+
 // Each piece brings three.js with it, so it is fetched only when a page
 // actually asks for that piece — and only after the page itself is up.
 const SCENES = {
@@ -60,8 +62,8 @@ export function wireFaqs(docs) {
         if (!hit) item.open = false;
       });
       count.textContent = q
-        ? `${shown} of ${questions.length} questions match “${search.value.trim()}”`
-        : `${questions.length} questions`;
+        ? t('{n} of {total} questions match “{q}”', { n: shown, total: questions.length, q: search.value.trim() })
+        : t('{n} questions', { n: questions.length });
     }
 
     search.addEventListener('input', filterFaqs);

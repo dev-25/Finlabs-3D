@@ -7,6 +7,8 @@
  * via onSceneChange() and onFitChange().
  * ===================================================== */
 
+import { t } from './i18n.js';
+
 /**
  * The seven solutions, in page order. Shared with the 3D board: `label`
  * is printed on the chip (a line break splits it in two) and `sub` under
@@ -150,7 +152,8 @@ function selectGoal(btn) {
     p.classList.toggle('match', on);
     p.style.order = on ? fitKeys.indexOf(p.dataset.pick) : 20;
   });
-  if (fitCount) fitCount.textContent = `${fitKeys.length} of ${SOLUTIONS.length} solutions match`;
+  if (fitCount)
+    fitCount.textContent = t('{n} of {total} solutions match', { n: fitKeys.length, total: SOLUTIONS.length });
   if (fitCta) {
     fitCta.dataset.solution = BY_KEY[fitKeys[0]].name;
     fitCta.dataset.message = `I'm interested in: ${fitKeys.map((k) => BY_KEY[k].name).join(', ')}.`;
@@ -227,7 +230,7 @@ form?.addEventListener('submit', (e) => {
 
   window.location.href =
     `mailto:info@finlabsindia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  note.textContent = 'Your email app should open with the request ready to send.';
+  note.textContent = t('Your email app should open with the request ready to send.');
   note.className = 'form__note ok';
 });
 

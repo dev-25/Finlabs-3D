@@ -1,4 +1,5 @@
 import { createList, byDate, lockScroll, trapTab, hashRouter, asset, REDUCED } from './kc-ui.js';
+import { t } from './i18n.js';
 
 /* =====================================================
  * KNOWLEDGE CENTRE — BLOGS
@@ -79,7 +80,7 @@ function fill(slug) {
   tag.dataset.tone = cardTag.dataset.tone;
   time.textContent = li.querySelector('time').textContent;
   time.dateTime = li.dataset.date;
-  mins.textContent = `· ${link.dataset.minutes} min read`;
+  mins.textContent = t('· {n} min read', { n: link.dataset.minutes });
   title.textContent = li.querySelector('.kc-card__title').textContent;
   // posts that open on their own banner don't need the cover as well
   cover.hidden = link.dataset.leadFigure === 'true';
@@ -93,7 +94,7 @@ function fill(slug) {
   document.title = `${title.textContent} — Finlabs Blog`;
 
   body.classList.add('is-loading');
-  body.innerHTML = '<div class="kc-skeleton" aria-label="Loading the article"><i></i><i></i><i></i><i></i><i></i><i></i></div>';
+  body.innerHTML = `<div class="kc-skeleton" aria-label="${t('Loading the article')}"><i></i><i></i><i></i><i></i><i></i><i></i></div>`;
   const mine = ++token;
   fetchPost(slug)
     .then(({ html }) => {
@@ -105,7 +106,7 @@ function fill(slug) {
     .catch(() => {
       if (mine !== token) return;
       body.classList.remove('is-loading');
-      body.innerHTML = '<p>This article didn’t load. Check your connection and try again.</p><p><button class="kc-btn kc-btn--ghost" type="button" data-retry>Try again</button></p>';
+      body.innerHTML = `<p>${t('This article didn’t load. Check your connection and try again.')}</p><p><button class="kc-btn kc-btn--ghost" type="button" data-retry>${t('Try again')}</button></p>`;
     });
 
   // previous / next follow the list as it's currently filtered and sorted
@@ -211,7 +212,7 @@ reader.querySelector('.kc-reader__copy').addEventListener('click', async () => {
   } catch {
     ok = false;
   }
-  toast.textContent = ok ? 'Link copied' : url;
+  toast.textContent = ok ? t('Link copied') : url;
   toast.classList.add('is-on');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove('is-on'), ok ? 1800 : 5000);

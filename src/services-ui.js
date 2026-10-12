@@ -6,6 +6,8 @@
  * buttons. The 3D scene subscribes via onSceneChange().
  * ===================================================== */
 
+import { t } from './i18n.js';
+
 const ACCENT_HEX = {
   core: '#3b82f6',
   uiux: '#8b5cf6',
@@ -153,7 +155,7 @@ form?.addEventListener('submit', (e) => {
   emailEl.setAttribute('aria-invalid', String(!EMAIL_RE.test(email)));
 
   if (!name || !EMAIL_RE.test(email)) {
-    note.textContent = !name ? 'Please add your name.' : 'Please enter a valid work email.';
+    note.textContent = !name ? t('Please add your name.') : t('Please enter a valid work email.');
     note.className = 'form__note err';
     (!name ? nameEl : emailEl).focus();
     return;
@@ -176,7 +178,7 @@ form?.addEventListener('submit', (e) => {
 
   window.location.href =
     `mailto:info@finlabsindia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  note.textContent = 'Your email app should open with the enquiry ready to send.';
+  note.textContent = t('Your email app should open with the enquiry ready to send.');
   note.className = 'form__note ok';
 });
 

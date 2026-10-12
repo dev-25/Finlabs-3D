@@ -1,0 +1,2162 @@
+{
+  ".claude/launch.json": {
+    "mtime": 1789582690.1789916,
+    "seen": 1790526272.0576901,
+    "ast_hash": "a24f68f3a5694cc08ad15ef76ddf723f",
+    "semantic_hash": "a24f68f3a5694cc08ad15ef76ddf723f"
+  },
+  "package.json": {
+    "mtime": 1788882687.9788468,
+    "seen": 1790526272.057694,
+    "ast_hash": "cfb85533c2f9175a2c742d645cc00a41",
+    "semantic_hash": "cfb85533c2f9175a2c742d645cc00a41"
+  },
+  "public/knowledge-centre/blogs/12-financial-rules-to-rock-your-world-in-2024-and-beyond.json": {
+    "mtime": 1789642072.2802618,
+    "seen": 1790526272.057695,
+    "ast_hash": "5e6dd325685dc19915a792d28f980d22",
+    "semantic_hash": "5e6dd325685dc19915a792d28f980d22"
+  },
+  "public/knowledge-centre/blogs/2024-in-review-major-financial-events-in-india-that-impacted-investors.json": {
+    "mtime": 1789642071.2835054,
+    "seen": 1790526272.057696,
+    "ast_hash": "efa8e88653db7e9ec5eac58d16ad6ca9",
+    "semantic_hash": "efa8e88653db7e9ec5eac58d16ad6ca9"
+  },
+  "public/knowledge-centre/blogs/4-financial-resolutions-you-must-make-in-2019.json": {
+    "mtime": 1789642072.5616198,
+    "seen": 1790526272.057696,
+    "ast_hash": "8a1b2ec5b84cfca76e0bc8f3f3962db2",
+    "semantic_hash": "8a1b2ec5b84cfca76e0bc8f3f3962db2"
+  },
+  "public/knowledge-centre/blogs/7-myths-of-financial-planning-finlabs-india.json": {
+    "mtime": 1789642072.68633,
+    "seen": 1790526272.057697,
+    "ast_hash": "c1a2dd07caa23b9f22dae247ccca32a5",
+    "semantic_hash": "c1a2dd07caa23b9f22dae247ccca32a5"
+  },
+  "public/knowledge-centre/blogs/9-reasons-why-you-should-do-personal-financial-planning.json": {
+    "mtime": 1789642072.3899217,
+    "seen": 1790526272.057697,
+    "ast_hash": "498fe9245b50f9f52d416fef6aa0f002",
+    "semantic_hash": "498fe9245b50f9f52d416fef6aa0f002"
+  },
+  "public/knowledge-centre/blogs/a-divided-world-can-finance-be-the-bridge.json": {
+    "mtime": 1789642071.9642053,
+    "seen": 1790526272.057698,
+    "ast_hash": "c3b47b7db72ef41bcf93f9faf279f334",
+    "semantic_hash": "c3b47b7db72ef41bcf93f9faf279f334"
+  },
+  "public/knowledge-centre/blogs/a-golden-window-for-mfds.json": {
+    "mtime": 1789642070.8200955,
+    "seen": 1790526272.057698,
+    "ast_hash": "61353a29dc76843d363a96887628855c",
+    "semantic_hash": "61353a29dc76843d363a96887628855c"
+  },
+  "public/knowledge-centre/blogs/adapt-evolve-excel-the-power-of-continuous-learning-in-the-business-world.json": {
+    "mtime": 1789642071.7688515,
+    "seen": 1790526272.057699,
+    "ast_hash": "52193e27d2efbb609a0faa240b623651",
+    "semantic_hash": "52193e27d2efbb609a0faa240b623651"
+  },
+  "public/knowledge-centre/blogs/continuous-learning-why-its-essential-in-todays-job-market.json": {
+    "mtime": 1789642071.2022038,
+    "seen": 1790526272.057699,
+    "ast_hash": "0e7243c395519870066ca191c88d99ec",
+    "semantic_hash": "0e7243c395519870066ca191c88d99ec"
+  },
+  "public/knowledge-centre/blogs/cyber-incident-response-in-india-a-basic-guide.json": {
+    "mtime": 1789642070.4396033,
+    "seen": 1790526272.0577002,
+    "ast_hash": "e0f2ff6f5b731f250064b1bb88aee790",
+    "semantic_hash": "e0f2ff6f5b731f250064b1bb88aee790"
+  },
+  "public/knowledge-centre/blogs/driving-financial-inclusion-at-scale.json": {
+    "mtime": 1789642071.0180166,
+    "seen": 1790526272.0577002,
+    "ast_hash": "a5c7dc01e64c82352fae1667185c181c",
+    "semantic_hash": "a5c7dc01e64c82352fae1667185c181c"
+  },
+  "public/knowledge-centre/blogs/empowering-her-wallet-decoding-the-financial-landscape-of-urban-indian-women.json": {
+    "mtime": 1789642072.1541383,
+    "seen": 1790526272.0577002,
+    "ast_hash": "8455082c425fb8e3346936f9b86aef8b",
+    "semantic_hash": "8455082c425fb8e3346936f9b86aef8b"
+  },
+  "public/knowledge-centre/blogs/finlabs-india-collaborates-with-lseg-london-stock-exchange-group-to-drive-innovation-in-wealth-tech-solutions.json": {
+    "mtime": 1789642071.3999305,
+    "seen": 1790526272.057701,
+    "ast_hash": "d2c9ff3cb01915fd47c30c4c304c4aec",
+    "semantic_hash": "d2c9ff3cb01915fd47c30c4c304c4aec"
+  },
+  "public/knowledge-centre/blogs/first-things-first.json": {
+    "mtime": 1789642072.44728,
+    "seen": 1790526272.057701,
+    "ast_hash": "15efe33556dc35c091d3428e4d5ea253",
+    "semantic_hash": "15efe33556dc35c091d3428e4d5ea253"
+  },
+  "public/knowledge-centre/blogs/from-classroom-to-cloud-how-technology-is-rewiring-investor-awareness-programs.json": {
+    "mtime": 1789642070.625389,
+    "seen": 1790526272.0577018,
+    "ast_hash": "0cba083b9a6b6bd8c98f085f76856ae9",
+    "semantic_hash": "0cba083b9a6b6bd8c98f085f76856ae9"
+  },
+  "public/knowledge-centre/blogs/from-invisible-to-indispensable-making-financial-planning-more-valuable-fa2.json": {
+    "mtime": 1789642072.175037,
+    "seen": 1790526272.0577018,
+    "ast_hash": "ae440dd42a01d35a559d9d0f04328959",
+    "semantic_hash": "ae440dd42a01d35a559d9d0f04328959"
+  },
+  "public/knowledge-centre/blogs/how-investors-behave-during-festivals-cultural-financial-drivers.json": {
+    "mtime": 1789642070.7692761,
+    "seen": 1790526272.0577018,
+    "ast_hash": "2d4d2727bcab16c0fd4de3c9c7774149",
+    "semantic_hash": "2d4d2727bcab16c0fd4de3c9c7774149"
+  },
+  "public/knowledge-centre/blogs/how-technology-fuels-growth-in-financial-advisory-distribution.json": {
+    "mtime": 1789642072.5909119,
+    "seen": 1790526272.057703,
+    "ast_hash": "5d5db6d4d2feefe346f6283874540d0a",
+    "semantic_hash": "5d5db6d4d2feefe346f6283874540d0a"
+  },
+  "public/knowledge-centre/blogs/how-to-achieve-financial-success-with-goal-based-financial-strategies.json": {
+    "mtime": 1789642071.880028,
+    "seen": 1790526272.057703,
+    "ast_hash": "8b4cd5b8785876719f3223f7724e7d24",
+    "semantic_hash": "8b4cd5b8785876719f3223f7724e7d24"
+  },
+  "public/knowledge-centre/blogs/indias-financial-literacy-crisis-the-role-of-bfsi-institutions.json": {
+    "mtime": 1789642070.8800957,
+    "seen": 1790526272.057704,
+    "ast_hash": "af7cc0d4ee5387249e0bad3115da2d71",
+    "semantic_hash": "af7cc0d4ee5387249e0bad3115da2d71"
+  },
+  "public/knowledge-centre/blogs/managing-finances-in-lok-sabha-election-years.json": {
+    "mtime": 1789642071.727813,
+    "seen": 1790526272.057704,
+    "ast_hash": "7dd153a3c0df5c9333829a572e086fce",
+    "semantic_hash": "7dd153a3c0df5c9333829a572e086fce"
+  },
+  "public/knowledge-centre/blogs/mastering-corporate-learning-dynamics-breaking-through-engagement-barriers.json": {
+    "mtime": 1789642072.0111177,
+    "seen": 1790526272.057705,
+    "ast_hash": "32ce7ed9429b6b0aafcbcc26caf1fcf1",
+    "semantic_hash": "32ce7ed9429b6b0aafcbcc26caf1fcf1"
+  },
+  "public/knowledge-centre/blogs/now-invest-upto-75-in-equity-through-national-pension-scheme.json": {
+    "mtime": 1789642072.6721478,
+    "seen": 1790526272.057705,
+    "ast_hash": "71cc8212c7291d596bd236de1ef98d3f",
+    "semantic_hash": "71cc8212c7291d596bd236de1ef98d3f"
+  },
+  "public/knowledge-centre/blogs/part-2-the-digital-revolution-breaking-down-every-barrier.json": {
+    "mtime": 1789642070.5591636,
+    "seen": 1790526272.057705,
+    "ast_hash": "fab309e0bff998e3a60fd3d72bd9ca96",
+    "semantic_hash": "fab309e0bff998e3a60fd3d72bd9ca96"
+  },
+  "public/knowledge-centre/blogs/part-3-the-role-of-social-media-mobile-and-finaware.json": {
+    "mtime": 1789642070.479654,
+    "seen": 1790526272.0577059,
+    "ast_hash": "30617c4067b0861a5ceb19aec4d77d82",
+    "semantic_hash": "30617c4067b0861a5ceb19aec4d77d82"
+  },
+  "public/knowledge-centre/blogs/paytm-jannivesh-and-alibaba.json": {
+    "mtime": 1789642072.6218019,
+    "seen": 1790526272.0577059,
+    "ast_hash": "8bb15704ed941e9b42a148d4081b3b68",
+    "semantic_hash": "8bb15704ed941e9b42a148d4081b3b68"
+  },
+  "public/knowledge-centre/blogs/safeguarding-financial-futures-the-crucial-role-of-mutual-fund-distributors-in-cybersecurity.json": {
+    "mtime": 1789642071.085485,
+    "seen": 1790526272.057707,
+    "ast_hash": "3a1ff793d2125dba33ac6c99a81a0e9c",
+    "semantic_hash": "3a1ff793d2125dba33ac6c99a81a0e9c"
+  },
+  "public/knowledge-centre/blogs/technology-is-becoming-the-focus-of-wealth-management.json": {
+    "mtime": 1789642072.3679385,
+    "seen": 1790526272.057707,
+    "ast_hash": "00b19cd39180a6a63e6620675b9e112f",
+    "semantic_hash": "00b19cd39180a6a63e6620675b9e112f"
+  },
+  "public/knowledge-centre/blogs/the-cost-of-not-knowing.json": {
+    "mtime": 1789642070.9956977,
+    "seen": 1790526272.057707,
+    "ast_hash": "642912dd3f4ecaec6bcf0db04f0f6768",
+    "semantic_hash": "642912dd3f4ecaec6bcf0db04f0f6768"
+  },
+  "public/knowledge-centre/blogs/the-key-to-future-success-teaching-personal-finance-to-teens.json": {
+    "mtime": 1789642071.5617087,
+    "seen": 1790526272.057708,
+    "ast_hash": "2aa033032d239dd946d7d76ae235704e",
+    "semantic_hash": "2aa033032d239dd946d7d76ae235704e"
+  },
+  "public/knowledge-centre/blogs/the-markets-are-at-a-life-time-high-what-should-you-do.json": {
+    "mtime": 1789642072.4168167,
+    "seen": 1790526272.057708,
+    "ast_hash": "8772915849a0229dcc5cc43d1a512aa6",
+    "semantic_hash": "8772915849a0229dcc5cc43d1a512aa6"
+  },
+  "public/knowledge-centre/blogs/the-power-of-compounding-unlocking-long-term-financial-growth.json": {
+    "mtime": 1789642072.5280032,
+    "seen": 1790526272.057709,
+    "ast_hash": "bc5cc4143248ab1d6a288168e6614d75",
+    "semantic_hash": "bc5cc4143248ab1d6a288168e6614d75"
+  },
+  "public/knowledge-centre/blogs/unleash-employee-potential-in-2024-the-power-of-upskilling-and-reskilling.json": {
+    "mtime": 1789642072.0677228,
+    "seen": 1790526272.057709,
+    "ast_hash": "1c264e441f5b0df2d6324f45cf8e3057",
+    "semantic_hash": "1c264e441f5b0df2d6324f45cf8e3057"
+  },
+  "public/knowledge-centre/blogs/unlocking-financial-freedom-master-the-art-of-expense-management-3.json": {
+    "mtime": 1789642072.3488176,
+    "seen": 1790526272.057709,
+    "ast_hash": "f07636fa6cda0a5299ce63201b4485ce",
+    "semantic_hash": "f07636fa6cda0a5299ce63201b4485ce"
+  },
+  "public/knowledge-centre/blogs/why-a-life-and-health-cover-is-required.json": {
+    "mtime": 1789642072.4857304,
+    "seen": 1790526272.0577102,
+    "ast_hash": "2b3a5bffb6354f8efabe03a353952f2d",
+    "semantic_hash": "2b3a5bffb6354f8efabe03a353952f2d"
+  },
+  "public/knowledge-centre/blogs/women-budgeting-and-planning-comes-naturally-to-them-finlabs-india.json": {
+    "mtime": 1789642072.3081315,
+    "seen": 1790526272.0577102,
+    "ast_hash": "2bf2fddcded5ac80411e79978db334ac",
+    "semantic_hash": "2bf2fddcded5ac80411e79978db334ac"
+  },
+  "src/about-hero.js": {
+    "mtime": 1789156668.7896326,
+    "seen": 1790526272.0577111,
+    "ast_hash": "9e9de44d1f421bf81a52fb7cd03820b3",
+    "semantic_hash": "9e9de44d1f421bf81a52fb7cd03820b3"
+  },
+  "src/about-journey.js": {
+    "mtime": 1790014965.585235,
+    "seen": 1790526272.0577111,
+    "ast_hash": "6a435450008fb6c34f8d779cb38526c8",
+    "semantic_hash": "6a435450008fb6c34f8d779cb38526c8"
+  },
+  "src/about.js": {
+    "mtime": 1790491518.2601361,
+    "seen": 1790526272.0577111,
+    "ast_hash": "717697001b1b9015e0f082c1c5a620e1",
+    "semantic_hash": "717697001b1b9015e0f082c1c5a620e1"
+  },
+  "src/after-paint.js": {
+    "mtime": 1790492545.2143245,
+    "seen": 1790526272.057712,
+    "ast_hash": "ba8acc754bb7f668cb7d603499340ac4",
+    "semantic_hash": "ba8acc754bb7f668cb7d603499340ac4"
+  },
+  "src/brochure.js": {
+    "mtime": 1790492021.0813575,
+    "seen": 1790526272.057712,
+    "ast_hash": "4d612646854528b29265663fe97c62f2",
+    "semantic_hash": "4d612646854528b29265663fe97c62f2"
+  },
+  "src/careers.js": {
+    "mtime": 1789566737.056811,
+    "seen": 1790526272.0577128,
+    "ast_hash": "14a950d049dca5a8165b9b6c3ad778a4",
+    "semantic_hash": "14a950d049dca5a8165b9b6c3ad778a4"
+  },
+  "src/cloud-scene.js": {
+    "mtime": 1789728300.4798598,
+    "seen": 1790526272.0577128,
+    "ast_hash": "0d7010e346d0a7eceff5c3107b5f9f0f",
+    "semantic_hash": "0d7010e346d0a7eceff5c3107b5f9f0f"
+  },
+  "src/cloud.js": {
+    "mtime": 1790492353.7717278,
+    "seen": 1790526272.057714,
+    "ast_hash": "14e8de8ac67ca2bb41055405729bbb6e",
+    "semantic_hash": "14e8de8ac67ca2bb41055405729bbb6e"
+  },
+  "src/counter.js": {
+    "mtime": 1788882645.2472804,
+    "seen": 1790526272.057714,
+    "ast_hash": "e912f4cce4554f6e6f95dd1029347f06",
+    "semantic_hash": "e912f4cce4554f6e6f95dd1029347f06"
+  },
+  "src/doc.js": {
+    "mtime": 1789650530.1227815,
+    "seen": 1790526272.057715,
+    "ast_hash": "257609d28076e397823b00d69f70720f",
+    "semantic_hash": "257609d28076e397823b00d69f70720f"
+  },
+  "src/finaware-flow.js": {
+    "mtime": 1789225641.112963,
+    "seen": 1790526272.057715,
+    "ast_hash": "4b97c43c96a0cb920056345a227186a8",
+    "semantic_hash": "4b97c43c96a0cb920056345a227186a8"
+  },
+  "src/finexa-hub.js": {
+    "mtime": 1789211259.0165265,
+    "seen": 1790526272.057715,
+    "ast_hash": "b18f95175c6100a4ea780f1acfb7364f",
+    "semantic_hash": "b18f95175c6100a4ea780f1acfb7364f"
+  },
+  "src/fiscus-picture.js": {
+    "mtime": 1789226663.5401444,
+    "seen": 1790526272.057716,
+    "ast_hash": "3ee31cb7dc3477c58650b66f7914190f",
+    "semantic_hash": "3ee31cb7dc3477c58650b66f7914190f"
+  },
+  "src/gennxt-stack.js": {
+    "mtime": 1789223246.4286008,
+    "seen": 1790526272.057716,
+    "ast_hash": "0b334d757144610be99743f18599676a",
+    "semantic_hash": "0b334d757144610be99743f18599676a"
+  },
+  "src/home-scene.js": {
+    "mtime": 1790874846.763684,
+    "seen": 1790875031.628054,
+    "ast_hash": "7859f585f5c6bb02b7a00bc40b0345b9",
+    "semantic_hash": ""
+  },
+  "src/home-ui.js": {
+    "mtime": 1789128653.3201385,
+    "seen": 1790526272.057717,
+    "ast_hash": "3d867ecdf8604d31455a8b311a21c71a",
+    "semantic_hash": "3d867ecdf8604d31455a8b311a21c71a"
+  },
+  "src/home.js": {
+    "mtime": 1790491036.4177527,
+    "seen": 1790526272.057717,
+    "ast_hash": "3ce42d5aadd1866a0b25bf7c367bd570",
+    "semantic_hash": "3ce42d5aadd1866a0b25bf7c367bd570"
+  },
+  "src/kc-blogs.js": {
+    "mtime": 1789581817.2236273,
+    "seen": 1790526272.057718,
+    "ast_hash": "d5537197ffe351ec214646186673f5f3",
+    "semantic_hash": "d5537197ffe351ec214646186673f5f3"
+  },
+  "src/kc-infographics.js": {
+    "mtime": 1789581880.8872285,
+    "seen": 1790526272.057718,
+    "ast_hash": "f176919a88ba7ff1064eddd1137022c4",
+    "semantic_hash": "f176919a88ba7ff1064eddd1137022c4"
+  },
+  "src/kc-scene.js": {
+    "mtime": 1790016687.3339903,
+    "seen": 1790526272.057719,
+    "ast_hash": "bc5fa1465b55ba86e69b5a419322213f",
+    "semantic_hash": "bc5fa1465b55ba86e69b5a419322213f"
+  },
+  "src/kc-summariwise.js": {
+    "mtime": 1789581965.9311242,
+    "seen": 1790526272.057719,
+    "ast_hash": "4f3ef96d271f17c337bad51855eb85b6",
+    "semantic_hash": "4f3ef96d271f17c337bad51855eb85b6"
+  },
+  "src/kc-ui.js": {
+    "mtime": 1789581771.9271147,
+    "seen": 1790526272.057719,
+    "ast_hash": "8784b19b9364d70e5880230d9977dda3",
+    "semantic_hash": "8784b19b9364d70e5880230d9977dda3"
+  },
+  "src/knowledge.js": {
+    "mtime": 1790492328.7414305,
+    "seen": 1790526272.05772,
+    "ast_hash": "612a2d41e64cd1fec18cf169d49231b5",
+    "semantic_hash": "612a2d41e64cd1fec18cf169d49231b5"
+  },
+  "src/learngenie-climb.js": {
+    "mtime": 1789226864.582768,
+    "seen": 1790526272.05772,
+    "ast_hash": "f3c6913d67d01417afdff35421f0aa99",
+    "semantic_hash": "f3c6913d67d01417afdff35421f0aa99"
+  },
+  "src/main.js": {
+    "mtime": 1790492238.5933805,
+    "seen": 1790526272.0577211,
+    "ast_hash": "6d3aad5df0c36a686f8128490df7ea5d",
+    "semantic_hash": "6d3aad5df0c36a686f8128490df7ea5d"
+  },
+  "src/nav.js": {
+    "mtime": 1789317140.424578,
+    "seen": 1790526272.0577211,
+    "ast_hash": "8a6af4c9dc0501e96f66e70ef6990acb",
+    "semantic_hash": "8a6af4c9dc0501e96f66e70ef6990acb"
+  },
+  "src/product-page.js": {
+    "mtime": 1790492310.2488832,
+    "seen": 1790526272.0577211,
+    "ast_hash": "77676dbda89b8c7faa06150650d9deac",
+    "semantic_hash": "77676dbda89b8c7faa06150650d9deac"
+  },
+  "src/product-ui.js": {
+    "mtime": 1790492310.2485213,
+    "seen": 1790526272.057722,
+    "ast_hash": "ba91f8795a146c92f54344b6f45afb0f",
+    "semantic_hash": "ba91f8795a146c92f54344b6f45afb0f"
+  },
+  "src/product-viewport.js": {
+    "mtime": 1790492310.249062,
+    "seen": 1790526272.057722,
+    "ast_hash": "5bc4080f265aa70d300c55d75cf1ac1e",
+    "semantic_hash": "5bc4080f265aa70d300c55d75cf1ac1e"
+  },
+  "src/refer.js": {
+    "mtime": 1790068563.1941228,
+    "seen": 1790526272.0577228,
+    "ast_hash": "60e21cea3f0edd82812bfa3e281c944e",
+    "semantic_hash": "60e21cea3f0edd82812bfa3e281c944e"
+  },
+  "src/services-scene.js": {
+    "mtime": 1790491010.3080058,
+    "seen": 1790526272.0577228,
+    "ast_hash": "374bd2dcad657f0b1dd91cdcffd57c60",
+    "semantic_hash": "374bd2dcad657f0b1dd91cdcffd57c60"
+  },
+  "src/services-ui.js": {
+    "mtime": 1789035769.1435106,
+    "seen": 1790526272.0577228,
+    "ast_hash": "1564ae13546ccb2b4f76d6b3b9b60348",
+    "semantic_hash": "1564ae13546ccb2b4f76d6b3b9b60348"
+  },
+  "src/services.js": {
+    "mtime": 1790491036.4180326,
+    "seen": 1790526272.057724,
+    "ast_hash": "77d5569ebfa8d0201bd8538205b95c5a",
+    "semantic_hash": "77d5569ebfa8d0201bd8538205b95c5a"
+  },
+  "src/showroom.js": {
+    "mtime": 1790491010.30696,
+    "seen": 1790526272.057724,
+    "ast_hash": "717013db4864e7a3d5abde694999c406",
+    "semantic_hash": "717013db4864e7a3d5abde694999c406"
+  },
+  "src/solutions-scene.js": {
+    "mtime": 1790491010.3094423,
+    "seen": 1790526272.057725,
+    "ast_hash": "2c3985759c1441f862ef77fd2cd7b080",
+    "semantic_hash": "2c3985759c1441f862ef77fd2cd7b080"
+  },
+  "src/solutions-ui.js": {
+    "mtime": 1789619979.932291,
+    "seen": 1790526272.057725,
+    "ast_hash": "3941944623b440034d918e635b7f56bd",
+    "semantic_hash": "3941944623b440034d918e635b7f56bd"
+  },
+  "src/solutions.js": {
+    "mtime": 1790491036.4181085,
+    "seen": 1790526272.057725,
+    "ast_hash": "b032d98df15fcdfa17119daad662ff17",
+    "semantic_hash": "b032d98df15fcdfa17119daad662ff17"
+  },
+  "src/theme.js": {
+    "mtime": 1789750726.144395,
+    "seen": 1790526272.057726,
+    "ast_hash": "dd0ac3cb614f34518dfd48a35c8934cd",
+    "semantic_hash": "dd0ac3cb614f34518dfd48a35c8934cd"
+  },
+  "src/whatsapp.js": {
+    "mtime": 1789563338.3938313,
+    "seen": 1790526272.057726,
+    "ast_hash": "e1958c2baa8c69b4ac6d0167202e18d3",
+    "semantic_hash": "e1958c2baa8c69b4ac6d0167202e18d3"
+  },
+  "vite.config.js": {
+    "mtime": 1790492066.4523158,
+    "seen": 1790526272.057726,
+    "ast_hash": "1dc1f5c0e115127b8e072c6853c00038",
+    "semantic_hash": "1dc1f5c0e115127b8e072c6853c00038"
+  },
+  ".github/workflows/deploy.yml": {
+    "mtime": 1789041149.7225337,
+    "seen": 1790526272.0577269,
+    "ast_hash": "15ebe9f4fcc68c4879fec70ac22441c6",
+    "semantic_hash": "15ebe9f4fcc68c4879fec70ac22441c6"
+  },
+  "about.html": {
+    "mtime": 1790874861.395943,
+    "seen": 1790875031.6280699,
+    "ast_hash": "c13984c4653b3e65508373c3032a0593",
+    "semantic_hash": ""
+  },
+  "brochure.html": {
+    "mtime": 1790492047.103247,
+    "seen": 1790526272.057728,
+    "ast_hash": "0313b301c9a0e2867af94f64f151b8de",
+    "semantic_hash": "0313b301c9a0e2867af94f64f151b8de"
+  },
+  "careers.html": {
+    "mtime": 1790492066.4784253,
+    "seen": 1790526272.057728,
+    "ast_hash": "66189a672c98e65f37f499581507ef90",
+    "semantic_hash": "66189a672c98e65f37f499581507ef90"
+  },
+  "contact.html": {
+    "mtime": 1790492066.4785933,
+    "seen": 1790526272.057729,
+    "ast_hash": "7eb16cf15a69971a14cfed25c4f4b4cd",
+    "semantic_hash": "7eb16cf15a69971a14cfed25c4f4b4cd"
+  },
+  "index.html": {
+    "mtime": 1790873566.8542557,
+    "seen": 1790875031.628073,
+    "ast_hash": "a82984703705f532935504c7c4c0249c",
+    "semantic_hash": ""
+  },
+  "knowledge-centre.html": {
+    "mtime": 1790491652.8183417,
+    "seen": 1790526272.05773,
+    "ast_hash": "279b03a0d31831924dfc7ef0a12fbe56",
+    "semantic_hash": "279b03a0d31831924dfc7ef0a12fbe56"
+  },
+  "knowledge-centre/blogs.html": {
+    "mtime": 1790491652.817557,
+    "seen": 1790526272.05773,
+    "ast_hash": "a2aa8dda6c7f3dd19e02bb5a47cde717",
+    "semantic_hash": "a2aa8dda6c7f3dd19e02bb5a47cde717"
+  },
+  "knowledge-centre/infographics.html": {
+    "mtime": 1790491652.8176706,
+    "seen": 1790526272.0577312,
+    "ast_hash": "2ce5427dfeddfbb81900a117951957eb",
+    "semantic_hash": "2ce5427dfeddfbb81900a117951957eb"
+  },
+  "knowledge-centre/lumpsum-calculator.html": {
+    "mtime": 1790491652.8178065,
+    "seen": 1790526272.0577312,
+    "ast_hash": "aaf798bae02cd766b3f6b19b409df2da",
+    "semantic_hash": "aaf798bae02cd766b3f6b19b409df2da"
+  },
+  "knowledge-centre/sip-calculator.html": {
+    "mtime": 1790491652.8179362,
+    "seen": 1790526272.057732,
+    "ast_hash": "0a67d1b673586d4e409266843480199c",
+    "semantic_hash": "0a67d1b673586d4e409266843480199c"
+  },
+  "knowledge-centre/summariwise.html": {
+    "mtime": 1790491652.8180256,
+    "seen": 1790526272.057732,
+    "ast_hash": "c29b392f2dbfddcb024966c3e1ad522f",
+    "semantic_hash": "c29b392f2dbfddcb024966c3e1ad522f"
+  },
+  "privacy-learngenie.html": {
+    "mtime": 1790492066.4792585,
+    "seen": 1790526272.057732,
+    "ast_hash": "7de335f764bfd7b425c40bb97c938042",
+    "semantic_hash": "7de335f764bfd7b425c40bb97c938042"
+  },
+  "privacy.html": {
+    "mtime": 1790492066.479383,
+    "seen": 1790526272.057733,
+    "ast_hash": "796eb9125bada475e5d3166941395b21",
+    "semantic_hash": "796eb9125bada475e5d3166941395b21"
+  },
+  "products.html": {
+    "mtime": 1790492066.4796996,
+    "seen": 1790526272.057733,
+    "ast_hash": "20b17d7ddd1485ea7755fde039e99f49",
+    "semantic_hash": "20b17d7ddd1485ea7755fde039e99f49"
+  },
+  "products/finaware.html": {
+    "mtime": 1790491652.8188176,
+    "seen": 1790526272.0577338,
+    "ast_hash": "8e084042ca70f1cbab0d6396c5865ea6",
+    "semantic_hash": "8e084042ca70f1cbab0d6396c5865ea6"
+  },
+  "products/finexa-gennxt.html": {
+    "mtime": 1790491652.8189266,
+    "seen": 1790526272.0577338,
+    "ast_hash": "e59b14d96d5a76192060f2dcd7719de1",
+    "semantic_hash": "e59b14d96d5a76192060f2dcd7719de1"
+  },
+  "products/finexa.html": {
+    "mtime": 1790491652.8190248,
+    "seen": 1790526272.0577338,
+    "ast_hash": "4b41be63351157eaa8856af957ccea58",
+    "semantic_hash": "4b41be63351157eaa8856af957ccea58"
+  },
+  "products/fiscus.html": {
+    "mtime": 1790491652.8191159,
+    "seen": 1790526272.057735,
+    "ast_hash": "68cf26b992a42f9ccb98c074b16df77c",
+    "semantic_hash": "68cf26b992a42f9ccb98c074b16df77c"
+  },
+  "products/learngenie.html": {
+    "mtime": 1790491652.8192022,
+    "seen": 1790526272.057735,
+    "ast_hash": "02e4c81de00845e30717757df08997ba",
+    "semantic_hash": "02e4c81de00845e30717757df08997ba"
+  },
+  "refer.html": {
+    "mtime": 1790492066.4798474,
+    "seen": 1790526272.057736,
+    "ast_hash": "e22cbdb72c45cead33d880ae0381af88",
+    "semantic_hash": "e22cbdb72c45cead33d880ae0381af88"
+  },
+  "services.html": {
+    "mtime": 1790492066.4800704,
+    "seen": 1790526272.057736,
+    "ast_hash": "62de695950d8d9e79ef131ac644e6c49",
+    "semantic_hash": "62de695950d8d9e79ef131ac644e6c49"
+  },
+  "services/cloud.html": {
+    "mtime": 1790491652.8195922,
+    "seen": 1790526272.057736,
+    "ast_hash": "22a8871f5724d40d4880c5d2693011bf",
+    "semantic_hash": "22a8871f5724d40d4880c5d2693011bf"
+  },
+  "solutions.html": {
+    "mtime": 1790492066.4802315,
+    "seen": 1790526272.0577369,
+    "ast_hash": "aa359a7601436e509ffb87108d7e75e1",
+    "semantic_hash": "aa359a7601436e509ffb87108d7e75e1"
+  },
+  "src/partials/knowledge/blog-cards.html": {
+    "mtime": 1789582633.0628712,
+    "seen": 1790526272.0577369,
+    "ast_hash": "f74e3fb86af2f544a3de57b29206ea61",
+    "semantic_hash": "f74e3fb86af2f544a3de57b29206ea61"
+  },
+  "src/partials/knowledge/blog-chips.html": {
+    "mtime": 1789582633.062596,
+    "seen": 1790526272.0577369,
+    "ast_hash": "36bc2fa086bbf3455005ffc11e1871dd",
+    "semantic_hash": "36bc2fa086bbf3455005ffc11e1871dd"
+  },
+  "src/partials/knowledge/blog-featured.html": {
+    "mtime": 1789582633.0629635,
+    "seen": 1790526272.057738,
+    "ast_hash": "a4246429aa70ac5686e86605d0b3a164",
+    "semantic_hash": "a4246429aa70ac5686e86605d0b3a164"
+  },
+  "src/partials/knowledge/footer.html": {
+    "mtime": 1790492066.480494,
+    "seen": 1790526272.057738,
+    "ast_hash": "7ce3adf68bb3e7f49e75ebea37aa3d0f",
+    "semantic_hash": "7ce3adf68bb3e7f49e75ebea37aa3d0f"
+  },
+  "src/partials/knowledge/home-latest-blogs.html": {
+    "mtime": 1789582633.0636983,
+    "seen": 1790526272.057739,
+    "ast_hash": "58cb0cdafa1be981ecb0b6e87507dcfe",
+    "semantic_hash": "58cb0cdafa1be981ecb0b6e87507dcfe"
+  },
+  "src/partials/knowledge/home-latest-infographics.html": {
+    "mtime": 1789582633.063769,
+    "seen": 1790526272.057739,
+    "ast_hash": "d65a5e394035fc9b2dfa21d352a43845",
+    "semantic_hash": "d65a5e394035fc9b2dfa21d352a43845"
+  },
+  "src/partials/knowledge/home-latest-summaries.html": {
+    "mtime": 1789582633.0638323,
+    "seen": 1790526272.057739,
+    "ast_hash": "00b5b7edfdee4b75c6d4d40c5f0576ee",
+    "semantic_hash": "00b5b7edfdee4b75c6d4d40c5f0576ee"
+  },
+  "src/partials/knowledge/home-topics.html": {
+    "mtime": 1789582633.0638971,
+    "seen": 1790526272.05774,
+    "ast_hash": "4bbb14b6092869737f88d7f7c236d067",
+    "semantic_hash": "4bbb14b6092869737f88d7f7c236d067"
+  },
+  "src/partials/knowledge/info-chips.html": {
+    "mtime": 1789582633.0630283,
+    "seen": 1790526272.05774,
+    "ast_hash": "be74a6e3bdae3d53b513d29dc5ba76d7",
+    "semantic_hash": "be74a6e3bdae3d53b513d29dc5ba76d7"
+  },
+  "src/partials/knowledge/info-tiles.html": {
+    "mtime": 1789582633.0631933,
+    "seen": 1790526272.0577412,
+    "ast_hash": "5c7d8f71e0c1b3d9c7e0dfd66e94a15d",
+    "semantic_hash": "5c7d8f71e0c1b3d9c7e0dfd66e94a15d"
+  },
+  "src/partials/knowledge/nav.html": {
+    "mtime": 1790491395.949795,
+    "seen": 1790526272.0577412,
+    "ast_hash": "1ddf58a4d78c6253492a71979e2c1824",
+    "semantic_hash": "1ddf58a4d78c6253492a71979e2c1824"
+  },
+  "src/partials/knowledge/sw-cards.html": {
+    "mtime": 1789582633.0635571,
+    "seen": 1790526272.0577412,
+    "ast_hash": "9ba4f3db70ce2c1a17b18c9e9b9aa927",
+    "semantic_hash": "9ba4f3db70ce2c1a17b18c9e9b9aa927"
+  },
+  "src/partials/knowledge/sw-chips.html": {
+    "mtime": 1789582633.0632713,
+    "seen": 1790526272.057742,
+    "ast_hash": "175ce0e50f98b1b0eb7197924270436f",
+    "semantic_hash": "175ce0e50f98b1b0eb7197924270436f"
+  },
+  "src/partials/knowledge/sw-flow.html": {
+    "mtime": 1789582633.063632,
+    "seen": 1790526272.057742,
+    "ast_hash": "98c6ab919b0f06653bf5acd938ac26ad",
+    "semantic_hash": "98c6ab919b0f06653bf5acd938ac26ad"
+  },
+  "src/partials/product-page/footer.html": {
+    "mtime": 1790492066.48099,
+    "seen": 1790526272.057743,
+    "ast_hash": "6f1bb71610e0894dbc893edb6fae2a1e",
+    "semantic_hash": "6f1bb71610e0894dbc893edb6fae2a1e"
+  },
+  "src/partials/product-page/nav.html": {
+    "mtime": 1790491395.9501717,
+    "seen": 1790526272.057743,
+    "ast_hash": "b44db42986974b0b84f86490ad256af3",
+    "semantic_hash": "b44db42986974b0b84f86490ad256af3"
+  },
+  "src/partials/products/finaware.html": {
+    "mtime": 1790491396.063074,
+    "seen": 1790526272.057743,
+    "ast_hash": "397bedfbfba12055b2e799d8779e089b",
+    "semantic_hash": "397bedfbfba12055b2e799d8779e089b"
+  },
+  "src/partials/products/finexa-gennxt.html": {
+    "mtime": 1790491396.0653806,
+    "seen": 1790526272.0577438,
+    "ast_hash": "898c22731552a6e70561927cc9bb9a6a",
+    "semantic_hash": "898c22731552a6e70561927cc9bb9a6a"
+  },
+  "src/partials/products/finexa.html": {
+    "mtime": 1790491396.0728812,
+    "seen": 1790526272.0577438,
+    "ast_hash": "e7f15fa8f160b365c68c5d9cd0587edd",
+    "semantic_hash": "e7f15fa8f160b365c68c5d9cd0587edd"
+  },
+  "src/partials/products/fiscus.html": {
+    "mtime": 1790491396.0751648,
+    "seen": 1790526272.057745,
+    "ast_hash": "abe50110316a164ddb8c749bd8257bab",
+    "semantic_hash": "abe50110316a164ddb8c749bd8257bab"
+  },
+  "src/partials/products/learngenie.html": {
+    "mtime": 1790491396.079518,
+    "seen": 1790526272.057745,
+    "ast_hash": "5f392429056d439bff0275bfd3a5604a",
+    "semantic_hash": "5f392429056d439bff0275bfd3a5604a"
+  },
+  "src/partials/service-page/footer.html": {
+    "mtime": 1790492066.4813786,
+    "seen": 1790526272.057745,
+    "ast_hash": "795f9ff4e4815a37f936e20e5d9c2991",
+    "semantic_hash": "795f9ff4e4815a37f936e20e5d9c2991"
+  },
+  "src/partials/service-page/nav.html": {
+    "mtime": 1790491396.0798655,
+    "seen": 1790526272.057746,
+    "ast_hash": "900bab4e30c7b28237ee08e99ad74859",
+    "semantic_hash": "900bab4e30c7b28237ee08e99ad74859"
+  },
+  "terms.html": {
+    "mtime": 1790492066.4815502,
+    "seen": 1790526272.057746,
+    "ast_hash": "068473a5aaffecb02ee055ad8d7fafed",
+    "semantic_hash": "068473a5aaffecb02ee055ad8d7fafed"
+  },
+  "public/Finlabs-Corpdeck-Brochure.pdf": {
+    "mtime": 1789316974.1735055,
+    "seen": 1790526272.057746,
+    "ast_hash": "862e59491c0ac1aa271c03af78b39e5d",
+    "semantic_hash": "862e59491c0ac1aa271c03af78b39e5d"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-48-laws-of-power.pdf": {
+    "mtime": 1789581242.3354938,
+    "seen": 1790526272.057747,
+    "ast_hash": "fc84c3bbaeca46f766c7844522e55087",
+    "semantic_hash": "fc84c3bbaeca46f766c7844522e55087"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-atomic-habits.pdf": {
+    "mtime": 1789581242.5502741,
+    "seen": 1790526272.057747,
+    "ast_hash": "fcf2ed77971b18056c5506d2f7b99268",
+    "semantic_hash": "fcf2ed77971b18056c5506d2f7b99268"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-built-to-sell.pdf": {
+    "mtime": 1789581324.186744,
+    "seen": 1790526272.057748,
+    "ast_hash": "2e35c9658df5d40658efa63850b175b5",
+    "semantic_hash": "2e35c9658df5d40658efa63850b175b5"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-burnout.pdf": {
+    "mtime": 1789581243.1087487,
+    "seen": 1790526272.057748,
+    "ast_hash": "36ebe52c2dbd3555b2ad33f6c0a2472d",
+    "semantic_hash": "36ebe52c2dbd3555b2ad33f6c0a2472d"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-deep-work.pdf": {
+    "mtime": 1789581241.5742257,
+    "seen": 1790526272.057749,
+    "ast_hash": "cb23f0f7a2115cddb802731c1ddd5e98",
+    "semantic_hash": "cb23f0f7a2115cddb802731c1ddd5e98"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-diary-of-a-ceo.pdf": {
+    "mtime": 1789581243.8890314,
+    "seen": 1790526272.057749,
+    "ast_hash": "37c60d24ed465774a090bcf2fd0ae052",
+    "semantic_hash": "37c60d24ed465774a090bcf2fd0ae052"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-fitness-mindset.pdf": {
+    "mtime": 1789581245.2650697,
+    "seen": 1790526272.057749,
+    "ast_hash": "c1a470ffd4ee5f9cd31be2f47d0eae2d",
+    "semantic_hash": "c1a470ffd4ee5f9cd31be2f47d0eae2d"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-getting-things-done.pdf": {
+    "mtime": 1789581242.0776138,
+    "seen": 1790526272.05775,
+    "ast_hash": "06e6190fac1605b86c92652a369e5a3a",
+    "semantic_hash": "06e6190fac1605b86c92652a369e5a3a"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-girl-wash-your-face.pdf": {
+    "mtime": 1789581241.9567623,
+    "seen": 1790526272.05775,
+    "ast_hash": "2e2b84d3c9c924ad858a24803cff9cbe",
+    "semantic_hash": "2e2b84d3c9c924ad858a24803cff9cbe"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-hard-drive.pdf": {
+    "mtime": 1789581323.9676375,
+    "seen": 1790526272.057751,
+    "ast_hash": "a7f5bed343a034cc73203e208a588cc5",
+    "semantic_hash": "a7f5bed343a034cc73203e208a588cc5"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-how-to-talk-to-anyone.pdf": {
+    "mtime": 1789581321.0166726,
+    "seen": 1790526272.057751,
+    "ast_hash": "2070335277fdfe3c96de5cf7546ebdeb",
+    "semantic_hash": "2070335277fdfe3c96de5cf7546ebdeb"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-intelligent-investor.pdf": {
+    "mtime": 1789581244.456628,
+    "seen": 1790526272.057751,
+    "ast_hash": "7995bf0fc0c623426892552fc6afa5d7",
+    "semantic_hash": "7995bf0fc0c623426892552fc6afa5d7"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-invisible-women.pdf": {
+    "mtime": 1789581321.6187003,
+    "seen": 1790526272.0577521,
+    "ast_hash": "66028e6952d98cf902fac464511794b5",
+    "semantic_hash": "66028e6952d98cf902fac464511794b5"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-leading-change.pdf": {
+    "mtime": 1789581321.877844,
+    "seen": 1790526272.0577521,
+    "ast_hash": "2ddfe14fc95b50f2ae3d758b08092a20",
+    "semantic_hash": "2ddfe14fc95b50f2ae3d758b08092a20"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-leading-from-the-back.pdf": {
+    "mtime": 1789581244.8428576,
+    "seen": 1790526272.057753,
+    "ast_hash": "1cf710b4ee7356ad1e3535fc1f983635",
+    "semantic_hash": "1cf710b4ee7356ad1e3535fc1f983635"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-magic-of-thinking-big.pdf": {
+    "mtime": 1789581323.0116048,
+    "seen": 1790526272.057753,
+    "ast_hash": "bce57bca0ec0dcc3faa7da5a15b55187",
+    "semantic_hash": "bce57bca0ec0dcc3faa7da5a15b55187"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-make-your-bed.pdf": {
+    "mtime": 1789581321.1040266,
+    "seen": 1790526272.057753,
+    "ast_hash": "a29ab3ab010b041de50be9faf287164f",
+    "semantic_hash": "a29ab3ab010b041de50be9faf287164f"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-my-life-in-full.pdf": {
+    "mtime": 1789581323.4197564,
+    "seen": 1790526272.057754,
+    "ast_hash": "194b2018035e718e7cabc84adfd6eab6",
+    "semantic_hash": "194b2018035e718e7cabc84adfd6eab6"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-rich-dad-poor-dad.pdf": {
+    "mtime": 1789581322.8812666,
+    "seen": 1790526272.057754,
+    "ast_hash": "00b6bd5c280fdbab9a316b4c7a18b70c",
+    "semantic_hash": "00b6bd5c280fdbab9a316b4c7a18b70c"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-steve-jobs.pdf": {
+    "mtime": 1789581245.3649848,
+    "seen": 1790526272.057755,
+    "ast_hash": "dbab77d766209ff5e729e5ddd888156b",
+    "semantic_hash": "dbab77d766209ff5e729e5ddd888156b"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-stop-worrying-start-living.pdf": {
+    "mtime": 1789581241.785459,
+    "seen": 1790526272.057755,
+    "ast_hash": "b75866658eea8cd5b2c23d041110ea91",
+    "semantic_hash": "b75866658eea8cd5b2c23d041110ea91"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-talking-to-strangers.pdf": {
+    "mtime": 1789581241.708141,
+    "seen": 1790526272.057755,
+    "ast_hash": "1d59891c2c4c5d06f54c074d68fbd4a1",
+    "semantic_hash": "1d59891c2c4c5d06f54c074d68fbd4a1"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-the-5-am-club.pdf": {
+    "mtime": 1789581324.0729825,
+    "seen": 1790526272.057756,
+    "ast_hash": "44535e06196b7487209ebeef1fc1f6b9",
+    "semantic_hash": "44535e06196b7487209ebeef1fc1f6b9"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-the-mom-test.pdf": {
+    "mtime": 1789581244.9507592,
+    "seen": 1790526272.057756,
+    "ast_hash": "74581a011dc79735e11bff173c15050c",
+    "semantic_hash": "74581a011dc79735e11bff173c15050c"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-the-tipping-point.pdf": {
+    "mtime": 1789581322.2872863,
+    "seen": 1790526272.057757,
+    "ast_hash": "7ac4ae857f2a90f57fbf3cbd2401c304",
+    "semantic_hash": "7ac4ae857f2a90f57fbf3cbd2401c304"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-thinking-fast-and-slow.pdf": {
+    "mtime": 1789581245.6174378,
+    "seen": 1790526272.057757,
+    "ast_hash": "e0fb84e9f8bcac65046e3e15037eab74",
+    "semantic_hash": "e0fb84e9f8bcac65046e3e15037eab74"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-victory-through-organization.pdf": {
+    "mtime": 1789581244.737273,
+    "seen": 1790526272.057757,
+    "ast_hash": "5e8917be6f69d63d7e41b452915ddfef",
+    "semantic_hash": "5e8917be6f69d63d7e41b452915ddfef"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-win-friends-influence-people.pdf": {
+    "mtime": 1789581244.6205392,
+    "seen": 1790526272.0577579,
+    "ast_hash": "aa2fa4fec58de3c01301ef2065bc309b",
+    "semantic_hash": "aa2fa4fec58de3c01301ef2065bc309b"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-wings-of-fire.pdf": {
+    "mtime": 1789581243.4704342,
+    "seen": 1790526272.0577579,
+    "ast_hash": "22e5be906b689313a81de235772d9241",
+    "semantic_hash": "22e5be906b689313a81de235772d9241"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-wintering.pdf": {
+    "mtime": 1789581244.3219981,
+    "seen": 1790526272.0577579,
+    "ast_hash": "078fad5f0bf797986ff46fa6f5dd86fc",
+    "semantic_hash": "078fad5f0bf797986ff46fa6f5dd86fc"
+  },
+  "public/knowledge-centre/summariwise/pdf/summariwise-you-owe-you.pdf": {
+    "mtime": 1789581245.1719096,
+    "seen": 1790526272.057759,
+    "ast_hash": "2b14a74184b03e5b1da9071df2b9e156",
+    "semantic_hash": "2b14a74184b03e5b1da9071df2b9e156"
+  },
+  "public/about/partners/aafm.webp": {
+    "mtime": 1789153273.4930422,
+    "seen": 1790526272.057759,
+    "ast_hash": "98c0b091bb72c119e2f78afd8da2a487",
+    "semantic_hash": "98c0b091bb72c119e2f78afd8da2a487"
+  },
+  "public/about/partners/accord-fintech.webp": {
+    "mtime": 1789153273.5298758,
+    "seen": 1790526272.05776,
+    "ast_hash": "eb9bc4546f18096c048274215a613ac0",
+    "semantic_hash": "eb9bc4546f18096c048274215a613ac0"
+  },
+  "public/about/partners/anaplan.webp": {
+    "mtime": 1789153282.0744703,
+    "seen": 1790526272.05776,
+    "ast_hash": "6941da770435fb628f83e57759e2a72b",
+    "semantic_hash": "6941da770435fb628f83e57759e2a72b"
+  },
+  "public/about/partners/bse-star-mf.webp": {
+    "mtime": 1789153273.5698147,
+    "seen": 1790526272.05776,
+    "ast_hash": "f5eb7a9ac91f591ce5cc795a50b7d07a",
+    "semantic_hash": "f5eb7a9ac91f591ce5cc795a50b7d07a"
+  },
+  "public/about/partners/cams.webp": {
+    "mtime": 1789153281.0315092,
+    "seen": 1790526272.057761,
+    "ast_hash": "52de635fc02b9cc28f6d8598fd10c7a9",
+    "semantic_hash": "52de635fc02b9cc28f6d8598fd10c7a9"
+  },
+  "public/about/partners/cersai.webp": {
+    "mtime": 1789153283.168889,
+    "seen": 1790526272.057761,
+    "ast_hash": "f9e0bbca5a0f81be2c9de5569d07270a",
+    "semantic_hash": "f9e0bbca5a0f81be2c9de5569d07270a"
+  },
+  "public/about/partners/digilocker.webp": {
+    "mtime": 1789153282.5345926,
+    "seen": 1790526272.0577621,
+    "ast_hash": "028862967fae8a755c01cc36ce9c5159",
+    "semantic_hash": "028862967fae8a755c01cc36ce9c5159"
+  },
+  "public/about/partners/digio.webp": {
+    "mtime": 1789153273.506404,
+    "seen": 1790526272.0577621,
+    "ast_hash": "d4f0614046659cef8513ce7c46787404",
+    "semantic_hash": "d4f0614046659cef8513ce7c46787404"
+  },
+  "public/about/partners/equifax.webp": {
+    "mtime": 1789153275.5788693,
+    "seen": 1790526272.057763,
+    "ast_hash": "0f412d887849334030a16570ae950df6",
+    "semantic_hash": "0f412d887849334030a16570ae950df6"
+  },
+  "public/about/partners/kfintech.webp": {
+    "mtime": 1789153274.6719444,
+    "seen": 1790526272.057763,
+    "ast_hash": "90d22f6a835c7eafca9ddc7ee6dbc73e",
+    "semantic_hash": "90d22f6a835c7eafca9ddc7ee6dbc73e"
+  },
+  "public/about/partners/lseg.webp": {
+    "mtime": 1789153273.5447407,
+    "seen": 1790526272.057763,
+    "ast_hash": "9f2fdd370f5cfc7721981bfef4c71944",
+    "semantic_hash": "9f2fdd370f5cfc7721981bfef4c71944"
+  },
+  "public/about/partners/mfu.webp": {
+    "mtime": 1789153273.5568595,
+    "seen": 1790526272.057764,
+    "ast_hash": "37dfc3fa015fbfc9a21b7a5ba3615668",
+    "semantic_hash": "37dfc3fa015fbfc9a21b7a5ba3615668"
+  },
+  "public/about/partners/nine-triangles.webp": {
+    "mtime": 1789153273.4564786,
+    "seen": 1790526272.057764,
+    "ast_hash": "6fcb3903007bea9433db045aa47ff648",
+    "semantic_hash": "6fcb3903007bea9433db045aa47ff648"
+  },
+  "public/about/partners/nse.webp": {
+    "mtime": 1789153276.9329047,
+    "seen": 1790526272.057765,
+    "ast_hash": "8b700d2609feaea654a5576e79269f91",
+    "semantic_hash": "8b700d2609feaea654a5576e79269f91"
+  },
+  "public/about/partners/razorpay.webp": {
+    "mtime": 1789153273.468172,
+    "seen": 1790526272.057766,
+    "ast_hash": "678d882e619fabb33b844730608462dc",
+    "semantic_hash": "678d882e619fabb33b844730608462dc"
+  },
+  "public/about/partners/signzy.webp": {
+    "mtime": 1789153273.5162933,
+    "seen": 1790526272.057766,
+    "ast_hash": "c14812988f8fb38506e3a2e517211e7f",
+    "semantic_hash": "c14812988f8fb38506e3a2e517211e7f"
+  },
+  "public/about/partners/tam.webp": {
+    "mtime": 1789153273.4800296,
+    "seen": 1790526272.057766,
+    "ast_hash": "4291b216262026e03e386648610554c7",
+    "semantic_hash": "4291b216262026e03e386648610554c7"
+  },
+  "public/about/partners/thakral-one.webp": {
+    "mtime": 1789153284.2206674,
+    "seen": 1790526272.057767,
+    "ast_hash": "5b97d97250832f5e11e0bf1dad731dd0",
+    "semantic_hash": "5b97d97250832f5e11e0bf1dad731dd0"
+  },
+  "public/about/press/ai-in-financial-services.webp": {
+    "mtime": 1789153273.2667613,
+    "seen": 1790526272.057767,
+    "ast_hash": "f8146a231cbf5ef54c33ac800bd1d2be",
+    "semantic_hash": "f8146a231cbf5ef54c33ac800bd1d2be"
+  },
+  "public/about/press/dun-bradstreet-startup50.webp": {
+    "mtime": 1789153273.367449,
+    "seen": 1790526272.057767,
+    "ast_hash": "8b4eec7717dbffeb0c02d2d96a5f2a35",
+    "semantic_hash": "8b4eec7717dbffeb0c02d2d96a5f2a35"
+  },
+  "public/about/press/ifta-2023-financial-literacy.webp": {
+    "mtime": 1789153273.2894285,
+    "seen": 1790526272.0577679,
+    "ast_hash": "6d620bcbd55dbc81de3102a7ac2213b9",
+    "semantic_hash": "6d620bcbd55dbc81de3102a7ac2213b9"
+  },
+  "public/about/press/lseg-collaboration.webp": {
+    "mtime": 1789153273.44051,
+    "seen": 1790526272.0577679,
+    "ast_hash": "d5c94ebe9db3fdf3e17ef8bf44cd73a8",
+    "semantic_hash": "d5c94ebe9db3fdf3e17ef8bf44cd73a8"
+  },
+  "public/about/press/mint-w3-awards.webp": {
+    "mtime": 1789153273.405635,
+    "seen": 1790526272.057769,
+    "ast_hash": "3b529a1215813924b1ecd8a5299c59e2",
+    "semantic_hash": "3b529a1215813924b1ecd8a5299c59e2"
+  },
+  "public/about/press/nasscom-ai-ibm.webp": {
+    "mtime": 1789153273.3453577,
+    "seen": 1790526272.057769,
+    "ast_hash": "1e4871fb042231d6ce70bdb0b9ab1ad7",
+    "semantic_hash": "1e4871fb042231d6ce70bdb0b9ab1ad7"
+  },
+  "public/about/team-group.webp": {
+    "mtime": 1789156080.7821562,
+    "seen": 1790526272.05777,
+    "ast_hash": "c9748ba816b2357c6cd1eca465f5e498",
+    "semantic_hash": "c9748ba816b2357c6cd1eca465f5e498"
+  },
+  "public/about/team/ajay-mahajan.webp": {
+    "mtime": 1789153243.3161902,
+    "seen": 1790526272.05777,
+    "ast_hash": "c817aa3afbae898c05d9d11727cb9932",
+    "semantic_hash": "c817aa3afbae898c05d9d11727cb9932"
+  },
+  "public/about/team/alok-bajpayee.webp": {
+    "mtime": 1789153250.1273975,
+    "seen": 1790526272.057771,
+    "ast_hash": "d46fe1309ada3f2ae998ee210f944208",
+    "semantic_hash": "d46fe1309ada3f2ae998ee210f944208"
+  },
+  "public/about/team/amit-sinha.webp": {
+    "mtime": 1789153246.8678517,
+    "seen": 1790526272.057771,
+    "ast_hash": "cd3b4e368766be20a43cc6bbe766c3dd",
+    "semantic_hash": "cd3b4e368766be20a43cc6bbe766c3dd"
+  },
+  "public/about/team/anindya-dutta.webp": {
+    "mtime": 1789153264.2342548,
+    "seen": 1790526272.057772,
+    "ast_hash": "f41573fea59d53b0864424949c70e7ec",
+    "semantic_hash": "f41573fea59d53b0864424949c70e7ec"
+  },
+  "public/about/team/ganesh-tawde.webp": {
+    "mtime": 1789153273.2331612,
+    "seen": 1790526272.057772,
+    "ast_hash": "196a4af392d5405c94952cf5ee52fb1a",
+    "semantic_hash": "196a4af392d5405c94952cf5ee52fb1a"
+  },
+  "public/about/team/gaurav-suri.webp": {
+    "mtime": 1789153271.4766817,
+    "seen": 1790526272.057772,
+    "ast_hash": "4ee998c680f16519d7bc3bd9c52cadc4",
+    "semantic_hash": "4ee998c680f16519d7bc3bd9c52cadc4"
+  },
+  "public/about/team/gautam-bhatikar.webp": {
+    "mtime": 1789153258.879805,
+    "seen": 1790526272.057773,
+    "ast_hash": "a8ae2d5d464bdbeced7c1833e8302759",
+    "semantic_hash": "a8ae2d5d464bdbeced7c1833e8302759"
+  },
+  "public/about/team/hariharan-iyer.webp": {
+    "mtime": 1789153269.689129,
+    "seen": 1790526272.057773,
+    "ast_hash": "f6693de798487149c4b7085733a2f820",
+    "semantic_hash": "f6693de798487149c4b7085733a2f820"
+  },
+  "public/about/team/kaushik-majumdar.webp": {
+    "mtime": 1789153253.6056478,
+    "seen": 1790526272.057774,
+    "ast_hash": "7b2c802b51fd19ed3a0dc2e797d8a871",
+    "semantic_hash": "7b2c802b51fd19ed3a0dc2e797d8a871"
+  },
+  "public/about/team/kavita-lakhani.webp": {
+    "mtime": 1789153251.885472,
+    "seen": 1790526272.057774,
+    "ast_hash": "587a21f546f5431a84190b6c866e84cf",
+    "semantic_hash": "587a21f546f5431a84190b6c866e84cf"
+  },
+  "public/about/team/lalit-vij.webp": {
+    "mtime": 1789153248.6699274,
+    "seen": 1790526272.057775,
+    "ast_hash": "20e935d38bf6e67e84dcceb4ddfdd33b",
+    "semantic_hash": "20e935d38bf6e67e84dcceb4ddfdd33b"
+  },
+  "public/about/team/nandip-vaidya.webp": {
+    "mtime": 1789153265.9973164,
+    "seen": 1790526272.057775,
+    "ast_hash": "fb4d7c7684150bf1b0e4815b8976d88e",
+    "semantic_hash": "fb4d7c7684150bf1b0e4815b8976d88e"
+  },
+  "public/about/team/nimish-agrawal.webp": {
+    "mtime": 1789153241.4503725,
+    "seen": 1790526272.0577762,
+    "ast_hash": "a545b5ab0bb8300f0ae31ee43652ef41",
+    "semantic_hash": "a545b5ab0bb8300f0ae31ee43652ef41"
+  },
+  "public/about/team/pradeep-mukerjee.webp": {
+    "mtime": 1789153267.811311,
+    "seen": 1790526272.0577762,
+    "ast_hash": "b07fca2027fe49214028a36eed13c666",
+    "semantic_hash": "b07fca2027fe49214028a36eed13c666"
+  },
+  "public/about/team/prosenjit-gupta.webp": {
+    "mtime": 1789153257.1360567,
+    "seen": 1790526272.057777,
+    "ast_hash": "9a446415e727aed693bff5206f1ec111",
+    "semantic_hash": "9a446415e727aed693bff5206f1ec111"
+  },
+  "public/about/team/rajan-krishnan.webp": {
+    "mtime": 1789153255.3437042,
+    "seen": 1790526272.057777,
+    "ast_hash": "b8424bdb814d32d4f46a95aaf06eb7b3",
+    "semantic_hash": "b8424bdb814d32d4f46a95aaf06eb7b3"
+  },
+  "public/about/team/rajib-chakravorty.webp": {
+    "mtime": 1789153260.6539986,
+    "seen": 1790526272.057778,
+    "ast_hash": "280033ee8e53db63b2c23bfb38a414ac",
+    "semantic_hash": "280033ee8e53db63b2c23bfb38a414ac"
+  },
+  "public/about/team/ritwika-roy.webp": {
+    "mtime": 1790096862.8882136,
+    "seen": 1790526272.057778,
+    "ast_hash": "db6bf3179616180a8b8d0e6b3bb255d4",
+    "semantic_hash": "db6bf3179616180a8b8d0e6b3bb255d4"
+  },
+  "public/about/team/samipendra-chaudhury.webp": {
+    "mtime": 1789153262.4745827,
+    "seen": 1790526272.0577788,
+    "ast_hash": "2c1ac2dc8f9c6901a14cb96a54f59fcf",
+    "semantic_hash": "2c1ac2dc8f9c6901a14cb96a54f59fcf"
+  },
+  "public/about/team/sudipto-roy.webp": {
+    "mtime": 1789153239.6824663,
+    "seen": 1790526272.0577788,
+    "ast_hash": "647bb710b8755c2dd96e9cd8c0a34f1e",
+    "semantic_hash": "647bb710b8755c2dd96e9cd8c0a34f1e"
+  },
+  "public/about/team/supratim-bandyopadhyay.webp": {
+    "mtime": 1789153245.029757,
+    "seen": 1790526272.05778,
+    "ast_hash": "aec84e6ebc71420f4ad4c5ad64f705f1",
+    "semantic_hash": "aec84e6ebc71420f4ad4c5ad64f705f1"
+  },
+  "public/apple-touch-icon.png": {
+    "mtime": 1789565394.1402347,
+    "seen": 1790526272.05778,
+    "ast_hash": "d0a8af35ca6c5adcdad505a9936b83a0",
+    "semantic_hash": "d0a8af35ca6c5adcdad505a9936b83a0"
+  },
+  "public/contact/calendar.png": {
+    "mtime": 1789649989.9157422,
+    "seen": 1790526272.057781,
+    "ast_hash": "da46d696d5e280637bbaae0e64d3303a",
+    "semantic_hash": "da46d696d5e280637bbaae0e64d3303a"
+  },
+  "public/contact/email.png": {
+    "mtime": 1789649989.9178243,
+    "seen": 1790526272.057781,
+    "ast_hash": "1b4c89142e67ce49641d80c9daa558c0",
+    "semantic_hash": "1b4c89142e67ce49641d80c9daa558c0"
+  },
+  "public/contact/google-maps.png": {
+    "mtime": 1789649989.9199317,
+    "seen": 1790526272.057782,
+    "ast_hash": "98c5cadab5bc5985e887c6bf9245d523",
+    "semantic_hash": "98c5cadab5bc5985e887c6bf9245d523"
+  },
+  "public/favicon-32.png": {
+    "mtime": 1789565394.1408105,
+    "seen": 1790526272.057782,
+    "ast_hash": "7b06f7fd23e6bf3b71a1606bc327762f",
+    "semantic_hash": "7b06f7fd23e6bf3b71a1606bc327762f"
+  },
+  "public/favicon.svg": {
+    "mtime": 1788882645.2443323,
+    "seen": 1790526272.0577831,
+    "ast_hash": "098c888910dd3b64d291f1f0dc9e7033",
+    "semantic_hash": "098c888910dd3b64d291f1f0dc9e7033"
+  },
+  "public/finlabs-logo.png": {
+    "mtime": 1788890735.8034155,
+    "seen": 1790526272.0577831,
+    "ast_hash": "af14d844d28f13383360b89db65cdc77",
+    "semantic_hash": "af14d844d28f13383360b89db65cdc77"
+  },
+  "public/icon-192.png": {
+    "mtime": 1789565394.142315,
+    "seen": 1790526272.057784,
+    "ast_hash": "d0179bc1b94376b96d3f75cb9786d8ea",
+    "semantic_hash": "d0179bc1b94376b96d3f75cb9786d8ea"
+  },
+  "public/icons.svg": {
+    "mtime": 1788882645.2452292,
+    "seen": 1790526272.057784,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  },
+  "public/knowledge-centre/blogs/12-financial-rules-to-rock-your-world-in-2024-and-beyond.webp": {
+    "mtime": 1789642072.2735636,
+    "seen": 1790526272.057785,
+    "ast_hash": "01a39bf7902086250848717b306a4bd2",
+    "semantic_hash": "01a39bf7902086250848717b306a4bd2"
+  },
+  "public/knowledge-centre/blogs/2024-in-review-major-financial-events-in-india-that-impacted-investors.webp": {
+    "mtime": 1789642071.2784364,
+    "seen": 1790526272.057785,
+    "ast_hash": "406cfe7739cd656b5b0148f93646ee2e",
+    "semantic_hash": "406cfe7739cd656b5b0148f93646ee2e"
+  },
+  "public/knowledge-centre/blogs/4-financial-resolutions-you-must-make-in-2019.webp": {
+    "mtime": 1789642072.5592844,
+    "seen": 1790526272.0577862,
+    "ast_hash": "7edaca8b6957d2c3e585eefaf120dd33",
+    "semantic_hash": "7edaca8b6957d2c3e585eefaf120dd33"
+  },
+  "public/knowledge-centre/blogs/7-myths-of-financial-planning-finlabs-india.webp": {
+    "mtime": 1789642072.6852481,
+    "seen": 1790526272.0577862,
+    "ast_hash": "6319479151d955bfbe6dfe337bef60ec",
+    "semantic_hash": "6319479151d955bfbe6dfe337bef60ec"
+  },
+  "public/knowledge-centre/blogs/9-reasons-why-you-should-do-personal-financial-planning.webp": {
+    "mtime": 1789642072.3882139,
+    "seen": 1790526272.057787,
+    "ast_hash": "b4993c43fc108fef5cd73e02ee4c5bd5",
+    "semantic_hash": "b4993c43fc108fef5cd73e02ee4c5bd5"
+  },
+  "public/knowledge-centre/blogs/a-divided-world-can-finance-be-the-bridge.webp": {
+    "mtime": 1789642071.9594834,
+    "seen": 1790526272.057787,
+    "ast_hash": "706cb75d22dd881b284c191c85174f3c",
+    "semantic_hash": "706cb75d22dd881b284c191c85174f3c"
+  },
+  "public/knowledge-centre/blogs/a-golden-window-for-mfds.webp": {
+    "mtime": 1789642070.8166773,
+    "seen": 1790526272.057788,
+    "ast_hash": "4eb82f998ed60b34d85bb399cf23fb6d",
+    "semantic_hash": "4eb82f998ed60b34d85bb399cf23fb6d"
+  },
+  "public/knowledge-centre/blogs/adapt-evolve-excel-the-power-of-continuous-learning-in-the-business-world.webp": {
+    "mtime": 1789642071.7654114,
+    "seen": 1790526272.057788,
+    "ast_hash": "b918c75ac6eeb2dfe51d9b83487e91c8",
+    "semantic_hash": "b918c75ac6eeb2dfe51d9b83487e91c8"
+  },
+  "public/knowledge-centre/blogs/continuous-learning-why-its-essential-in-todays-job-market.webp": {
+    "mtime": 1789642071.1971762,
+    "seen": 1790526272.0577888,
+    "ast_hash": "8154e65d254431f07a70f95c6d309f3d",
+    "semantic_hash": "8154e65d254431f07a70f95c6d309f3d"
+  },
+  "public/knowledge-centre/blogs/cyber-incident-response-in-india-a-basic-guide.webp": {
+    "mtime": 1789642070.4385653,
+    "seen": 1790526272.0577888,
+    "ast_hash": "d16c07472922fa2d1cf1f1ac2e690079",
+    "semantic_hash": "d16c07472922fa2d1cf1f1ac2e690079"
+  },
+  "public/knowledge-centre/blogs/driving-financial-inclusion-at-scale.webp": {
+    "mtime": 1789642071.0163255,
+    "seen": 1790526272.05779,
+    "ast_hash": "eb8df9a4d7aafe3c6d48bbc2901df030",
+    "semantic_hash": "eb8df9a4d7aafe3c6d48bbc2901df030"
+  },
+  "public/knowledge-centre/blogs/empowering-her-wallet-decoding-the-financial-landscape-of-urban-indian-women.webp": {
+    "mtime": 1789642072.1490116,
+    "seen": 1790526272.05779,
+    "ast_hash": "28a0f48873ba90773a21316016c5644a",
+    "semantic_hash": "28a0f48873ba90773a21316016c5644a"
+  },
+  "public/knowledge-centre/blogs/finlabs-india-collaborates-with-lseg-london-stock-exchange-group-to-drive-innovation-in-wealth-tech-solutions.webp": {
+    "mtime": 1789642071.3957334,
+    "seen": 1790526272.057791,
+    "ast_hash": "a4c1f0aa42295beb18810460d9cbc2a4",
+    "semantic_hash": "a4c1f0aa42295beb18810460d9cbc2a4"
+  },
+  "public/knowledge-centre/blogs/first-things-first.webp": {
+    "mtime": 1789642072.445309,
+    "seen": 1790526272.057791,
+    "ast_hash": "0fc61e065feed47bb45a85ed25ea6a22",
+    "semantic_hash": "0fc61e065feed47bb45a85ed25ea6a22"
+  },
+  "public/knowledge-centre/blogs/from-classroom-to-cloud-how-technology-is-rewiring-investor-awareness-programs.webp": {
+    "mtime": 1789642070.621982,
+    "seen": 1790526272.057792,
+    "ast_hash": "25bf9ea8f26f35b11c461870f52a0704",
+    "semantic_hash": "25bf9ea8f26f35b11c461870f52a0704"
+  },
+  "public/knowledge-centre/blogs/from-invisible-to-indispensable-making-financial-planning-more-valuable-fa2.webp": {
+    "mtime": 1789642072.1733322,
+    "seen": 1790526272.057792,
+    "ast_hash": "b0b698350b2a11a494e30328f0fb2903",
+    "semantic_hash": "b0b698350b2a11a494e30328f0fb2903"
+  },
+  "public/knowledge-centre/blogs/how-investors-behave-during-festivals-cultural-financial-drivers.webp": {
+    "mtime": 1789642070.7620506,
+    "seen": 1790526272.0577931,
+    "ast_hash": "2d3bc56ca083e782a5103c8fdd43c4d8",
+    "semantic_hash": "2d3bc56ca083e782a5103c8fdd43c4d8"
+  },
+  "public/knowledge-centre/blogs/how-technology-fuels-growth-in-financial-advisory-distribution.webp": {
+    "mtime": 1789642072.5885153,
+    "seen": 1790526272.0577931,
+    "ast_hash": "1321197f60bc5dbb32745a9d3199f2cd",
+    "semantic_hash": "1321197f60bc5dbb32745a9d3199f2cd"
+  },
+  "public/knowledge-centre/blogs/how-to-achieve-financial-success-with-goal-based-financial-strategies.webp": {
+    "mtime": 1789642071.8780003,
+    "seen": 1790526272.057794,
+    "ast_hash": "62fb4aaa0597745856d68a0b8a242109",
+    "semantic_hash": "62fb4aaa0597745856d68a0b8a242109"
+  },
+  "public/knowledge-centre/blogs/indias-financial-literacy-crisis-the-role-of-bfsi-institutions.webp": {
+    "mtime": 1789642070.8758857,
+    "seen": 1790526272.057794,
+    "ast_hash": "5cdf735837540d299dd0ecf2ef266162",
+    "semantic_hash": "5cdf735837540d299dd0ecf2ef266162"
+  },
+  "public/knowledge-centre/blogs/managing-finances-in-lok-sabha-election-years.webp": {
+    "mtime": 1789642071.7258253,
+    "seen": 1790526272.057794,
+    "ast_hash": "1a25edda8bcada493853e53eae779f62",
+    "semantic_hash": "1a25edda8bcada493853e53eae779f62"
+  },
+  "public/knowledge-centre/blogs/mastering-corporate-learning-dynamics-breaking-through-engagement-barriers.webp": {
+    "mtime": 1789642072.0076358,
+    "seen": 1790526272.057795,
+    "ast_hash": "32a0391f2af577939a91c1ed71a2df82",
+    "semantic_hash": "32a0391f2af577939a91c1ed71a2df82"
+  },
+  "public/knowledge-centre/blogs/media/cyber-incident-response-in-india-a-basic-1.webp": {
+    "mtime": 1789642070.4266665,
+    "seen": 1790526272.057796,
+    "ast_hash": "97190d889a81f435c972f41778e5e3ee",
+    "semantic_hash": "97190d889a81f435c972f41778e5e3ee"
+  },
+  "public/knowledge-centre/blogs/media/how-investors-behave-during-festivals-cu-1.webp": {
+    "mtime": 1789642070.6595654,
+    "seen": 1790526272.057796,
+    "ast_hash": "5ec7b3aae7f69a6856b90aabfc6c1211",
+    "semantic_hash": "5ec7b3aae7f69a6856b90aabfc6c1211"
+  },
+  "public/knowledge-centre/blogs/media/how-to-achieve-financial-success-with-go-1.webp": {
+    "mtime": 1789642071.854066,
+    "seen": 1790526272.057796,
+    "ast_hash": "eb86b64b0064031502a50ff6c3624613",
+    "semantic_hash": "eb86b64b0064031502a50ff6c3624613"
+  },
+  "public/knowledge-centre/blogs/media/managing-finances-in-lok-sabha-election--1.webp": {
+    "mtime": 1789642071.7038715,
+    "seen": 1790526272.0577972,
+    "ast_hash": "27b240780ff7326070c903f8b0b24ddc",
+    "semantic_hash": "27b240780ff7326070c903f8b0b24ddc"
+  },
+  "public/knowledge-centre/blogs/media/part-2-the-digital-revolution-breaking-d-1.webp": {
+    "mtime": 1789642070.5151436,
+    "seen": 1790526272.057798,
+    "ast_hash": "c886540d9030d1f67ca6f6506ae454f0",
+    "semantic_hash": "c886540d9030d1f67ca6f6506ae454f0"
+  },
+  "public/knowledge-centre/blogs/media/part-3-the-role-of-social-media-mobile-a-1.webp": {
+    "mtime": 1789642070.4622135,
+    "seen": 1790526272.057798,
+    "ast_hash": "87be5e5087cc47baf3427e6eb282ec97",
+    "semantic_hash": "87be5e5087cc47baf3427e6eb282ec97"
+  },
+  "public/knowledge-centre/blogs/media/the-key-to-future-success-teaching-perso-1.webp": {
+    "mtime": 1789642071.4926474,
+    "seen": 1790526272.0577989,
+    "ast_hash": "66fa9ce17fcddae6d550f70e206f53f6",
+    "semantic_hash": "66fa9ce17fcddae6d550f70e206f53f6"
+  },
+  "public/knowledge-centre/blogs/media/the-power-of-compounding-unlocking-long--1.webp": {
+    "mtime": 1789642072.515334,
+    "seen": 1790526272.0577989,
+    "ast_hash": "6b3a8e8f6f9b8f11334977b84c7bb2a6",
+    "semantic_hash": "6b3a8e8f6f9b8f11334977b84c7bb2a6"
+  },
+  "public/knowledge-centre/blogs/media/why-a-life-and-health-cover-is-required-1.webp": {
+    "mtime": 1789642072.4616597,
+    "seen": 1790526272.0578,
+    "ast_hash": "518d7572780b5732af008be794a3e6fa",
+    "semantic_hash": "518d7572780b5732af008be794a3e6fa"
+  },
+  "public/knowledge-centre/blogs/now-invest-upto-75-in-equity-through-national-pension-scheme.webp": {
+    "mtime": 1789642072.668832,
+    "seen": 1790526272.0578,
+    "ast_hash": "3414af2e094c230957c766272c031ef9",
+    "semantic_hash": "3414af2e094c230957c766272c031ef9"
+  },
+  "public/knowledge-centre/blogs/part-2-the-digital-revolution-breaking-down-every-barrier.webp": {
+    "mtime": 1789642070.5546947,
+    "seen": 1790526272.0578,
+    "ast_hash": "4414f871e30353ee48f612ffb3ab3764",
+    "semantic_hash": "4414f871e30353ee48f612ffb3ab3764"
+  },
+  "public/knowledge-centre/blogs/part-3-the-role-of-social-media-mobile-and-finaware.webp": {
+    "mtime": 1789642070.478224,
+    "seen": 1790526272.057801,
+    "ast_hash": "b9423984a6bd59b9031f538d10199d73",
+    "semantic_hash": "b9423984a6bd59b9031f538d10199d73"
+  },
+  "public/knowledge-centre/blogs/paytm-jannivesh-and-alibaba.webp": {
+    "mtime": 1789642072.6198385,
+    "seen": 1790526272.057801,
+    "ast_hash": "23c5b03125fadd488b0e58fa8bd98881",
+    "semantic_hash": "23c5b03125fadd488b0e58fa8bd98881"
+  },
+  "public/knowledge-centre/blogs/safeguarding-financial-futures-the-crucial-role-of-mutual-fund-distributors-in-cybersecurity.webp": {
+    "mtime": 1789642071.0828817,
+    "seen": 1790526272.057802,
+    "ast_hash": "13c2e21d91d239587b0afb4c56dfa02e",
+    "semantic_hash": "13c2e21d91d239587b0afb4c56dfa02e"
+  },
+  "public/knowledge-centre/blogs/technology-is-becoming-the-focus-of-wealth-management.webp": {
+    "mtime": 1789642072.3663647,
+    "seen": 1790526272.057802,
+    "ast_hash": "ba07c8ae179f541659aefb89d6030d62",
+    "semantic_hash": "ba07c8ae179f541659aefb89d6030d62"
+  },
+  "public/knowledge-centre/blogs/the-cost-of-not-knowing.webp": {
+    "mtime": 1789642070.990378,
+    "seen": 1790526272.057803,
+    "ast_hash": "b9926ea49f13929814cfc4a42711e2d7",
+    "semantic_hash": "b9926ea49f13929814cfc4a42711e2d7"
+  },
+  "public/knowledge-centre/blogs/the-key-to-future-success-teaching-personal-finance-to-teens.webp": {
+    "mtime": 1789642071.5565953,
+    "seen": 1790526272.057803,
+    "ast_hash": "c147b0b7784a79cea5cfb99ebe3bd891",
+    "semantic_hash": "c147b0b7784a79cea5cfb99ebe3bd891"
+  },
+  "public/knowledge-centre/blogs/the-markets-are-at-a-life-time-high-what-should-you-do.webp": {
+    "mtime": 1789642072.41495,
+    "seen": 1790526272.057804,
+    "ast_hash": "84e6501aa43f774cdbed809b956d165b",
+    "semantic_hash": "84e6501aa43f774cdbed809b956d165b"
+  },
+  "public/knowledge-centre/blogs/the-power-of-compounding-unlocking-long-term-financial-growth.webp": {
+    "mtime": 1789642072.5268176,
+    "seen": 1790526272.057804,
+    "ast_hash": "26729a1e1cf0d6c30fc7709c96d49234",
+    "semantic_hash": "26729a1e1cf0d6c30fc7709c96d49234"
+  },
+  "public/knowledge-centre/blogs/unleash-employee-potential-in-2024-the-power-of-upskilling-and-reskilling.webp": {
+    "mtime": 1789642072.0636516,
+    "seen": 1790526272.057805,
+    "ast_hash": "0f5e0f8d48d1c0cf152c9a85faac2729",
+    "semantic_hash": "0f5e0f8d48d1c0cf152c9a85faac2729"
+  },
+  "public/knowledge-centre/blogs/unlocking-financial-freedom-master-the-art-of-expense-management-3.webp": {
+    "mtime": 1789642072.3461392,
+    "seen": 1790526272.057805,
+    "ast_hash": "a323db23458da601f97f9036f1b13118",
+    "semantic_hash": "a323db23458da601f97f9036f1b13118"
+  },
+  "public/knowledge-centre/blogs/why-a-life-and-health-cover-is-required.webp": {
+    "mtime": 1789642072.4835525,
+    "seen": 1790526272.057806,
+    "ast_hash": "34f6ca61063aa5eb3f1bdf4389b72aca",
+    "semantic_hash": "34f6ca61063aa5eb3f1bdf4389b72aca"
+  },
+  "public/knowledge-centre/blogs/women-budgeting-and-planning-comes-naturally-to-them-finlabs-india.webp": {
+    "mtime": 1789642072.3061512,
+    "seen": 1790526272.057806,
+    "ast_hash": "cf07bbc5db30b47ddcb63bc4a499ea5b",
+    "semantic_hash": "cf07bbc5db30b47ddcb63bc4a499ea5b"
+  },
+  "public/knowledge-centre/infographics/bite-sized-learning-big-time-impact-the-power-of-1.webp": {
+    "mtime": 1789581203.2232606,
+    "seen": 1790526272.0578072,
+    "ast_hash": "436c1ab5675561657fe0cdf8fb11c129",
+    "semantic_hash": "436c1ab5675561657fe0cdf8fb11c129"
+  },
+  "public/knowledge-centre/infographics/building-credit-for-young-people-with-accessible-1.webp": {
+    "mtime": 1789581203.3991282,
+    "seen": 1790526272.0578072,
+    "ast_hash": "fa65c0432ed80180be5090ea3f8f6e18",
+    "semantic_hash": "fa65c0432ed80180be5090ea3f8f6e18"
+  },
+  "public/knowledge-centre/infographics/building-credit-for-young-people-with-accessible-2.webp": {
+    "mtime": 1789581203.4613779,
+    "seen": 1790526272.057808,
+    "ast_hash": "aae2a0e47006a4406e04c418a648a9c6",
+    "semantic_hash": "aae2a0e47006a4406e04c418a648a9c6"
+  },
+  "public/knowledge-centre/infographics/discover-how-to-navigate-market-volatility-post--1.webp": {
+    "mtime": 1789581204.1062293,
+    "seen": 1790526272.057808,
+    "ast_hash": "534989eac1bd310c62c518b84e041d08",
+    "semantic_hash": "534989eac1bd310c62c518b84e041d08"
+  },
+  "public/knowledge-centre/infographics/dont-leave-money-on-the-table-meet-the-evolving--1.webp": {
+    "mtime": 1789581203.7724404,
+    "seen": 1790526272.0578089,
+    "ast_hash": "46f61591ff868c3dc2d2f68e2a8b65bb",
+    "semantic_hash": "46f61591ff868c3dc2d2f68e2a8b65bb"
+  },
+  "public/knowledge-centre/infographics/financial-rules-for-better-money-management-1.webp": {
+    "mtime": 1789581203.3462722,
+    "seen": 1790526272.0578089,
+    "ast_hash": "46c664f11800679f5ecc0464be1ac2c8",
+    "semantic_hash": "46c664f11800679f5ecc0464be1ac2c8"
+  },
+  "public/knowledge-centre/infographics/indias-investment-shift-fds-vs-managed-investmen-1.webp": {
+    "mtime": 1789581203.2810924,
+    "seen": 1790526272.0578098,
+    "ast_hash": "fb12531772c7da67555824c632589512",
+    "semantic_hash": "fb12531772c7da67555824c632589512"
+  },
+  "public/knowledge-centre/infographics/overcoming-learning-transfer-challenges-in-a-sal-1.webp": {
+    "mtime": 1789581203.8867319,
+    "seen": 1790526272.0578098,
+    "ast_hash": "b26dced407ab87806c5d0a0295e9be5b",
+    "semantic_hash": "b26dced407ab87806c5d0a0295e9be5b"
+  },
+  "public/knowledge-centre/infographics/take-control-of-your-finances-the-benefits-of-di-1.webp": {
+    "mtime": 1789581203.6033156,
+    "seen": 1790526272.057811,
+    "ast_hash": "b732a0f0736ee23988126c42ba1ecf92",
+    "semantic_hash": "b732a0f0736ee23988126c42ba1ecf92"
+  },
+  "public/knowledge-centre/infographics/top-strategic-technology-trends-for-2024-1.webp": {
+    "mtime": 1789581203.5335486,
+    "seen": 1790526272.057811,
+    "ast_hash": "468a823631491b5e2a16e5e208411f50",
+    "semantic_hash": "468a823631491b5e2a16e5e208411f50"
+  },
+  "public/knowledge-centre/infographics/ways-to-enhance-employee-engagement-with-an-lms-1.webp": {
+    "mtime": 1789581203.189259,
+    "seen": 1790526272.057812,
+    "ast_hash": "828819998a81a85bb0081d7388335767",
+    "semantic_hash": "828819998a81a85bb0081d7388335767"
+  },
+  "public/knowledge-centre/summariwise/48-laws-of-power.webp": {
+    "mtime": 1789581242.3335948,
+    "seen": 1790526272.057812,
+    "ast_hash": "34a03aab9213acc4bc5a90a5e1253d8d",
+    "semantic_hash": "34a03aab9213acc4bc5a90a5e1253d8d"
+  },
+  "public/knowledge-centre/summariwise/atomic-habits.webp": {
+    "mtime": 1789581242.5494628,
+    "seen": 1790526272.057813,
+    "ast_hash": "02f1708fc78c52b084683d138d6c6605",
+    "semantic_hash": "02f1708fc78c52b084683d138d6c6605"
+  },
+  "public/knowledge-centre/summariwise/built-to-sell.webp": {
+    "mtime": 1789581324.185734,
+    "seen": 1790526272.057813,
+    "ast_hash": "0cc92a34092b1de38fb948820803c137",
+    "semantic_hash": "0cc92a34092b1de38fb948820803c137"
+  },
+  "public/knowledge-centre/summariwise/burnout.webp": {
+    "mtime": 1789581243.1077604,
+    "seen": 1790526272.0578141,
+    "ast_hash": "7166bcbd67739435ae096557429cde5e",
+    "semantic_hash": "7166bcbd67739435ae096557429cde5e"
+  },
+  "public/knowledge-centre/summariwise/deep-work.webp": {
+    "mtime": 1789581241.5735743,
+    "seen": 1790526272.0578141,
+    "ast_hash": "314ec5f263c731cf1b0312b56e7f3630",
+    "semantic_hash": "314ec5f263c731cf1b0312b56e7f3630"
+  },
+  "public/knowledge-centre/summariwise/diary-of-a-ceo.webp": {
+    "mtime": 1789581243.8880546,
+    "seen": 1790526272.057815,
+    "ast_hash": "3cb0b87b5666f3eb9a4b8ea19dcd0569",
+    "semantic_hash": "3cb0b87b5666f3eb9a4b8ea19dcd0569"
+  },
+  "public/knowledge-centre/summariwise/fitness-mindset.webp": {
+    "mtime": 1789581245.2633078,
+    "seen": 1790526272.057815,
+    "ast_hash": "a1eefebe4baa42168a531e3fecd9e094",
+    "semantic_hash": "a1eefebe4baa42168a531e3fecd9e094"
+  },
+  "public/knowledge-centre/summariwise/getting-things-done.webp": {
+    "mtime": 1789581242.0769336,
+    "seen": 1790526272.057815,
+    "ast_hash": "403865e81726cab95eb7fa0a2af923cc",
+    "semantic_hash": "403865e81726cab95eb7fa0a2af923cc"
+  },
+  "public/knowledge-centre/summariwise/girl-wash-your-face.webp": {
+    "mtime": 1789581241.9561064,
+    "seen": 1790526272.057816,
+    "ast_hash": "b2d59dfacc8753f3afef0d15a0500bbb",
+    "semantic_hash": "b2d59dfacc8753f3afef0d15a0500bbb"
+  },
+  "public/knowledge-centre/summariwise/hard-drive.webp": {
+    "mtime": 1789581323.963786,
+    "seen": 1790526272.057816,
+    "ast_hash": "ff987b22f81bf450e55eea43e1a8ab99",
+    "semantic_hash": "ff987b22f81bf450e55eea43e1a8ab99"
+  },
+  "public/knowledge-centre/summariwise/how-to-talk-to-anyone.webp": {
+    "mtime": 1789581321.0146224,
+    "seen": 1790526272.057817,
+    "ast_hash": "f3521a4cff0c02655740984078ccb6a3",
+    "semantic_hash": "f3521a4cff0c02655740984078ccb6a3"
+  },
+  "public/knowledge-centre/summariwise/intelligent-investor.webp": {
+    "mtime": 1789581244.4554718,
+    "seen": 1790526272.057817,
+    "ast_hash": "be9b0899960167914269d3faf8811aff",
+    "semantic_hash": "be9b0899960167914269d3faf8811aff"
+  },
+  "public/knowledge-centre/summariwise/invisible-women.webp": {
+    "mtime": 1789581321.6166983,
+    "seen": 1790526272.057817,
+    "ast_hash": "3662143d21854e7a8eb04f7eb6e54982",
+    "semantic_hash": "3662143d21854e7a8eb04f7eb6e54982"
+  },
+  "public/knowledge-centre/summariwise/leading-change.webp": {
+    "mtime": 1789581321.875693,
+    "seen": 1790526272.0578182,
+    "ast_hash": "047a776f1b523611b73abd12fc98a257",
+    "semantic_hash": "047a776f1b523611b73abd12fc98a257"
+  },
+  "public/knowledge-centre/summariwise/leading-from-the-back.webp": {
+    "mtime": 1789581244.8414636,
+    "seen": 1790526272.0578182,
+    "ast_hash": "cc2bf40b5335815a4a9da9afa6185063",
+    "semantic_hash": "cc2bf40b5335815a4a9da9afa6185063"
+  },
+  "public/knowledge-centre/summariwise/magic-of-thinking-big.webp": {
+    "mtime": 1789581323.0087547,
+    "seen": 1790526272.057819,
+    "ast_hash": "40f5136dbccf30566d46309d06eb47b0",
+    "semantic_hash": "40f5136dbccf30566d46309d06eb47b0"
+  },
+  "public/knowledge-centre/summariwise/make-your-bed.webp": {
+    "mtime": 1789581321.1024568,
+    "seen": 1790526272.057819,
+    "ast_hash": "40a62237b25cc967098552a8ac7c0881",
+    "semantic_hash": "40a62237b25cc967098552a8ac7c0881"
+  },
+  "public/knowledge-centre/summariwise/my-life-in-full.webp": {
+    "mtime": 1789581323.4181912,
+    "seen": 1790526272.057819,
+    "ast_hash": "43b76e9bd2fc003041c81b51fe377af0",
+    "semantic_hash": "43b76e9bd2fc003041c81b51fe377af0"
+  },
+  "public/knowledge-centre/summariwise/rich-dad-poor-dad.webp": {
+    "mtime": 1789581322.877557,
+    "seen": 1790526272.0578198,
+    "ast_hash": "3769a43758c769370b2ae024faa0f014",
+    "semantic_hash": "3769a43758c769370b2ae024faa0f014"
+  },
+  "public/knowledge-centre/summariwise/steve-jobs.webp": {
+    "mtime": 1789581245.363268,
+    "seen": 1790526272.0578198,
+    "ast_hash": "9946f2a96e26daf4bb3b4fef4da107c3",
+    "semantic_hash": "9946f2a96e26daf4bb3b4fef4da107c3"
+  },
+  "public/knowledge-centre/summariwise/stop-worrying-start-living.webp": {
+    "mtime": 1789581241.7849042,
+    "seen": 1790526272.057821,
+    "ast_hash": "f0e71881fc85c4c6be0c049eb8dd98b8",
+    "semantic_hash": "f0e71881fc85c4c6be0c049eb8dd98b8"
+  },
+  "public/knowledge-centre/summariwise/talking-to-strangers.webp": {
+    "mtime": 1789581241.7072473,
+    "seen": 1790526272.057821,
+    "ast_hash": "de6b2433153012bd11c235d09230ac9c",
+    "semantic_hash": "de6b2433153012bd11c235d09230ac9c"
+  },
+  "public/knowledge-centre/summariwise/the-5-am-club.webp": {
+    "mtime": 1789581324.07203,
+    "seen": 1790526272.057821,
+    "ast_hash": "c37a45c765c686ade3dfeb417fb736a4",
+    "semantic_hash": "c37a45c765c686ade3dfeb417fb736a4"
+  },
+  "public/knowledge-centre/summariwise/the-mom-test.webp": {
+    "mtime": 1789581244.9494455,
+    "seen": 1790526272.057822,
+    "ast_hash": "602dc674d073efde8362a0a35ba54ee8",
+    "semantic_hash": "602dc674d073efde8362a0a35ba54ee8"
+  },
+  "public/knowledge-centre/summariwise/the-tipping-point.webp": {
+    "mtime": 1789581322.285058,
+    "seen": 1790526272.057822,
+    "ast_hash": "84b004715f0f855b0c5d750d7b7bf699",
+    "semantic_hash": "84b004715f0f855b0c5d750d7b7bf699"
+  },
+  "public/knowledge-centre/summariwise/thinking-fast-and-slow.webp": {
+    "mtime": 1789581245.615623,
+    "seen": 1790526272.057823,
+    "ast_hash": "38d0bcba083c898a912d675a39c1c267",
+    "semantic_hash": "38d0bcba083c898a912d675a39c1c267"
+  },
+  "public/knowledge-centre/summariwise/victory-through-organization.webp": {
+    "mtime": 1789581244.7355325,
+    "seen": 1790526272.057823,
+    "ast_hash": "c27dcbb81b3f2bed756aeddead571c30",
+    "semantic_hash": "c27dcbb81b3f2bed756aeddead571c30"
+  },
+  "public/knowledge-centre/summariwise/win-friends-influence-people.webp": {
+    "mtime": 1789581244.618767,
+    "seen": 1790526272.057823,
+    "ast_hash": "be9e8e73fbe7eb5b71d04f0369d0546f",
+    "semantic_hash": "be9e8e73fbe7eb5b71d04f0369d0546f"
+  },
+  "public/knowledge-centre/summariwise/wings-of-fire.webp": {
+    "mtime": 1789581243.4695563,
+    "seen": 1790526272.057824,
+    "ast_hash": "d34bed1c58ccc9e713ade5dcc53b1a91",
+    "semantic_hash": "d34bed1c58ccc9e713ade5dcc53b1a91"
+  },
+  "public/knowledge-centre/summariwise/wintering.webp": {
+    "mtime": 1789581244.3209417,
+    "seen": 1790526272.057824,
+    "ast_hash": "a6c23c94833cc33d21ba66d03606a4ef",
+    "semantic_hash": "a6c23c94833cc33d21ba66d03606a4ef"
+  },
+  "public/knowledge-centre/summariwise/you-owe-you.webp": {
+    "mtime": 1789581245.137006,
+    "seen": 1790526272.057824,
+    "ast_hash": "7d9ec14aa271c7ff31b238d9cf26f206",
+    "semantic_hash": "7d9ec14aa271c7ff31b238d9cf26f206"
+  },
+  "public/og-finlabs.png": {
+    "mtime": 1789565394.1372993,
+    "seen": 1790526272.057825,
+    "ast_hash": "e922b58d5d996421a2eae9eab06f9d50",
+    "semantic_hash": "e922b58d5d996421a2eae9eab06f9d50"
+  },
+  "public/products/finaware/award.webp": {
+    "mtime": 1789225175.616422,
+    "seen": 1790526272.057825,
+    "ast_hash": "88754bd1f826c4ff7abb0bcf100a11bd",
+    "semantic_hash": "88754bd1f826c4ff7abb0bcf100a11bd"
+  },
+  "public/products/finaware/learning-hub.webp": {
+    "mtime": 1789225224.3733726,
+    "seen": 1790526272.057826,
+    "ast_hash": "f5feb907d58efe4a71d080d7f38bcd15",
+    "semantic_hash": "f5feb907d58efe4a71d080d7f38bcd15"
+  },
+  "public/products/finaware/screen-attendance.webp": {
+    "mtime": 1789225175.345952,
+    "seen": 1790526272.057826,
+    "ast_hash": "13438b90399c1647f1c3bef3f8bd411b",
+    "semantic_hash": "13438b90399c1647f1c3bef3f8bd411b"
+  },
+  "public/products/finaware/screen-billing.webp": {
+    "mtime": 1789225175.4338424,
+    "seen": 1790526272.057826,
+    "ast_hash": "f0bb52eb688e628c9e73f36816ecbe0e",
+    "semantic_hash": "f0bb52eb688e628c9e73f36816ecbe0e"
+  },
+  "public/products/finaware/screen-branding.webp": {
+    "mtime": 1789225175.509897,
+    "seen": 1790526272.057827,
+    "ast_hash": "7292d538844ef93601aaee8ad2644467",
+    "semantic_hash": "7292d538844ef93601aaee8ad2644467"
+  },
+  "public/products/finaware/screen-events.webp": {
+    "mtime": 1789225175.2700362,
+    "seen": 1790526272.057827,
+    "ast_hash": "f05cf285d96a86a65f494379f5b4a45b",
+    "semantic_hash": "f05cf285d96a86a65f494379f5b4a45b"
+  },
+  "public/products/finaware/screen-reports.webp": {
+    "mtime": 1789225175.5720227,
+    "seen": 1790526272.0578282,
+    "ast_hash": "a8399360d05e7f431b13724db00f4fb2",
+    "semantic_hash": "a8399360d05e7f431b13724db00f4fb2"
+  },
+  "public/products/finexa/hub-banner.webp": {
+    "mtime": 1789207393.3338385,
+    "seen": 1790526272.0578282,
+    "ast_hash": "1243bb1e3826e30bc9e3829a1f9a5cd6",
+    "semantic_hash": "1243bb1e3826e30bc9e3829a1f9a5cd6"
+  },
+  "public/products/finexa/logo-bse.webp": {
+    "mtime": 1789210174.8248966,
+    "seen": 1790526272.0578282,
+    "ast_hash": "9b81c187c9e112406ce64a4b901c72a0",
+    "semantic_hash": "9b81c187c9e112406ce64a4b901c72a0"
+  },
+  "public/products/finexa/logo-finexa.webp": {
+    "mtime": 1789211221.8148808,
+    "seen": 1790526272.0578291,
+    "ast_hash": "04bf6eb86391fbb6b94b8f8753ea4a58",
+    "semantic_hash": "04bf6eb86391fbb6b94b8f8753ea4a58"
+  },
+  "public/products/finexa/logo-mfu.webp": {
+    "mtime": 1789210177.0584428,
+    "seen": 1790526272.0578291,
+    "ast_hash": "720c986998e831060086e20bb2458d1a",
+    "semantic_hash": "720c986998e831060086e20bb2458d1a"
+  },
+  "public/products/finexa/logo-nse.webp": {
+    "mtime": 1789210176.8453424,
+    "seen": 1790526272.0578291,
+    "ast_hash": "b27f76c2eb9a2456cfef0124d88d1220",
+    "semantic_hash": "b27f76c2eb9a2456cfef0124d88d1220"
+  },
+  "public/products/finexa/nova-app.webp": {
+    "mtime": 1789207393.290027,
+    "seen": 1790526272.0578299,
+    "ast_hash": "be0abab622dcc2030b2740756d07d0ff",
+    "semantic_hash": "be0abab622dcc2030b2740756d07d0ff"
+  },
+  "public/products/finexa/nova-logo.webp": {
+    "mtime": 1789210841.70547,
+    "seen": 1790526272.0578299,
+    "ast_hash": "9b36fbffec69d975338c7692a928fde6",
+    "semantic_hash": "9b36fbffec69d975338c7692a928fde6"
+  },
+  "public/products/finexa/tab-new.webp": {
+    "mtime": 1789210907.2191482,
+    "seen": 1790526272.0578308,
+    "ast_hash": "b503aa9ccb5b59810ae69f06f1f98ebf",
+    "semantic_hash": "b503aa9ccb5b59810ae69f06f1f98ebf"
+  },
+  "public/products/finexa/tab-portals.webp": {
+    "mtime": 1789210177.287109,
+    "seen": 1790526272.0578308,
+    "ast_hash": "5bc4a54360ef57a502bd692f64c1ea8a",
+    "semantic_hash": "5bc4a54360ef57a502bd692f64c1ea8a"
+  },
+  "public/products/finexa/tab-reporting.webp": {
+    "mtime": 1789210177.374642,
+    "seen": 1790526272.0578308,
+    "ast_hash": "1bff4537c4afa03ae7bc32c52027c638",
+    "semantic_hash": "1bff4537c4afa03ae7bc32c52027c638"
+  },
+  "public/products/finexa/tab-tools.webp": {
+    "mtime": 1789210177.440618,
+    "seen": 1790526272.057832,
+    "ast_hash": "633937241582567e1c1e2979b969714a",
+    "semantic_hash": "633937241582567e1c1e2979b969714a"
+  },
+  "public/products/finexa/testimonials/abir-banerjee.webp": {
+    "mtime": 1789207493.984308,
+    "seen": 1790526272.057832,
+    "ast_hash": "948eaae28f52e17fca366b698a0aed99",
+    "semantic_hash": "948eaae28f52e17fca366b698a0aed99"
+  },
+  "public/products/finexa/testimonials/alok-garg.webp": {
+    "mtime": 1789207494.1223288,
+    "seen": 1790526272.057833,
+    "ast_hash": "14bb0876e2f073421a87e70790a815ea",
+    "semantic_hash": "14bb0876e2f073421a87e70790a815ea"
+  },
+  "public/products/finexa/testimonials/arvind-vishwanath.webp": {
+    "mtime": 1789207493.9500842,
+    "seen": 1790526272.057833,
+    "ast_hash": "640b4926a0ffbd101fd365512f69988c",
+    "semantic_hash": "640b4926a0ffbd101fd365512f69988c"
+  },
+  "public/products/finexa/testimonials/divesh-sharma.webp": {
+    "mtime": 1789207493.9620001,
+    "seen": 1790526272.057833,
+    "ast_hash": "337075773dcc977fc3c4603d28a160b6",
+    "semantic_hash": "337075773dcc977fc3c4603d28a160b6"
+  },
+  "public/products/finexa/testimonials/ganesh-madhukar.webp": {
+    "mtime": 1789207494.4324026,
+    "seen": 1790526272.057834,
+    "ast_hash": "ebc09dcbbef29fe3137862af5a038e4f",
+    "semantic_hash": "ebc09dcbbef29fe3137862af5a038e4f"
+  },
+  "public/products/finexa/testimonials/ketan-tailor.webp": {
+    "mtime": 1789207494.2465208,
+    "seen": 1790526272.057834,
+    "ast_hash": "446d825ea163546c5d919f2eaa2c2eec",
+    "semantic_hash": "446d825ea163546c5d919f2eaa2c2eec"
+  },
+  "public/products/finexa/testimonials/sourav-saha.webp": {
+    "mtime": 1789207493.9724796,
+    "seen": 1790526272.057835,
+    "ast_hash": "740f7b574ff76bd3f406a406a7176cab",
+    "semantic_hash": "740f7b574ff76bd3f406a406a7176cab"
+  },
+  "public/products/finexa/testimonials/vikram-tewari.webp": {
+    "mtime": 1789207494.3709216,
+    "seen": 1790526272.057835,
+    "ast_hash": "d98638aa6f5222e6a8bccfb6221e547f",
+    "semantic_hash": "d98638aa6f5222e6a8bccfb6221e547f"
+  },
+  "public/products/fiscus/advisors-map.webp": {
+    "mtime": 1789226570.9439666,
+    "seen": 1790526272.057835,
+    "ast_hash": "a2cb982426737030a4defa9ac5260b23",
+    "semantic_hash": "a2cb982426737030a4defa9ac5260b23"
+  },
+  "public/products/fiscus/app-dashboard.webp": {
+    "mtime": 1789226570.7837298,
+    "seen": 1790526272.057836,
+    "ast_hash": "8ecdcaaa1cbd512e1c1df8748e947111",
+    "semantic_hash": "8ecdcaaa1cbd512e1c1df8748e947111"
+  },
+  "public/products/fiscus/app-expenses.webp": {
+    "mtime": 1789226570.902369,
+    "seen": 1790526272.057836,
+    "ast_hash": "b3a1b5a36574ab30831cd4ea4a31074c",
+    "semantic_hash": "b3a1b5a36574ab30831cd4ea4a31074c"
+  },
+  "public/products/fiscus/app-investments.webp": {
+    "mtime": 1789226570.8657608,
+    "seen": 1790526272.057837,
+    "ast_hash": "af59c7f7386e14d195b211da75136a4c",
+    "semantic_hash": "af59c7f7386e14d195b211da75136a4c"
+  },
+  "public/products/fiscus/app-reminders.webp": {
+    "mtime": 1789226570.812775,
+    "seen": 1790526272.057837,
+    "ast_hash": "5ae8d604698418beb218151653993245",
+    "semantic_hash": "5ae8d604698418beb218151653993245"
+  },
+  "public/products/gennxt/cap-orders.webp": {
+    "mtime": 1789221381.227208,
+    "seen": 1790526272.057837,
+    "ast_hash": "916d26ced54ee8adbb129c99f18dd586",
+    "semantic_hash": "916d26ced54ee8adbb129c99f18dd586"
+  },
+  "public/products/gennxt/cap-security.webp": {
+    "mtime": 1789221381.0141733,
+    "seen": 1790526272.057838,
+    "ast_hash": "ee397a31c1b16aef0676cf9b29410231",
+    "semantic_hash": "ee397a31c1b16aef0676cf9b29410231"
+  },
+  "public/products/gennxt/cap-transactions.webp": {
+    "mtime": 1789221380.9869044,
+    "seen": 1790526272.057838,
+    "ast_hash": "3ca619180aeca3c31583e317e384f9f5",
+    "semantic_hash": "3ca619180aeca3c31583e317e384f9f5"
+  },
+  "public/products/gennxt/dashboard.webp": {
+    "mtime": 1789221417.8043785,
+    "seen": 1790526272.057838,
+    "ast_hash": "a65bba5b36f68874c35fa251cc3c7ee4",
+    "semantic_hash": "a65bba5b36f68874c35fa251cc3c7ee4"
+  },
+  "public/products/gennxt/rm-dashboard.webp": {
+    "mtime": 1789221417.8432736,
+    "seen": 1790526272.0578392,
+    "ast_hash": "184dfda3e74863531275d94df65d0f15",
+    "semantic_hash": "184dfda3e74863531275d94df65d0f15"
+  },
+  "public/products/learngenie/client-ashish-mendhi.webp": {
+    "mtime": 1789226558.1450825,
+    "seen": 1790526272.0578392,
+    "ast_hash": "bfbfb3f705fa9ce7e4bc261892e43519",
+    "semantic_hash": "bfbfb3f705fa9ce7e4bc261892e43519"
+  },
+  "public/products/learngenie/client-neelima-dsilva-dalvi.webp": {
+    "mtime": 1789226558.1606991,
+    "seen": 1790526272.05784,
+    "ast_hash": "71655a57cfb51a638d730556a1c9f8c1",
+    "semantic_hash": "71655a57cfb51a638d730556a1c9f8c1"
+  },
+  "public/products/learngenie/feat-assessments.webp": {
+    "mtime": 1789226558.0006354,
+    "seen": 1790526272.05784,
+    "ast_hash": "4f662572abe5ce589327e3065c41fc56",
+    "semantic_hash": "4f662572abe5ce589327e3065c41fc56"
+  },
+  "public/products/learngenie/feat-authoring.webp": {
+    "mtime": 1789226557.7815793,
+    "seen": 1790526272.05784,
+    "ast_hash": "e59fc84a9d298fd56411aa766e634a1f",
+    "semantic_hash": "e59fc84a9d298fd56411aa766e634a1f"
+  },
+  "public/products/learngenie/feat-certificates.webp": {
+    "mtime": 1789226558.0435133,
+    "seen": 1790526272.0578408,
+    "ast_hash": "8e0fa87c490dc1b34b71e2e8235e2848",
+    "semantic_hash": "8e0fa87c490dc1b34b71e2e8235e2848"
+  },
+  "public/products/learngenie/feat-content.webp": {
+    "mtime": 1789226557.82127,
+    "seen": 1790526272.057844,
+    "ast_hash": "d85ef7d07a1be70fd9ec2db56727dca5",
+    "semantic_hash": "d85ef7d07a1be70fd9ec2db56727dca5"
+  },
+  "public/products/learngenie/feat-courses.webp": {
+    "mtime": 1789226557.8780231,
+    "seen": 1790526272.057844,
+    "ast_hash": "c1f0e45277cdcc59abbe844ee7a10f26",
+    "semantic_hash": "c1f0e45277cdcc59abbe844ee7a10f26"
+  },
+  "public/products/learngenie/feat-dashboards.webp": {
+    "mtime": 1789226557.690724,
+    "seen": 1790526272.0578449,
+    "ast_hash": "24a689c9081b3758c614f003fae29500",
+    "semantic_hash": "24a689c9081b3758c614f003fae29500"
+  },
+  "public/products/learngenie/feat-gamification.webp": {
+    "mtime": 1789226557.7387798,
+    "seen": 1790526272.0578449,
+    "ast_hash": "7e7eb72c76f0e223e986ad312e4f1894",
+    "semantic_hash": "7e7eb72c76f0e223e986ad312e4f1894"
+  },
+  "public/products/learngenie/feat-leaderboards.webp": {
+    "mtime": 1789226558.0879476,
+    "seen": 1790526272.0578449,
+    "ast_hash": "a6226be446b036fa13d6fb4aef8aedec",
+    "semantic_hash": "a6226be446b036fa13d6fb4aef8aedec"
+  },
+  "public/products/learngenie/feat-live.webp": {
+    "mtime": 1789226557.9582,
+    "seen": 1790526272.057846,
+    "ast_hash": "a3f55a08473c1fc1d78f688a8156dbf9",
+    "semantic_hash": "a3f55a08473c1fc1d78f688a8156dbf9"
+  },
+  "public/products/learngenie/feat-paths.webp": {
+    "mtime": 1789226557.6489167,
+    "seen": 1790526272.057846,
+    "ast_hash": "f68f6ff488214911a8388bfd5f913422",
+    "semantic_hash": "f68f6ff488214911a8388bfd5f913422"
+  },
+  "public/products/learngenie/feat-reports.webp": {
+    "mtime": 1789226558.1337175,
+    "seen": 1790526272.057847,
+    "ast_hash": "32027a73c5adf809e707e205b25442ad",
+    "semantic_hash": "32027a73c5adf809e707e205b25442ad"
+  },
+  "public/products/learngenie/feat-roles.webp": {
+    "mtime": 1789226557.916931,
+    "seen": 1790526272.057847,
+    "ast_hash": "4e8a66dc62f497b9ba9234a0467b4524",
+    "semantic_hash": "4e8a66dc62f497b9ba9234a0467b4524"
+  },
+  "public/services/cloud/aws-light.svg": {
+    "mtime": 1789727785.5262868,
+    "seen": 1790526272.057847,
+    "ast_hash": "e65b1f56e92435d3c5564c4a57ab2fac",
+    "semantic_hash": "e65b1f56e92435d3c5564c4a57ab2fac"
+  },
+  "public/services/cloud/aws.svg": {
+    "mtime": 1789727785.5232918,
+    "seen": 1790526272.057848,
+    "ast_hash": "259e1339a21cf9a16881f722296cb704",
+    "semantic_hash": "259e1339a21cf9a16881f722296cb704"
+  },
+  "public/services/cloud/azure.svg": {
+    "mtime": 1789727785.5284724,
+    "seen": 1790526272.057848,
+    "ast_hash": "660faf3683bb1a8489baa9402bf62165",
+    "semantic_hash": "660faf3683bb1a8489baa9402bf62165"
+  },
+  "public/services/cloud/google-cloud-icon.svg": {
+    "mtime": 1789727785.5651386,
+    "seen": 1790526272.057848,
+    "ast_hash": "c3b331bd2369e8d8a9c0c198a242c98f",
+    "semantic_hash": "c3b331bd2369e8d8a9c0c198a242c98f"
+  },
+  "public/services/cloud/google-cloud-light.svg": {
+    "mtime": 1789727785.532987,
+    "seen": 1790526272.0578492,
+    "ast_hash": "789ba9943cbd694216d92bc1f5c7f3ed",
+    "semantic_hash": "789ba9943cbd694216d92bc1f5c7f3ed"
+  },
+  "public/services/cloud/google-cloud.svg": {
+    "mtime": 1789727785.530822,
+    "seen": 1790526272.0578492,
+    "ast_hash": "3f729023d78ec83202da2e4e46b7fd9f",
+    "semantic_hash": "3f729023d78ec83202da2e4e46b7fd9f"
+  },
+  "src/assets/hero.png": {
+    "mtime": 1788882645.2460155,
+    "seen": 1790526272.0578501,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": "aead493361b27e7510691c5d7072dfc1"
+  },
+  "src/assets/javascript.svg": {
+    "mtime": 1788882645.2464428,
+    "seen": 1790526272.0578501,
+    "ast_hash": "067c459716da80af65db120e6c0404b9",
+    "semantic_hash": "067c459716da80af65db120e6c0404b9"
+  },
+  "src/assets/vite.svg": {
+    "mtime": 1788882645.2467852,
+    "seen": 1790526272.0578508,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": "9960a24288958394ac50e57ff638b036"
+  }
+}
