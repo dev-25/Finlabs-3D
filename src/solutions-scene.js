@@ -30,11 +30,11 @@ const THEME3D = {
     },
   },
   dark: {
-    board: 0x0c1631, chip: 0x1b2748, panel: 0x27324f, soft: 0x323e61, metal: 0x4d5b82, ink: 0x0a0f1d,
+    board: 0x3a4157, chip: 0x1b2748, panel: 0x27324f, soft: 0x323e61, metal: 0x4d5b82, ink: 0x0a0f1d,
     env: 0.5, exposure: 1.12, traceGlow: 0.9, route: 0.55, pad: 0.85, particles: 0x9bb6ff,
     tex: {
-      bg: '#0a1430', grid: 'rgba(120,160,255,0.06)', trace: '#18336c', main: '#244d9e',
-      via: '#2a58b8', silk: 'rgba(160,185,255,0.4)', finger: '#3a4a74',
+      bg: '#3a4157', grid: 'rgba(205,220,255,0.12)', trace: '#7189c4', main: '#93aeee',
+      via: '#a3bdf8', silk: 'rgba(228,236,255,0.6)', finger: '#808faf',
     },
   },
 };
@@ -194,7 +194,7 @@ function glowMat(hex, opacity = 1) {
 }
 
 // =====================================================
-// LAYOUT — seven chips on an ellipse around the core
+// LAYOUT — one chip per solution, on an ellipse around the core
 // =====================================================
 
 const BOARD_W = 21;
@@ -648,45 +648,6 @@ corePad.rotation.x = -Math.PI / 2;
 corePad.position.y = 0.014;
 core.add(corePad);
 
-// --- small parts scattered on the board -------------------------------
-{
-  const rand = seeded(7331);
-  const clear = (x, z, pad) => {
-    if (Math.abs(x) < CORE / 2 + pad && Math.abs(z) < CORE / 2 + pad) return false;
-    if (SPOTS.some((p) => Math.abs(x - p.x) < CHIP / 2 + pad && Math.abs(z - p.z) < CHIP / 2 + pad)) return false;
-    if (Math.abs(x) < BUS.gap * BUS.n * 0.5 + 0.35 && z > 0) return false; // keep the bus clear
-    return !ROUTES.some((r) => r.points.some((a, k) => k > 0 && distToSegment(x, z, r.points[k - 1], a) < 0.32));
-  };
-  const spots = [];
-  for (let tries = 0; spots.length < 46 && tries < 900; tries++) {
-    const x = (rand() - 0.5) * (PW - 1.4);
-    const z = (rand() - 0.5) * (PD - 2.2);
-    if (clear(x, z, 0.55) && spots.every(([sx, sz]) => Math.hypot(sx - x, sz - z) > 0.55)) spots.push([x, z, rand()]);
-  }
-  const res = new THREE.InstancedMesh(rbox(0.34, 0.12, 0.17, 0.04), M.ink, spots.length);
-  const caps = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.15, 0.15, 0.3, 20), M.metal, spots.length);
-  const m = new THREE.Matrix4();
-  const q = new THREE.Quaternion();
-  const one = new THREE.Vector3(1, 1, 1);
-  const zero = new THREE.Vector3(0, 0, 0);
-  let nr = 0;
-  let nc = 0;
-  spots.forEach(([x, z, k]) => {
-    if (k < 0.75) {
-      q.setFromAxisAngle(Y_AXIS, k < 0.4 ? 0 : Math.PI / 2);
-      m.compose(new THREE.Vector3(x, 0.065, z), q, one);
-      res.setMatrixAt(nr++, m);
-    } else {
-      m.compose(new THREE.Vector3(x, 0.15, z), q.identity(), one);
-      caps.setMatrixAt(nc++, m);
-    }
-  });
-  m.compose(zero, q.identity(), zero);
-  for (let k = nr; k < spots.length; k++) res.setMatrixAt(k, m);
-  for (let k = nc; k < spots.length; k++) caps.setMatrixAt(k, m);
-  board.add(res, caps);
-}
-
 // =====================================================
 // MODELS — one per solution, standing on its chip
 // =====================================================
@@ -718,6 +679,7 @@ function linePath(points) {
 
   // the rack: a cabinet with four blade servers and their status lights
   const rack = new THREE.Group();
+  g.position.z = -0.55; // stands back so the chip's name stays readable
   const cabinet = new THREE.Mesh(rbox(1.1, 1.25, 0.72, 0.07), M.metal);
   cabinet.position.y = 0.63;
   rack.add(cabinet);
@@ -1023,169 +985,6 @@ function linePath(points) {
   });
 }
 
-// --- INVESTOR AWARENESS (FINAWARE): a session in progress -------------
-// A presentation screen teaches saving and investing to a small audience;
-// attendees check in one by one, and an idea lights up above the screen.
-function awarenessSlide() {
-  const A = chipByKey.iap.accent;
-  const hex = '#' + A.getHexString();
-  return makeTexture(640, 400, (ctx, w, h) => {
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = hex;
-    ctx.fillRect(0, 0, w, 64);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 30px Inter, "Segoe UI", Arial, sans-serif';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('Invest wisely', 28, 33);
-    ctx.font = '600 20px Inter, "Segoe UI", Arial, sans-serif';
-    ctx.textAlign = 'right';
-    ctx.fillText('SESSION 04', w - 28, 34);
-    ctx.textAlign = 'left';
-
-    // a rising SIP curve over a quiet grid
-    ctx.strokeStyle = '#e3e9f3';
-    ctx.lineWidth = 2;
-    for (let k = 0; k < 4; k++) {
-      ctx.beginPath();
-      ctx.moveTo(28, 120 + k * 58);
-      ctx.lineTo(372, 120 + k * 58);
-      ctx.stroke();
-    }
-    ctx.fillStyle = 'rgba(15,155,142,0.14)';
-    ctx.beginPath();
-    ctx.moveTo(28, 300);
-    [[28, 280], [110, 262], [190, 236], [270, 196], [372, 118], [372, 300]].forEach(([x, y]) => ctx.lineTo(x, y));
-    ctx.fill();
-    ctx.strokeStyle = hex;
-    ctx.lineWidth = 7;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.beginPath();
-    [[28, 280], [110, 262], [190, 236], [270, 196], [372, 118]].forEach(([x, y], k) => (k ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
-    ctx.stroke();
-
-    // three lessons, ticked
-    [['Save first', 1], ['Start a SIP', 1], ['Avoid scams', 0]].forEach(([label, done], k) => {
-      const y = 132 + k * 72;
-      ctx.fillStyle = done ? hex : '#dfe6f1';
-      ctx.beginPath();
-      ctx.arc(420, y, 17, 0, Math.PI * 2);
-      ctx.fill();
-      if (done) {
-        ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 4;
-        ctx.beginPath();
-        ctx.moveTo(411, y);
-        ctx.lineTo(418, y + 7);
-        ctx.lineTo(430, y - 7);
-        ctx.stroke();
-      }
-      ctx.fillStyle = '#1c2a4c';
-      ctx.font = '600 24px Inter, "Segoe UI", Arial, sans-serif';
-      ctx.fillText(label, 450, y + 1);
-    });
-    ctx.fillStyle = '#eef3fb';
-    rr(ctx, 28, h - 70, w - 56, 44, 12);
-    ctx.fill();
-    ctx.fillStyle = '#5d6a86';
-    ctx.font = '600 19px "JetBrains Mono", ui-monospace, monospace';
-    ctx.fillText('QR CHECK-IN  ·  128 ATTENDEES', 46, h - 47);
-  });
-}
-
-{
-  const A = chipByKey.iap.accent.getHex();
-  const g = new THREE.Group();
-
-  // the screen on its stand
-  const screen = new THREE.Group();
-  screen.position.set(0, 0, -0.45);
-  g.add(screen);
-  const frame = new THREE.Mesh(rbox(2.05, 1.32, 0.08, 0.06), M.chip);
-  frame.position.y = 1.72;
-  screen.add(frame);
-  const slide = new THREE.Mesh(new THREE.PlaneGeometry(1.92, 1.2), new THREE.MeshBasicMaterial({ map: awarenessSlide(), toneMapped: false }));
-  slide.position.set(0, 1.72, 0.042);
-  screen.add(slide);
-  [-0.62, 0.62].forEach((x) => {
-    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.06, 10), M.metal);
-    leg.position.set(x, 0.53, -0.04);
-    screen.add(leg);
-  });
-  const foot = new THREE.Mesh(rbox(1.6, 0.06, 0.34, 0.03), M.metal);
-  foot.position.set(0, 0.03, -0.04);
-  screen.add(foot);
-
-  // the audience, facing the screen, each with a check-in tick
-  const headMat = accentMat(A, 0.18);
-  const bodyGeo = new THREE.CapsuleGeometry(0.15, 0.2, 6, 16);
-  const tickMat = accentMat(0x22c55e, 0.35);
-  const tickLine = glowMat(0xffffff);
-  const people = [-0.84, -0.28, 0.28, 0.84].map((x, k) => {
-    const p = new THREE.Group();
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.15, 24, 18), k % 2 ? M.panel : headMat);
-    head.position.y = 0.62;
-    const body = new THREE.Mesh(bodyGeo, k % 2 ? headMat : M.panel);
-    body.position.y = 0.25;
-    p.add(head, body);
-    p.position.set(x, 0, 0.62 + (k % 2) * 0.12);
-    g.add(p);
-
-    const badge = new THREE.Group();
-    const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.04, 28), tickMat);
-    disc.rotation.x = Math.PI / 2;
-    badge.add(disc);
-    const tick = linePath([new THREE.Vector3(-0.06, 0, 0.025), new THREE.Vector3(-0.015, -0.045, 0.025), new THREE.Vector3(0.065, 0.045, 0.025)]);
-    badge.add(new THREE.Mesh(new THREE.TubeGeometry(tick, 12, 0.017, 6, false), tickLine));
-    badge.position.set(x, 1.0, p.position.z);
-    g.add(badge);
-    return { p, badge };
-  });
-
-  // an idea lighting up
-  const bulb = new THREE.Group();
-  bulb.position.set(1.18, 2.6, -0.3);
-  g.add(bulb);
-  const glassMat = new THREE.MeshPhysicalMaterial({
-    color: 0xfff6c8, emissive: 0xffd24a, emissiveIntensity: 0.4, roughness: 0.15, clearcoat: 1,
-  });
-  const glass = new THREE.Mesh(new THREE.SphereGeometry(0.24, 28, 20), glassMat);
-  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.16, 20), M.metal);
-  neck.position.y = -0.26;
-  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.08, 20), M.chip);
-  cap.position.y = -0.37;
-  bulb.add(glass, neck, cap);
-  // short rays fanned over the top of the bulb, each pointing outward
-  const rayMat = glowMat(0xffd24a, 0.85);
-  const rays = [-2, -1, 0, 1, 2].map((k) => {
-    const a = k * 0.55;
-    const r = new THREE.Mesh(rbox(0.05, 0.16, 0.05, 0.02), rayMat);
-    r.position.set(Math.sin(a) * 0.42, Math.cos(a) * 0.42, 0);
-    r.rotation.z = -a;
-    bulb.add(r);
-    return r;
-  });
-
-  attach('iap', g, (t, mix) => {
-    screen.position.y = Math.sin(t * 0.9) * 0.02;
-    // attendees check in one after another, then the round starts again
-    const round = (t * 0.35) % 1;
-    people.forEach(({ p, badge }, k) => {
-      p.position.y = Math.abs(Math.sin(t * 1.6 + k)) * 0.03;
-      const on = THREE.MathUtils.clamp((round * 5 - k - 0.2) * 3, 0, 1) * THREE.MathUtils.clamp(mix * 1.5 - 0.3, 0, 1);
-      badge.scale.setScalar(Math.max(0.001, on));
-      badge.position.y = 1.0 + Math.sin(t * 2 + k) * 0.04;
-      badge.rotation.y = Math.sin(t * 1.3 + k) * 0.4;
-    });
-    const glow = 0.5 + 0.5 * Math.sin(t * 2.2);
-    glassMat.emissiveIntensity = 0.25 + glow * 0.9;
-    rays.forEach((r) => (r.scale.y = 0.6 + glow * 0.6));
-    bulb.position.y = 2.6 + Math.sin(t * 1.2) * 0.06;
-    bulb.rotation.z = Math.sin(t * 0.8) * 0.08;
-  });
-}
-
 // --- ROBO ADVISORY: a friendly advisor bot reading the market --------
 {
   const A = chipByKey.robo.accent.getHex();
@@ -1269,6 +1068,7 @@ function awarenessSlide() {
 {
   const A = chipByKey.analytics.accent.getHex();
   const g = new THREE.Group();
+  g.position.z = -0.6; // stands back so the chip's name stays readable
   const heights = [0.55, 0.9, 0.7, 1.25, 1.05];
   const barHi = accentMat(A, 0.25);
   const barLo = accentMat(A, 0.08);

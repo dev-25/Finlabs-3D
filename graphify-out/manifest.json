@@ -402,15 +402,15 @@
     "semantic_hash": ""
   },
   "src/solutions-scene.js": {
-    "mtime": 1791824530.136536,
-    "seen": 1791824660.148104,
-    "ast_hash": "0b1d960d31694565ae1c29f88691e9f5",
+    "mtime": 1791826246.7115612,
+    "seen": 1791826377.552825,
+    "ast_hash": "e61429e18958f3906367ef07bea5f6c0",
     "semantic_hash": ""
   },
   "src/solutions-ui.js": {
-    "mtime": 1791824486.5286946,
-    "seen": 1791824660.148104,
-    "ast_hash": "b0f9db477be0f90023f48bd62ebc9629",
+    "mtime": 1791826018.8873503,
+    "seen": 1791826377.5528262,
+    "ast_hash": "61bbf3a4f8f3a5989de488ed37f01e4c",
     "semantic_hash": ""
   },
   "src/solutions.js": {
@@ -462,15 +462,15 @@
     "semantic_hash": ""
   },
   "contact.html": {
-    "mtime": 1791824492.9884858,
-    "seen": 1791824660.1481102,
-    "ast_hash": "e71df8f049b7a18f30f96148cfefb4c6",
+    "mtime": 1791826052.404486,
+    "seen": 1791826377.5528362,
+    "ast_hash": "0987b3aaae5af2b400b384a9dc11ec5e",
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1791824486.5292695,
-    "seen": 1791824660.1481102,
-    "ast_hash": "d0d173eb3f92c411eb1c33e044399549",
+    "mtime": 1791826018.8883843,
+    "seen": 1791826377.5528371,
+    "ast_hash": "4b14ceee5092645ce0e766ccce1e7c4b",
     "semantic_hash": ""
   },
   "knowledge-centre/blogs.html": {
@@ -540,9 +540,9 @@
     "semantic_hash": "22a8871f5724d40d4880c5d2693011bf"
   },
   "solutions.html": {
-    "mtime": 1791824476.4280066,
-    "seen": 1791824660.148117,
-    "ast_hash": "305705d1e27212881d2017927f3e0d08",
+    "mtime": 1791826012.3307233,
+    "seen": 1791826377.5528462,
+    "ast_hash": "98208ab6d6d1eaef407fce2f20bbd596",
     "semantic_hash": ""
   },
   "src/partials/knowledge/blog-cards.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1791824563.7674756,
-    "seen": 1791824660.1480598,
-    "ast_hash": "2283485d79233a7016fac68b59f7e6aa",
+    "mtime": 1791826265.2520344,
+    "seen": 1791826377.552777,
+    "ast_hash": "83820d90850799de984c1ba188c05b3a",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1791824638.3382769,
-    "seen": 1791824660.148062,
-    "ast_hash": "0965b9259bf2d36c945456ebd1611245",
+    "mtime": 1791826351.7799835,
+    "seen": 1791826377.552779,
+    "ast_hash": "67edeb00055ed158a923f76e1faadcd8",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1791824638.344045,
-    "seen": 1791824660.148063,
-    "ast_hash": "e9c99f646555f972bffdf82aff8f7dfd",
+    "mtime": 1791826351.7853186,
+    "seen": 1791826377.552779,
+    "ast_hash": "c68385d252dc86fdb347d345e057ba34",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {

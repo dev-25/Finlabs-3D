@@ -1,17 +1,17 @@
 # Graph Report - my-three-site  (2026-10-12)
 
 ## Corpus Check
-- 87 files · ~452,973 words
+- 87 files · ~451,027 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 20 file(s) not represented in the graph (top: .css 18, (none) 2)
 
 ## Summary
-- 1152 nodes · 1441 edges · 188 communities (78 shown, 110 thin omitted)
+- 1152 nodes · 1439 edges · 187 communities (77 shown, 110 thin omitted)
 - Extraction: 82% EXTRACTED · 18% INFERRED · 0% AMBIGUOUS · INFERRED: 260 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a75be27e`
+- Built from commit: `3fc43774`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,11 +38,10 @@
 - services-ui.js
 - cloud.js
 - case-study.js
-- after-paint.js
 - nav.js
-- learngenie-climb.js
+- doc.js
 - buildCloudScene
-- boardTexture
+- chipLabel
 - about.js
 - three
 - awsLogo
@@ -70,7 +69,7 @@
 - screen
 - followHash
 - frame
-- drawCircuit
+- boardTexture
 - Privacy Policy Page
 - Blog cover: two interlocking metallic puzzle pieces above the finlabs and LSEG Data & Analytics logos (Finlabs India Collaborates with LSEG to Drive Innovation in WealthTech Solutions)
 - Post-Election Financial Strategy infographic (Finlabs)
@@ -212,8 +211,8 @@
 5. `three` - 15 edges
 6. `buildEmblem()` - 13 edges
 7. `buildCloudScene()` - 13 edges
-8. `onTheme()` - 12 edges
-9. `afterPaint()` - 12 edges
+8. `afterPaint()` - 12 edges
+9. `onTheme()` - 12 edges
 10. `Solutions Page` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -239,7 +238,7 @@
 - **Products Sharing the Calendly Booking CTA** — src_partials_products_finaware_finaware, src_partials_products_finexa_gennxt_finexa_gennxt, src_partials_products_finexa_finexa, src_partials_products_learngenie_learngenie [INFERRED 0.75]
 - **Shared Site Navigation & Footer Chrome** — src_partials_product_page_footer_footer, src_partials_product_page_nav_nav, src_partials_service_page_footer_footer, src_partials_service_page_nav_nav [INFERRED 0.85]
 
-## Communities (188 total, 110 thin omitted)
+## Communities (187 total, 110 thin omitted)
 
 ### Community 0 - "showroom.js"
 Cohesion: 0.02
@@ -270,8 +269,8 @@ Cohesion: 0.07
 Nodes (38): Ajay Mahajan, Finlabs India (organization), Nimish Agrawal, About Us Page, Sudipto Roy, Finlabs Corporate Deck PDF, Corporate Deck Page, Careers Page (+30 more)
 
 ### Community 7 - "product-viewport.js"
-Cohesion: 0.09
-Nodes (28): src_product_screen, asset(), BASE, buildScene(), createLightbox(), open(), SCENES, wireFaqs() (+20 more)
+Cohesion: 0.07
+Nodes (34): createHub(), frame(), loop(), resize(), PLATFORMS, shadowTexture(), src_product_screen, asset() (+26 more)
 
 ### Community 8 - "fiscus-picture.js"
 Cohesion: 0.31
@@ -298,8 +297,8 @@ Cohesion: 0.05
 Nodes (49): chips, count, empty, filter(), followHash(), jobs, matches(), picked (+41 more)
 
 ### Community 14 - "theme.js"
-Cohesion: 0.27
-Nodes (9): form, note, tocLinks, currentTheme(), initTheme(), listeners, onTheme(), paint() (+1 more)
+Cohesion: 0.48
+Nodes (6): currentTheme(), initTheme(), listeners, onTheme(), paint(), read()
 
 ### Community 15 - "about-hero.js"
 Cohesion: 0.16
@@ -329,25 +328,21 @@ Nodes (11): fromHash, journey, logos, panels, platforms, rDesc, rs, stage (+3 mo
 Cohesion: 0.38
 Nodes (6): highlight(), labels, listen(), studies, wantScene(), wide
 
-### Community 22 - "after-paint.js"
-Cohesion: 0.25
-Nodes (6): afterPaint(), idle(), src_bang, doc, src_style, button
+### Community 22 - "nav.js"
+Cohesion: 0.19
+Nodes (9): afterPaint(), idle(), src_bang, fill, line, menu, nav, src_style (+1 more)
 
-### Community 23 - "nav.js"
-Cohesion: 0.33
-Nodes (4): fill, line, menu, nav
-
-### Community 24 - "learngenie-climb.js"
-Cohesion: 0.36
-Nodes (8): createClimb(), frame(), loop(), resize(), drawStep(), shadowTexture(), starShape(), STEPS
+### Community 23 - "doc.js"
+Cohesion: 0.24
+Nodes (5): form, note, tocLinks, doc, button
 
 ### Community 25 - "buildCloudScene"
 Cohesion: 0.24
 Nodes (9): asset(), buildCloudScene(), frame(), kick(), loop(), resize(), start(), cloudGeometry() (+1 more)
 
-### Community 27 - "boardTexture"
-Cohesion: 0.21
-Nodes (12): awarenessSlide(), boardTexture(), chipLabel(), chips, coreLabel(), fitText(), makeTexture(), padTex (+4 more)
+### Community 27 - "chipLabel"
+Cohesion: 0.25
+Nodes (9): chipLabel(), chips, coreLabel(), fitText(), makeTexture(), padTex, pinRing(), rbox() (+1 more)
 
 ### Community 33 - "about.js"
 Cohesion: 0.18
@@ -355,7 +350,7 @@ Nodes (8): dGroup, dialog, dName, dPhoto, dRole, dText, revealables, tabs
 
 ### Community 35 - "three"
 Cohesion: 0.07
-Nodes (27): three, canvas, host, createFlow(), frame(), loop(), resize(), drawStage() (+19 more)
+Nodes (29): three, canvas, host, createFlow(), frame(), loop(), resize(), drawStage() (+21 more)
 
 ### Community 36 - "awsLogo"
 Cohesion: 0.29
@@ -457,9 +452,9 @@ Nodes (5): followHash(), goToProduct(), handleResize(), productById(), updateScr
 Cohesion: 0.50
 Nodes (5): computeTargets(), frame(), handleResize(), loop(), measure()
 
-### Community 68 - "drawCircuit"
-Cohesion: 0.50
-Nodes (5): drawCircuit(), glowTex, strokePath(), toPx(), via()
+### Community 68 - "boardTexture"
+Cohesion: 0.38
+Nodes (7): boardTexture(), drawCircuit(), glowTex, redrawType(), strokePath(), toPx(), via()
 
 ### Community 69 - "Privacy Policy Page"
 Cohesion: 0.50
@@ -554,21 +549,21 @@ Cohesion: 0.67
 Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Service Page Footer Partial
 
 ## Knowledge Gaps
-- **629 isolated node(s):** `THEME3D`, `canvas`, `renderer`, `pmrem`, `shadowTex` (+624 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 701 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **630 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+625 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 702 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **110 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `fiscus-picture.js`, `buildRide`, `about-hero.js`, `package.json`, `learngenie-climb.js`, `buildCloudScene`?**
-  _High betweenness centrality (0.119) - this node is a cross-community bridge._
-- **Why does `t()` connect `kc-blogs.js` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `theme.js`, `services-ui.js`, `nav.js`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `product-viewport.js`, `fiscus-picture.js`, `buildRide`, `about-hero.js`, `package.json`, `buildCloudScene`?**
+  _High betweenness centrality (0.132) - this node is a cross-community bridge._
 - **Why does `onTheme()` connect `theme.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `about-hero.js`, `buildCloudScene`?**
-  _High betweenness centrality (0.054) - this node is a cross-community bridge._
-- **What connects `THEME3D`, `canvas`, `renderer` to the rest of the system?**
-  _629 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+- **Why does `t()` connect `kc-blogs.js` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `services-ui.js`, `nav.js`, `doc.js`?**
+  _High betweenness centrality (0.051) - this node is a cross-community bridge._
+- **What connects `name`, `version`, `private` to the rest of the system?**
+  _630 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `showroom.js` be split into smaller, more focused modules?**
   _Cohesion score 0.02127659574468085 - nodes in this community are weakly interconnected._
 - **Should `solutions-scene.js` be split into smaller, more focused modules?**

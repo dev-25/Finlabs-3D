@@ -778,13 +778,6 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
- "Finaware": [
-  "index.html",
-  "products.html",
-  "solutions.html",
-  "contact.html",
-  "brochure.html"
- ],
  "Learngenie": [
   "index.html",
   "products.html",
@@ -816,6 +809,12 @@
   "products/finexa.html",
   "products/fiscus.html",
   "products/learngenie.html"
+ ],
+ "Finaware": [
+  "index.html",
+  "products.html",
+  "contact.html",
+  "brochure.html"
  ],
  "Finexa": [
   "index.html",
@@ -1310,10 +1309,6 @@
   "brochure.html",
   "case-study.html"
  ],
- "Asset management companies": [
-  "solutions.html",
-  "brochure.html"
- ],
  "Asset market value bifurcation, AUM client-wise, transactions by asset and SIP details, on one dashboard.": [
   "products.html",
   "products/finexa-gennxt.html"
@@ -1705,6 +1700,10 @@
  "Clients reach real-time reports on web and mobile, behind enterprise-grade security.": [
   "products.html",
   "products/finexa-gennxt.html"
+ ],
+ "Cloud migration": [
+  "solutions.html",
+  "services/cloud.html"
  ],
  "Collect real-time feedback and issue digital participation certificates instantly.": [
   "products.html",
@@ -2217,10 +2216,6 @@
  "Experience the power of Learngenie yourself. Book a demo and see how the platform can enhance your organization's training and development.": [
   "products.html",
   "products/learngenie.html"
- ],
- "Explore Finaware": [
-  "products.html",
-  "solutions.html"
  ],
  "Export what the meeting needs": [
   "products.html",
@@ -2814,21 +2809,9 @@
   "products.html",
   "products/finexa.html"
  ],
- "Investor awareness": [
-  "products.html",
-  "solutions.html"
- ],
- "Investor Awareness (IAP)": [
-  "index.html",
-  "solutions.html"
- ],
  "Investor awareness programs": [
   "products.html",
   "products/finaware.html"
- ],
- "Investor Awareness Programs (IAP)": [
-  "solutions.html",
-  "contact.html"
  ],
  "Investor, Founder & Director, Induscap Wealth": [
   "products.html",
@@ -3141,6 +3124,10 @@
  "Motivate learners with rankings on leaderboards, points and badges earned on different criteria — customisable to your goals.": [
   "products.html",
   "products/learngenie.html"
+ ],
+ "Move to the cloud": [
+  "solutions.html",
+  "services/cloud.html"
  ],
  "Mr. Abir Banerjee": [
   "products.html",
@@ -4651,6 +4638,24 @@
  "{n} questions": [
   "(javascript)"
  ],
+ "&middot; Audit-ready": [
+  "contact.html"
+ ],
+ "&middot; AWS, Azure & Google Cloud": [
+  "contact.html"
+ ],
+ "&middot; Dashboards and BI": [
+  "contact.html"
+ ],
+ "&middot; Goal-based advice": [
+  "contact.html"
+ ],
+ "&middot; Secure and paperless": [
+  "contact.html"
+ ],
+ "&middot; Sites, portals and apps": [
+  "contact.html"
+ ],
  "← Back to all services": [
   "services/cloud.html"
  ],
@@ -5341,6 +5346,9 @@
  "Asset aggregation": [
   "products.html"
  ],
+ "Asset management companies": [
+  "brochure.html"
+ ],
  "Assure": [
   "services.html"
  ],
@@ -5356,13 +5364,7 @@
  "Attention to detail and a commitment to software quality": [
   "careers.html"
  ],
- "Audit packs in minutes": [
-  "solutions.html"
- ],
  "Audit-ready records": [
-  "solutions.html"
- ],
- "Audit-ready reports, with invoices mapped to sessions": [
   "solutions.html"
  ],
  "Aug": [
@@ -5578,9 +5580,6 @@
  "Book an audit conversation": [
   "services.html"
  ],
- "Book an Investor Awareness (IAP) demo": [
-  "solutions.html"
- ],
  "Book-keeping and the back office behind it": [
   "case-study.html"
  ],
@@ -5591,9 +5590,6 @@
   "services/cloud.html"
  ],
  "Bring client, portfolio, sales and operations data together and see it clearly. Interactive dashboards, drill-downs and scheduled reports turn numbers into insights that every team — from leadership to relationship managers — can act on the same day.": [
-  "solutions.html"
- ],
- "Brokers": [
   "solutions.html"
  ],
  "Brokers & advisers": [
@@ -5840,9 +5836,6 @@
   "solutions.html"
  ],
  "Cloud Load Balancing": [
-  "services/cloud.html"
- ],
- "Cloud migration": [
   "services/cloud.html"
  ],
  "Cloud Monitoring": [
@@ -6352,9 +6345,6 @@
  "Event · nasscom ai & IBM": [
   "about.html"
  ],
- "Event planning with admin approvals and mandatory fields": [
-  "solutions.html"
- ],
  "Event-driven": [
   "services.html"
  ],
@@ -6409,9 +6399,6 @@
  "Exceptional communication: you can brief a CXO and a developer on the same day": [
   "careers.html"
  ],
- "Exchanges & depositories": [
-  "solutions.html"
- ],
  "Execute, track and optimise programmes": [
   "products.html"
  ],
@@ -6429,6 +6416,9 @@
  ],
  "Explore cloud services": [
   "solutions.html"
+ ],
+ "Explore Finaware": [
+  "products.html"
  ],
  "Explore Finexa": [
   "products.html"
@@ -6706,7 +6696,7 @@
  "Finlabs services for financial institutions — UI/UX, application and infrastructure audits, cybersecurity, cloud architecture review and digital transformation strategy.": [
   "services.html"
  ],
- "Finlabs solutions for financial services — Cloud Solutions on AWS, Azure and Google Cloud, Website and Application Development, Investor Awareness Programs on Finaware, Robo Advisory, Data Analytics and Visualisation, Document Management and Regulatory Compliance Automation.": [
+ "Finlabs solutions for financial services — Cloud Solutions on AWS, Azure and Google Cloud, Website and Application Development, Robo Advisory, Data Analytics and Visualisation, Document Management and Regulatory Compliance Automation.": [
   "solutions.html"
  ],
  "Finlabs was a finalist at India FinTech Forum’s IFTA 2023 for Best Initiative for Financial Literacy. Online: 30–31 October 2023; in person: 1 November 2023 at Courtyard by Marriott, Mumbai.": [
@@ -6733,7 +6723,7 @@
  "Fintech Program with Hinduja Foundation": [
   "about.html"
  ],
- "fintech solutions, cloud solutions for financial services, cloud migration india, website and application development, web development company india, fintech app development, investor awareness programs, robo advisory, data analytics and visualisation, document management, regulatory compliance automation, ReguSure, RegTech India": [
+ "fintech solutions, cloud solutions for financial services, cloud migration india, website and application development, web development company india, fintech app development, robo advisory, data analytics and visualisation, document management, regulatory compliance automation, ReguSure, RegTech India": [
   "solutions.html"
  ],
  "Fintech startups": [
@@ -6960,9 +6950,6 @@
  ],
  "Gautam Bhatikar, Advisor — view profile": [
   "about.html"
- ],
- "Geo-tagged proof logs, feedback and instant certificates": [
-  "solutions.html"
  ],
  "Get a cloud review": [
   "services.html"
@@ -7288,6 +7275,9 @@
  "Investment advisers": [
   "solutions.html"
  ],
+ "Investor awareness": [
+  "products.html"
+ ],
  "Investor Awareness Programs": [
   "products.html"
  ],
@@ -7573,9 +7563,6 @@
  "Manage expectations transparently — flag risks early and communicate trade-offs": [
   "careers.html"
  ],
- "Manage online, offline and hybrid Investor Awareness Programs from one governed platform — from scheduling and admin approvals to QR check-in, feedback, certificates and audit-ready reports, with regulatory compliance carried all the way through.": [
-  "solutions.html"
- ],
  "Manage parallel workstreams across multiple clients and product lines": [
   "careers.html"
  ],
@@ -7700,9 +7687,6 @@
   "services/cloud.html"
  ],
  "Move Oracle, SQL Server, MySQL or PostgreSQL with continuous replication and a short, planned switch-over.": [
-  "services/cloud.html"
- ],
- "Move to the cloud": [
   "services/cloud.html"
  ],
  "Move your platforms to the cloud without losing a night’s sleep. We review what you run today, plan the migration application by application, build a landing zone that meets RBI and SEBI expectations, and then keep it running — right-sized, monitored, backed up and ready for the next audit.": [
@@ -7930,7 +7914,7 @@
  "Our strengths": [
   "brochure.html"
  ],
- "Our tailored solutions empower you to solve complex problems and achieve your unique goals — from wealth management and investor awareness to robo-advisory, analytics and compliance automation.": [
+ "Our tailored solutions empower you to solve complex problems and achieve your unique goals — from cloud and websites to robo-advisory, analytics and compliance automation.": [
   "index.html"
  ],
  "Our team": [
@@ -8077,9 +8061,6 @@
  "Plan, migrate, secure and run your workloads on AWS, Microsoft Azure or Google Cloud with Finlabs.": [
   "services/cloud.html"
  ],
- "Plan, run and report every awareness session": [
-  "solutions.html"
- ],
  "Plans built around data residency, audit trails, access controls and vendor due diligence from day one.": [
   "services/cloud.html"
  ],
@@ -8109,9 +8090,6 @@
  ],
  "PostgreSQL: database design, SQL, indexing, query and performance optimisation": [
   "careers.html"
- ],
- "Powered by": [
-  "solutions.html"
  ],
  "Powering Growth with Modern Wealth Management Stack": [
   "products.html"
@@ -8212,9 +8190,6 @@
  "Program Chair, M.Sc. (Finance), NMIMS": [
   "about.html"
  ],
- "Programmes run end to end": [
-  "solutions.html"
- ],
  "Project leadership & delivery": [
   "careers.html"
  ],
@@ -8238,9 +8213,6 @@
  ],
  "Push Notifications.": [
   "privacy-learngenie.html"
- ],
- "QR check-in on the ground, auto-recorded attendance online": [
-  "solutions.html"
  ],
  "Quality standards": [
   "services.html"
@@ -8452,9 +8424,6 @@
  "Run deep-dive discovery workshops with BFSI clients to extract, validate and prioritise requirements": [
   "careers.html"
  ],
- "Run investor awareness programs": [
-  "solutions.html"
- ],
  "Run sprint planning, stand-ups, reviews and retrospectives with precision": [
   "careers.html"
  ],
@@ -8529,9 +8498,6 @@
  ],
  "Seasoned experts": [
   "services.html"
- ],
- "SEBI-aligned governance": [
-  "solutions.html"
  ],
  "SEBI-regulated platforms, investor education mandates or AMFI-compliant products": [
   "careers.html"
@@ -8626,9 +8592,6 @@
  "Services we build with most": [
   "services/cloud.html"
  ],
- "Seven solutions for wealth managers, distributors, advisers, AMCs and financial institutions — from cloud and robo-advisory to investor awareness, websites and apps, analytics, documents and compliance. Start with the one you need today and add more as you grow.": [
-  "solutions.html"
- ],
  "Severability of Provisions": [
   "terms.html"
  ],
@@ -8683,6 +8646,9 @@
  "Sites, portals and mobile apps": [
   "solutions.html"
  ],
+ "Six solutions for wealth managers, distributors, advisers, AMCs and financial institutions — from cloud and robo-advisory to websites and apps, analytics, documents and compliance. Start with the one you need today and add more as you grow.": [
+  "solutions.html"
+ ],
  "Slack or Microsoft Teams; Miro and Figma": [
   "careers.html"
  ],
@@ -8710,16 +8676,13 @@
  "SOL—06": [
   "solutions.html"
  ],
- "SOL—07": [
-  "solutions.html"
- ],
  "Solution use-cases and the Finlabs NPS Suite": [
   "brochure.html"
  ],
  "solutions": [
   "index.html"
  ],
- "Solutions — Cloud, Websites & Apps, IAP and Compliance | Finlabs": [
+ "Solutions — Cloud, Websites & Apps, Analytics and Compliance | Finlabs": [
   "solutions.html"
  ],
  "Solutions and services": [
@@ -9636,9 +9599,6 @@
  ],
  "Why the cloud": [
   "services/cloud.html"
- ],
- "Wider investor reach": [
-  "solutions.html"
  ],
  "Will our data stay in India?": [
   "services/cloud.html"

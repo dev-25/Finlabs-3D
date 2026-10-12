@@ -6,12 +6,12 @@
 - Unclassified: 20 file(s) not represented in the graph (top: .css 18, (none) 2)
 
 ## Summary
-- 1153 nodes · 1442 edges · 188 communities (78 shown, 110 thin omitted)
+- 1152 nodes · 1441 edges · 188 communities (78 shown, 110 thin omitted)
 - Extraction: 82% EXTRACTED · 18% INFERRED · 0% AMBIGUOUS · INFERRED: 260 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5559459d`
+- Built from commit: `a75be27e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,8 +38,8 @@
 - services-ui.js
 - cloud.js
 - case-study.js
+- after-paint.js
 - nav.js
-- doc.js
 - learngenie-climb.js
 - buildCloudScene
 - boardTexture
@@ -212,8 +212,8 @@
 5. `three` - 15 edges
 6. `buildEmblem()` - 13 edges
 7. `buildCloudScene()` - 13 edges
-8. `afterPaint()` - 12 edges
-9. `onTheme()` - 12 edges
+8. `onTheme()` - 12 edges
+9. `afterPaint()` - 12 edges
 10. `Solutions Page` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -298,8 +298,8 @@ Cohesion: 0.05
 Nodes (49): chips, count, empty, filter(), followHash(), jobs, matches(), picked (+41 more)
 
 ### Community 14 - "theme.js"
-Cohesion: 0.48
-Nodes (6): currentTheme(), initTheme(), listeners, onTheme(), paint(), read()
+Cohesion: 0.27
+Nodes (9): form, note, tocLinks, currentTheme(), initTheme(), listeners, onTheme(), paint() (+1 more)
 
 ### Community 15 - "about-hero.js"
 Cohesion: 0.16
@@ -329,13 +329,13 @@ Nodes (11): fromHash, journey, logos, panels, platforms, rDesc, rs, stage (+3 mo
 Cohesion: 0.38
 Nodes (6): highlight(), labels, listen(), studies, wantScene(), wide
 
-### Community 22 - "nav.js"
-Cohesion: 0.19
-Nodes (9): afterPaint(), idle(), src_bang, fill, line, menu, nav, src_style (+1 more)
+### Community 22 - "after-paint.js"
+Cohesion: 0.25
+Nodes (6): afterPaint(), idle(), src_bang, doc, src_style, button
 
-### Community 23 - "doc.js"
-Cohesion: 0.24
-Nodes (5): form, note, tocLinks, doc, button
+### Community 23 - "nav.js"
+Cohesion: 0.33
+Nodes (4): fill, line, menu, nav
 
 ### Community 24 - "learngenie-climb.js"
 Cohesion: 0.36
@@ -554,21 +554,21 @@ Cohesion: 0.67
 Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Service Page Footer Partial
 
 ## Knowledge Gaps
-- **630 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+625 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 702 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **629 isolated node(s):** `THEME3D`, `canvas`, `renderer`, `pmrem`, `shadowTex` (+624 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 701 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **110 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `fiscus-picture.js`, `buildRide`, `about-hero.js`, `package.json`, `learngenie-climb.js`, `buildCloudScene`?**
-  _High betweenness centrality (0.131) - this node is a cross-community bridge._
+  _High betweenness centrality (0.119) - this node is a cross-community bridge._
+- **Why does `t()` connect `kc-blogs.js` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `theme.js`, `services-ui.js`, `nav.js`?**
+  _High betweenness centrality (0.065) - this node is a cross-community bridge._
 - **Why does `onTheme()` connect `theme.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `about-hero.js`, `buildCloudScene`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
-- **Why does `t()` connect `kc-blogs.js` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `services-ui.js`, `nav.js`, `doc.js`?**
-  _High betweenness centrality (0.051) - this node is a cross-community bridge._
-- **What connects `name`, `version`, `private` to the rest of the system?**
-  _630 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.054) - this node is a cross-community bridge._
+- **What connects `THEME3D`, `canvas`, `renderer` to the rest of the system?**
+  _629 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `showroom.js` be split into smaller, more focused modules?**
   _Cohesion score 0.02127659574468085 - nodes in this community are weakly interconnected._
 - **Should `solutions-scene.js` be split into smaller, more focused modules?**

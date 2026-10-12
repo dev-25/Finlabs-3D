@@ -10,14 +10,13 @@
 import { t } from './i18n.js';
 
 /**
- * The seven solutions, in page order. Shared with the 3D board: `label`
+ * The six solutions, in page order. Shared with the 3D board: `label`
  * is printed on the chip (a line break splits it in two) and `sub` under
  * it — the Finlabs product a solution runs on, or a short descriptor.
  */
 export const SOLUTIONS = [
   { key: 'cloud', name: 'Cloud Solutions', label: 'CLOUD\nSOLUTIONS', sub: 'AWS · Azure · GCP', accent: '#06b6d4' },
   { key: 'webapp', name: 'Website and Application Development', label: 'WEBSITE & APP\nDEVELOPMENT', sub: 'Web · Mobile · Cloud', accent: '#6366f1' },
-  { key: 'iap', name: 'Investor Awareness Programs (IAP)', label: 'INVESTOR\nAWARENESS', sub: 'Finaware', accent: '#0f9b8e' },
   { key: 'robo', name: 'Robo Advisory', label: 'ROBO\nADVISORY', sub: 'Goal-based advice', accent: '#0ea5e9' },
   { key: 'analytics', name: 'Data Analytics and Visualisation', label: 'DATA\nANALYTICS', sub: '& Visualisation', accent: '#8b5cf6' },
   { key: 'documents', name: 'Document Management', label: 'DOCUMENT\nMANAGEMENT', sub: 'Secure · Paperless', accent: '#f59e0b' },
