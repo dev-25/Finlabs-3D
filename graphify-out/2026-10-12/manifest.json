@@ -444,9 +444,9 @@
     "semantic_hash": "15ebe9f4fcc68c4879fec70ac22441c6"
   },
   "about.html": {
-    "mtime": 1791815128.1846836,
-    "seen": 1791815929.583607,
-    "ast_hash": "c605232d920f16bf9e7d9ff9d719249e",
+    "mtime": 1791828188.6953187,
+    "seen": 1791828245.087049,
+    "ast_hash": "3658166201804c5666d5dfb29b94dcc1",
     "semantic_hash": ""
   },
   "brochure.html": {
@@ -492,9 +492,9 @@
     "semantic_hash": ""
   },
   "products.html": {
-    "mtime": 1791815128.1849055,
-    "seen": 1791815929.5836108,
-    "ast_hash": "6b9be2e6642305fe007a35de2e522743",
+    "mtime": 1791828135.7144659,
+    "seen": 1791828245.087054,
+    "ast_hash": "0ae432ae0fe1e9b24347a13619fdcbd0",
     "semantic_hash": ""
   },
   "products/finaware.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1791826265.2520344,
-    "seen": 1791826377.552777,
-    "ast_hash": "83820d90850799de984c1ba188c05b3a",
+    "mtime": 1791828226.9655957,
+    "seen": 1791828245.086999,
+    "ast_hash": "f1265283be64986de059e3a3b76dcd61",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1791826351.7799835,
-    "seen": 1791826377.552779,
-    "ast_hash": "67edeb00055ed158a923f76e1faadcd8",
+    "mtime": 1791828234.5039487,
+    "seen": 1791828245.087001,
+    "ast_hash": "3da0f5779e77d0e9f6be6d37b11efaa6",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1791826351.7853186,
-    "seen": 1791826377.552779,
-    "ast_hash": "c68385d252dc86fdb347d345e057ba34",
+    "mtime": 1791828234.510371,
+    "seen": 1791828245.087002,
+    "ast_hash": "4aac79e8f765ff5c73a987d10c90a84c",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {

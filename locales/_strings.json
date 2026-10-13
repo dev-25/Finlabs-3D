@@ -841,14 +841,14 @@
   "products/finaware.html"
  ],
  "What our clients say": [
+  "index.html",
   "products.html",
-  "partners.html",
   "products/finexa.html",
   "products/fiscus.html"
  ],
  "Alok Garg": [
+  "index.html",
   "products.html",
-  "partners.html",
   "products/finexa.html"
  ],
  "Application & Infra Audits": [
@@ -902,8 +902,8 @@
   "brochure.html"
  ],
  "Ganesh Madhukar": [
+  "index.html",
   "products.html",
-  "partners.html",
   "products/finexa.html"
  ],
  "Get started": [
@@ -912,8 +912,8 @@
   "products/finaware.html"
  ],
  "Ketan Tailor": [
+  "index.html",
   "products.html",
-  "partners.html",
   "products/finexa.html"
  ],
  "Key features": [
@@ -922,13 +922,13 @@
   "products/learngenie.html"
  ],
  "Mutual Fund Distributor": [
+  "index.html",
   "products.html",
-  "partners.html",
   "products/finexa.html"
  ],
  "Neelima D'silva-Dalvi": [
+  "index.html",
   "products.html",
-  "partners.html",
   "products/learngenie.html"
  ],
  "On this page": [
@@ -987,13 +987,13 @@
   "contact.html"
  ],
  "Vanshika Financial Technology Pvt. Ltd": [
+  "index.html",
   "products.html",
-  "partners.html",
   "products/finexa.html"
  ],
  "Vikram Tewari": [
+  "index.html",
   "products.html",
-  "partners.html",
   "products/finexa.html"
  ],
  "We're happy to assist you": [
@@ -4723,7 +4723,7 @@
   "knowledge-centre/blogs.html"
  ],
  "14 client stories": [
-  "partners.html"
+  "index.html"
  ],
  "14 weeks": [
   "case-study.html"
@@ -4975,7 +4975,7 @@
   "index.html"
  ],
  "A decade of partnerships, in their words": [
-  "partners.html"
+  "index.html"
  ],
  "A Divided World: Can Finance Be the Bridge?": [
   "knowledge-centre/blogs.html"
@@ -5080,7 +5080,7 @@
   "partners.html"
  ],
  "Abhishek Sharma": [
-  "partners.html"
+  "index.html"
  ],
  "about AI for Business Grand Challenge": [
   "about.html"
@@ -5161,7 +5161,7 @@
   "products.html"
  ],
  "Advisors, distributors and institutions on what changed once they moved.": [
-  "partners.html"
+  "index.html"
  ],
  "Advisory Board": [
   "about.html"
@@ -5242,7 +5242,7 @@
   "services/cloud.html"
  ],
  "AMFI-registered Mutual Fund Distributor": [
-  "partners.html"
+  "index.html"
  ],
  "Amit Sinha": [
   "about.html"
@@ -5338,7 +5338,7 @@
   "knowledge-centre/blogs.html"
  ],
  "As an MFD, I have been associated with Finexa for nearly three years, and it has been a wonderful experience. The platform is simple, convenient, and easy to navigate. More importantly, their client servicing team is outstanding. Whenever I encounter any difficulty, I just need to make one call, and the team is ready to help.": [
-  "partners.html"
+  "index.html"
  ],
  "Assess": [
   "services.html"
@@ -5386,7 +5386,7 @@
   "solutions.html"
  ],
  "AVP – HR and Corporate Communication, Luthra and Luthra Law Firm": [
-  "partners.html"
+  "index.html"
  ],
  "Award · Mint W3 Awards 2023": [
   "about.html"
@@ -5701,7 +5701,7 @@
   "brochure.html"
  ],
  "CEO, AADHAAR": [
-  "partners.html"
+  "index.html"
  ],
  "CERSAI": [
   "partners.html"
@@ -5713,7 +5713,7 @@
   "careers.html"
  ],
  "Change Initiatives has been associated with Finlabs for almost a decade. Their expertise in exam software has helped us achieve our digital literacy goals at scale. The team is always available to resolve queries and guide us through every process. Finlabs' strong knowledge of personal finance and easy-to-use applications are extremely valuable. Their solutions have greatly supported our on-ground financial literacy initiatives.": [
-  "partners.html"
+  "index.html"
  ],
  "Checks, calendar and audit trail": [
   "solutions.html"
@@ -5722,10 +5722,10 @@
   "about.html"
  ],
  "Chief Executive, Vedant Asset Limited": [
-  "partners.html"
+  "index.html"
  ],
  "Chief Investment Advisor, Ethical Investments": [
-  "partners.html"
+  "index.html"
  ],
  "Chief Operating Officer": [
   "about.html"
@@ -5794,7 +5794,7 @@
   "partners.html"
  ],
  "Client testimonials": [
-  "partners.html"
+  "index.html"
  ],
  "clients and institutions": [
   "partners.html"
@@ -5873,6 +5873,9 @@
  ],
  "Cloud-focused managed services: deploying, running and optimising your infrastructure for security and performance.": [
   "services.html"
+ ],
+ "Co-Founder & CEO": [
+  "about.html"
  ],
  "Co-Founder & Director": [
   "about.html"
@@ -6100,7 +6103,7 @@
   "careers.html"
  ],
  "Deputy Vice President – CSR, Mahindra Finance": [
-  "partners.html"
+  "index.html"
  ],
  "Design": [
   "services.html"
@@ -6136,7 +6139,7 @@
   "services/cloud.html"
  ],
  "Dhanyukti Finvest": [
-  "partners.html"
+  "index.html"
  ],
  "DigiLocker": [
   "partners.html"
@@ -6190,7 +6193,7 @@
   "brochure.html"
  ],
  "Divesh Sharma": [
-  "partners.html"
+  "index.html"
  ],
  "Do you support hybrid and multi-cloud set-ups?": [
   "services/cloud.html"
@@ -6595,7 +6598,7 @@
   "products/finexa-gennxt.html"
  ],
  "Finexa has greatly simplified our mutual fund operations. The platform is easy to use and saves significant operational time. The equity shares column helps present client portfolios clearly and professionally. It has allowed us to focus more on client servicing and business growth. I highly recommend Finexa to all mutual fund distributors.": [
-  "partners.html"
+  "index.html"
  ],
  "Finexa is a Finlabs India product.": [
   "products/finexa.html"
@@ -6604,7 +6607,7 @@
   "products.html"
  ],
  "Finexa is a great platform for an advisor looking for using a single platform to provide his clients with a wide bouquet of services – from financial planning to transactions and then tracking of investments and a client portal. It has evolved over a period of time as they have added many modules over the last one year.": [
-  "partners.html"
+  "index.html"
  ],
  "Finexa is an all-in-one mutual fund distribution platform for MFDs and financial advisors: transactions on NSE, BSE StAR MF and MFU, client portals, reporting, planning tools and the Finexa Nova investor app.": [
   "products/finexa.html"
@@ -6687,7 +6690,7 @@
  "Finlabs Partners with LSEG (London Stock Exchange Group) to Transform WealthTech": [
   "knowledge-centre/blogs.html"
  ],
- "Finlabs partners, Finlabs clients, fintech technology partners India, BSE StAR MF partner, NSE mutual fund platform, CAMS KFintech integration, KYC partners Digio Signzy, client testimonials, mutual fund distribution partners": [
+ "Finlabs partners, Finlabs clients, fintech technology partners India, BSE StAR MF partner, NSE mutual fund platform, CAMS KFintech integration, KYC partners Digio Signzy, mutual fund distribution partners": [
   "partners.html"
  ],
  "Finlabs products — Finexa, Finexa GenNxt, Finaware, Fiscus and Learngenie: platforms for wealth management, asset aggregation, investor awareness, personal finance and learning.": [
@@ -6870,10 +6873,7 @@
  "Founded by Sudipto & Nimish, who transitioned from successful corporate finance careers to follow their passion, the company is built on years of expertise and a shared vision to change the way people manage their money.": [
   "about.html"
  ],
- "Founder & CEO": [
-  "about.html"
- ],
- "Founder & Director": [
+ "Founder & MD": [
   "about.html"
  ],
  "Founder’s Office": [
@@ -6913,7 +6913,7 @@
   "services/cloud.html"
  ],
  "From the very beginning, it was evident that Finlabs operates with a customer-centric approach at its core. They took the time to truly understand our unique needs and objectives, ensuring that the website they designed and developed perfectly aligned with our vision. This level of dedication to understanding their clients is truly commendable and sets them apart in the industry.": [
-  "partners.html"
+  "index.html"
  ],
  "Full name": [
   "contact.html"
@@ -6943,12 +6943,6 @@
   "about.html"
  ],
  "Gaurav Suri, Chief Evangelist at Finlabs, quoted in a ResearchNXT feature on AI in financial services": [
-  "about.html"
- ],
- "Gautam Bhatikar": [
-  "about.html"
- ],
- "Gautam Bhatikar, Advisor — view profile": [
   "about.html"
  ],
  "Get a cloud review": [
@@ -7020,9 +7014,6 @@
  "Harm minors in any way;": [
   "terms.html"
  ],
- "Heads a disputes practice in Mumbai": [
-  "about.html"
- ],
  "Health One": [
   "index.html"
  ],
@@ -7090,10 +7081,10 @@
   "contact.html"
  ],
  "I came to know of Finlabs at an event organized by Network FP, I subscribed to Finlabs - Finexa for financial planning post the demo and have been using it for more than a year now. The team at Finlabs is very supportive in resolving queries and constantly looking for inputs to update their product, the financial planning report is exhaustive and very helpful. I recommend subscribing Finexa!!": [
-  "partners.html"
+  "index.html"
  ],
  "I have been using the Finexa online platform for the last 4 months for mutual fund transactions. The software is user-friendly and generates all the reports required for MFDs. It is simple, efficient, and easy to use for our daily operations. The support team is very cooperative and always ready to help. I am very satisfied with the Finexa mobile app and web portal.": [
-  "partners.html"
+  "index.html"
  ],
  "I know life has just started and you need to enjoy it, but it wouldn’t harm you to set aside a small sum of money regularly to fund your future goals. If you delay saving for your goals, the amount you need to save later on would only increase with each passing year.": [
   "knowledge-centre/blogs.html"
@@ -7282,13 +7273,13 @@
   "products.html"
  ],
  "Investor, Founder, Director — Induscap Wealth": [
-  "partners.html"
+  "index.html"
  ],
  "Investors · Individuals": [
   "products.html"
  ],
  "Iqbal Shaikh": [
-  "partners.html"
+  "index.html"
  ],
  "Is grossly harmful, harassing, blasphemous, defamatory, obscene, pornographic, paedophilic, libellous, invasive of another’s privacy, hateful, or racially, ethnically objectionable, disparaging, relating or encouraging money laundering or gambling, or otherwise unlawful in any manner whatever;": [
   "terms.html"
@@ -7312,7 +7303,7 @@
   "services/cloud.html"
  ],
  "It has been a cordial partnership between AADHAAR and Finlabs since 2021. We are very pleased with the professional services and technical support extended by Finlabs while developing our LMS and operationalizing it as per our specific educational requirements. The platform developed has increased the accessibility for thousands of students to learn STEAM.": [
-  "partners.html"
+  "index.html"
  ],
  "It is again that time of the year when you resolve what important things you will strive to do in the New Year. There might be that exercise plan that you wish to start or the diet that you have been delaying for quite some time.": [
   "knowledge-centre/blogs.html"
@@ -7321,7 +7312,7 @@
   "brochure.html"
  ],
  "Its ease of use has helped us work more efficiently and deliver better outcomes for our clients.": [
-  "partners.html"
+  "index.html"
  ],
  "Java 11/17 or above": [
   "careers.html"
@@ -7351,7 +7342,7 @@
   "services.html"
  ],
  "Kamleshwar Singh": [
-  "partners.html"
+  "index.html"
  ],
  "Kavita Lakhani": [
   "about.html"
@@ -7399,7 +7390,7 @@
   "about.html"
  ],
  "Lallit Tripathi": [
-  "partners.html"
+  "index.html"
  ],
  "Landing zone, network and IAM assessment": [
   "services.html"
@@ -7720,7 +7711,7 @@
   "brochure.html"
  ],
  "Mutual fund distributor, Navsari": [
-  "partners.html"
+  "index.html"
  ],
  "Mutual fund onboarding, purchases and the back office all ran on paper. It capped how fast the network could grow and what the experience felt like at the counter.": [
   "case-study.html"
@@ -7750,12 +7741,12 @@
   "knowledge-centre/blogs.html"
  ],
  "Next testimonials": [
-  "partners.html"
+  "index.html"
  ],
  "Nimish Agrawal": [
   "about.html"
  ],
- "Nimish Agrawal, Founder & CEO — view profile": [
+ "Nimish Agrawal, Co-Founder & CEO — view profile": [
   "about.html"
  ],
  "Nine Triangles": [
@@ -7870,7 +7861,7 @@
   "brochure.html"
  ],
  "Our association with Finlabs Learning Hub has been highly positive. The platform is reliable, user-friendly, and effective in supporting our learning and development needs. We value this partnership and would recommend Finlabs Learning Hub to organizations seeking a dependable and well-supported learning solution.": [
-  "partners.html"
+  "index.html"
  ],
  "Our core values": [
   "about.html"
@@ -7891,7 +7882,7 @@
   "index.html"
  ],
  "Our overall experience with Finexa has been fantastic — it's a reliable, user-friendly platform that's transformed how we manage our advisory work. What we like most is the seamless integration of real-time analytics and customizable reports, which make complex data simple and actionable. Finexa adds real value to our business by boosting efficiency, helping me attract more clients with sharper insights, and ultimately increasing my revenue.": [
-  "partners.html"
+  "index.html"
  ],
  "Our partners": [
   "partners.html"
@@ -8101,7 +8092,7 @@
   "about.html"
  ],
  "Prasad Rao": [
-  "partners.html"
+  "index.html"
  ],
  "Preferred attributes": [
   "careers.html"
@@ -8113,7 +8104,7 @@
   "about.html"
  ],
  "Previous testimonials": [
-  "partners.html"
+  "index.html"
  ],
  "Privacy Policy — Finlabs": [
   "privacy.html"
@@ -8416,7 +8407,7 @@
   "careers.html"
  ],
  "Ruchi Chopra Mitroo": [
-  "partners.html"
+  "index.html"
  ],
  "Run 1:1s, performance reviews and structured retrospectives": [
   "careers.html"
@@ -8503,7 +8494,7 @@
   "careers.html"
  ],
  "Secretary (Honorary), Change Initiatives": [
-  "partners.html"
+  "index.html"
  ],
  "Secure coding and code standardisation": [
   "careers.html"
@@ -8695,7 +8686,7 @@
   "solutions.html"
  ],
  "Somnath Chatterjee": [
-  "partners.html"
+  "index.html"
  ],
  "SonarQube": [
   "services.html"
@@ -8793,7 +8784,7 @@
  "Sudipto Roy": [
   "about.html"
  ],
- "Sudipto Roy, Founder & Director — view profile": [
+ "Sudipto Roy, Founder & MD — view profile": [
   "about.html"
  ],
  "Supratim Bandyopadhyay": [
@@ -8803,7 +8794,7 @@
   "about.html"
  ],
  "Suryatirtha Ray": [
-  "partners.html"
+  "index.html"
  ],
  "Swap up-front hardware spend for usage-based pricing, with reserved capacity and savings plans that keep the bill predictable.": [
   "services/cloud.html"
@@ -8953,7 +8944,7 @@
   "partners.html"
  ],
  "Thank you, team Finexa, for your quick response and steady support. Huge congratulations to the team on completing 10 wonderful years in the industry! Your advanced system has truly helped me elevate and scale my mutual fund business. Wishing the entire team many more decades of innovation and success.": [
-  "partners.html"
+  "index.html"
  ],
  "The 7 Rs: how each application moves": [
   "services/cloud.html"
@@ -8965,7 +8956,7 @@
   "about.html"
  ],
  "The animated videos created by Finlabs on financial literacy concepts were crisp, interactive, and easy to understand. Topics like saving, insurance, and responsible borrowing were well explained for the LCV and LMV driver community. Feedback from implementation partners was very positive during driver sessions. The drivers were able to relate to the concepts and understand them clearly. The Finlabs team was highly cooperative and readily accommodated suggestions during the process.": [
-  "partners.html"
+  "index.html"
  ],
  "The B2B channel for 4,000 branch users and their hierarchy": [
   "case-study.html"
@@ -9033,7 +9024,7 @@
  "The full story, the milestones and the team →": [
   "brochure.html"
  ],
- "The institutions Finlabs builds for and the market infrastructure, data and technology partners it builds with — with what our clients say about the work.": [
+ "The institutions Finlabs builds for and the market infrastructure, data and technology partners it builds with.": [
   "partners.html"
  ],
  "The Key to Future Success: Teaching Personal Finance to Teens": [
@@ -9316,7 +9307,7 @@
   "services/cloud.html"
  ],
  "Vice President Strategy and Business, Quantum Phinance": [
-  "partners.html"
+  "index.html"
  ],
  "View profile": [
   "about.html"
@@ -9379,7 +9370,7 @@
   "services/cloud.html"
  ],
  "We have had one of the most wonderful experiences with Finlabs. The team is efficient and helpful. We reach out to them for any digital query we have. They are quick to respond and direct us to the right person in the team. We have recommended further too.": [
-  "partners.html"
+  "index.html"
  ],
  "We have implemented appropriate and reasonable technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, the transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.": [
   "privacy-learngenie.html"
