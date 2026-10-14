@@ -343,66 +343,48 @@ function start() {
   }
 
   // =====================================================
-  // THE PLATFORMS, AND THE STAIRS BETWEEN THEM
+  // THE COMPOSITION
   // =====================================================
+  // Four platforms at four heights, joined by flights of stairs: the
+  // presenting floor at the back, a laptop floor to its left, a handshake
+  // floor to its right and the planning floor at the front, with the whole
+  // arrangement read from one fixed isometric angle.
 
-  const PLAT = 6.2; // a platform is square, this wide
-  const THICK = 0.5;
-  const SIDE = 1.4; // how far each platform steps aside from the last
-  const FORWARD = 6.8; // and how far along the run
-  const DROP = 2.6; // the fall from one platform to the next
+  const PLAT = 6.0; // a platform is square, this wide
+  const THICK = 0.55;
 
-  // where each platform sits: a cascade going down and across, so the run
-  // reads as one staircase from the top of the page to the bottom
-  const spots = CASES.map((c, i) => new THREE.Vector3(
-    (i % 2 ? 1 : -1) * SIDE,
-    -i * DROP,
-    i * FORWARD
-  ));
+  const SLAB = 0x7b83d6; // the periwinkle the reference's platforms are cut from
+  const SLAB_DEEP = 0x4a51a4;
+  const slabGeo = box(PLAT, THICK, PLAT, 0.1);
+  const slabMat = mat(SLAB, { rough: 0.42 });
+  const slabDeepMat = mat(SLAB_DEEP, { rough: 0.6 });
 
-  const slabGeo = box(PLAT, THICK, PLAT, 0.16);
+  const FLOORS = [
+    { id: 'amc', at: new THREE.Vector3(-1.2, 0, -6.6), scene: 'stage' },
+    { id: 'nps', at: new THREE.Vector3(-8.6, -2.6, -0.6), scene: 'laptop' },
+    { id: 'insurer', at: new THREE.Vector3(7.4, -2.2, 0.8), scene: 'deal' },
+    { id: 'nbfc', at: new THREE.Vector3(-1.0, -5.0, 6.4), scene: 'plan' },
+  ];
 
-  /** The big number pressed into each platform. */
-  function numberTex(n) {
-    const c = document.createElement('canvas');
-    c.width = c.height = 256;
-    const ctx = c.getContext('2d');
-    ctx.clearRect(0, 0, 256, 256);
-    ctx.font = '800 200px Outfit, "Segoe UI", Arial, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.lineWidth = 16;
-    ctx.lineJoin = 'round';
-    ctx.strokeStyle = 'rgba(10,22,50,0.55)';
-    ctx.strokeText(String(n), 128, 140);
-    ctx.fillStyle = '#ffffff';
-    ctx.fillText(String(n), 128, 140);
-    const t = new THREE.CanvasTexture(c);
-    t.colorSpace = THREE.SRGBColorSpace;
-    return t;
-  }
-
-  /** A flight of steps from one platform's edge down to the next. */
-  function stairs(from, to, tint) {
+  /** A flight of steps running from one platform's edge to the next. */
+  function stairs(a, b, width = 2.2) {
     const g = new THREE.Group();
-    const a = from.clone();
-    const b = to.clone();
     const span = b.clone().sub(a);
-    const steps = 7;
-    const treadMat = mat(tint, { rough: 0.45 });
-    const riserMat = mat(0x1b2b55, { rough: 0.6 });
+    const run = Math.hypot(span.x, span.z);
+    const steps = Math.max(4, Math.round(run / 0.95));
+    const tread = run / steps;
     for (let k = 0; k < steps; k++) {
       const u = (k + 0.5) / steps;
-      const tread = new THREE.Mesh(box(2.0, 0.22, span.length() / steps + 0.26, 0.05), k % 2 ? treadMat : riserMat);
-      tread.position.copy(a).addScaledVector(span, u);
-      tread.position.y = a.y - (a.y - b.y) * u;
-      tread.lookAt(b.x, tread.position.y, b.z);
-      g.add(tread);
-      // the block under each tread, so the flight reads as solid
-      const under = new THREE.Mesh(box(2.0, 0.6, span.length() / steps + 0.2, 0.04), riserMat);
-      under.position.copy(tread.position);
-      under.position.y -= 0.4;
-      under.rotation.copy(tread.rotation);
+      const p = a.clone().addScaledVector(span, u);
+      const step = new THREE.Mesh(box(width, 0.26, tread + 0.3, 0.04), k % 2 ? slabMat : slabDeepMat);
+      step.position.copy(p);
+      step.lookAt(b.x, p.y, b.z);
+      g.add(step);
+      // the block under the tread, so the flight reads as cut stone
+      const under = new THREE.Mesh(box(width, 1.0, tread + 0.24, 0.03), slabDeepMat);
+      under.position.copy(p);
+      under.position.y -= 0.62;
+      under.rotation.copy(step.rotation);
       g.add(under);
     }
     return g;
@@ -410,169 +392,229 @@ function start() {
 
   const plats = [];
 
-  CASES.forEach((c, i) => {
+  FLOORS.forEach((f, i) => {
     const g = new THREE.Group();
-    g.position.copy(spots[i]);
+    g.position.copy(f.at);
     root.add(g);
 
-    const faceMat = mat(c.tint, { rough: 0.34, glow: 0.1 });
-    const slab = new THREE.Mesh(slabGeo, faceMat);
+    const slab = new THREE.Mesh(slabGeo, slabMat);
     g.add(slab);
-
-    // the darker block beneath, so each platform reads as a solid island
-    const under = new THREE.Mesh(box(PLAT - 0.3, 2.4, PLAT - 0.3, 0.12), mat(c.deep, { rough: 0.62 }));
-    under.position.y = -1.4;
+    const under = new THREE.Mesh(box(PLAT - 0.35, 2.6, PLAT - 0.35, 0.08), slabDeepMat);
+    under.position.y = -1.55;
     g.add(under);
 
-    // its number, lying on the surface at the near corner
-    const numGeo = new THREE.PlaneGeometry(1.9, 1.9);
-    numGeo.rotateX(-Math.PI / 2);
-    numGeo.rotateY(Math.PI / 4);
-    const num = new THREE.Mesh(
-      numGeo,
-      new THREE.MeshBasicMaterial({
-        map: numberTex(i + 1), transparent: true, toneMapped: false, side: THREE.DoubleSide, depthWrite: false,
-      })
-    );
-    num.position.set(-PLAT / 2 + 1.5, THICK / 2 + 0.02, PLAT / 2 - 1.5);
-    g.add(num);
-
-    // what is happening on this floor
     const vig = new THREE.Group();
-    vig.position.set(0.1, THICK / 2, -0.2);
+    vig.position.y = THICK / 2;
     g.add(vig);
-    buildVignette(c.vignette, c.tint, vig);
+    buildFloor(f.scene, vig);
 
-    plats.push({ ...c, group: g, slab, faceMat, index: i, lift: 0 });
-
-    // the flight down to the next one
-    if (i < CASES.length - 1) {
-      const from = spots[i].clone();
-      from.z += PLAT / 2 - 0.2;
-      const to = spots[i + 1].clone();
-      to.z -= PLAT / 2 - 0.2;
-      root.add(stairs(from, to, c.tint));
-    }
+    plats.push({ ...f, group: g, slab, index: i, lift: 0 });
   });
 
-  function buildVignette(kind, tint, into) {
-    const tintMat = mat(tint, { rough: 0.4 });
-    if (kind === 'advice') {
-      // the presenting floor: a wall screen, a presenter and rows of chairs
-      const s = wallScreen(deck);
-      s.position.set(-0.4, 0, -2.0);
+  // the flights, as the reference runs them: down from the stage to either
+  // side, and on down to the planning floor at the front
+  [
+    [0, 1], [0, 2], [1, 3], [2, 3],
+  ].forEach(([from, to]) => {
+    const a = FLOORS[from].at.clone();
+    const b = FLOORS[to].at.clone();
+    const dir = b.clone().sub(a).setY(0).normalize();
+    root.add(stairs(a.clone().addScaledVector(dir, PLAT / 2 - 0.2), b.clone().addScaledVector(dir, -(PLAT / 2 - 0.2))));
+  });
+
+  // =====================================================
+  // WHAT IS HAPPENING ON EACH FLOOR
+  // =====================================================
+
+  /** A laptop, open, with something on the screen. */
+  function laptop(scale = 1) {
+    const g = new THREE.Group();
+    const base = new THREE.Mesh(box(2.0, 0.12, 1.4, 0.05), paleMat);
+    const pad = new THREE.Mesh(new THREE.PlaneGeometry(0.8, 0.5), flat(0xc9d7f5));
+    pad.rotation.x = -Math.PI / 2;
+    pad.position.set(0, 0.07, 0.3);
+    const keys = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 0.5), flat(0xdbe5fb));
+    keys.rotation.x = -Math.PI / 2;
+    keys.position.set(0, 0.07, -0.3);
+    const lid = new THREE.Mesh(box(2.0, 1.3, 0.08, 0.05), paleMat);
+    lid.position.set(0, 0.68, -0.72);
+    lid.rotation.x = -0.26;
+    const face = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.84, 1.14),
+      new THREE.MeshBasicMaterial({ map: screenTex(deck, 420, 270), toneMapped: false })
+    );
+    face.position.set(0, 0.68, -0.675);
+    face.rotation.x = -0.26;
+    g.add(base, pad, keys, lid, face);
+    g.scale.setScalar(scale);
+    return g;
+  }
+
+  /** A briefcase, stood on the floor. */
+  function briefcase() {
+    const g = new THREE.Group();
+    const body = new THREE.Mesh(box(0.5, 0.4, 0.16, 0.04), mat(0x33406e, { rough: 0.5 }));
+    body.position.y = 0.2;
+    const handle = new THREE.Mesh(new THREE.TorusGeometry(0.1, 0.022, 8, 16, Math.PI), mat(0x1d2748));
+    handle.position.y = 0.4;
+    g.add(body, handle);
+    return g;
+  }
+
+  /** A gavel on its block, with a couple of documents beside it. */
+  function gavel(tint) {
+    const g = new THREE.Group();
+    const block = new THREE.Mesh(box(0.5, 0.1, 0.3, 0.03), mat(0x8b5a2b, { rough: 0.5 }));
+    block.position.y = 0.05;
+    const head = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.3, 16), mat(0x7a4a22, { rough: 0.45 }));
+    head.rotation.z = Math.PI / 2;
+    head.position.set(0, 0.2, 0);
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.42, 12), mat(0x9c6b35));
+    shaft.rotation.set(0, 0, Math.PI / 2);
+    shaft.position.set(0.32, 0.2, 0);
+    const papers = new THREE.Group();
+    [0, 1].forEach((k) => {
+      const sheet = new THREE.Mesh(box(0.54, 0.03, 0.4, 0.01), k ? flat(tint, 0.9) : paleMat);
+      sheet.position.set(-0.1 + k * 0.06, 0.02 + k * 0.035, 0.05 - k * 0.04);
+      sheet.rotation.y = k * 0.2;
+      papers.add(sheet);
+    });
+    papers.position.set(-0.75, 0, 0.1);
+    g.add(block, head, shaft, papers);
+    return g;
+  }
+
+  /** A desk calendar, its date showing. */
+  function deskCalendar(day = '28') {
+    const g = new THREE.Group();
+    const stand = new THREE.Mesh(box(0.6, 0.06, 0.4, 0.02), paleMat);
+    const sheet = new THREE.Mesh(box(0.56, 0.6, 0.05, 0.03), paleMat);
+    sheet.position.y = 0.33;
+    const head = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.16), flat(0xf0587f));
+    head.position.set(0, 0.54, 0.03);
+    const c = document.createElement('canvas');
+    c.width = c.height = 128;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, 128, 128);
+    ctx.fillStyle = '#23306a';
+    ctx.font = '800 76px Outfit, "Segoe UI", Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(day, 64, 74);
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    const face = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.46, 0.34),
+      new THREE.MeshBasicMaterial({ map: tex, toneMapped: false })
+    );
+    face.position.set(0, 0.3, 0.03);
+    g.add(stand, sheet, head, face);
+    return g;
+  }
+
+  /** A desk with a chair, for the rows in the presenting room. */
+  function deskRow(suit) {
+    const g = new THREE.Group();
+    const top = new THREE.Mesh(box(1.5, 0.08, 0.5, 0.03), paleMat);
+    top.position.y = 0.52;
+    const front = new THREE.Mesh(box(1.5, 0.44, 0.06, 0.02), paleMat);
+    front.position.set(0, 0.3, 0.22);
+    g.add(top, front);
+    [-0.4, 0.4].forEach((x) => {
+      const s = seated(suit);
+      s.position.set(x, 0, -0.55);
+      g.add(s);
+    });
+    const lap = new THREE.Mesh(box(0.42, 0.26, 0.03, 0.01), inkMat);
+    lap.position.set(0.35, 0.68, -0.1);
+    lap.rotation.x = -0.4;
+    g.add(lap);
+    return g;
+  }
+
+  function buildFloor(kind, into) {
+    if (kind === 'stage') {
+      // the presenting room: a screen on a stand, a presenter beside it and
+      // two rows of desks facing it
+      const s = wallScreen(deck, 2.6, 1.6);
+      s.position.set(-0.6, 0, -2.1);
+      s.rotation.y = 0.12;
       into.add(s);
-      const p = figure(suitMats[0], { arm: 0.55 });
-      p.position.set(1.0, 0, -1.6);
-      p.rotation.y = -0.9;
+      const p = figure(suitMats[0], { arm: 0.6 });
+      p.position.set(1.1, 0, -1.7);
+      p.rotation.y = -1.0;
       into.add(p);
-      for (let r = 0; r < 2; r++) {
-        for (let c = 0; c < 3; c++) {
-          const s2 = seated(suitMats[(r + c) % suitMats.length]);
-          s2.position.set(-1.3 + c * 0.85, 0, 0.3 + r * 0.95);
-          s2.rotation.y = Math.PI;
-          into.add(s2);
-        }
-      }
+      [0, 1].forEach((r) => {
+        const row = deskRow(suitMats[r + 1]);
+        row.position.set(-0.1 + r * 0.25, 0, 0.1 + r * 1.35);
+        into.add(row);
+      });
       const books = new THREE.Group();
       [0, 1, 2].forEach((k) => {
-        const b = new THREE.Mesh(box(0.6, 0.1, 0.44, 0.02), k === 1 ? tintMat : paleMat);
-        b.position.y = 0.05 + k * 0.11;
+        const b = new THREE.Mesh(box(0.8, 0.12, 0.56, 0.02), k === 1 ? mat(0x4f86ff) : paleMat);
+        b.position.y = 0.06 + k * 0.13;
         books.add(b);
       });
-      books.position.set(-2.2, 0, 1.2);
+      books.position.set(-2.1, 0, 1.0);
       into.add(books);
-    } else if (kind === 'kiosk') {
-      // a subscriber at a self-service column, staff beside it
-      const r = rack(tint);
-      r.position.set(-1.1, 0, -1.0);
-      into.add(r);
-      const p = phone(tint);
-      p.position.set(0.95, 1.05, 0.3);
-      p.rotation.set(-0.2, -0.5, 0.1);
-      into.add(p);
-      const a = figure(suitMats[2], { arm: 0.45 });
-      a.position.set(0.8, 0, 0.35);
-      a.rotation.y = -0.8;
+    } else if (kind === 'laptop') {
+      // the analysis floor: a big open laptop, two people reading it
+      const l = laptop(1.15);
+      l.position.set(-0.9, 0, -0.6);
+      l.rotation.y = 0.5;
+      into.add(l);
+      const a = figure(suitMats[1], { arm: 0.3 });
+      a.position.set(1.1, 0, 0.1);
+      a.rotation.y = -1.9;
       into.add(a);
-      const b = figure(suitMats[3]);
-      b.position.set(-1.9, 0, 0.9);
-      b.rotation.y = 0.6;
+      const b = figure(suitMats[3], { arm: 0.45 });
+      b.position.set(1.5, 0, 1.0);
+      b.rotation.y = -2.2;
       into.add(b);
-      const m = monitor(bars, 1.0, 0.62);
-      m.position.set(1.7, 0.45, -1.3);
-      m.rotation.y = -0.6;
-      into.add(m);
-    } else if (kind === 'planning') {
-      // someone presenting a plan, a calendar on the wall behind
-      const bd = board(tint, curve);
-      bd.position.set(-1.2, 0, -1.1);
-      bd.rotation.y = 0.3;
-      into.add(bd);
-      const cal = calendar(tint);
-      cal.position.set(1.4, 0, -2.1);
-      cal.rotation.y = -0.5;
-      into.add(cal);
-      const a = figure(suitMats[0], { arm: 0.5 });
-      a.position.set(0.2, 0, -0.1);
-      a.rotation.y = -0.6;
+    } else if (kind === 'deal') {
+      // the agreement floor: two meeting over a handshake, papers and a
+      // gavel on the floor beside them, someone sitting on the step
+      const a = figure(suitMats[0], { arm: 0.75 });
+      a.position.set(-0.7, 0, -0.5);
+      a.rotation.y = -1.3;
       into.add(a);
-      const b = figure(suitMats[1]);
-      b.position.set(1.3, 0, 0.9);
-      b.rotation.y = -1.6;
+      const b = figure(suitMats[2], { arm: 0.75 });
+      b.position.set(0.55, 0, -0.1);
+      b.rotation.y = 1.8;
       into.add(b);
-      const stack = new THREE.Group();
-      [0, 1, 2].forEach((k) => {
-        const s = new THREE.Mesh(box(0.5, 0.1, 0.36, 0.02), k === 1 ? tintMat : paleMat);
-        s.position.y = 0.05 + k * 0.11;
-        stack.add(s);
-      });
-      stack.position.set(-2.0, 0, 1.1);
-      into.add(stack);
-    } else if (kind === 'branch') {
-      // a branch counter with staff on both sides
-      const t = table(tint);
-      t.position.set(0, 0, 0);
-      into.add(t);
-      const a = figure(suitMats[1]);
-      a.position.set(-1.5, 0, 0.5);
-      a.rotation.y = 1.2;
-      into.add(a);
-      const b = figure(suitMats[2], { arm: 0.4 });
-      b.position.set(1.45, 0, -0.45);
-      b.rotation.y = -1.4;
-      into.add(b);
-      const c2 = figure(suitMats[3]);
-      c2.position.set(0.2, 0, 1.4);
-      c2.rotation.y = Math.PI;
-      into.add(c2);
-      const m = monitor(rows, 0.8, 0.52);
-      m.position.set(-1.7, 0.5, -1.2);
-      m.rotation.y = 0.8;
-      into.add(m);
+      const c = briefcase();
+      c.position.set(1.15, 0, 0.45);
+      into.add(c);
+      const gv = gavel(0xf0587f);
+      gv.position.set(-1.5, 0, 1.2);
+      gv.rotation.y = 0.5;
+      into.add(gv);
+      const sitter = seated(suitMats[1]);
+      sitter.position.set(-2.0, 0, -1.3);
+      sitter.rotation.y = 2.2;
+      into.add(sitter);
     } else {
-      // a marketplace: a big board of listings and a buyer
-      const bd = board(tint, rows);
-      bd.position.set(-0.6, 0, -1.3);
-      bd.rotation.y = -0.15;
-      into.add(bd);
-      const m = monitor(donut, 1.1, 0.7);
-      m.position.set(1.6, 0.4, 0.1);
-      m.rotation.y = -0.7;
-      into.add(m);
-      const a = figure(suitMats[2], { arm: 0.3 });
-      a.position.set(-1.7, 0, 0.8);
-      a.rotation.y = 0.5;
+      // the planning floor: the month on the wall, the day on the desk
+      const cal = calendar(0xf0587f);
+      cal.scale.setScalar(1.9);
+      cal.position.set(-1.2, 0, -1.4);
+      cal.rotation.y = 0.35;
+      into.add(cal);
+      const d = deskCalendar('28');
+      d.scale.setScalar(1.6);
+      d.position.set(1.3, 0, 0.2);
+      d.rotation.y = -0.4;
+      into.add(d);
+      const a = figure(suitMats[2], { arm: 0.4 });
+      a.position.set(0.1, 0, 1.0);
+      a.rotation.y = -0.4;
       into.add(a);
-      const b = figure(suitMats[0]);
-      b.position.set(0.35, 0, 1.1);
-      b.rotation.y = -0.2;
-      into.add(b);
     }
   }
 
   // =====================================================
-  // THE THINGS FLOATING AROUND THE RUN
+  // THE THINGS FLOATING AROUND THE COMPOSITION
   // =====================================================
 
   // outlined and solid squares, turning slowly, the way the reference has
@@ -581,47 +623,19 @@ function start() {
   {
     const seed = (n) => () => ((n = (n * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
     const rand = seed(90210);
-    const COLORS = [0x4f86ff, 0x38bdf8, 0xf472b6, 0x34d399, 0xe6eeff];
-    for (let k = 0; k < 26; k++) {
-      const solid = rand() > 0.45;
-      const size = 0.4 + rand() * 0.5;
+    const COLORS = [0xf0587f, 0x4f86ff, 0xffffff, 0x38bdf8, 0xf9a8d4];
+    for (let k = 0; k < 24; k++) {
+      const solid = rand() > 0.5;
+      const size = 0.45 + rand() * 0.5;
       const color = COLORS[Math.floor(rand() * COLORS.length)];
       const m = solid
-        ? new THREE.Mesh(box(size, size, 0.12, 0.06), flat(color, 0.85))
-        : new THREE.Mesh(
-            new THREE.TorusGeometry(size * 0.6, 0.05, 4, 4),
-            flat(color, 0.8)
-          );
+        ? new THREE.Mesh(box(size, size, 0.1, 0.05), flat(color, 0.9))
+        : new THREE.Mesh(new THREE.TorusGeometry(size * 0.62, 0.045, 4, 4), flat(color, 0.85));
       if (!solid) m.rotation.z = Math.PI / 4;
-      const along = rand() * (CASES.length - 0.4) * FORWARD;
-      m.position.set((rand() - 0.5) * 22, -along * (DROP / FORWARD) + 3 + rand() * 7, along - 4 + (rand() - 0.5) * 6);
+      m.position.set((rand() - 0.5) * 30, 2 + rand() * 11, (rand() - 0.5) * 26);
       root.add(m);
       confetti.push({ m, spin: (rand() - 0.5) * 0.5, bob: rand() * 6.28 });
     }
-  }
-
-  // two soft blobs, far behind everything, for the colour wash
-  {
-    const blobTex = (() => {
-      const c = document.createElement('canvas');
-      c.width = c.height = 128;
-      const ctx = c.getContext('2d');
-      const g = ctx.createRadialGradient(64, 64, 2, 64, 64, 62);
-      g.addColorStop(0, 'rgba(255,255,255,0.9)');
-      g.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, 128, 128);
-      return new THREE.CanvasTexture(c);
-    })();
-    [[0xf472b6, -14, 6, -6, 16], [0x22d3ee, 16, -10, 20, 20]].forEach(([color, x, y, z, s]) => {
-      const blob = new THREE.Mesh(
-        new THREE.PlaneGeometry(s, s),
-        new THREE.MeshBasicMaterial({ map: blobTex, color, transparent: true, opacity: 0.18, depthWrite: false })
-      );
-      blob.position.set(x, y, z);
-      blob.lookAt(blob.position.clone().add(EYE));
-      root.add(blob);
-    });
   }
 
   // the soft shadow each platform casts into the dark
@@ -630,7 +644,7 @@ function start() {
     c.width = c.height = 128;
     const ctx = c.getContext('2d');
     const g = ctx.createRadialGradient(64, 64, 2, 64, 64, 62);
-    g.addColorStop(0, 'rgba(8,16,40,0.55)');
+    g.addColorStop(0, 'rgba(8,16,40,0.5)');
     g.addColorStop(1, 'rgba(8,16,40,0)');
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, 128, 128);
@@ -638,143 +652,104 @@ function start() {
   })();
   plats.forEach((p) => {
     const sh = new THREE.Mesh(
-      new THREE.PlaneGeometry(13, 13),
+      new THREE.PlaneGeometry(12, 12),
       new THREE.MeshBasicMaterial({ map: shadeTex, transparent: true, depthWrite: false })
     );
     sh.rotation.x = -Math.PI / 2;
-    sh.position.set(p.group.position.x, p.group.position.y - 2.9, p.group.position.z + 0.6);
+    sh.position.set(p.group.position.x, p.group.position.y - 3.0, p.group.position.z + 0.6);
     root.add(sh);
   });
 
   // =====================================================
-  // SIZE
+  // SIZE — the whole composition, always in frame
   // =====================================================
 
-  // how much of the world is in frame; the narrower the window, the closer
-  // in it has to be for a platform to fill it
+  const CENTRE = new THREE.Vector3(-0.8, -1.4, 0.2);
+  const SPAN = 15.5; // half-height of the composition, in world units
+
   function size() {
     const w = window.innerWidth;
     const h = window.innerHeight;
     renderer.setSize(w, h, false);
     const a = w / h;
-    const halfH = w < 900 ? 8.4 : 7.6;
+    // the words take the right third on a wide window, so the composition is
+    // framed into what is left of it
+    const wide = w >= 1000;
+    const halfH = wide ? SPAN * 0.76 : SPAN * 0.86;
     const halfW = halfH * a;
     camera.left = -halfW;
     camera.right = halfW;
     camera.top = halfH;
     camera.bottom = -halfH;
     camera.updateProjectionMatrix();
+
+    const look = CENTRE.clone();
+    // pushing the camera's target to its own right slides the picture left,
+    // which is where the composition belongs: the title takes the right
+    if (wide) look.addScaledVector(RIGHT, halfW * 0.34);
+    camera.position.copy(look).add(EYE);
+    camera.lookAt(look);
+    home.copy(look);
   }
+
+  // the camera's own right, so the composition can be set beside the words
+  const RIGHT = new THREE.Vector3()
+    .crossVectors(EYE.clone().negate(), new THREE.Vector3(0, 1, 0))
+    .normalize();
+  const home = new THREE.Vector3();
+
   size();
   window.addEventListener('resize', size);
 
   // =====================================================
-  // WHICH PLATFORM THE PAGE IS ON
+  // A LITTLE LIFE
   // =====================================================
 
-  const listeners = new Set();
-  let active = 0;
-  let shown = 0; // what the camera is actually looking at, eased
-
-  function announce() {
-    listeners.forEach((fn) => fn(CASES[active].id, active));
+  // the pointer tips the whole arrangement, the way an isometric board tilts
+  const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+  if (!REDUCED) {
+    window.addEventListener('pointermove', (e) => {
+      pointer.tx = (e.clientX / window.innerWidth) * 2 - 1;
+      pointer.ty = (e.clientY / window.innerHeight) * 2 - 1;
+    }, { passive: true });
   }
-  window.__caseSelect = (i) => {
-    active = Math.max(0, Math.min(plats.length - 1, i));
-    announce();
-  };
-  window.__onCaseSelect = (fn) => {
-    listeners.add(fn);
-    fn(CASES[active].id, active);
-  };
 
-  // the write-ups drive the camera: whichever is nearest the middle of the
-  // window is the platform the run is standing on
-  const cards = [...document.querySelectorAll('.cs-study')];
-  let ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      ticking = false;
-      const mid = window.innerHeight / 2;
-      let best = 0;
-      let bestD = Infinity;
-      cards.forEach((el, i) => {
-        const r = el.getBoundingClientRect();
-        const d = Math.abs(r.top + r.height / 2 - mid);
-        if (d < bestD) {
-          bestD = d;
-          best = i;
-        }
-      });
-      if (best !== active) window.__caseSelect(best);
-    });
+  let live = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => { live = e.isIntersecting; }).observe(canvas);
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // clicking a platform opens its write-up
-  const ray = new THREE.Raycaster();
-  const pointer = new THREE.Vector2();
-  let hovered = -1;
-
-  function pick(e) {
-    pointer.set((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1);
-    ray.setFromCamera(pointer, camera);
-    const hit = ray.intersectObjects(plats.map((p) => p.slab), false)[0];
-    return hit ? plats.findIndex((p) => p.slab === hit.object) : -1;
-  }
-  window.addEventListener('pointermove', (e) => {
-    // only the bare canvas is pickable: the cards float over it
-    hovered = e.target === canvas ? pick(e) : -1;
-    canvas.style.cursor = hovered >= 0 ? 'pointer' : '';
-  });
-  canvas.addEventListener('click', (e) => {
-    const i = pick(e);
-    if (i < 0) return;
-    window.__caseSelect(i);
-    cards[i]?.scrollIntoView({ block: 'center', behavior: REDUCED ? 'auto' : 'smooth' });
-  });
-
-  // =====================================================
-  // LOOP
-  // =====================================================
 
   const timer = new Timer();
-  const look = new THREE.Vector3();
-  const want = new THREE.Vector3();
-  // the camera's own right: the view looks along -EYE, so this is the axis
-  // the run slides along to clear the column of words
-  const RIGHT = new THREE.Vector3()
-    .crossVectors(EYE.clone().negate(), new THREE.Vector3(0, 1, 0))
-    .normalize();
+
+  // what the composition covers on screen, so the layout can be checked
+  window.__caseBounds = () => {
+    const v = new THREE.Vector3();
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    plats.forEach((p) => {
+      [[-PLAT / 2, PLAT / 2], [PLAT / 2, PLAT / 2], [-PLAT / 2, -PLAT / 2], [PLAT / 2, -PLAT / 2]].forEach(([dx, dz]) => {
+        v.set(p.group.position.x + dx, p.group.position.y, p.group.position.z + dz).project(camera);
+        const x = (v.x * 0.5 + 0.5) * window.innerWidth;
+        const y = (-v.y * 0.5 + 0.5) * window.innerHeight;
+        minX = Math.min(minX, x); maxX = Math.max(maxX, x);
+        minY = Math.min(minY, y); maxY = Math.max(maxY, y);
+      });
+    });
+    return { minX: Math.round(minX), maxX: Math.round(maxX), minY: Math.round(minY), maxY: Math.round(maxY) };
+  };
 
   function frame() {
     requestAnimationFrame(frame);
+    if (!live) return;
     timer.update();
     const t = REDUCED ? 0 : timer.getElapsed();
 
-    // the camera walks to the platform the page is on
-    shown += (active - shown) * (REDUCED ? 1 : 0.07);
-    const i = Math.max(0, Math.min(spots.length - 1, shown));
-    const lo = spots[Math.floor(i)];
-    const hi = spots[Math.min(spots.length - 1, Math.ceil(i))];
-    want.lerpVectors(lo, hi, i - Math.floor(i));
-    look.copy(want);
-    look.y += 1.2;
-    // on a wide window the words hold the left, so the run is framed to the
-    // right: pulling the camera's target left pushes the platform right
-    const aside = window.innerWidth >= 1000 ? 4.2 : 0;
-    look.addScaledVector(RIGHT, -aside);
-    camera.position.copy(look).add(EYE);
-    camera.lookAt(look);
+    pointer.x += (pointer.tx - pointer.x) * 0.05;
+    pointer.y += (pointer.ty - pointer.y) * 0.05;
+    root.rotation.y = pointer.x * 0.06;
+    root.rotation.x = pointer.y * 0.02;
 
     plats.forEach((p, k) => {
-      const near = k === Math.round(shown) ? 1 : k === hovered ? 0.5 : 0;
-      p.lift += (near - p.lift) * 0.1;
-      p.group.position.y = spots[k].y + p.lift * 0.35 + (REDUCED ? 0 : Math.sin(t * 0.7 + k) * 0.06);
-      p.faceMat.emissiveIntensity = 0.1 + p.lift * 0.25;
+      p.group.position.y = p.at.y + (REDUCED ? 0 : Math.sin(t * 0.7 + k * 1.3) * 0.07);
     });
 
     confetti.forEach(({ m, spin, bob }, k) => {

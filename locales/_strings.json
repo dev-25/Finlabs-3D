@@ -1357,10 +1357,6 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Asset management": [
-  "brochure.html",
-  "case-study.html"
- ],
  "Asset market value bifurcation, AUM client-wise, transactions by asset and SIP details, on one dashboard.": [
   "products.html",
   "products/finexa-gennxt.html"
@@ -2856,10 +2852,6 @@
  "Instant, geo-tagged audit packages and proof logs": [
   "products.html",
   "products/finaware.html"
- ],
- "Insurance": [
-  "brochure.html",
-  "case-study.html"
  ],
  "Insurance companies": [
   "services.html",
@@ -4886,9 +4878,6 @@
  "1. Why India’s Financial Literacy Gap Is Everyone’s Problem Every rupee you don’t understand could cost you more than you think.For individuals, the cost of not knowing shows up in small but painful ways: Overdraft fees Loan rejections Low credit scores Insurance that doesn’t cover what it should Missed investment opportunities But for India —": [
   "knowledge-centre/blogs.html"
  ],
- "10 weeks": [
-  "case-study.html"
- ],
  "10 years": [
   "about.html"
  ],
@@ -4913,20 +4902,11 @@
  "12 Jan 2024": [
   "knowledge-centre/blogs.html"
  ],
- "12 weeks": [
-  "case-study.html"
- ],
- "12 weeks to phase one, 4 more to phase two": [
-  "case-study.html"
- ],
  "13 Feb 2024": [
   "knowledge-centre/blogs.html"
  ],
  "14 client stories": [
   "index.html"
- ],
- "14 weeks": [
-  "case-study.html"
  ],
  "15 Jul 2025": [
   "knowledge-centre/blogs.html"
@@ -5180,9 +5160,6 @@
  "A Divided World: Can Finance Be the Bridge?": [
   "knowledge-centre/blogs.html"
  ],
- "A DIY financial health assessment and planning app": [
-  "case-study.html"
- ],
  "A few lines about the project": [
   "services.html"
  ],
@@ -5198,14 +5175,8 @@
  "A genuine interest in financial technology and innovation": [
   "careers.html"
  ],
- "A goal-based robo-advisory design for DIY and B2B journeys": [
-  "case-study.html"
- ],
  "A Golden Window For MFDs": [
   "knowledge-centre/blogs.html"
- ],
- "A leading direct-to-consumer life insurer in India": [
-  "case-study.html"
  ],
  "A leading NBFC's wealth operations, rebuilt: client onboarding and compliance automated, and processing time down from days to under an hour.": [
   "brochure.html"
@@ -5221,9 +5192,6 @@
  ],
  "A modern wealth management stack": [
   "products.html"
- ],
- "A new financial products marketplace in Ghana, with West Africa next": [
-  "case-study.html"
  ],
  "A phased roadmap with clear migration waves": [
   "services.html"
@@ -5453,9 +5421,6 @@
  "An accessibility audit against WCAG 2.2 AA": [
   "services.html"
  ],
- "An asset manager, a pension record keeper, a life insurer, a branch network of four thousand and a marketplace in Ghana. What each one came to us with, what we built on, and how long it took to go live. Scroll to walk the run — each platform below is one of them.": [
-  "case-study.html"
- ],
  "An environment that values initiative, ownership and growth": [
   "careers.html"
  ],
@@ -5545,6 +5510,9 @@
  ],
  "Asset aggregation": [
   "products.html"
+ ],
+ "Asset management": [
+  "brochure.html"
  ],
  "Asset management companies": [
   "brochure.html"
@@ -5654,17 +5622,11 @@
  "Azure Well-Architected Framework and Cloud Adoption Framework": [
   "services/cloud.html"
  ],
- "B2C and B2B2C digital NPS journeys, across devices": [
-  "case-study.html"
- ],
  "Bachelor's degree in Computer Science, Information Technology or a related field": [
   "careers.html"
  ],
  "Bachelor's degree in Computer Science, Information Technology, Engineering or a related field": [
   "careers.html"
- ],
- "Back-office automation, MIS and brokerage tracking": [
-  "case-study.html"
  ],
  "Backend Developer – Node.js": [
   "careers.html"
@@ -5719,9 +5681,6 @@
  ],
  "Best Innovation in the Future Skill of the Twenty-First Century Award": [
   "index.html"
- ],
- "Beyond India": [
-  "case-study.html"
  ],
  "BigQuery": [
   "services/cloud.html"
@@ -5782,12 +5741,6 @@
  ],
  "Book Your Live Demo": [
   "(javascript)"
- ],
- "Book-keeping and the back office behind it": [
-  "case-study.html"
- ],
- "Both the intermediaries and the investors on the marketplace needed guidance before they could choose between products — otherwise a marketplace is just a list.": [
-  "case-study.html"
  ],
  "Break monoliths into services, adopt containers and serverless, and move to managed databases, AI and analytics where it pays off.": [
   "services/cloud.html"
@@ -5882,6 +5835,9 @@
  "careers at Finlabs, fintech jobs India, engineering jobs Mumbai, product jobs, sales jobs in fintech, internships in fintech, wealth tech careers, work at Finlabs India": [
   "careers.html"
  ],
+ "Case studies": [
+  "case-study.html"
+ ],
  "Case Studies | Finlabs India": [
   "case-study.html"
  ],
@@ -5972,23 +5928,11 @@
  "Clear the filters": [
   "knowledge-centre/blogs.html"
  ],
- "Client acquisition, upselling and retention all ran through people. The firm wanted the same journeys to work digitally — both for investors going direct and for the intermediaries selling on its behalf.": [
-  "case-study.html"
- ],
- "Client KYC and onboarding": [
-  "case-study.html"
- ],
- "Client profiling and risk assessment": [
-  "case-study.html"
- ],
  "Client relationship & retention": [
   "careers.html"
  ],
  "Client segmentation with early churn signals": [
   "solutions.html"
- ],
- "Client statements and reports": [
-  "case-study.html"
  ],
  "client stories": [
   "partners.html"
@@ -6161,9 +6105,6 @@
  "Continuous Learning: Why It’s Essential in Today’s Job Market": [
   "knowledge-centre/blogs.html"
  ],
- "Contributions, including recurring ones": [
-  "case-study.html"
- ],
  "Controls mapped to ISO 27001 and SOC 2": [
   "services.html"
  ],
@@ -6226,9 +6167,6 @@
  ],
  "Customer, distributor and partner portals with role-based access": [
   "solutions.html"
- ],
- "Customers buying direct could not tell which life cover actually suited them, so good intentions stalled at the point of choosing.": [
-  "case-study.html"
  ],
  "Dashboards & BI": [
   "solutions.html"
@@ -6394,9 +6332,6 @@
  ],
  "Discover and assess": [
   "services/cloud.html"
- ],
- "Distribution at scale": [
-  "case-study.html"
  ],
  "Distribution, wealth, learning and investor awareness": [
   "brochure.html"
@@ -6830,12 +6765,6 @@
  "Finexa Planning Suite Rollout": [
   "about.html"
  ],
- "Finexa Wealth Management": [
-  "case-study.html"
- ],
- "Finexa Wealth Management, with Learngenie alongside": [
-  "case-study.html"
- ],
  "Finexa, mutual fund distribution platform, mutual fund software for MFD, MFD software India, BSE StAR MF, NSE mutual fund platform, MFU transactions, financial advisor software, client portal for investors, online SIP transactions, ARN distributor software, Finexa Nova app": [
   "products/finexa.html"
  ],
@@ -6998,7 +6927,7 @@
  "Fiscus, personal finance app India, expense tracker app, bill reminder app, portfolio tracking app, budgeting app, net worth tracker, find a financial advisor": [
   "products/fiscus.html"
  ],
- "Five pieces of": [
+ "Five pieces of work for an asset manager, a pension record keeper, a life insurer, a branch network and a marketplace.": [
   "case-study.html"
  ],
  "Five platforms": [
@@ -7177,9 +7106,6 @@
  ],
  "Go paperless without losing control. Capture, classify and store client and operational documents securely, find any file in seconds, and route documents for review and e-sign — with full version history and access control on every one.": [
   "solutions.html"
- ],
- "Goal planning, including retirement": [
-  "case-study.html"
  ],
  "Goal-based advice, automated and explainable": [
   "solutions.html"
@@ -7403,9 +7329,6 @@
  "India’s Financial Literacy Crisis: The Role of BFSI Institutions": [
   "knowledge-centre/blogs.html"
  ],
- "India’s second largest NBFC, with more than 4,000 branches": [
-  "case-study.html"
- ],
  "Indian companies experienced the highest rate of ransomware attacks in Asia in 2024, with 68% of organizations falling victim. The average cost of a data breach in India reached ₹19.5 crore. What happens when an attack succeeds? For too many organizations, the answer is chaos. Regulatory deadlines are missed. Evidence is lost. Customer trust evaporates. A basic cyber incident response plan is not complicated.": [
   "knowledge-centre/blogs.html"
  ],
@@ -7439,8 +7362,8 @@
  "Instant alerts when a rule or threshold is breached": [
   "solutions.html"
  ],
- "Insurance planning against those goals": [
-  "case-study.html"
+ "Insurance": [
+  "brochure.html"
  ],
  "Insurers": [
   "solutions.html"
@@ -7553,9 +7476,6 @@
  "Jump to a year": [
   "about.html"
  ],
- "Jump to an engagement": [
-  "case-study.html"
- ],
  "Jurisdiction": [
   "terms.html"
  ],
@@ -7649,6 +7569,9 @@
  "Leads marketing and branding": [
   "about.html"
  ],
+ "Learn more": [
+  "case-study.html"
+ ],
  "Learngenie — Learning Management Platform for Organizations | Finlabs": [
   "products/learngenie.html"
  ],
@@ -7711,9 +7634,6 @@
  ],
  "Links to Third-Party Websites": [
   "terms.html"
- ],
- "Live in": [
-  "case-study.html"
  ],
  "Live tracking, all in one place": [
   "products.html"
@@ -7937,9 +7857,6 @@
  "Mutual fund distributor, Navsari": [
   "index.html"
  ],
- "Mutual fund onboarding, purchases and the back office all ran on paper. It capped how fast the network could grow and what the experience felt like at the counter.": [
-  "case-study.html"
- ],
  "Name": [
   "privacy-learngenie.html"
  ],
@@ -8030,9 +7947,6 @@
  "One codebase, every screen": [
   "solutions.html"
  ],
- "One of India’s oldest asset managers, in the top ten by size": [
-  "case-study.html"
- ],
  "One of the primary reasons for the extremely fast use and adaptation of technology in the wealth management industry is the addition of a whole new set of millennial customers who are young and tech-savvy.": [
   "knowledge-centre/blogs.html"
  ],
@@ -8047,9 +7961,6 @@
  ],
  "One-tap execution through BSE StAR MF and MFU": [
   "solutions.html"
- ],
- "Online transactions across every fund house": [
-  "case-study.html"
  ],
  "Open in Google Maps ↗": [
   "contact.html"
@@ -8387,9 +8298,6 @@
  "Product accelerators and a startup ecosystem": [
   "brochure.html"
  ],
- "Product recommendations, wired into the marketplace’s own catalogue": [
-  "case-study.html"
- ],
  "Product suites tackle BFSI challenges with robust tech, user-friendliness and scalability.": [
   "about.html"
  ],
@@ -8474,9 +8382,6 @@
  "Re-platform or refactor core applications to use serverless functions, microservices and managed AI services.": [
   "services/cloud.html"
  ],
- "Reaching individual and corporate NPS subscribers meant paperwork and branches. The CRA needed those journeys to run on whatever device a subscriber already had.": [
-  "case-study.html"
- ],
  "React": [
   "services.html"
  ],
@@ -8521,9 +8426,6 @@
  ],
  "Recommend": [
   "services.html"
- ],
- "Recommendations for every goal the plan maps": [
-  "case-study.html"
  ],
  "Redis, Swagger/OpenAPI": [
   "careers.html"
@@ -8611,9 +8513,6 @@
  ],
  "Retire ageing on-premises hardware and hand the facility, refresh cycles and power bills to the cloud provider.": [
   "services/cloud.html"
- ],
- "Retirement": [
-  "case-study.html"
  ],
  "Retirement and pension": [
   "brochure.html"
@@ -9023,9 +8922,6 @@
  "Submissions and unauthorized use of any information(s)/materials contained on Finlabs India may violate copyright laws, trademark laws, the laws of privacy and publicity, certain communications statutes and regulations thereto and other applicable laws, statutes and its rules and regulations. You alone are responsible for your actions or the actions of any person using your user name and/or password.": [
   "terms.html"
  ],
- "Subscription and registration online": [
-  "case-study.html"
- ],
  "Success stories": [
   "brochure.html"
  ],
@@ -9200,17 +9096,11 @@
  "The 7 Rs: how each application moves": [
   "services/cloud.html"
  ],
- "The advice methodology itself, and the asset allocation models behind it": [
-  "case-study.html"
- ],
  "The AI for Business Grand Challenge, hosted by nasscom ai in partnership with IBM — filled with networking, fun and excitement for all participants.": [
   "about.html"
  ],
  "The animated videos created by Finlabs on financial literacy concepts were crisp, interactive, and easy to understand. Topics like saving, insurance, and responsible borrowing were well explained for the LCV and LMV driver community. Feedback from implementation partners was very positive during driver sessions. The drivers were able to relate to the concepts and understand them clearly. The Finlabs team was highly cooperative and readily accommodated suggestions during the process.": [
   "index.html"
- ],
- "The B2B channel for 4,000 branch users and their hierarchy": [
-  "case-study.html"
  ],
  "The best work comes from a balance of trust and empowerment, so team members own their responsibilities and drive outcomes that carry across the financial landscape.": [
   "careers.html"
@@ -9239,23 +9129,11 @@
  "The deck we send before a first call": [
   "brochure.html"
  ],
- "The engagements in full": [
-  "case-study.html"
- ],
- "The enterprise Finexa mutual fund suite": [
-  "case-study.html"
- ],
  "The failure of FIPL to exercise or enforce any right or provision of the Terms and Conditions of use shall not constitute a waiver of its right to enforce such right or provision subsequently.": [
   "terms.html"
  ],
  "The Financial Literacy Crisis in India – and What BFSI Institutions Can Do About It India’s economy is booming. Startup funding is back on the rise. Digital payments are breaking records. Investment platforms are seeing surges in new users. And yet—despite all this momentum—we’re facing a quiet crisis: Only 27% of Indians are financially literate. That": [
   "knowledge-centre/blogs.html"
- ],
- "The Finexa financial planning stack": [
-  "case-study.html"
- ],
- "The Finexa financial planning stack, integrated with the marketplace": [
-  "case-study.html"
  ],
  "The Finlabs corporate deck, as a page: who we are, the five products, the solutions and services built on them, success stories, clients, partners and the team — with the full PDF to download.": [
   "brochure.html"
@@ -9283,9 +9161,6 @@
  ],
  "The landscape our clients operate in": [
   "brochure.html"
- ],
- "The largest Central Record Keeping Agency for NPS in India": [
-  "case-study.html"
  ],
  "The last pages of the deck introduce the board of directors, the advisory board and the senior leadership team — thirty-odd years apiece across Indian financial markets, insurance, retirement, asset management and BFSI technology.": [
   "brochure.html"
@@ -9358,9 +9233,6 @@
  ],
  "The terms that apply when you visit or use the Finlabs India website and its services. Please read them carefully.": [
   "terms.html"
- ],
- "The tools and calculators an investor needs to decide": [
-  "case-study.html"
  ],
  "The User / subscriber / visitor to Finlabs India or affiliated site(s) is prohibited from uploading, posting, transmitting, updating or sharing any information that:": [
   "terms.html"
@@ -9496,9 +9368,6 @@
  ],
  "UI/UX consulting, application and infrastructure audits, cybersecurity, cloud architecture review and digital transformation strategy": [
   "brochure.html"
- ],
- "UI/UX journeys for both audiences": [
-  "case-study.html"
  ],
  "Understanding and mastering the essential skill of expense management is key to achieving greater financial stability and personal growth. So, how can you navigate the exciting journey of expense management?": [
   "knowledge-centre/blogs.html"
@@ -9776,15 +9645,6 @@
  "What sets Finlabs apart": [
   "about.html"
  ],
- "What they came with": [
-  "case-study.html"
- ],
- "What was delivered": [
-  "case-study.html"
- ],
- "What we built on": [
-  "case-study.html"
- ],
  "What you bring": [
   "careers.html"
  ],
@@ -9865,9 +9725,6 @@
  ],
  "Women: Budgeting And Planning Comes Naturally To Them": [
   "knowledge-centre/blogs.html"
- ],
- "work": [
-  "case-study.html"
  ],
  "Work Email": [
   "(javascript)"
