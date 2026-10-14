@@ -67,6 +67,7 @@ html { scroll-padding-top: 160px; }
 :root[data-theme="dark"] .fx--page .fx-top__logo[data-logo="gennxt"] { content: url("/products/gennxt/logo-light.webp"); }
 :root[data-theme="dark"] .fx--page .fx-top__logo[data-logo="finaware"] { content: url("/products/finaware/logo-light.webp"); }
 :root[data-theme="dark"] .fx--page .fx-top__logo[data-logo="learngenie"] { content: url("/products/learngenie/logo-row-light.webp"); }
+:root[data-theme="dark"] .fx--page .fx-top__logo[data-logo="fiscus"] { content: url("/products/fiscus/logo-light.webp"); }
 
 :root[data-theme="dark"] .fx--page .fx-btn--primary,
 :root[data-theme="dark"] .fx--page .fx-tabs button[aria-selected="true"],

@@ -396,9 +396,9 @@
     "semantic_hash": ""
   },
   "src/showroom.js": {
-    "mtime": 1791952454.1255412,
-    "seen": 1791952626.037994,
-    "ast_hash": "f948a1cc5f2cb5dbd5def747fad2d15c",
+    "mtime": 1791978228.2137141,
+    "seen": 1791978309.750823,
+    "ast_hash": "6fc3f47841be2ab80d306ca016b9d402",
     "semantic_hash": ""
   },
   "src/solutions-scene.js": {
@@ -492,9 +492,9 @@
     "semantic_hash": ""
   },
   "products.html": {
-    "mtime": 1791828135.7144659,
-    "seen": 1791828245.087054,
-    "ast_hash": "0ae432ae0fe1e9b24347a13619fdcbd0",
+    "mtime": 1791978228.2125733,
+    "seen": 1791978309.750832,
+    "ast_hash": "5e352aa994d3023a254e1eab91472e29",
     "semantic_hash": ""
   },
   "products/finaware.html": {
@@ -612,9 +612,9 @@
     "semantic_hash": ""
   },
   "src/partials/products/fiscus.html": {
-    "mtime": 1791580185.7593703,
-    "seen": 1791580289.5235388,
-    "ast_hash": "417a81e26d14840ea80b0bde701beeeb",
+    "mtime": 1791978228.213122,
+    "seen": 1791978309.750842,
+    "ast_hash": "f725cf1861740d6c5082f0f597ee4014",
     "semantic_hash": ""
   },
   "src/partials/products/learngenie.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1791952595.299847,
-    "seen": 1791952626.037948,
-    "ast_hash": "90da985d800bc4a0080b8f772a18fa05",
+    "mtime": 1791978302.3676748,
+    "seen": 1791978309.750777,
+    "ast_hash": "5481613113189708ace4196c75a7bb16",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1791952595.3048437,
-    "seen": 1791952626.03795,
-    "ast_hash": "ae5458a91c7272a3c56b0cbcfa0bdd45",
+    "mtime": 1791978302.3723912,
+    "seen": 1791978309.750779,
+    "ast_hash": "eab7f623790e51b66f54217d81123cc2",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1791952595.310987,
-    "seen": 1791952626.037951,
-    "ast_hash": "76930e6efddd07a86ee32bd7586b1a99",
+    "mtime": 1791978302.3785627,
+    "seen": 1791978309.7507799,
+    "ast_hash": "450b70b9b0d7b74dfed6e7fbe2a3ae3e",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1767,6 +1767,18 @@
     "mtime": 1791952234.637776,
     "seen": 1791952626.038099,
     "ast_hash": "66a6616faf63be8a4693d16af5ae1b2d",
+    "semantic_hash": ""
+  },
+  "public/products/fiscus/logo-light.webp": {
+    "mtime": 1791978214.1030018,
+    "seen": 1791978309.750916,
+    "ast_hash": "6d3260c0f7b6b987eb8c8e3f691af89a",
+    "semantic_hash": ""
+  },
+  "public/products/fiscus/logo.webp": {
+    "mtime": 1791978211.5312529,
+    "seen": 1791978309.750916,
+    "ast_hash": "a59f622c0ba9cee358cbf2cd5d9c0252",
     "semantic_hash": ""
   }
 }

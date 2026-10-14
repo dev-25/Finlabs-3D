@@ -807,6 +807,13 @@
   "brochure.html",
   "products/finexa-gennxt.html"
  ],
+ "Fiscus": [
+  "index.html",
+  "products.html",
+  "contact.html",
+  "brochure.html",
+  "products/fiscus.html"
+ ],
  "Schedule a demo": [
   "products.html",
   "solutions.html",
@@ -831,12 +838,6 @@
   "products/finexa.html",
   "products/fiscus.html",
   "products/learngenie.html"
- ],
- "Fiscus": [
-  "index.html",
-  "products.html",
-  "contact.html",
-  "brochure.html"
  ],
  "Request a demo": [
   "products.html",
@@ -1820,10 +1821,6 @@
   "products.html",
   "products/fiscus.html"
  ],
- "cus": [
-  "products.html",
-  "products/fiscus.html"
- ],
  "Customer & advisor dashboard": [
   "products.html",
   "products/finexa.html"
@@ -2399,10 +2396,6 @@
  "Finny is Finexa’s built-in AI assistant designed to help you quickly find information about the platform. Whether you have questions about features, reports, or workflows, Finny is there to assist you.": [
   "products.html",
   "products/finexa.html"
- ],
- "Fis": [
-  "products.html",
-  "products/fiscus.html"
  ],
  "Fiscus bill reminders on the app dashboard": [
   "products.html",
