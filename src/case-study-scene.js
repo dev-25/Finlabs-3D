@@ -353,8 +353,11 @@ function start() {
   const PLAT = 8.4; // a platform is this wide, and flat: a plate, not a block
   const THICK = 0.34;
 
-  const SLAB = 0x7b83d6; // the periwinkle the reference's platforms are cut from
-  const SLAB_DEEP = 0x5a62b8;
+  // the reference fills its platforms with one flat blue-violet, #697cbe,
+  // with the odd face a shade under it; these are set so the lit render
+  // lands on that colour rather than above it
+  const SLAB = 0x273b7f;
+  const SLAB_DEEP = 0x20316c;
   const slabMat = mat(SLAB, { rough: 0.42 });
   const slabDeepMat = mat(SLAB_DEEP, { rough: 0.55 });
 
@@ -373,37 +376,35 @@ function start() {
     { id: 'nbfc', at: new THREE.Vector3(RUN, -FALL * 2, RUN), w: 8.4, d: 8.4, scene: 'plan' },
   ];
 
-  /** One flight. Each step is a plate the same thickness as a platform, and
-   *  they meet edge to edge: tread, drop, tread, the way a staircase reads in
-   *  the reference — no gaps between them and nothing bulky underneath. */
+  /** One flight: steps that float. Each is a plate the same thickness as a
+   *  platform, set a little apart from the next and a little lower, with
+   *  nothing joining them — the way the reference's staircases read. */
   function stairs(a, b, width = 3.4) {
     const g = new THREE.Group();
     const span = b.clone().sub(a);
     const run = Math.hypot(span.x, span.z);
-    const steps = Math.max(5, Math.round(run / 1.2));
+    const steps = Math.max(5, Math.round(run / 1.25));
     const tread = run / steps;
     const rise = (a.y - b.y) / steps;
     const alongZ = Math.abs(span.z) > Math.abs(span.x);
     for (let k = 0; k < steps; k++) {
       const u = (k + 0.5) / steps;
+      const depth = tread * 0.62; // the gap between one step and the next
       const step = new THREE.Mesh(
-        alongZ ? box(width, THICK, tread, 0.03) : box(tread, THICK, width, 0.03),
+        alongZ ? box(width, THICK, depth, 0.03) : box(depth, THICK, width, 0.03),
         slabMat
       );
       step.position.copy(a).addScaledVector(span, u);
-      step.position.y = a.y - rise * k;
+      step.position.y = a.y - rise * (k + 0.5);
       g.add(step);
-      // the riser: the thin face dropping to the next tread, which is all the
-      // depth these plates have
-      const riser = new THREE.Mesh(
-        alongZ ? box(width, rise + THICK, THICK, 0.02) : box(THICK, rise + THICK, width, 0.02),
+      // the thin edge under the plate, the only depth a floating step has
+      const edge = new THREE.Mesh(
+        alongZ ? box(width - 0.1, 0.26, depth - 0.1, 0.02) : box(depth - 0.1, 0.26, width - 0.1, 0.02),
         slabDeepMat
       );
-      riser.position.copy(step.position);
-      riser.position.y -= rise / 2;
-      if (alongZ) riser.position.z += (Math.sign(span.z) * tread) / 2;
-      else riser.position.x += (Math.sign(span.x) * tread) / 2;
-      g.add(riser);
+      edge.position.copy(step.position);
+      edge.position.y -= 0.22;
+      g.add(edge);
     }
     return g;
   }

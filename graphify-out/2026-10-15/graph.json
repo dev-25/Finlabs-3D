@@ -343,7 +343,7 @@
       "file_type": "code",
       "norm_label": "briefcase()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L466"
+      "source_location": "L476"
     },
     {
       "id": "src_case_study_scene_start_buildfloor",
@@ -355,7 +355,7 @@
       "file_type": "code",
       "norm_label": "buildfloor()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L548"
+      "source_location": "L558"
     },
     {
       "id": "src_case_study_scene_start_calendar",
@@ -391,7 +391,7 @@
       "file_type": "code",
       "norm_label": "deskcalendar()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L500"
+      "source_location": "L510"
     },
     {
       "id": "src_case_study_scene_start_deskrow",
@@ -403,7 +403,7 @@
       "file_type": "code",
       "norm_label": "deskrow()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L529"
+      "source_location": "L539"
     },
     {
       "id": "src_case_study_scene_start_figure",
@@ -427,7 +427,7 @@
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L752"
+      "source_location": "L762"
     },
     {
       "id": "src_case_study_scene_start_gavel",
@@ -439,7 +439,7 @@
       "file_type": "code",
       "norm_label": "gavel()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L477"
+      "source_location": "L487"
     },
     {
       "id": "src_case_study_scene_start_laptop",
@@ -451,7 +451,7 @@
       "file_type": "code",
       "norm_label": "laptop()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L442"
+      "source_location": "L452"
     },
     {
       "id": "src_case_study_scene_start_monitor",
@@ -523,7 +523,7 @@
       "file_type": "code",
       "norm_label": "size()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L682"
+      "source_location": "L692"
     },
     {
       "id": "src_case_study_scene_start_stairs",
@@ -535,7 +535,7 @@
       "file_type": "code",
       "norm_label": "stairs()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L378"
+      "source_location": "L379"
     },
     {
       "id": "src_case_study_scene_start_table",
@@ -15730,7 +15730,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L552",
+      "source_location": "L562",
       "weight": 1.0
     },
     {
@@ -15742,7 +15742,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L556",
+      "source_location": "L566",
       "weight": 1.0
     },
     {
@@ -15754,7 +15754,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L561",
+      "source_location": "L571",
       "weight": 1.0
     },
     {
@@ -15766,7 +15766,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L575",
+      "source_location": "L585",
       "weight": 1.0
     },
     {
@@ -15778,7 +15778,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L598",
+      "source_location": "L608",
       "weight": 1.0
     },
     {
@@ -15790,7 +15790,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L601",
+      "source_location": "L611",
       "weight": 1.0
     },
     {
@@ -15802,7 +15802,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L605",
+      "source_location": "L615",
       "weight": 1.0
     },
     {
@@ -15814,7 +15814,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L611",
+      "source_location": "L621",
       "weight": 1.0
     },
     {
@@ -15826,7 +15826,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L616",
+      "source_location": "L626",
       "weight": 1.0
     },
     {
@@ -15838,7 +15838,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L537",
+      "source_location": "L547",
       "weight": 1.0
     },
     {
@@ -15850,7 +15850,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L456",
+      "source_location": "L466",
       "weight": 1.0
     },
     {
@@ -18802,7 +18802,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L378",
+      "source_location": "L379",
       "weight": 1.0
     },
     {
@@ -18814,7 +18814,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L548",
+      "source_location": "L558",
       "weight": 1.0
     },
     {
@@ -18826,7 +18826,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L682",
+      "source_location": "L692",
       "weight": 1.0
     },
     {
@@ -18838,7 +18838,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L752",
+      "source_location": "L762",
       "weight": 1.0
     },
     {
@@ -23349,7 +23349,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L442",
+      "source_location": "L452",
       "weight": 1.0
     },
     {
@@ -23360,7 +23360,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L466",
+      "source_location": "L476",
       "weight": 1.0
     },
     {
@@ -23371,7 +23371,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L477",
+      "source_location": "L487",
       "weight": 1.0
     },
     {
@@ -23382,7 +23382,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L500",
+      "source_location": "L510",
       "weight": 1.0
     },
     {
@@ -23393,7 +23393,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L529",
+      "source_location": "L539",
       "weight": 1.0
     },
     {
@@ -32789,5 +32789,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "240bf6491eed1aadd2a03faddbba1446f7ea4c85"
+  "built_at_commit": "5814157d5eb984030778b5418a49f0090811ae9f"
 }
