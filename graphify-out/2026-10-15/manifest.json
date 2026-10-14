@@ -1614,9 +1614,9 @@
     "semantic_hash": ""
   },
   "case-study.html": {
-    "mtime": 1792009220.5897577,
-    "seen": 1792009489.800724,
-    "ast_hash": "b76d456564e7b5fb3621162e8ebefa77",
+    "mtime": 1792010174.4128373,
+    "seen": 1792010227.1955369,
+    "ast_hash": "a54147304cb782ed6e6874ec0a30dc2a",
     "semantic_hash": ""
   },
   "partners.html": {
@@ -1638,33 +1638,33 @@
     "semantic_hash": ""
   },
   "src/case-study-scene.js": {
-    "mtime": 1792009301.1558838,
-    "seen": 1792009489.800704,
-    "ast_hash": "4e9f76e2ac8b5fa2b38a9b74125a52dc",
+    "mtime": 1792010160.831546,
+    "seen": 1792010227.1955168,
+    "ast_hash": "05a0fc97995d031de34a80d3125f8132",
     "semantic_hash": ""
   },
   "src/case-study.js": {
-    "mtime": 1792009337.4106028,
-    "seen": 1792009489.800705,
-    "ast_hash": "ec1acbb331205668619ffd450f5a4afa",
+    "mtime": 1792010155.0439296,
+    "seen": 1792010227.195518,
+    "ast_hash": "91d0fc0ee23ccb4586f712eaa7673946",
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1792009437.9267945,
-    "seen": 1792009489.800673,
-    "ast_hash": "02896a73fc364ea2532913b5d5095f5f",
+    "mtime": 1792010174.5940223,
+    "seen": 1792010227.195488,
+    "ast_hash": "02565d87ad9603446e39681eda9fb85c",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1792009453.0288801,
-    "seen": 1792009489.8006752,
-    "ast_hash": "09f08b7dfa6cd10c3aca08f57dae03f6",
+    "mtime": 1792010174.6544774,
+    "seen": 1792010227.1954901,
+    "ast_hash": "8344dbab9e9d56c5bb057a476681afae",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1792009453.0338805,
-    "seen": 1792009489.800676,
-    "ast_hash": "22ba40bbddcdfdbb4d20f1595a7d09ab",
+    "mtime": 1792010174.6616936,
+    "seen": 1792010227.195491,
+    "ast_hash": "0e903321fedde1e44c92d6177d40cbd5",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1785,6 +1785,12 @@
     "mtime": 1792006125.8660676,
     "seen": 1792006271.1682339,
     "ast_hash": "5641cc34ebb50e006cf6224bca321ef5",
+    "semantic_hash": ""
+  },
+  "src/partials/case-study/studies.html": {
+    "mtime": 1792009913.4169488,
+    "seen": 1792010227.1955462,
+    "ast_hash": "e18284c4114d0c2ad875e3b5a59846e5",
     "semantic_hash": ""
   }
 }

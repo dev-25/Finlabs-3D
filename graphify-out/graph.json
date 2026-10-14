@@ -343,7 +343,7 @@
       "file_type": "code",
       "norm_label": "briefcase()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L454"
+      "source_location": "L466"
     },
     {
       "id": "src_case_study_scene_start_buildfloor",
@@ -355,7 +355,7 @@
       "file_type": "code",
       "norm_label": "buildfloor()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L536"
+      "source_location": "L548"
     },
     {
       "id": "src_case_study_scene_start_calendar",
@@ -391,7 +391,7 @@
       "file_type": "code",
       "norm_label": "deskcalendar()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L488"
+      "source_location": "L500"
     },
     {
       "id": "src_case_study_scene_start_deskrow",
@@ -403,7 +403,7 @@
       "file_type": "code",
       "norm_label": "deskrow()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L517"
+      "source_location": "L529"
     },
     {
       "id": "src_case_study_scene_start_figure",
@@ -427,7 +427,7 @@
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L740"
+      "source_location": "L752"
     },
     {
       "id": "src_case_study_scene_start_gavel",
@@ -439,7 +439,7 @@
       "file_type": "code",
       "norm_label": "gavel()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L465"
+      "source_location": "L477"
     },
     {
       "id": "src_case_study_scene_start_laptop",
@@ -451,7 +451,7 @@
       "file_type": "code",
       "norm_label": "laptop()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L430"
+      "source_location": "L442"
     },
     {
       "id": "src_case_study_scene_start_monitor",
@@ -523,7 +523,7 @@
       "file_type": "code",
       "norm_label": "size()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L670"
+      "source_location": "L682"
     },
     {
       "id": "src_case_study_scene_start_stairs",
@@ -535,7 +535,7 @@
       "file_type": "code",
       "norm_label": "stairs()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L370"
+      "source_location": "L378"
     },
     {
       "id": "src_case_study_scene_start_table",
@@ -2398,6 +2398,138 @@
       "source_location": "L75"
     },
     {
+      "id": "src_cloud_scene_asset",
+      "label": "asset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "asset()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene",
+      "label": "buildCloudScene()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "buildcloudscene()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_canvastexture",
+      "label": "canvasTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "canvastexture()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_cloudat",
+      "label": "cloudAt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloudat()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L303"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L342"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_kick",
+      "label": "kick()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "kick()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L389"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L375"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L278"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_retarget",
+      "label": "retarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "retarget()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L310"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_start",
+      "label": "start()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "start()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L383"
+    },
+    {
+      "id": "src_cloud_scene_cloudgeometry",
+      "label": "cloudGeometry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloudgeometry()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L30"
+    },
+    {
       "id": "src_case_study_wantscene",
       "label": "wantScene()",
       "_callable": true,
@@ -2492,138 +2624,6 @@
       "norm_label": "rr()",
       "source_file": "src/solutions-scene.js",
       "source_location": "L107"
-    },
-    {
-      "id": "src_cloud_scene_asset",
-      "label": "asset()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "asset()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene",
-      "label": "buildCloudScene()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "buildcloudscene()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L47"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_canvastexture",
-      "label": "canvasTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "canvastexture()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L80"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_cloudat",
-      "label": "cloudAt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "cloudat()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L303"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L342"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_kick",
-      "label": "kick()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "kick()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L389"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L375"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L278"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_retarget",
-      "label": "retarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "retarget()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L310"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_start",
-      "label": "start()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "start()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L383"
-    },
-    {
-      "id": "src_cloud_scene_cloudgeometry",
-      "label": "cloudGeometry()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "cloudgeometry()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L30"
     },
     {
       "id": "src_theme_chosen",
@@ -7361,6 +7361,28 @@
       "source_location": "L25"
     },
     {
+      "id": "src_cloud_scene",
+      "label": "cloud-scene.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloud-scene.js",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_cloud_scene_clouds",
+      "label": "CLOUDS",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "clouds",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L21"
+    },
+    {
       "id": "src_case_study",
       "label": "case-study.js",
       "_origin": "ast",
@@ -7436,28 +7458,6 @@
       "norm_label": "padtex",
       "source_file": "src/solutions-scene.js",
       "source_location": "L546"
-    },
-    {
-      "id": "src_cloud_scene",
-      "label": "cloud-scene.js",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "cloud-scene.js",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_cloud_scene_clouds",
-      "label": "CLOUDS",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "clouds",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L21"
     },
     {
       "id": "src_theme",
@@ -15741,7 +15741,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L540",
+      "source_location": "L552",
       "weight": 1.0
     },
     {
@@ -15753,7 +15753,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L544",
+      "source_location": "L556",
       "weight": 1.0
     },
     {
@@ -15765,7 +15765,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L549",
+      "source_location": "L561",
       "weight": 1.0
     },
     {
@@ -15777,7 +15777,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L563",
+      "source_location": "L575",
       "weight": 1.0
     },
     {
@@ -15789,7 +15789,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L586",
+      "source_location": "L598",
       "weight": 1.0
     },
     {
@@ -15801,7 +15801,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L589",
+      "source_location": "L601",
       "weight": 1.0
     },
     {
@@ -15813,7 +15813,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L593",
+      "source_location": "L605",
       "weight": 1.0
     },
     {
@@ -15825,7 +15825,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L599",
+      "source_location": "L611",
       "weight": 1.0
     },
     {
@@ -15837,7 +15837,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L604",
+      "source_location": "L616",
       "weight": 1.0
     },
     {
@@ -15849,7 +15849,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L525",
+      "source_location": "L537",
       "weight": 1.0
     },
     {
@@ -15861,7 +15861,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L444",
+      "source_location": "L456",
       "weight": 1.0
     },
     {
@@ -18813,7 +18813,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L370",
+      "source_location": "L378",
       "weight": 1.0
     },
     {
@@ -18825,7 +18825,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L536",
+      "source_location": "L548",
       "weight": 1.0
     },
     {
@@ -18837,7 +18837,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L670",
+      "source_location": "L682",
       "weight": 1.0
     },
     {
@@ -18849,7 +18849,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L740",
+      "source_location": "L752",
       "weight": 1.0
     },
     {
@@ -23360,7 +23360,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L430",
+      "source_location": "L442",
       "weight": 1.0
     },
     {
@@ -23371,7 +23371,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L454",
+      "source_location": "L466",
       "weight": 1.0
     },
     {
@@ -23382,7 +23382,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L465",
+      "source_location": "L477",
       "weight": 1.0
     },
     {
@@ -23393,7 +23393,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L488",
+      "source_location": "L500",
       "weight": 1.0
     },
     {
@@ -23404,7 +23404,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
-      "source_location": "L517",
+      "source_location": "L529",
       "weight": 1.0
     },
     {
@@ -32809,5 +32809,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "00389043c2e413f3e5cceb66aaf72bdc7f40b526"
+  "built_at_commit": "27be244e465f783671d2fd656127c1f9914f09cc"
 }

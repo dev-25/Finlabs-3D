@@ -118,6 +118,18 @@
       "source_location": "L1783"
     },
     {
+      "id": "src_showroom_donut",
+      "label": "donut()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "showroom.js",
+      "file_type": "code",
+      "norm_label": "donut()",
+      "source_file": "src/showroom.js",
+      "source_location": "L1260"
+    },
+    {
       "id": "src_showroom_geargeometry",
       "label": "gearGeometry()",
       "_callable": true,
@@ -310,18 +322,6 @@
       "source_location": "L26"
     },
     {
-      "id": "src_case_study_scene_start_announce",
-      "label": "announce()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "announce()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L679"
-    },
-    {
       "id": "src_case_study_scene_start_board",
       "label": "board()",
       "_callable": true,
@@ -334,16 +334,28 @@
       "source_location": "L257"
     },
     {
-      "id": "src_case_study_scene_start_buildvignette",
-      "label": "buildVignette()",
+      "id": "src_case_study_scene_start_briefcase",
+      "label": "briefcase()",
       "_callable": true,
       "_origin": "ast",
       "community": 10,
       "community_name": "start",
       "file_type": "code",
-      "norm_label": "buildvignette()",
+      "norm_label": "briefcase()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L458"
+      "source_location": "L454"
+    },
+    {
+      "id": "src_case_study_scene_start_buildfloor",
+      "label": "buildFloor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "buildfloor()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L536"
     },
     {
       "id": "src_case_study_scene_start_calendar",
@@ -370,6 +382,30 @@
       "source_location": "L243"
     },
     {
+      "id": "src_case_study_scene_start_deskcalendar",
+      "label": "deskCalendar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "deskcalendar()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L488"
+    },
+    {
+      "id": "src_case_study_scene_start_deskrow",
+      "label": "deskRow()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "deskrow()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L517"
+    },
+    {
       "id": "src_case_study_scene_start_figure",
       "label": "figure()",
       "_callable": true,
@@ -391,7 +427,31 @@
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L753"
+      "source_location": "L740"
+    },
+    {
+      "id": "src_case_study_scene_start_gavel",
+      "label": "gavel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "gavel()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L465"
+    },
+    {
+      "id": "src_case_study_scene_start_laptop",
+      "label": "laptop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "laptop()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L430"
     },
     {
       "id": "src_case_study_scene_start_monitor",
@@ -406,30 +466,6 @@
       "source_location": "L209"
     },
     {
-      "id": "src_case_study_scene_start_numbertex",
-      "label": "numberTex()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "numbertex()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L366"
-    },
-    {
-      "id": "src_case_study_scene_start_onscroll",
-      "label": "onScroll()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "onscroll()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L695"
-    },
-    {
       "id": "src_case_study_scene_start_phone",
       "label": "phone()",
       "_callable": true,
@@ -440,18 +476,6 @@
       "norm_label": "phone()",
       "source_file": "src/case-study-scene.js",
       "source_location": "L315"
-    },
-    {
-      "id": "src_case_study_scene_start_pick",
-      "label": "pick()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "pick()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L722"
     },
     {
       "id": "src_case_study_scene_start_rack",
@@ -499,7 +523,7 @@
       "file_type": "code",
       "norm_label": "size()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L655"
+      "source_location": "L670"
     },
     {
       "id": "src_case_study_scene_start_stairs",
@@ -511,7 +535,7 @@
       "file_type": "code",
       "norm_label": "stairs()",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L386"
+      "source_location": "L370"
     },
     {
       "id": "src_case_study_scene_start_table",
@@ -536,18 +560,6 @@
       "norm_label": "wallscreen()",
       "source_file": "src/case-study-scene.js",
       "source_location": "L227"
-    },
-    {
-      "id": "src_showroom_donut",
-      "label": "donut()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "donut()",
-      "source_file": "src/showroom.js",
-      "source_location": "L1260"
     },
     {
       "id": "src_solutions_ui_onfitchange",
@@ -1102,6 +1114,90 @@
       "source_location": "L34"
     },
     {
+      "id": "src_finaware_flow_createflow",
+      "label": "createFlow()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "createflow()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L82"
+    },
+    {
+      "id": "src_finaware_flow_createflow_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L189"
+    },
+    {
+      "id": "src_finaware_flow_createflow_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L245"
+    },
+    {
+      "id": "src_finaware_flow_createflow_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L214"
+    },
+    {
+      "id": "src_finaware_flow_drawstage",
+      "label": "drawStage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "drawstage()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L40"
+    },
+    {
+      "id": "src_finaware_flow_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "src_finaware_flow_stagepos",
+      "label": "stagePos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "stagepos()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L34"
+    },
+    {
       "id": "src_finexa_hub_createhub",
       "label": "createHub()",
       "_callable": true,
@@ -1174,186 +1270,6 @@
       "source_location": "L24"
     },
     {
-      "id": "src_fiscus_picture_createpicture",
-      "label": "createPicture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "createpicture()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L96"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_card",
-      "label": "card()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "card()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L126"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L198"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L248"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L218"
-    },
-    {
-      "id": "src_fiscus_picture_drawsource",
-      "label": "drawSource()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "drawsource()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L46"
-    },
-    {
-      "id": "src_fiscus_picture_drawtarget",
-      "label": "drawTarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "drawtarget()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L64"
-    },
-    {
-      "id": "src_fiscus_picture_label",
-      "label": "label()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "label()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L38"
-    },
-    {
-      "id": "src_fiscus_picture_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L84"
-    },
-    {
-      "id": "src_gennxt_stack_createstack",
-      "label": "createStack()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "createstack()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L137"
-    },
-    {
-      "id": "src_gennxt_stack_createstack_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L239"
-    },
-    {
-      "id": "src_gennxt_stack_createstack_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L294"
-    },
-    {
-      "id": "src_gennxt_stack_createstack_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L259"
-    },
-    {
-      "id": "src_gennxt_stack_drawlayer",
-      "label": "drawLayer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "drawlayer()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L62"
-    },
-    {
-      "id": "src_gennxt_stack_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L125"
-    },
-    {
       "id": "src_partners_scene_frame",
       "label": "frame()",
       "_callable": true,
@@ -1402,18 +1318,6 @@
       "source_location": "L254"
     },
     {
-      "id": "src_i18n_mountswitcher",
-      "label": "mountSwitcher()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "mountswitcher()",
-      "source_file": "src/i18n.js",
-      "source_location": "L54"
-    },
-    {
       "id": "src_i18n_t",
       "label": "t()",
       "_callable": true,
@@ -1424,18 +1328,6 @@
       "norm_label": "t()",
       "source_file": "src/i18n.js",
       "source_location": "L27"
-    },
-    {
-      "id": "src_i18n_urlfor",
-      "label": "urlFor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "urlfor()",
-      "source_file": "src/i18n.js",
-      "source_location": "L45"
     },
     {
       "id": "src_learngenie_games_close",
@@ -1846,12 +1738,48 @@
       "source_location": "L439"
     },
     {
+      "id": "src_nav_setopen",
+      "label": "setOpen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "setopen()",
+      "source_file": "src/nav.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "src_product_ui_wirefaqs",
+      "label": "wireFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "wirefaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_product_ui_wirefaqs_filterfaqs",
+      "label": "filterFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "filterfaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L55"
+    },
+    {
       "id": "src_after_paint_afterpaint",
       "label": "afterPaint()",
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "afterpaint()",
       "source_file": "src/after-paint.js",
@@ -1863,35 +1791,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "idle()",
       "source_file": "src/after-paint.js",
       "source_location": "L39"
     },
     {
-      "id": "src_nav_drawline",
-      "label": "drawLine()",
+      "id": "src_product_page_runpiece",
+      "label": "runPiece()",
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
-      "norm_label": "drawline()",
-      "source_file": "src/nav.js",
-      "source_location": "L45"
-    },
-    {
-      "id": "src_nav_setopen",
-      "label": "setOpen()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "setopen()",
-      "source_file": "src/nav.js",
-      "source_location": "L16"
+      "norm_label": "runpiece()",
+      "source_file": "src/product-page.js",
+      "source_location": "L42"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -2146,6 +2062,150 @@
       "source_location": "L24"
     },
     {
+      "id": "src_cloud_scene_asset",
+      "label": "asset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "asset()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene",
+      "label": "buildCloudScene()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "buildcloudscene()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_canvastexture",
+      "label": "canvasTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "canvastexture()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_cloudat",
+      "label": "cloudAt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "cloudat()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L303"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L342"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_kick",
+      "label": "kick()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "kick()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L389"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L375"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L278"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_retarget",
+      "label": "retarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "retarget()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L310"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_start",
+      "label": "start()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "start()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L383"
+    },
+    {
+      "id": "src_cloud_scene_cloudgeometry",
+      "label": "cloudGeometry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "cloudgeometry()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L30"
+    },
+    {
+      "id": "src_theme_ontheme",
+      "label": "onTheme()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "ontheme()",
+      "source_file": "src/theme.js",
+      "source_location": "L59"
+    },
+    {
       "id": "src_careers_filter",
       "label": "filter()",
       "_callable": true,
@@ -2194,88 +2254,40 @@
       "source_location": "L48"
     },
     {
-      "id": "src_finaware_flow_createflow",
-      "label": "createFlow()",
+      "id": "src_i18n_mountswitcher",
+      "label": "mountSwitcher()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "finaware-flow.js",
+      "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "createflow()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L82"
+      "norm_label": "mountswitcher()",
+      "source_file": "src/i18n.js",
+      "source_location": "L54"
     },
     {
-      "id": "src_finaware_flow_createflow_frame",
-      "label": "frame()",
+      "id": "src_i18n_urlfor",
+      "label": "urlFor()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "finaware-flow.js",
+      "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L189"
+      "norm_label": "urlfor()",
+      "source_file": "src/i18n.js",
+      "source_location": "L45"
     },
     {
-      "id": "src_finaware_flow_createflow_loop",
-      "label": "loop()",
+      "id": "src_nav_drawline",
+      "label": "drawLine()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "finaware-flow.js",
+      "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L245"
-    },
-    {
-      "id": "src_finaware_flow_createflow_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "finaware-flow.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L214"
-    },
-    {
-      "id": "src_finaware_flow_drawstage",
-      "label": "drawStage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "finaware-flow.js",
-      "file_type": "code",
-      "norm_label": "drawstage()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L40"
-    },
-    {
-      "id": "src_finaware_flow_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "finaware-flow.js",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L70"
-    },
-    {
-      "id": "src_finaware_flow_stagepos",
-      "label": "stagePos()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "finaware-flow.js",
-      "file_type": "code",
-      "norm_label": "stagepos()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L34"
+      "norm_label": "drawline()",
+      "source_file": "src/nav.js",
+      "source_location": "L45"
     },
     {
       "id": "src_learngenie_climb_createclimb",
@@ -2362,30 +2374,6 @@
       "source_location": "L75"
     },
     {
-      "id": "src_case_study_highlight",
-      "label": "highlight()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "highlight()",
-      "source_file": "src/case-study.js",
-      "source_location": "L24"
-    },
-    {
-      "id": "src_case_study_listen",
-      "label": "listen()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "listen()",
-      "source_file": "src/case-study.js",
-      "source_location": "L43"
-    },
-    {
       "id": "src_case_study_wantscene",
       "label": "wantScene()",
       "_callable": true,
@@ -2395,7 +2383,7 @@
       "file_type": "code",
       "norm_label": "wantscene()",
       "source_file": "src/case-study.js",
-      "source_location": "L53"
+      "source_location": "L28"
     },
     {
       "id": "src_solutions_scene_chiplabel",
@@ -2482,138 +2470,6 @@
       "source_location": "L107"
     },
     {
-      "id": "src_cloud_scene_asset",
-      "label": "asset()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "asset()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene",
-      "label": "buildCloudScene()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "buildcloudscene()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L47"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_canvastexture",
-      "label": "canvasTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "canvastexture()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L80"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_cloudat",
-      "label": "cloudAt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "cloudat()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L303"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L342"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_kick",
-      "label": "kick()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "kick()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L389"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L375"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L278"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_retarget",
-      "label": "retarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "retarget()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L310"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_start",
-      "label": "start()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "start()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L383"
-    },
-    {
-      "id": "src_cloud_scene_cloudgeometry",
-      "label": "cloudGeometry()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "cloudgeometry()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L30"
-    },
-    {
       "id": "src_theme_chosen",
       "label": "chosen()",
       "_callable": true,
@@ -2648,18 +2504,6 @@
       "norm_label": "inittheme()",
       "source_file": "src/theme.js",
       "source_location": "L65"
-    },
-    {
-      "id": "src_theme_ontheme",
-      "label": "onTheme()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "ontheme()",
-      "source_file": "src/theme.js",
-      "source_location": "L59"
     },
     {
       "id": "src_theme_paint",
@@ -4042,16 +3886,76 @@
       "source_location": "L310"
     },
     {
-      "id": "src_product_page_runpiece",
-      "label": "runPiece()",
+      "id": "src_gennxt_stack_createstack",
+      "label": "createStack()",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
       "community_name": "product-viewport.js",
       "file_type": "code",
-      "norm_label": "runpiece()",
-      "source_file": "src/product-page.js",
-      "source_location": "L42"
+      "norm_label": "createstack()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L137"
+    },
+    {
+      "id": "src_gennxt_stack_createstack_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L239"
+    },
+    {
+      "id": "src_gennxt_stack_createstack_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L294"
+    },
+    {
+      "id": "src_gennxt_stack_createstack_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L259"
+    },
+    {
+      "id": "src_gennxt_stack_drawlayer",
+      "label": "drawLayer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "drawlayer()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L62"
+    },
+    {
+      "id": "src_gennxt_stack_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L125"
     },
     {
       "id": "src_product_ui_asset",
@@ -4112,30 +4016,6 @@
       "norm_label": "open()",
       "source_file": "src/product-ui.js",
       "source_location": "L97"
-    },
-    {
-      "id": "src_product_ui_wirefaqs",
-      "label": "wireFaqs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "wirefaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L48"
-    },
-    {
-      "id": "src_product_ui_wirefaqs_filterfaqs",
-      "label": "filterFaqs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "filterfaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L55"
     },
     {
       "id": "src_product_ui_wiretabs",
@@ -4280,6 +4160,114 @@
       "norm_label": "show()",
       "source_file": "src/product-viewport.js",
       "source_location": "L60"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture",
+      "label": "createPicture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "createpicture()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L96"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_card",
+      "label": "card()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "card()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L126"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L198"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L248"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L218"
+    },
+    {
+      "id": "src_fiscus_picture_drawsource",
+      "label": "drawSource()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "drawsource()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L46"
+    },
+    {
+      "id": "src_fiscus_picture_drawtarget",
+      "label": "drawTarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "drawtarget()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L64"
+    },
+    {
+      "id": "src_fiscus_picture_label",
+      "label": "label()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "label()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L38"
+    },
+    {
+      "id": "src_fiscus_picture_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L84"
     },
     {
       "id": "src_showroom",
@@ -6482,6 +6470,182 @@
       "source_location": "L32"
     },
     {
+      "id": "package",
+      "label": "package.json",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "package.json",
+      "source_file": "package.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "package_dependencies",
+      "label": "dependencies",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "dependencies",
+      "source_file": "package.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "package_dependencies_three",
+      "label": "three",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "three",
+      "source_file": "package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "package_devdependencies",
+      "label": "devDependencies",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "devdependencies",
+      "source_file": "package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "package_devdependencies_vite",
+      "label": "vite",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "vite",
+      "source_file": "package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "package_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "package_private",
+      "label": "private",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "private",
+      "source_file": "package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "package_scripts_i18n_extract",
+      "label": "i18n:extract",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "i18n:extract",
+      "source_file": "package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "package_scripts_preview",
+      "label": "preview",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "preview",
+      "source_file": "package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "package_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "package_version",
+      "label": "version",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "version",
+      "source_file": "package.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_finaware_flow",
+      "label": "finaware-flow.js",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "finaware-flow.js",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_finaware_flow_stages",
+      "label": "STAGES",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "stages",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L25"
+    },
+    {
       "id": "src_finexa_hub",
       "label": "finexa-hub.js",
       "_origin": "ast",
@@ -6502,50 +6666,6 @@
       "norm_label": "platforms",
       "source_file": "src/finexa-hub.js",
       "source_location": "L16"
-    },
-    {
-      "id": "src_fiscus_picture",
-      "label": "fiscus-picture.js",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "fiscus-picture.js",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_fiscus_picture_sources",
-      "label": "SOURCES",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "sources",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_gennxt_stack",
-      "label": "gennxt-stack.js",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "gennxt-stack.js",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_gennxt_stack_layers",
-      "label": "LAYERS",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "layers",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L24"
     },
     {
       "id": "src_partners_scene",
@@ -6603,37 +6723,15 @@
       "source_location": "L16"
     },
     {
-      "id": "src_i18n",
-      "label": "i18n.js",
+      "id": "ref_vite",
+      "label": "vite",
       "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "i18n.js",
-      "source_file": "src/i18n.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_i18n_lang",
-      "label": "lang",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "lang",
-      "source_file": "src/i18n.js",
-      "source_location": "L20"
-    },
-    {
-      "id": "src_i18n_locales",
-      "label": "LOCALES",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "locales",
-      "source_file": "src/i18n.js",
-      "source_location": "L38"
+      "community": 15,
+      "community_name": "three",
+      "file_type": "concept",
+      "norm_label": "vite",
+      "source_file": "package.json",
+      "source_location": "L13"
     },
     {
       "id": "src_learngenie_games",
@@ -6717,7 +6815,7 @@
       "label": "after-paint.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "after-paint.js",
       "source_file": "src/after-paint.js",
@@ -6728,7 +6826,7 @@
       "label": "home.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "home.js",
       "source_file": "src/home.js",
@@ -6739,84 +6837,51 @@
       "label": "main.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "main.js",
       "source_file": "src/main.js",
       "source_location": "L1"
     },
     {
-      "id": "src_nav",
-      "label": "nav.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "nav.js",
-      "source_file": "src/nav.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_nav_fill",
-      "label": "fill",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "fill",
-      "source_file": "src/nav.js",
-      "source_location": "L40"
-    },
-    {
-      "id": "src_nav_line",
-      "label": "line",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "line",
-      "source_file": "src/nav.js",
-      "source_location": "L37"
-    },
-    {
-      "id": "src_nav_menu",
-      "label": "menu",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "menu",
-      "source_file": "src/nav.js",
-      "source_location": "L14"
-    },
-    {
-      "id": "src_nav_nav",
-      "label": "nav",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "nav",
-      "source_file": "src/nav.js",
-      "source_location": "L13"
-    },
-    {
       "id": "src_partners",
       "label": "partners.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "partners.js",
       "source_file": "src/partners.js",
       "source_location": "L1"
     },
     {
+      "id": "src_product_page",
+      "label": "product-page.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "product-page.js",
+      "file_type": "code",
+      "norm_label": "product-page.js",
+      "source_file": "src/product-page.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_product_page_doc",
+      "label": "doc",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "product-page.js",
+      "file_type": "code",
+      "norm_label": "doc",
+      "source_file": "src/product-page.js",
+      "source_location": "L22"
+    },
+    {
       "id": "src_services",
       "label": "services.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "services.js",
       "source_file": "src/services.js",
@@ -6827,7 +6892,7 @@
       "label": "solutions.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "solutions.js",
       "source_file": "src/solutions.js",
@@ -6838,7 +6903,7 @@
       "label": "whatsapp.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "whatsapp.js",
       "source_file": "src/whatsapp.js",
@@ -6849,7 +6914,7 @@
       "label": "button",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "file_type": "code",
       "norm_label": "button",
       "source_file": "src/whatsapp.js",
@@ -7186,6 +7251,28 @@
       "source_location": "L20"
     },
     {
+      "id": "src_cloud_scene",
+      "label": "cloud-scene.js",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "cloud-scene.js",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_cloud_scene_clouds",
+      "label": "CLOUDS",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "clouds",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L21"
+    },
+    {
       "id": "src_careers",
       "label": "careers.js",
       "_origin": "ast",
@@ -7263,26 +7350,92 @@
       "source_location": "L20"
     },
     {
-      "id": "src_finaware_flow",
-      "label": "finaware-flow.js",
+      "id": "src_i18n",
+      "label": "i18n.js",
       "_origin": "ast",
       "community": 23,
-      "community_name": "finaware-flow.js",
+      "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "finaware-flow.js",
-      "source_file": "src/finaware-flow.js",
+      "norm_label": "i18n.js",
+      "source_file": "src/i18n.js",
       "source_location": "L1"
     },
     {
-      "id": "src_finaware_flow_stages",
-      "label": "STAGES",
+      "id": "src_i18n_lang",
+      "label": "lang",
       "_origin": "ast",
       "community": 23,
-      "community_name": "finaware-flow.js",
+      "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "stages",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L25"
+      "norm_label": "lang",
+      "source_file": "src/i18n.js",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_i18n_locales",
+      "label": "LOCALES",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "locales",
+      "source_file": "src/i18n.js",
+      "source_location": "L38"
+    },
+    {
+      "id": "src_nav",
+      "label": "nav.js",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "nav.js",
+      "source_file": "src/nav.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_nav_fill",
+      "label": "fill",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "fill",
+      "source_file": "src/nav.js",
+      "source_location": "L40"
+    },
+    {
+      "id": "src_nav_line",
+      "label": "line",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "line",
+      "source_file": "src/nav.js",
+      "source_location": "L37"
+    },
+    {
+      "id": "src_nav_menu",
+      "label": "menu",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "menu",
+      "source_file": "src/nav.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_nav_nav",
+      "label": "nav",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "nav",
+      "source_file": "src/nav.js",
+      "source_location": "L13"
     },
     {
       "id": "src_learngenie_climb",
@@ -7307,6 +7460,50 @@
       "source_location": "L25"
     },
     {
+      "id": "src_doc",
+      "label": "doc.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "doc.js",
+      "source_file": "src/doc.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_doc_form",
+      "label": "form",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "form",
+      "source_file": "src/doc.js",
+      "source_location": "L49"
+    },
+    {
+      "id": "src_doc_note",
+      "label": "note",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "note",
+      "source_file": "src/doc.js",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_doc_toclinks",
+      "label": "tocLinks",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "toclinks",
+      "source_file": "src/doc.js",
+      "source_location": "L22"
+    },
+    {
       "id": "src_case_study",
       "label": "case-study.js",
       "_origin": "ast",
@@ -7316,17 +7513,6 @@
       "norm_label": "case-study.js",
       "source_file": "src/case-study.js",
       "source_location": "L1"
-    },
-    {
-      "id": "src_case_study_labels",
-      "label": "labels",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "labels",
-      "source_file": "src/case-study.js",
-      "source_location": "L22"
     },
     {
       "id": "src_case_study_scene",
@@ -7362,17 +7548,6 @@
       "source_location": "L22"
     },
     {
-      "id": "src_case_study_studies",
-      "label": "studies",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "studies",
-      "source_file": "src/case-study.js",
-      "source_location": "L21"
-    },
-    {
       "id": "src_case_study_wide",
       "label": "wide",
       "_origin": "ast",
@@ -7381,7 +7556,7 @@
       "file_type": "code",
       "norm_label": "wide",
       "source_file": "src/case-study.js",
-      "source_location": "L51"
+      "source_location": "L25"
     },
     {
       "id": "src_solutions_scene_chips",
@@ -7406,28 +7581,6 @@
       "source_location": "L546"
     },
     {
-      "id": "src_cloud_scene",
-      "label": "cloud-scene.js",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "cloud-scene.js",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_cloud_scene_clouds",
-      "label": "CLOUDS",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "clouds",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L21"
-    },
-    {
       "id": "src_brochure",
       "label": "brochure.js",
       "_origin": "ast",
@@ -7437,50 +7590,6 @@
       "norm_label": "brochure.js",
       "source_file": "src/brochure.js",
       "source_location": "L1"
-    },
-    {
-      "id": "src_doc",
-      "label": "doc.js",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "doc.js",
-      "source_file": "src/doc.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_doc_form",
-      "label": "form",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "form",
-      "source_file": "src/doc.js",
-      "source_location": "L49"
-    },
-    {
-      "id": "src_doc_note",
-      "label": "note",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "note",
-      "source_file": "src/doc.js",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_doc_toclinks",
-      "label": "tocLinks",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "toclinks",
-      "source_file": "src/doc.js",
-      "source_location": "L22"
     },
     {
       "id": "src_theme",
@@ -8649,26 +8758,26 @@
       "source_location": "L404"
     },
     {
-      "id": "src_product_page",
-      "label": "product-page.js",
+      "id": "src_gennxt_stack",
+      "label": "gennxt-stack.js",
       "_origin": "ast",
       "community": 7,
       "community_name": "product-viewport.js",
       "file_type": "code",
-      "norm_label": "product-page.js",
-      "source_file": "src/product-page.js",
+      "norm_label": "gennxt-stack.js",
+      "source_file": "src/gennxt-stack.js",
       "source_location": "L1"
     },
     {
-      "id": "src_product_page_doc",
-      "label": "doc",
+      "id": "src_gennxt_stack_layers",
+      "label": "LAYERS",
       "_origin": "ast",
       "community": 7,
       "community_name": "product-viewport.js",
       "file_type": "code",
-      "norm_label": "doc",
-      "source_file": "src/product-page.js",
-      "source_location": "L22"
+      "norm_label": "layers",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L24"
     },
     {
       "id": "src_product_ui",
@@ -8803,169 +8912,26 @@
       "source_location": "L29"
     },
     {
-      "id": "package",
-      "label": "package.json",
+      "id": "src_fiscus_picture",
+      "label": "fiscus-picture.js",
       "_origin": "ast",
       "community": 8,
-      "community_name": "package.json",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
-      "norm_label": "package.json",
-      "source_file": "package.json",
+      "norm_label": "fiscus-picture.js",
+      "source_file": "src/fiscus-picture.js",
       "source_location": "L1"
     },
     {
-      "id": "package_dependencies",
-      "label": "dependencies",
+      "id": "src_fiscus_picture_sources",
+      "label": "SOURCES",
       "_origin": "ast",
       "community": 8,
-      "community_name": "package.json",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "package.json",
-      "source_location": "L15"
-    },
-    {
-      "id": "package_dependencies_three",
-      "label": "three",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "three",
-      "source_file": "package.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "package_devdependencies",
-      "label": "devDependencies",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "package.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "package_devdependencies_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "vite",
-      "source_file": "package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "package_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "package.json",
-      "source_location": "L2"
-    },
-    {
-      "id": "package_private",
-      "label": "private",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "private",
-      "source_file": "package.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "package.json",
-      "source_location": "L6"
-    },
-    {
-      "id": "package_scripts_build",
-      "label": "build",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "build",
-      "source_file": "package.json",
-      "source_location": "L8"
-    },
-    {
-      "id": "package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "package.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "package_scripts_i18n_extract",
-      "label": "i18n:extract",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "i18n:extract",
-      "source_file": "package.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "package_scripts_preview",
-      "label": "preview",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "preview",
-      "source_file": "package.json",
-      "source_location": "L9"
-    },
-    {
-      "id": "package_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "package.json",
-      "source_location": "L5"
-    },
-    {
-      "id": "package_version",
-      "label": "version",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "version",
-      "source_file": "package.json",
-      "source_location": "L3"
-    },
-    {
-      "id": "ref_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "vite",
-      "source_file": "package.json",
-      "source_location": "L13"
+      "norm_label": "sources",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L27"
     },
     {
       "id": "public_knowledge_centre_blogs_continuous_learning_why_its_essential_in_todays_job_market_concept",
@@ -15194,7 +15160,7 @@
       "label": "src_bang",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_bang",
@@ -15206,7 +15172,7 @@
       "label": "src_style",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "product-page.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_style",
@@ -15744,18 +15710,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_case_study_listen",
-      "target": "src_case_study_highlight",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study.js",
-      "source_location": "L44",
-      "weight": 1.0
-    },
-    {
       "source": "src_case_study_scene_start_board",
       "target": "src_case_study_scene_start_screentex",
       "relation": "calls",
@@ -15768,7 +15722,7 @@
       "weight": 1.0
     },
     {
-      "source": "src_case_study_scene_start_buildvignette",
+      "source": "src_case_study_scene_start_buildfloor",
       "target": "src_case_study_scene_start_wallscreen",
       "relation": "calls",
       "_origin": "ast",
@@ -15776,11 +15730,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L462",
+      "source_location": "L540",
       "weight": 1.0
     },
     {
-      "source": "src_case_study_scene_start_buildvignette",
+      "source": "src_case_study_scene_start_buildfloor",
       "target": "src_case_study_scene_start_figure",
       "relation": "calls",
       "_origin": "ast",
@@ -15788,11 +15742,59 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L465",
+      "source_location": "L544",
       "weight": 1.0
     },
     {
-      "source": "src_case_study_scene_start_buildvignette",
+      "source": "src_case_study_scene_start_buildfloor",
+      "target": "src_case_study_scene_start_deskrow",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L549",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start_buildfloor",
+      "target": "src_case_study_scene_start_laptop",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L563",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start_buildfloor",
+      "target": "src_case_study_scene_start_briefcase",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L586",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start_buildfloor",
+      "target": "src_case_study_scene_start_gavel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L589",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start_buildfloor",
       "target": "src_case_study_scene_start_seated",
       "relation": "calls",
       "_origin": "ast",
@@ -15800,59 +15802,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L471",
+      "source_location": "L593",
       "weight": 1.0
     },
     {
-      "source": "src_case_study_scene_start_buildvignette",
-      "target": "src_case_study_scene_start_rack",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L487",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start_buildvignette",
-      "target": "src_case_study_scene_start_phone",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L490",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start_buildvignette",
-      "target": "src_case_study_scene_start_monitor",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L502",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start_buildvignette",
-      "target": "src_case_study_scene_start_board",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L508",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start_buildvignette",
+      "source": "src_case_study_scene_start_buildfloor",
       "target": "src_case_study_scene_start_calendar",
       "relation": "calls",
       "_origin": "ast",
@@ -15860,19 +15814,43 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L512",
+      "source_location": "L599",
       "weight": 1.0
     },
     {
-      "source": "src_case_study_scene_start_buildvignette",
-      "target": "src_case_study_scene_start_table",
+      "source": "src_case_study_scene_start_buildfloor",
+      "target": "src_case_study_scene_start_deskcalendar",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L534",
+      "source_location": "L604",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start_deskrow",
+      "target": "src_case_study_scene_start_seated",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L525",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start_laptop",
+      "target": "src_case_study_scene_start_screentex",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L444",
       "weight": 1.0
     },
     {
@@ -15920,7 +15898,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study.js",
-      "source_location": "L56",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -18816,30 +18794,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_case_study",
-      "target": "src_case_study_highlight",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study.js",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start",
-      "target": "src_case_study_scene_start_numbertex",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L366",
-      "weight": 1.0
-    },
-    {
       "source": "src_case_study_scene_start",
       "target": "src_case_study_scene_start_stairs",
       "relation": "contains",
@@ -18848,19 +18802,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L386",
+      "source_location": "L370",
       "weight": 1.0
     },
     {
       "source": "src_case_study_scene_start",
-      "target": "src_case_study_scene_start_buildvignette",
+      "target": "src_case_study_scene_start_buildfloor",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L458",
+      "source_location": "L536",
       "weight": 1.0
     },
     {
@@ -18872,31 +18826,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L655",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start",
-      "target": "src_case_study_scene_start_announce",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L679",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start",
-      "target": "src_case_study_scene_start_pick",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L722",
+      "source_location": "L670",
       "weight": 1.0
     },
     {
@@ -18908,7 +18838,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/case-study-scene.js",
-      "source_location": "L753",
+      "source_location": "L740",
       "weight": 1.0
     },
     {
@@ -19691,7 +19621,7 @@
       "context": "import",
       "deferred": true,
       "source_file": "src/case-study.js",
-      "source_location": "L56",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -23259,46 +23189,13 @@
     },
     {
       "source": "src_case_study",
-      "target": "src_case_study_studies",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/case-study.js",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study",
-      "target": "src_case_study_labels",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/case-study.js",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study",
-      "target": "src_case_study_listen",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/case-study.js",
-      "source_location": "L43",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study",
       "target": "src_case_study_wide",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/case-study.js",
-      "source_location": "L51",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -23442,6 +23339,61 @@
       "confidence_score": 1.0,
       "source_file": "src/case-study-scene.js",
       "source_location": "L325",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start",
+      "target": "src_case_study_scene_start_laptop",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L430",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start",
+      "target": "src_case_study_scene_start_briefcase",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L454",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start",
+      "target": "src_case_study_scene_start_gavel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L465",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start",
+      "target": "src_case_study_scene_start_deskcalendar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L488",
+      "weight": 1.0
+    },
+    {
+      "source": "src_case_study_scene_start",
+      "target": "src_case_study_scene_start_deskrow",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L517",
       "weight": 1.0
     },
     {
@@ -28889,43 +28841,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/case-study.js",
-      "source_location": "L58",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start",
-      "target": "src_case_study_scene_start_onscroll",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "argument",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L714",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_scene_start_buildvignette",
-      "target": "src_showroom_donut",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "argument",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L559",
-      "weight": 1.0
-    },
-    {
-      "source": "src_case_study_wantscene",
-      "target": "src_case_study_listen",
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "argument",
-      "source_file": "src/case-study.js",
-      "source_location": "L56",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -32873,5 +32789,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "00389043c2e413f3e5cceb66aaf72bdc7f40b526"
+  "built_at_commit": "27be244e465f783671d2fd656127c1f9914f09cc"
 }

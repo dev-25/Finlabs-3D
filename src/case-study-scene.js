@@ -350,42 +350,51 @@ function start() {
   // floor to its right and the planning floor at the front, with the whole
   // arrangement read from one fixed isometric angle.
 
-  const PLAT = 6.0; // a platform is square, this wide
-  const THICK = 0.55;
+  const PLAT = 8.4; // a platform is this wide, and flat: a plate, not a block
+  const THICK = 0.34;
 
   const SLAB = 0x7b83d6; // the periwinkle the reference's platforms are cut from
-  const SLAB_DEEP = 0x4a51a4;
-  const slabGeo = box(PLAT, THICK, PLAT, 0.1);
+  const SLAB_DEEP = 0x5a62b8;
+  const slabGeo = box(PLAT, THICK, PLAT, 0.06);
   const slabMat = mat(SLAB, { rough: 0.42 });
-  const slabDeepMat = mat(SLAB_DEEP, { rough: 0.6 });
+  const slabDeepMat = mat(SLAB_DEEP, { rough: 0.55 });
+
+  // Each platform differs from its neighbour along one axis only, so every
+  // flight runs straight out of the middle of an edge and into the middle of
+  // the one facing it — the way the reference lays its staircases out. In
+  // this view +x reads as down-right and +z as down-left.
+  const RUN = 13.5; // how far apart two joined platforms stand
+  const FALL = 2.4; // and how far the lower one sits below
 
   const FLOORS = [
-    { id: 'amc', at: new THREE.Vector3(-1.2, 0, -6.6), scene: 'stage' },
-    { id: 'nps', at: new THREE.Vector3(-8.6, -2.6, -0.6), scene: 'laptop' },
-    { id: 'insurer', at: new THREE.Vector3(7.4, -2.2, 0.8), scene: 'deal' },
-    { id: 'nbfc', at: new THREE.Vector3(-1.0, -5.0, 6.4), scene: 'plan' },
+    { id: 'amc', at: new THREE.Vector3(0, 0, 0), scene: 'stage' },
+    { id: 'nps', at: new THREE.Vector3(0, -FALL, RUN), scene: 'laptop' },
+    { id: 'insurer', at: new THREE.Vector3(RUN, -FALL, 0), scene: 'deal' },
+    { id: 'nbfc', at: new THREE.Vector3(RUN, -FALL * 2, RUN), scene: 'plan' },
   ];
 
-  /** A flight of steps running from one platform's edge to the next. */
-  function stairs(a, b, width = 2.2) {
+  /** One flight: separate steps falling from one platform's edge to the next,
+   *  each a flat plate of its own, as the reference draws them. */
+  function stairs(a, b, width = 3.0) {
     const g = new THREE.Group();
     const span = b.clone().sub(a);
     const run = Math.hypot(span.x, span.z);
-    const steps = Math.max(4, Math.round(run / 0.95));
+    const steps = Math.max(5, Math.round(run / 1.15));
     const tread = run / steps;
+    const along = span.clone().setY(0).normalize();
     for (let k = 0; k < steps; k++) {
       const u = (k + 0.5) / steps;
-      const p = a.clone().addScaledVector(span, u);
-      const step = new THREE.Mesh(box(width, 0.26, tread + 0.3, 0.04), k % 2 ? slabMat : slabDeepMat);
-      step.position.copy(p);
-      step.lookAt(b.x, p.y, b.z);
+      const step = new THREE.Mesh(box(width, THICK, tread * 0.78, 0.05), slabMat);
+      step.position.copy(a).addScaledVector(span, u);
+      // square to the run, so a flight along x and one along z both sit true
+      if (Math.abs(along.x) < Math.abs(along.z)) step.rotation.y = Math.PI / 2;
       g.add(step);
-      // the block under the tread, so the flight reads as cut stone
-      const under = new THREE.Mesh(box(width, 1.0, tread + 0.24, 0.03), slabDeepMat);
-      under.position.copy(p);
-      under.position.y -= 0.62;
-      under.rotation.copy(step.rotation);
-      g.add(under);
+      // the thin side under each tread, which is all the depth a plate has
+      const side = new THREE.Mesh(box(width - 0.12, 0.5, tread * 0.7, 0.03), slabDeepMat);
+      side.position.copy(step.position);
+      side.position.y -= 0.4;
+      side.rotation.copy(step.rotation);
+      g.add(side);
     }
     return g;
   }
@@ -399,27 +408,30 @@ function start() {
 
     const slab = new THREE.Mesh(slabGeo, slabMat);
     g.add(slab);
-    const under = new THREE.Mesh(box(PLAT - 0.35, 2.6, PLAT - 0.35, 0.08), slabDeepMat);
-    under.position.y = -1.55;
-    g.add(under);
+    // the platform's own edge: a shallow skirt, so it reads as a plate with
+    // thickness rather than a cube standing on the dark
+    const skirt = new THREE.Mesh(box(PLAT - 0.16, 0.7, PLAT - 0.16, 0.05), slabDeepMat);
+    skirt.position.y = -0.5;
+    g.add(skirt);
 
     const vig = new THREE.Group();
     vig.position.y = THICK / 2;
+    // the plates are wide, so what stands on them is scaled to fill them the
+    // way the reference's furniture does
+    vig.scale.setScalar(1.5);
     g.add(vig);
     buildFloor(f.scene, vig);
 
     plats.push({ ...f, group: g, slab, index: i, lift: 0 });
   });
 
-  // the flights, as the reference runs them: down from the stage to either
-  // side, and on down to the planning floor at the front
-  [
-    [0, 1], [0, 2], [1, 3], [2, 3],
-  ].forEach(([from, to]) => {
+  // the four flights: down-left and down-right from the top floor, and the
+  // same again into the planning floor at the bottom
+  [[0, 1], [0, 2], [1, 3], [2, 3]].forEach(([from, to]) => {
     const a = FLOORS[from].at.clone();
     const b = FLOORS[to].at.clone();
     const dir = b.clone().sub(a).setY(0).normalize();
-    root.add(stairs(a.clone().addScaledVector(dir, PLAT / 2 - 0.2), b.clone().addScaledVector(dir, -(PLAT / 2 - 0.2))));
+    root.add(stairs(a.addScaledVector(dir, PLAT / 2), b.addScaledVector(dir, -PLAT / 2)));
   });
 
   // =====================================================
@@ -652,7 +664,7 @@ function start() {
   })();
   plats.forEach((p) => {
     const sh = new THREE.Mesh(
-      new THREE.PlaneGeometry(12, 12),
+      new THREE.PlaneGeometry(15, 15),
       new THREE.MeshBasicMaterial({ map: shadeTex, transparent: true, depthWrite: false })
     );
     sh.rotation.x = -Math.PI / 2;
@@ -664,8 +676,8 @@ function start() {
   // SIZE — the whole composition, always in frame
   // =====================================================
 
-  const CENTRE = new THREE.Vector3(-0.8, -1.4, 0.2);
-  const SPAN = 15.5; // half-height of the composition, in world units
+  const CENTRE = new THREE.Vector3(RUN / 2, -FALL, RUN / 2);
+  const SPAN = 21.5; // half-height of the composition, in world units
 
   function size() {
     const w = window.innerWidth;
@@ -686,7 +698,7 @@ function start() {
     const look = CENTRE.clone();
     // pushing the camera's target to its own right slides the picture left,
     // which is where the composition belongs: the title takes the right
-    if (wide) look.addScaledVector(RIGHT, halfW * 0.34);
+    if (wide) look.addScaledVector(RIGHT, halfW * 0.40);
     camera.position.copy(look).add(EYE);
     camera.lookAt(look);
     home.copy(look);

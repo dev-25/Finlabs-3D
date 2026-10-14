@@ -1,7 +1,7 @@
 # Graph Report - my-three-site  (2026-10-15)
 
 ## Corpus Check
-- 88 files · ~476,765 words
+- 88 files · ~476,930 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 21 file(s) not represented in the graph (top: .css 19, (none) 2)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `00389043`
+- Built from commit: `27be244e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -41,9 +41,9 @@
 - careers.js
 - nav.js
 - learngenie-climb.js
+- buildCloudScene
 - case-study.js
 - chipLabel
-- buildCloudScene
 - theme.js
 - awsLogo
 - step
@@ -341,6 +341,10 @@ Nodes (11): form, note, tocLinks, lang, LOCALES, mountSwitcher(), urlFor(), fill
 Cohesion: 0.36
 Nodes (8): createClimb(), frame(), loop(), resize(), drawStep(), shadowTexture(), starShape(), STEPS
 
+### Community 25 - "buildCloudScene"
+Cohesion: 0.24
+Nodes (9): asset(), buildCloudScene(), frame(), kick(), loop(), resize(), start(), cloudGeometry() (+1 more)
+
 ### Community 26 - "case-study.js"
 Cohesion: 0.40
 Nodes (4): canvas, host, wantScene(), wide
@@ -348,10 +352,6 @@ Nodes (4): canvas, host, wantScene(), wide
 ### Community 27 - "chipLabel"
 Cohesion: 0.25
 Nodes (9): chipLabel(), chips, coreLabel(), fitText(), makeTexture(), padTex, pinRing(), rbox() (+1 more)
-
-### Community 28 - "buildCloudScene"
-Cohesion: 0.24
-Nodes (9): asset(), buildCloudScene(), frame(), kick(), loop(), resize(), start(), cloudGeometry() (+1 more)
 
 ### Community 29 - "theme.js"
 Cohesion: 0.38
@@ -561,7 +561,7 @@ Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Serv
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `package.json`, `buildRide`, `about-hero.js`, `learngenie-climb.js`, `case-study.js`, `buildCloudScene`?**
+- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `package.json`, `buildRide`, `about-hero.js`, `learngenie-climb.js`, `buildCloudScene`, `case-study.js`?**
   _High betweenness centrality (0.128) - this node is a cross-community bridge._
 - **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `services-ui.js`, `careers.js`, `nav.js`?**
   _High betweenness centrality (0.063) - this node is a cross-community bridge._
