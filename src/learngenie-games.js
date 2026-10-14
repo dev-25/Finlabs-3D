@@ -21,7 +21,7 @@
 import './learngenie-games.css';
 import { t } from './i18n.js';
 
-const DEMO_URL = 'https://calendly.com/finlabsindia/book-a-call-on-teams';
+const MAIL_TO = 'info@finlabsindia.com';
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ---------------------------------------------------------------------
@@ -131,12 +131,13 @@ function close() {
 }
 
 /** head + body, with the close button and an optional progress bar */
-function paint({ tint, kicker, title, bar, body }) {
+function paint({ tint, kicker, title, sub, bar, body }) {
   box.innerHTML = `
     <div class="lg-modal__head"${tint ? ` style="background:${tint}"` : ''}>
-      <button class="lg-modal__close" type="button" aria-label="Close">&times;</button>
+      <button class="lg-modal__close" type="button" aria-label="${t('Close')}">&times;</button>
       <p class="lg-modal__kicker">${kicker}</p>
       <p class="lg-modal__title">${title}</p>
+      ${sub ? `<p class="lg-modal__sub">${sub}</p>` : ''}
       ${bar === undefined ? '' : `<div class="lg-modal__bar"><i style="width:${bar}%"></i></div>`}
     </div>
     <div class="lg-modal__body">${body}</div>`;
@@ -148,11 +149,104 @@ function paint({ tint, kicker, title, bar, body }) {
 function endScreen({ tint, kicker, title, body }) {
   const el = paint({ tint, kicker, title, body: `<div class="lg-end">${body}
     <div class="lg-end__cta"${tint ? ` style="background:${tint}"` : ''}>
-      <b>Want this for your team?</b>
-      <a href="${DEMO_URL}" target="_blank" rel="noopener">🎯 Build This for My Organisation</a>
-    </div></div>` });
+      <b>${t('Want this for your team?')}</b>
+      <button type="button" data-book>🎯 ${t('Build this for my organisation')}</button>
+    </div>
+    <button class="lg-end__close" type="button" data-shut>${t('Close and keep browsing')}</button>
+    </div>` });
+  el.querySelector('[data-book]').addEventListener('click', demoForm);
+  el.querySelector('[data-shut]').addEventListener('click', close);
   confetti(24);
   return el;
+}
+
+// ---------------------------------------------------------------------
+// Book your live demo — the form the games hand over to. It has no
+// backend to post to, so it opens the reader's mail app with the details
+// filled in, the way the demo forms elsewhere on the site do.
+// ---------------------------------------------------------------------
+
+const SIZES = ['Under 100', '100 – 500', '500 – 2,000', '2,000 – 10,000', '10,000+'];
+
+function demoForm() {
+  open();
+  const body = paint({
+    kicker: '🎯',
+    title: t('Book Your Live Demo'),
+    sub: t('See Learngenie in action with a personalised walkthrough for your organisation.'),
+    body: `<form class="lg-form" novalidate>
+        <div class="lg-form__row">
+          <label>${t('Full Name')} *<input name="name" type="text" placeholder="Rajesh Kumar" autocomplete="name" required /></label>
+          <label>${t('Work Email')} *<input name="email" type="email" placeholder="rajesh@company.com" autocomplete="email" required /></label>
+        </div>
+        <div class="lg-form__row">
+          <label>${t('Phone Number')}<input name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" /></label>
+          <label>${t('Expected Number of Users')}<select name="size">
+            <option value="">${t('Select number of users')}</option>
+            ${SIZES.map((v) => `<option>${v}</option>`).join('')}
+          </select></label>
+        </div>
+        <label>${t('Message / How can we help you?')}<textarea name="note" rows="3" placeholder="${t('Tell us a little about your requirements…')}"></textarea></label>
+        <p class="lg-form__note" data-note></p>
+        <button class="lg-form__send" type="submit">🎯 ${t('Request Live Demo')}</button>
+        <button class="lg-end__close" type="button" data-shut>${t('Close and keep browsing')}</button>
+      </form>`,
+  });
+
+  const form = body.querySelector('.lg-form');
+  const note = form.querySelector('[data-note]');
+  form.querySelector('[data-shut]').addEventListener('click', close);
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const get = (n) => form.elements[n].value.trim();
+    const name = get('name');
+    const email = get('email');
+    const checks = [
+      [form.elements.name, !!name, t('Please add your name.')],
+      [form.elements.email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email), t('Please enter a valid work email.')],
+    ];
+    checks.forEach(([el, ok]) => el.setAttribute('aria-invalid', String(!ok)));
+    const failed = checks.find(([, ok]) => !ok);
+    if (failed) {
+      note.textContent = failed[2];
+      note.className = 'lg-form__note is-bad';
+      failed[0].focus();
+      return;
+    }
+
+    const lines = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      get('phone') && `Phone: ${get('phone')}`,
+      get('size') && `Expected users: ${get('size')}`,
+      '',
+      get('note') || '(no message)',
+    ].filter(Boolean);
+    window.location.href =
+      `mailto:${MAIL_TO}?subject=${encodeURIComponent('Learngenie live demo request')}&body=${encodeURIComponent(lines.join('\n'))}`;
+    done();
+  });
+
+  /** the thank-you, with a way back into the quiz */
+  function done() {
+    const el = paint({
+      kicker: '🎯',
+      title: t('Demo Request Received!'),
+      body: `<div class="lg-end">
+        <div class="lg-end__big">🎯</div>
+        <p>${t('Our team will reach out within 24 hours to schedule your personalised walkthrough. Meanwhile, try our live Financial Quiz!')}</p>
+        <p class="lg-form__note">${t('Your email app should open with the request ready to send.')}</p>
+        <div class="lg-end__cta">
+          <button type="button" data-quiz>🎮 ${t('Try the Quiz Now')}</button>
+        </div>
+        <button class="lg-end__close" type="button" data-shut>${t('Close and keep browsing')}</button>
+      </div>`,
+    });
+    el.querySelector('[data-quiz]').addEventListener('click', () => crorepati());
+    el.querySelector('[data-shut]').addEventListener('click', close);
+    confetti(15);
+  }
 }
 
 // ---------------------------------------------------------------------
@@ -682,6 +776,12 @@ export function wireGames(root = document) {
       open();
       game();
     });
+  });
+
+  root.querySelectorAll('[data-book]').forEach((card) => {
+    if (card.dataset.wired) return;
+    card.dataset.wired = 'on';
+    card.addEventListener('click', demoForm);
   });
 
   root.querySelectorAll('[data-live]').forEach((card) => {

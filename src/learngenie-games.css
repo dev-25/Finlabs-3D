@@ -466,15 +466,87 @@
 .lg-end p { font-size: 14px; color: #4b5d84; line-height: 1.6; margin-bottom: 20px; }
 .lg-end__cta { padding: 18px; border-radius: 14px; color: #fff; background: linear-gradient(135deg, #1b6098, #2980e0); }
 .lg-end__cta b { display: block; font-size: 15px; margin-bottom: 12px; }
-.lg-end__cta a {
+.lg-end__cta a,
+.lg-end__cta button {
   display: block;
+  width: 100%;
   padding: 12px;
+  border: 0;
   border-radius: 999px;
+  font: inherit;
   font-weight: 700;
   text-decoration: none;
+  cursor: pointer;
   color: #0f1a33;
   background: linear-gradient(135deg, #f5c451, #f59e0b);
 }
+
+/* a plain way out, under every end screen and the booking form */
+.lg-end__close {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 11px;
+  border: 1px solid #dbe3f0;
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b5d84;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.lg-end__close:hover { border-color: #1b6098; color: #1b6098; background: #f3f7fd; }
+
+/* ---------- book your live demo ---------- */
+
+.lg-modal__sub { margin-top: 6px; font-size: 14px; opacity: 0.85; line-height: 1.5; }
+
+.lg-form { display: grid; gap: 16px; text-align: left; }
+.lg-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 540px) {
+  .lg-form__row { grid-template-columns: 1fr; }
+}
+.lg-form label {
+  display: grid;
+  gap: 7px;
+  font: 700 13.5px/1.3 var(--display);
+  color: #14254a;
+}
+.lg-form input,
+.lg-form select,
+.lg-form textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #dbe3f0;
+  border-radius: 10px;
+  background: #f7f9fd;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 400;
+  color: #14254a;
+}
+.lg-form textarea { resize: vertical; min-height: 92px; }
+.lg-form :is(input, select, textarea):focus-visible { outline: 2px solid #1b6098; outline-offset: 1px; border-color: #1b6098; }
+.lg-form :is(input, select, textarea)[aria-invalid='true'] { border-color: #e11d48; background: #fff5f6; }
+.lg-form ::placeholder { color: #9aa7c2; }
+
+.lg-form__note { font-size: 13px; line-height: 1.5; color: #4b5d84; margin: 0; }
+.lg-form__note.is-bad { color: #c23b3b; font-weight: 600; }
+.lg-form__note:empty { display: none; }
+
+.lg-form__send {
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  border-radius: 12px;
+  font: 700 16px/1 var(--display);
+  color: #0f1a33;
+  background: linear-gradient(135deg, #f5c451, #f59e0b);
+  cursor: pointer;
+}
+.lg-form__send:hover { filter: brightness(1.04); }
 
 /* the confetti a correct answer throws */
 .lg-confetti { position: fixed; inset: 0; pointer-events: none; z-index: 95; overflow: hidden; }

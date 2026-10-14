@@ -298,6 +298,198 @@
       "source_location": "L117"
     },
     {
+      "id": "src_case_study_scene_start",
+      "label": "start()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "start()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L24"
+    },
+    {
+      "id": "src_case_study_scene_start_announce",
+      "label": "announce()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "announce()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L543"
+    },
+    {
+      "id": "src_case_study_scene_start_arrowshape",
+      "label": "arrowShape()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "arrowshape()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L279"
+    },
+    {
+      "id": "src_case_study_scene_start_board",
+      "label": "board()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "board()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L206"
+    },
+    {
+      "id": "src_case_study_scene_start_buildvignette",
+      "label": "buildVignette()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "buildvignette()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L384"
+    },
+    {
+      "id": "src_case_study_scene_start_desk",
+      "label": "desk()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "desk()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L192"
+    },
+    {
+      "id": "src_case_study_scene_start_figure",
+      "label": "figure()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "figure()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L95"
+    },
+    {
+      "id": "src_case_study_scene_start_monitor",
+      "label": "monitor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "monitor()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L174"
+    },
+    {
+      "id": "src_case_study_scene_start_numbertex",
+      "label": "numberTex()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "numbertex()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L307"
+    },
+    {
+      "id": "src_case_study_scene_start_phone",
+      "label": "phone()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "phone()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L264"
+    },
+    {
+      "id": "src_case_study_scene_start_pick",
+      "label": "pick()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "pick()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L555"
+    },
+    {
+      "id": "src_case_study_scene_start_rack",
+      "label": "rack()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "rack()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L226"
+    },
+    {
+      "id": "src_case_study_scene_start_screentex",
+      "label": "screenTex()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "screentex()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L116"
+    },
+    {
+      "id": "src_case_study_scene_start_size",
+      "label": "size()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "size()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L515"
+    },
+    {
+      "id": "src_case_study_scene_start_table",
+      "label": "table()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "table()",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L243"
+    },
+    {
+      "id": "src_showroom_donut",
+      "label": "donut()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "start",
+      "file_type": "code",
+      "norm_label": "donut()",
+      "source_file": "src/showroom.js",
+      "source_location": "L1260"
+    },
+    {
       "id": "src_solutions_ui_onfitchange",
       "label": "onFitChange()",
       "_callable": true,
@@ -344,6 +536,18 @@
       "norm_label": "revealvisible()",
       "source_file": "src/solutions-ui.js",
       "source_location": "L95"
+    },
+    {
+      "id": "src_solutions_ui_selectgoal",
+      "label": "selectGoal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "solutions-ui.js",
+      "file_type": "code",
+      "norm_label": "selectgoal()",
+      "source_file": "src/solutions-ui.js",
+      "source_location": "L146"
     },
     {
       "id": "src_solutions_ui_track",
@@ -838,268 +1042,184 @@
       "source_location": "L34"
     },
     {
-      "id": "src_case_study_scene_start",
-      "label": "start()",
+      "id": "src_finexa_hub_createhub",
+      "label": "createHub()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
-      "norm_label": "start()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L24"
+      "norm_label": "createhub()",
+      "source_file": "src/finexa-hub.js",
+      "source_location": "L36"
     },
     {
-      "id": "src_case_study_scene_start_announce",
-      "label": "announce()",
+      "id": "src_finexa_hub_createhub_card",
+      "label": "card()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
-      "norm_label": "announce()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L543"
+      "norm_label": "card()",
+      "source_file": "src/finexa-hub.js",
+      "source_location": "L67"
     },
     {
-      "id": "src_case_study_scene_start_arrowshape",
-      "label": "arrowShape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "arrowshape()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L279"
-    },
-    {
-      "id": "src_case_study_scene_start_board",
-      "label": "board()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "board()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L206"
-    },
-    {
-      "id": "src_case_study_scene_start_buildvignette",
-      "label": "buildVignette()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "buildvignette()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L384"
-    },
-    {
-      "id": "src_case_study_scene_start_desk",
-      "label": "desk()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "desk()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L192"
-    },
-    {
-      "id": "src_case_study_scene_start_figure",
-      "label": "figure()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "figure()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L95"
-    },
-    {
-      "id": "src_case_study_scene_start_monitor",
-      "label": "monitor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "monitor()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L174"
-    },
-    {
-      "id": "src_case_study_scene_start_numbertex",
-      "label": "numberTex()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "numbertex()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L307"
-    },
-    {
-      "id": "src_case_study_scene_start_phone",
-      "label": "phone()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "phone()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L264"
-    },
-    {
-      "id": "src_case_study_scene_start_pick",
-      "label": "pick()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "pick()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L555"
-    },
-    {
-      "id": "src_case_study_scene_start_rack",
-      "label": "rack()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "rack()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L226"
-    },
-    {
-      "id": "src_case_study_scene_start_screentex",
-      "label": "screenTex()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "screentex()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L116"
-    },
-    {
-      "id": "src_case_study_scene_start_size",
-      "label": "size()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "size()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L515"
-    },
-    {
-      "id": "src_case_study_scene_start_table",
-      "label": "table()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "table()",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L243"
-    },
-    {
-      "id": "src_finaware_flow_createflow",
-      "label": "createFlow()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "createflow()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L82"
-    },
-    {
-      "id": "src_finaware_flow_createflow_frame",
+      "id": "src_finexa_hub_createhub_frame",
       "label": "frame()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "frame()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L189"
+      "source_file": "src/finexa-hub.js",
+      "source_location": "L147"
     },
     {
-      "id": "src_finaware_flow_createflow_loop",
+      "id": "src_finexa_hub_createhub_loop",
       "label": "loop()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "loop()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L245"
+      "source_file": "src/finexa-hub.js",
+      "source_location": "L196"
     },
     {
-      "id": "src_finaware_flow_createflow_resize",
+      "id": "src_finexa_hub_createhub_resize",
       "label": "resize()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "resize()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L214"
+      "source_file": "src/finexa-hub.js",
+      "source_location": "L178"
     },
     {
-      "id": "src_finaware_flow_drawstage",
-      "label": "drawStage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "drawstage()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L40"
-    },
-    {
-      "id": "src_finaware_flow_shadowtexture",
+      "id": "src_finexa_hub_shadowtexture",
       "label": "shadowTexture()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "shadowtexture()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L70"
+      "source_file": "src/finexa-hub.js",
+      "source_location": "L24"
     },
     {
-      "id": "src_finaware_flow_stagepos",
-      "label": "stagePos()",
+      "id": "src_fiscus_picture_createpicture",
+      "label": "createPicture()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
-      "norm_label": "stagepos()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L34"
+      "norm_label": "createpicture()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L96"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_card",
+      "label": "card()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "card()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L126"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L198"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L248"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L218"
+    },
+    {
+      "id": "src_fiscus_picture_drawsource",
+      "label": "drawSource()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "drawsource()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L46"
+    },
+    {
+      "id": "src_fiscus_picture_drawtarget",
+      "label": "drawTarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "drawtarget()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L64"
+    },
+    {
+      "id": "src_fiscus_picture_label",
+      "label": "label()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "label()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L38"
+    },
+    {
+      "id": "src_fiscus_picture_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L84"
     },
     {
       "id": "src_gennxt_stack_createstack",
@@ -1107,7 +1227,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "createstack()",
       "source_file": "src/gennxt-stack.js",
@@ -1119,7 +1239,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/gennxt-stack.js",
@@ -1131,7 +1251,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "loop()",
       "source_file": "src/gennxt-stack.js",
@@ -1143,7 +1263,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "resize()",
       "source_file": "src/gennxt-stack.js",
@@ -1155,7 +1275,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "drawlayer()",
       "source_file": "src/gennxt-stack.js",
@@ -1167,7 +1287,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "shadowtexture()",
       "source_file": "src/gennxt-stack.js",
@@ -1179,7 +1299,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/partners-scene.js",
@@ -1191,7 +1311,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "panel()",
       "source_file": "src/partners-scene.js",
@@ -1203,7 +1323,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "pillar()",
       "source_file": "src/partners-scene.js",
@@ -1215,23 +1335,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "size()",
       "source_file": "src/partners-scene.js",
       "source_location": "L254"
-    },
-    {
-      "id": "src_showroom_donut",
-      "label": "donut()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "start",
-      "file_type": "code",
-      "norm_label": "donut()",
-      "source_file": "src/showroom.js",
-      "source_location": "L1260"
     },
     {
       "id": "src_i18n_mountswitcher",
@@ -1239,7 +1347,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "mountswitcher()",
       "source_file": "src/i18n.js",
@@ -1251,7 +1359,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "t()",
       "source_file": "src/i18n.js",
@@ -1263,7 +1371,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "urlfor()",
       "source_file": "src/i18n.js",
@@ -1275,7 +1383,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "close()",
       "source_file": "src/learngenie-games.js",
@@ -1287,11 +1395,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "confetti",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L162"
+      "source_location": "L256"
     },
     {
       "id": "src_learngenie_games_crorepati",
@@ -1299,11 +1407,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "crorepati()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L203"
+      "source_location": "L297"
     },
     {
       "id": "src_learngenie_games_crorepati_end",
@@ -1311,11 +1419,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L259"
+      "source_location": "L353"
     },
     {
       "id": "src_learngenie_games_crorepati_question",
@@ -1323,11 +1431,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "question()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L208"
+      "source_location": "L302"
     },
     {
       "id": "src_learngenie_games_crorepati_question_answer",
@@ -1335,11 +1443,35 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "answer()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L236"
+      "source_location": "L330"
+    },
+    {
+      "id": "src_learngenie_games_demoform",
+      "label": "demoForm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "demoform()",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L171"
+    },
+    {
+      "id": "src_learngenie_games_demoform_done",
+      "label": "done()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "done()",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L232"
     },
     {
       "id": "src_learngenie_games_endscreen",
@@ -1347,11 +1479,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "endscreen()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L148"
+      "source_location": "L149"
     },
     {
       "id": "src_learngenie_games_ensuremodal",
@@ -1359,7 +1491,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "ensuremodal()",
       "source_file": "src/learngenie-games.js",
@@ -1371,11 +1503,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "match()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L409"
+      "source_location": "L503"
     },
     {
       "id": "src_learngenie_games_match_draw",
@@ -1383,11 +1515,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "draw()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L416"
+      "source_location": "L510"
     },
     {
       "id": "src_learngenie_games_match_end",
@@ -1395,11 +1527,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L467"
+      "source_location": "L561"
     },
     {
       "id": "src_learngenie_games_match_settle",
@@ -1407,11 +1539,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "settle()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L444"
+      "source_location": "L538"
     },
     {
       "id": "src_learngenie_games_note",
@@ -1419,11 +1551,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "note()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L192"
+      "source_location": "L286"
     },
     {
       "id": "src_learngenie_games_open",
@@ -1431,7 +1563,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "open()",
       "source_file": "src/learngenie-games.js",
@@ -1443,7 +1575,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "paint()",
       "source_file": "src/learngenie-games.js",
@@ -1455,11 +1587,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "rightorwrong()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L285"
+      "source_location": "L379"
     },
     {
       "id": "src_learngenie_games_rightorwrong_card",
@@ -1467,11 +1599,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "card()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L288"
+      "source_location": "L382"
     },
     {
       "id": "src_learngenie_games_rightorwrong_end",
@@ -1479,11 +1611,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L321"
+      "source_location": "L415"
     },
     {
       "id": "src_learngenie_games_scramble",
@@ -1491,11 +1623,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "scramble()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L486"
+      "source_location": "L580"
     },
     {
       "id": "src_learngenie_games_scramble_check",
@@ -1503,11 +1635,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "check()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L538"
+      "source_location": "L632"
     },
     {
       "id": "src_learngenie_games_scramble_draw",
@@ -1515,11 +1647,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "draw()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L501"
+      "source_location": "L595"
     },
     {
       "id": "src_learngenie_games_scramble_end",
@@ -1527,11 +1659,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L558"
+      "source_location": "L652"
     },
     {
       "id": "src_learngenie_games_scramble_start",
@@ -1539,11 +1671,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "start()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L491"
+      "source_location": "L585"
     },
     {
       "id": "src_learngenie_games_wiregames",
@@ -1551,11 +1683,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "wiregames()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L675"
+      "source_location": "L769"
     },
     {
       "id": "src_learngenie_games_wirelive",
@@ -1563,11 +1695,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "wirelive()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L585"
+      "source_location": "L679"
     },
     {
       "id": "src_learngenie_games_wirelive_answer",
@@ -1575,11 +1707,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "answer()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L617"
+      "source_location": "L711"
     },
     {
       "id": "src_learngenie_games_wirelive_draw",
@@ -1587,11 +1719,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "draw()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L605"
+      "source_location": "L699"
     },
     {
       "id": "src_learngenie_games_wirelive_showyou",
@@ -1599,11 +1731,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "showyou()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L659"
+      "source_location": "L753"
     },
     {
       "id": "src_learngenie_games_xpflash",
@@ -1611,11 +1743,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "xpflash()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L182"
+      "source_location": "L276"
     },
     {
       "id": "src_learngenie_games_zipline",
@@ -1623,7 +1755,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "zipline",
       "source_file": "src/learngenie-games.js",
@@ -1635,11 +1767,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L391"
+      "source_location": "L485"
     },
     {
       "id": "src_learngenie_games_zipline_run",
@@ -1647,23 +1779,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "run()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L345"
-    },
-    {
-      "id": "src_solutions_ui_selectgoal",
-      "label": "selectGoal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "learngenie-games.js",
-      "file_type": "code",
-      "norm_label": "selectgoal()",
-      "source_file": "src/solutions-ui.js",
-      "source_location": "L146"
+      "source_location": "L439"
     },
     {
       "id": "src_after_paint_afterpaint",
@@ -1671,7 +1791,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "afterpaint()",
       "source_file": "src/after-paint.js",
@@ -1683,35 +1803,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "idle()",
       "source_file": "src/after-paint.js",
       "source_location": "L39"
-    },
-    {
-      "id": "src_nav_drawline",
-      "label": "drawLine()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "drawline()",
-      "source_file": "src/nav.js",
-      "source_location": "L45"
-    },
-    {
-      "id": "src_nav_setopen",
-      "label": "setOpen()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "setopen()",
-      "source_file": "src/nav.js",
-      "source_location": "L16"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -2014,112 +2110,88 @@
       "source_location": "L48"
     },
     {
-      "id": "src_fiscus_picture_createpicture",
-      "label": "createPicture()",
+      "id": "src_finaware_flow_createflow",
+      "label": "createFlow()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "fiscus-picture.js",
+      "community_name": "finaware-flow.js",
       "file_type": "code",
-      "norm_label": "createpicture()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L96"
+      "norm_label": "createflow()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L82"
     },
     {
-      "id": "src_fiscus_picture_createpicture_card",
-      "label": "card()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "fiscus-picture.js",
-      "file_type": "code",
-      "norm_label": "card()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L126"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_frame",
+      "id": "src_finaware_flow_createflow_frame",
       "label": "frame()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "fiscus-picture.js",
+      "community_name": "finaware-flow.js",
       "file_type": "code",
       "norm_label": "frame()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L198"
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L189"
     },
     {
-      "id": "src_fiscus_picture_createpicture_loop",
+      "id": "src_finaware_flow_createflow_loop",
       "label": "loop()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "fiscus-picture.js",
+      "community_name": "finaware-flow.js",
       "file_type": "code",
       "norm_label": "loop()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L248"
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L245"
     },
     {
-      "id": "src_fiscus_picture_createpicture_resize",
+      "id": "src_finaware_flow_createflow_resize",
       "label": "resize()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "fiscus-picture.js",
+      "community_name": "finaware-flow.js",
       "file_type": "code",
       "norm_label": "resize()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L218"
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L214"
     },
     {
-      "id": "src_fiscus_picture_drawsource",
-      "label": "drawSource()",
+      "id": "src_finaware_flow_drawstage",
+      "label": "drawStage()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "fiscus-picture.js",
+      "community_name": "finaware-flow.js",
       "file_type": "code",
-      "norm_label": "drawsource()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L46"
+      "norm_label": "drawstage()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L40"
     },
     {
-      "id": "src_fiscus_picture_drawtarget",
-      "label": "drawTarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "fiscus-picture.js",
-      "file_type": "code",
-      "norm_label": "drawtarget()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L64"
-    },
-    {
-      "id": "src_fiscus_picture_label",
-      "label": "label()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "fiscus-picture.js",
-      "file_type": "code",
-      "norm_label": "label()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L38"
-    },
-    {
-      "id": "src_fiscus_picture_shadowtexture",
+      "id": "src_finaware_flow_shadowtexture",
       "label": "shadowTexture()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "fiscus-picture.js",
+      "community_name": "finaware-flow.js",
       "file_type": "code",
       "norm_label": "shadowtexture()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L84"
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "src_finaware_flow_stagepos",
+      "label": "stagePos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "finaware-flow.js",
+      "file_type": "code",
+      "norm_label": "stagepos()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L34"
     },
     {
       "id": "src_learngenie_climb_createclimb",
@@ -2204,6 +2276,30 @@
       "norm_label": "starshape()",
       "source_file": "src/learngenie-climb.js",
       "source_location": "L75"
+    },
+    {
+      "id": "src_nav_drawline",
+      "label": "drawLine()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "drawline()",
+      "source_file": "src/nav.js",
+      "source_location": "L45"
+    },
+    {
+      "id": "src_nav_setopen",
+      "label": "setOpen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "setopen()",
+      "source_file": "src/nav.js",
+      "source_location": "L16"
     },
     {
       "id": "src_case_study_highlight",
@@ -2458,18 +2554,6 @@
       "source_location": "L30"
     },
     {
-      "id": "src_theme_ontheme",
-      "label": "onTheme()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "ontheme()",
-      "source_file": "src/theme.js",
-      "source_location": "L59"
-    },
-    {
       "id": "src_theme_chosen",
       "label": "chosen()",
       "_callable": true,
@@ -2504,6 +2588,18 @@
       "norm_label": "inittheme()",
       "source_file": "src/theme.js",
       "source_location": "L65"
+    },
+    {
+      "id": "src_theme_ontheme",
+      "label": "onTheme()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "ontheme()",
+      "source_file": "src/theme.js",
+      "source_location": "L59"
     },
     {
       "id": "src_theme_paint",
@@ -3896,78 +3992,6 @@
       "norm_label": "via()",
       "source_file": "src/solutions-scene.js",
       "source_location": "L310"
-    },
-    {
-      "id": "src_finexa_hub_createhub",
-      "label": "createHub()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "createhub()",
-      "source_file": "src/finexa-hub.js",
-      "source_location": "L36"
-    },
-    {
-      "id": "src_finexa_hub_createhub_card",
-      "label": "card()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "card()",
-      "source_file": "src/finexa-hub.js",
-      "source_location": "L67"
-    },
-    {
-      "id": "src_finexa_hub_createhub_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/finexa-hub.js",
-      "source_location": "L147"
-    },
-    {
-      "id": "src_finexa_hub_createhub_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/finexa-hub.js",
-      "source_location": "L196"
-    },
-    {
-      "id": "src_finexa_hub_createhub_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/finexa-hub.js",
-      "source_location": "L178"
-    },
-    {
-      "id": "src_finexa_hub_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/finexa-hub.js",
-      "source_location": "L24"
     },
     {
       "id": "src_product_page_runpiece",
@@ -6414,7 +6438,7 @@
       "label": "case-study-scene.js",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "case-study-scene.js",
       "source_file": "src/case-study-scene.js",
@@ -6425,7 +6449,7 @@
       "label": "canvas",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "canvas",
       "source_file": "src/case-study-scene.js",
@@ -6436,40 +6460,62 @@
       "label": "host",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "host",
       "source_file": "src/case-study-scene.js",
       "source_location": "L20"
     },
     {
-      "id": "src_finaware_flow",
-      "label": "finaware-flow.js",
+      "id": "src_finexa_hub",
+      "label": "finexa-hub.js",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
-      "norm_label": "finaware-flow.js",
-      "source_file": "src/finaware-flow.js",
+      "norm_label": "finexa-hub.js",
+      "source_file": "src/finexa-hub.js",
       "source_location": "L1"
     },
     {
-      "id": "src_finaware_flow_stages",
-      "label": "STAGES",
+      "id": "src_finexa_hub_platforms",
+      "label": "PLATFORMS",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
-      "norm_label": "stages",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L25"
+      "norm_label": "platforms",
+      "source_file": "src/finexa-hub.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "src_fiscus_picture",
+      "label": "fiscus-picture.js",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "fiscus-picture.js",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_fiscus_picture_sources",
+      "label": "SOURCES",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "sources",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L27"
     },
     {
       "id": "src_gennxt_stack",
       "label": "gennxt-stack.js",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "gennxt-stack.js",
       "source_file": "src/gennxt-stack.js",
@@ -6480,7 +6526,7 @@
       "label": "LAYERS",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "layers",
       "source_file": "src/gennxt-stack.js",
@@ -6491,7 +6537,7 @@
       "label": "partners-scene.js",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "partners-scene.js",
       "source_file": "src/partners-scene.js",
@@ -6502,7 +6548,7 @@
       "label": "C",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "c",
       "source_file": "src/partners-scene.js",
@@ -6513,7 +6559,7 @@
       "label": "canvas",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "canvas",
       "source_file": "src/partners-scene.js",
@@ -6524,7 +6570,7 @@
       "label": "host",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "code",
       "norm_label": "host",
       "source_file": "src/partners-scene.js",
@@ -6535,7 +6581,7 @@
       "label": "three",
       "_origin": "ast",
       "community": 15,
-      "community_name": "start",
+      "community_name": "three",
       "file_type": "concept",
       "norm_label": "three",
       "source_file": "package.json",
@@ -6546,7 +6592,7 @@
       "label": "i18n.js",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "i18n.js",
       "source_file": "src/i18n.js",
@@ -6557,7 +6603,7 @@
       "label": "lang",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "lang",
       "source_file": "src/i18n.js",
@@ -6568,7 +6614,7 @@
       "label": "LOCALES",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "locales",
       "source_file": "src/i18n.js",
@@ -6579,7 +6625,7 @@
       "label": "learngenie-games.js",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "learngenie-games.js",
       "source_file": "src/learngenie-games.js",
@@ -6590,18 +6636,18 @@
       "label": "GAMES",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "games",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L574"
+      "source_location": "L668"
     },
     {
       "id": "src_learngenie_games_pairs",
       "label": "PAIRS",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "pairs",
       "source_file": "src/learngenie-games.js",
@@ -6612,18 +6658,29 @@
       "label": "QUIZ",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "quiz",
       "source_file": "src/learngenie-games.js",
       "source_location": "L31"
     },
     {
+      "id": "src_learngenie_games_sizes",
+      "label": "SIZES",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "sizes",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L169"
+    },
+    {
       "id": "src_learngenie_games_statements",
       "label": "STATEMENTS",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "statements",
       "source_file": "src/learngenie-games.js",
@@ -6634,18 +6691,29 @@
       "label": "WORDS",
       "_origin": "ast",
       "community": 17,
-      "community_name": "learngenie-games.js",
+      "community_name": "t",
       "file_type": "code",
       "norm_label": "words",
       "source_file": "src/learngenie-games.js",
       "source_location": "L89"
     },
     {
+      "id": "src_x_scene",
+      "label": "./x-scene.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "./x-scene.js",
+      "source_file": "src/x-scene.js"
+    },
+    {
       "id": "src_after_paint",
       "label": "after-paint.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "after-paint.js",
       "source_file": "src/after-paint.js",
@@ -6656,7 +6724,7 @@
       "label": "home.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "home.js",
       "source_file": "src/home.js",
@@ -6667,73 +6735,18 @@
       "label": "main.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "main.js",
       "source_file": "src/main.js",
       "source_location": "L1"
     },
     {
-      "id": "src_nav",
-      "label": "nav.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "nav.js",
-      "source_file": "src/nav.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_nav_fill",
-      "label": "fill",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "fill",
-      "source_file": "src/nav.js",
-      "source_location": "L40"
-    },
-    {
-      "id": "src_nav_line",
-      "label": "line",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "line",
-      "source_file": "src/nav.js",
-      "source_location": "L37"
-    },
-    {
-      "id": "src_nav_menu",
-      "label": "menu",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "menu",
-      "source_file": "src/nav.js",
-      "source_location": "L14"
-    },
-    {
-      "id": "src_nav_nav",
-      "label": "nav",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "nav",
-      "source_file": "src/nav.js",
-      "source_location": "L13"
-    },
-    {
       "id": "src_partners",
       "label": "partners.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "partners.js",
       "source_file": "src/partners.js",
@@ -6744,7 +6757,7 @@
       "label": "services.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "services.js",
       "source_file": "src/services.js",
@@ -6755,7 +6768,7 @@
       "label": "solutions.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "solutions.js",
       "source_file": "src/solutions.js",
@@ -6766,7 +6779,7 @@
       "label": "whatsapp.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "whatsapp.js",
       "source_file": "src/whatsapp.js",
@@ -6777,7 +6790,7 @@
       "label": "button",
       "_origin": "ast",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "button",
       "source_file": "src/whatsapp.js",
@@ -7191,26 +7204,26 @@
       "source_location": "L20"
     },
     {
-      "id": "src_fiscus_picture",
-      "label": "fiscus-picture.js",
+      "id": "src_finaware_flow",
+      "label": "finaware-flow.js",
       "_origin": "ast",
       "community": 23,
-      "community_name": "fiscus-picture.js",
+      "community_name": "finaware-flow.js",
       "file_type": "code",
-      "norm_label": "fiscus-picture.js",
-      "source_file": "src/fiscus-picture.js",
+      "norm_label": "finaware-flow.js",
+      "source_file": "src/finaware-flow.js",
       "source_location": "L1"
     },
     {
-      "id": "src_fiscus_picture_sources",
-      "label": "SOURCES",
+      "id": "src_finaware_flow_stages",
+      "label": "STAGES",
       "_origin": "ast",
       "community": 23,
-      "community_name": "fiscus-picture.js",
+      "community_name": "finaware-flow.js",
       "file_type": "code",
-      "norm_label": "sources",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L27"
+      "norm_label": "stages",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L25"
     },
     {
       "id": "src_learngenie_climb",
@@ -7233,6 +7246,61 @@
       "norm_label": "steps",
       "source_file": "src/learngenie-climb.js",
       "source_location": "L25"
+    },
+    {
+      "id": "src_nav",
+      "label": "nav.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "nav.js",
+      "source_file": "src/nav.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_nav_fill",
+      "label": "fill",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "fill",
+      "source_file": "src/nav.js",
+      "source_location": "L40"
+    },
+    {
+      "id": "src_nav_line",
+      "label": "line",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "line",
+      "source_file": "src/nav.js",
+      "source_location": "L37"
+    },
+    {
+      "id": "src_nav_menu",
+      "label": "menu",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "menu",
+      "source_file": "src/nav.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_nav_nav",
+      "label": "nav",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "nav",
+      "source_file": "src/nav.js",
+      "source_location": "L13"
     },
     {
       "id": "src_case_study",
@@ -7332,50 +7400,6 @@
       "norm_label": "brochure.js",
       "source_file": "src/brochure.js",
       "source_location": "L1"
-    },
-    {
-      "id": "src_doc",
-      "label": "doc.js",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "doc.js",
-      "source_file": "src/doc.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_doc_form",
-      "label": "form",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "form",
-      "source_file": "src/doc.js",
-      "source_location": "L49"
-    },
-    {
-      "id": "src_doc_note",
-      "label": "note",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "note",
-      "source_file": "src/doc.js",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_doc_toclinks",
-      "label": "tocLinks",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "toclinks",
-      "source_file": "src/doc.js",
-      "source_location": "L22"
     },
     {
       "id": "src_theme",
@@ -7618,6 +7642,50 @@
       "norm_label": "views",
       "source_file": "src/home-scene.js",
       "source_location": "L150"
+    },
+    {
+      "id": "src_doc",
+      "label": "doc.js",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "doc.js",
+      "source_file": "src/doc.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_doc_form",
+      "label": "form",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "form",
+      "source_file": "src/doc.js",
+      "source_location": "L49"
+    },
+    {
+      "id": "src_doc_note",
+      "label": "note",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "note",
+      "source_file": "src/doc.js",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_doc_toclinks",
+      "label": "tocLinks",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "toclinks",
+      "source_file": "src/doc.js",
+      "source_location": "L22"
     },
     {
       "id": "src_services_scene_dottex",
@@ -8542,28 +8610,6 @@
       "norm_label": "glowtex",
       "source_file": "src/solutions-scene.js",
       "source_location": "L404"
-    },
-    {
-      "id": "src_finexa_hub",
-      "label": "finexa-hub.js",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "finexa-hub.js",
-      "source_file": "src/finexa-hub.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_finexa_hub_platforms",
-      "label": "PLATFORMS",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "platforms",
-      "source_file": "src/finexa-hub.js",
-      "source_location": "L16"
     },
     {
       "id": "src_product_page",
@@ -15111,7 +15157,7 @@
       "label": "src_bang",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_bang",
@@ -15123,7 +15169,7 @@
       "label": "src_style",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "nav.js",
+      "community_name": "after-paint.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_style",
@@ -16809,7 +16855,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L262",
+      "source_location": "L356",
       "weight": 1.0
     },
     {
@@ -16821,7 +16867,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L210",
+      "source_location": "L304",
       "weight": 1.0
     },
     {
@@ -16833,7 +16879,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L223",
+      "source_location": "L317",
       "weight": 1.0
     },
     {
@@ -16845,7 +16891,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L247",
+      "source_location": "L341",
       "weight": 1.0
     },
     {
@@ -16857,7 +16903,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L250",
+      "source_location": "L344",
       "weight": 1.0
     },
     {
@@ -16869,7 +16915,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L253",
+      "source_location": "L347",
       "weight": 1.0
     },
     {
@@ -16881,7 +16927,67 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L254",
+      "source_location": "L348",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_demoform",
+      "target": "src_learngenie_games_paint",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_demoform",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_demoform_done",
+      "target": "src_learngenie_games_paint",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_demoform_done",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_demoform_done",
+      "target": "src_learngenie_games_crorepati",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -16893,7 +16999,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L149",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_endscreen",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -16917,7 +17035,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L477",
+      "source_location": "L571",
       "weight": 1.0
     },
     {
@@ -16929,7 +17047,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L417",
+      "source_location": "L511",
       "weight": 1.0
     },
     {
@@ -16941,7 +17059,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L439",
+      "source_location": "L533",
       "weight": 1.0
     },
     {
@@ -16953,7 +17071,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L468",
+      "source_location": "L562",
       "weight": 1.0
     },
     {
@@ -16965,7 +17083,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L445",
+      "source_location": "L539",
       "weight": 1.0
     },
     {
@@ -16977,7 +17095,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L461",
+      "source_location": "L555",
       "weight": 1.0
     },
     {
@@ -16993,6 +17111,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_learngenie_games_paint",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
       "source": "src_learngenie_games_rightorwrong_card",
       "target": "src_learngenie_games_paint",
       "relation": "calls",
@@ -17001,7 +17131,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L290",
+      "source_location": "L384",
       "weight": 1.0
     },
     {
@@ -17013,7 +17143,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L311",
+      "source_location": "L405",
       "weight": 1.0
     },
     {
@@ -17025,7 +17155,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L314",
+      "source_location": "L408",
       "weight": 1.0
     },
     {
@@ -17037,7 +17167,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L315",
+      "source_location": "L409",
       "weight": 1.0
     },
     {
@@ -17049,7 +17179,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L322",
+      "source_location": "L416",
       "weight": 1.0
     },
     {
@@ -17061,7 +17191,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L539",
+      "source_location": "L633",
       "weight": 1.0
     },
     {
@@ -17073,7 +17203,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L545",
+      "source_location": "L639",
       "weight": 1.0
     },
     {
@@ -17085,7 +17215,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L546",
+      "source_location": "L640",
       "weight": 1.0
     },
     {
@@ -17097,7 +17227,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L503",
+      "source_location": "L597",
       "weight": 1.0
     },
     {
@@ -17109,7 +17239,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L524",
+      "source_location": "L618",
       "weight": 1.0
     },
     {
@@ -17121,7 +17251,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L533",
+      "source_location": "L627",
       "weight": 1.0
     },
     {
@@ -17133,7 +17263,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L559",
+      "source_location": "L653",
       "weight": 1.0
     },
     {
@@ -17145,7 +17275,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L498",
+      "source_location": "L592",
       "weight": 1.0
     },
     {
@@ -17157,7 +17287,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L690",
+      "source_location": "L790",
       "weight": 1.0
     },
     {
@@ -17169,7 +17299,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L638",
+      "source_location": "L732",
       "weight": 1.0
     },
     {
@@ -17181,7 +17311,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L631",
+      "source_location": "L725",
       "weight": 1.0
     },
     {
@@ -17193,7 +17323,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L638",
+      "source_location": "L732",
       "weight": 1.0
     },
     {
@@ -17205,7 +17335,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L649",
+      "source_location": "L743",
       "weight": 1.0
     },
     {
@@ -17217,7 +17347,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L653",
+      "source_location": "L747",
       "weight": 1.0
     },
     {
@@ -17229,7 +17359,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L665",
+      "source_location": "L759",
       "weight": 1.0
     },
     {
@@ -17241,7 +17371,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L392",
+      "source_location": "L486",
       "weight": 1.0
     },
     {
@@ -17253,7 +17383,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L349",
+      "source_location": "L443",
       "weight": 1.0
     },
     {
@@ -17265,7 +17395,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L385",
+      "source_location": "L479",
       "weight": 1.0
     },
     {
@@ -19065,7 +19195,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L208",
+      "source_location": "L302",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_demoform",
+      "target": "src_learngenie_games_demoform_done",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L232",
       "weight": 1.0
     },
     {
@@ -19077,7 +19219,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L288",
+      "source_location": "L382",
       "weight": 1.0
     },
     {
@@ -19089,7 +19231,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L491",
+      "source_location": "L585",
       "weight": 1.0
     },
     {
@@ -19101,7 +19243,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L605",
+      "source_location": "L699",
       "weight": 1.0
     },
     {
@@ -19113,7 +19255,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L345",
+      "source_location": "L439",
       "weight": 1.0
     },
     {
@@ -24568,7 +24710,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L148",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games",
+      "target": "src_learngenie_games_sizes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games",
+      "target": "src_learngenie_games_demoform",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -24579,7 +24743,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L164",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -24590,7 +24754,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L182",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
@@ -24601,7 +24765,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L192",
+      "source_location": "L286",
       "weight": 1.0
     },
     {
@@ -24623,29 +24787,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L342",
-      "weight": 1.0
-    },
-    {
-      "source": "src_learngenie_games",
-      "target": "src_learngenie_games_games",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/learngenie-games.js",
-      "source_location": "L574",
-      "weight": 1.0
-    },
-    {
-      "source": "src_learngenie_games",
-      "target": "src_learngenie_games_wirelive",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/learngenie-games.js",
-      "source_location": "L585",
+      "source_location": "L436",
       "weight": 1.0
     },
     {
@@ -24661,13 +24803,35 @@
     },
     {
       "source": "src_learngenie_games",
+      "target": "src_learngenie_games_games",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L668",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games",
+      "target": "src_learngenie_games_wirelive",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L679",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games",
       "target": "src_learngenie_games_wiregames",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L675",
+      "source_location": "L769",
       "weight": 1.0
     },
     {
@@ -24700,7 +24864,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L259",
+      "source_location": "L353",
       "weight": 1.0
     },
     {
@@ -24711,7 +24875,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L416",
+      "source_location": "L510",
       "weight": 1.0
     },
     {
@@ -24722,7 +24886,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L444",
+      "source_location": "L538",
       "weight": 1.0
     },
     {
@@ -24733,7 +24897,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L467",
+      "source_location": "L561",
       "weight": 1.0
     },
     {
@@ -24744,7 +24908,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L321",
+      "source_location": "L415",
       "weight": 1.0
     },
     {
@@ -24755,7 +24919,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L501",
+      "source_location": "L595",
       "weight": 1.0
     },
     {
@@ -24766,7 +24930,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L538",
+      "source_location": "L632",
       "weight": 1.0
     },
     {
@@ -24777,7 +24941,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L558",
+      "source_location": "L652",
       "weight": 1.0
     },
     {
@@ -24788,7 +24952,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L617",
+      "source_location": "L711",
       "weight": 1.0
     },
     {
@@ -24799,7 +24963,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L659",
+      "source_location": "L753",
       "weight": 1.0
     },
     {
@@ -24810,7 +24974,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L391",
+      "source_location": "L485",
       "weight": 1.0
     },
     {
@@ -28455,6 +28619,15 @@
       "weight": 1.0
     },
     {
+      "source": "src_after_paint",
+      "target": "src_x_scene",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/after-paint.js"
+    },
+    {
       "source": "src_case_study",
       "target": "src_case_study_scene",
       "relation": "dynamic_import",
@@ -28887,6 +29060,54 @@
       "weight": 1.0
     },
     {
+      "source": "src_learngenie_games_demoform",
+      "target": "src_learngenie_games_close",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_demoform_done",
+      "target": "src_learngenie_games_close",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L247",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_endscreen",
+      "target": "src_learngenie_games_demoform",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_endscreen",
+      "target": "src_learngenie_games_close",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
       "source": "src_learngenie_games_paint",
       "target": "src_learngenie_games_close",
       "relation": "indirect_call",
@@ -28895,7 +29116,19 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L143",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_wiregames",
+      "target": "src_learngenie_games_demoform",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L784",
       "weight": 1.0
     },
     {
@@ -28907,7 +29140,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L366",
+      "source_location": "L460",
       "weight": 1.0
     },
     {
@@ -29195,7 +29428,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L574",
+      "source_location": "L668",
       "weight": 1.0
     },
     {
@@ -29207,7 +29440,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L574",
+      "source_location": "L668",
       "weight": 1.0
     },
     {
@@ -29219,7 +29452,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L574",
+      "source_location": "L668",
       "weight": 1.0
     },
     {
@@ -29231,7 +29464,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L574",
+      "source_location": "L668",
       "weight": 1.0
     },
     {
@@ -32543,5 +32776,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "b6630e1e0d2c456174a4a7a8e2df1776650a3864"
+  "built_at_commit": "069d69c2c1e0d30d59a74b8bd12bf48ad90e20e0"
 }
