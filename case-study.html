@@ -84,43 +84,29 @@
 
 
 
-  <main class="pt cs">
+  <main class="pt cs cs--world">
 
     <header class="pt__hero cs__hero">
-      <div class="pt__hero-copy">
+      <div class="pt__hero-copy cs__panel">
         <h1>Five pieces of <em>work</em></h1>
         <p class="pt__lead">
           An asset manager, a pension record keeper, a life insurer, a branch network of four thousand and a
           marketplace in Ghana. What each one came to us with, what we built on, and how long it took to go
-          live. Walk the run below — or read them all underneath.
+          live. Scroll to walk the run — each platform below is one of them.
         </p>
       </div>
     </header>
 
-    <!-- the run of platforms, one per study -->
-    <section class="cs-run" aria-label="The five engagements">
-      <div class="cs-stage" data-case-stage role="group" aria-label="Case studies, left and right arrow keys to move between them">
-        <canvas></canvas>
-      </div>
-      <div class="cs-labels" aria-hidden="true">
-        <button class="cs-label" type="button" data-case-label data-go="0">
-          <b>01</b><span>Asset management</span>
-        </button>
-        <button class="cs-label" type="button" data-case-label data-go="1">
-          <b>02</b><span>Retirement</span>
-        </button>
-        <button class="cs-label" type="button" data-case-label data-go="2">
-          <b>03</b><span>Insurance</span>
-        </button>
-        <button class="cs-label" type="button" data-case-label data-go="3">
-          <b>04</b><span>Distribution at scale</span>
-        </button>
-        <button class="cs-label" type="button" data-case-label data-go="4">
-          <b>05</b><span>Beyond India</span>
-        </button>
-      </div>
-      <p class="cs-hint">Click a platform to open it · drag to turn the run</p>
-    </section>
+    <!-- the world the page is read inside: five platforms, one per study -->
+    <div class="cs-world" data-case-world aria-hidden="true"><canvas></canvas></div>
+
+    <nav class="cs-labels" aria-label="Jump to an engagement">
+      <button class="cs-label" type="button" data-case-label data-go="0"><b>01</b><span>Asset management</span></button>
+      <button class="cs-label" type="button" data-case-label data-go="1"><b>02</b><span>Retirement</span></button>
+      <button class="cs-label" type="button" data-case-label data-go="2"><b>03</b><span>Insurance</span></button>
+      <button class="cs-label" type="button" data-case-label data-go="3"><b>04</b><span>Distribution at scale</span></button>
+      <button class="cs-label" type="button" data-case-label data-go="4"><b>05</b><span>Beyond India</span></button>
+    </nav>
 
     <!-- every study, in full -->
     <section class="cs-studies" aria-label="The engagements in full">

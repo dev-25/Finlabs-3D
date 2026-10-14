@@ -23,6 +23,7 @@ const labels = [...document.querySelectorAll('[data-case-label]')];
 
 function highlight(i) {
   studies.forEach((el, k) => el.classList.toggle('is-active', k === i));
+  labels.forEach((el, k) => el.classList.toggle('is-active', k === i));
 }
 
 // a label, or a platform, brings its study forward
@@ -45,12 +46,12 @@ function listen() {
 
 highlight(0);
 
-// The run is hidden on a phone, so it is not fetched there. A window that
+// The world is hidden on a phone, so it is not fetched there. A window that
 // starts narrow and is widened should still get it, hence the listener.
 const wide = window.matchMedia('(min-width: 761px)');
 let asked = false;
 function wantScene() {
-  if (asked || !wide.matches || !document.querySelector('[data-case-stage]')) return;
+  if (asked || !wide.matches || !document.querySelector('[data-case-world]')) return;
   asked = true;
   afterPaint(() => import('./case-study-scene.js').then(listen));
 }

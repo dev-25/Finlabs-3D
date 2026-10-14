@@ -9,39 +9,81 @@
 .cs__hero { grid-template-columns: 1fr; }
 .cs__hero .pt__lead { max-width: 72ch; }
 
-/* ---------- the run ---------- */
-/* the leader lines rise above the slabs, so the run needs headroom or the
-   top labels land on the copy above it */
-.cs-run { position: relative; margin-top: clamp(54px, 8vw, 104px); }
-.cs-stage {
-  position: relative; width: 100%; aspect-ratio: 16 / 9; max-height: 620px;
-  outline: none; touch-action: pan-y;
-}
-.cs-stage canvas { display: block; width: 100%; height: 100%; }
-.cs-stage:focus-visible { outline: 2px solid var(--brand); outline-offset: 6px; border-radius: 18px; }
+/* ---------- the world behind the page ---------- */
+/* The canvas is fixed behind everything and the copy scrolls over it, so the
+   whole page is read inside the run rather than beside it. */
+.cs-world { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.cs-world canvas { display: block; width: 100%; height: 100%; pointer-events: auto; }
 
-/* the labels sit in the same box and are placed by the scene each frame */
-.cs-labels { position: absolute; inset: 0; pointer-events: none; }
+/* against the platforms the page needs its own ground: a deep wash in both
+   themes, with the content floating on cards over it */
+.cs--world { position: relative; z-index: 1; }
+:root .cs--world { --cs-ink: #eaf1ff; }
+body:has(.cs--world) { background: #0b1430; }
+:root[data-theme="light"] body:has(.cs--world) { background: #0e1a3c; }
+
+.cs--world .pt__hero { min-height: 72vh; align-content: center; }
+.cs__panel,
+.cs--world .cs-study,
+.cs--world .pt__cta {
+  background: color-mix(in srgb, #0b1733 78%, transparent);
+  border: 1px solid rgba(150, 180, 255, 0.18);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 40px 90px -50px rgba(2, 10, 30, 0.9);
+}
+.cs__panel { padding: clamp(24px, 3.4vw, 42px); border-radius: 26px; }
+.cs--world :is(h1, h2, h3, .cs-study__gtm) { color: var(--cs-ink); }
+/* the brand blue is tuned for a light page; on this dark ground it needs
+   lifting, or the emphasised words sink into the panel */
+.cs--world :is(h1, h2) em { color: #7fb0ff; }
+.cs--world .cs-study__n span { background: #2f6fd0; color: #fff; }
+.cs--world :is(p, li, dd) { color: #b9c8ea; }
+.cs--world .cs-study__n { color: #8ea3cc; }
+.cs--world .cs-study h4 { color: #7fb0ff; }
+.cs--world .cs-study.is-active { border-color: #4f86ff; box-shadow: 0 0 0 3px rgba(79, 134, 255, 0.22), 0 40px 90px -50px rgba(2, 10, 30, 0.9); }
+
+/* between a phone and a laptop there is no room to set the words beside the
+   run, so the world takes a scrim and reads as a backdrop instead */
+@media (min-width: 761px) and (max-width: 999px) {
+  .cs-world::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: rgba(11, 20, 48, 0.55);
+  }
+}
+
+/* the copy holds a column on one side; the run plays in the space left over,
+   the way the reference sets its words beside the platforms */
+@media (min-width: 1000px) {
+  .cs--world .pt__wrap,
+  .cs--world .cs-studies,
+  .cs--world .pt__hero { max-width: 620px; margin-inline: clamp(24px, 6vw, 110px) auto; }
+  .cs--world .cs-study__grid { grid-template-columns: 1fr; }
+}
+
+/* the jump list rides along the side, one dot per platform */
+.cs-labels {
+  position: fixed; z-index: 2; right: clamp(10px, 2vw, 26px); top: 50%;
+  transform: translateY(-50%);
+  display: grid; gap: 8px; justify-items: end;
+}
 .cs-label {
-  position: absolute; top: 0; left: 0; pointer-events: auto;
-  display: grid; gap: 2px; justify-items: center; width: max-content;
-  padding: 8px 14px; border-radius: 12px; cursor: pointer;
-  background: var(--paper); border: 1px solid var(--paper-edge);
-  box-shadow: 0 18px 34px -24px rgba(15, 40, 100, 0.5);
-  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  display: grid; grid-template-columns: auto auto; align-items: center; gap: 10px;
+  width: max-content;
+  padding: 8px 14px 8px 10px; border-radius: 999px; cursor: pointer;
+  background: color-mix(in srgb, #0b1733 72%, transparent);
+  border: 1px solid rgba(150, 180, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.25s, transform 0.25s, background 0.25s;
 }
-.cs-label b { font: 700 12px/1 var(--mono); letter-spacing: 0.1em; color: var(--brand); }
-.cs-label span { font: 600 13px/1.2 var(--body); color: var(--ink-2); white-space: nowrap; }
-.cs-label:hover { border-color: var(--brand); }
-.cs-label.is-active {
-  border-color: var(--brand);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent), 0 20px 36px -22px rgba(15, 40, 100, 0.55);
-}
-.cs-label.is-active span { color: var(--ink); }
+.cs-label b { font: 700 11.5px/1 var(--mono); letter-spacing: 0.08em; color: #7fb0ff; }
+.cs-label span { font: 600 12.5px/1.2 var(--body); color: #c6d4f2; white-space: nowrap; }
+.cs-label:hover { border-color: #4f86ff; transform: translateX(-3px); }
+.cs-label.is-active { border-color: #4f86ff; background: color-mix(in srgb, #1b3f8f 72%, transparent); }
+.cs-label.is-active span { color: #fff; }
 
-.cs-hint {
-  text-align: center; margin-top: 10px;
-  font: 600 11.5px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+@media (max-width: 1100px) {
+  .cs-label span { display: none; }
+  .cs-label { grid-template-columns: auto; padding: 9px 11px; }
 }
 
 /* ---------- the write-ups ---------- */
@@ -89,5 +131,11 @@
 }
 /* on a phone the run costs more than it gives: the studies are the page */
 @media (max-width: 760px) {
-  .cs-run { display: none; }
+  .cs-world,
+  .cs-labels { display: none; }
+  /* the ground stays dark: the panels are written for it, and the page
+     reads as one piece without the run behind them */
+  .cs__panel,
+  .cs--world .cs-study,
+  .cs--world .pt__cta { backdrop-filter: none; }
 }
