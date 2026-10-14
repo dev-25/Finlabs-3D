@@ -327,6 +327,16 @@ body.no3d #canvas {
   letter-spacing: -0.02em;
   color: var(--ink);
 }
+/* A product with a logo of its own wears it in place of its typed name;
+   the heading stays, so the page still has one. Heights are tuned per
+   logo because the lockups differ in proportion. */
+.product__logo { display: block; width: auto; height: 0.82em; max-width: 100%; }
+.product__logo[data-logo="gennxt"] { height: 0.6em; }
+.product__logo[data-logo="learngenie"] { height: 0.78em; }
+:root[data-theme="dark"] .product__logo[data-logo="finexa"] { content: url("/products/finexa/logo-light.webp"); }
+:root[data-theme="dark"] .product__logo[data-logo="gennxt"] { content: url("/products/gennxt/logo-light.webp"); }
+:root[data-theme="dark"] .product__logo[data-logo="finaware"] { content: url("/products/finaware/logo-light.webp"); }
+:root[data-theme="dark"] .product__logo[data-logo="learngenie"] { content: url("/products/learngenie/logo-row-light.webp"); }
 .product__sub {
   font-family: var(--display);
   font-weight: 500;

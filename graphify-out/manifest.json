@@ -396,9 +396,9 @@
     "semantic_hash": ""
   },
   "src/showroom.js": {
-    "mtime": 1791579757.7421346,
-    "seen": 1791580289.523521,
-    "ast_hash": "1ddba52c1ed1819f87d33d285662038b",
+    "mtime": 1791952454.1255412,
+    "seen": 1791952626.037994,
+    "ast_hash": "f948a1cc5f2cb5dbd5def747fad2d15c",
     "semantic_hash": ""
   },
   "src/solutions-scene.js": {
@@ -594,22 +594,22 @@
     "semantic_hash": ""
   },
   "src/partials/products/finaware.html": {
-    "mtime": 1791580176.7513137,
-    "seen": 1791580289.5235379,
-    "ast_hash": "2aa80449fc94959783e06c9571867f2b",
+    "mtime": 1791952419.0258164,
+    "seen": 1791952626.038013,
+    "ast_hash": "669c73d1dce4068b33c0a93aa29f88e4",
     "semantic_hash": ""
   },
   "src/partials/products/finexa-gennxt.html": {
-    "mtime": 1791580185.7595758,
-    "seen": 1791580289.5235388,
-    "ast_hash": "e75c99deb37d1f85691133c865c3ccbe",
+    "mtime": 1791952419.025409,
+    "seen": 1791952626.038014,
+    "ast_hash": "d6bb097000eda5588ffdf15e5c3c5da7",
     "semantic_hash": ""
   },
   "src/partials/products/finexa.html": {
-    "mtime": 1790491396.0728812,
-    "seen": 1790526272.0577438,
-    "ast_hash": "e7f15fa8f160b365c68c5d9cd0587edd",
-    "semantic_hash": "e7f15fa8f160b365c68c5d9cd0587edd"
+    "mtime": 1791952419.0244484,
+    "seen": 1791952626.038014,
+    "ast_hash": "3943ae43d7d35523296c9969ca024777",
+    "semantic_hash": ""
   },
   "src/partials/products/fiscus.html": {
     "mtime": 1791580185.7593703,
@@ -618,9 +618,9 @@
     "semantic_hash": ""
   },
   "src/partials/products/learngenie.html": {
-    "mtime": 1791580185.7597277,
-    "seen": 1791580289.52354,
-    "ast_hash": "e04a27793cd28233fe6b3531416a1582",
+    "mtime": 1791952419.0260096,
+    "seen": 1791952626.038015,
+    "ast_hash": "9c0b9f2522569927a343adb7482017f0",
     "semantic_hash": ""
   },
   "src/partials/service-page/footer.html": {
@@ -1632,9 +1632,9 @@
     "semantic_hash": ""
   },
   "public/finlabs-logo-dark.png": {
-    "mtime": 1791581920.0292282,
-    "seen": 1791582389.671366,
-    "ast_hash": "d1a099130a6a9a0e19a4d59b068e1ed9",
+    "mtime": 1791952387.5023763,
+    "seen": 1791952626.038042,
+    "ast_hash": "aa6fd56fc2c27d5d64c2e7287db819e7",
     "semantic_hash": ""
   },
   "src/case-study-scene.js": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1791885296.0359306,
-    "seen": 1791885328.144576,
-    "ast_hash": "c66ff681b4283eeb7aef0b8eaeb4495e",
+    "mtime": 1791952595.299847,
+    "seen": 1791952626.037948,
+    "ast_hash": "90da985d800bc4a0080b8f772a18fa05",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1791885318.4508529,
-    "seen": 1791885328.144578,
-    "ast_hash": "0a540b90cc668d03a9a32076718fca20",
+    "mtime": 1791952595.3048437,
+    "seen": 1791952626.03795,
+    "ast_hash": "ae5458a91c7272a3c56b0cbcfa0bdd45",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1791885318.456734,
-    "seen": 1791885328.1445792,
-    "ast_hash": "6425243332031e2734d347f7de865919",
+    "mtime": 1791952595.310987,
+    "seen": 1791952626.037951,
+    "ast_hash": "76930e6efddd07a86ee32bd7586b1a99",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1707,6 +1707,66 @@
     "mtime": 1791817138.0463245,
     "seen": 1791817681.063256,
     "ast_hash": "205e54db015f5c311b35dab755825af5",
+    "semantic_hash": ""
+  },
+  "public/products/finaware/logo-light.webp": {
+    "mtime": 1791952270.4038854,
+    "seen": 1791952626.038069,
+    "ast_hash": "e5a4f4630906a5511d69dc6c5fa32034",
+    "semantic_hash": ""
+  },
+  "public/products/finaware/logo.webp": {
+    "mtime": 1791952217.2221067,
+    "seen": 1791952626.03807,
+    "ast_hash": "dd6eb54db39a588a34feb28479bda692",
+    "semantic_hash": ""
+  },
+  "public/products/finexa/logo-light.webp": {
+    "mtime": 1791952265.5730114,
+    "seen": 1791952626.038075,
+    "ast_hash": "0acb503da7b3a424b00cbc5ce3bdfc26",
+    "semantic_hash": ""
+  },
+  "public/products/finexa/logo.webp": {
+    "mtime": 1791952228.0280218,
+    "seen": 1791952626.038076,
+    "ast_hash": "00fbbb85773a52f5ec8bc3e569ee9751",
+    "semantic_hash": ""
+  },
+  "public/products/gennxt/logo-light.webp": {
+    "mtime": 1791952267.635845,
+    "seen": 1791952626.038089,
+    "ast_hash": "267db9a9d3de14d84d8fce16c8a58edd",
+    "semantic_hash": ""
+  },
+  "public/products/gennxt/logo.webp": {
+    "mtime": 1791952222.5698116,
+    "seen": 1791952626.03809,
+    "ast_hash": "5df280e03e39f9dd8ec41c03452575d3",
+    "semantic_hash": ""
+  },
+  "public/products/learngenie/logo-light.webp": {
+    "mtime": 1791952273.5148668,
+    "seen": 1791952626.038097,
+    "ast_hash": "67762f6d0999c8c69dbb1e02dedcc785",
+    "semantic_hash": ""
+  },
+  "public/products/learngenie/logo-row-light.webp": {
+    "mtime": 1791952328.3239245,
+    "seen": 1791952626.0380979,
+    "ast_hash": "0aa96a7602ddcc08c7675e4eaa9c0835",
+    "semantic_hash": ""
+  },
+  "public/products/learngenie/logo-row.webp": {
+    "mtime": 1791952325.6312435,
+    "seen": 1791952626.0380979,
+    "ast_hash": "0c3de05854888d5a694bd74afe8e0f28",
+    "semantic_hash": ""
+  },
+  "public/products/learngenie/logo.webp": {
+    "mtime": 1791952234.637776,
+    "seen": 1791952626.038099,
+    "ast_hash": "66a6616faf63be8a4693d16af5ae1b2d",
     "semantic_hash": ""
   }
 }
