@@ -114,11 +114,11 @@ const CSS = {
 // all-blue accents; the only warm colour left in the room is the gold on
 // the bars and coins, which reads as a financial cue rather than a theme
 const PRODUCTS = [
-  { name: 'FINEXA', screen: 'wealth', accent: 0x1a8fb5, prop: 'goldbars' },
-  { name: 'FINEXA GenNxt', screen: 'aggregate', accent: 0x3fb9dd, prop: 'coins' },
-  { name: 'FINAWARE', screen: 'awareness', accent: 0x2f6fd0, prop: 'calculator' },
-  { name: 'LEARNGENIE', screen: 'learning', accent: 0x6d7fe8, prop: 'vault' },
-  { name: 'FISCUS', screen: 'finance', accent: 0x0d5f7d, prop: 'cards' },
+  { name: 'FINEXA', screen: 'wealth', accent: 0x1a8fb5, prop: 'goldbars', logo: 'products/finexa/logo-light.webp' },
+  { name: 'FINEXA GenNxt', screen: 'aggregate', accent: 0x3fb9dd, prop: 'coins', logo: 'products/gennxt/logo-light.webp' },
+  { name: 'FINAWARE', screen: 'awareness', accent: 0x2f6fd0, prop: 'calculator', logo: 'products/finaware/logo-light.webp' },
+  { name: 'LEARNGENIE', screen: 'learning', accent: 0x6d7fe8, prop: 'vault', logo: 'products/learngenie/logo-row-light.webp' },
+  { name: 'FISCUS', screen: 'finance', accent: 0x0d5f7d, prop: 'cards' }, // no logo of its own yet
 ];
 
 const STATION_GAP = 13;
@@ -1200,6 +1200,26 @@ let gearCursor = 0;
 // PRODUCT SCREEN ARTWORK
 // =====================================================
 
+// Each product's wordmark rides in the monitor's header. They are images,
+// so a screen is drawn first with the typed name and redrawn as its logo
+// arrives.
+const screenFaces = [];
+const LOGOS = {};
+PRODUCTS.forEach((product) => {
+  if (!product.logo) return;
+  const img = new Image();
+  img.onload = () => {
+    screenFaces.forEach((face) => {
+      if (face.product !== product) return;
+      face.mat.map?.dispose();
+      face.mat.map = screenTexture(product);
+      face.mat.needsUpdate = true;
+    });
+  };
+  img.src = `${import.meta.env.BASE_URL}${product.logo}`;
+  LOGOS[product.name] = img;
+});
+
 function screenTexture(product) {
   return makeTexture(1024, 680, (ctx, w, h) => {
     // page
@@ -1213,7 +1233,13 @@ function screenTexture(product) {
     ctx.font = '700 40px "Outfit", sans-serif';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.fillText(product.name, 40, 46);
+    const logo = LOGOS[product.name];
+    if (logo && logo.complete && logo.naturalWidth) {
+      const k = Math.min(54 / logo.naturalHeight, 440 / logo.naturalWidth);
+      ctx.drawImage(logo, 40, 46 - (logo.naturalHeight * k) / 2, logo.naturalWidth * k, logo.naturalHeight * k);
+    } else {
+      ctx.fillText(product.name, 40, 46); // until the logo arrives, and for Fiscus
+    }
 
     const accent = '#' + product.accent.toString(16).padStart(6, '0');
     ctx.fillStyle = accent;
@@ -1798,10 +1824,9 @@ PRODUCTS.forEach((product, i) => {
   frame.position.y = FLOOR_Y + 5.0;
   g.add(frame);
 
-  const screen = new THREE.Mesh(
-    monitorScreenGeo,
-    new THREE.MeshBasicMaterial({ map: screenTexture(product) })
-  );
+  const screenMat = new THREE.MeshBasicMaterial({ map: screenTexture(product) });
+  screenFaces.push({ product, mat: screenMat });
+  const screen = new THREE.Mesh(monitorScreenGeo, screenMat);
   screen.position.set(0, FLOOR_Y + 5.0, 0.2);
   g.add(screen);
 

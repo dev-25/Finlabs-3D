@@ -99,6 +99,12 @@
 }
 .fx-top__brand { font-family: var(--display); font-weight: 800; font-size: 1.95em; letter-spacing: -0.03em; color: var(--fx-navy); line-height: 1; }
 .fx-top__brand span { color: var(--fx-brand); }
+/* The product's own logo, in place of the typed wordmark. The selector
+   carries .fx so it outranks `.fx img { height: auto }` above, which would
+   otherwise let the file's own height through. */
+.fx .fx-top__logo { display: block; height: 1.15em; width: auto; }
+.fx .fx-top__logo[data-logo="learngenie"] { height: 1.5em; }
+.fx .fx-top__logo[data-logo="gennxt"] { height: 0.95em; }
 .fx-top nav { display: flex; gap: 4px; margin-inline: auto; flex-wrap: wrap; }
 .fx-top nav a {
   padding: 7px 12px; border-radius: 999px; font-size: 0.88em; font-weight: 600;

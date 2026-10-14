@@ -756,6 +756,14 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
+ "Learngenie": [
+  "index.html",
+  "products.html",
+  "privacy.html",
+  "contact.html",
+  "brochure.html",
+  "products/learngenie.html"
+ ],
  "Talk to us": [
   "products.html",
   "contact.html",
@@ -778,12 +786,26 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
- "Learngenie": [
+ "Finaware": [
   "index.html",
   "products.html",
-  "privacy.html",
   "contact.html",
-  "brochure.html"
+  "brochure.html",
+  "products/finaware.html"
+ ],
+ "Finexa": [
+  "index.html",
+  "products.html",
+  "contact.html",
+  "brochure.html",
+  "products/finexa.html"
+ ],
+ "Finexa GenNxt": [
+  "index.html",
+  "products.html",
+  "contact.html",
+  "brochure.html",
+  "products/finexa-gennxt.html"
  ],
  "Schedule a demo": [
   "products.html",
@@ -809,24 +831,6 @@
   "products/finexa.html",
   "products/fiscus.html",
   "products/learngenie.html"
- ],
- "Finaware": [
-  "index.html",
-  "products.html",
-  "contact.html",
-  "brochure.html"
- ],
- "Finexa": [
-  "index.html",
-  "products.html",
-  "contact.html",
-  "brochure.html"
- ],
- "Finexa GenNxt": [
-  "index.html",
-  "products.html",
-  "contact.html",
-  "brochure.html"
  ],
  "Fiscus": [
   "index.html",
@@ -884,11 +888,6 @@
  "Enterprise-grade security": [
   "products.html",
   "products/finexa-gennxt.html",
-  "products/finaware.html"
- ],
- "fin": [
-  "products.html",
-  "products/finexa.html",
   "products/finaware.html"
  ],
  "Financial literacy": [
@@ -1368,10 +1367,6 @@
  "Automation and advanced features that save time and effort": [
   "products.html",
   "products/fiscus.html"
- ],
- "aware": [
-  "products.html",
-  "products/finaware.html"
  ],
  "B2B2C": [
   "products.html",
@@ -2185,10 +2180,6 @@
   "products.html",
   "products/learngenie.html"
  ],
- "exa": [
-  "products.html",
-  "products/finexa.html"
- ],
  "Exams and assignments": [
   "products.html",
   "products/learngenie.html"
@@ -2316,10 +2307,6 @@
  "Find an Advisor: financial professionals shown on a map near the investor": [
   "products.html",
   "products/fiscus.html"
- ],
- "finexa": [
-  "products.html",
-  "products/finexa-gennxt.html"
  ],
  "Finexa feature groups": [
   "products.html",
@@ -2508,14 +2495,6 @@
  "Generate invoices and manage billing after every event": [
   "products.html",
   "products/finaware.html"
- ],
- "genie": [
-  "products.html",
-  "products/learngenie.html"
- ],
- "GenNxt": [
-  "products.html",
-  "products/finexa-gennxt.html"
  ],
  "Geo-tagged proof logs gathered as the session runs": [
   "products.html",
@@ -2932,10 +2911,6 @@
  "Leads to your inbox": [
   "products.html",
   "products/fiscus.html"
- ],
- "learn": [
-  "products.html",
-  "products/learngenie.html"
  ],
  "Learners compete with peers by earning points, sharing badges and receiving certifications — a sense of accomplishment and healthy competition.": [
   "products.html",

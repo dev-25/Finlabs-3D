@@ -444,9 +444,9 @@
     "semantic_hash": "15ebe9f4fcc68c4879fec70ac22441c6"
   },
   "about.html": {
-    "mtime": 1791828188.6953187,
-    "seen": 1791828245.087049,
-    "ast_hash": "3658166201804c5666d5dfb29b94dcc1",
+    "mtime": 1791885236.9463692,
+    "seen": 1791885328.144628,
+    "ast_hash": "b05d7c29b7e157f560be4e75a5b52185",
     "semantic_hash": ""
   },
   "brochure.html": {
@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1791826018.8883843,
-    "seen": 1791826377.5528371,
-    "ast_hash": "4b14ceee5092645ce0e766ccce1e7c4b",
+    "mtime": 1791885176.6457963,
+    "seen": 1791885328.14463,
+    "ast_hash": "84ac2447a2699ffb7ab3f64774ecfd7d",
     "semantic_hash": ""
   },
   "knowledge-centre/blogs.html": {
@@ -1608,9 +1608,9 @@
     "semantic_hash": "9960a24288958394ac50e57ff638b036"
   },
   "src/partners.js": {
-    "mtime": 1791580070.615927,
-    "seen": 1791580289.5235178,
-    "ast_hash": "5a9b4dfec082824b31f7bf87d979eb5a",
+    "mtime": 1791885192.5729475,
+    "seen": 1791885328.14462,
+    "ast_hash": "b580fd1116701a1e9f820ecfcf0ae3fb",
     "semantic_hash": ""
   },
   "case-study.html": {
@@ -1620,9 +1620,9 @@
     "semantic_hash": ""
   },
   "partners.html": {
-    "mtime": 1791815128.185532,
-    "seen": 1791815929.58361,
-    "ast_hash": "a3a633925175304c27eea6af6900c149",
+    "mtime": 1791885201.3995278,
+    "seen": 1791885328.1446311,
+    "ast_hash": "20bdc223c1597a5cdbe359957db66a0e",
     "semantic_hash": ""
   },
   "src/partners-scene.js": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1791828226.9655957,
-    "seen": 1791828245.086999,
-    "ast_hash": "f1265283be64986de059e3a3b76dcd61",
+    "mtime": 1791885296.0359306,
+    "seen": 1791885328.144576,
+    "ast_hash": "c66ff681b4283eeb7aef0b8eaeb4495e",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1791828234.5039487,
-    "seen": 1791828245.087001,
-    "ast_hash": "3da0f5779e77d0e9f6be6d37b11efaa6",
+    "mtime": 1791885318.4508529,
+    "seen": 1791885328.144578,
+    "ast_hash": "0a540b90cc668d03a9a32076718fca20",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1791828234.510371,
-    "seen": 1791828245.087002,
-    "ast_hash": "4aac79e8f765ff5c73a987d10c90a84c",
+    "mtime": 1791885318.456734,
+    "seen": 1791885328.1445792,
+    "ast_hash": "6425243332031e2734d347f7de865919",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
