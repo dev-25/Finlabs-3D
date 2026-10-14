@@ -4005,10 +4005,6 @@
   "products.html",
   "products/finaware.html"
  ],
- "Seven building blocks": [
-  "index.html",
-  "brochure.html"
- ],
  "Sign up": [
   "products.html",
   "products/fiscus.html"
@@ -8799,6 +8795,9 @@
  "Services we build with most": [
   "services/cloud.html"
  ],
+ "Seven building blocks": [
+  "brochure.html"
+ ],
  "Severability of Provisions": [
   "terms.html"
  ],
@@ -8852,6 +8851,9 @@
  ],
  "Sites, portals and mobile apps": [
   "solutions.html"
+ ],
+ "Six building blocks": [
+  "index.html"
  ],
  "Six solutions for wealth managers, distributors, advisers, AMCs and financial institutions — from cloud and robo-advisory to websites and apps, analytics, documents and compliance. Start with the one you need today and add more as you grow.": [
   "solutions.html"

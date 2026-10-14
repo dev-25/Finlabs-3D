@@ -722,7 +722,7 @@ function chipLabel() {
     ctx.textAlign = 'center';
     ctx.fillStyle = '#22d3ee';
     ctx.font = `700 92px ${MONO}`;
-    ctx.fillText('07', w / 2, 150);
+    ctx.fillText('06', w / 2, 150);
     ctx.fillStyle = '#eef3ff';
     ctx.font = `700 26px ${MONO}`;
     ctx.fillText('SOLUTIONS', w / 2, 196);
