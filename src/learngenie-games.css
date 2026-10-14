@@ -1,0 +1,442 @@
+/* =====================================================
+ * LEARNGENIE — the gamified formats
+ * =====================================================
+ * The playable demo cards, the live-session mock beside
+ * them, and the modal the five games run in. Everything
+ * here is scoped to the Learngenie page, which the
+ * showroom also shows on its monitor, so it uses the
+ * same --fx-* tokens as the rest of that page and
+ * follows the theme with it.
+ * ===================================================== */
+
+/* ---------- the live session mock ---------- */
+
+.lg-live {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+@container (max-width: 760px) {
+  .lg-live { grid-template-columns: 1fr; }
+}
+
+.lg-live__panel {
+  border: 1px solid var(--fx-line);
+  border-radius: 16px;
+  background: var(--fx-surface);
+  padding: 16px;
+  box-shadow: 0 18px 40px -30px rgba(10, 30, 70, 0.5);
+}
+.lg-live__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.lg-live__title { font-weight: 700; color: var(--fx-navy); font-size: 0.92em; }
+.lg-live__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 700 0.72em/1 var(--mono);
+  letter-spacing: 0.12em;
+  color: #e11d48;
+}
+.lg-live__live::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e11d48;
+  animation: lg-pulse 1.4s infinite;
+}
+@keyframes lg-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.lg-live__q {
+  font-weight: 700;
+  color: var(--fx-navy);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.lg-live__opts { display: grid; gap: 8px; margin-bottom: 14px; }
+.lg-live__opt {
+  border: 1px solid var(--fx-line);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 0.88em;
+  color: var(--fx-ink-2);
+  background: var(--fx-wash);
+}
+.lg-live__opt--on { border-color: var(--fx-brand); color: var(--fx-navy); font-weight: 600; }
+.lg-live__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font: 600 0.78em/1 var(--mono);
+  color: var(--fx-ink-3);
+}
+
+.lg-rank { display: grid; gap: 10px; }
+.lg-rank__cue { font: 700 0.7em/1.2 var(--mono); letter-spacing: 0.1em; color: var(--fx-brand); }
+.lg-rank__row {
+  display: grid;
+  grid-template-columns: 18px 32px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--fx-wash);
+}
+.lg-rank__no { font: 700 0.8em/1 var(--mono); color: var(--fx-ink-3); }
+.lg-rank__pic {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font: 700 0.85em/1 var(--display);
+  color: #fff;
+  background: linear-gradient(135deg, var(--fx-brand), var(--fx-deep));
+}
+.lg-rank__who { font-weight: 600; color: var(--fx-navy); font-size: 0.88em; }
+.lg-rank__pts { font: 700 0.85em/1 var(--mono); color: #0d9e8d; }
+
+/* ---------- what the games are for ---------- */
+
+.lg-values {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 30px;
+}
+@container (max-width: 760px) {
+  .lg-values { grid-template-columns: 1fr; }
+}
+.lg-values li {
+  border: 1px solid var(--fx-line);
+  border-radius: 14px;
+  padding: 16px;
+  background: var(--fx-wash);
+}
+.lg-values b { display: block; color: var(--fx-navy); margin-bottom: 6px; }
+.lg-values span { color: var(--fx-ink-2); font-size: 0.9em; }
+.lg-values .lg-values__ico {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: var(--fx-brand);
+  background: var(--fx-soft);
+}
+.lg-values svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- the game cards ---------- */
+
+.lg-games {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+@container (max-width: 1000px) {
+  .lg-games { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container (max-width: 560px) {
+  .lg-games { grid-template-columns: 1fr; }
+}
+
+.lg-game {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--fx-line);
+  border-radius: 16px;
+  background: var(--fx-surface);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.lg-game:hover,
+.lg-game:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--fx-brand);
+  box-shadow: 0 24px 50px -30px rgba(10, 30, 70, 0.55);
+}
+
+.lg-game__cover {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 104px;
+  color: #fff;
+}
+.lg-game__cover svg { width: 42px; height: 42px; }
+.lg-game__plays {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font: 700 0.7em/1 var(--mono);
+  color: #fff;
+  background: rgba(8, 20, 45, 0.35);
+}
+/* each cover takes the colour its format had on the live site */
+.gc-gold { background: linear-gradient(135deg, #f5a524, #f59e0b); }
+.gc-mint { background: linear-gradient(135deg, #1b6098, #3cdec2); }
+.gc-blue { background: linear-gradient(135deg, #2980e0, #0ea5e9); }
+.gc-purple { background: linear-gradient(135deg, #1b6098, #7c3aed); }
+.gc-rose { background: linear-gradient(135deg, #f43f5e, #fb923c); }
+.gc-orange { background: linear-gradient(135deg, #fb923c, #f59e0b); }
+.gc-indigo { background: linear-gradient(135deg, #4f46e5, #6366f1); }
+.gc-green { background: linear-gradient(135deg, #10b981, #34d399); }
+
+.lg-game__body { display: flex; flex-direction: column; gap: 8px; padding: 14px; flex: 1; }
+.lg-game__tag {
+  align-self: flex-start;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font: 700 0.68em/1.4 var(--mono);
+  letter-spacing: 0.08em;
+  color: #0d9e8d;
+  background: rgba(60, 222, 194, 0.16);
+}
+.lg-game__tag--soon { color: var(--fx-ink-3); background: var(--fx-soft); }
+.lg-game__name { font-family: var(--display); font-weight: 700; color: var(--fx-navy); font-size: 1.02em; line-height: 1.25; }
+.lg-game__desc { color: var(--fx-ink-2); font-size: 0.86em; line-height: 1.5; flex: 1; }
+.lg-game__play { font-weight: 700; color: var(--fx-brand); font-size: 0.86em; }
+
+/* ---------- the modal the games run in ---------- */
+
+.lg-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(6, 16, 36, 0.72);
+  backdrop-filter: blur(4px);
+}
+.lg-modal[hidden] { display: none; }
+.lg-modal__box {
+  width: min(560px, 100%);
+  max-height: min(88vh, 760px);
+  overflow: auto;
+  border-radius: 18px;
+  background: #fff;
+  color: #14254a;
+  box-shadow: 0 60px 120px -40px rgba(4, 16, 40, 0.8);
+}
+.lg-modal__head { position: relative; padding: 18px 20px; color: #fff; background: linear-gradient(135deg, #1b6098, #2980e0); }
+.lg-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+}
+.lg-modal__close:hover { background: rgba(255, 255, 255, 0.32); }
+.lg-modal__kicker { font-size: 13px; opacity: 0.85; margin-bottom: 4px; }
+.lg-modal__title { font-family: var(--display); font-weight: 800; }
+.lg-modal__bar { height: 4px; margin-top: 12px; border-radius: 2px; background: rgba(255, 255, 255, 0.22); }
+.lg-modal__bar i { display: block; height: 100%; border-radius: 2px; background: #3cdec2; transition: width 0.5s; }
+.lg-modal__body { padding: 20px; }
+
+.lg-q { font-family: var(--display); font-weight: 700; font-size: 17px; line-height: 1.35; margin-bottom: 14px; }
+.lg-opts { display: grid; gap: 9px; }
+.lg-opt {
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid #dbe3f0;
+  border-radius: 10px;
+  background: #f7f9fd;
+  font: inherit;
+  font-size: 14px;
+  color: #14254a;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.lg-opt:hover:not(:disabled) { border-color: #1b6098; background: #eef4fb; }
+.lg-opt:disabled { cursor: default; }
+.lg-opt.is-right { border-color: #3cdec2; background: #e8fbf7; color: #0d9e8d; font-weight: 600; }
+.lg-opt.is-wrong { border-color: rgba(220, 50, 50, 0.5); background: #fff5f5; color: #b33030; }
+
+.lg-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; font: 600 12.5px/1 var(--mono); color: #6b7a9b; margin-top: 14px; }
+.lg-timer { height: 5px; border-radius: 3px; background: #e2eaf4; margin-bottom: 14px; overflow: hidden; }
+.lg-timer i { display: block; height: 100%; background: linear-gradient(90deg, #1b6098, #3cdec2); transition: width 1s linear; }
+
+.lg-note { margin-top: 12px; padding: 12px; border-radius: 8px; font-size: 13px; line-height: 1.5; }
+.lg-note--right { background: #e8fbf7; border-left: 3px solid #3cdec2; color: #0d9e8d; }
+.lg-note--wrong { background: #fff5f5; border-left: 3px solid rgba(220, 50, 50, 0.5); color: #b33030; }
+
+/* right or wrong */
+.lg-stmt { padding: 22px 18px; border-radius: 14px; background: #f7f9fd; border: 1px solid #dbe3f0; font-family: var(--display); font-weight: 600; font-size: 17px; line-height: 1.45; text-align: center; }
+.lg-rw { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+.lg-rw button { padding: 13px; border: 0; border-radius: 12px; font: 700 15px/1 var(--display); color: #fff; cursor: pointer; }
+.lg-rw .is-right { background: linear-gradient(135deg, #10b981, #3cdec2); }
+.lg-rw .is-wrong { background: linear-gradient(135deg, #e11d48, #fb7185); }
+.lg-rw button:disabled { opacity: 0.55; cursor: default; }
+
+/* the zipline run */
+.lg-track { position: relative; height: 64px; margin-bottom: 18px; }
+.lg-track__line { position: absolute; top: 50%; left: 20px; right: 20px; height: 3px; border-radius: 2px; background: repeating-linear-gradient(90deg, #cbd9ee 0 10px, transparent 10px 18px); }
+.lg-track__rider { position: absolute; top: calc(50% - 18px); font-size: 26px; transition: left 0.6s ease; }
+.lg-track__goal { position: absolute; top: calc(50% - 16px); right: 4px; font-size: 24px; }
+.lg-track__goal.is-reached { animation: lg-bounce 0.6s ease 2; }
+@keyframes lg-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* match the following */
+.lg-match { display: grid; grid-template-columns: 1fr 1.3fr; gap: 10px; }
+.lg-match__col { display: grid; gap: 8px; align-content: start; }
+.lg-match button {
+  padding: 11px 12px;
+  border: 1px solid #dbe3f0;
+  border-radius: 10px;
+  background: #f7f9fd;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  color: #14254a;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, opacity 0.2s;
+}
+.lg-match button.is-picked { border-color: #7c3aed; background: #f3ecff; font-weight: 600; }
+.lg-match button.is-done { border-color: #3cdec2; background: #e8fbf7; color: #0d9e8d; opacity: 0.75; cursor: default; }
+.lg-match button.is-miss { border-color: #ef4444; background: #fef2f2; }
+
+/* word scramble */
+.lg-hint { padding: 12px 14px; border-radius: 10px; background: #fff7ed; border-left: 3px solid #fb923c; font-size: 13.5px; color: #9a3412; margin-bottom: 16px; }
+.lg-slots { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.lg-slots.is-miss { animation: lg-shake 0.4s; }
+@keyframes lg-shake {
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.lg-slot {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 48px;
+  border: 2px dashed #cbd9ee;
+  border-radius: 10px;
+  font: 800 20px/1 var(--display);
+  color: #14254a;
+}
+.lg-slot.is-filled { border-style: solid; border-color: #f43f5e; background: #fff1f2; cursor: pointer; }
+.lg-letters { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+.lg-letters button {
+  width: 42px;
+  height: 48px;
+  border: 1px solid #dbe3f0;
+  border-radius: 10px;
+  background: #f7f9fd;
+  font: 800 20px/1 var(--display);
+  color: #14254a;
+  cursor: pointer;
+}
+.lg-letters button:disabled { opacity: 0.25; cursor: default; }
+
+/* the end screen */
+.lg-end { text-align: center; }
+.lg-end__ring {
+  --p: 0%;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(#1b6098 var(--p), #e2eaf4 0);
+}
+/* the child combinator matters: the score and its label are spans too */
+.lg-end__ring > span {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: #fff;
+  font-family: var(--display);
+}
+.lg-end__score { font-size: 26px; font-weight: 800; color: #14254a; }
+.lg-end__label { font: 600 11px/1 var(--mono); letter-spacing: 0.12em; color: #6b7a9b; text-transform: uppercase; }
+.lg-end__big { font-size: 42px; margin-bottom: 10px; }
+.lg-end__line { font-family: var(--display); font-size: 19px; font-weight: 800; margin-bottom: 10px; }
+.lg-end p { font-size: 14px; color: #4b5d84; line-height: 1.6; margin-bottom: 20px; }
+.lg-end__cta { padding: 18px; border-radius: 14px; color: #fff; background: linear-gradient(135deg, #1b6098, #2980e0); }
+.lg-end__cta b { display: block; font-size: 15px; margin-bottom: 12px; }
+.lg-end__cta a {
+  display: block;
+  padding: 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0f1a33;
+  background: linear-gradient(135deg, #f5c451, #f59e0b);
+}
+
+/* the confetti a correct answer throws */
+.lg-confetti { position: fixed; inset: 0; pointer-events: none; z-index: 95; overflow: hidden; }
+.lg-confetti i {
+  position: absolute;
+  width: 9px;
+  height: 14px;
+  border-radius: 2px;
+  animation: lg-fall 1s ease-in forwards;
+}
+@keyframes lg-fall {
+  to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+.lg-xp {
+  position: fixed;
+  left: 50%;
+  top: 28%;
+  z-index: 96;
+  transform: translateX(-50%);
+  font: 800 28px/1 var(--display);
+  color: #f59e0b;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  animation: lg-rise 1.2s ease-out forwards;
+}
+@keyframes lg-rise {
+  to { transform: translate(-50%, -40px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-game,
+  .lg-track__rider,
+  .lg-timer i { transition: none; }
+  .lg-confetti i,
+  .lg-xp,
+  .lg-slots.is-miss,
+  .lg-track__goal.is-reached,
+  .lg-live__live::before { animation: none; }
+}

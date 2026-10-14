@@ -83,6 +83,11 @@ function activate(index) {
     'aria-label',
     `Close ${active.dataset.name || 'this product'} and return to Products`
   );
+  // Learngenie's playable formats run on the monitor too
+  if (active.querySelector('[data-game]')) {
+    import('./learngenie-games.js').then((m) => m.wireGames(active));
+  }
+
   const heading = active.querySelector('h1[id]');
   if (heading) screenEl.setAttribute('aria-labelledby', heading.id);
   return active;
@@ -167,14 +172,18 @@ if (panel) {
   panel.addEventListener('click', (e) => {
     if (e.target === panel) close();
   });
+  // a Learngenie game runs in a modal of its own above the screen; while it
+  // is open the screen leaves both the Escape key and the focus to it
+  const gameOpen = () => !!document.querySelector('.lg-modal:not([hidden])');
+
   document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape' || current < 0) return;
+    if (e.key !== 'Escape' || current < 0 || gameOpen()) return;
     if (lightbox.isOpen()) lightbox.close();
     else close();
   });
   // a light focus trap: keep the keyboard inside the screen while it is open
   document.addEventListener('focusin', (e) => {
-    if (current >= 0 && !panel.contains(e.target)) closeBtn.focus({ preventScroll: true });
+    if (current >= 0 && !panel.contains(e.target) && !gameOpen()) closeBtn.focus({ preventScroll: true });
   });
 
   wireTabs(panel);

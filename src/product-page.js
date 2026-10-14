@@ -30,6 +30,11 @@ if (doc) {
     if (e.key === 'Escape') lightbox.close();
   });
 
+  // Learngenie's playable formats, when this is that page
+  if (doc.querySelector('[data-game]')) {
+    import('./learngenie-games.js').then((m) => m.wireGames(doc));
+  }
+
   const host = doc.querySelector('[data-scene]');
   // the page reads before its 3D arrives
   if (host) afterPaint(() => buildScene(host).then((piece) => piece && runPiece(host, piece)));
