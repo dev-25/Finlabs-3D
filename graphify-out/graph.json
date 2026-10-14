@@ -1671,7 +1671,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "afterpaint()",
       "source_file": "src/after-paint.js",
@@ -1683,11 +1683,35 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "idle()",
       "source_file": "src/after-paint.js",
       "source_location": "L39"
+    },
+    {
+      "id": "src_nav_drawline",
+      "label": "drawLine()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "drawline()",
+      "source_file": "src/nav.js",
+      "source_location": "L45"
+    },
+    {
+      "id": "src_nav_setopen",
+      "label": "setOpen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "setopen()",
+      "source_file": "src/nav.js",
+      "source_location": "L16"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -2182,30 +2206,6 @@
       "source_location": "L75"
     },
     {
-      "id": "src_nav_drawline",
-      "label": "drawLine()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "drawline()",
-      "source_file": "src/nav.js",
-      "source_location": "L45"
-    },
-    {
-      "id": "src_nav_setopen",
-      "label": "setOpen()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "setopen()",
-      "source_file": "src/nav.js",
-      "source_location": "L16"
-    },
-    {
       "id": "src_case_study_highlight",
       "label": "highlight()",
       "_callable": true,
@@ -2458,6 +2458,18 @@
       "source_location": "L30"
     },
     {
+      "id": "src_theme_ontheme",
+      "label": "onTheme()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "ontheme()",
+      "source_file": "src/theme.js",
+      "source_location": "L59"
+    },
+    {
       "id": "src_theme_chosen",
       "label": "chosen()",
       "_callable": true,
@@ -2492,18 +2504,6 @@
       "norm_label": "inittheme()",
       "source_file": "src/theme.js",
       "source_location": "L65"
-    },
-    {
-      "id": "src_theme_ontheme",
-      "label": "onTheme()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "ontheme()",
-      "source_file": "src/theme.js",
-      "source_location": "L59"
     },
     {
       "id": "src_theme_paint",
@@ -5772,50 +5772,6 @@
       "source_location": "L90"
     },
     {
-      "id": "src_doc",
-      "label": "doc.js",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "doc.js",
-      "source_file": "src/doc.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_doc_form",
-      "label": "form",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "form",
-      "source_file": "src/doc.js",
-      "source_location": "L49"
-    },
-    {
-      "id": "src_doc_note",
-      "label": "note",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "note",
-      "source_file": "src/doc.js",
-      "source_location": "L50"
-    },
-    {
-      "id": "src_doc_toclinks",
-      "label": "tocLinks",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "toclinks",
-      "source_file": "src/doc.js",
-      "source_location": "L22"
-    },
-    {
       "id": "src_solutions_ui",
       "label": "solutions-ui.js",
       "_origin": "ast",
@@ -6685,22 +6641,11 @@
       "source_location": "L89"
     },
     {
-      "id": "src_x_scene",
-      "label": "./x-scene.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "./x-scene.js",
-      "source_file": "src/x-scene.js"
-    },
-    {
       "id": "src_after_paint",
       "label": "after-paint.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "after-paint.js",
       "source_file": "src/after-paint.js",
@@ -6711,7 +6656,7 @@
       "label": "home.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "home.js",
       "source_file": "src/home.js",
@@ -6722,18 +6667,73 @@
       "label": "main.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "main.js",
       "source_file": "src/main.js",
       "source_location": "L1"
     },
     {
+      "id": "src_nav",
+      "label": "nav.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "nav.js",
+      "source_file": "src/nav.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_nav_fill",
+      "label": "fill",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "fill",
+      "source_file": "src/nav.js",
+      "source_location": "L40"
+    },
+    {
+      "id": "src_nav_line",
+      "label": "line",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "line",
+      "source_file": "src/nav.js",
+      "source_location": "L37"
+    },
+    {
+      "id": "src_nav_menu",
+      "label": "menu",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "menu",
+      "source_file": "src/nav.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_nav_nav",
+      "label": "nav",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "nav",
+      "source_file": "src/nav.js",
+      "source_location": "L13"
+    },
+    {
       "id": "src_partners",
       "label": "partners.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "partners.js",
       "source_file": "src/partners.js",
@@ -6744,7 +6744,7 @@
       "label": "services.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "services.js",
       "source_file": "src/services.js",
@@ -6755,7 +6755,7 @@
       "label": "solutions.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "solutions.js",
       "source_file": "src/solutions.js",
@@ -6766,7 +6766,7 @@
       "label": "whatsapp.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "whatsapp.js",
       "source_file": "src/whatsapp.js",
@@ -6777,7 +6777,7 @@
       "label": "button",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "button",
       "source_file": "src/whatsapp.js",
@@ -7235,61 +7235,6 @@
       "source_location": "L25"
     },
     {
-      "id": "src_nav",
-      "label": "nav.js",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "nav.js",
-      "source_file": "src/nav.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_nav_fill",
-      "label": "fill",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "fill",
-      "source_file": "src/nav.js",
-      "source_location": "L40"
-    },
-    {
-      "id": "src_nav_line",
-      "label": "line",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "line",
-      "source_file": "src/nav.js",
-      "source_location": "L37"
-    },
-    {
-      "id": "src_nav_menu",
-      "label": "menu",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "menu",
-      "source_file": "src/nav.js",
-      "source_location": "L14"
-    },
-    {
-      "id": "src_nav_nav",
-      "label": "nav",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "nav",
-      "source_file": "src/nav.js",
-      "source_location": "L13"
-    },
-    {
       "id": "src_case_study",
       "label": "case-study.js",
       "_origin": "ast",
@@ -7387,6 +7332,50 @@
       "norm_label": "brochure.js",
       "source_file": "src/brochure.js",
       "source_location": "L1"
+    },
+    {
+      "id": "src_doc",
+      "label": "doc.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "doc.js",
+      "source_file": "src/doc.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_doc_form",
+      "label": "form",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "form",
+      "source_file": "src/doc.js",
+      "source_location": "L49"
+    },
+    {
+      "id": "src_doc_note",
+      "label": "note",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "note",
+      "source_file": "src/doc.js",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_doc_toclinks",
+      "label": "tocLinks",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "toclinks",
+      "source_file": "src/doc.js",
+      "source_location": "L22"
     },
     {
       "id": "src_theme",
@@ -15122,7 +15111,7 @@
       "label": "src_bang",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_bang",
@@ -15134,7 +15123,7 @@
       "label": "src_style",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_style",
@@ -28466,15 +28455,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_after_paint",
-      "target": "src_x_scene",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/after-paint.js"
-    },
-    {
       "source": "src_case_study",
       "target": "src_case_study_scene",
       "relation": "dynamic_import",
@@ -32563,5 +32543,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "d81f7e7a0dee63fe2477b6694efc76045841c8ea"
+  "built_at_commit": "b6630e1e0d2c456174a4a7a8e2df1776650a3864"
 }
