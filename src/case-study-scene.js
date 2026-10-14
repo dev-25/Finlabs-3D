@@ -355,46 +355,55 @@ function start() {
 
   const SLAB = 0x7b83d6; // the periwinkle the reference's platforms are cut from
   const SLAB_DEEP = 0x5a62b8;
-  const slabGeo = box(PLAT, THICK, PLAT, 0.06);
   const slabMat = mat(SLAB, { rough: 0.42 });
   const slabDeepMat = mat(SLAB_DEEP, { rough: 0.55 });
 
   // Each platform differs from its neighbour along one axis only, so every
   // flight runs straight out of the middle of an edge and into the middle of
-  // the one facing it — the way the reference lays its staircases out. In
-  // this view +x reads as down-right and +z as down-left.
+  // the one facing it. In this view +x reads as down-right and +z as
+  // down-left. One plate is a rectangle rather than a square, as the
+  // reference's presenting floor is.
   const RUN = 13.5; // how far apart two joined platforms stand
   const FALL = 2.4; // and how far the lower one sits below
 
   const FLOORS = [
-    { id: 'amc', at: new THREE.Vector3(0, 0, 0), scene: 'stage' },
-    { id: 'nps', at: new THREE.Vector3(0, -FALL, RUN), scene: 'laptop' },
-    { id: 'insurer', at: new THREE.Vector3(RUN, -FALL, 0), scene: 'deal' },
-    { id: 'nbfc', at: new THREE.Vector3(RUN, -FALL * 2, RUN), scene: 'plan' },
+    { id: 'amc', at: new THREE.Vector3(0, 0, 0), w: 11.4, d: 8.0, scene: 'stage' },
+    { id: 'nps', at: new THREE.Vector3(0, -FALL, RUN), w: 8.4, d: 8.4, scene: 'laptop' },
+    { id: 'insurer', at: new THREE.Vector3(RUN, -FALL, 0), w: 8.4, d: 8.4, scene: 'deal' },
+    { id: 'nbfc', at: new THREE.Vector3(RUN, -FALL * 2, RUN), w: 8.4, d: 8.4, scene: 'plan' },
   ];
 
-  /** One flight: separate steps falling from one platform's edge to the next,
-   *  each a flat plate of its own, as the reference draws them. */
-  function stairs(a, b, width = 3.0) {
+  /** One flight. Each step is a plate the same thickness as a platform, and
+   *  they meet edge to edge: tread, drop, tread, the way a staircase reads in
+   *  the reference — no gaps between them and nothing bulky underneath. */
+  function stairs(a, b, width = 3.4) {
     const g = new THREE.Group();
     const span = b.clone().sub(a);
     const run = Math.hypot(span.x, span.z);
-    const steps = Math.max(5, Math.round(run / 1.15));
+    const steps = Math.max(5, Math.round(run / 1.2));
     const tread = run / steps;
-    const along = span.clone().setY(0).normalize();
+    const rise = (a.y - b.y) / steps;
+    const alongZ = Math.abs(span.z) > Math.abs(span.x);
     for (let k = 0; k < steps; k++) {
       const u = (k + 0.5) / steps;
-      const step = new THREE.Mesh(box(width, THICK, tread * 0.78, 0.05), slabMat);
+      const step = new THREE.Mesh(
+        alongZ ? box(width, THICK, tread, 0.03) : box(tread, THICK, width, 0.03),
+        slabMat
+      );
       step.position.copy(a).addScaledVector(span, u);
-      // square to the run, so a flight along x and one along z both sit true
-      if (Math.abs(along.x) < Math.abs(along.z)) step.rotation.y = Math.PI / 2;
+      step.position.y = a.y - rise * k;
       g.add(step);
-      // the thin side under each tread, which is all the depth a plate has
-      const side = new THREE.Mesh(box(width - 0.12, 0.5, tread * 0.7, 0.03), slabDeepMat);
-      side.position.copy(step.position);
-      side.position.y -= 0.4;
-      side.rotation.copy(step.rotation);
-      g.add(side);
+      // the riser: the thin face dropping to the next tread, which is all the
+      // depth these plates have
+      const riser = new THREE.Mesh(
+        alongZ ? box(width, rise + THICK, THICK, 0.02) : box(THICK, rise + THICK, width, 0.02),
+        slabDeepMat
+      );
+      riser.position.copy(step.position);
+      riser.position.y -= rise / 2;
+      if (alongZ) riser.position.z += (Math.sign(span.z) * tread) / 2;
+      else riser.position.x += (Math.sign(span.x) * tread) / 2;
+      g.add(riser);
     }
     return g;
   }
@@ -406,12 +415,12 @@ function start() {
     g.position.copy(f.at);
     root.add(g);
 
-    const slab = new THREE.Mesh(slabGeo, slabMat);
+    const slab = new THREE.Mesh(box(f.w, THICK, f.d, 0.06), slabMat);
     g.add(slab);
-    // the platform's own edge: a shallow skirt, so it reads as a plate with
-    // thickness rather than a cube standing on the dark
-    const skirt = new THREE.Mesh(box(PLAT - 0.16, 0.7, PLAT - 0.16, 0.05), slabDeepMat);
-    skirt.position.y = -0.5;
+    // the plate's own edge: a shallow skirt, so it has thickness without
+    // becoming a block
+    const skirt = new THREE.Mesh(box(f.w - 0.16, 0.55, f.d - 0.16, 0.04), slabDeepMat);
+    skirt.position.y = -0.42;
     g.add(skirt);
 
     const vig = new THREE.Group();
@@ -428,10 +437,11 @@ function start() {
   // the four flights: down-left and down-right from the top floor, and the
   // same again into the planning floor at the bottom
   [[0, 1], [0, 2], [1, 3], [2, 3]].forEach(([from, to]) => {
-    const a = FLOORS[from].at.clone();
-    const b = FLOORS[to].at.clone();
-    const dir = b.clone().sub(a).setY(0).normalize();
-    root.add(stairs(a.addScaledVector(dir, PLAT / 2), b.addScaledVector(dir, -PLAT / 2)));
+    const A = FLOORS[from];
+    const B = FLOORS[to];
+    const dir = B.at.clone().sub(A.at).setY(0).normalize();
+    const half = (f) => (Math.abs(dir.z) > Math.abs(dir.x) ? f.d : f.w) / 2;
+    root.add(stairs(A.at.clone().addScaledVector(dir, half(A)), B.at.clone().addScaledVector(dir, -half(B))));
   });
 
   // =====================================================

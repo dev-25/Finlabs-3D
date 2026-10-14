@@ -20,27 +20,6 @@ body:has(.cs--poster) {
   background: radial-gradient(120% 90% at 78% 12%, #2b2f73 0%, #1a1f52 45%, #10143a 100%);
   overflow-x: hidden;
 }
-body:has(.cs--poster)::before,
-body:has(.cs--poster)::after {
-  content: "";
-  position: fixed;
-  z-index: 0;
-  pointer-events: none;
-  border-radius: 50%;
-}
-/* the pink shape top-left, and the one that comes in at the bottom right */
-body:has(.cs--poster)::before {
-  width: 30vw; height: 30vw; left: -14vw; top: -12vw;
-  background: linear-gradient(140deg, #f0587f, #d9407a);
-  border-radius: 0 0 50% 50% / 0 0 60% 60%;
-  opacity: 0.9;
-}
-body:has(.cs--poster)::after {
-  width: 26vw; height: 26vw; right: -10vw; bottom: -12vw;
-  background: linear-gradient(140deg, #f0587f, #c0307a);
-  opacity: 0.9;
-}
-
 .cs--poster { position: relative; z-index: 1; min-height: 100svh; display: grid; }
 
 /* the title block: a short column on the right, centred against the art */
@@ -105,6 +84,4 @@ body:has(.cs--poster)::after {
   }
   .cs-poster__copy { width: 100%; }
   .cs-poster h1 { max-width: none; }
-  body:has(.cs--poster)::before { width: 52vw; height: 52vw; }
-  body:has(.cs--poster)::after { width: 44vw; height: 44vw; }
 }
