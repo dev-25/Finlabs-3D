@@ -360,10 +360,10 @@
     "semantic_hash": ""
   },
   "src/product-page.js": {
-    "mtime": 1790492310.2488832,
-    "seen": 1790526272.0577211,
-    "ast_hash": "77676dbda89b8c7faa06150650d9deac",
-    "semantic_hash": "77676dbda89b8c7faa06150650d9deac"
+    "mtime": 1792003535.7613502,
+    "seen": 1792003863.488029,
+    "ast_hash": "728f3a21602874fb3274d631f31a9bbd",
+    "semantic_hash": ""
   },
   "src/product-ui.js": {
     "mtime": 1791815036.7272844,
@@ -372,10 +372,10 @@
     "semantic_hash": ""
   },
   "src/product-viewport.js": {
-    "mtime": 1790492310.249062,
-    "seen": 1790526272.057722,
-    "ast_hash": "5bc4080f265aa70d300c55d75cf1ac1e",
-    "semantic_hash": "5bc4080f265aa70d300c55d75cf1ac1e"
+    "mtime": 1792003731.4075089,
+    "seen": 1792003863.48803,
+    "ast_hash": "ecc1785a3b03e5b4379346e60f7fb103",
+    "semantic_hash": ""
   },
   "src/services-scene.js": {
     "mtime": 1791582082.430196,
@@ -618,9 +618,9 @@
     "semantic_hash": ""
   },
   "src/partials/products/learngenie.html": {
-    "mtime": 1791952419.0260096,
-    "seen": 1791952626.038015,
-    "ast_hash": "9c0b9f2522569927a343adb7482017f0",
+    "mtime": 1792003535.7171402,
+    "seen": 1792003863.488055,
+    "ast_hash": "ea386621997e3f9ca1bb64a204a1a7b5",
     "semantic_hash": ""
   },
   "src/partials/service-page/footer.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1791978302.3676748,
-    "seen": 1791978309.750777,
-    "ast_hash": "5481613113189708ace4196c75a7bb16",
+    "mtime": 1792003771.6417012,
+    "seen": 1792003863.487974,
+    "ast_hash": "888af84f615357acbf3f5f8876360127",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1791978302.3723912,
-    "seen": 1791978309.750779,
-    "ast_hash": "eab7f623790e51b66f54217d81123cc2",
+    "mtime": 1792003843.5931492,
+    "seen": 1792003863.4879758,
+    "ast_hash": "ec019120d28ef64a0cc45193357f932d",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1791978302.3785627,
-    "seen": 1791978309.7507799,
-    "ast_hash": "450b70b9b0d7b74dfed6e7fbe2a3ae3e",
+    "mtime": 1792003843.599467,
+    "seen": 1792003863.487977,
+    "ast_hash": "72061ff11a154684599efde5b3299ee2",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1779,6 +1779,12 @@
     "mtime": 1791978211.5312529,
     "seen": 1791978309.750916,
     "ast_hash": "a59f622c0ba9cee358cbf2cd5d9c0252",
+    "semantic_hash": ""
+  },
+  "src/learngenie-games.js": {
+    "mtime": 1792003484.3815672,
+    "seen": 1792003863.4880261,
+    "ast_hash": "c0390b19757d83c333121e0344343d7c",
     "semantic_hash": ""
   }
 }

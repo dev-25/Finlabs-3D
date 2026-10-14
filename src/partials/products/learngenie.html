@@ -58,32 +58,70 @@
       </p>
     </header>
 
-    <!-- a session in flight, the way learners see it -->
-    <div class="lg-live">
-      <div class="lg-live__panel">
-        <div class="lg-live__head">
-          <p class="lg-live__title">Financial Quiz — Live Interactive Session</p>
-          <span class="lg-live__live">LIVE</span>
-        </div>
-        <p class="lg-live__q">What does SIP stand for in mutual fund investment?</p>
-        <div class="lg-live__opts">
-          <span class="lg-live__opt">A. Systematic Income Plan</span>
-          <span class="lg-live__opt lg-live__opt--on">B. Systematic Investment Plan</span>
-          <span class="lg-live__opt">C. Secure Investment Plan</span>
-          <span class="lg-live__opt">D. Strategic Investment Plan</span>
-        </div>
-        <div class="lg-live__meta"><span>⏱ 0:15</span><span>Q 1 of 3</span><span>🏆 0 XP</span></div>
+    <!-- a session in flight — the real thing: three questions, scored -->
+    <div class="lg-live" data-live>
+      <div class="lg-live__head">
+        <p class="lg-live__title">Financial Quiz — Live Interactive Session</p>
+        <span class="lg-live__pill">LIVE</span>
       </div>
-      <div class="lg-live__panel">
-        <div class="lg-live__head">
-          <p class="lg-live__title">Live rankings</p>
-          <span class="lg-rank__cue">Play to get added!</span>
+      <div class="lg-live__bar"><i data-live-bar style="width:0%"></i></div>
+
+      <div class="lg-live__q" data-live-q>What does SIP stand for in mutual fund investment?</div>
+      <div class="lg-live__opts" data-live-opts>
+        <button class="lg-live__opt" type="button">A. Systematic Income Plan</button>
+        <button class="lg-live__opt" type="button">B. Systematic Investment Plan</button>
+        <button class="lg-live__opt" type="button">C. Secure Investment Plan</button>
+        <button class="lg-live__opt" type="button">D. Strategic Investment Plan</button>
+      </div>
+      <div class="lg-live__meta" data-live-meta>
+        <span>⏱ 0:15</span><span>Q 1 of 3</span><span>🏆 0 XP</span>
+      </div>
+
+      <div class="lg-live__rankings">
+        <div class="lg-live__head lg-live__head--small">
+          <p class="lg-rank__label">Live rankings</p>
+          <p class="lg-rank__cue">Play to get added!</p>
         </div>
-        <div class="lg-rank">
-          <div class="lg-rank__row"><span class="lg-rank__no">1</span><span class="lg-rank__pic">P</span><span class="lg-rank__who">Priya S.</span><span class="lg-rank__pts">+1,240</span></div>
-          <div class="lg-rank__row"><span class="lg-rank__no">2</span><span class="lg-rank__pic">R</span><span class="lg-rank__who">Rahul M.</span><span class="lg-rank__pts">+1,180</span></div>
-          <div class="lg-rank__row"><span class="lg-rank__no">3</span><span class="lg-rank__pic">A</span><span class="lg-rank__who">Ankita J.</span><span class="lg-rank__pts">+1,120</span></div>
+        <div class="lg-rank" data-live-board>
+          <div class="lg-rank__row"><span class="lg-rank__no">1</span><span class="lg-rank__pic lg-rank__pic--p">P</span><span class="lg-rank__who">Priya S.</span><span class="lg-rank__pts">+1,240</span></div>
+          <div class="lg-rank__row"><span class="lg-rank__no">2</span><span class="lg-rank__pic lg-rank__pic--r">R</span><span class="lg-rank__who">Rahul M.</span><span class="lg-rank__pts">+1,180</span></div>
+          <div class="lg-rank__row"><span class="lg-rank__no">3</span><span class="lg-rank__pic lg-rank__pic--a">A</span><span class="lg-rank__who">Ankita J.</span><span class="lg-rank__pts">+1,120</span></div>
         </div>
+      </div>
+
+      <!-- the session's three questions; the panel above is drawn from these,
+           so they are translated with the rest of the page -->
+      <div class="lg-live__bank" data-live-bank hidden>
+        <article data-ans="1">
+          <h4>What does SIP stand for in mutual fund investment?</h4>
+          <ol>
+            <li>A. Systematic Income Plan</li>
+            <li>B. Systematic Investment Plan</li>
+            <li>C. Secure Investment Plan</li>
+            <li>D. Strategic Investment Plan</li>
+          </ol>
+          <p>SIP = Systematic Investment Plan. A disciplined approach to long-term wealth creation.</p>
+        </article>
+        <article data-ans="0">
+          <h4>Under which Income Tax section can you claim deduction for ELSS investments?</h4>
+          <ol>
+            <li>A. Section 80C</li>
+            <li>B. Section 80D</li>
+            <li>C. Section 10(10D)</li>
+            <li>D. Section 24(b)</li>
+          </ol>
+          <p>Section 80C offers tax deductions up to Rs.1.5 Lakh per year for ELSS mutual funds.</p>
+        </article>
+        <article data-ans="2">
+          <h4>What is the mandatory lock-in period for ELSS tax-saving mutual funds?</h4>
+          <ol>
+            <li>A. 1 Year</li>
+            <li>B. 2 Years</li>
+            <li>C. 3 Years</li>
+            <li>D. 5 Years</li>
+          </ol>
+          <p>ELSS funds have a mandatory lock-in of 3 years — the shortest among all Section 80C options.</p>
+        </article>
       </div>
     </div>
 

@@ -1229,6 +1229,14 @@
   "products.html",
   "products/learngenie.html"
  ],
+ "A. 1 Year": [
+  "products.html",
+  "products/learngenie.html"
+ ],
+ "A. Section 80C": [
+  "products.html",
+  "products/learngenie.html"
+ ],
  "A. Systematic Income Plan": [
   "products.html",
   "products/learngenie.html"
@@ -1413,6 +1421,14 @@
   "products.html",
   "products/fiscus.html"
  ],
+ "B. 2 Years": [
+  "products.html",
+  "products/learngenie.html"
+ ],
+ "B. Section 80D": [
+  "products.html",
+  "products/learngenie.html"
+ ],
  "B. Systematic Investment Plan": [
   "products.html",
   "products/learngenie.html"
@@ -1584,6 +1600,14 @@
  "By signing up for Fiscus you will be featured in our “Find an Advisor” section, at no cost. Sign up and get leads directly in your inbox.": [
   "products.html",
   "products/fiscus.html"
+ ],
+ "C. 3 Years": [
+  "products.html",
+  "products/learngenie.html"
+ ],
+ "C. Section 10(10D)": [
+  "products.html",
+  "products/learngenie.html"
  ],
  "C. Secure Investment Plan": [
   "products.html",
@@ -1921,6 +1945,14 @@
   "index.html",
   "knowledge-centre/blogs.html"
  ],
+ "D. 5 Years": [
+  "products.html",
+  "products/learngenie.html"
+ ],
+ "D. Section 24(b)": [
+  "products.html",
+  "products/learngenie.html"
+ ],
  "D. Strategic Investment Plan": [
   "products.html",
   "products/learngenie.html"
@@ -2150,6 +2182,10 @@
   "products/learngenie.html"
  ],
  "elevate organizational learning": [
+  "products.html",
+  "products/learngenie.html"
+ ],
+ "ELSS funds have a mandatory lock-in of 3 years — the shortest among all Section 80C options.": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -3897,6 +3933,10 @@
   "products.html",
   "products/finaware.html"
  ],
+ "Section 80C offers tax deductions up to Rs.1.5 Lakh per year for ELSS mutual funds.": [
+  "products.html",
+  "products/learngenie.html"
+ ],
  "Secure authentication": [
   "products.html",
   "products/finaware.html"
@@ -3996,6 +4036,10 @@
  "SIP & SIP top-up calculator": [
   "products.html",
   "products/finexa.html"
+ ],
+ "SIP = Systematic Investment Plan. A disciplined approach to long-term wealth creation.": [
+  "products.html",
+  "products/learngenie.html"
  ],
  "Smart reports & event analytics": [
   "products.html",
@@ -4237,6 +4281,10 @@
   "products.html",
   "products/learngenie.html"
  ],
+ "Under which Income Tax section can you claim deduction for ELSS investments?": [
+  "products.html",
+  "products/learngenie.html"
+ ],
  "Unlike spreadsheets or manual processes, Finaware offers centralized control, real-time visibility and built-in compliance, making IAP management smarter and future-ready. AI-driven insights are an upcoming feature.": [
   "products.html",
   "products/finaware.html"
@@ -4408,6 +4456,10 @@
  "What is Quick Access?": [
   "products.html",
   "products/finexa.html"
+ ],
+ "What is the mandatory lock-in period for ELSS tax-saving mutual funds?": [
+  "products.html",
+  "products/learngenie.html"
  ],
  "What kind of support does Finaware offer post-implementation?": [
   "products.html",
@@ -6146,6 +6198,9 @@
  "Corporate websites, microsites and campaign landing pages": [
   "solutions.html"
  ],
+ "Correct! +{xp} XP": [
+  "(javascript)"
+ ],
  "Cost right-sizing and FinOps reporting every month": [
   "solutions.html"
  ],
@@ -7322,6 +7377,9 @@
  "In today’s rapidly evolving job market, standing still is equivalent to falling behind. The landscape of industries, technologies, and professional skills is changing at a pace never seen before, making continuous learning a cornerstone for both individual and organizational success. Whether you’re an aspiring professional or a seasoned leader, embracing a culture of lifelong learning": [
   "knowledge-centre/blogs.html"
  ],
+ "Incorrect (+{xp} XP participation)": [
+  "(javascript)"
+ ],
  "Indemnification": [
   "terms.html"
  ],
@@ -7892,6 +7950,9 @@
  "Newest first": [
   "knowledge-centre/blogs.html"
  ],
+ "Next question": [
+  "(javascript)"
+ ],
  "Next testimonials": [
   "index.html"
  ],
@@ -8209,6 +8270,9 @@
  ],
  "Platforms": [
   "brochure.html"
+ ],
+ "Play full game": [
+  "(javascript)"
  ],
  "Please add your name.": [
   "(javascript)"
@@ -9830,6 +9894,9 @@
  "Yes. We connect on-premises systems through VPNs or private links such as AWS Direct Connect, Azure ExpressRoute and Google Cloud Interconnect, and keep tooling consistent across clouds with Terraform and Kubernetes.": [
   "services/cloud.html"
  ],
+ "You (Player)": [
+  "(javascript)"
+ ],
  "You agree that FINLABS INDIA may use personal information about you to improve its marketing and promotional efforts, to analyze site usage, improve the Site’s content and product offerings, and customise the Site’s content, layout, and services. These uses improve the Site and better tailor it to meet your needs, so as to provide you with a smooth, efficient, safe and customized experience while using the Site.": [
   "privacy.html"
  ],
@@ -9901,6 +9968,9 @@
  ],
  "Your message": [
   "contact.html"
+ ],
+ "Your name and rank are on the live leaderboard below!": [
+  "(javascript)"
  ],
  "Your phone number": [
   "contact.html"

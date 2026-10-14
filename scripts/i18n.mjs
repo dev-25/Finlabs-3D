@@ -160,4 +160,7 @@ export const UI_STRINGS = [
   'Your email app should open with the request ready to send.',
   'Loading the article', 'This article didn’t load. Check your connection and try again.',
   'Try again', '· {n} min read', 'Link copied',
+  'Correct! +{xp} XP', 'Incorrect (+{xp} XP participation)',
+  'Your name and rank are on the live leaderboard below!',
+  'Next question', 'Play full game', 'You (Player)',
 ];

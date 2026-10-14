@@ -1,17 +1,17 @@
-# Graph Report - my-three-site  (2026-10-14)
+# Graph Report - my-three-site  (2026-10-15)
 
 ## Corpus Check
-- 87 files · ~471,273 words
+- 88 files · ~475,967 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 20 file(s) not represented in the graph (top: .css 18, (none) 2)
+- Unclassified: 21 file(s) not represented in the graph (top: .css 19, (none) 2)
 
 ## Summary
-- 1148 nodes · 1435 edges · 191 communities (81 shown, 110 thin omitted)
-- Extraction: 82% EXTRACTED · 18% INFERRED · 0% AMBIGUOUS · INFERRED: 259 edges (avg confidence: 0.91)
+- 1182 nodes · 1502 edges · 186 communities (76 shown, 110 thin omitted)
+- Extraction: 82% EXTRACTED · 18% INFERRED · 0% AMBIGUOUS · INFERRED: 265 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `da63599d`
+- Built from commit: `2f67446a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -33,21 +33,16 @@
 - about.js
 - about-hero.js
 - The 7 Rs migration framework
-- careers.js
-- finaware-flow.js
+- learngenie-games.js
+- nav.js
 - services-ui.js
 - cloud.js
 - theme.js
-- t
-- kc-ui.js
 - learngenie-climb.js
 - buildCloudScene
 - case-study.js
 - chipLabel
-- nav.js
-- i18n.js
-- doc.js
-- three
+- package.json
 - awsLogo
 - step
 - Finexa Hub banner — 'All Your Transactions Into One Seamless Workflow'
@@ -242,7 +237,7 @@
 - **Products Sharing the Calendly Booking CTA** — src_partials_products_finaware_finaware, src_partials_products_finexa_gennxt_finexa_gennxt, src_partials_products_finexa_finexa, src_partials_products_learngenie_learngenie [INFERRED 0.75]
 - **Shared Site Navigation & Footer Chrome** — src_partials_product_page_footer_footer, src_partials_product_page_nav_nav, src_partials_service_page_footer_footer, src_partials_service_page_nav_nav [INFERRED 0.85]
 
-## Communities (191 total, 110 thin omitted)
+## Communities (186 total, 110 thin omitted)
 
 ### Community 0 - "showroom.js"
 Cohesion: 0.02
@@ -273,20 +268,20 @@ Cohesion: 0.07
 Nodes (38): Ajay Mahajan, Finlabs India (organization), Nimish Agrawal, About Us Page, Sudipto Roy, Finlabs Corporate Deck PDF, Corporate Deck Page, Careers Page (+30 more)
 
 ### Community 7 - "product-viewport.js"
-Cohesion: 0.07
-Nodes (32): createHub(), frame(), loop(), resize(), PLATFORMS, shadowTexture(), src_product_screen, asset() (+24 more)
+Cohesion: 0.06
+Nodes (41): createFlow(), frame(), loop(), resize(), drawStage(), shadowTexture(), stagePos(), STAGES (+33 more)
 
 ### Community 8 - "start"
-Cohesion: 0.21
-Nodes (11): start(), board(), buildVignette(), desk(), figure(), monitor(), phone(), rack() (+3 more)
+Cohesion: 0.06
+Nodes (32): three, canvas, host, start(), board(), buildVignette(), desk(), figure() (+24 more)
 
 ### Community 9 - "Finexa product wordmark logo"
 Cohesion: 0.07
 Nodes (27): Finexa product wordmark logo, Finexa — product/brand wordmark (blue text with teal 'x'), core Finexa platform identity, Nova app Dashboard screen: goal-tracking cards (e.g. 'Ajay's Education', 'Buying SUV', 'Onkar's Education', 'Start new goal') plus Portfolio Snapshot metrics (Current Value, Holding Cost, IRR, Total Gain/Loss, Realised/Unrealised Gain, Benchmark), Nova app Debt Portfolio Analysis screen: donut chart of debt sub-asset allocation (Cash, Long Term Debt, Low Duration, Short Term Debt, Debt Others, Hybrid) with matching data table (Current Value, Weight %, Gain/Loss, XIRR), Finexa Nova app screenshot montage (Dashboard + Debt Portfolio Analysis), Finexa Nova — investor-facing mobile app, tagline 'Learn, invest and flourish', Finexa Nova product wordmark logo, Finexa Nova — product wordmark (blue 'finexa nova' text with teal accented 'x'), investor-facing mobile app brand (+19 more)
 
 ### Community 10 - "after-paint.js"
-Cohesion: 0.28
-Nodes (5): afterPaint(), idle(), src_bang, doc, button
+Cohesion: 0.38
+Nodes (4): afterPaint(), idle(), src_style, button
 
 ### Community 11 - "solutions-ui.js"
 Cohesion: 0.09
@@ -297,8 +292,8 @@ Cohesion: 0.14
 Nodes (23): BLUE, buildRide(), advance(), dressTick(), frame(), goTo(), hopToStart(), loop() (+15 more)
 
 ### Community 13 - "kc-blogs.js"
-Cohesion: 0.10
-Nodes (24): bar, body, cache, cards, close(), cover, fetchPost(), fill() (+16 more)
+Cohesion: 0.05
+Nodes (51): chips, count, empty, filter(), followHash(), jobs, matches(), picked (+43 more)
 
 ### Community 14 - "about.js"
 Cohesion: 0.18
@@ -312,13 +307,13 @@ Nodes (18): BLUE, buildEmblem(), frame(), loop(), paintBars(), placeConfetti(), 
 Cohesion: 0.11
 Nodes (19): Cloud Services page (AWS, Azure, Google Cloud), Amazon Web Services, Microsoft Azure, Data-centre exit migration scenario, Disaster recovery service, Finlabs India Pvt. Ltd. (organization), Google Cloud, Refactor (re-architect) (+11 more)
 
-### Community 17 - "careers.js"
-Cohesion: 0.22
-Nodes (10): chips, count, empty, filter(), followHash(), jobs, matches(), picked (+2 more)
+### Community 17 - "learngenie-games.js"
+Cohesion: 0.11
+Nodes (32): close(), CONFETTI, crorepati(), end(), question(), answer(), endScreen(), ensureModal() (+24 more)
 
-### Community 18 - "finaware-flow.js"
-Cohesion: 0.36
-Nodes (8): createFlow(), frame(), loop(), resize(), drawStage(), shadowTexture(), stagePos(), STAGES
+### Community 18 - "nav.js"
+Cohesion: 0.17
+Nodes (8): form, note, tocLinks, fill, line, menu, nav, doc
 
 ### Community 19 - "services-ui.js"
 Cohesion: 0.13
@@ -330,17 +325,9 @@ Nodes (11): fromHash, journey, logos, panels, platforms, rDesc, rs, stage (+3 mo
 
 ### Community 21 - "theme.js"
 Cohesion: 0.33
-Nodes (7): src_style, currentTheme(), initTheme(), listeners, onTheme(), paint(), read()
+Nodes (7): src_bang, currentTheme(), initTheme(), listeners, onTheme(), paint(), read()
 
-### Community 22 - "t"
-Cohesion: 0.27
-Nodes (8): t(), createList(), apply(), fold(), setOpen(), wireFaqs(), filterFaqs(), selectGoal()
-
-### Community 23 - "kc-ui.js"
-Cohesion: 0.22
-Nodes (5): byDate(), hashRouter(), REDUCED, trapTab(), src_knowledge
-
-### Community 24 - "learngenie-climb.js"
+### Community 22 - "learngenie-climb.js"
 Cohesion: 0.36
 Nodes (8): createClimb(), frame(), loop(), resize(), drawStep(), shadowTexture(), starShape(), STEPS
 
@@ -356,21 +343,9 @@ Nodes (6): highlight(), labels, listen(), studies, wantScene(), wide
 Cohesion: 0.25
 Nodes (9): chipLabel(), chips, coreLabel(), fitText(), makeTexture(), padTex, pinRing(), rbox() (+1 more)
 
-### Community 28 - "nav.js"
-Cohesion: 0.33
-Nodes (4): fill, line, menu, nav
-
-### Community 29 - "i18n.js"
-Cohesion: 0.50
-Nodes (4): lang, LOCALES, mountSwitcher(), urlFor()
-
-### Community 30 - "doc.js"
-Cohesion: 0.50
-Nodes (3): form, note, tocLinks
-
-### Community 35 - "three"
-Cohesion: 0.05
-Nodes (36): dependencies, three, devDependencies, vite, name, private, scripts, build (+28 more)
+### Community 35 - "package.json"
+Cohesion: 0.13
+Nodes (14): dependencies, three, devDependencies, vite, name, private, scripts, build (+6 more)
 
 ### Community 36 - "awsLogo"
 Cohesion: 0.29
@@ -569,21 +544,21 @@ Cohesion: 0.67
 Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Service Page Footer Partial
 
 ## Knowledge Gaps
-- **628 isolated node(s):** `themedMats`, `ROOM_THEME`, `C`, `CSS`, `PRODUCTS` (+623 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 698 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **634 isolated node(s):** `QUIZ`, `STATEMENTS`, `PAIRS`, `WORDS`, `CONFETTI` (+629 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 705 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **110 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `product-viewport.js`, `buildRide`, `about-hero.js`, `finaware-flow.js`, `learngenie-climb.js`, `buildCloudScene`?**
-  _High betweenness centrality (0.097) - this node is a cross-community bridge._
-- **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `careers.js`, `services-ui.js`, `kc-ui.js`, `nav.js`, `i18n.js`, `doc.js`?**
-  _High betweenness centrality (0.069) - this node is a cross-community bridge._
+- **Why does `three` connect `start` to `showroom.js`, `solutions-scene.js`, `package.json`, `home-scene.js`, `services-scene.js`, `product-viewport.js`, `buildRide`, `about-hero.js`, `learngenie-climb.js`, `buildCloudScene`?**
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
+- **Why does `t()` connect `kc-blogs.js` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `nav.js`, `services-ui.js`?**
+  _High betweenness centrality (0.061) - this node is a cross-community bridge._
 - **Why does `onTheme()` connect `theme.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `about-hero.js`, `buildCloudScene`?**
-  _High betweenness centrality (0.053) - this node is a cross-community bridge._
-- **What connects `themedMats`, `ROOM_THEME`, `C` to the rest of the system?**
-  _628 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
+- **What connects `QUIZ`, `STATEMENTS`, `PAIRS` to the rest of the system?**
+  _634 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `showroom.js` be split into smaller, more focused modules?**
   _Cohesion score 0.020833333333333332 - nodes in this community are weakly interconnected._
 - **Should `solutions-scene.js` be split into smaller, more focused modules?**

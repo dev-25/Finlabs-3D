@@ -1,5 +1,5 @@
 /* =====================================================
- * LEARNGENIE — the five playable demos
+ * LEARNGENIE — the live session and the five demos
  * =====================================================
  * The game cards on the Learngenie page open a modal and
  * run one of five formats, with the questions, scoring
@@ -19,6 +19,7 @@
  * ===================================================== */
 
 import './learngenie-games.css';
+import { t } from './i18n.js';
 
 const DEMO_URL = 'https://calendly.com/finlabsindia/book-a-call-on-teams';
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -572,7 +573,105 @@ function scramble() {
 
 const GAMES = { crorepati, row: rightOrWrong, zipline, match, scramble };
 
-/** Wires the cards inside `root`; safe to call again for the same root. */
+// ---------------------------------------------------------------------
+// the live session on the page itself — three questions, 1,500 XP for a
+// right answer and 300 for taking part, and a place on the board either
+// way, the way a session runs for a room of learners
+// ---------------------------------------------------------------------
+
+const RIGHT_XP = 1500;
+const TRIED_XP = 300;
+
+function wireLive(card) {
+  const bank = [...card.querySelectorAll('[data-live-bank] article')].map((a) => ({
+    q: a.querySelector('h4').textContent.trim(),
+    opts: [...a.querySelectorAll('li')].map((li) => li.textContent.trim()),
+    ans: Number(a.dataset.ans),
+    exp: a.querySelector('p').textContent.trim(),
+  }));
+  if (!bank.length) return;
+
+  const qBox = card.querySelector('[data-live-q]');
+  const optBox = card.querySelector('[data-live-opts]');
+  const meta = card.querySelector('[data-live-meta]');
+  const bar = card.querySelector('[data-live-bar]');
+  const board = card.querySelector('[data-live-board]');
+  const others = [...board.children];
+
+  let idx = 0;
+  let xp = 0;
+  let answered = false;
+
+  function draw() {
+    const q = bank[idx];
+    answered = false;
+    qBox.textContent = q.q;
+    optBox.innerHTML = q.opts
+      .map((o, i) => `<button class="lg-live__opt" type="button" data-i="${i}">${o}</button>`)
+      .join('');
+    optBox.querySelectorAll('.lg-live__opt').forEach((b) => b.addEventListener('click', () => answer(Number(b.dataset.i))));
+    meta.innerHTML = `<span>⏱ 0:15</span><span>Q ${idx + 1} of ${bank.length}</span><span>🏆 ${xp.toLocaleString('en-IN')} XP</span>`;
+    bar.style.width = `${(idx / bank.length) * 100}%`;
+  }
+
+  function answer(picked) {
+    if (answered) return;
+    answered = true;
+    const q = bank[idx];
+    const right = picked === q.ans;
+    optBox.querySelectorAll('.lg-live__opt').forEach((b, i) => {
+      b.disabled = true;
+      if (i === q.ans) b.classList.add('is-right');
+      else if (i === picked) b.classList.add('is-wrong');
+    });
+    xp += right ? RIGHT_XP : TRIED_XP;
+    if (right) confetti(6);
+    bar.style.width = `${((idx + 1) / bank.length) * 100}%`;
+    meta.innerHTML = `<span>⏱ 0:15</span><span>Q ${idx + 1} of ${bank.length}</span><span>🏆 ${xp.toLocaleString('en-IN')} XP</span>`;
+    showYou();
+
+    setTimeout(() => {
+      const last = idx >= bank.length - 1;
+      qBox.innerHTML = `
+        <b style="color:${right ? '#0d9e8d' : '#c23b3b'}">${
+          right
+            ? `🎉 ${t('Correct! +{xp} XP', { xp: RIGHT_XP.toLocaleString('en-IN') })}`
+            : `❌ ${t('Incorrect (+{xp} XP participation)', { xp: TRIED_XP })}`
+        }</b>
+        <span class="lg-live__exp">${q.exp}</span>
+        <span class="lg-live__added">✨ ${t('Your name and rank are on the live leaderboard below!')}</span>
+        <span class="lg-live__again">
+          ${last ? '' : `<button type="button" data-live-next>${t('Next question')} →</button>`}
+          <button type="button" class="is-gold" data-live-full>${t('Play full game')} 🏆</button>
+        </span>`;
+      qBox.querySelector('[data-live-next]')?.addEventListener('click', () => {
+        idx++;
+        draw();
+      });
+      qBox.querySelector('[data-live-full]')?.addEventListener('click', () => {
+        open();
+        crorepati();
+      });
+    }, 300);
+  }
+
+  /** the player takes the top of the board, and the rest shuffle down */
+  function showYou() {
+    board.querySelector('.lg-rank__row--you')?.remove();
+    const you = document.createElement('div');
+    you.className = 'lg-rank__row lg-rank__row--you';
+    you.innerHTML = `<span class="lg-rank__no">1</span>
+      <span class="lg-rank__pic lg-rank__pic--you">YOU</span>
+      <span class="lg-rank__who">${t('You (Player)')}</span>
+      <span class="lg-rank__pts">+${xp.toLocaleString('en-IN')} XP 👑</span>`;
+    board.prepend(you);
+    others.forEach((row, k) => (row.querySelector('.lg-rank__no').textContent = k + 2));
+  }
+
+  draw();
+}
+
+/** Wires the cards and the live session inside `root`. */
 export function wireGames(root = document) {
   root.querySelectorAll('[data-game]').forEach((card) => {
     if (card.dataset.wired) return;
@@ -583,5 +682,11 @@ export function wireGames(root = document) {
       open();
       game();
     });
+  });
+
+  root.querySelectorAll('[data-live]').forEach((card) => {
+    if (card.dataset.wired) return;
+    card.dataset.wired = 'on';
+    wireLive(card);
   });
 }
