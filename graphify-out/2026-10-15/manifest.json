@@ -618,9 +618,9 @@
     "semantic_hash": ""
   },
   "src/partials/products/learngenie.html": {
-    "mtime": 1792004034.56902,
-    "seen": 1792004364.1018429,
-    "ast_hash": "848955e877634ed0561e8b85dbe3fb43",
+    "mtime": 1792006136.0385373,
+    "seen": 1792006271.168311,
+    "ast_hash": "5c91b1c080c9869059b09c45c4656af2",
     "semantic_hash": ""
   },
   "src/partials/service-page/footer.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1792005547.4264975,
-    "seen": 1792005563.899657,
-    "ast_hash": "f37d4f19332920ab9b073f2adb21b780",
+    "mtime": 1792006229.0936766,
+    "seen": 1792006271.16819,
+    "ast_hash": "cb70effb97309278b93dfce8b91c24f1",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1792005552.2736962,
-    "seen": 1792005563.899659,
-    "ast_hash": "76f3aaa7dd297513636f3364a6019402",
+    "mtime": 1792006251.7006779,
+    "seen": 1792006271.168192,
+    "ast_hash": "7224e7ff55721a311d20959a7808c306",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1792005552.2787645,
-    "seen": 1792005563.899661,
-    "ast_hash": "46d27f454ed0ea153e915bf74d0d0af7",
+    "mtime": 1792006251.7056572,
+    "seen": 1792006271.168193,
+    "ast_hash": "174a540ea3ca78230de7d277cf25d4e8",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1686,9 +1686,9 @@
     "semantic_hash": ""
   },
   "scripts/i18n.mjs": {
-    "mtime": 1792004272.1396384,
-    "seen": 1792004364.101804,
-    "ast_hash": "96c342112362ecce80d749d3ad3fac81",
+    "mtime": 1792006228.9104679,
+    "seen": 1792006271.1682198,
+    "ast_hash": "425e60786ef4e9c695e845666cb7f615",
     "semantic_hash": ""
   },
   "scripts/pages.mjs": {
@@ -1782,9 +1782,9 @@
     "semantic_hash": ""
   },
   "src/learngenie-games.js": {
-    "mtime": 1792004272.1401412,
-    "seen": 1792004364.101818,
-    "ast_hash": "babdc4fb890022acc932123d45585aed",
+    "mtime": 1792006125.8660676,
+    "seen": 1792006271.1682339,
+    "ast_hash": "5641cc34ebb50e006cf6224bca321ef5",
     "semantic_hash": ""
   }
 }

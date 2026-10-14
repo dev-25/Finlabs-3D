@@ -312,13 +312,18 @@
   color: #14254a;
   box-shadow: 0 60px 120px -40px rgba(4, 16, 40, 0.8);
 }
-.lg-modal__head { position: relative; padding: 18px 20px; color: #fff; background: linear-gradient(135deg, #1b6098, #2980e0); }
+/* the right padding keeps the heading clear of the close button */
+.lg-modal__head { position: relative; padding: 18px 56px 18px 20px; color: #fff; background: linear-gradient(135deg, #1b6098, #2980e0); }
 .lg-modal__close {
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 30px;
-  height: 30px;
+  /* the kicker and the subtitle are set at opacity 0.85, which gives each
+     its own stacking context and would otherwise paint over this button and
+     swallow the clicks aimed at it */
+  z-index: 2;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
   border: 0;
