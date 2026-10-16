@@ -1,12 +1,12 @@
 # Graph Report - my-three-site  (2026-10-16)
 
 ## Corpus Check
-- 88 files · ~477,944 words
+- 88 files · ~477,967 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 21 file(s) not represented in the graph (top: .css 19, (none) 2)
 
 ## Summary
-- 1196 nodes · 1545 edges · 187 communities (77 shown, 110 thin omitted)
+- 1197 nodes · 1546 edges · 187 communities (77 shown, 110 thin omitted)
 - Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 268 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
@@ -34,7 +34,7 @@
 - three
 - The 7 Rs migration framework
 - t
-- doc.js
+- after-paint.js
 - services-ui.js
 - cloud.js
 - buildCloudScene
@@ -209,8 +209,8 @@
 3. `initTheme()` - 19 edges
 4. `buildRide()` - 17 edges
 5. `three` - 15 edges
-6. `buildCloudScene()` - 13 edges
-7. `buildEmblem()` - 13 edges
+6. `buildEmblem()` - 13 edges
+7. `buildCloudScene()` - 13 edges
 8. `afterPaint()` - 12 edges
 9. `onTheme()` - 12 edges
 10. `Solutions Page` - 12 edges
@@ -312,9 +312,9 @@ Nodes (19): Cloud Services page (AWS, Azure, Google Cloud), Amazon Web Services,
 Cohesion: 0.08
 Nodes (48): lang, LOCALES, mountSwitcher(), t(), urlFor(), close(), CONFETTI, crorepati() (+40 more)
 
-### Community 18 - "doc.js"
-Cohesion: 0.17
-Nodes (9): canvas, host, wantScene(), wide, form, note, tocLinks, mark (+1 more)
+### Community 18 - "after-paint.js"
+Cohesion: 0.18
+Nodes (11): afterPaint(), idle(), src_bang, canvas, host, wantScene(), wide, mark (+3 more)
 
 ### Community 19 - "services-ui.js"
 Cohesion: 0.13
@@ -333,8 +333,8 @@ Cohesion: 0.22
 Nodes (10): chips, count, empty, filter(), followHash(), jobs, matches(), picked (+2 more)
 
 ### Community 23 - "nav.js"
-Cohesion: 0.19
-Nodes (9): afterPaint(), idle(), src_bang, fill, line, menu, nav, setOpen() (+1 more)
+Cohesion: 0.17
+Nodes (8): form, note, tocLinks, fill, line, menu, nav, setOpen()
 
 ### Community 24 - "package.json"
 Cohesion: 0.13
@@ -549,21 +549,21 @@ Cohesion: 0.67
 Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Service Page Footer Partial
 
 ## Knowledge Gaps
-- **637 isolated node(s):** `host`, `canvas`, `C`, `LAND`, `PLACES` (+632 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 708 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **638 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+633 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 709 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **110 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `doc.js`, `services-ui.js`, `careers.js`, `nav.js`?**
-  _High betweenness centrality (0.090) - this node is a cross-community bridge._
-- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `fiscus-picture.js`, `buildRide`, `doc.js`, `buildCloudScene`, `package.json`, `about-hero.js`?**
-  _High betweenness centrality (0.089) - this node is a cross-community bridge._
+- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `fiscus-picture.js`, `buildRide`, `after-paint.js`, `buildCloudScene`, `package.json`, `about-hero.js`?**
+  _High betweenness centrality (0.129) - this node is a cross-community bridge._
+- **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `services-ui.js`, `careers.js`, `nav.js`?**
+  _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **Why does `onTheme()` connect `theme.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `buildCloudScene`, `about-hero.js`?**
   _High betweenness centrality (0.062) - this node is a cross-community bridge._
-- **What connects `host`, `canvas`, `C` to the rest of the system?**
-  _637 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `name`, `version`, `private` to the rest of the system?**
+  _638 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `showroom.js` be split into smaller, more focused modules?**
   _Cohesion score 0.020618556701030927 - nodes in this community are weakly interconnected._
 - **Should `solutions-scene.js` be split into smaller, more focused modules?**

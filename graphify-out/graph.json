@@ -1423,7 +1423,7 @@
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L364"
+      "source_location": "L383"
     },
     {
       "id": "src_partners_scene_onglobe",
@@ -1435,7 +1435,7 @@
       "file_type": "code",
       "norm_label": "onglobe()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L115"
+      "source_location": "L132"
     },
     {
       "id": "src_partners_scene_size",
@@ -1447,7 +1447,7 @@
       "file_type": "code",
       "norm_label": "size()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L313"
+      "source_location": "L332"
     },
     {
       "id": "src_i18n_mountswitcher",
@@ -6621,7 +6621,7 @@
       "file_type": "code",
       "norm_label": "places",
       "source_file": "src/partners-scene.js",
-      "source_location": "L101"
+      "source_location": "L118"
     },
     {
       "id": "ref_three",
@@ -19338,7 +19338,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/partners-scene.js",
-      "source_location": "L115",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -25166,7 +25166,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L101",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -25210,7 +25210,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L364",
+      "source_location": "L383",
       "weight": 1.0
     },
     {
@@ -29265,7 +29265,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/partners-scene.js",
-      "source_location": "L323",
+      "source_location": "L342",
       "weight": 1.0
     },
     {
@@ -32877,5 +32877,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "40d803c68c167d30aa3774a1d4922061546ce376"
+  "built_at_commit": "de325c6e6da519eaa4a9c905ccb90a22af0d8a45"
 }
