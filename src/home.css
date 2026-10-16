@@ -86,9 +86,17 @@
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body.home {
+/* the wash rides in a fixed layer, not on the body: see the note in doc.css */
+body.home::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background: var(--page), var(--bg);
-  background-attachment: fixed;
+}
+body.home {
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--body);
   font-size: 16px;

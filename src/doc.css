@@ -62,14 +62,26 @@
 html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 body.doc-page {
   min-height: 100vh;
-  background: var(--page), var(--bg);
-  background-attachment: fixed;
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--body);
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
+/* The page's colour wash sits in a fixed layer of its own rather than on a
+   background-attachment: fixed body. They look the same, but the attachment
+   makes iOS Safari repaint the whole background on every scroll frame, which
+   on a page this long stalls scrolling to a halt. */
+body.doc-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--page), var(--bg);
+}
+
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
 
