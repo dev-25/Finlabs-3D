@@ -19,6 +19,26 @@ initTheme();
 // Contents list — highlight the section being read
 // ---------------------------------------------------------------------
 
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/**
+ * Slide the contents rail sideways so the section being read is visible.
+ *
+ * This has to move the rail and nothing else. scrollIntoView() would do the
+ * job on the rail but then carry on up the tree and scroll the page as well:
+ * on a phone the contents list is in the flow near the top, so every time a
+ * new section came into view the whole document was dragged back up to it,
+ * and the page could not be scrolled past the first screen.
+ */
+function keepChipInView(link) {
+  const rail = link.closest('ol');
+  if (!rail || rail.scrollWidth <= rail.clientWidth + 1) return; // not a rail
+  const chip = link.getBoundingClientRect();
+  const box = rail.getBoundingClientRect();
+  const delta = chip.left + chip.width / 2 - (box.left + box.width / 2);
+  rail.scrollBy({ left: delta, behavior: REDUCED ? 'auto' : 'smooth' });
+}
+
 const tocLinks = [...document.querySelectorAll('.toc a[href^="#"]')];
 if (tocLinks.length && 'IntersectionObserver' in window) {
   const byId = new Map(tocLinks.map((a) => [a.getAttribute('href').slice(1), a]));
@@ -28,9 +48,9 @@ if (tocLinks.length && 'IntersectionObserver' in window) {
         if (!e.isIntersecting) return;
         tocLinks.forEach((a) => a.classList.remove('on'));
         const link = byId.get(e.target.id);
-        link?.classList.add('on');
-        // keep the active chip in view when the list scrolls sideways on phones
-        link?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        if (!link) return;
+        link.classList.add('on');
+        keepChipInView(link);
       });
     },
     { rootMargin: '-25% 0px -65% 0px' }

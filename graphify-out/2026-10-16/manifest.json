@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1792005419.488,
-    "seen": 1792005563.8997571,
-    "ast_hash": "b566edf91a47a47ce8dfbd1264963ba1",
+    "mtime": 1792170110.9103851,
+    "seen": 1792170139.5268438,
+    "ast_hash": "defb464b74f0c36fa9b158ae318b732c",
     "semantic_hash": ""
   },
   "knowledge-centre/blogs.html": {
@@ -540,9 +540,9 @@
     "semantic_hash": "22a8871f5724d40d4880c5d2693011bf"
   },
   "solutions.html": {
-    "mtime": 1791826012.3307233,
-    "seen": 1791826377.5528462,
-    "ast_hash": "98208ab6d6d1eaef407fce2f20bbd596",
+    "mtime": 1792170119.6450639,
+    "seen": 1792170139.52685,
+    "ast_hash": "4c0ba1a55b2e28a3e05c7cc5bbe2ecb9",
     "semantic_hash": ""
   },
   "src/partials/knowledge/blog-cards.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1792010174.5940223,
-    "seen": 1792010227.195488,
+    "mtime": 1792170119.7825878,
+    "seen": 1792170139.526788,
     "ast_hash": "02565d87ad9603446e39681eda9fb85c",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1792010174.6544774,
-    "seen": 1792010227.1954901,
-    "ast_hash": "8344dbab9e9d56c5bb057a476681afae",
+    "mtime": 1792170119.7874131,
+    "seen": 1792170139.52679,
+    "ast_hash": "5c701202aff84bf93a2fdf1dc3752dad",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1792010174.6616936,
-    "seen": 1792010227.195491,
-    "ast_hash": "0e903321fedde1e44c92d6177d40cbd5",
+    "mtime": 1792170119.7936976,
+    "seen": 1792170139.5267909,
+    "ast_hash": "262568eed0ff980da68a0ea571eabec0",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
