@@ -610,18 +610,6 @@
       "source_location": "L95"
     },
     {
-      "id": "src_solutions_ui_selectgoal",
-      "label": "selectGoal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "solutions-ui.js",
-      "file_type": "code",
-      "norm_label": "selectgoal()",
-      "source_file": "src/solutions-ui.js",
-      "source_location": "L146"
-    },
-    {
       "id": "src_solutions_ui_track",
       "label": "track()",
       "_callable": true,
@@ -1270,6 +1258,78 @@
       "source_location": "L24"
     },
     {
+      "id": "src_gennxt_stack_createstack",
+      "label": "createStack()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "createstack()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L137"
+    },
+    {
+      "id": "src_gennxt_stack_createstack_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L239"
+    },
+    {
+      "id": "src_gennxt_stack_createstack_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L294"
+    },
+    {
+      "id": "src_gennxt_stack_createstack_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L259"
+    },
+    {
+      "id": "src_gennxt_stack_drawlayer",
+      "label": "drawLayer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "drawlayer()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L62"
+    },
+    {
+      "id": "src_gennxt_stack_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L125"
+    },
+    {
       "id": "src_partners_scene_frame",
       "label": "frame()",
       "_callable": true,
@@ -1750,28 +1810,16 @@
       "source_location": "L16"
     },
     {
-      "id": "src_product_ui_wirefaqs",
-      "label": "wireFaqs()",
+      "id": "src_solutions_ui_selectgoal",
+      "label": "selectGoal()",
       "_callable": true,
       "_origin": "ast",
       "community": 17,
       "community_name": "t",
       "file_type": "code",
-      "norm_label": "wirefaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L48"
-    },
-    {
-      "id": "src_product_ui_wirefaqs_filterfaqs",
-      "label": "filterFaqs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "filterfaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L55"
+      "norm_label": "selectgoal()",
+      "source_file": "src/solutions-ui.js",
+      "source_location": "L146"
     },
     {
       "id": "src_after_paint_afterpaint",
@@ -1779,7 +1827,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "afterpaint()",
       "source_file": "src/after-paint.js",
@@ -1791,23 +1839,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "idle()",
       "source_file": "src/after-paint.js",
       "source_location": "L39"
     },
     {
-      "id": "src_product_page_runpiece",
-      "label": "runPiece()",
+      "id": "src_case_study_wantscene",
+      "label": "wantScene()",
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
-      "norm_label": "runpiece()",
-      "source_file": "src/product-page.js",
-      "source_location": "L42"
+      "norm_label": "wantscene()",
+      "source_file": "src/case-study.js",
+      "source_location": "L28"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -2374,16 +2422,28 @@
       "source_location": "L75"
     },
     {
-      "id": "src_case_study_wantscene",
-      "label": "wantScene()",
+      "id": "src_doc_keepchipinview",
+      "label": "keepChipInView()",
       "_callable": true,
       "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
+      "community": 25,
+      "community_name": "doc.js",
       "file_type": "code",
-      "norm_label": "wantscene()",
-      "source_file": "src/case-study.js",
-      "source_location": "L28"
+      "norm_label": "keepchipinview()",
+      "source_file": "src/doc.js",
+      "source_location": "L33"
+    },
+    {
+      "id": "src_product_page_runpiece",
+      "label": "runPiece()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "runpiece()",
+      "source_file": "src/product-page.js",
+      "source_location": "L42"
     },
     {
       "id": "src_solutions_scene_chiplabel",
@@ -3886,78 +3946,6 @@
       "source_location": "L310"
     },
     {
-      "id": "src_gennxt_stack_createstack",
-      "label": "createStack()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "createstack()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L137"
-    },
-    {
-      "id": "src_gennxt_stack_createstack_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L239"
-    },
-    {
-      "id": "src_gennxt_stack_createstack_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L294"
-    },
-    {
-      "id": "src_gennxt_stack_createstack_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L259"
-    },
-    {
-      "id": "src_gennxt_stack_drawlayer",
-      "label": "drawLayer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "drawlayer()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L62"
-    },
-    {
-      "id": "src_gennxt_stack_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L125"
-    },
-    {
       "id": "src_product_ui_asset",
       "label": "asset()",
       "_callable": true,
@@ -4016,6 +4004,30 @@
       "norm_label": "open()",
       "source_file": "src/product-ui.js",
       "source_location": "L97"
+    },
+    {
+      "id": "src_product_ui_wirefaqs",
+      "label": "wireFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "wirefaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_product_ui_wirefaqs_filterfaqs",
+      "label": "filterFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "filterfaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L55"
     },
     {
       "id": "src_product_ui_wiretabs",
@@ -6668,6 +6680,28 @@
       "source_location": "L16"
     },
     {
+      "id": "src_gennxt_stack",
+      "label": "gennxt-stack.js",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "gennxt-stack.js",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_gennxt_stack_layers",
+      "label": "LAYERS",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "layers",
+      "source_file": "src/gennxt-stack.js",
+      "source_location": "L24"
+    },
+    {
       "id": "src_partners_scene",
       "label": "partners-scene.js",
       "_origin": "ast",
@@ -6815,18 +6849,73 @@
       "label": "after-paint.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "after-paint.js",
       "source_file": "src/after-paint.js",
       "source_location": "L1"
     },
     {
+      "id": "src_case_study",
+      "label": "case-study.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "case-study.js",
+      "source_file": "src/case-study.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_case_study_scene",
+      "label": "case-study-scene.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "case-study-scene.js",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_case_study_scene_canvas",
+      "label": "canvas",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "canvas",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "src_case_study_scene_host",
+      "label": "host",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "host",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_case_study_wide",
+      "label": "wide",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "wide",
+      "source_file": "src/case-study.js",
+      "source_location": "L25"
+    },
+    {
       "id": "src_home",
       "label": "home.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "home.js",
       "source_file": "src/home.js",
@@ -6837,7 +6926,7 @@
       "label": "main.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "main.js",
       "source_file": "src/main.js",
@@ -6848,40 +6937,18 @@
       "label": "partners.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "partners.js",
       "source_file": "src/partners.js",
       "source_location": "L1"
     },
     {
-      "id": "src_product_page",
-      "label": "product-page.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "product-page.js",
-      "file_type": "code",
-      "norm_label": "product-page.js",
-      "source_file": "src/product-page.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_product_page_doc",
-      "label": "doc",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "product-page.js",
-      "file_type": "code",
-      "norm_label": "doc",
-      "source_file": "src/product-page.js",
-      "source_location": "L22"
-    },
-    {
       "id": "src_services",
       "label": "services.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "services.js",
       "source_file": "src/services.js",
@@ -6892,7 +6959,7 @@
       "label": "solutions.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "solutions.js",
       "source_file": "src/solutions.js",
@@ -6903,7 +6970,7 @@
       "label": "whatsapp.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "whatsapp.js",
       "source_file": "src/whatsapp.js",
@@ -6914,7 +6981,7 @@
       "label": "button",
       "_origin": "ast",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "button",
       "source_file": "src/whatsapp.js",
@@ -7479,7 +7546,7 @@
       "file_type": "code",
       "norm_label": "form",
       "source_file": "src/doc.js",
-      "source_location": "L49"
+      "source_location": "L69"
     },
     {
       "id": "src_doc_note",
@@ -7490,7 +7557,7 @@
       "file_type": "code",
       "norm_label": "note",
       "source_file": "src/doc.js",
-      "source_location": "L50"
+      "source_location": "L70"
     },
     {
       "id": "src_doc_toclinks",
@@ -7501,62 +7568,29 @@
       "file_type": "code",
       "norm_label": "toclinks",
       "source_file": "src/doc.js",
-      "source_location": "L22"
+      "source_location": "L42"
     },
     {
-      "id": "src_case_study",
-      "label": "case-study.js",
+      "id": "src_product_page",
+      "label": "product-page.js",
       "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
+      "community": 25,
+      "community_name": "doc.js",
       "file_type": "code",
-      "norm_label": "case-study.js",
-      "source_file": "src/case-study.js",
+      "norm_label": "product-page.js",
+      "source_file": "src/product-page.js",
       "source_location": "L1"
     },
     {
-      "id": "src_case_study_scene",
-      "label": "case-study-scene.js",
+      "id": "src_product_page_doc",
+      "label": "doc",
       "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
+      "community": 25,
+      "community_name": "doc.js",
       "file_type": "code",
-      "norm_label": "case-study-scene.js",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_case_study_scene_canvas",
-      "label": "canvas",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "canvas",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "src_case_study_scene_host",
-      "label": "host",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "host",
-      "source_file": "src/case-study-scene.js",
+      "norm_label": "doc",
+      "source_file": "src/product-page.js",
       "source_location": "L22"
-    },
-    {
-      "id": "src_case_study_wide",
-      "label": "wide",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "wide",
-      "source_file": "src/case-study.js",
-      "source_location": "L25"
     },
     {
       "id": "src_solutions_scene_chips",
@@ -8756,28 +8790,6 @@
       "norm_label": "glowtex",
       "source_file": "src/solutions-scene.js",
       "source_location": "L404"
-    },
-    {
-      "id": "src_gennxt_stack",
-      "label": "gennxt-stack.js",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "gennxt-stack.js",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_gennxt_stack_layers",
-      "label": "LAYERS",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "layers",
-      "source_file": "src/gennxt-stack.js",
-      "source_location": "L24"
     },
     {
       "id": "src_product_ui",
@@ -15160,7 +15172,7 @@
       "label": "src_bang",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_bang",
@@ -15172,7 +15184,7 @@
       "label": "src_style",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "product-page.js",
+      "community_name": "after-paint.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_style",
@@ -18935,6 +18947,18 @@
       "context": "call",
       "source_file": "src/cloud-scene.js",
       "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "src_doc",
+      "target": "src_doc_keepchipinview",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/doc.js",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -23602,7 +23626,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/doc.js",
-      "source_location": "L22",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -23613,7 +23637,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/doc.js",
-      "source_location": "L49",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -23624,7 +23648,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/doc.js",
-      "source_location": "L50",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -32789,5 +32813,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "42abd14f4f501137f03d8663be8b22d6ac7752ce"
+  "built_at_commit": "54f4e37e765529f61f2cabedb5f32fa227c5a4e4"
 }

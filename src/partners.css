@@ -45,7 +45,7 @@
 .pt__stats span { font-size: 13px; color: var(--ink-3); }
 
 .pt__head { margin: clamp(56px, 7vw, 92px) auto clamp(20px, 3vw, 30px); text-align: center; }
-.pt__head p:first-child {
+.pt__head p:first-of-type {
   display: flex; width: fit-content; margin-inline: auto; align-items: center; gap: 10px;
   font: 600 12px/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2);
   padding: 7px 14px 7px 12px; border-radius: 999px; background: var(--paper); border: 1px solid var(--paper-edge);
@@ -59,6 +59,37 @@
   line-height: 1.15; letter-spacing: -0.02em; margin: 14px 0 10px;
 }
 .pt__head .pt__sub { color: var(--ink-2); font-size: 17px; max-width: 58ch; margin-inline: auto; }
+
+
+/* ---------- the trust mark ---------- */
+/* A tally stick: one record split in two, each side holding a half, the
+   seam proving they belong together. The split rises like a market line.
+   The two colours are the two pillars of the 3D piece in the hero. */
+.pt__head--mark { display: grid; justify-items: center; }
+.pt-mark {
+  width: clamp(60px, 7vw, 82px);
+  height: auto;
+  margin-bottom: 26px;
+  overflow: visible;
+}
+.pt-mark__ours { fill: #2563eb; }
+.pt-mark__theirs { fill: #22d3ee; }
+:root[data-theme="dark"] .pt-mark__ours { fill: #4f86ff; }
+
+/* the one piece of motion on this page: the halves close, and hold */
+.pt-mark__ours,
+.pt-mark__theirs { transform-box: fill-box; transform-origin: center; }
+[data-trust-mark] .pt-mark__theirs { transform: translate(5%, -7%); }
+[data-trust-mark] .pt-mark__ours { transform: translate(-5%, 7%); }
+[data-trust-mark].is-held .pt-mark__ours,
+[data-trust-mark].is-held .pt-mark__theirs {
+  transform: none;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-trust-mark] .pt-mark__ours,
+  [data-trust-mark] .pt-mark__theirs { transform: none; transition: none; }
+}
 
 /* ---------- what they say ---------- */
 .voices__bar {
