@@ -4,21 +4,14 @@ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.j
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 /* =====================================================
- * OUR PARTNERS — the partner portal
+ * OUR PARTNERS — the handshake
  * =====================================================
- * An isometric desk carrying the tally stick: the way a
- * debt was recorded before banks kept ledgers, by
- * splitting a stick in two so each party held a half and
- * the grain matched only its true counterpart. One
- * record, two halves, and neither side can alter its own
- * without the seam showing it.
+ * Two people meeting on a lit platform, hands joined in
+ * the middle: ours in navy, theirs in red. Around them a
+ * built landscape of blocks, slabs and panels — the
+ * market infrastructure a partnership is actually made
+ * of, stacked the way an isometric drawing stacks it.
  *
- * The halves part and close on a slow beat, and the seam
- * lights as they lock. Around them the things a
- * partnership actually exchanges: a dashboard, a rising
- * chart, a ledger of transactions, a key.
- *
- * Dark in both browser modes, like the services piece.
  * Drag it to turn it; let go and it eases back.
  * ===================================================== */
 
@@ -27,14 +20,23 @@ const canvas = host?.querySelector('canvas');
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const C = {
-  deck: 0x1b2748,
-  deckTop: 0x243358,
-  edge: 0x3d5390,
-  ours: 0x2563eb,
-  theirs: 0x22d3ee,
+  deck: 0xa9cdf2, // the platform they stand on
+  deckTop: 0xcbe2fb,
+  edge: 0x5b8fd8,
+  ours: 0x27335f, // our suit
+  theirs: 0xd8443f, // the partner's jacket
+  shirt: 0xeaf2ff,
+  skin: 0xf1c6a4,
+  hair: 0x1d2440,
   pale: 0xdfe8ff,
   glass: 0x7fb4ff,
   gold: 0xf5c451,
+  block: 0x2f6fd0,
+  blockDeep: 0x1d3f8f,
+  blockLight: 0x7fb0f0,
+  blockPurple: 0x4b3fa8,
+  blockCyan: 0x35c6e8,
+  accent: 0xe4484a,
 };
 
 if (canvas) {
@@ -79,236 +81,231 @@ if (canvas) {
   const paleMat = solid(C.pale, { rough: 0.35 });
   const edgeMat = lamp(C.edge, 0.9);
 
-  // --- the desk it all stands on
-  const deck = new THREE.Mesh(new RoundedBoxGeometry(7.6, 0.5, 5.4, 5, 0.18), deckMat);
-  deck.position.y = -0.25;
+  // --- the platform they meet on
+  const deck = new THREE.Mesh(new RoundedBoxGeometry(6.4, 0.46, 6.4, 5, 0.16), solid(C.deck, { rough: 0.5 }));
+  deck.position.y = -0.23;
   root.add(deck);
-  const inlay = new THREE.Mesh(new RoundedBoxGeometry(6.8, 0.06, 4.6, 4, 0.1), topMat);
-  inlay.position.y = 0.02;
+  const inlay = new THREE.Mesh(new RoundedBoxGeometry(5.5, 0.06, 5.5, 4, 0.1), solid(C.deckTop, { rough: 0.45 }));
+  inlay.position.y = 0.03;
   root.add(inlay);
-  // a lit seam around the rim
-  const seam = new THREE.Mesh(new THREE.TorusGeometry(4.2, 0.022, 8, 4), lamp(C.theirs, 0.55));
-  seam.rotation.x = -Math.PI / 2;
-  seam.rotation.z = Math.PI / 4;
-  seam.scale.set(1.08, 0.78, 1);
-  seam.position.y = -0.48;
-  root.add(seam);
+  // the faint circuitry printed on it
+  const grid = new THREE.Group();
+  for (let k = -2; k <= 2; k++) {
+    [[5.0, 0.02, k * 1.1], [0.02, 5.0, k * 1.1]].forEach(([w, d, off], axis) => {
+      const line = new THREE.Mesh(
+        new THREE.BoxGeometry(axis ? 0.02 : 5.0, 0.012, axis ? 5.0 : 0.02),
+        lamp(C.edge, 0.22)
+      );
+      line.position.set(axis ? off : 0, 0.07, axis ? 0 : off);
+      grid.add(line);
+    });
+  }
+  root.add(grid);
 
-  // --- the tally stick: one record, split and held by both sides
-
-  // the record, 2D: a rounded slab cut by a seam that climbs to the right
-  // in three steps, so the split that proves the halves belong together
-  // reads as a market line going up
-  const REC = { w: 4.4, h: 2.8, r: 0.42, depth: 0.78 };
-  const SEAM = [
-    [-REC.w / 2, -0.30],
-    [-0.78, -0.30],
-    [-0.78, 0.12],
-    [0.78, 0.12],
-    [0.78, 0.54],
-    [REC.w / 2, 0.54],
-  ];
-
-  /** One half of the record: the seam, then round the outside of the slab. */
-  function halfShape(upper) {
-    const { w, h, r } = REC;
-    const sh = new THREE.Shape();
-    const seam = upper ? [...SEAM] : [...SEAM].reverse();
-    seam.forEach(([x, y], i) => (i ? sh.lineTo(x, y) : sh.moveTo(x, y)));
-    if (upper) {
-      // ...up the right edge, across the top, down the left
-      sh.lineTo(w / 2, h / 2 - r);
-      sh.quadraticCurveTo(w / 2, h / 2, w / 2 - r, h / 2);
-      sh.lineTo(-w / 2 + r, h / 2);
-      sh.quadraticCurveTo(-w / 2, h / 2, -w / 2, h / 2 - r);
-    } else {
-      // ...down the left edge, along the bottom, up the right
-      sh.lineTo(-w / 2, -h / 2 + r);
-      sh.quadraticCurveTo(-w / 2, -h / 2, -w / 2 + r, -h / 2);
-      sh.lineTo(w / 2 - r, -h / 2);
-      sh.quadraticCurveTo(w / 2, -h / 2, w / 2, -h / 2 + r);
-    }
-    sh.closePath();
-    return sh;
+  // the lit disc each of them stands on
+  function pad(x, z, color) {
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.03, 10, 44), lamp(color, 0.75));
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.set(x, 0.08, z);
+    root.add(ring);
+    const fill = new THREE.Mesh(new THREE.CircleGeometry(0.62, 44), lamp(color, 0.14));
+    fill.rotation.x = -Math.PI / 2;
+    fill.position.set(x, 0.07, z);
+    root.add(fill);
   }
 
-  function halfMesh(upper, mat) {
-    const geo = new THREE.ExtrudeGeometry(halfShape(upper), {
-      depth: REC.depth,
-      bevelEnabled: true,
-      bevelSize: 0.05,
-      bevelThickness: 0.05,
-      bevelSegments: 3,
-      curveSegments: 10,
-    });
-    // both halves are drawn in the same frame, so they must keep it: only
-    // the extrusion's depth is re-centred
-    geo.translate(0, 0, -REC.depth / 2);
-    return new THREE.Mesh(geo, mat);
-  }
+  // --- the two of them
+  const skinMat = solid(C.skin, { rough: 0.6 });
+  const hairMat = solid(C.hair, { rough: 0.55 });
+  const shirtMat = solid(C.shirt, { rough: 0.45 });
+  const shoeMat = solid(0x161c33, { rough: 0.5 });
 
-  const stock = (color) =>
-    new THREE.MeshPhysicalMaterial({
-      color, roughness: 0.62, metalness: 0, clearcoat: 0.12, clearcoatRoughness: 0.6,
-      emissive: color, emissiveIntensity: 0.07,
-    });
-
-  const record = new THREE.Group();
-  record.position.set(0, 1.5, 0);
-  // square to the isometric camera, so the stepped seam reads as a staircase
-  // rather than a foreshortened edge. The desk turns; the record holds its
-  // face to the viewer (see the loop), because a mark that is only legible
-  // for part of a turn is not a mark.
-  record.rotation.y = Math.PI / 4;
-  record.scale.setScalar(0.72); // sized to sit on the desk, not cover it
-  root.add(record);
-
-  const theirsHalf = halfMesh(true, stock(0x0e90aa)); // the partner's half, above the seam
-  const oursHalf = halfMesh(false, stock(0x2558cf)); // ours, below it
-  record.add(theirsHalf, oursHalf);
-
-  // the light that runs along the seam when the two halves meet
-  const seamGlow = new THREE.Mesh(
-    new THREE.BoxGeometry(REC.w * 0.9, 0.035, REC.depth * 1.06),
-    lamp(C.pale, 0.55)
-  );
-  seamGlow.position.y = 0.12;
-  record.add(seamGlow);
-
-  // it stands on a plinth, so the record reads as something kept, not dropped
-  const plinth = new THREE.Mesh(new RoundedBoxGeometry(2.6, 0.26, 1.5, 4, 0.1), paleMat);
-  plinth.position.y = 0.16;
-  root.add(plinth);
-  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.2, 0.5, 24), paleMat);
-  stem.position.y = 0.42;
-  root.add(stem);
-
-  // --- what a partnership passes back and forth
-  function panel(w, h, draw) {
-    const tex = new THREE.CanvasTexture(
-      (() => {
-        const c = document.createElement('canvas');
-        c.width = 256;
-        c.height = Math.round((256 * h) / w);
-        draw(c.getContext('2d'), c.width, c.height);
-        return c;
-      })()
-    );
-    tex.colorSpace = THREE.SRGBColorSpace;
+  /**
+   * One person, built to meet the other: the near arm reaches for a point
+   * between them, the far arm rests at the side.
+   * @param {object} o
+   * @param {number} o.x        where they stand
+   * @param {number} o.face     the way they are turned, in radians
+   * @param {number} o.jacket   jacket colour
+   * @param {number} o.trousers trouser colour
+   * @param {number} o.tie      tie colour
+   * @param {number} o.reach    which way the shaking arm swings: 1 or -1
+   */
+  function person({ x, z, face, jacket, trousers, tie, reach }) {
     const g = new THREE.Group();
-    const frame = new THREE.Mesh(new RoundedBoxGeometry(w, h, 0.07, 4, 0.06), solid(0x16203c, { rough: 0.4 }));
-    const face = new THREE.Mesh(
-      new THREE.PlaneGeometry(w * 0.92, h * 0.88),
-      new THREE.MeshBasicMaterial({ map: tex, toneMapped: false })
-    );
-    face.position.z = 0.04;
-    g.add(frame, face);
+    g.position.set(x, 0.05, z);
+    g.rotation.y = face;
+    const jacketMat = solid(jacket, { rough: 0.5 });
+    const trouserMat = solid(trousers, { rough: 0.5 });
+
+    [-0.16, 0.16].forEach((lx) => {
+      const leg = new THREE.Mesh(new RoundedBoxGeometry(0.26, 1.0, 0.26, 4, 0.1), trouserMat);
+      leg.position.set(lx, 0.52, 0);
+      g.add(leg);
+      const shoe = new THREE.Mesh(new RoundedBoxGeometry(0.28, 0.14, 0.42, 4, 0.06), shoeMat);
+      shoe.position.set(lx, 0.07, 0.07);
+      g.add(shoe);
+    });
+
+    const torso = new THREE.Mesh(new RoundedBoxGeometry(0.76, 1.0, 0.44, 5, 0.16), jacketMat);
+    torso.position.y = 1.5;
+    g.add(torso);
+    // the shirt and tie showing between the lapels
+    const shirt = new THREE.Mesh(new RoundedBoxGeometry(0.3, 0.7, 0.1, 4, 0.05), shirtMat);
+    shirt.position.set(0, 1.62, 0.2);
+    g.add(shirt);
+    const tieMesh = new THREE.Mesh(new RoundedBoxGeometry(0.1, 0.46, 0.06, 3, 0.03), solid(tie, { rough: 0.4 }));
+    tieMesh.position.set(0, 1.55, 0.25);
+    g.add(tieMesh);
+
+    const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.11, 0.14, 16), skinMat);
+    neck.position.y = 2.06;
+    g.add(neck);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.26, 26, 20), skinMat);
+    head.position.y = 2.32;
+    g.add(head);
+    const hair = new THREE.Mesh(new THREE.SphereGeometry(0.272, 26, 20, 0, Math.PI * 2, 0, 1.15), hairMat);
+    hair.position.y = 2.34;
+    g.add(hair);
+
+    // the arm that rests at the side
+    const rest = new THREE.Mesh(new RoundedBoxGeometry(0.2, 0.86, 0.22, 4, 0.08), jacketMat);
+    rest.position.set(-reach * 0.46, 1.44, 0.02);
+    rest.rotation.z = reach * 0.14;
+    g.add(rest);
+
+    // the arm that reaches. Both of them aim at the same point on their own
+    // centre line, HAND, a little in front: stand them face to face HAND*2
+    // apart and the two hands arrive in the same place.
+    const upper = new THREE.Mesh(new RoundedBoxGeometry(0.19, 0.58, 0.21, 4, 0.08), jacketMat);
+    upper.position.set(reach * 0.36, 1.58, 0.22);
+    upper.rotation.set(0.62, 0, -reach * 0.42);
+    g.add(upper);
+    const fore = new THREE.Mesh(new RoundedBoxGeometry(0.17, 0.66, 0.19, 4, 0.08), jacketMat);
+    fore.position.set(reach * 0.2, 1.33, 0.52);
+    fore.rotation.set(1.22, 0, -reach * 0.55);
+    g.add(fore);
+    const cuff = new THREE.Mesh(new THREE.SphereGeometry(0.1, 18, 14), skinMat);
+    cuff.position.set(0.02, 1.26, HAND - 0.06);
+    g.add(cuff);
+
+    root.add(g);
     return g;
   }
 
-  const card = (ctx, w, h, body) => {
-    ctx.fillStyle = '#0d1630';
-    ctx.fillRect(0, 0, w, h);
-    body(ctx, w, h);
+  // They stand along the axis that runs left-to-right across this isometric
+  // view, so both read in profile rather than one hiding behind the other.
+  const HAND = 0.82; // how far in front of themselves each one reaches
+  const AX = new THREE.Vector3(1, 0, -1).normalize();
+  const hereA = AX.clone().multiplyScalar(-HAND);
+  const hereB = AX.clone().multiplyScalar(HAND);
+  const SHAKE = new THREE.Vector3(0, 1.26, 0); // where the hands meet
+
+  pad(hereA.x, hereA.z, C.blockCyan);
+  pad(hereB.x, hereB.z, C.accent);
+
+  const us = person({
+    x: hereA.x, z: hereA.z, face: Math.atan2(AX.x, AX.z),
+    jacket: C.ours, trousers: 0x1b2748, tie: 0x9fb6e8, reach: 1,
+  });
+  const them = person({
+    x: hereB.x, z: hereB.z, face: Math.atan2(-AX.x, -AX.z),
+    jacket: C.theirs, trousers: 0x23304f, tie: 0xf3f6ff, reach: 1,
+  });
+  // the people lead the picture, so they stand a little above the blocks
+  us.scale.setScalar(1.12);
+  them.scale.setScalar(1.12);
+
+  // the hands, joined
+  const clasp = new THREE.Group();
+  clasp.position.copy(SHAKE);
+  root.add(clasp);
+  const grip = new THREE.Mesh(new RoundedBoxGeometry(0.46, 0.26, 0.28, 5, 0.1), skinMat);
+  grip.rotation.y = Math.atan2(AX.x, AX.z);
+  clasp.add(grip);
+  // the light that answers the grip
+  const spark = new THREE.Mesh(new THREE.SphereGeometry(0.1, 20, 16), lamp(0xffffff, 0.9));
+  clasp.add(spark);
+  const halo = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.02, 10, 48), lamp(C.blockCyan, 0.8));
+  halo.rotation.x = Math.PI / 2;
+  clasp.add(halo);
+
+  // --- the built landscape behind them
+  const blockMats = {
+    blue: solid(C.block, { rough: 0.45 }),
+    deep: solid(C.blockDeep, { rough: 0.5 }),
+    light: solid(C.blockLight, { rough: 0.45 }),
+    purple: solid(C.blockPurple, { rough: 0.5 }),
+    cyan: solid(C.blockCyan, { rough: 0.4, glow: 0.12 }),
+    red: solid(C.accent, { rough: 0.45 }),
+    pale: solid(C.pale, { rough: 0.45 }),
   };
 
-  // a rising chart
-  const chart = panel(2.1, 1.35, (ctx, w, h) =>
-    card(ctx, w, h, () => {
-      ctx.strokeStyle = '#22d3ee';
-      ctx.lineWidth = 7;
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(22, h - 30);
-      ctx.lineTo(70, h - 62);
-      ctx.lineTo(116, h - 48);
-      ctx.lineTo(168, h - 92);
-      ctx.lineTo(w - 20, h - 112);
-      ctx.stroke();
-      ctx.fillStyle = 'rgba(37,99,235,0.45)';
-      [30, 62, 94, 126].forEach((x, i) => ctx.fillRect(x, h - 24 - i * 6, 18, 18 + i * 6));
-      ctx.fillStyle = 'rgba(223,232,255,0.5)';
-      ctx.fillRect(20, 18, 86, 10);
-    })
-  );
-  chart.position.set(-2.1, 2.5, -1.5);
-  chart.rotation.set(0, 0.5, 0.04);
-  root.add(chart);
+  // [x, y, z, w, h, d, material]
+  const blocks = [
+    [-3.5, 0.9, -2.2, 1.9, 1.9, 1.9, 'light'], // the big cube at the back left
+    [-3.5, 2.3, -2.2, 1.3, 0.9, 1.3, 'blue'],
+    [-4.3, 0.35, 0.4, 1.5, 0.75, 2.4, 'deep'], // the slab running forward
+    [-3.0, 0.2, 2.4, 2.0, 0.45, 1.4, 'purple'],
+    [3.4, 0.75, -2.4, 1.6, 1.6, 1.6, 'blue'], // the stack on the right
+    [3.4, 1.85, -2.4, 1.1, 0.6, 1.1, 'cyan'],
+    [4.0, 0.3, 0.6, 1.4, 0.65, 2.2, 'deep'],
+    [3.1, 0.22, 2.4, 1.8, 0.45, 1.3, 'light'],
+    [0.2, 1.5, -3.6, 2.2, 3.0, 0.7, 'deep'], // the tall panel directly behind
+    [-1.9, 0.6, -3.4, 1.0, 1.2, 1.0, 'purple'],
+    [1.9, 0.45, 3.1, 0.9, 0.9, 0.9, 'pale'],
+  ];
+  blocks.forEach(([bx, by, bz, w, h, d, mat]) => {
+    const m = new THREE.Mesh(new RoundedBoxGeometry(w, h, d, 4, 0.08), blockMats[mat]);
+    m.position.set(bx, by, bz);
+    root.add(m);
+  });
 
-  // a ledger of exchanges
-  const ledger = panel(1.9, 1.5, (ctx, w, h) =>
-    card(ctx, w, h, () => {
-      ctx.fillStyle = 'rgba(223,232,255,0.5)';
-      ctx.fillRect(18, 16, 70, 9);
-      for (let i = 0; i < 5; i++) {
-        const y = 42 + i * 24;
-        ctx.fillStyle = 'rgba(223,232,255,0.16)';
-        ctx.fillRect(18, y, w - 72, 12);
-        ctx.fillStyle = i % 2 ? '#22d3ee' : '#2563eb';
-        ctx.fillRect(w - 46, y, 28, 12);
-      }
-    })
-  );
-  ledger.position.set(2.2, 2.3, -1.4);
-  ledger.rotation.set(0, -0.55, -0.04);
-  root.add(ledger);
+  // the framed panel on the tall block, as the reference has it
+  const wallPanel = new THREE.Mesh(new RoundedBoxGeometry(1.4, 1.4, 0.1, 4, 0.06), blockMats.pale);
+  wallPanel.position.set(0.2, 1.9, -3.22);
+  root.add(wallPanel);
+  const frameInner = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1.0), lamp(C.blockCyan, 0.5));
+  frameInner.position.set(0.2, 1.9, -3.15);
+  root.add(frameInner);
 
-  // a dashboard lying on the desk
-  const board = panel(2.4, 1.5, (ctx, w, h) =>
-    card(ctx, w, h, () => {
-      ctx.strokeStyle = '#2563eb';
-      ctx.lineWidth = 10;
-      ctx.beginPath();
-      ctx.arc(w * 0.26, h * 0.54, 32, -Math.PI / 2, Math.PI * 0.9);
-      ctx.stroke();
-      ctx.strokeStyle = 'rgba(223,232,255,0.2)';
-      ctx.beginPath();
-      ctx.arc(w * 0.26, h * 0.54, 32, Math.PI * 0.9, Math.PI * 1.5);
-      ctx.stroke();
-      ctx.fillStyle = 'rgba(223,232,255,0.45)';
-      for (let i = 0; i < 4; i++) ctx.fillRect(w * 0.47, 30 + i * 26, w * 0.4 - (i % 2) * 28, 12);
-    })
-  );
-  board.rotation.set(-Math.PI / 2, 0, 0.3);
-  board.position.set(-1.1, 0.1, 1.5);
-  root.add(board);
+  // the red cube on its plinth, front and centre
+  const plinth = new THREE.Mesh(new RoundedBoxGeometry(1.1, 0.16, 1.1, 4, 0.06), blockMats.pale);
+  plinth.position.set(0, 0.14, 2.0);
+  root.add(plinth);
+  const redCube = new THREE.Mesh(new RoundedBoxGeometry(0.62, 0.62, 0.62, 4, 0.1), blockMats.red);
+  redCube.position.set(0, 0.55, 2.0);
+  root.add(redCube);
 
-  // a key, because access is what partners actually trade
-  const keyG = new THREE.Group();
-  const keyMat = solid(C.gold, { rough: 0.25, metal: 0.9 });
-  const bow = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.07, 14, 34), keyMat);
-  const shank = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.7, 14), keyMat);
-  shank.position.y = -0.46;
-  const tooth = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.09, 0.09), keyMat);
-  tooth.position.set(0.1, -0.72, 0);
-  keyG.add(bow, shank, tooth);
-  keyG.position.set(1.7, 0.75, 1.6);
-  keyG.rotation.z = 0.5;
-  root.add(keyG);
+  // and the case between them, the thing actually being handed over
+  const caseG = new THREE.Group();
+  caseG.position.set(-1.5, 0.42, 1.5);
+  root.add(caseG);
+  const caseBody = new THREE.Mesh(new RoundedBoxGeometry(0.8, 0.44, 0.34, 4, 0.08), blockMats.red);
+  caseG.add(caseBody);
+  const caseHandle = new THREE.Mesh(new THREE.TorusGeometry(0.11, 0.025, 8, 20, Math.PI), solid(0x2a1b1b));
+  caseHandle.position.y = 0.24;
+  caseG.add(caseHandle);
 
-  // small blocks drifting around the desk
+  // small blocks drifting around the meeting
   const motes = [];
   const moteGeo = new RoundedBoxGeometry(0.26, 0.26, 0.26, 4, 0.07);
-  [[-3.3, 1.9, 1.6, C.theirs], [3.4, 1.5, 1.5, C.ours], [-3.5, 0.7, -1.6, C.pale],
-   [3.2, 2.8, -0.6, C.pale], [0.4, 3.3, 1.2, C.theirs]].forEach(([x, y, z, col], i) => {
+  [[-3.6, 2.9, 1.2, C.blockCyan], [3.6, 3.1, 0.8, C.accent], [-2.6, 3.4, -0.6, C.pale],
+   [2.4, 3.6, -1.8, C.blockLight], [0.2, 4.0, 1.6, C.blockCyan]].forEach(([mx, my, mz, col], i) => {
     const m = new THREE.Mesh(moteGeo, solid(col, { glow: 0.25 }));
-    m.position.set(x, y, z);
-    m.userData = { y, i };
+    m.position.set(mx, my, mz);
+    m.userData = { y: my, i };
     root.add(m);
     motes.push(m);
   });
 
-  // the portal's arch: a thin lit ring standing behind the desk, rather than
-  // a dome over it — a shell that size simply hides what is inside
-  const arch = new THREE.Mesh(new THREE.TorusGeometry(3.9, 0.05, 10, 80, Math.PI), lamp(C.glass, 0.45));
-  arch.position.set(0, -0.2, -1.4);
+  // the arch standing behind it all
+  const arch = new THREE.Mesh(new THREE.TorusGeometry(4.2, 0.05, 10, 80, Math.PI), lamp(C.glass, 0.4));
+  arch.position.set(0, -0.2, -1.8);
   root.add(arch);
-  const archInner = new THREE.Mesh(new THREE.TorusGeometry(3.4, 0.025, 8, 70, Math.PI), lamp(C.theirs, 0.3));
-  archInner.position.copy(arch.position);
-  root.add(archInner);
 
   // --- sizing: an orthographic frustum that holds the whole desk
-  const FIT = 4.9;
+  const FIT = 4.6; // close enough that the two of them lead the picture
   function size() {
     const r = host.getBoundingClientRect();
     if (r.width < 2 || r.height < 2) return;
@@ -370,27 +367,21 @@ if (canvas) {
     spin += (spinTo - spin) * 0.08;
     root.rotation.y = spin;
     root.position.y = Math.sin(t * 0.7) * 0.06;
-    // the desk turns around the record, not the record with it
-    record.rotation.y = Math.PI / 4 - spin;
 
-    // the halves draw apart, come back together, and the seam lights as
-    // they lock — the tally proving itself, over and over
+    // the two of them settle, the grip lights, and the case waits between
+    const breathe = Math.sin(t * 0.9);
+    us.position.y = 0.05 + breathe * 0.02;
+    them.position.y = 0.05 - breathe * 0.02;
+    clasp.position.y = SHAKE.y + breathe * 0.015;
     const beat = (t % 5) / 5;
-    const close = Math.min(1, beat / 0.3);
-    const eased = 1 - (1 - close) ** 3;
-    const apart = (1 - eased) * 0.55;
-    theirsHalf.position.set(apart * 0.45, apart, 0);
-    oursHalf.position.set(-apart * 0.45, -apart, 0);
-    theirsHalf.rotation.z = apart * 0.06;
-    oursHalf.rotation.z = -apart * 0.06;
-    const pulse = beat > 0.3 ? Math.max(0, 1 - (beat - 0.3) * 4.5) : 0;
-    seamGlow.material.opacity = 0.25 + pulse * 0.75;
-    seamGlow.scale.set(1, 1 + pulse * 2.4, 1);
+    const pulse = beat < 0.22 ? Math.max(0, 1 - beat * 4.5) : 0;
+    spark.scale.setScalar(0.7 + pulse * 1.6);
+    halo.scale.setScalar(1 + pulse * 1.8);
+    halo.material.opacity = 0.8 * (1 - pulse * 0.7);
 
-    chart.position.y = 2.5 + Math.sin(t * 0.9) * 0.1;
-    ledger.position.y = 2.3 + Math.sin(t * 0.8 + 1.6) * 0.1;
-    keyG.rotation.y = t * 0.8;
-    keyG.position.y = 0.75 + Math.sin(t * 1.1) * 0.08;
+    redCube.rotation.y = t * 0.5;
+    redCube.position.y = 0.55 + Math.sin(t * 1.1) * 0.05;
+    caseG.position.y = 0.42 + Math.sin(t * 0.8 + 1) * 0.03;
     motes.forEach((m) => {
       const { y, i } = m.userData;
       m.position.y = y + Math.sin(t * 0.8 + i * 1.3) * 0.18;
