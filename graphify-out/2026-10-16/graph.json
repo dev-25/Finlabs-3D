@@ -1330,6 +1330,90 @@
       "source_location": "L125"
     },
     {
+      "id": "src_learngenie_climb_createclimb",
+      "label": "createClimb()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "createclimb()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L89"
+    },
+    {
+      "id": "src_learngenie_climb_createclimb_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L196"
+    },
+    {
+      "id": "src_learngenie_climb_createclimb_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L246"
+    },
+    {
+      "id": "src_learngenie_climb_createclimb_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L216"
+    },
+    {
+      "id": "src_learngenie_climb_drawstep",
+      "label": "drawStep()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "drawstep()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L32"
+    },
+    {
+      "id": "src_learngenie_climb_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L62"
+    },
+    {
+      "id": "src_learngenie_climb_starshape",
+      "label": "starShape()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "starshape()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L75"
+    },
+    {
       "id": "src_partners_scene_frame",
       "label": "frame()",
       "_callable": true,
@@ -1798,18 +1882,6 @@
       "source_location": "L439"
     },
     {
-      "id": "src_nav_setopen",
-      "label": "setOpen()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "setopen()",
-      "source_file": "src/nav.js",
-      "source_location": "L16"
-    },
-    {
       "id": "src_solutions_ui_selectgoal",
       "label": "selectGoal()",
       "_callable": true,
@@ -1844,18 +1916,6 @@
       "norm_label": "idle()",
       "source_file": "src/after-paint.js",
       "source_location": "L39"
-    },
-    {
-      "id": "src_case_study_wantscene",
-      "label": "wantScene()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "wantscene()",
-      "source_file": "src/case-study.js",
-      "source_location": "L28"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -2338,112 +2398,40 @@
       "source_location": "L45"
     },
     {
-      "id": "src_learngenie_climb_createclimb",
-      "label": "createClimb()",
+      "id": "src_nav_setopen",
+      "label": "setOpen()",
       "_callable": true,
       "_origin": "ast",
-      "community": 24,
-      "community_name": "learngenie-climb.js",
+      "community": 23,
+      "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "createclimb()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L89"
+      "norm_label": "setopen()",
+      "source_file": "src/nav.js",
+      "source_location": "L16"
     },
     {
-      "id": "src_learngenie_climb_createclimb_frame",
-      "label": "frame()",
+      "id": "src_case_study_wantscene",
+      "label": "wantScene()",
       "_callable": true,
       "_origin": "ast",
-      "community": 24,
-      "community_name": "learngenie-climb.js",
+      "community": 25,
+      "community_name": "case-study.js",
       "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L196"
-    },
-    {
-      "id": "src_learngenie_climb_createclimb_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L246"
-    },
-    {
-      "id": "src_learngenie_climb_createclimb_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L216"
-    },
-    {
-      "id": "src_learngenie_climb_drawstep",
-      "label": "drawStep()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "drawstep()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L32"
-    },
-    {
-      "id": "src_learngenie_climb_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L62"
-    },
-    {
-      "id": "src_learngenie_climb_starshape",
-      "label": "starShape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "starshape()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L75"
+      "norm_label": "wantscene()",
+      "source_file": "src/case-study.js",
+      "source_location": "L28"
     },
     {
       "id": "src_doc_keepchipinview",
       "label": "keepChipInView()",
       "_callable": true,
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "keepchipinview()",
       "source_file": "src/doc.js",
       "source_location": "L33"
-    },
-    {
-      "id": "src_product_page_runpiece",
-      "label": "runPiece()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "runpiece()",
-      "source_file": "src/product-page.js",
-      "source_location": "L42"
     },
     {
       "id": "src_solutions_scene_chiplabel",
@@ -3944,6 +3932,18 @@
       "norm_label": "via()",
       "source_file": "src/solutions-scene.js",
       "source_location": "L310"
+    },
+    {
+      "id": "src_product_page_runpiece",
+      "label": "runPiece()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "runpiece()",
+      "source_file": "src/product-page.js",
+      "source_location": "L42"
     },
     {
       "id": "src_product_ui_asset",
@@ -6482,160 +6482,6 @@
       "source_location": "L32"
     },
     {
-      "id": "package",
-      "label": "package.json",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "package.json",
-      "source_file": "package.json",
-      "source_location": "L1"
-    },
-    {
-      "id": "package_dependencies",
-      "label": "dependencies",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "package.json",
-      "source_location": "L15"
-    },
-    {
-      "id": "package_dependencies_three",
-      "label": "three",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "three",
-      "source_file": "package.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "package_devdependencies",
-      "label": "devDependencies",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "package.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "package_devdependencies_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "vite",
-      "source_file": "package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "package_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "package.json",
-      "source_location": "L2"
-    },
-    {
-      "id": "package_private",
-      "label": "private",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "private",
-      "source_file": "package.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "package.json",
-      "source_location": "L6"
-    },
-    {
-      "id": "package_scripts_build",
-      "label": "build",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "build",
-      "source_file": "package.json",
-      "source_location": "L8"
-    },
-    {
-      "id": "package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "package.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "package_scripts_i18n_extract",
-      "label": "i18n:extract",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "i18n:extract",
-      "source_file": "package.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "package_scripts_preview",
-      "label": "preview",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "preview",
-      "source_file": "package.json",
-      "source_location": "L9"
-    },
-    {
-      "id": "package_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "package.json",
-      "source_location": "L5"
-    },
-    {
-      "id": "package_version",
-      "label": "version",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "version",
-      "source_file": "package.json",
-      "source_location": "L3"
-    },
-    {
       "id": "src_finaware_flow",
       "label": "finaware-flow.js",
       "_origin": "ast",
@@ -6702,6 +6548,28 @@
       "source_location": "L24"
     },
     {
+      "id": "src_learngenie_climb",
+      "label": "learngenie-climb.js",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "learngenie-climb.js",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_learngenie_climb_steps",
+      "label": "STEPS",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "steps",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L25"
+    },
+    {
       "id": "src_partners_scene",
       "label": "partners-scene.js",
       "_origin": "ast",
@@ -6755,17 +6623,6 @@
       "norm_label": "three",
       "source_file": "package.json",
       "source_location": "L16"
-    },
-    {
-      "id": "ref_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "concept",
-      "norm_label": "vite",
-      "source_file": "package.json",
-      "source_location": "L13"
     },
     {
       "id": "src_learngenie_games",
@@ -6856,61 +6713,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_case_study",
-      "label": "case-study.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "case-study.js",
-      "source_file": "src/case-study.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_case_study_scene",
-      "label": "case-study-scene.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "case-study-scene.js",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_case_study_scene_canvas",
-      "label": "canvas",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "canvas",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "src_case_study_scene_host",
-      "label": "host",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "host",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_case_study_wide",
-      "label": "wide",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "wide",
-      "source_file": "src/case-study.js",
-      "source_location": "L25"
-    },
-    {
       "id": "src_home",
       "label": "home.js",
       "_origin": "ast",
@@ -6942,6 +6744,17 @@
       "norm_label": "partners.js",
       "source_file": "src/partners.js",
       "source_location": "L1"
+    },
+    {
+      "id": "src_partners_mark",
+      "label": "mark",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "mark",
+      "source_file": "src/partners.js",
+      "source_location": "L24"
     },
     {
       "id": "src_services",
@@ -7505,32 +7318,230 @@
       "source_location": "L13"
     },
     {
-      "id": "src_learngenie_climb",
-      "label": "learngenie-climb.js",
+      "id": "package",
+      "label": "package.json",
       "_origin": "ast",
       "community": 24,
-      "community_name": "learngenie-climb.js",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "learngenie-climb.js",
-      "source_file": "src/learngenie-climb.js",
+      "norm_label": "package.json",
+      "source_file": "package.json",
       "source_location": "L1"
     },
     {
-      "id": "src_learngenie_climb_steps",
-      "label": "STEPS",
+      "id": "package_dependencies",
+      "label": "dependencies",
       "_origin": "ast",
       "community": 24,
-      "community_name": "learngenie-climb.js",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "steps",
-      "source_file": "src/learngenie-climb.js",
+      "norm_label": "dependencies",
+      "source_file": "package.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "package_dependencies_three",
+      "label": "three",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "three",
+      "source_file": "package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "package_devdependencies",
+      "label": "devDependencies",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "devdependencies",
+      "source_file": "package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "package_devdependencies_vite",
+      "label": "vite",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "vite",
+      "source_file": "package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "package_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "package_private",
+      "label": "private",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "private",
+      "source_file": "package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "package_scripts_i18n_extract",
+      "label": "i18n:extract",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "i18n:extract",
+      "source_file": "package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "package_scripts_preview",
+      "label": "preview",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "preview",
+      "source_file": "package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "package_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "package_version",
+      "label": "version",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "version",
+      "source_file": "package.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "ref_vite",
+      "label": "vite",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "vite",
+      "source_file": "package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "src_case_study",
+      "label": "case-study.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "case-study.js",
+      "file_type": "code",
+      "norm_label": "case-study.js",
+      "source_file": "src/case-study.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_case_study_scene",
+      "label": "case-study-scene.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "case-study.js",
+      "file_type": "code",
+      "norm_label": "case-study-scene.js",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_case_study_scene_canvas",
+      "label": "canvas",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "case-study.js",
+      "file_type": "code",
+      "norm_label": "canvas",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "src_case_study_scene_host",
+      "label": "host",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "case-study.js",
+      "file_type": "code",
+      "norm_label": "host",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_case_study_wide",
+      "label": "wide",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "case-study.js",
+      "file_type": "code",
+      "norm_label": "wide",
+      "source_file": "src/case-study.js",
       "source_location": "L25"
     },
     {
       "id": "src_doc",
       "label": "doc.js",
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "doc.js",
@@ -7541,7 +7552,7 @@
       "id": "src_doc_form",
       "label": "form",
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "form",
@@ -7552,7 +7563,7 @@
       "id": "src_doc_note",
       "label": "note",
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "note",
@@ -7563,34 +7574,12 @@
       "id": "src_doc_toclinks",
       "label": "tocLinks",
       "_origin": "ast",
-      "community": 25,
+      "community": 26,
       "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "toclinks",
       "source_file": "src/doc.js",
       "source_location": "L42"
-    },
-    {
-      "id": "src_product_page",
-      "label": "product-page.js",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "product-page.js",
-      "source_file": "src/product-page.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_product_page_doc",
-      "label": "doc",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "doc",
-      "source_file": "src/product-page.js",
-      "source_location": "L22"
     },
     {
       "id": "src_solutions_scene_chips",
@@ -8790,6 +8779,28 @@
       "norm_label": "glowtex",
       "source_file": "src/solutions-scene.js",
       "source_location": "L404"
+    },
+    {
+      "id": "src_product_page",
+      "label": "product-page.js",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "product-page.js",
+      "source_file": "src/product-page.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_product_page_doc",
+      "label": "doc",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "doc",
+      "source_file": "src/product-page.js",
+      "source_location": "L22"
     },
     {
       "id": "src_product_ui",
@@ -25104,6 +25115,17 @@
       "weight": 1.0
     },
     {
+      "source": "src_partners",
+      "target": "src_partners_mark",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/partners.js",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
       "source": "src_partners_scene",
       "target": "src_partners_scene_panel",
       "relation": "contains",
@@ -32813,5 +32835,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "54f4e37e765529f61f2cabedb5f32fa227c5a4e4"
+  "built_at_commit": "731c22356a1abd0bf403a43dae075a34706ae862"
 }
