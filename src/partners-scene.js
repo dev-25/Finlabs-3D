@@ -24,14 +24,14 @@ const canvas = host?.querySelector('canvas');
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const C = {
-  sea: 0x101a3a, // the globe under the dots
-  land: 0x3f7ddd, // the dots themselves
-  landDim: 0x2a5bb0,
-  cage: 0x4d7fd0, // meridians and parallels
-  arc: 0x22d3ee,
-  home: 0xf5c451, // Mumbai
-  pin: 0x22d3ee,
-  glow: 0x4f86ff,
+  sea: 0x4f93d9, // a light blue ocean, so the globe carries the pale page too
+  land: 0xeaf4ff, // the land dots, bright against it
+  landDim: 0xb9d8f6,
+  cage: 0xffffff, // meridians and parallels
+  arc: 0x1b63c4, // deep enough to read against both the sea and a pale page
+  home: 0xf5a623, // Mumbai
+  pin: 0x0e7fa8,
+  glow: 0x9fd0ff,
 };
 
 /* ---------------------------------------------------------------
@@ -220,7 +220,7 @@ if (canvas) {
   globe.add(dots, dim);
 
   // --- the cage: meridians and parallels over the sea
-  const cageMat = new THREE.LineBasicMaterial({ color: C.cage, transparent: true, opacity: 0.18 });
+  const cageMat = new THREE.LineBasicMaterial({ color: C.cage, transparent: true, opacity: 0.22 });
   for (let k = 0; k < 12; k++) {
     const pts = [];
     for (let a = -90; a <= 90; a += 4) pts.push(onGlobe(a, k * 30, R + 0.006));
@@ -236,13 +236,13 @@ if (canvas) {
   const halo = new THREE.Mesh(
     new THREE.SphereGeometry(R * 1.055, 48, 32),
     new THREE.MeshBasicMaterial({
-      color: C.glow, transparent: true, opacity: 0.12, side: THREE.BackSide, depthWrite: false,
+      color: C.glow, transparent: true, opacity: 0.22, side: THREE.BackSide, depthWrite: false,
     })
   );
   globe.add(halo);
   const ring = new THREE.Mesh(
     new THREE.TorusGeometry(R * 1.28, 0.012, 8, 120),
-    new THREE.MeshBasicMaterial({ color: C.arc, transparent: true, opacity: 0.35, toneMapped: false })
+    new THREE.MeshBasicMaterial({ color: C.arc, transparent: true, opacity: 0.45, toneMapped: false })
   );
   ring.rotation.x = Math.PI / 2.1;
   root.add(ring);
@@ -282,14 +282,14 @@ if (canvas) {
     const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
     const line = new THREE.Mesh(
       new THREE.TubeGeometry(curve, 60, 0.016, 8, false),
-      new THREE.MeshBasicMaterial({ color: C.arc, transparent: true, opacity: 0.5, toneMapped: false })
+      new THREE.MeshBasicMaterial({ color: C.arc, transparent: true, opacity: 0.7, toneMapped: false })
     );
     globe.add(line);
 
     // the pulse that runs it
     const pulse = new THREE.Mesh(
       new THREE.SphereGeometry(0.05, 14, 10),
-      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, toneMapped: false })
+      new THREE.MeshBasicMaterial({ color: 0x0b4f9e, transparent: true, toneMapped: false })
     );
     globe.add(pulse);
     arcs.push({ curve, pulse, offset: Math.random() });
@@ -298,7 +298,7 @@ if (canvas) {
   // --- a scatter of distant specks, for depth
   const specks = new THREE.Group();
   const speckGeo = new THREE.SphereGeometry(0.02, 6, 5);
-  const speckMat = new THREE.MeshBasicMaterial({ color: 0x9fc0ff, transparent: true, opacity: 0.55, toneMapped: false });
+  const speckMat = new THREE.MeshBasicMaterial({ color: 0x7fb0ea, transparent: true, opacity: 0.5, toneMapped: false });
   for (let i = 0; i < 60; i++) {
     const s = new THREE.Mesh(speckGeo, speckMat);
     const r = R * (1.6 + Math.random() * 1.5);

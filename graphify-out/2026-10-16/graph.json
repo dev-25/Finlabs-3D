@@ -1423,31 +1423,19 @@
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L359"
+      "source_location": "L364"
     },
     {
-      "id": "src_partners_scene_pad",
-      "label": "pad()",
+      "id": "src_partners_scene_onglobe",
+      "label": "onGlobe()",
       "_callable": true,
       "_origin": "ast",
       "community": 15,
       "community_name": "three",
       "file_type": "code",
-      "norm_label": "pad()",
+      "norm_label": "onglobe()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L106"
-    },
-    {
-      "id": "src_partners_scene_person",
-      "label": "person()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "person()",
-      "source_file": "src/partners-scene.js",
-      "source_location": "L134"
+      "source_location": "L115"
     },
     {
       "id": "src_partners_scene_size",
@@ -1459,7 +1447,19 @@
       "file_type": "code",
       "norm_label": "size()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L309"
+      "source_location": "L313"
+    },
+    {
+      "id": "src_i18n_mountswitcher",
+      "label": "mountSwitcher()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "mountswitcher()",
+      "source_file": "src/i18n.js",
+      "source_location": "L54"
     },
     {
       "id": "src_i18n_t",
@@ -1472,6 +1472,18 @@
       "norm_label": "t()",
       "source_file": "src/i18n.js",
       "source_location": "L27"
+    },
+    {
+      "id": "src_i18n_urlfor",
+      "label": "urlFor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "urlfor()",
+      "source_file": "src/i18n.js",
+      "source_location": "L45"
     },
     {
       "id": "src_learngenie_games_close",
@@ -1882,6 +1894,30 @@
       "source_location": "L439"
     },
     {
+      "id": "src_product_ui_wirefaqs",
+      "label": "wireFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "wirefaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_product_ui_wirefaqs_filterfaqs",
+      "label": "filterFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "filterfaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L55"
+    },
+    {
       "id": "src_solutions_ui_selectgoal",
       "label": "selectGoal()",
       "_callable": true,
@@ -1894,28 +1930,28 @@
       "source_location": "L146"
     },
     {
-      "id": "src_after_paint_afterpaint",
-      "label": "afterPaint()",
+      "id": "src_case_study_wantscene",
+      "label": "wantScene()",
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
-      "norm_label": "afterpaint()",
-      "source_file": "src/after-paint.js",
-      "source_location": "L12"
+      "norm_label": "wantscene()",
+      "source_file": "src/case-study.js",
+      "source_location": "L28"
     },
     {
-      "id": "src_after_paint_idle",
-      "label": "idle()",
+      "id": "src_doc_keepchipinview",
+      "label": "keepChipInView()",
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
-      "norm_label": "idle()",
-      "source_file": "src/after-paint.js",
-      "source_location": "L39"
+      "norm_label": "keepchipinview()",
+      "source_file": "src/doc.js",
+      "source_location": "L33"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -2002,16 +2038,136 @@
       "source_location": "L95"
     },
     {
-      "id": "src_case_study_wantscene",
-      "label": "wantScene()",
+      "id": "src_cloud_scene_asset",
+      "label": "asset()",
       "_callable": true,
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "buildCloudScene",
       "file_type": "code",
-      "norm_label": "wantscene()",
-      "source_file": "src/case-study.js",
-      "source_location": "L28"
+      "norm_label": "asset()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene",
+      "label": "buildCloudScene()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "buildcloudscene()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_canvastexture",
+      "label": "canvasTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "canvastexture()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_cloudat",
+      "label": "cloudAt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloudat()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L303"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L342"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_kick",
+      "label": "kick()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "kick()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L389"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L375"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L278"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_retarget",
+      "label": "retarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "retarget()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L310"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_start",
+      "label": "start()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "start()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L383"
+    },
+    {
+      "id": "src_cloud_scene_cloudgeometry",
+      "label": "cloudGeometry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloudgeometry()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L30"
     },
     {
       "id": "src_careers_filter",
@@ -2062,28 +2218,28 @@
       "source_location": "L48"
     },
     {
-      "id": "src_i18n_mountswitcher",
-      "label": "mountSwitcher()",
+      "id": "src_after_paint_afterpaint",
+      "label": "afterPaint()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "mountswitcher()",
-      "source_file": "src/i18n.js",
-      "source_location": "L54"
+      "norm_label": "afterpaint()",
+      "source_file": "src/after-paint.js",
+      "source_location": "L12"
     },
     {
-      "id": "src_i18n_urlfor",
-      "label": "urlFor()",
+      "id": "src_after_paint_idle",
+      "label": "idle()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "urlfor()",
-      "source_file": "src/i18n.js",
-      "source_location": "L45"
+      "norm_label": "idle()",
+      "source_file": "src/after-paint.js",
+      "source_location": "L39"
     },
     {
       "id": "src_nav_drawline",
@@ -2278,162 +2434,6 @@
       "source_location": "L24"
     },
     {
-      "id": "src_cloud_scene_asset",
-      "label": "asset()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "asset()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene",
-      "label": "buildCloudScene()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "buildcloudscene()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L47"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_canvastexture",
-      "label": "canvasTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "canvastexture()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L80"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_cloudat",
-      "label": "cloudAt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "cloudat()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L303"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L342"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_kick",
-      "label": "kick()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "kick()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L389"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L375"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L278"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_retarget",
-      "label": "retarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "retarget()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L310"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_start",
-      "label": "start()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "start()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L383"
-    },
-    {
-      "id": "src_cloud_scene_cloudgeometry",
-      "label": "cloudGeometry()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "cloudgeometry()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L30"
-    },
-    {
-      "id": "src_theme_ontheme",
-      "label": "onTheme()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "ontheme()",
-      "source_file": "src/theme.js",
-      "source_location": "L59"
-    },
-    {
-      "id": "src_doc_keepchipinview",
-      "label": "keepChipInView()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "keepchipinview()",
-      "source_file": "src/doc.js",
-      "source_location": "L33"
-    },
-    {
       "id": "src_solutions_scene_chiplabel",
       "label": "chipLabel()",
       "_callable": true,
@@ -2552,6 +2552,18 @@
       "norm_label": "inittheme()",
       "source_file": "src/theme.js",
       "source_location": "L65"
+    },
+    {
+      "id": "src_theme_ontheme",
+      "label": "onTheme()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "ontheme()",
+      "source_file": "src/theme.js",
+      "source_location": "L59"
     },
     {
       "id": "src_theme_paint",
@@ -4004,30 +4016,6 @@
       "norm_label": "open()",
       "source_file": "src/product-ui.js",
       "source_location": "L97"
-    },
-    {
-      "id": "src_product_ui_wirefaqs",
-      "label": "wireFaqs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "wirefaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L48"
-    },
-    {
-      "id": "src_product_ui_wirefaqs_filterfaqs",
-      "label": "filterFaqs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "product-viewport.js",
-      "file_type": "code",
-      "norm_label": "filterfaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L55"
     },
     {
       "id": "src_product_ui_wiretabs",
@@ -6589,7 +6577,7 @@
       "file_type": "code",
       "norm_label": "c",
       "source_file": "src/partners-scene.js",
-      "source_location": "L22"
+      "source_location": "L26"
     },
     {
       "id": "src_partners_scene_canvas",
@@ -6600,7 +6588,7 @@
       "file_type": "code",
       "norm_label": "canvas",
       "source_file": "src/partners-scene.js",
-      "source_location": "L19"
+      "source_location": "L23"
     },
     {
       "id": "src_partners_scene_host",
@@ -6611,7 +6599,29 @@
       "file_type": "code",
       "norm_label": "host",
       "source_file": "src/partners-scene.js",
-      "source_location": "L18"
+      "source_location": "L22"
+    },
+    {
+      "id": "src_partners_scene_land",
+      "label": "LAND",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "land",
+      "source_file": "src/partners-scene.js",
+      "source_location": "L44"
+    },
+    {
+      "id": "src_partners_scene_places",
+      "label": "PLACES",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "places",
+      "source_file": "src/partners-scene.js",
+      "source_location": "L101"
     },
     {
       "id": "ref_three",
@@ -6623,6 +6633,39 @@
       "norm_label": "three",
       "source_file": "package.json",
       "source_location": "L16"
+    },
+    {
+      "id": "src_i18n",
+      "label": "i18n.js",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "i18n.js",
+      "source_file": "src/i18n.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_i18n_lang",
+      "label": "lang",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "lang",
+      "source_file": "src/i18n.js",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_i18n_locales",
+      "label": "LOCALES",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "locales",
+      "source_file": "src/i18n.js",
+      "source_location": "L38"
     },
     {
       "id": "src_learngenie_games",
@@ -6702,44 +6745,121 @@
       "source_location": "L89"
     },
     {
-      "id": "src_after_paint",
-      "label": "after-paint.js",
+      "id": "src_brochure",
+      "label": "brochure.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
-      "norm_label": "after-paint.js",
-      "source_file": "src/after-paint.js",
+      "norm_label": "brochure.js",
+      "source_file": "src/brochure.js",
       "source_location": "L1"
     },
     {
-      "id": "src_home",
-      "label": "home.js",
+      "id": "src_case_study",
+      "label": "case-study.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
-      "norm_label": "home.js",
-      "source_file": "src/home.js",
+      "norm_label": "case-study.js",
+      "source_file": "src/case-study.js",
       "source_location": "L1"
     },
     {
-      "id": "src_main",
-      "label": "main.js",
+      "id": "src_case_study_scene",
+      "label": "case-study-scene.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
-      "norm_label": "main.js",
-      "source_file": "src/main.js",
+      "norm_label": "case-study-scene.js",
+      "source_file": "src/case-study-scene.js",
       "source_location": "L1"
+    },
+    {
+      "id": "src_case_study_scene_canvas",
+      "label": "canvas",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "canvas",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "src_case_study_scene_host",
+      "label": "host",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "host",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_case_study_wide",
+      "label": "wide",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "wide",
+      "source_file": "src/case-study.js",
+      "source_location": "L25"
+    },
+    {
+      "id": "src_doc",
+      "label": "doc.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "doc.js",
+      "source_file": "src/doc.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_doc_form",
+      "label": "form",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "form",
+      "source_file": "src/doc.js",
+      "source_location": "L69"
+    },
+    {
+      "id": "src_doc_note",
+      "label": "note",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "note",
+      "source_file": "src/doc.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "src_doc_toclinks",
+      "label": "tocLinks",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "toclinks",
+      "source_file": "src/doc.js",
+      "source_location": "L42"
     },
     {
       "id": "src_partners",
       "label": "partners.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "partners.js",
       "source_file": "src/partners.js",
@@ -6750,40 +6870,18 @@
       "label": "mark",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "mark",
       "source_file": "src/partners.js",
       "source_location": "L24"
     },
     {
-      "id": "src_services",
-      "label": "services.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "services.js",
-      "source_file": "src/services.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_solutions",
-      "label": "solutions.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "solutions.js",
-      "source_file": "src/solutions.js",
-      "source_location": "L1"
-    },
-    {
       "id": "src_whatsapp",
       "label": "whatsapp.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "whatsapp.js",
       "source_file": "src/whatsapp.js",
@@ -6794,7 +6892,7 @@
       "label": "button",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "doc.js",
       "file_type": "code",
       "norm_label": "button",
       "source_file": "src/whatsapp.js",
@@ -7065,59 +7163,26 @@
       "source_location": "L93"
     },
     {
-      "id": "src_case_study",
-      "label": "case-study.js",
+      "id": "src_cloud_scene",
+      "label": "cloud-scene.js",
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "buildCloudScene",
       "file_type": "code",
-      "norm_label": "case-study.js",
-      "source_file": "src/case-study.js",
+      "norm_label": "cloud-scene.js",
+      "source_file": "src/cloud-scene.js",
       "source_location": "L1"
     },
     {
-      "id": "src_case_study_scene",
-      "label": "case-study-scene.js",
+      "id": "src_cloud_scene_clouds",
+      "label": "CLOUDS",
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "buildCloudScene",
       "file_type": "code",
-      "norm_label": "case-study-scene.js",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_case_study_scene_canvas",
-      "label": "canvas",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "canvas",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "src_case_study_scene_host",
-      "label": "host",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "host",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_case_study_wide",
-      "label": "wide",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "case-study.js",
-      "file_type": "code",
-      "norm_label": "wide",
-      "source_file": "src/case-study.js",
-      "source_location": "L25"
+      "norm_label": "clouds",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L21"
     },
     {
       "id": "src_careers",
@@ -7197,37 +7262,37 @@
       "source_location": "L20"
     },
     {
-      "id": "src_i18n",
-      "label": "i18n.js",
+      "id": "src_after_paint",
+      "label": "after-paint.js",
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "i18n.js",
-      "source_file": "src/i18n.js",
+      "norm_label": "after-paint.js",
+      "source_file": "src/after-paint.js",
       "source_location": "L1"
     },
     {
-      "id": "src_i18n_lang",
-      "label": "lang",
+      "id": "src_home",
+      "label": "home.js",
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "lang",
-      "source_file": "src/i18n.js",
-      "source_location": "L20"
+      "norm_label": "home.js",
+      "source_file": "src/home.js",
+      "source_location": "L1"
     },
     {
-      "id": "src_i18n_locales",
-      "label": "LOCALES",
+      "id": "src_main",
+      "label": "main.js",
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "locales",
-      "source_file": "src/i18n.js",
-      "source_location": "L38"
+      "norm_label": "main.js",
+      "source_file": "src/main.js",
+      "source_location": "L1"
     },
     {
       "id": "src_nav",
@@ -7283,6 +7348,28 @@
       "norm_label": "nav",
       "source_file": "src/nav.js",
       "source_location": "L13"
+    },
+    {
+      "id": "src_services",
+      "label": "services.js",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "services.js",
+      "source_file": "src/services.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_solutions",
+      "label": "solutions.js",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "solutions.js",
+      "source_file": "src/solutions.js",
+      "source_location": "L1"
     },
     {
       "id": "package",
@@ -7516,72 +7603,6 @@
       "source_location": "L20"
     },
     {
-      "id": "src_cloud_scene",
-      "label": "cloud-scene.js",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "cloud-scene.js",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_cloud_scene_clouds",
-      "label": "CLOUDS",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "clouds",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "src_doc",
-      "label": "doc.js",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "doc.js",
-      "source_file": "src/doc.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_doc_form",
-      "label": "form",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "form",
-      "source_file": "src/doc.js",
-      "source_location": "L69"
-    },
-    {
-      "id": "src_doc_note",
-      "label": "note",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "note",
-      "source_file": "src/doc.js",
-      "source_location": "L70"
-    },
-    {
-      "id": "src_doc_toclinks",
-      "label": "tocLinks",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "toclinks",
-      "source_file": "src/doc.js",
-      "source_location": "L42"
-    },
-    {
       "id": "src_solutions_scene_chips",
       "label": "chips",
       "_origin": "ast",
@@ -7602,17 +7623,6 @@
       "norm_label": "padtex",
       "source_file": "src/solutions-scene.js",
       "source_location": "L546"
-    },
-    {
-      "id": "src_brochure",
-      "label": "brochure.js",
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "brochure.js",
-      "source_file": "src/brochure.js",
-      "source_location": "L1"
     },
     {
       "id": "src_theme",
@@ -15182,8 +15192,8 @@
       "id": "src_bang",
       "label": "src_bang",
       "_origin": "semantic",
-      "community": 18,
-      "community_name": "after-paint.js",
+      "community": 23,
+      "community_name": "nav.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_bang",
@@ -15194,8 +15204,8 @@
       "id": "src_style",
       "label": "src_style",
       "_origin": "semantic",
-      "community": 18,
-      "community_name": "after-paint.js",
+      "community": 23,
+      "community_name": "nav.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_style",
@@ -19309,6 +19319,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_partners_scene",
+      "target": "src_partners_scene_onglobe",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/partners-scene.js",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
       "source": "src_product_page",
       "target": "src_product_page_runpiece",
       "relation": "contains",
@@ -21751,7 +21773,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/partners-scene.js",
-      "source_location": "L4",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -25127,24 +25149,13 @@
     },
     {
       "source": "src_partners_scene",
-      "target": "src_partners_scene_pad",
+      "target": "src_partners_scene_places",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L106",
-      "weight": 1.0
-    },
-    {
-      "source": "src_partners_scene",
-      "target": "src_partners_scene_person",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/partners-scene.js",
-      "source_location": "L134",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
@@ -25155,7 +25166,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L18",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -25166,7 +25177,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L19",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -25177,7 +25188,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L22",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -25188,7 +25199,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L359",
+      "source_location": "L364",
+      "weight": 1.0
+    },
+    {
+      "source": "src_partners_scene",
+      "target": "src_partners_scene_land",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/partners-scene.js",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -29223,7 +29245,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/partners-scene.js",
-      "source_location": "L322",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -32835,5 +32857,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "bff518602aaa135a447ee6ebf0f28407a54b073d"
+  "built_at_commit": "40d803c68c167d30aa3774a1d4922061546ce376"
 }

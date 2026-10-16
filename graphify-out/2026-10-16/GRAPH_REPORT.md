@@ -1,17 +1,17 @@
 # Graph Report - my-three-site  (2026-10-16)
 
 ## Corpus Check
-- 88 files · ~477,639 words
+- 88 files · ~477,944 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 21 file(s) not represented in the graph (top: .css 19, (none) 2)
 
 ## Summary
-- 1195 nodes · 1544 edges · 188 communities (78 shown, 110 thin omitted)
+- 1196 nodes · 1545 edges · 187 communities (77 shown, 110 thin omitted)
 - Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 268 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bff51860`
+- Built from commit: `40d803c6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -34,15 +34,14 @@
 - three
 - The 7 Rs migration framework
 - t
-- after-paint.js
+- doc.js
 - services-ui.js
 - cloud.js
-- case-study.js
+- buildCloudScene
 - careers.js
 - nav.js
 - package.json
 - about-hero.js
-- doc.js
 - chipLabel
 - theme.js
 - awsLogo
@@ -239,7 +238,7 @@
 - **Products Sharing the Calendly Booking CTA** — src_partials_products_finaware_finaware, src_partials_products_finexa_gennxt_finexa_gennxt, src_partials_products_finexa_finexa, src_partials_products_learngenie_learngenie [INFERRED 0.75]
 - **Shared Site Navigation & Footer Chrome** — src_partials_product_page_footer_footer, src_partials_product_page_nav_nav, src_partials_service_page_footer_footer, src_partials_service_page_nav_nav [INFERRED 0.85]
 
-## Communities (188 total, 110 thin omitted)
+## Communities (187 total, 110 thin omitted)
 
 ### Community 0 - "showroom.js"
 Cohesion: 0.02
@@ -271,7 +270,7 @@ Nodes (38): Ajay Mahajan, Finlabs India (organization), Nimish Agrawal, About Us
 
 ### Community 7 - "product-viewport.js"
 Cohesion: 0.09
-Nodes (29): doc, src_product_screen, asset(), BASE, buildScene(), createLightbox(), open(), SCENES (+21 more)
+Nodes (27): doc, src_product_screen, asset(), BASE, buildScene(), createLightbox(), open(), SCENES (+19 more)
 
 ### Community 8 - "fiscus-picture.js"
 Cohesion: 0.31
@@ -302,20 +301,20 @@ Cohesion: 0.18
 Nodes (8): dGroup, dialog, dName, dPhoto, dRole, dText, revealables, tabs
 
 ### Community 15 - "three"
-Cohesion: 0.07
-Nodes (33): three, createFlow(), frame(), loop(), resize(), drawStage(), shadowTexture(), stagePos() (+25 more)
+Cohesion: 0.06
+Nodes (35): three, createFlow(), frame(), loop(), resize(), drawStage(), shadowTexture(), stagePos() (+27 more)
 
 ### Community 16 - "The 7 Rs migration framework"
 Cohesion: 0.11
 Nodes (19): Cloud Services page (AWS, Azure, Google Cloud), Amazon Web Services, Microsoft Azure, Data-centre exit migration scenario, Disaster recovery service, Finlabs India Pvt. Ltd. (organization), Google Cloud, Refactor (re-architect) (+11 more)
 
 ### Community 17 - "t"
-Cohesion: 0.10
-Nodes (42): t(), close(), CONFETTI, crorepati(), end(), question(), answer(), demoForm() (+34 more)
+Cohesion: 0.08
+Nodes (48): lang, LOCALES, mountSwitcher(), t(), urlFor(), close(), CONFETTI, crorepati() (+40 more)
 
-### Community 18 - "after-paint.js"
-Cohesion: 0.28
-Nodes (6): afterPaint(), idle(), src_bang, mark, src_style, button
+### Community 18 - "doc.js"
+Cohesion: 0.17
+Nodes (9): canvas, host, wantScene(), wide, form, note, tocLinks, mark (+1 more)
 
 ### Community 19 - "services-ui.js"
 Cohesion: 0.13
@@ -325,29 +324,25 @@ Nodes (14): ACCENT_HEX, current, form, listeners, note, onSceneChange(), PRACTIC
 Cohesion: 0.13
 Nodes (11): fromHash, journey, logos, panels, platforms, rDesc, rs, stage (+3 more)
 
-### Community 21 - "case-study.js"
-Cohesion: 0.40
-Nodes (4): canvas, host, wantScene(), wide
+### Community 21 - "buildCloudScene"
+Cohesion: 0.24
+Nodes (9): asset(), buildCloudScene(), frame(), kick(), loop(), resize(), start(), cloudGeometry() (+1 more)
 
 ### Community 22 - "careers.js"
 Cohesion: 0.22
 Nodes (10): chips, count, empty, filter(), followHash(), jobs, matches(), picked (+2 more)
 
 ### Community 23 - "nav.js"
-Cohesion: 0.20
-Nodes (9): lang, LOCALES, mountSwitcher(), urlFor(), fill, line, menu, nav (+1 more)
+Cohesion: 0.19
+Nodes (9): afterPaint(), idle(), src_bang, fill, line, menu, nav, setOpen() (+1 more)
 
 ### Community 24 - "package.json"
 Cohesion: 0.13
 Nodes (14): dependencies, three, devDependencies, vite, name, private, scripts, build (+6 more)
 
 ### Community 25 - "about-hero.js"
-Cohesion: 0.09
-Nodes (28): BLUE, buildEmblem(), frame(), loop(), paintBars(), placeConfetti(), resize(), start() (+20 more)
-
-### Community 26 - "doc.js"
-Cohesion: 0.40
-Nodes (3): form, note, tocLinks
+Cohesion: 0.16
+Nodes (18): BLUE, buildEmblem(), frame(), loop(), paintBars(), placeConfetti(), resize(), start() (+10 more)
 
 ### Community 27 - "chipLabel"
 Cohesion: 0.25
@@ -355,7 +350,7 @@ Nodes (9): chipLabel(), chips, coreLabel(), fitText(), makeTexture(), padTex, pi
 
 ### Community 29 - "theme.js"
 Cohesion: 0.38
-Nodes (8): chosen(), currentTheme(), dark, initTheme(), listeners, paint(), read(), system()
+Nodes (9): chosen(), currentTheme(), dark, initTheme(), listeners, onTheme(), paint(), read() (+1 more)
 
 ### Community 36 - "awsLogo"
 Cohesion: 0.29
@@ -554,21 +549,21 @@ Cohesion: 0.67
 Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Service Page Footer Partial
 
 ## Knowledge Gaps
-- **635 isolated node(s):** `host`, `canvas`, `C`, `CONFETTI`, `ambientLight` (+630 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 707 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **637 isolated node(s):** `host`, `canvas`, `C`, `LAND`, `PLACES` (+632 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 708 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **110 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `services-ui.js`, `careers.js`, `nav.js`, `doc.js`?**
-  _High betweenness centrality (0.092) - this node is a cross-community bridge._
-- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `fiscus-picture.js`, `buildRide`, `case-study.js`, `package.json`, `about-hero.js`?**
-  _High betweenness centrality (0.082) - this node is a cross-community bridge._
-- **Why does `onTheme()` connect `about-hero.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `theme.js`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+- **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `doc.js`, `services-ui.js`, `careers.js`, `nav.js`?**
+  _High betweenness centrality (0.090) - this node is a cross-community bridge._
+- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `fiscus-picture.js`, `buildRide`, `doc.js`, `buildCloudScene`, `package.json`, `about-hero.js`?**
+  _High betweenness centrality (0.089) - this node is a cross-community bridge._
+- **Why does `onTheme()` connect `theme.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `buildCloudScene`, `about-hero.js`?**
+  _High betweenness centrality (0.062) - this node is a cross-community bridge._
 - **What connects `host`, `canvas`, `C` to the rest of the system?**
-  _635 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _637 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `showroom.js` be split into smaller, more focused modules?**
   _Cohesion score 0.020618556701030927 - nodes in this community are weakly interconnected._
 - **Should `solutions-scene.js` be split into smaller, more focused modules?**
