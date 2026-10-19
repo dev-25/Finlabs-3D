@@ -10,6 +10,8 @@ export const PAGES = {
   privacy: 'privacy.html',
   'privacy-learngenie': 'privacy-learngenie.html',
   contact: 'contact.html',
+  // where every form lands on success — its own URL, so the conversion is countable
+  'thank-you': 'thank-you.html',
   about: 'about.html',
   careers: 'careers.html',
   brochure: 'brochure.html',

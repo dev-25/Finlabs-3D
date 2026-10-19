@@ -1,26 +1,4 @@
 {
- "© copyright Finlabs India Pvt. Ltd. | All Rights Reserved": [
-  "index.html",
-  "products.html",
-  "services.html",
-  "solutions.html",
-  "terms.html",
-  "privacy.html",
-  "privacy-learngenie.html",
-  "contact.html",
-  "about.html",
-  "careers.html",
-  "brochure.html",
-  "partners.html",
-  "case-study.html",
-  "knowledge-centre/blogs.html",
-  "services/cloud.html",
-  "products/finexa.html",
-  "products/finexa-gennxt.html",
-  "products/finaware.html",
-  "products/fiscus.html",
-  "products/learngenie.html"
- ],
  "About Us": [
   "index.html",
   "products.html",
@@ -30,6 +8,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -43,7 +22,7 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
- "Blog": [
+ "Book a call": [
   "index.html",
   "products.html",
   "services.html",
@@ -52,6 +31,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -65,7 +45,7 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
- "Book A Call": [
+ "Careers": [
   "index.html",
   "products.html",
   "services.html",
@@ -74,6 +54,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -87,7 +68,7 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
- "Career": [
+ "Case Studies": [
   "index.html",
   "products.html",
   "services.html",
@@ -96,28 +77,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
-  "about.html",
-  "careers.html",
-  "brochure.html",
-  "partners.html",
-  "case-study.html",
-  "knowledge-centre/blogs.html",
-  "services/cloud.html",
-  "products/finexa.html",
-  "products/finexa-gennxt.html",
-  "products/finaware.html",
-  "products/fiscus.html",
-  "products/learngenie.html"
- ],
- "Case Study": [
-  "index.html",
-  "products.html",
-  "services.html",
-  "solutions.html",
-  "terms.html",
-  "privacy.html",
-  "privacy-learngenie.html",
-  "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -140,6 +100,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -162,6 +123,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -184,6 +146,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -206,6 +169,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -228,6 +192,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -250,6 +215,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -272,6 +238,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -294,6 +261,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -316,6 +284,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -338,6 +307,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -360,6 +330,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -382,6 +353,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -404,6 +376,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -426,6 +399,30 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
+  "about.html",
+  "careers.html",
+  "brochure.html",
+  "partners.html",
+  "case-study.html",
+  "knowledge-centre/blogs.html",
+  "services/cloud.html",
+  "products/finexa.html",
+  "products/finexa-gennxt.html",
+  "products/finaware.html",
+  "products/fiscus.html",
+  "products/learngenie.html"
+ ],
+ "Knowledge Centre": [
+  "index.html",
+  "products.html",
+  "services.html",
+  "solutions.html",
+  "terms.html",
+  "privacy.html",
+  "privacy-learngenie.html",
+  "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -448,6 +445,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -470,6 +468,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -492,6 +491,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -514,6 +514,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -536,6 +537,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -558,6 +560,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -580,6 +583,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -602,6 +606,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -624,6 +629,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -646,6 +652,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -668,6 +675,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -690,6 +698,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -712,6 +721,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -734,6 +744,29 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
+  "about.html",
+  "careers.html",
+  "brochure.html",
+  "partners.html",
+  "case-study.html",
+  "knowledge-centre/blogs.html",
+  "services/cloud.html",
+  "products/finexa.html",
+  "products/finexa-gennxt.html",
+  "products/finaware.html",
+  "products/fiscus.html",
+  "products/learngenie.html"
+ ],
+ "© 2026 Finlabs India Pvt. Ltd. All rights reserved.": [
+  "index.html",
+  "services.html",
+  "solutions.html",
+  "terms.html",
+  "privacy.html",
+  "privacy-learngenie.html",
+  "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -755,6 +788,7 @@
   "privacy.html",
   "privacy-learngenie.html",
   "contact.html",
+  "thank-you.html",
   "about.html",
   "careers.html",
   "brochure.html",
@@ -767,14 +801,6 @@
   "products/finaware.html",
   "products/fiscus.html",
   "products/learngenie.html"
- ],
- "Book a call": [
-  "products.html",
-  "services.html",
-  "solutions.html",
-  "about.html",
-  "services/cloud.html",
-  "products/finexa-gennxt.html"
  ],
  "Close": [
   "products.html",
@@ -1672,10 +1698,6 @@
  "Business expansion": [
   "products.html",
   "products/finexa-gennxt.html"
- ],
- "By integrating advanced tools for financial planning and client management, Finexa empowers MFDs to deliver efficient, transparent and high-quality investment experiences.": [
-  "products.html",
-  "products/finexa.html"
  ],
  "By signing up for Fiscus you will be featured in our “Find an Advisor” section, at no cost. Sign up and get leads directly in your inbox.": [
   "products.html",
@@ -4966,9 +4988,6 @@
  "· Personal finance": [
   "contact.html"
  ],
- "“Educate, Empower, Engage,”": [
-  "about.html"
- ],
  "“Equity is the best form of investment”, “This is the start of the biggest market rally yet”, “The Sensex will cross 50,000 by the year end”. “The markets have heated up and may see a major correction”; “The PE of the market is very high. Brace yourself for a fall”": [
   "knowledge-centre/blogs.html"
  ],
@@ -5995,6 +6014,9 @@
  "By accessing the Website you agree that the laws prevailing in India shall be the governing laws in all matters relating to Finlabs India as well as these Terms and Conditions.": [
   "terms.html"
  ],
+ "Call or write and we will pick it up the same day.": [
+  "thank-you.html"
+ ],
  "Call warm and cold leads — MFDs, IFAs and wealth managers — from campaigns, emails and events": [
   "careers.html"
  ],
@@ -6607,9 +6629,6 @@
  "Edelweiss": [
   "index.html"
  ],
- "Educate": [
-  "about.html"
- ],
  "Education and advisory": [
   "partners.html"
  ],
@@ -6643,9 +6662,6 @@
  "Employees · Partners · Channels": [
   "products.html"
  ],
- "Empower": [
-  "about.html"
- ],
  "Empowering Her Wallet: Decoding the Financial Landscape of Urban Indian Women": [
   "knowledge-centre/blogs.html"
  ],
@@ -6672,9 +6688,6 @@
  ],
  "Enforce change management and scope governance on bespoke builds": [
   "careers.html"
- ],
- "Engage": [
-  "about.html"
  ],
  "Engineering acumen": [
   "careers.html"
@@ -6999,6 +7012,9 @@
  ],
  "Finlabs India and/or any other website(s) linked to this website is an online information and communications service provided to you, subject to your compliance with the terms and conditions set forth below.": [
   "terms.html"
+ ],
+ "Finlabs India contact confirmation, enquiry received": [
+  "thank-you.html"
  ],
  "Finlabs India is an intermediary as defined under sub-clause (w) of Section 2 of the Information Technology Act, 2000.": [
   "terms.html"
@@ -7660,6 +7676,9 @@
  "It is again that time of the year when you resolve what important things you will strive to do in the New Year. There might be that exercise plan that you wish to start or the diet that you have been delaying for quite some time.": [
   "knowledge-centre/blogs.html"
  ],
+ "It is with our team now, and someone will come back to you within one working day. There is nothing else you need to do.": [
+  "thank-you.html"
+ ],
  "IT services": [
   "brochure.html"
  ],
@@ -7966,6 +7985,9 @@
  "Message / How can we help you?": [
   "(javascript)"
  ],
+ "Message us on WhatsApp": [
+  "thank-you.html"
+ ],
  "Meta (WhatsApp)": [
   "privacy.html"
  ],
@@ -8113,6 +8135,9 @@
  "Mutual fund distribution, multi-asset wealth management, investor awareness, personal finance and gamified learning. Five platforms — take the one you need.": [
   "products.html"
  ],
+ "Mutual fund distribution, wealth, investor awareness and learning.": [
+  "thank-you.html"
+ ],
  "Mutual fund distributor, Navsari": [
   "index.html"
  ],
@@ -8139,6 +8164,9 @@
  ],
  "NBFCs and lenders": [
   "services/cloud.html"
+ ],
+ "Need us sooner?": [
+  "thank-you.html"
  ],
  "Newest first": [
   "knowledge-centre/blogs.html"
@@ -8239,6 +8267,9 @@
  "Open roles in engineering, sales and product at Finlabs India, plus internships in Mumbai.": [
   "careers.html"
  ],
+ "Open the corporate deck": [
+  "thank-you.html"
+ ],
  "open your cookie settings": [
   "privacy.html"
  ],
@@ -8284,7 +8315,7 @@
  "Our mission": [
   "about.html"
  ],
- "Our mission is to empower businesses and individuals with secure, easy-to-use tools for smarter financial decisions. Guided by": [
+ "Our mission is to empower businesses and individuals with secure, easy-to-use tools for smarter financial decisions, and to reshape finance and drive growth for our clients.": [
   "about.html"
  ],
  "Our mission is to provide unparalleled value to our clients, partners, and stakeholders by delivering innovative, reliable, and secure fintech solutions that exceed expectations and enable success.": [
@@ -8674,6 +8705,9 @@
  "Read →": [
   "knowledge-centre/blogs.html"
  ],
+ "Read a case study": [
+  "thank-you.html"
+ ],
  "Read more": [
   "about.html"
  ],
@@ -8976,6 +9010,9 @@
  ],
  "See our services": [
   "solutions.html"
+ ],
+ "See the five platforms": [
+  "thank-you.html"
  ],
  "See the practices →": [
   "services.html"
@@ -9367,6 +9404,9 @@
  "Ten years of Finlabs": [
   "about.html"
  ],
+ "Ten years of Finlabs in one place.": [
+  "thank-you.html"
+ ],
  "Ten years of work in Indian financial services leaves a trail of relationships: asset managers and banks who run their distribution on our platforms, exchanges and registrars whose rails those platforms sit on, and the KYC, data and payment providers that make the whole thing move. This is who they are.": [
   "partners.html"
  ],
@@ -9400,8 +9440,17 @@
  "Thakral One across the region": [
   "partners.html"
  ],
+ "Thank you — Finlabs": [
+  "thank-you.html"
+ ],
+ "Thank you — we have your message": [
+  "thank-you.html"
+ ],
  "Thank you — we have your message and will be in touch within one working day.": [
   "(javascript)"
+ ],
+ "Thank you — your message has reached Finlabs and our team will be in touch within one working day.": [
+  "thank-you.html"
  ],
  "Thank you, team Finexa, for your quick response and steady support. Huge congratulations to the team on completing 10 wonderful years in the industry! Your advanced system has truly helped me elevate and scale my mutual fund business. Wishing the entire team many more decades of innovation and success.": [
   "index.html"
@@ -9793,6 +9842,9 @@
  "Violations of system or network security may result in civil or criminal liability.": [
   "terms.html"
  ],
+ "Visit the Knowledge Centre": [
+  "thank-you.html"
+ ],
  "Waiver": [
   "terms.html"
  ],
@@ -9813,9 +9865,6 @@
  ],
  "We aim to protect your personal information through a system of organisational and technical security measures.": [
   "privacy-learngenie.html"
- ],
- "we aim to reshape finance and drive growth for our clients.": [
-  "about.html"
  ],
  "We are a cutting-edge fintech company that combines finance and technology to deliver innovative solutions in investment advising, wealth management, insurance, and financial education.": [
   "about.html"
@@ -9943,6 +9992,9 @@
  "We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us to keep your personal information for longer than the period of time in which users have an account with us. In practice we delete or anonymise learning records within 24 months of your account closing, unless your employer or training partner is required to keep a certification record for longer.": [
   "privacy-learngenie.html"
  ],
+ "We will use your details only to answer you. See our": [
+  "thank-you.html"
+ ],
  "We're looking for": [
   "careers.html"
  ],
@@ -10006,9 +10058,6 @@
  "What do you want to improve?": [
   "solutions.html"
  ],
- "What guides us": [
-  "about.html"
- ],
  "What happens after go-live?": [
   "services/cloud.html"
  ],
@@ -10026,6 +10075,9 @@
  ],
  "What sets Finlabs apart": [
   "about.html"
+ ],
+ "What the work looked like for an AMC, an NBFC and an insurer.": [
+  "thank-you.html"
  ],
  "What we collect and why": [
   "privacy.html"
@@ -10056,6 +10108,9 @@
  ],
  "Which solution interests you?": [
   "solutions.html"
+ ],
+ "While you wait": [
+  "thank-you.html"
  ],
  "White-labelled platform": [
   "products.html"
@@ -10183,6 +10238,9 @@
  "Write to us anyway. Tell us what you would like to build and where you think you fit — we read every CV that reaches us.": [
   "careers.html"
  ],
+ "Writing on distribution, investor awareness and wealth tech.": [
+  "thank-you.html"
+ ],
  "years": [
   "about.html"
  ],
@@ -10278,6 +10336,9 @@
  ],
  "Your message": [
   "contact.html"
+ ],
+ "Your message has reached Finlabs.": [
+  "thank-you.html"
  ],
  "Your name and rank are on the live leaderboard below!": [
   "(javascript)"

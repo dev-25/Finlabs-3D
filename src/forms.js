@@ -104,6 +104,12 @@ async function token(form) {
 // submitting
 // ---------------------------------------------------------------------
 
+/** Pages sit at the root and one level down, so links need the right prefix. */
+function siteRoot() {
+  const depth = location.pathname.replace(/^\/|\/$/g, '').split('/').length - 1;
+  return '../'.repeat(Math.max(0, depth));
+}
+
 /** FormData → a plain object, with repeated names collected into arrays. */
 export function readForm(form) {
   const out = {};
@@ -156,10 +162,20 @@ export async function submitForm({ form, formId, extra = {}, say, onSuccess, fal
       marketing,
       page: location.pathname,
     });
-    say(t('Thank you — we have your message and will be in touch within one working day.'), 'ok');
     form.reset();
     form.__turnstile?.api.reset(form.__turnstile.id);
-    onSuccess?.(id);
+
+    // A confirmation with its own URL is what makes the conversion countable —
+    // analytics cannot see a message that only changed some text in place.
+    // Forms embedded in something else (the game modal, the application
+    // dialog) pass onSuccess and keep their own confirmation instead, because
+    // throwing someone out of a game to say thank you is not a thank you.
+    if (onSuccess) {
+      say(t('Thank you — we have your message and will be in touch within one working day.'), 'ok');
+      onSuccess(id);
+    } else {
+      location.assign(`${siteRoot()}thank-you.html?form=${encodeURIComponent(formId)}`);
+    }
   } catch (err) {
     console.error('form submit failed', err);
     form.__turnstile?.api.reset(form.__turnstile.id);

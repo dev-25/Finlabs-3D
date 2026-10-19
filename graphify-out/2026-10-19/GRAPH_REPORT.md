@@ -1,17 +1,17 @@
 # Graph Report - my-three-site  (2026-10-19)
 
 ## Corpus Check
-- 101 files · ~493,551 words
+- 101 files · ~493,817 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 23 file(s) not represented in the graph (top: .css 21, (none) 2)
 
 ## Summary
-- 1313 nodes · 1722 edges · 189 communities (79 shown, 110 thin omitted)
+- 1316 nodes · 1725 edges · 184 communities (74 shown, 110 thin omitted)
 - Extraction: 84% EXTRACTED · 16% INFERRED · 0% AMBIGUOUS · INFERRED: 270 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `fedf954f`
+- Built from commit: `8ddc0541`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -30,22 +30,17 @@
 - solutions-ui.js
 - buildRide
 - kc-blogs.js
-- about.js
 - three
 - The 7 Rs migration framework
 - t
-- nav.js
+- theme.js
 - services-ui.js
-- cloud.js
 - submit.mjs
-- careers.js
-- buildCloudScene
+- fiscus-picture.js
 - package.json
 - about-hero.js
-- finaware-flow.js
 - chipLabel
 - One-time setup
-- theme.js
 - awsLogo
 - step
 - Finexa Hub banner — 'All Your Transactions Into One Seamless Workflow'
@@ -212,8 +207,8 @@
 4. `buildRide()` - 17 edges
 5. `three` - 15 edges
 6. `Finlabs website — implementation roadmap` - 14 edges
-7. `buildCloudScene()` - 13 edges
-8. `buildEmblem()` - 13 edges
+7. `buildEmblem()` - 13 edges
+8. `buildCloudScene()` - 13 edges
 9. `afterPaint()` - 12 edges
 10. `onTheme()` - 12 edges
 
@@ -240,7 +235,7 @@
 - **Products Sharing the Calendly Booking CTA** — src_partials_products_finaware_finaware, src_partials_products_finexa_gennxt_finexa_gennxt, src_partials_products_finexa_finexa, src_partials_products_learngenie_learngenie [INFERRED 0.75]
 - **Shared Site Navigation & Footer Chrome** — src_partials_product_page_footer_footer, src_partials_product_page_nav_nav, src_partials_service_page_footer_footer, src_partials_service_page_nav_nav [INFERRED 0.85]
 
-## Communities (189 total, 110 thin omitted)
+## Communities (184 total, 110 thin omitted)
 
 ### Community 0 - "showroom.js"
 Cohesion: 0.02
@@ -263,8 +258,8 @@ Cohesion: 0.04
 Nodes (43): accentLight, accentNow, ACCENTS, accentTarget, awsInk, camera, canvas, colEl (+35 more)
 
 ### Community 5 - "i18n.mjs"
-Cohesion: 0.06
-Nodes (43): ref_node_fs, ref_node_path, ref_node_url, check(), CONFIG_PATH, dig(), publicConfig(), REQUIRED (+35 more)
+Cohesion: 0.05
+Nodes (45): ref_node_fs, ref_node_path, ref_node_url, check(), CONFIG_PATH, dig(), publicConfig(), REQUIRED (+37 more)
 
 ### Community 6 - "Solutions Page"
 Cohesion: 0.07
@@ -272,7 +267,7 @@ Nodes (38): Ajay Mahajan, Finlabs India (organization), Nimish Agrawal, About Us
 
 ### Community 7 - "product-viewport.js"
 Cohesion: 0.07
-Nodes (36): createClimb(), frame(), loop(), resize(), drawStep(), shadowTexture(), starShape(), STEPS (+28 more)
+Nodes (36): createFlow(), frame(), loop(), resize(), drawStage(), shadowTexture(), stagePos(), STAGES (+28 more)
 
 ### Community 8 - "Finlabs website — implementation roadmap"
 Cohesion: 0.12
@@ -298,57 +293,41 @@ Nodes (23): BLUE, buildRide(), advance(), dressTick(), frame(), goTo(), hopToSta
 Cohesion: 0.07
 Nodes (32): bar, body, cache, cards, close(), cover, fetchPost(), fill() (+24 more)
 
-### Community 14 - "about.js"
-Cohesion: 0.18
-Nodes (8): dGroup, dialog, dName, dPhoto, dRole, dText, revealables, tabs
-
 ### Community 15 - "three"
 Cohesion: 0.07
-Nodes (30): three, canvas, host, createHub(), frame(), loop(), resize(), PLATFORMS (+22 more)
+Nodes (29): three, canvas, host, createHub(), frame(), loop(), resize(), PLATFORMS (+21 more)
 
 ### Community 16 - "The 7 Rs migration framework"
 Cohesion: 0.11
 Nodes (19): Cloud Services page (AWS, Azure, Google Cloud), Amazon Web Services, Microsoft Azure, Data-centre exit migration scenario, Disaster recovery service, Finlabs India Pvt. Ltd. (organization), Google Cloud, Refactor (re-architect) (+11 more)
 
 ### Community 17 - "t"
-Cohesion: 0.05
-Nodes (70): build(), close(), OK_TYPES, onKey(), open(), build(), close(), gtagConsent() (+62 more)
+Cohesion: 0.06
+Nodes (67): build(), close(), OK_TYPES, onKey(), open(), build(), close(), gtagConsent() (+59 more)
 
-### Community 18 - "nav.js"
-Cohesion: 0.15
-Nodes (13): afterPaint(), idle(), src_bang, wantScene(), wide, fill, line, menu (+5 more)
+### Community 18 - "theme.js"
+Cohesion: 0.05
+Nodes (53): dGroup, dialog, dName, dPhoto, dRole, dText, revealables, tabs (+45 more)
 
 ### Community 19 - "services-ui.js"
 Cohesion: 0.12
 Nodes (15): ACCENT_HEX, current, fallback(), form, listeners, note, onSceneChange(), PRACTICES (+7 more)
 
-### Community 20 - "cloud.js"
-Cohesion: 0.13
-Nodes (11): fromHash, journey, logos, panels, platforms, rDesc, rs, stage (+3 more)
-
 ### Community 21 - "submit.mjs"
 Cohesion: 0.06
 Nodes (45): dependencies, @aws-sdk/client-dynamodb, @aws-sdk/client-s3, @aws-sdk/client-sesv2, @aws-sdk/client-ssm, @aws-sdk/lib-dynamodb, @aws-sdk/s3-request-presigner, description (+37 more)
 
-### Community 22 - "careers.js"
-Cohesion: 0.22
-Nodes (10): chips, count, empty, filter(), followHash(), jobs, matches(), picked (+2 more)
-
-### Community 23 - "buildCloudScene"
-Cohesion: 0.24
-Nodes (9): asset(), buildCloudScene(), frame(), kick(), loop(), resize(), start(), cloudGeometry() (+1 more)
+### Community 23 - "fiscus-picture.js"
+Cohesion: 0.31
+Nodes (9): createPicture(), frame(), loop(), resize(), drawSource(), drawTarget(), label(), shadowTexture() (+1 more)
 
 ### Community 24 - "package.json"
 Cohesion: 0.11
 Nodes (17): dependencies, three, devDependencies, vite, name, private, scripts, backend:check (+9 more)
 
 ### Community 25 - "about-hero.js"
-Cohesion: 0.16
-Nodes (18): BLUE, buildEmblem(), frame(), loop(), paintBars(), placeConfetti(), resize(), start() (+10 more)
-
-### Community 26 - "finaware-flow.js"
-Cohesion: 0.36
-Nodes (8): createFlow(), frame(), loop(), resize(), drawStage(), shadowTexture(), stagePos(), STAGES
+Cohesion: 0.09
+Nodes (28): BLUE, buildEmblem(), frame(), loop(), paintBars(), placeConfetti(), resize(), start() (+20 more)
 
 ### Community 27 - "chipLabel"
 Cohesion: 0.25
@@ -357,10 +336,6 @@ Nodes (9): chipLabel(), chips, coreLabel(), fitText(), makeTexture(), padTex, pi
 ### Community 28 - "One-time setup"
 Cohesion: 0.20
 Nodes (9): 1. Cloudflare Turnstile (the CAPTCHA — free, no request cap), 2. SES — so the mail actually sends, 3. Fill in the config, 4. Deploy, Checking it works, Costs, One-time setup, Website backend (+1 more)
-
-### Community 29 - "theme.js"
-Cohesion: 0.35
-Nodes (9): chosen(), currentTheme(), dark, initTheme(), listeners, onTheme(), paint(), read() (+1 more)
 
 ### Community 36 - "awsLogo"
 Cohesion: 0.29
@@ -559,21 +534,21 @@ Cohesion: 0.67
 Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Service Page Footer Partial
 
 ## Knowledge Gaps
-- **693 isolated node(s):** `1. Cloudflare Turnstile (the CAPTCHA — free, no request cap)`, `2. SES — so the mail actually sends`, `3. Fill in the config`, `4. Deploy`, `What gets stored` (+688 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 770 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **695 isolated node(s):** `ROOT`, `CONFIG_PATH`, `REQUIRED_DEPLOY`, `REQUIRED_SITE`, `REQUIRED` (+690 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 773 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **110 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `product-viewport.js`, `buildRide`, `buildCloudScene`, `package.json`, `about-hero.js`, `finaware-flow.js`?**
-  _High betweenness centrality (0.092) - this node is a cross-community bridge._
-- **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `nav.js`, `services-ui.js`, `careers.js`?**
-  _High betweenness centrality (0.092) - this node is a cross-community bridge._
-- **Why does `onTheme()` connect `theme.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `buildCloudScene`, `about-hero.js`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **What connects `1. Cloudflare Turnstile (the CAPTCHA — free, no request cap)`, `2. SES — so the mail actually sends`, `3. Fill in the config` to the rest of the system?**
-  _693 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `theme.js`, `services-ui.js`?**
+  _High betweenness centrality (0.082) - this node is a cross-community bridge._
+- **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `product-viewport.js`, `buildRide`, `fiscus-picture.js`, `package.json`, `about-hero.js`?**
+  _High betweenness centrality (0.082) - this node is a cross-community bridge._
+- **Why does `onTheme()` connect `about-hero.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `theme.js`?**
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **What connects `ROOT`, `CONFIG_PATH`, `REQUIRED_DEPLOY` to the rest of the system?**
+  _695 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `showroom.js` be split into smaller, more focused modules?**
   _Cohesion score 0.020618556701030927 - nodes in this community are weakly interconnected._
 - **Should `solutions-scene.js` be split into smaller, more focused modules?**

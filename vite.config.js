@@ -208,7 +208,14 @@ function sitemap() {
     name: 'sitemap',
     apply: 'build',
     generateBundle() {
+      // A page that says noindex has no business in the sitemap: Search Console
+      // reports the pair as an error, and a confirmation page is not an entry
+      // point anyway.
+      const noindex = (page) =>
+        /<meta name="robots" content="noindex/.test(readFileSync(resolve(ROOT, page), 'utf8'));
+
       const urls = Object.values(PAGES)
+        .filter((page) => !noindex(page))
         .flatMap((page) => {
           const when = statSync(resolve(ROOT, page)).mtime.toISOString().slice(0, 10);
           // every language of a page, each listing the others as alternates
