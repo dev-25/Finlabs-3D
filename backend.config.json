@@ -24,24 +24,24 @@
     "submissionsTableName": "finlabs-submissions",
     "cvBucketName": "",
     "cvPrefix": "applications/",
-    "snsTopicArn": ""
+    "snsTopicArn": "",
+    "sesConfigurationSet": "finlabs-website"
   },
   "email": {
     "$comment": [
-      "info@finlabsindia.biz is the identity already verified in SES (ap-south-1,",
-      "DKIM passing), so SES is the channel from the start and Reply-To works —",
-      "hitting reply in the inbox answers the person who wrote in.",
+      "info@finlabsindia.biz is the identity verified in SES (ap-south-1, DKIM",
+      "passing). MAIL_FROM has to be a verified identity; the recipients do not,",
+      "because this account is out of the sandbox — 193,300/day and 48/sec, where",
+      "a sandboxed account gets 200/day and 1/sec.",
       "",
-      "Everything routes to that one address on purpose. If the account is still",
-      "in the SES sandbox it can only send TO verified addresses, and that is the",
-      "only one. Split hr@ out once it is verified, or once production access is",
-      "granted.",
+      "The account is shared: 420 emails were sent on it the day this was set up,",
+      "by something else. A configuration set keeps this website’s bounces and",
+      "complaints out of that reputation reporting.",
       "",
-      "The website still shows @finlabsindia.com addresses to visitors. That is a",
-      "separate question from where these notifications land, and is being left",
-      "until the real staff domain is confirmed."
+      "The website still shows @finlabsindia.com to visitors. Separate question,",
+      "left until the real staff domain is confirmed."
     ],
-    "notify": "ses",
+    "notify": "sns",
     "from": "info@finlabsindia.biz",
     "fromName": "Finlabs website",
     "routes": {
@@ -58,7 +58,7 @@
         "info@finlabsindia.biz"
       ],
       "careers": [
-        "info@finlabsindia.biz"
+        "hr@finlabsindia.biz"
       ]
     }
   },

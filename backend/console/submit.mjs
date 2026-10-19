@@ -44,6 +44,7 @@
  *   NOTIFY                    sns | ses   (how the email goes out)
  *   SNS_TOPIC_ARN             arn:aws:sns:ap-south-1:…:finlabs-form-submissions
  *   MAX_PER_IP_PER_HOUR       5
+ *   SES_CONFIGURATION_SET     finlabs-website   (optional, see runbook)
  *   ENQUIRY_RETENTION_MONTHS  24
  *   NOTICE_VERSION            2.0
  * ===================================================== */
@@ -68,6 +69,10 @@ const RETAIN_MONTHS = Number(process.env.ENQUIRY_RETENTION_MONTHS || 24);
 const NOTIFY = (process.env.NOTIFY || 'sns').toLowerCase();
 const SNS_TOPIC = process.env.SNS_TOPIC_ARN;
 const MAX_PER_IP = Number(process.env.MAX_PER_IP_PER_HOUR || 5);
+// Optional, and worth setting on a shared SES account: it keeps this site's
+// bounces and complaints in their own bucket instead of mixed into whatever
+// else the account sends.
+const SES_CONFIG_SET = process.env.SES_CONFIGURATION_SET || undefined;
 const MIN_FILL_SECONDS = 3;
 const NOTICE_VERSION = process.env.NOTICE_VERSION || '2.0';
 const MAX_FIELD = 4000;
@@ -384,6 +389,7 @@ export const handler = async (event) => {
             FromEmailAddress: `${FROM_NAME} <${FROM}>`,
             Destination: { ToAddresses: to },
             ReplyToAddresses: checked.clean.email ? [checked.clean.email] : undefined,
+            ConfigurationSetName: SES_CONFIG_SET,
             Content: {
               Simple: {
                 Subject: { Data: subject },

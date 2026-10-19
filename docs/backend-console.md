@@ -17,46 +17,57 @@ and is three clicks instead of a wizard. If you later need request throttling
 or a custom domain on the API, that is the moment to move to API Gateway —
 not before.
 
-About 25 minutes. SES is already verified, so there is nothing to wait for.
+About 25 minutes. SES is already verified and unrestricted, so nothing here waits on anyone.
 
 ---
 
-## A. SES — already done, mostly
+## A. SES — already verified and out of the sandbox
 
 `info@finlabsindia.biz` is **already a verified identity** in `ap-south-1`
-with DKIM passing, so there is nothing to set up to start sending. That also
-means SES rather than SNS from the start, which matters: **SES sets Reply-To
-to the person who filled the form**, so hitting reply in the inbox answers
-them. SNS cannot do that.
+with DKIM passing, and the account is out of the sandbox, so there is nothing
+to set up and nothing to wait for. SES rather than SNS also means **Reply-To
+is set to the person who filled the form**, so hitting reply in the inbox
+answers them. SNS cannot do that.
 
-### A1 · Check whether the account is still in the sandbox
+### A1 · The account is already out of the sandbox
 
-This is the one thing that decides whether anything arrives.
+Checked on 19 Oct 2026: **193,300 emails a day, 48 a second.** A sandboxed
+account gets 200 a day and 1 a second, so there is nothing to request and no
+restriction on who can receive. If you ever need to confirm this again, those
+two numbers on **SES → Account dashboard** are the tell — a sandbox banner is
+not always shown.
 
-1. Console → **Amazon SES** → region **ap-south-1** → **Account dashboard**
-2. Look for a banner saying *"Your Amazon SES account is in the sandbox"*
+### A2 · A configuration set, because the account is shared
 
-**In the sandbox**, SES will only send **to** addresses that are themselves
-verified. `info@finlabsindia.biz` is verified, so routing everything there
-works today — which is exactly what `MAIL_ROUTES` in step C3 does.
+The same dashboard showed **420 emails already sent that day** by something
+else. That matters for one reason: bounces and spam complaints are scored
+against the whole account, so a form that starts attracting junk would drag
+down whatever else sends from here — and you would have no way to see that it
+was us.
 
-**Out of the sandbox**, you can route anywhere, and splitting `hr@` out for
-job applications is worth doing.
+A configuration set separates the reporting. Five minutes, and much harder to
+retrofit once there is history to untangle.
 
-### A2 · Request production access, if it is sandboxed
+1. Console → **Amazon SES** → **Configuration sets** → **Create set**
+2. Name:
+   ```
+   finlabs-website
+   ```
+3. Leave the defaults → **Create set**
 
-3. **Account dashboard** → **Request production access**
-4. Mail type: **Transactional**
-5. Website URL: your site
-6. Describe it as: *"Enquiry and demo-request forms on our company website.
-   Recipients are our own staff addresses. Volume under 100 emails a month."*
+That alone separates the metrics. If you also want bounces handled rather than
+merely counted:
 
-Approval usually takes about a day. Nothing is blocked while you wait —
-notifications reach `info@finlabsindia.biz` either way.
+4. Open the set → **Event destinations** → **Add destination**
+5. Event types: **Bounce**, **Complaint**, **Reject**
+6. Destination: **Amazon SNS** → create or pick a topic → subscribe your address
 
-> **Why everything goes to one address for now.** In the sandbox it is the
-> only one that can receive. Once production access is granted, split
-> `careers` out to `hr@` by editing `MAIL_ROUTES`.
+Then set `SES_CONFIGURATION_SET=finlabs-website` in step C3. Leave the variable
+out and sending still works — it just gets counted with everything else.
+
+> **Why bother.** A hard bounce or a complaint on a shared account is a cost
+> the other system pays without knowing why. This keeps the blast radius of
+> the website's email where it belongs.
 
 ## B. DynamoDB — where enquiries are kept
 
@@ -131,17 +142,18 @@ rather than aspirational:
 - Memory: **512 MB**
 - **Save**
 
-**Configuration** → **Environment variables** → **Edit** → add nine:
+**Configuration** → **Environment variables** → **Edit** → add nine (ten with the optional one):
 
 | Key | Value |
 |---|---|
 | `TABLE_NAME` | `finlabs-submissions` |
 | `MAIL_FROM` | `info@finlabsindia.biz` |
 | `MAIL_FROM_NAME` | `Finlabs website` |
-| `MAIL_ROUTES` | `{"contact":["info@finlabsindia.biz"],"solutions":["info@finlabsindia.biz"],"services":["info@finlabsindia.biz"],"learngenie-demo":["info@finlabsindia.biz"],"careers":["info@finlabsindia.biz"]}` |
+| `MAIL_ROUTES` | `{"contact":["info@finlabsindia.biz"],"solutions":["info@finlabsindia.biz"],"services":["info@finlabsindia.biz"],"learngenie-demo":["info@finlabsindia.biz"],"careers":["hr@finlabsindia.biz"]}` |
 | `ALLOWED_ORIGIN` | `http://finlabs-prod-website.s3-website.ap-south-1.amazonaws.com` |
 | `NOTIFY` | `ses` |
 | `MAX_PER_IP_PER_HOUR` | `5` |
+| `SES_CONFIGURATION_SET` | `finlabs-website` — optional, see A2 |
 | `ENQUIRY_RETENTION_MONTHS` | `24` |
 | `NOTICE_VERSION` | `2.0` |
 
@@ -266,9 +278,9 @@ table items**. You should see `pk`, `fields`, `marketingConsent`,
 | Browser console: CORS error | `ALLOWED_ORIGIN` or the Function URL CORS origin does not match the address bar exactly |
 | Your own test submission vanishes with no error | You filled it in under 3 seconds, so the clock check dropped it. The log says `dropped as automated`. Take your time, or lower `MIN_FILL_SECONDS` in the code while testing. |
 | "That is several messages in a short time" | The per-IP limit. Six submissions in an hour from one address. Raise `MAX_PER_IP_PER_HOUR` or wait. |
-| `MessageRejected: Email address is not verified` | The account is in the sandbox and the recipient is not a verified identity. Route to `info@finlabsindia.biz`, or get production access (A2). |
+| `MessageRejected: Email address is not verified` | Only `MAIL_FROM` needs verifying, and it must be an SES identity — `info@finlabsindia.biz`. Recipients do not, since the account is out of the sandbox. |
 | "We could not save that" | C4's DynamoDB permission, or the table name |
-| Thank-you page appears but no email | The log says `notification failed, submission is stored` — the enquiry **is** in DynamoDB. With SES that usually means the sandbox — check A1. Either way the order is working as intended. |
+| Thank-you page appears but no email | The log says `notification failed, submission is stored` — the enquiry **is** in DynamoDB. Check the log for the real reason; the enquiry is safe either way. Either way the order is working as intended. |
 | `Task timed out after 3.00 seconds` | C3's timeout was not raised |
 | The form still opens a mail client | `backend.config.json` has not deployed, or `apiBaseUrl` is empty |
 
