@@ -450,9 +450,9 @@
     "semantic_hash": ""
   },
   "brochure.html": {
-    "mtime": 1791815128.1851525,
-    "seen": 1791815929.583607,
-    "ast_hash": "643c9dacf1ce2de1b533fc569796052d",
+    "mtime": 1792387791.4336057,
+    "seen": 1792388003.13499,
+    "ast_hash": "8bcd1a23e217a939106153d1ab5bec7f",
     "semantic_hash": ""
   },
   "careers.html": {
@@ -462,9 +462,9 @@
     "semantic_hash": ""
   },
   "contact.html": {
-    "mtime": 1791826052.404486,
-    "seen": 1791826377.5528362,
-    "ast_hash": "0987b3aaae5af2b400b384a9dc11ec5e",
+    "mtime": 1792387791.4330595,
+    "seen": 1792388003.1349912,
+    "ast_hash": "791fae338556b80fe400abde9997c800",
     "semantic_hash": ""
   },
   "index.html": {
@@ -492,9 +492,9 @@
     "semantic_hash": ""
   },
   "products.html": {
-    "mtime": 1791978228.2125733,
-    "seen": 1791978309.750832,
-    "ast_hash": "5e352aa994d3023a254e1eab91472e29",
+    "mtime": 1792387935.2956164,
+    "seen": 1792388003.134995,
+    "ast_hash": "4aaf311c809e98ed923537595ca34567",
     "semantic_hash": ""
   },
   "products/finaware.html": {
@@ -504,10 +504,10 @@
     "semantic_hash": "8e084042ca70f1cbab0d6396c5865ea6"
   },
   "products/finexa-gennxt.html": {
-    "mtime": 1791815128.1861267,
-    "seen": 1791815929.583612,
-    "ast_hash": "e59b14d96d5a76192060f2dcd7719de1",
-    "semantic_hash": "e59b14d96d5a76192060f2dcd7719de1"
+    "mtime": 1792387813.3341062,
+    "seen": 1792388003.134996,
+    "ast_hash": "837ff65ae883bbc6926a64db569aa692",
+    "semantic_hash": ""
   },
   "products/finexa.html": {
     "mtime": 1791815128.185893,
@@ -522,10 +522,10 @@
     "semantic_hash": "68cf26b992a42f9ccb98c074b16df77c"
   },
   "products/learngenie.html": {
-    "mtime": 1791815128.1862054,
-    "seen": 1791815929.5836139,
-    "ast_hash": "02e4c81de00845e30717757df08997ba",
-    "semantic_hash": "02e4c81de00845e30717757df08997ba"
+    "mtime": 1792387813.3338804,
+    "seen": 1792388003.134998,
+    "ast_hash": "2c5102208dcc668e5565a0c060bffe86",
+    "semantic_hash": ""
   },
   "services.html": {
     "mtime": 1791815128.1856227,
@@ -594,15 +594,15 @@
     "semantic_hash": ""
   },
   "src/partials/products/finaware.html": {
-    "mtime": 1791952419.0258164,
-    "seen": 1791952626.038013,
-    "ast_hash": "669c73d1dce4068b33c0a93aa29f88e4",
+    "mtime": 1792387791.4356143,
+    "seen": 1792388003.1350038,
+    "ast_hash": "345e5ea64e96d6dce9b9627edd69a125",
     "semantic_hash": ""
   },
   "src/partials/products/finexa-gennxt.html": {
-    "mtime": 1791952419.025409,
-    "seen": 1791952626.038014,
-    "ast_hash": "d6bb097000eda5588ffdf15e5c3c5da7",
+    "mtime": 1792387791.4343872,
+    "seen": 1792388003.1350038,
+    "ast_hash": "9fd816cf61be3e2d943051a7b4d951c0",
     "semantic_hash": ""
   },
   "src/partials/products/finexa.html": {
@@ -618,9 +618,9 @@
     "semantic_hash": ""
   },
   "src/partials/products/learngenie.html": {
-    "mtime": 1792006136.0385373,
-    "seen": 1792006271.168311,
-    "ast_hash": "5c91b1c080c9869059b09c45c4656af2",
+    "mtime": 1792387791.4352343,
+    "seen": 1792388003.135006,
+    "ast_hash": "a423183d3283f1f9fa1c2354f1c96815",
     "semantic_hash": ""
   },
   "src/partials/service-page/footer.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1792386416.0736706,
-    "seen": 1792386431.6489532,
-    "ast_hash": "b7af1eafb43f1bccffcf0aeae5d16b10",
+    "mtime": 1792387967.0487816,
+    "seen": 1792388003.1349409,
+    "ast_hash": "95f3431e029c7a0354fa607cc94138a5",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1792386416.079023,
-    "seen": 1792386431.6489549,
-    "ast_hash": "8dd1c857cd0378a599d1120655158c88",
+    "mtime": 1792387967.0533772,
+    "seen": 1792388003.134943,
+    "ast_hash": "4c2d851dc776fc5af9d1855e285fe804",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1792386416.085383,
-    "seen": 1792386431.6489549,
-    "ast_hash": "6f8b0c2d91b0f78c0c52684ff6a695f3",
+    "mtime": 1792387967.0596702,
+    "seen": 1792388003.134944,
+    "ast_hash": "78271b6f7e973bf4cbbed5c94df75870",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {

@@ -1317,6 +1317,10 @@
   "products.html",
   "products/finexa.html"
  ],
+ "AI-powered gamified learning platform": [
+  "products.html",
+  "products/learngenie.html"
+ ],
  "All": [
   "careers.html",
   "knowledge-centre/blogs.html"
@@ -1997,7 +2001,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Defined learning paths keep investors engaged beyond the program.": [
+ "Defined learning paths keep investors engaged beyond the programme.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2209,7 +2213,7 @@
   "products.html",
   "products/finexa.html"
  ],
- "End-to-end program management": [
+ "End-to-end programme management": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2617,7 +2621,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Get deep insights into program effectiveness with measurable KPIs.": [
+ "Get deep insights into programme effectiveness with measurable KPIs.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -3097,14 +3101,6 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Learning & development": [
-  "products.html",
-  "knowledge-centre/blogs.html"
- ],
- "Learning management platform": [
-  "products.html",
-  "products/learngenie.html"
- ],
  "Learning paths tailored to each learner's profile, preferences and performance.": [
   "products.html",
   "products/learngenie.html"
@@ -3262,6 +3258,10 @@
   "products/finexa.html"
  ],
  "Multi-asset data aggregation": [
+  "products.html",
+  "products/finexa-gennxt.html"
+ ],
+ "Multi-asset wealth management platform": [
   "products.html",
   "products/finexa-gennxt.html"
  ],
@@ -3657,7 +3657,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Ready to elevate your learning programs?": [
+ "Ready to elevate your learning programmes?": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -3837,13 +3837,17 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Run programs via QR attendance or auto-record, online or offline.": [
+ "Run programmes via QR attendance or auto-record, online or offline.": [
   "products.html",
   "products/finaware.html"
  ],
  "Run your whole practice from one hub": [
   "products.html",
   "products/finexa.html"
+ ],
+ "Run, track and report investor awareness programmes end to end": [
+  "index.html",
+  "products.html"
  ],
  "Safe": [
   "products.html",
@@ -4028,6 +4032,10 @@
  "SIP = Systematic Investment Plan. A disciplined approach to long-term wealth creation.": [
   "products.html",
   "products/learngenie.html"
+ ],
+ "Six building blocks": [
+  "index.html",
+  "brochure.html"
  ],
  "Smart reports & event analytics": [
   "products.html",
@@ -4340,14 +4348,6 @@
  "Watch the video": [
   "products.html",
   "products/finexa.html"
- ],
- "Wealth management": [
-  "products.html",
-  "brochure.html"
- ],
- "Wealth management stack": [
-  "products.html",
-  "products/finexa-gennxt.html"
  ],
  "Wealth managers": [
   "services.html",
@@ -4791,19 +4791,19 @@
  "· {n} min read": [
   "(javascript)"
  ],
- "· Asset aggregation": [
+ "· Gamified learning": [
   "contact.html"
  ],
  "· Investor awareness": [
   "contact.html"
  ],
- "· Learning & development": [
+ "· Multi-asset wealth management": [
+  "contact.html"
+ ],
+ "· Mutual fund distribution": [
   "contact.html"
  ],
  "· Personal finance": [
-  "contact.html"
- ],
- "· Wealth management": [
   "contact.html"
  ],
  "“Educate, Empower, Engage,”": [
@@ -5139,9 +5139,6 @@
  "A completely safe and convenient way to track all bank accounts, credit cards and e-wallets live at one place — without sharing passwords.": [
   "products.html"
  ],
- "A comprehensive business solution tailored for Investment Advisors, Wealth Managers and Distributors — offering a holistic approach to managing the entire client lifecycle.": [
-  "products.html"
- ],
  "A customised LMS that gave 5,000+ students round-the-clock access to interactive, industry-relevant content.": [
   "brochure.html"
  ],
@@ -5183,12 +5180,6 @@
  ],
  "A meticulous examination of your cloud infrastructure to optimize efficiency, security and scalability. We review against each provider's own framework, find the optimization opportunities, and quantify the savings before you commit to anything.": [
   "services.html"
- ],
- "A mobile app making learning accessible and personalized for employees, partners and channels — through gamified learning, interactive content and customizable programs, on a white-labeled platform with HR integration.": [
-  "products.html"
- ],
- "A modern wealth management stack": [
-  "products.html"
  ],
  "A phased roadmap with clear migration waves": [
   "services.html"
@@ -5322,9 +5313,6 @@
  "Advisor": [
   "about.html"
  ],
- "Advisors · Wealth Managers · Distributors": [
-  "products.html"
- ],
  "Advisors, distributors and institutions on what changed once they moved.": [
   "index.html"
  ],
@@ -5346,8 +5334,17 @@
  "AI-augmented product development; an MBA, CFA or FRM is an edge, not a requirement": [
   "careers.html"
  ],
+ "AI-powered gamified learning for employees, partners and channels, in any sector — personalised journeys, live sessions and self-paced modules": [
+  "brochure.html"
+ ],
  "AI-powered gamified learning platform for employees, partners and channels, in any sector": [
   "index.html"
+ ],
+ "AI-powered gamified learning, in any sector": [
+  "products.html"
+ ],
+ "AI-powered, gamified and interactive": [
+  "products.html"
  ],
  "AI/ML in fintech products is a distinct advantage": [
   "careers.html"
@@ -5421,13 +5418,19 @@
  "An accessibility audit against WCAG 2.2 AA": [
   "services.html"
  ],
+ "An AI-powered gamified learning platform for employees, partners and channels in any sector: personalised paths, live training, assessments and reporting.": [
+  "products/learngenie.html"
+ ],
+ "An AI-powered gamified learning platform for employees, partners and channels, in any sector — personalised paths, interactive content and customisable programmes, white-labelled, with HR integration.": [
+  "products.html"
+ ],
  "An environment that values initiative, ownership and growth": [
   "careers.html"
  ],
  "An executive summary for your board or regulator": [
   "services.html"
  ],
- "An integrated platform designed to streamline and scale Investor Awareness Programs (IAPs) efficiently. Whether managing digital or offline initiatives, it empowers organizations to execute, track and optimize IAPs while ensuring regulatory compliance.": [
+ "An integrated platform designed to streamline and scale Investor Awareness Programs (IAPs) efficiently. Whether managing digital or offline initiatives, it lets organisations execute, track and optimise IAPs while ensuring regulatory compliance.": [
   "products.html"
  ],
  "An Investor's Finance Manager": [
@@ -5507,9 +5510,6 @@
  ],
  "Assess": [
   "services.html"
- ],
- "Asset aggregation": [
-  "products.html"
  ],
  "Asset management": [
   "brochure.html"
@@ -5778,14 +5778,14 @@
  "BUILT FOR": [
   "products.html"
  ],
- "Built for advisors, wealth managers & distributors": [
-  "products.html"
- ],
  "built for BFSI and beyond": [
   "index.html"
  ],
  "Built for financial services": [
   "services/cloud.html"
+ ],
+ "Built for MFDs and financial advisors": [
+  "products.html"
  ],
  "Built to pass review": [
   "solutions.html"
@@ -6038,6 +6038,9 @@
  ],
  "Collaborate with frontend, QA, DevOps and product teams in an Agile/Scrum environment": [
   "careers.html"
+ ],
+ "Comes with the Finexa Nova investor app": [
+  "products.html"
  ],
  "Comfortable with large lead databases and conversion targets": [
   "careers.html"
@@ -6438,14 +6441,8 @@
  "Empowering Her Wallet: Decoding the Financial Landscape of Urban Indian Women": [
   "knowledge-centre/blogs.html"
  ],
- "Empowering Investor Awareness with a Unified Solution": [
-  "products.html"
- ],
  "Empowering learning through technology": [
   "brochure.html"
- ],
- "Empowering Wealth Management with Finexa GenNxt": [
-  "products.html"
  ],
  "Enable": [
   "services.html"
@@ -6720,7 +6717,7 @@
  "Finexa BSE Integration": [
   "about.html"
  ],
- "Finexa GenNxt — Wealth Management Stack | Finlabs": [
+ "Finexa GenNxt — Multi-Asset Wealth Management | Finlabs": [
   "products/finexa-gennxt.html"
  ],
  "Finexa GenNxt is a Finlabs India product.": [
@@ -6728,9 +6725,6 @@
  ],
  "Finexa GenNxt is a Finlabs India product. Press Esc, click outside the screen, or use the button at the top left to close it.": [
   "products.html"
- ],
- "Finexa GenNxt is a fully integrated wealth management platform for family offices and wealth firms: multi-asset aggregation, RM and client dashboards, BSE StAR/MFU transactions, KYC APIs and enterprise-grade security.": [
-  "products/finexa-gennxt.html"
  ],
  "Finexa GenNxt, wealth management platform, family office software India, multi-asset portfolio aggregation, RM dashboard, wealth management software, KYC API integration, BSE StAR MF integration, portfolio reporting for wealth firms": [
   "products/finexa-gennxt.html"
@@ -6755,6 +6749,9 @@
  ],
  "Finexa Planning Suite Rollout": [
   "about.html"
+ ],
+ "Finexa, GenNxt, Finaware, Fiscus and Learngenie: Finlabs platforms for mutual fund distribution, wealth management, investor awareness and learning.": [
+  "products.html"
  ],
  "Finexa, mutual fund distribution platform, mutual fund software for MFD, MFD software India, BSE StAR MF, NSE mutual fund platform, MFU transactions, financial advisor software, client portal for investors, online SIP transactions, ARN distributor software, Finexa Nova app": [
   "products/finexa.html"
@@ -6827,9 +6824,6 @@
  ],
  "Finlabs partners, Finlabs clients, fintech technology partners India, BSE StAR MF partner, NSE mutual fund platform, CAMS KFintech integration, KYC partners Digio Signzy, mutual fund distribution partners": [
   "partners.html"
- ],
- "Finlabs products — Finexa, Finexa GenNxt, Finaware, Fiscus and Learngenie: platforms for wealth management, asset aggregation, investor awareness, personal finance and learning.": [
-  "products.html"
  ],
  "Finlabs services for financial institutions — UI/UX, application and infrastructure audits, cybersecurity, cloud architecture review and digital transformation strategy.": [
   "services.html"
@@ -7068,7 +7062,10 @@
  "Future of Workforce Disruptor in Emerging Enterprise": [
   "index.html"
  ],
- "Gamified, interactive learning": [
+ "Gamified learning": [
+  "products.html"
+ ],
+ "Gamified Learning Platform": [
   "products.html"
  ],
  "Ganesh Tawde": [
@@ -7518,9 +7515,6 @@
  "Kubernetes": [
   "services.html"
  ],
- "L&D Made Easy, Engaging and Effective": [
-  "products.html"
- ],
  "Lalit Vij": [
   "about.html"
  ],
@@ -7569,7 +7563,7 @@
  "Learn more": [
   "case-study.html"
  ],
- "Learngenie — Learning Management Platform for Organizations | Finlabs": [
+ "Learngenie — Gamified Learning Platform | Finlabs": [
   "products/learngenie.html"
  ],
  "Learngenie is a Finlabs India product.": [
@@ -7577,9 +7571,6 @@
  ],
  "Learngenie is a Finlabs India product. Press Esc, click outside the screen, or use the button at the top left to close it.": [
   "products.html"
- ],
- "Learngenie is a white-labeled learning management platform with personalized learning paths, gamification, live training, assessments, certification and in-depth reporting.": [
-  "products/learngenie.html"
  ],
  "Learngenie Launch": [
   "about.html"
@@ -7593,8 +7584,8 @@
  "Learngenie, our learning and development app, has its own privacy policy:": [
   "privacy.html"
  ],
- "Learning & Development App": [
-  "products.html"
+ "Learning & development": [
+  "knowledge-centre/blogs.html"
  ],
  "Learning Hub Launch": [
   "about.html"
@@ -7740,6 +7731,9 @@
  "Methodologies": [
   "careers.html"
  ],
+ "MFDs · Financial Advisors": [
+  "products.html"
+ ],
  "MFU for a single mandate across funds": [
   "partners.html"
  ],
@@ -7824,7 +7818,16 @@
  "Move your platforms to the cloud without losing a night’s sleep. We review what you run today, plan the migration application by application, build a landing zone that meets RBI and SEBI expectations, and then keep it running — right-sized, monitored, backed up and ready for the next audit.": [
   "solutions.html"
  ],
- "Multi-Asset Analytics": [
+ "Multi-asset wealth management": [
+  "products.html"
+ ],
+ "Multi-asset wealth management for wealth firms and family offices": [
+  "products.html"
+ ],
+ "Multi-asset wealth management for wealth firms and family offices — aggregation, RM and client dashboards, reporting and analytics": [
+  "brochure.html"
+ ],
+ "Multi-Asset Wealth Management Platform": [
   "products.html"
  ],
  "Multi-asset wealth management platform for wealth firms and family offices": [
@@ -7851,11 +7854,20 @@
  "Muthoot": [
   "index.html"
  ],
+ "Mutual fund distribution": [
+  "products.html"
+ ],
  "Mutual fund distribution — transactions on NSE, BSE StAR MF and MFU, multiple ARNs on one dashboard, on Android and iOS": [
   "brochure.html"
  ],
+ "Mutual Fund Distribution Platform": [
+  "products.html"
+ ],
  "Mutual fund distribution platform for MFDs and advisors, with the Finexa Nova investor app": [
   "index.html"
+ ],
+ "Mutual fund distribution, multi-asset wealth management, investor awareness, personal finance and gamified learning. Five platforms — take the one you need.": [
+  "products.html"
  ],
  "Mutual fund distributor, Navsari": [
   "index.html"
@@ -8232,9 +8244,6 @@
  "PostgreSQL: database design, SQL, indexing, query and performance optimisation": [
   "careers.html"
  ],
- "Powering Growth with Modern Wealth Management Stack": [
-  "products.html"
- ],
  "Pradeep Mukerjee": [
   "about.html"
  ],
@@ -8286,16 +8295,16 @@
  "Process, quality & governance": [
   "careers.html"
  ],
- "PRODUCT 01 — WEALTH MANAGEMENT": [
+ "PRODUCT 01 — MUTUAL FUND DISTRIBUTION": [
   "products.html"
  ],
- "PRODUCT 02 — ASSET AGGREGATION": [
+ "PRODUCT 02 — MULTI-ASSET WEALTH MANAGEMENT": [
   "products.html"
  ],
  "PRODUCT 03 — INVESTOR AWARENESS": [
   "products.html"
  ],
- "PRODUCT 04 — LEARNING & DEVELOPMENT": [
+ "PRODUCT 04 — GAMIFIED LEARNING": [
   "products.html"
  ],
  "PRODUCT 05 — PERSONAL FINANCE": [
@@ -8556,9 +8565,6 @@
  "Run sprint planning, stand-ups, reviews and retrospectives with precision": [
   "careers.html"
  ],
- "Run, track and report investor awareness programmes end to end": [
-  "index.html"
- ],
  "Runner-up, IBM AI for Business Grand Challenge for IT Automation": [
   "index.html"
  ],
@@ -8727,9 +8733,6 @@
  "Services we build with most": [
   "services/cloud.html"
  ],
- "Seven building blocks": [
-  "brochure.html"
- ],
  "Severability of Provisions": [
   "terms.html"
  ],
@@ -8769,9 +8772,6 @@
  "Signzy": [
   "partners.html"
  ],
- "Simplifies financial management by aggregating all assets on a single platform, offering advanced analytics and multi-asset reporting for deeper insights. With enterprise-grade security, it ensures safe and efficient financial oversight.": [
-  "products.html"
- ],
  "simplify finance through smart, holistic technology": [
   "brochure.html"
  ],
@@ -8786,9 +8786,6 @@
  ],
  "Sites, portals and mobile apps": [
   "solutions.html"
- ],
- "Six building blocks": [
-  "index.html"
  ],
  "Six solutions for wealth managers, distributors, advisers, AMCs and financial institutions — from cloud and robo-advisory to websites and apps, analytics, documents and compliance. Start with the one you need today and add more as you grow.": [
   "solutions.html"
@@ -9174,9 +9171,6 @@
  "The last pages of the deck introduce the board of directors, the advisory board and the senior leadership team — thirty-odd years apiece across Indian financial markets, insurance, retirement, asset management and BFSI technology.": [
   "brochure.html"
  ],
- "The learning management suite — personalised journeys, gamification, live sessions and self-paced modules": [
-  "brochure.html"
- ],
  "The Lok Sabha elections in India are a monumental event that significantly influences various facets of life, including the economy and individual financial behavior. The election outcomes can lead to market volatility, reflecting investor sentiment and future economic expectations. This article explores how people’s behavior towards finances is affected post-elections, with a focus on market": [
   "knowledge-centre/blogs.html"
  ],
@@ -9188,6 +9182,15 @@
  ],
  "The Mint W3 Awards stage": [
   "about.html"
+ ],
+ "The multi-asset wealth management platform for wealth firms and family offices — every asset on one platform, with advanced analytics and multi-asset reporting, and enterprise-grade security throughout.": [
+  "products.html"
+ ],
+ "The multi-asset wealth management platform for wealth firms and family offices: aggregation, RM and client dashboards, transactions, KYC APIs and security.": [
+  "products/finexa-gennxt.html"
+ ],
+ "The mutual fund distribution platform for MFDs and advisors": [
+  "products.html"
  ],
  "The names we build for,": [
   "partners.html"
@@ -9209,6 +9212,9 @@
  ],
  "The personal information we collect may include the following:": [
   "privacy-learngenie.html"
+ ],
+ "The platform mutual fund distributors and advisors run their practice on — transactions, clients, reporting and planning across the whole client lifecycle, with the Finexa Nova investor app for their clients.": [
+  "products.html"
  ],
  "The Power of Compounding: Unlocking Long-Term Financial Growth": [
   "knowledge-centre/blogs.html"
@@ -9251,9 +9257,6 @@
  ],
  "The user shall not utilise the services offered by Finlabs India in any manner so as to impair the interests and functioning of FIPL/Finlabs India. The user undertakes not to duplicate, download publish, modify and distribute material on Finlabs India.com unless specifically authorised by FIPL in this regard. The user undertakes not to establish any deep link or other connection to any specific page of Finlabs India other than the Home Page without obtaining prior consent of FIPL. FIPL strictly forbids copying, duplicating web pages or content using any automated process such as spiders, crawlers etc. or through any manual process for a purpose which has not been authorized in writing.": [
   "terms.html"
- ],
- "The wealth management suite — multi-asset aggregation, RM and client dashboards, reporting and analytics": [
-  "brochure.html"
  ],
  "The what": [
   "brochure.html"
@@ -9582,17 +9585,14 @@
  "Wealth and investment firms": [
   "brochure.html"
  ],
- "Wealth Firms · Enterprises": [
+ "Wealth Firms · Family Offices": [
   "products.html"
  ],
- "Wealth Management Platform": [
-  "products.html"
+ "Wealth management": [
+  "brochure.html"
  ],
  "Wealth management platforms, bond markets, mutual fund ecosystems and compliance frameworks (SEBI, RBI, AMFI)": [
   "careers.html"
- ],
- "Wealth management, asset aggregation, investor awareness, personal finance and learning. Five platforms — take the one you need.": [
-  "products.html"
  ],
  "Wealth managers and distributors": [
   "services/cloud.html"
@@ -9675,7 +9675,7 @@
  "Which solution interests you?": [
   "solutions.html"
  ],
- "White-labeled platform": [
+ "White-labelled platform": [
   "products.html"
  ],
  "Who Finlabs is, the products and solutions we run, the services around them, the work we have delivered and the people behind it — twenty-six pages of it. Read the whole thing here, or take the PDF into your next meeting.": [
