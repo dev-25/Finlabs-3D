@@ -240,9 +240,19 @@ Go to the repository → **Settings** → **Secrets and variables** → **Action
 | `AWS_REGION` | the region from part E (e.g. `ap-south-1`) |
 | `CLOUDFRONT_ID` | *leave this one out entirely for now* |
 
-> Variables and secrets are different tabs on the same page. The ARN is not
-> secret in any real sense, but it names your account number, so it goes in
-> Secrets. The rest are Variables so you can read them back later.
+> **Variables and Secrets are two different stores behind two tabs on the same
+> page, and putting one in the other does not work.** The workflow reads
+> `vars.S3_BUCKET`; a value saved under Secrets is `secrets.S3_BUCKET` and
+> the workflow will not see it. It then decides there is nothing to deploy to,
+> skips every step, and the run goes green — which looks like success.
+>
+> If you have already put these in the Secrets tab, add them again under
+> Variables and delete the Secrets copies. Leaving duplicates makes the logs
+> unreadable: GitHub masks every secret value as `***`, including your
+> bucket name.
+>
+> Only `AWS_DEPLOY_ROLE_ARN` belongs in Secrets. It is not really a secret
+> either, but it names your account number, so there is no reason to print it.
 
 ---
 
@@ -276,7 +286,8 @@ Then open the bucket website endpoint from step E1.
 | `Not authorized to perform sts:AssumeRoleWithWebIdentity` | The role's trust does not match. Check part C step 10 — org, repo and branch must match exactly, and the branch must be `main`. |
 | `Could not assume role ... no identity-based policy` | Part A's provider is missing, or the audience is not `sts.amazonaws.com`. |
 | `AccessDenied` on PutObject | The policy in part B was not attached to the role in part C step 7. |
-| The job skips with "No S3_BUCKET variable set" | The variable went into the **Secrets** tab by mistake. It belongs in **Variables**. |
+| A run finishes green in ~13 seconds and nothing reaches S3 | It skipped. Almost always `S3_BUCKET` saved under **Secrets** rather than **Variables** — see F2. A real deploy takes two or three minutes. |
+| "S3_BUCKET is not set, so there is nothing to deploy to" | Same cause, but you triggered it manually so it failed rather than skipping. Fix F2. |
 | Page loads but has no styling | The build used the wrong base path. The guard step should have caught it — send me the log. |
 | 404 on every page but the home page | E1's index/error documents are not saved. |
 | Raw XML error instead of the branded 404 | E1 step 6, the error document field. |

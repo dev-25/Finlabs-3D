@@ -39,12 +39,24 @@ jobs:
       - name: Is production configured?
         id: cfg
         run: |
-          if [ -z "${{ vars.S3_BUCKET }}" ]; then
-            echo 'ready=false' >> "$GITHUB_OUTPUT"
-            echo '::notice::No S3_BUCKET variable set, so there is nothing to deploy to. See docs/deploy-prod.md.'
-          else
+          if [ -n "${{ vars.S3_BUCKET }}" ]; then
             echo 'ready=true' >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+
+          # Pressing "Run workflow" is someone asking for a deploy. Skipping
+          # quietly and going green would tell them it worked. Fail instead.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "::error::S3_BUCKET is not set, so there is nothing to deploy to."
+            echo "::error::Check Settings > Secrets and variables > Actions > the VARIABLES tab."
+            echo "::error::A value in the Secrets tab does not work here: the workflow reads vars.S3_BUCKET, and secrets and variables are separate stores."
+            exit 1
+          fi
+
+          # An ordinary push to a repo nobody has configured yet is not a
+          # failure, so that one stays a notice.
+          echo 'ready=false' >> "$GITHUB_OUTPUT"
+          echo '::notice::No S3_BUCKET variable set, so there is nothing to deploy to. See docs/deploy-prod.md.'
 
       - uses: actions/setup-node@v4
         if: steps.cfg.outputs.ready == 'true'
