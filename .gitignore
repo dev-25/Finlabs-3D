@@ -27,3 +27,8 @@ dist-ssr
 backend/node_modules
 backend/.aws-sam
 backend.config.json.bak
+
+# graphify builds this index from the source on demand, so it is a local
+# artefact, not part of the codebase: 345 files and 14MB that regenerate with
+# `graphify update .`. Kept out of git so the repo carries only what it is.
+graphify-out/
