@@ -9,7 +9,7 @@ What you end up with:
 
 ```
 form (+honeypot, +clock) → Lambda Function URL → Lambda ─┬→ DynamoDB  (the record)
-                                                        └→ SES       (the email)
+                                                        └→ SNS       (the email)
 ```
 
 **No API Gateway.** A Lambda Function URL does the same job here, is free,
@@ -17,57 +17,70 @@ and is three clicks instead of a wizard. If you later need request throttling
 or a custom domain on the API, that is the moment to move to API Gateway —
 not before.
 
-About 25 minutes. SES is already verified and unrestricted, so nothing here waits on anyone.
+About 25 minutes. Nothing here waits on anyone — no verification, no approval.
 
 ---
 
-## A. SES — already verified and out of the sandbox
+## A. SNS — where the notification lands
 
-`info@finlabsindia.biz` is **already a verified identity** in `ap-south-1`
-with DKIM passing, and the account is out of the sandbox, so there is nothing
-to set up and nothing to wait for. SES rather than SNS also means **Reply-To
-is set to the person who filled the form**, so hitting reply in the inbox
-answers them. SNS cannot do that.
+SNS carries the email. Nothing to verify and nothing to wait for: the topic
+works the moment you create it.
 
-### A1 · The account is already out of the sandbox
+### A1 · Create the topic
 
-Checked on 19 Oct 2026: **193,300 emails a day, 48 a second.** A sandboxed
-account gets 200 a day and 1 a second, so there is nothing to request and no
-restriction on who can receive. If you ever need to confirm this again, those
-two numbers on **SES → Account dashboard** are the tell — a sandbox banner is
-not always shown.
-
-### A2 · A configuration set, because the account is shared
-
-The same dashboard showed **420 emails already sent that day** by something
-else. That matters for one reason: bounces and spam complaints are scored
-against the whole account, so a form that starts attracting junk would drag
-down whatever else sends from here — and you would have no way to see that it
-was us.
-
-A configuration set separates the reporting. Five minutes, and much harder to
-retrofit once there is history to untangle.
-
-1. Console → **Amazon SES** → **Configuration sets** → **Create set**
-2. Name:
+1. Console → **Amazon SNS** → check the region is **ap-south-1** (top right)
+2. **Topics** → **Create topic**
+3. Type: **Standard**
+4. Name:
    ```
-   finlabs-website
+   finlabs-form-submissions
    ```
-3. Leave the defaults → **Create set**
+5. Leave everything else alone → **Create topic**
+6. **Copy the Topic ARN.** It looks like:
+   ```
+   arn:aws:sns:ap-south-1:883891414144:finlabs-form-submissions
+   ```
+   It goes into the Lambda in step C3 and the IAM policy in C4.
 
-That alone separates the metrics. If you also want bounces handled rather than
-merely counted:
+### A2 · Subscribe the people who should get enquiries
 
-4. Open the set → **Event destinations** → **Add destination**
-5. Event types: **Bounce**, **Complaint**, **Reject**
-6. Destination: **Amazon SNS** → create or pick a topic → subscribe your address
+1. On the topic page → **Create subscription**
+2. Protocol: **Email**
+3. Endpoint:
+   ```
+   info@finlabsindia.biz
+   ```
+4. **Create subscription**
+5. Repeat for any other address — `hr@finlabsindia.biz`, a personal address
+   while testing, whatever you need
 
-Then set `SES_CONFIGURATION_SET=finlabs-website` in step C3. Leave the variable
-out and sending still works — it just gets counted with everything else.
+> **Every subscriber gets a "Subscription Confirmation" email and somebody has
+> to click the link in it.** Until that happens the subscription sits at
+> *PendingConfirmation* and **nothing is delivered** — with a completely clean
+> Lambda log, because as far as the Lambda is concerned the publish succeeded.
+> This is the single most likely reason for "I submitted the form and no email
+> came". Check the topic's Subscriptions tab says **Confirmed**.
 
-> **Why bother.** A hard bounce or a complaint on a shared account is a cost
-> the other system pays without knowing why. This keeps the blast radius of
-> the website's email where it belongs.
+### A3 · What SNS does not do
+
+Worth knowing now rather than discovering in front of a customer:
+
+- **Mail arrives from `no-reply@sns.amazonaws.com`** with an unsubscribe
+  footer, so it reads as a system alert rather than a business email.
+- **There is no Reply-To.** Hitting reply in your inbox answers Amazon, not
+  the person who filled the form — you copy their address out of the message
+  body instead.
+- **Everyone on the topic gets everything.** SNS publishes to the topic, so
+  `MAIL_ROUTES` is ignored: a job application reaches whoever is subscribed,
+  same as an enquiry. Per-form routing needs SES, or a second topic.
+
+**SES fixes all three**, and this account is already set up for it:
+`info@finlabsindia.biz` is a verified identity in `ap-south-1` with DKIM
+passing, and the account is out of the sandbox — 193,300 emails a day against
+a sandboxed account's 200.
+
+Switching later is two environment variables and one line of the IAM policy;
+see *Moving to SES* at the end. Nothing in the code changes.
 
 ## B. DynamoDB — where enquiries are kept
 
@@ -142,35 +155,29 @@ rather than aspirational:
 - Memory: **512 MB**
 - **Save**
 
-**Configuration** → **Environment variables** → **Edit** → add nine (ten with the optional one):
+**Configuration** → **Environment variables** → **Edit** → add seven:
 
 | Key | Value |
 |---|---|
 | `TABLE_NAME` | `finlabs-submissions` |
-| `MAIL_FROM` | `info@finlabsindia.biz` |
-| `MAIL_FROM_NAME` | `Finlabs website` |
-| `MAIL_ROUTES` | `{"contact":["info@finlabsindia.biz"],"solutions":["info@finlabsindia.biz"],"services":["info@finlabsindia.biz"],"learngenie-demo":["info@finlabsindia.biz"],"careers":["hr@finlabsindia.biz"]}` |
+| `NOTIFY` | `sns` |
+| `SNS_TOPIC_ARN` | the Topic ARN from step A1 |
 | `ALLOWED_ORIGIN` | `http://finlabs-prod-website.s3-website.ap-south-1.amazonaws.com` |
-| `NOTIFY` | `ses` |
 | `MAX_PER_IP_PER_HOUR` | `5` |
-| `SES_CONFIGURATION_SET` | `finlabs-website` — optional, see A2 |
 | `ENQUIRY_RETENTION_MONTHS` | `24` |
 | `NOTICE_VERSION` | `2.0` |
 
-`MAIL_ROUTES` must be on one line, valid JSON. Paste it exactly as above.
-
-> `MAIL_FROM` has to be an identity **verified in SES**, which is why it is
-> `.biz` rather than the `.com` addresses the website shows visitors. Those
-> are a separate question — SES verification is about sending, not receiving,
-> so it says nothing about whether `finlabsindia.com` accepts mail. Worth
-> settling before launch; it does not block this.
+> `MAIL_FROM`, `MAIL_FROM_NAME` and `MAIL_ROUTES` do nothing while `NOTIFY`
+> is `sns`, because SNS delivers to whoever subscribed to the topic. Set them
+> now if you like — they are what *Moving to SES* needs — or leave them out
+> until then.
 
 > `ALLOWED_ORIGIN` must match the address in the browser's bar **exactly** —
 > scheme included, no trailing slash. Get it wrong and the browser blocks the
 > response with a CORS error even though the Lambda ran fine. **When you move
 > to `https://finlabsindia.com`, this has to change with it.**
 
-### C4 · Let it write to DynamoDB and send mail
+### C4 · Let it write to DynamoDB and publish
 
 The execution role can currently only write logs.
 
@@ -195,10 +202,10 @@ The execution role can currently only write logs.
       "Resource": "arn:aws:dynamodb:ap-south-1:<ACCOUNT>:table/finlabs-submissions"
     },
     {
-      "Sid": "SendTheNotification",
+      "Sid": "PublishTheNotification",
       "Effect": "Allow",
-      "Action": ["sns:Publish", "ses:SendEmail"],
-      "Resource": "*"
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:ap-south-1:<ACCOUNT>:finlabs-form-submissions"
     }
   ]
 }
@@ -207,9 +214,9 @@ The execution role can currently only write logs.
 4. **Next** → name it `finlabs-form-submit` → **Create policy**
 
 > `PutItem` writes the enquiry; `UpdateItem` is only for the per-IP counter.
-> Neither reads or deletes, so a bug here cannot expose or destroy enquiries.
-> Both `sns:Publish` and `ses:SendEmail` are granted so switching `NOTIFY`
-> later needs no permission change.
+> Neither reads nor deletes, so a bug here cannot expose or destroy enquiries.
+> `sns:Publish` names the one topic rather than `*`, so this role cannot
+> publish anywhere else in the account.
 
 ### C5 · Give it a URL
 
@@ -263,8 +270,13 @@ git push
 
 Open the contact page, fill it in, submit.
 
-**What should happen:** a brief pause, then the thank-you page. An email in
-`info@finlabsindia.com`. A row in DynamoDB.
+**What should happen:** a brief pause, then the thank-you page. An email to
+every confirmed subscriber on the topic, from `no-reply@sns.amazonaws.com`. A
+row in DynamoDB.
+
+**Take more than three seconds filling it in.** Submit faster than that and
+the clock check treats you as a script: you get the thank-you page, nothing is
+stored, and the log says `dropped as automated`.
 
 **Check the row:** DynamoDB → Tables → `finlabs-submissions` → **Explore
 table items**. You should see `pk`, `fields`, `marketingConsent`,
@@ -278,11 +290,13 @@ table items**. You should see `pk`, `fields`, `marketingConsent`,
 | Browser console: CORS error | `ALLOWED_ORIGIN` or the Function URL CORS origin does not match the address bar exactly |
 | Your own test submission vanishes with no error | You filled it in under 3 seconds, so the clock check dropped it. The log says `dropped as automated`. Take your time, or lower `MIN_FILL_SECONDS` in the code while testing. |
 | "That is several messages in a short time" | The per-IP limit. Six submissions in an hour from one address. Raise `MAX_PER_IP_PER_HOUR` or wait. |
-| `MessageRejected: Email address is not verified` | Only `MAIL_FROM` needs verifying, and it must be an SES identity — `info@finlabsindia.biz`. Recipients do not, since the account is out of the sandbox. |
+| Row in DynamoDB, no email, clean log | The subscription was never confirmed. SNS → the topic → **Subscriptions** must say *Confirmed*, not *PendingConfirmation*. This is the common one. |
+| `AuthorizationError` on publish | C4's `sns:Publish`, or the ARN in `SNS_TOPIC_ARN` does not match the topic |
 | "We could not save that" | C4's DynamoDB permission, or the table name |
-| Thank-you page appears but no email | The log says `notification failed, submission is stored` — the enquiry **is** in DynamoDB. Check the log for the real reason; the enquiry is safe either way. Either way the order is working as intended. |
+| Log says `notification failed, submission is stored` | Only the email failed — the enquiry **is** safe in DynamoDB, and that line carries the reason. This is the write-before-send order doing its job. |
 | `Task timed out after 3.00 seconds` | C3's timeout was not raised |
 | The form still opens a mail client | `backend.config.json` has not deployed, or `apiBaseUrl` is empty |
+| `no notification channel configured` | `NOTIFY` is `sns` but `SNS_TOPIC_ARN` is unset |
 
 ---
 
@@ -302,6 +316,62 @@ front first. Worth knowing before it is urgent rather than after.
 
 The rate limit is also what protects the bill: without it a script can invoke
 this function as fast as it likes, and Lambda charges per invocation.
+
+## Moving to SES later
+
+SNS is the quick answer; SES is the better one. It sends from your own domain,
+and it sets **Reply-To to the person who filled the form**, so hitting reply
+answers them instead of Amazon. It also restores per-form routing, so job
+applications can go to `hr@` while enquiries go to `info@`.
+
+The groundwork is already done on this account: `info@finlabsindia.biz` is a
+verified identity in `ap-south-1` with DKIM passing, and the account is out of
+the sandbox — 193,300 emails a day against a sandboxed account's 200, so there
+is no approval to wait for.
+
+Three changes, no code:
+
+**1. Environment variables** (C3) — change one, add three:
+
+| Key | Value |
+|---|---|
+| `NOTIFY` | `ses` |
+| `MAIL_FROM` | `info@finlabsindia.biz` — must be an SES-verified identity |
+| `MAIL_FROM_NAME` | `Finlabs website` |
+| `MAIL_ROUTES` | `{"contact":["info@finlabsindia.biz"],"solutions":["info@finlabsindia.biz"],"services":["info@finlabsindia.biz"],"learngenie-demo":["info@finlabsindia.biz"],"careers":["hr@finlabsindia.biz"]}` |
+
+`SNS_TOPIC_ARN` can stay; it is ignored once `NOTIFY` is `ses`.
+
+**2. IAM** (C4) — swap the publish statement for:
+
+```json
+{
+  "Sid": "SendTheNotification",
+  "Effect": "Allow",
+  "Action": "ses:SendEmail",
+  "Resource": "*"
+}
+```
+
+**3. A configuration set — worth doing, because the account is shared.**
+
+That dashboard showed 420 emails already sent that day by something else.
+Bounces and spam complaints are scored against the whole account, so junk
+arriving through the website's forms would drag down whatever else sends from
+here, and nobody would be able to see it was us.
+
+- SES → **Configuration sets** → **Create set** → name it `finlabs-website`
+- Set `SES_CONFIGURATION_SET=finlabs-website` in C3
+
+Leave it out and sending still works; it just gets counted with everything
+else. Five minutes now, much harder to untangle once there is history.
+
+> `MAIL_FROM` is `.biz` because that is what is verified in SES, while the
+> website shows `.com` addresses to visitors. Those are separate questions —
+> SES verification is about *sending*, not receiving, so it says nothing about
+> whether `finlabsindia.com` accepts mail. Worth settling before launch,
+> especially `privacy@`, which the Privacy Notice names as the route for data
+> rights requests. It does not block any of this.
 
 ## One thing to be straight about
 
