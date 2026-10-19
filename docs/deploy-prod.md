@@ -1,5 +1,9 @@
 # Going live on the company's AWS
 
+> **Prefer clicking to typing?** [deploy-prod-console.md](deploy-prod-console.md)
+> is the same setup done entirely in the AWS console, with no CLI and no
+> CloudShell. This page keeps the CLI commands and the reference material.
+
 Push to `main` → GitHub Actions builds → `aws s3 sync` to `finlabs-prod-website`.
 No manual step in between.
 
