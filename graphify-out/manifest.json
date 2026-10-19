@@ -444,21 +444,21 @@
     "semantic_hash": "15ebe9f4fcc68c4879fec70ac22441c6"
   },
   "about.html": {
-    "mtime": 1792393544.8191822,
-    "seen": 1792393621.404871,
-    "ast_hash": "b9f7a49e9795191653b175d77f73ea2e",
+    "mtime": 1792403204.7270603,
+    "seen": 1792403506.6838021,
+    "ast_hash": "77ae728502c0fa94585881c497c1b372",
     "semantic_hash": ""
   },
   "brochure.html": {
-    "mtime": 1792393544.819381,
-    "seen": 1792393621.404872,
-    "ast_hash": "94dc8c560331d9316d4c5ec50b036cbf",
+    "mtime": 1792403093.1432984,
+    "seen": 1792403506.6838038,
+    "ast_hash": "bbcfa9caf33d21f812afc0465762756f",
     "semantic_hash": ""
   },
   "careers.html": {
-    "mtime": 1792393544.8198392,
-    "seen": 1792393621.404873,
-    "ast_hash": "bf5fc0351cac07f2aa91832b09487347",
+    "mtime": 1792403192.2324352,
+    "seen": 1792403506.683805,
+    "ast_hash": "097394b264d6bcf5422600bc40b55c4e",
     "semantic_hash": ""
   },
   "contact.html": {
@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1792393544.821381,
-    "seen": 1792393621.404875,
-    "ast_hash": "b5269ad984564be3f0336625e46b12bc",
+    "mtime": 1792403192.23337,
+    "seen": 1792403506.683807,
+    "ast_hash": "4c6dcf09dba47684f7da68b64470daac",
     "semantic_hash": ""
   },
   "knowledge-centre/blogs.html": {
@@ -492,9 +492,9 @@
     "semantic_hash": ""
   },
   "products.html": {
-    "mtime": 1792393544.8225176,
-    "seen": 1792393621.404877,
-    "ast_hash": "f275c7f46a45bbe3f610f2dc15bae2f5",
+    "mtime": 1792403093.1333296,
+    "seen": 1792403506.68381,
+    "ast_hash": "2706c94a8c76077d2efbd3d81d8ca7ee",
     "semantic_hash": ""
   },
   "products/finaware.html": {
@@ -528,9 +528,9 @@
     "semantic_hash": ""
   },
   "services.html": {
-    "mtime": 1792393544.8229659,
-    "seen": 1792393621.4048798,
-    "ast_hash": "ec7c26061582457721e1cae67145c9c7",
+    "mtime": 1792403093.1363454,
+    "seen": 1792403506.683813,
+    "ast_hash": "178b01a201943b6d6024cdb2098a93a5",
     "semantic_hash": ""
   },
   "services/cloud.html": {
@@ -540,16 +540,16 @@
     "semantic_hash": "22a8871f5724d40d4880c5d2693011bf"
   },
   "solutions.html": {
-    "mtime": 1792393544.8232422,
-    "seen": 1792393621.404881,
-    "ast_hash": "7b8a40da8c81b95885dcdfcdacb1557b",
+    "mtime": 1792403162.6627495,
+    "seen": 1792403506.6838138,
+    "ast_hash": "8581cfcf33d0101720938ac6ee7b04cb",
     "semantic_hash": ""
   },
   "src/partials/knowledge/blog-cards.html": {
-    "mtime": 1789582633.0628712,
-    "seen": 1790526272.0577369,
-    "ast_hash": "f74e3fb86af2f544a3de57b29206ea61",
-    "semantic_hash": "f74e3fb86af2f544a3de57b29206ea61"
+    "mtime": 1792403093.1483645,
+    "seen": 1792403506.683815,
+    "ast_hash": "e6c967282e732fc39f39ebafaeaecb99",
+    "semantic_hash": ""
   },
   "src/partials/knowledge/blog-chips.html": {
     "mtime": 1789582633.062596,
@@ -594,33 +594,33 @@
     "semantic_hash": ""
   },
   "src/partials/products/finaware.html": {
-    "mtime": 1792387791.4356143,
-    "seen": 1792388003.1350038,
-    "ast_hash": "345e5ea64e96d6dce9b9627edd69a125",
+    "mtime": 1792403162.6682081,
+    "seen": 1792403506.683819,
+    "ast_hash": "9a07842a695a855b292fdff2e3f73481",
     "semantic_hash": ""
   },
   "src/partials/products/finexa-gennxt.html": {
-    "mtime": 1792387791.4343872,
-    "seen": 1792388003.1350038,
-    "ast_hash": "9fd816cf61be3e2d943051a7b4d951c0",
+    "mtime": 1792403093.1522756,
+    "seen": 1792403506.68382,
+    "ast_hash": "eb68248f4611440d5a26a5aaa7ab57db",
     "semantic_hash": ""
   },
   "src/partials/products/finexa.html": {
-    "mtime": 1792392511.9992983,
-    "seen": 1792392743.973757,
-    "ast_hash": "22d16a2f418de8226de17309bd953392",
+    "mtime": 1792403162.6680536,
+    "seen": 1792403506.68382,
+    "ast_hash": "6a284a0daebe77cf471d672a8e5f27f2",
     "semantic_hash": ""
   },
   "src/partials/products/fiscus.html": {
-    "mtime": 1791978228.213122,
-    "seen": 1791978309.750842,
-    "ast_hash": "f725cf1861740d6c5082f0f597ee4014",
+    "mtime": 1792403093.1635854,
+    "seen": 1792403506.68382,
+    "ast_hash": "b8d469b17102cf2d6a378f7d4f822626",
     "semantic_hash": ""
   },
   "src/partials/products/learngenie.html": {
-    "mtime": 1792387791.4352343,
-    "seen": 1792388003.135006,
-    "ast_hash": "a423183d3283f1f9fa1c2354f1c96815",
+    "mtime": 1792403192.231842,
+    "seen": 1792403506.683821,
+    "ast_hash": "53e9a67f8cd41500655e69b601745019",
     "semantic_hash": ""
   },
   "src/partials/service-page/footer.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1792393610.614379,
-    "seen": 1792393621.404821,
-    "ast_hash": "1bfc03f1a77584c059f879473d942072",
+    "mtime": 1792403474.3751428,
+    "seen": 1792403506.6837518,
+    "ast_hash": "b07279fafcfa654cf6ab075e2e54dff1",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1792393610.6700828,
-    "seen": 1792393621.404822,
-    "ast_hash": "a80360699ba769caf8d25b4d33186f01",
+    "mtime": 1792403474.379961,
+    "seen": 1792403506.683754,
+    "ast_hash": "c7c29ac9fba86a626fc7d28bf19cb740",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1792393610.6755564,
-    "seen": 1792393621.404823,
-    "ast_hash": "6cbf44975c85762c884a02dad7e0024c",
+    "mtime": 1792403474.3857803,
+    "seen": 1792403506.683755,
+    "ast_hash": "cb5389cfb92ef09b9331b3c1a6db0be3",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1788,9 +1788,9 @@
     "semantic_hash": ""
   },
   "src/partials/case-study/studies.html": {
-    "mtime": 1792009913.4169488,
-    "seen": 1792010227.1955462,
-    "ast_hash": "e18284c4114d0c2ad875e3b5a59846e5",
+    "mtime": 1792403093.1408653,
+    "seen": 1792403506.683815,
+    "ast_hash": "13ed97dcd276f328fc2a8e4d0f275a36",
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
@@ -1800,8 +1800,8 @@
     "semantic_hash": ""
   },
   "locales/handover/legal-strings-for-translation.json": {
-    "mtime": 1792393610.6787171,
-    "seen": 1792393621.404821,
+    "mtime": 1792403480.3052843,
+    "seen": 1792403506.683753,
     "ast_hash": "4f26d91b6d44da861238bb7c4edd7c56",
     "semantic_hash": ""
   },

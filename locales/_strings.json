@@ -926,6 +926,11 @@
   "products.html",
   "products/finexa.html"
  ],
+ "AMFI-registered Mutual Fund Distributor": [
+  "index.html",
+  "products.html",
+  "products/finexa.html"
+ ],
  "Application & Infra Audits": [
   "index.html",
   "services.html",
@@ -1071,11 +1076,6 @@
   "services.html",
   "contact.html"
  ],
- "Vanshika Financial Technology Pvt. Ltd": [
-  "index.html",
-  "products.html",
-  "products/finexa.html"
- ],
  "Vikram Tewari": [
   "index.html",
   "products.html",
@@ -1103,11 +1103,11 @@
   "products.html",
   "products/finexa.html"
  ],
- "“Fiscus has really made my life easy. I have just started using it and am really hooked on to its awesome features. Way to go…”": [
+ "“Fiscus has really made my life easy. I have just started using it and am really hooked on its features. Way to go!”": [
   "products.html",
   "products/fiscus.html"
  ],
- "“Hinduja Foundation, in association with Finlabs, conducted a training program for 800 students on Financial Technologies. They exhibited deep knowledge & high degree of professionalism. The different faculty roped in by Finlabs were highly passionate & thorough.”": [
+ "“Hinduja Foundation, in association with Finlabs, conducted a training programme for 800 students on Financial Technologies. They exhibited deep knowledge & high degree of professionalism. The different faculty roped in by Finlabs were highly passionate & thorough.”": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -1119,7 +1119,7 @@
   "products.html",
   "products/fiscus.html"
  ],
- "“Loved the ability to track most of my bills without me having to setup anything.”": [
+ "“Loved the ability to track most of my bills without having to set up anything.”": [
   "products.html",
   "products/fiscus.html"
  ],
@@ -1131,11 +1131,11 @@
   "products.html",
   "products/finexa.html"
  ],
- "“The animated videos created by Finlabs on financial literacy concepts, such as saving, insurance, awareness on responsible borrowing etc were very crisp yet interactive and easy to understand especially for the target audience i.e LCV and LMV driver community.”": [
+ "“The animated videos created by Finlabs on financial literacy concepts — saving, insurance and responsible borrowing — were crisp, interactive and easy to understand especially for the target audience i.e LCV and LMV driver community.”": [
   "products.html",
   "products/learngenie.html"
  ],
- "“This is a very unique feature and it gave an option to connect with the best financial advisors in my area. Thanks Fiscus.”": [
+ "“This is a unique feature — it gave me an option to connect with the best financial advisors in my area. Thanks, Fiscus.”": [
   "products.html",
   "products/fiscus.html"
  ],
@@ -1243,7 +1243,7 @@
   "products.html",
   "products/finexa.html"
  ],
- "256-bit SSL encryption": [
+ "256-bit TLS encryption": [
   "products.html",
   "products/finaware.html"
  ],
@@ -1299,10 +1299,6 @@
   "products.html",
   "products/finexa.html"
  ],
- "A platform built to be user-friendly with it": [
-  "products.html",
-  "products/fiscus.html"
- ],
  "A programme across India for a diverse, multilingual audience": [
   "products.html",
   "products/learngenie.html"
@@ -1319,7 +1315,7 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "A white-labeled platform built around the learner": [
+ "A white-labelled platform built around the learner": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -1334,6 +1330,10 @@
  "A. Systematic Income Plan": [
   "products.html",
   "products/learngenie.html"
+ ],
+ "Abir Banerjee": [
+  "products.html",
+  "products/finexa.html"
  ],
  "Access anywhere, anytime": [
   "products.html",
@@ -1435,10 +1435,6 @@
   "privacy.html",
   "services/cloud.html"
  ],
- "AMFI Registered Mutual Fund Distributor": [
-  "products.html",
-  "products/finexa.html"
- ],
  "An end-to-end dashboard that keeps the team organised and audit-ready": [
   "products.html",
   "products/finaware.html"
@@ -1450,6 +1446,10 @@
  "and": [
   "privacy.html",
   "about.html"
+ ],
+ "And easy to use, by design": [
+  "products.html",
+  "products/fiscus.html"
  ],
  "and we will delete it.": [
   "privacy.html",
@@ -1735,7 +1735,7 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Can Finaware be customized as per our organization's workflow?": [
+ "Can Finaware be customised as per our organisation's workflow?": [
   "products.html",
   "products/finaware.html"
  ],
@@ -1775,7 +1775,7 @@
   "products.html",
   "products/finexa.html"
  ],
- "Can I track all my client's investments in one place?": [
+ "Can I track all my clients' investments in one place?": [
   "products.html",
   "products/finexa.html"
  ],
@@ -1791,7 +1791,7 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Can Learngenie be customized?": [
+ "Can Learngenie be customised?": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -1843,7 +1843,7 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Channels / presentation layers": [
+ "Channels / presentation layer": [
   "products.html",
   "products/finexa-gennxt.html"
  ],
@@ -1872,6 +1872,14 @@
   "products/finexa-gennxt.html"
  ],
  "Client portfolio triggers": [
+  "products.html",
+  "products/finexa.html"
+ ],
+ "Client reports include portfolio summary, transaction statements, capital gain/loss and performance reports. Business reports include business MIS, AUM reconciliation, brokerage MIS and SIP valuation.": [
+  "products.html",
+  "products/finexa.html"
+ ],
+ "Client self-onboarding": [
   "products.html",
   "products/finexa.html"
  ],
@@ -1963,7 +1971,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Corporates can fill out the form available on our website to request a customized solution. Our team will get in touch to discuss your requirements and create a tailored package that fits your needs.": [
+ "Corporates can fill out the form available on our website to request a customised solution. Our team will get in touch to discuss your requirements and create a tailored package that fits your needs.": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -1987,7 +1995,7 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Create personalized learning journeys that ignite curiosity and drive success, delivering content as one cohesive experience.": [
+ "Create personalised learning journeys that ignite curiosity and drive success, delivering content as one cohesive experience.": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -2112,10 +2120,6 @@
   "products/finaware.html"
  ],
  "Defined learning paths keep investors engaged beyond the programme.": [
-  "products.html",
-  "products/finaware.html"
- ],
- "Definitely. Finaware uses encrypted storage and industry-standard security measures to ensure all your IAP data remains confidential and protected: 256-bit SSL encryption, a customised server port, servers hosted in a private zone, secure authentication with Keycloak, secure data storage, data encryption, role-based access control and continuous monitoring.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2283,7 +2287,7 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Efficient training for RMOs": [
+ "Efficient training for RMs": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -2291,7 +2295,7 @@
   "products.html",
   "products/learngenie.html"
  ],
- "elevate organizational learning": [
+ "elevate organisational learning": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -2307,7 +2311,7 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Encrypted end to end": [
+ "Encrypted in transit and at rest": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2387,7 +2391,7 @@
   "products.html",
   "products/fiscus.html"
  ],
- "Everything organizations ask us": [
+ "Everything organisations ask us": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -2399,7 +2403,7 @@
   "products.html",
   "products/fiscus.html"
  ],
- "Expense tracking, categorization and budgeting, simplified": [
+ "Expense tracking, categorisation and budgeting, simplified": [
   "products.html",
   "products/fiscus.html"
  ],
@@ -2419,7 +2423,7 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Experience the power of Learngenie yourself. Book a demo and see how the platform can enhance your organization's training and development.": [
+ "Experience the power of Learngenie yourself. Book a demo and see how the platform can enhance your organisation's training and development.": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -2479,7 +2483,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Finaware empowers organizations to effortlessly manage both online and offline Investor Awareness Programs — from execution and tracking to optimization, all while ensuring complete regulatory compliance.": [
+ "Finaware empowers organisations to effortlessly manage both online and offline Investor Awareness Programs — from execution and tracking to optimisation, all while ensuring complete regulatory compliance.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2515,7 +2519,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Finaware uses a role-based access system, so every user sees and performs only what is relevant to their role. Admins get full control to manage users, programs, compliance data and reports. Training agencies can plan sessions, assign trainers and monitor execution progress. Trainers handle on-ground activities such as attendance marking, photo uploads and session closure.": [
+ "Finaware uses a role-based access system, so every user sees and performs only what is relevant to their role. Admins get full control to manage users, programmes, compliance data and reports. Training agencies can plan sessions, assign trainers and monitor execution progress. Trainers handle on-ground activities such as attendance marking, photo uploads and session closure.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2527,7 +2531,7 @@
   "products.html",
   "products/fiscus.html"
  ],
- "Find an Advisor connects you with experienced financial professionals in your area for personalized advice.": [
+ "Find an Advisor connects you with experienced financial professionals in your area for personalised advice.": [
   "products.html",
   "products/fiscus.html"
  ],
@@ -2555,15 +2559,15 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Finexa includes ready-to-use white-labeled marketing creatives that MFDs can share with clients to stay connected and maintain regular communication.": [
-  "products.html",
-  "products/finexa.html"
- ],
  "Finexa includes ready-to-use white-labelled marketing creatives that MFDs can share with clients to stay connected and maintain regular communication.": [
   "products.html",
   "products/finexa.html"
  ],
- "Finexa integrates with all the Mutual Fund Transaction platform — NSE Invest, BSE Star MF, and Mutual fund Utility (MFU), allowing advisors to execute mutual fund transactions through their preferred platform.": [
+ "Finexa includes ready-to-use, white-labelled marketing creatives you can share with clients to stay in regular touch.": [
+  "products.html",
+  "products/finexa.html"
+ ],
+ "Finexa integrates with all three mutual fund transaction platforms — NSE Invest, BSE StAR MF and MF Utility (MFU) — so you can transact on the one you prefer.": [
   "products.html",
   "products/finexa.html"
  ],
@@ -2572,10 +2576,6 @@
   "products/finexa.html"
  ],
  "Finexa is an all-in-one Mutual Fund Distribution platform designed to": [
-  "products.html",
-  "products/finexa.html"
- ],
- "Finexa is built for Mutual Fund Distributors, wealth advisors, banks, broking firms, and financial institutions looking to have a comprehensive one stop platform for mutual fund distribution and tracking, simplify their operations and enhance the investor experience.": [
   "products.html",
   "products/finexa.html"
  ],
@@ -2591,19 +2591,11 @@
   "products.html",
   "products/finexa.html"
  ],
- "Finexa offers a wide range of client and business reports. Client Reports include Portfolio Summary Report, Transaction Statements, Capital Gain /Loss reports, Performance reports etc. Business Reports include Business MIS, AUM Reconciliation Report, Brokerage MIS Reports, SIP Valuation": [
-  "products.html",
-  "products/finexa.html"
- ],
  "Finexa sections": [
   "products.html",
   "products/finexa.html"
  ],
  "Finexa takes none of your brokerage": [
-  "products.html",
-  "products/finexa.html"
- ],
- "Finexa updates portfolio,, transaction and MF NAV data every day, ensuring you always have access to the latest available information for your clients and business.": [
   "products.html",
   "products/finexa.html"
  ],
@@ -2643,11 +2635,11 @@
   "products.html",
   "products/fiscus.html"
  ],
- "Fiscus is available on the app stores — use the Get the app button on this screen for the Google Play listing.": [
+ "Fiscus is available on Google Play — use the Get the app button on this screen.": [
   "products.html",
   "products/fiscus.html"
  ],
- "Fiscus prioritizes the security of your financial data, ensuring it remains safe and confidential.": [
+ "Fiscus prioritises the security of your financial data, ensuring it remains safe and confidential.": [
   "products.html",
   "products/fiscus.html"
  ],
@@ -2667,7 +2659,7 @@
   "products.html",
   "products/finexa.html"
  ],
- "From execution and tracking through to optimization, with regulatory compliance carried along the way.": [
+ "From execution and tracking through to optimisation, with regulatory compliance carried along the way.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2735,7 +2727,7 @@
   "products.html",
   "products/fiscus.html"
  ],
- "Get in touch today to see how Finaware can help you scale, optimize and measure your Investor Awareness Programs for maximum impact.": [
+ "Get in touch today to see how Finaware can help you scale, optimise and measure your Investor Awareness Programs for maximum impact.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2823,11 +2815,11 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "How can corporates get a customized solution?": [
+ "How can corporates get a customised solution?": [
   "products.html",
   "products/learngenie.html"
  ],
- "How can Finaware help my organization manage IAPs?": [
+ "How can Finaware help my organisation manage IAPs?": [
   "products.html",
   "products/finaware.html"
  ],
@@ -2835,7 +2827,7 @@
   "products.html",
   "products/finexa.html"
  ],
- "How can organizations track learner progress?": [
+ "How can organisations track learner progress?": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -2859,7 +2851,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "How does Learngenie support personalized learning journeys?": [
+ "How does Learngenie support personalised learning journeys?": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -2955,7 +2947,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Instant digital transaction (lumpsum & systematic)": [
+ "Instant digital transactions (lumpsum & systematic)": [
   "products.html",
   "products/finexa.html"
  ],
@@ -3055,7 +3047,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Is Finexa fully white-labeled?": [
+ "Is Finexa fully white-labelled?": [
   "products.html",
   "products/finexa.html"
  ],
@@ -3087,7 +3079,7 @@
   "products.html",
   "products/finexa.html"
  ],
- "It connects you with experienced financial professionals in your area for personalized advice, straight from the app.": [
+ "It connects you with experienced financial professionals in your area for personalised advice, straight from the app.": [
   "products.html",
   "products/fiscus.html"
  ],
@@ -3099,7 +3091,7 @@
   "products.html",
   "products/fiscus.html"
  ],
- "It suits corporates looking to implement efficient and engaging learning for their employees, as well as educational institutions and training organizations enhancing their learning management.": [
+ "It suits corporates looking to implement efficient and engaging learning for their employees, as well as educational institutions and training organisations enhancing their learning management.": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -3171,19 +3163,15 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Learngenie is a versatile, white-labeled Learning Management Platform designed to provide personalized and customized learning journeys. It supports gamification, multiple stakeholders, quick go-to-market solutions, and offers various plans to cater to different needs.": [
+ "Learngenie is a versatile, white-labelled Learning Management Platform designed to provide personalised and customised learning journeys. It supports gamification, multiple stakeholders, quick go-to-market solutions, and offers various plans to cater to different needs.": [
   "products.html",
   "products/learngenie.html"
  ],
- "Learngenie is designed for rapid deployment, allowing organizations to implement and start using the platform quickly. The exact timeline may vary based on customization requirements and the complexity of your organization's needs.": [
+ "Learngenie is designed for rapid deployment, allowing organisations to implement and start using the platform quickly. The exact timeline may vary based on customisation requirements and the complexity of your organisation's needs.": [
   "products.html",
   "products/learngenie.html"
  ],
- "Learngenie is ideal for corporates looking to implement efficient and engaging learning solutions for their employees. It is also suitable for educational institutions and training organizations seeking to enhance their learning management capabilities.": [
-  "products.html",
-  "products/learngenie.html"
- ],
- "Learngenie offers comprehensive support to its users. You can contact the support team through the platform's email or by phone for any technical assistance or queries.": [
+ "Learngenie is ideal for corporates looking to implement efficient and engaging learning solutions for their employees. It is also suitable for educational institutions and training organisations seeking to enhance their learning management capabilities.": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -3211,7 +3199,7 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Leverage Finlabs Learning Hub, our content curation service, to access a ready-to-use library of investor education materials. Customize and deploy high-impact content for maximum awareness and engagement.": [
+ "Leverage Finlabs Learning Hub, our content curation service, to access a ready-to-use library of investor education materials. Customise and deploy high-impact content for maximum awareness and engagement.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -3303,10 +3291,6 @@
   "products.html",
   "products/fiscus.html"
  ],
- "MFDs can maintain records of assets such as fixed deposits, equities, insurance, and other investments to build a broader financial picture for their clients, however in terms of transactions, only MF transactions are available.": [
-  "products.html",
-  "products/finexa.html"
- ],
  "Microsoft Azure": [
   "services.html",
   "services/cloud.html"
@@ -3346,10 +3330,6 @@
  "Move to the cloud": [
   "solutions.html",
   "services/cloud.html"
- ],
- "Mr. Abir Banerjee": [
-  "products.html",
-  "products/finexa.html"
  ],
  "Mr. Arvind Vishwanath": [
   "products.html",
@@ -3398,6 +3378,10 @@
  "Mutual fund distributors": [
   "services.html",
   "solutions.html"
+ ],
+ "Mutual fund distributors and advisors — from new ARN holders to multi-ARN firms — and banks, broking firms and institutions that need a one-stop platform for mutual fund distribution and tracking.": [
+  "products.html",
+  "products/finexa.html"
  ],
  "Mutual Fund Match": [
   "products.html",
@@ -3551,7 +3535,7 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Optimized ROI": [
+ "Optimised ROI": [
   "products.html",
   "products/finaware.html"
  ],
@@ -3562,6 +3546,10 @@
  "Orders and feeds processed end to end, ready for reporting and reconciliation.": [
   "products.html",
   "products/finexa-gennxt.html"
+ ],
+ "Our support team is available by email and phone for any technical help or queries.": [
+  "products.html",
+  "products/learngenie.html"
  ],
  "Our support team is committed to providing prompt assistance. Most queries receive a quick response, with most issues resolved within 48 hours.": [
   "products.html",
@@ -3607,19 +3595,19 @@
   "products.html",
   "knowledge-centre/blogs.html"
  ],
+ "Personalised and customised learning journeys, gamification to increase engagement, support for multiple stakeholders, quick go-to-market solutions, a mobile application for on-the-go learning, self-paced learning modules, and webinars and live sessions.": [
+  "products.html",
+  "products/learngenie.html"
+ ],
  "Personalised journey": [
   "products.html",
   "products/learngenie.html"
  ],
- "Personalized and customized learning journeys, gamification to increase engagement, support for multiple stakeholders, quick go-to-market solutions, a mobile application for on-the-go learning, self-paced learning modules, and webinars and live sessions.": [
+ "Personalised journeys": [
   "products.html",
   "products/learngenie.html"
  ],
  "Personalized dashboards": [
-  "products.html",
-  "products/learngenie.html"
- ],
- "Personalized journeys": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -3696,6 +3684,10 @@
   "products/finexa.html"
  ],
  "Portfolio, transaction and NAV data": [
+  "products.html",
+  "products/finexa.html"
+ ],
+ "Portfolio, transaction and NAV data update every day, so you always see the latest information for your clients and your business.": [
   "products.html",
   "products/finexa.html"
  ],
@@ -3867,7 +3859,7 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Responsive designs": [
+ "Responsive design": [
   "products.html",
   "products/finexa.html"
  ],
@@ -3987,7 +3979,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Seamless order processing via interfacing to RTA & BSE StAR": [
+ "Seamless order processing through RTA and BSE StAR MF interfaces": [
   "products.html",
   "products/finexa.html"
  ],
@@ -4095,10 +4087,6 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Self-client onboarding": [
-  "products.html",
-  "products/finexa.html"
- ],
  "Self-paced and live": [
   "products.html",
   "products/learngenie.html"
@@ -4139,7 +4127,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Simplified tracking, categorization and budgeting, so you understand where your money is going.": [
+ "Simplified tracking, categorisation and budgeting, so you understand where your money is going.": [
   "products.html",
   "products/fiscus.html"
  ],
@@ -4411,7 +4399,7 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Unlike spreadsheets or manual processes, Finaware offers centralized control, real-time visibility and built-in compliance, making IAP management smarter and future-ready. AI-driven insights are an upcoming feature.": [
+ "Unlike spreadsheets or manual processes, Finaware offers centralised control, real-time visibility and built-in compliance, making IAP management smarter and future-ready. AI-driven insights are an upcoming feature.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -4458,6 +4446,10 @@
  "Users on the platform": [
   "products.html",
   "products/learngenie.html"
+ ],
+ "Vanshika Financial Technology Pvt. Ltd.": [
+  "products.html",
+  "products/finexa.html"
  ],
  "Veerta Jain": [
   "products.html",
@@ -4591,11 +4583,11 @@
   "products.html",
   "products/finaware.html"
  ],
- "What organizations get out of it": [
+ "What organisations get out of it": [
   "products.html",
   "products/finaware.html"
  ],
- "What organizations have used it for": [
+ "What organisations have used it for": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -4647,13 +4639,13 @@
   "products.html",
   "products/finexa.html"
  ],
+ "White-label it as your own": [
+  "products.html",
+  "products/finaware.html"
+ ],
  "white-labeled Learning Management Platform": [
   "products.html",
   "products/learngenie.html"
- ],
- "Whitelabel it as your own": [
-  "products.html",
-  "products/finaware.html"
  ],
  "Who can benefit from using Learngenie?": [
   "products.html",
@@ -4703,7 +4695,7 @@
   "products.html",
   "products/finexa.html"
  ],
- "With Learngenie, crafting immersive, branded learning experiences is simple. Engage your workforce, enhance sales capabilities and foster skill development across your organization. Our comprehensive and scalable platform is tailored to meet the varied requirements of modern enterprises.": [
+ "With Learngenie, crafting immersive, branded learning experiences is simple. Engage your workforce, enhance sales capabilities and foster skill development across your organisation. Our comprehensive and scalable platform is tailored to meet the varied requirements of modern enterprises.": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -4711,7 +4703,11 @@
   "services.html",
   "solutions.html"
  ],
- "Yes, but currently only through NSE. MFDs can offer SIP Top-Up and New Fund Offers (NFOs) directly through Finexa. An update for including it with BSE Star MF platform is currently in development.": [
+ "Yes, currently through NSE. MFDs can offer SIP top-ups and New Fund Offers (NFOs) directly through Finexa; support on BSE StAR MF is in development.": [
+  "products.html",
+  "products/finexa.html"
+ ],
+ "Yes, for tracking. You can record fixed deposits, equities, insurance and other assets to see a client's full picture. Transactions are available for mutual funds only.": [
   "products.html",
   "products/finexa.html"
  ],
@@ -4719,17 +4715,17 @@
   "products.html",
   "products/finexa.html"
  ],
- "Yes, MFDs can create investment goals for clients and track their progress over time, making financial planning more engaging and meaningful. Fin exa has a very comprehensive goal planning, investing and Goal tracking user journey. It also enables you to earmark any of the existing investments of the investor to a particular goal": [
-  "products.html",
-  "products/finexa.html"
- ],
  "Yes, protecting your data is a priority. Finexa uses advanced encryption (AES-GCM), which ensures both strong protection and data integrity in the background.": [
   "products.html",
   "products/finexa.html"
  ],
- "Yes. AMCs can request a personalized demo to see how Finaware fits into their IAP ecosystem and compliance needs — use the Request a demo button on this screen.": [
+ "Yes. AMCs can request a personalised demo to see how Finaware fits into their IAP ecosystem and compliance needs — use the Request a demo button on this screen.": [
   "products.html",
   "products/finaware.html"
+ ],
+ "Yes. Build your own recommended product list, and Finexa will suggest schemes that match each client's risk profile.": [
+  "products.html",
+  "products/finexa.html"
  ],
  "Yes. By signing up for Fiscus you are featured in the Find an Advisor section at no cost, and leads come directly to your inbox.": [
   "products.html",
@@ -4747,7 +4743,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Yes. Finaware is built with SEBI IAP requirements embedded into the workflow. Mandatory fields, approvals, document uploads and audit-ready reports ensure compliance at every stage of the program lifecycle.": [
+ "Yes. Finaware is built with SEBI IAP requirements embedded into the workflow. Mandatory fields, approvals, document uploads and audit-ready reports ensure compliance at every stage of the programme lifecycle.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -4755,7 +4751,7 @@
   "products.html",
   "products/finaware.html"
  ],
- "Yes. Finaware offers customizable modules, report formats, access levels and fields to align with your internal processes.": [
+ "Yes. Finaware offers customisable modules, report formats, access levels and fields to align with your internal processes.": [
   "products.html",
   "products/finaware.html"
  ],
@@ -4771,7 +4767,15 @@
   "products.html",
   "products/finaware.html"
  ],
+ "Yes. Finaware uses encrypted storage and industry-standard security to keep your IAP data confidential: 256-bit TLS encryption, servers in a private zone, secure authentication with Keycloak, encrypted data storage, role-based access control and continuous monitoring.": [
+  "products.html",
+  "products/finaware.html"
+ ],
  "Yes. Finexa allows you to manage multiple ARNs at no additional cost, making it ideal for firms or MFDs operating under more than one ARN.": [
+  "products.html",
+  "products/finexa.html"
+ ],
+ "Yes. Finexa gives you a consolidated view to monitor investments, track performance and see client information on one dashboard. You can generate and share transaction, portfolio valuation and gain/loss reports across all of a client's mutual fund investments.": [
   "products.html",
   "products/finexa.html"
  ],
@@ -4795,10 +4799,6 @@
   "products.html",
   "products/finexa.html"
  ],
- "Yes. Finexa provides a consolidated portfolio view, helping MFDs monitor investments, track performance, and access client information from a single dashboard. You can also generate and share detailed Transaction Report, Portfolio Valuation Reports, Portfolio Gain /Loss Report across all Mutual fund Investments of the client": [
-  "products.html",
-  "products/finexa.html"
- ],
  "Yes. Finexa provides detailed fund information along with fund comparison tools to help MFDs evaluate schemes and support investment decisions.": [
   "products.html",
   "products/finexa.html"
@@ -4807,11 +4807,11 @@
   "products.html",
   "products/finexa.html"
  ],
- "Yes. Fiscus simplifies expense tracking, categorization and budgeting, and classifies transactions for you rather than asking you to categorise each one by hand.": [
+ "Yes. Fiscus simplifies expense tracking, categorisation and budgeting, and classifies transactions for you rather than asking you to categorise each one by hand.": [
   "products.html",
   "products/fiscus.html"
  ],
- "Yes. Learngenie can be fully customized to meet the specific needs of your organization. Corporates can fill out a form to receive a customized solution and package tailored to their requirements.": [
+ "Yes. Learngenie can be fully customised to meet the specific needs of your organisation. Corporates can fill out a form to receive a customised solution and package tailored to their requirements.": [
   "products.html",
   "products/learngenie.html"
  ],
@@ -4826,10 +4826,6 @@
  "Yes. Learngenie provides tools for creating and administering exams and assessments. Instructors can design various types, including multiple-choice questions, essays and practical tasks, to evaluate learner performance effectively.": [
   "products.html",
   "products/learngenie.html"
- ],
- "Yes. MFDs can build their own recommended product lists, allowing Finexa to accordingly suggest schemes based on each client’s risk profile.": [
-  "products.html",
-  "products/finexa.html"
  ],
  "Yes. Only completed and approved sessions are eligible for invoicing.": [
   "products.html",
@@ -4856,6 +4852,10 @@
   "products/finexa.html"
  ],
  "Yes. We provide onboarding assistance, assistance for NSE/BSE/MFU registration, platform demonstrations, and ongoing support to help MFDs get the most from Finexa.": [
+  "products.html",
+  "products/finexa.html"
+ ],
+ "Yes. You can set goals for each client, track progress over time and earmark existing investments to a specific goal — the full journey from planning to investing to tracking.": [
   "products.html",
   "products/finexa.html"
  ],
@@ -5294,7 +5294,7 @@
  "7 Jun 2024": [
   "knowledge-centre/blogs.html"
  ],
- "7 Myths Of Financial Planning": [
+ "7 Myths of Financial Planning": [
   "knowledge-centre/blogs.html"
  ],
  "7. How can you contact us about this notice?": [
@@ -5327,9 +5327,6 @@
  "A collaborative, Agile working environment": [
   "careers.html"
  ],
- "A completely safe and convenient way to track all bank accounts, credit cards and e-wallets live at one place — without sharing passwords.": [
-  "products.html"
- ],
  "A customised LMS that gave 5,000+ students round-the-clock access to interactive, industry-relevant content.": [
   "brochure.html"
  ],
@@ -5357,7 +5354,7 @@
  "A genuine interest in financial technology and innovation": [
   "careers.html"
  ],
- "A Golden Window For MFDs": [
+ "A Golden Window for MFDs": [
   "knowledge-centre/blogs.html"
  ],
  "A leading NBFC's wealth operations, rebuilt: client onboarding and compliance automated, and processing time down from days to under an hour.": [
@@ -5366,7 +5363,7 @@
  "A life insurance cover is necessary so that your family members are able to take care of their living expenses, fulfill one time requirements like spending on kids’ higher education and marriage as well as pay-off any outstanding loans.": [
   "knowledge-centre/blogs.html"
  ],
- "A meticulous examination of your cloud infrastructure to optimize efficiency, security and scalability. We review against each provider's own framework, find the optimization opportunities, and quantify the savings before you commit to anything.": [
+ "A meticulous examination of your cloud infrastructure to optimise efficiency, security and scalability. We review against each provider's own framework, find the optimisation opportunities, and quantify the savings before you commit to anything.": [
   "services.html"
  ],
  "A phased roadmap with clear migration waves": [
@@ -5396,6 +5393,9 @@
  "A roadmap you can actually ship, one wave at a time.": [
   "services.html"
  ],
+ "A safe and convenient way to track all your bank accounts, credit cards and e-wallets live, in one place — without sharing passwords.": [
+  "products.html"
+ ],
  "A short call on Microsoft Teams about what you need.": [
   "services.html"
  ],
@@ -5405,7 +5405,7 @@
  "A target architecture and migration sequence": [
   "services.html"
  ],
- "A thorough analysis and evaluation of your applications and infrastructure to identify vulnerabilities, optimize performance and enhance security — delivered as findings ranked by severity and a remediation plan sequenced by risk against effort.": [
+ "A thorough analysis and evaluation of your applications and infrastructure to identify vulnerabilities, optimise performance and enhance security — delivered as findings ranked by severity and a remediation plan sequenced by risk against effort.": [
   "services.html"
  ],
  "A tokenised design system and component library": [
@@ -5593,9 +5593,6 @@
  ],
  "AMCs, brokers and fintechs": [
   "services/cloud.html"
- ],
- "AMFI-registered Mutual Fund Distributor": [
-  "index.html"
  ],
  "Amit Sinha": [
   "about.html"
@@ -5948,7 +5945,7 @@
  "Bring client, portfolio, sales and operations data together and see it clearly. Interactive dashboards, drill-downs and scheduled reports turn numbers into insights that every team — from leadership to relationship managers — can act on the same day.": [
   "solutions.html"
  ],
- "Brokers & advisers": [
+ "Brokers & advisors": [
   "solutions.html"
  ],
  "BSE StAR MF": [
@@ -6284,7 +6281,7 @@
  "Compliance teams": [
   "solutions.html"
  ],
- "Comprehensive threat assessment, advanced defense strategies and proactive risk mitigation to safeguard your digital assets. We map your real attack surface, harden it around zero-trust principles, and wire in detection your team can actually run.": [
+ "Comprehensive threat assessment, advanced defence strategies and proactive risk mitigation to safeguard your digital assets. We map your real attack surface, harden it around zero-trust principles, and wire in detection your team can actually run.": [
   "services.html"
  ],
  "Compute Engine": [
@@ -6293,7 +6290,7 @@
  "Congratulations card: Finlabs India, finalist for Best Initiative for Financial Literacy at IFTA 2023": [
   "about.html"
  ],
- "Congratulations to Sudipto Roy, Founder and Director, Finlabs India Pvt Ltd, on winning the ‘Future of Workforce Disruptor’ award in the Emerging Enterprise category.": [
+ "Congratulations to Sudipto Roy, Founder and Director, Finlabs India Pvt. Ltd., on winning the ‘Future of Workforce Disruptor’ award in the Emerging Enterprise category.": [
   "about.html"
  ],
  "Consistent recommendations": [
@@ -6470,7 +6467,7 @@
  "Delivery metrics tracked against DORA": [
   "services.html"
  ],
- "Delve into the transformative impact of AI on the financial services industry in this interview with Gaurav Suri, Chief Evangelist at Finlabs India Pvt Ltd.": [
+ "Delve into the transformative impact of AI on the financial services industry in this interview with Gaurav Suri, Chief Evangelist at Finlabs India Pvt. Ltd.": [
   "about.html"
  ],
  "Demo Request Received!": [
@@ -6482,7 +6479,7 @@
  "Deployment and release processes": [
   "careers.html"
  ],
- "Deputy Vice President – CSR, Mahindra Finance": [
+ "Deputy Vice President – Lead CSR, Mahindra Finance": [
   "index.html"
  ],
  "Design": [
@@ -6596,7 +6593,7 @@
  "Driven by our core values, we are passionate about what we do — and we are looking for team members who are every bit as passionate. Ready to take that leap of faith?": [
   "careers.html"
  ],
- "Driving Financial Inclusion At Scale": [
+ "Driving Financial Inclusion at Scale": [
   "knowledge-centre/blogs.html"
  ],
  "Driving innovation": [
@@ -6893,7 +6890,7 @@
  "Finaware helps AMCs run online and offline Investor Awareness Programs end to end: event scheduling, QR attendance, approvals, SEBI-aligned audit reports, invoicing and analytics.": [
   "products/finaware.html"
  ],
- "Finaware Installation For A Large Non-Profit Industry": [
+ "Finaware installed for a large non-profit organisation": [
   "about.html"
  ],
  "Finaware is a Finlabs India product.": [
@@ -6944,6 +6941,9 @@
  "Finexa GenNxt is a Finlabs India product. Press Esc, click outside the screen, or use the button at the top left to close it.": [
   "products.html"
  ],
+ "Finexa GenNxt Launch": [
+  "about.html"
+ ],
  "Finexa GenNxt, wealth management platform, family office software India, multi-asset portfolio aggregation, RM dashboard, wealth management software, KYC API integration, BSE StAR MF integration, portfolio reporting for wealth firms": [
   "products/finexa-gennxt.html"
  ],
@@ -6956,7 +6956,7 @@
  "Finexa is a Finlabs India product. Press Esc, click outside the screen, or use the button at the top left to close it.": [
   "products.html"
  ],
- "Finexa is a great platform for an advisor looking for using a single platform to provide his clients with a wide bouquet of services – from financial planning to transactions and then tracking of investments and a client portal. It has evolved over a period of time as they have added many modules over the last one year.": [
+ "Finexa is a great platform for an advisor looking to use a single platform to provide clients with a wide bouquet of services – from financial planning to transactions, investment tracking and a client portal. It has evolved over a period of time as they have added many modules over the last one year.": [
   "index.html"
  ],
  "Finexa is an all-in-one mutual fund distribution platform for MFDs and financial advisors: transactions on NSE, BSE StAR MF and MFU, client portals, reporting, planning tools and the Finexa Nova investor app.": [
@@ -6973,9 +6973,6 @@
  ],
  "Finexa, mutual fund distribution platform, mutual fund software for MFD, MFD software India, BSE StAR MF, NSE mutual fund platform, MFU transactions, financial advisor software, client portal for investors, online SIP transactions, ARN distributor software, Finexa Nova app": [
   "products/finexa.html"
- ],
- "FinexaGenNxt Launch": [
-  "about.html"
  ],
  "Finlabs — ten years of smarter fintech. Products, solutions and technology services for financial advisors, mutual fund distributors, insurers and financial institutions.": [
   "index.html"
@@ -7076,7 +7073,7 @@
  "fintech products, Finexa, Finexa GenNxt, Finaware, Fiscus, Learngenie, mutual fund distribution software, wealth management platform, investor awareness platform, personal finance app, learning management platform": [
   "products.html"
  ],
- "Fintech Program with Hinduja Foundation": [
+ "Fintech Programme with Hinduja Foundation": [
   "about.html"
  ],
  "fintech solutions, cloud solutions for financial services, cloud migration india, website and application development, web development company india, fintech app development, robo advisory, data analytics and visualisation, document management, regulatory compliance automation, ReguSure, RegTech India": [
@@ -7397,7 +7394,7 @@
  "How can we help?": [
   "contact.html"
  ],
- "How Investors Behave During Festivals: Cultural + Financial Drivers": [
+ "How Investors Behave During Festivals: Cultural and Financial Drivers": [
   "knowledge-centre/blogs.html"
  ],
  "How it began": [
@@ -7439,7 +7436,7 @@
  "HTML5, React, Bootstrap, Django": [
   "brochure.html"
  ],
- "I came to know of Finlabs at an event organized by Network FP, I subscribed to Finlabs - Finexa for financial planning post the demo and have been using it for more than a year now. The team at Finlabs is very supportive in resolving queries and constantly looking for inputs to update their product, the financial planning report is exhaustive and very helpful. I recommend subscribing Finexa!!": [
+ "I came to know of Finlabs at an event organised by Network FP. I subscribed to Finexa for financial planning after the demo and have been using it for more than a year now. The team at Finlabs is very supportive in resolving queries and constantly looking for inputs to update their product, the financial planning report is exhaustive and very helpful. I recommend subscribing Finexa!!": [
   "index.html"
  ],
  "I have been using the Finexa online platform for the last 4 months for mutual fund transactions. The software is user-friendly and generates all the reports required for MFDs. It is simple, efficient, and easy to use for our daily operations. The support team is very cooperative and always ready to help. I am very satisfied with the Finexa mobile app and web portal.": [
@@ -7556,11 +7553,11 @@
  "India’s Financial Literacy Crisis: The Role of BFSI Institutions": [
   "knowledge-centre/blogs.html"
  ],
+ "Indian companies experienced the highest rate of ransomware attacks in Asia in 2024, with 68% of organisations falling victim…": [
+  "index.html"
+ ],
  "Indian companies experienced the highest rate of ransomware attacks in Asia in 2024, with 68% of organizations falling victim. The average cost of a data breach in India reached ₹19.5 crore. What happens when an attack succeeds? For too many organizations, the answer is chaos. Regulatory deadlines are missed. Evidence is lost. Customer trust evaporates. A basic cyber incident response plan is not complicated.": [
   "knowledge-centre/blogs.html"
- ],
- "Indian companies experienced the highest rate of ransomware attacks in Asia in 2024, with 68% of organizations falling victim…": [
-  "index.html"
  ],
  "Indian Markets 2024: Key Events Every Investor Must Know": [
   "knowledge-centre/blogs.html"
@@ -7628,7 +7625,7 @@
  "Investing During Festivals – A Golden Window for MFDs Festivals in India aren’t just spiritual—they’re financial turning points. From Diwali and Dussehra to Eid, Christmas, and New Year, this is when emotional readiness meets financial liquidity. The season sees cashflow maybe through gift money or bonus. Families discuss financial goals. Plans are made for big purchases": [
   "knowledge-centre/blogs.html"
  ],
- "Investment advisers": [
+ "Investment advisors": [
   "solutions.html"
  ],
  "Investor awareness": [
@@ -8036,7 +8033,7 @@
  "Milestones since 2016": [
   "about.html"
  ],
- "Mint W3 Conclave": [
+ "Mint W3 Awards 2023": [
   "index.html"
  ],
  "MIT ADT University, Pune": [
@@ -8150,7 +8147,7 @@
  "Nandip Vaidya, Advisor — view profile": [
   "about.html"
  ],
- "Nasscom AI & IBM": [
+ "nasscom ai & IBM": [
   "index.html"
  ],
  "NBFCs": [
@@ -8207,7 +8204,7 @@
  "Not sure where to start?": [
   "solutions.html"
  ],
- "Now Invest Upto 75% In Equity Through National Pension Scheme": [
+ "Now Invest up to 75% in Equity Through the National Pension System": [
   "knowledge-centre/blogs.html"
  ],
  "NPS Prosperity Planner App Live": [
@@ -8357,7 +8354,7 @@
  "Our vision": [
   "about.html"
  ],
- "Our vision at Finlabs is to revolutionize the fintech industry by unlocking value through technology-driven innovation. We aspire to be the leading force in empowering businesses and individuals with cutting-edge financial solutions that drive growth and prosperity.": [
+ "Our vision at Finlabs is to revolutionise the fintech industry by unlocking value through technology-driven innovation. We aspire to be the leading force in empowering businesses and individuals with cutting-edge financial solutions that drive growth and prosperity.": [
   "about.html"
  ],
  "OWASP ASVS": [
@@ -8732,7 +8729,7 @@
  "ready to plug in": [
   "solutions.html"
  ],
- "Readymade product stacks": [
+ "Ready-made product stacks": [
   "brochure.html"
  ],
  "Recent recognition": [
@@ -9035,16 +9032,13 @@
  "Send us a message": [
   "contact.html"
  ],
- "Send your updated resume with a brief note — no more than 200 words — on the most complex custom fintech project you have delivered and what made it exceptional. Use the subject line": [
+ "Send your updated CV with a brief note — no more than 200 words — on the most complex custom fintech project you have delivered and what made it exceptional. Use the subject line:": [
   "careers.html"
  ],
  "Sending…": [
   "(javascript)"
  ],
  "Senior Java Developer": [
-  "careers.html"
- ],
- "Senior Java Developer (3–5 Years Experience)": [
   "careers.html"
  ],
  "Senior Leadership": [
@@ -9110,7 +9104,7 @@
  "Sites, portals and mobile apps": [
   "solutions.html"
  ],
- "Six solutions for wealth managers, distributors, advisers, AMCs and financial institutions — from cloud and robo-advisory to websites and apps, analytics, documents and compliance. Start with the one you need today and add more as you grow.": [
+ "Six solutions for wealth managers, distributors, advisors, AMCs and financial institutions — from cloud and robo-advisory to websites and apps, analytics, documents and compliance. Start with the one you need today and add more as you grow.": [
   "solutions.html"
  ],
  "Slack or Microsoft Teams; Miro and Figma": [
@@ -9203,7 +9197,7 @@
  "Start a conversation": [
   "services.html"
  ],
- "Start-up 50 Trailblazer": [
+ "Startup 50 Trailblazer": [
   "index.html"
  ],
  "Startup50 Trailblazer": [
@@ -9344,13 +9338,13 @@
  "Team management": [
   "careers.html"
  ],
- "Team Work": [
-  "about.html"
- ],
  "Teams with strict data rules": [
   "services/cloud.html"
  ],
- "Tech Giants Paytm, JanNivesh, and Alibaba: Shaping The Future of Investments": [
+ "Teamwork": [
+  "about.html"
+ ],
+ "Tech Giants Paytm, JanNivesh and Alibaba: Shaping the Future of Investments": [
   "knowledge-centre/blogs.html"
  ],
  "Tech-savvy, detail-oriented and comfortable with data": [
@@ -9362,7 +9356,7 @@
  "Technology Implementation": [
   "services.html"
  ],
- "Technology Is Becoming The Focus Of Wealth Management": [
+ "Technology Is Becoming the Focus of Wealth Management": [
   "knowledge-centre/blogs.html"
  ],
  "technology partners": [
@@ -9374,7 +9368,7 @@
  "Technology Services for Financial Institutions | Finlabs": [
   "services.html"
  ],
- "Technology stack optimization": [
+ "Technology stack optimisation": [
   "services.html"
  ],
  "Technology that moves": [
@@ -9407,7 +9401,7 @@
  "Ten years of work in Indian financial services leaves a trail of relationships: asset managers and banks who run their distribution on our platforms, exchanges and registrars whose rails those platforms sit on, and the KYC, data and payment providers that make the whole thing move. This is who they are.": [
   "partners.html"
  ],
- "Ten years on, that is still the job: readymade product stacks where a firm needs to move quickly, and end-to-end development where it needs something of its own.": [
+ "Ten years on, that is still the job: ready-made product stacks where a firm needs to move quickly, and end-to-end development where it needs something of its own.": [
   "brochure.html"
  ],
  "Ten years together": [
@@ -9527,7 +9521,7 @@
  "The market infrastructure, data and technology organisations we work with.": [
   "partners.html"
  ],
- "The Markets Are At A Life Time High. What Should You Do?": [
+ "The Markets Are at an All-Time High. What Should You Do?": [
   "knowledge-centre/blogs.html"
  ],
  "The Mint W3 Awards stage": [
@@ -9755,7 +9749,7 @@
  "Unleash Employee Potential in 2024: The Power of Upskilling and Reskilling!": [
   "knowledge-centre/blogs.html"
  ],
- "Unlocking Financial Freedom: Master The Art Of Expense Management": [
+ "Unlocking Financial Freedom: Master the Art of Expense Management": [
   "knowledge-centre/blogs.html"
  ],
  "Until you withdraw it": [
@@ -9791,7 +9785,7 @@
  "User interviews, journey mapping and analytics review": [
   "services.html"
  ],
- "User-centered design, intuitive interface development and seamless experiences that drive engagement and satisfaction. We start with the people who use your product, then turn what we learn into a design system your engineers can build from.": [
+ "User-centred design, intuitive interface development and seamless experiences that drive engagement and satisfaction. We start with the people who use your product, then turn what we learn into a design system your engineers can build from.": [
   "services.html"
  ],
  "Users undertake that the services offered by Finlabs India shall not be used to upload, post, email, transmit or otherwise make available, directly or indirectly, unsolicited bulk or commercial email. FIPL reserves the right to filter, monitor and block emails sent by users through servers maintained by FIPL. FIPL and the user shall make all attempts to abide by international best practices in containing and eliminating spam.": [
@@ -9805,6 +9799,9 @@
  ],
  "Validate": [
   "services.html"
+ ],
+ "Vanshika Financial Technology Pvt. Ltd": [
+  "index.html"
  ],
  "Vedant Asset": [
   "index.html"
@@ -9878,7 +9875,7 @@
  "We are looking for an experienced and motivated": [
   "careers.html"
  ],
- "We are more motivated than ever to continue raising the bar in delivering outstanding financial services. We thank Dun & Bradstreet India for this recognition.": [
+ "We are more motivated than ever to keep raising the bar in financial technology. We thank Dun & Bradstreet India for this recognition.": [
   "about.html"
  ],
  "We are seeking an exceptional": [
@@ -10133,9 +10130,6 @@
  "Who we work with": [
   "services.html"
  ],
- "Why A Life And Health Cover Is Required": [
-  "knowledge-centre/blogs.html"
- ],
  "Why Finlabs": [
   "services.html"
  ],
@@ -10147,6 +10141,9 @@
  ],
  "Why join us?": [
   "careers.html"
+ ],
+ "Why Life and Health Cover Is Required": [
+  "knowledge-centre/blogs.html"
  ],
  "Why the cloud": [
   "services/cloud.html"
@@ -10184,7 +10181,7 @@
  "Withdrawing consent is as easy as giving it, and costs you nothing:": [
   "privacy.html"
  ],
- "Women: Budgeting And Planning Comes Naturally To Them": [
+ "Women: Budgeting and Planning Come Naturally to Them": [
   "knowledge-centre/blogs.html"
  ],
  "Work Email": [
@@ -10196,10 +10193,10 @@
  "Work that means something": [
   "careers.html"
  ],
- "Work with CI/CD pipelines for automated build, testing and deployment": [
+ "Work with a fast-growing fintech SaaS team": [
   "careers.html"
  ],
- "Work with one of India's fastest-growing fintech SaaS ecosystems": [
+ "Work with CI/CD pipelines for automated build, testing and deployment": [
   "careers.html"
  ],
  "Work with PostgreSQL databases — database design, SQL queries, indexing and performance optimisation": [
