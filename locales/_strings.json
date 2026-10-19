@@ -5151,9 +5151,6 @@
  "A decade inside financial technology": [
   "services.html"
  ],
- "A Decade of": [
-  "index.html"
- ],
  "A decade of partnerships, in their words": [
   "index.html"
  ],
@@ -5348,6 +5345,9 @@
  ],
  "AI-augmented product development; an MBA, CFA or FRM is an edge, not a requirement": [
   "careers.html"
+ ],
+ "AI-powered gamified learning platform for employees, partners and channels, in any sector": [
+  "index.html"
  ],
  "AI/ML in fintech products is a distinct advantage": [
   "careers.html"
@@ -5730,9 +5730,6 @@
  "Book a Robo Advisory demo": [
   "solutions.html"
  ],
- "Book a strategy call": [
-  "index.html"
- ],
  "Book a Strategy Call": [
   "index.html"
  ],
@@ -5772,6 +5769,9 @@
  "Build, don't maintain": [
   "careers.html"
  ],
+ "Building blocks for the problems financial institutions bring us — from cloud and websites to robo-advisory, analytics, document management and compliance automation.": [
+  "index.html"
+ ],
  "Built for": [
   "solutions.html"
  ],
@@ -5780,6 +5780,9 @@
  ],
  "Built for advisors, wealth managers & distributors": [
   "products.html"
+ ],
+ "built for BFSI and beyond": [
+  "index.html"
  ],
  "Built for financial services": [
   "services/cloud.html"
@@ -6495,9 +6498,6 @@
  "Event-driven": [
   "services.html"
  ],
- "Every asset on one platform, with multi-asset analytics and reporting": [
-  "index.html"
- ],
  "Every business has unique financial goals and challenges. To get the most out of our solutions, schedule a personalised demo — share a few details and our team will set it up around the way you work.": [
   "solutions.html"
  ],
@@ -6561,7 +6561,7 @@
  "Experience selling to MFDs, IFAs, RIAs or wealth management professionals": [
   "careers.html"
  ],
- "Explore a range of innovative financial tools designed to streamline your operations and maximize growth.": [
+ "Explore all products": [
   "index.html"
  ],
  "Explore cloud services": [
@@ -6581,12 +6581,6 @@
  ],
  "Explore Learngenie": [
   "products.html"
- ],
- "Explore our offerings": [
-  "index.html"
- ],
- "Explore Products Now": [
-  "index.html"
  ],
  "Explore services": [
   "services.html"
@@ -6665,9 +6659,6 @@
  ],
  "Financial advisors": [
   "services.html"
- ],
- "Financial Innovation": [
-  "index.html"
  ],
  "Financial literacy and education": [
   "brochure.html"
@@ -6779,6 +6770,9 @@
  ],
  "Finlabs builds the platforms behind many of these ideas.": [
   "knowledge-centre/blogs.html"
+ ],
+ "Finlabs builds the platforms mutual fund distributors run their practice on, and the technology AMCs, banks, NBFCs and insurers use to take wealth, investor awareness and learning digital. Products, builds and support — from one accountable team.": [
+  "index.html"
  ],
  "Finlabs case studies, fintech case study India, wealth management case study, digital transformation case study, NBFC onboarding automation, LMS case study": [
   "case-study.html"
@@ -6942,6 +6936,9 @@
  "Five practices. One accountable team": [
   "services.html"
  ],
+ "Five ready platforms for mutual fund distribution, investor app, wealth management, investor awareness, learning and development.": [
+  "index.html"
+ ],
  "Five services": [
   "index.html"
  ],
@@ -6962,9 +6959,6 @@
  ],
  "Follow up diligently on demo-to-sale conversion and track leads in the CRM": [
   "careers.html"
- ],
- "For a decade, Finlabs has built the technology behind financial professionals — platforms, learning tools and digital services for advisors, mutual fund distributors, insurers and financial institutions across India.": [
-  "index.html"
  ],
  "For most financial firms it now is. Here is what changes when your platforms run on a hyperscale cloud instead of a server room.": [
   "services/cloud.html"
@@ -7072,9 +7066,6 @@
   "solutions.html"
  ],
  "Future of Workforce Disruptor in Emerging Enterprise": [
-  "index.html"
- ],
- "Gamified learning app for employees, partners and channels": [
   "index.html"
  ],
  "Gamified, interactive learning": [
@@ -7229,6 +7220,12 @@
  ],
  "I know life has just started and you need to enjoy it, but it wouldn’t harm you to set aside a small sum of money regularly to fund your future goals. If you delay saving for your goals, the amount you need to save later on would only increase with each passing year.": [
   "knowledge-centre/blogs.html"
+ ],
+ "I’m a distributor or advisor": [
+  "index.html"
+ ],
+ "I’m a financial institution": [
+  "index.html"
  ],
  "IAM · MFA": [
   "services.html"
@@ -7830,6 +7827,9 @@
  "Multi-Asset Analytics": [
   "products.html"
  ],
+ "Multi-asset wealth management platform for wealth firms and family offices": [
+  "index.html"
+ ],
  "Mumbai · Delhi": [
   "services/cloud.html"
  ],
@@ -7853,6 +7853,9 @@
  ],
  "Mutual fund distribution — transactions on NSE, BSE StAR MF and MFU, multiple ARNs on one dashboard, on Android and iOS": [
   "brochure.html"
+ ],
+ "Mutual fund distribution platform for MFDs and advisors, with the Finexa Nova investor app": [
+  "index.html"
  ],
  "Mutual fund distributor, Navsari": [
   "index.html"
@@ -7928,6 +7931,9 @@
  ],
  "Object-oriented programming and design patterns": [
   "careers.html"
+ ],
+ "of India’s asset management companies trust us": [
+  "index.html"
  ],
  "Offer personalised, low-cost investment advice at scale. Risk profiling, goal planning and model portfolios run automatically, while your advisors stay in control of every recommendation a client sees — and every suggestion comes with a reason they can explain.": [
   "solutions.html"
@@ -8043,9 +8049,6 @@
  "Our strengths": [
   "brochure.html"
  ],
- "Our tailored solutions empower you to solve complex problems and achieve your unique goals — from cloud and websites to robo-advisory, analytics and compliance automation.": [
-  "index.html"
- ],
  "Our team": [
   "about.html"
  ],
@@ -8090,6 +8093,9 @@
  ],
  "Participants on stage at the nasscom ai and IBM AI for Business Grand Challenge": [
   "about.html"
+ ],
+ "partners across markets, data and technology": [
+  "index.html"
  ],
  "Partnership · LSEG": [
   "about.html"
@@ -8300,9 +8306,6 @@
  ],
  "Product suites tackle BFSI challenges with robust tech, user-friendliness and scalability.": [
   "about.html"
- ],
- "products": [
-  "index.html"
  ],
  "PRODUCTS": [
   "products.html"
@@ -8553,7 +8556,7 @@
  "Run sprint planning, stand-ups, reviews and retrospectives with precision": [
   "careers.html"
  ],
- "Run, track and scale investor awareness programmes": [
+ "Run, track and report investor awareness programmes end to end": [
   "index.html"
  ],
  "Runner-up, IBM AI for Business Grand Challenge for IT Automation": [
@@ -8670,6 +8673,9 @@
  "See Digital Transformation Strategy →": [
   "services.html"
  ],
+ "See Finexa": [
+  "index.html"
+ ],
  "See how we work": [
   "services/cloud.html"
  ],
@@ -8714,9 +8720,6 @@
  ],
  "Servers, databases and files moved with rehearsed cut-overs, rollback plans and data checks, so your clients barely notice the switch.": [
   "services/cloud.html"
- ],
- "services": [
-  "index.html"
  ],
  "Services for financial institutions": [
   "services.html"
@@ -8772,6 +8775,9 @@
  "simplify finance through smart, holistic technology": [
   "brochure.html"
  ],
+ "Since 2016 · Ten years of building": [
+  "index.html"
+ ],
  "Since August 2016": [
   "about.html"
  ],
@@ -8816,9 +8822,6 @@
  ],
  "Solution use-cases and the Finlabs NPS Suite": [
   "brochure.html"
- ],
- "solutions": [
-  "index.html"
  ],
  "Solutions — Cloud, Websites & Apps, Analytics and Compliance | Finlabs": [
   "solutions.html"
@@ -8979,6 +8982,9 @@
  "Talk to an expert": [
   "services.html"
  ],
+ "Talk to our team": [
+  "index.html"
+ ],
  "Talk to us about our products, solutions and services — or book a call with the team.": [
   "about.html"
  ],
@@ -9026,6 +9032,9 @@
  ],
  "technology partners": [
   "partners.html"
+ ],
+ "Technology platforms for wealth management, investor awareness, and learning —": [
+  "index.html"
  ],
  "Technology Services for Financial Institutions | Finlabs": [
   "services.html"
@@ -9579,9 +9588,6 @@
  "Wealth Management Platform": [
   "products.html"
  ],
- "Wealth management platform for advisors, wealth managers and distributors": [
-  "index.html"
- ],
  "Wealth management platforms, bond markets, mutual fund ecosystems and compliance frameworks (SEBI, RBI, AMFI)": [
   "careers.html"
  ],
@@ -9777,11 +9783,11 @@
  "years": [
   "about.html"
  ],
+ "years — building since 2016": [
+  "index.html"
+ ],
  "years in fintech": [
   "services.html"
- ],
- "years of impact": [
-  "index.html"
  ],
  "years of it": [
   "partners.html"

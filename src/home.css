@@ -218,9 +218,13 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 /* the 3D is taller than the copy, so the copy sits in the middle of the row
    rather than at the top of it — otherwise all the slack falls below it */
 .hero__text { max-width: 620px; align-self: center; }
+/* The headline is a sentence now, not a three-word slogan, so it is set
+   well below --h1: at 66px a hundred characters fill the screen. Looser
+   leading and less negative tracking, because this one has to be read
+   rather than glanced at. */
 .hero__title {
   font-family: var(--display); font-weight: 800;
-  font-size: var(--h1); line-height: 1.02; letter-spacing: -0.04em;
+  font-size: clamp(30px, 3.3vw, 42px); line-height: 1.14; letter-spacing: -0.02em;
   /* the page starts here, so no top margin — see --top */
   margin: 0 0 22px;
 }
@@ -230,12 +234,17 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 :root[data-theme="dark"] .hero__title em { color: #93bce0; }
 .hero__lead { font-size: clamp(16px, 1.25vw, 18.5px); color: var(--ink-2); max-width: 50ch; }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 32px; }
+.hero__eyebrow { margin: 0 0 20px; }
+/* Three figures, not four: the fourth slot waits on leadership approving an
+   MFD count, an AUM figure or an IAPs-run figure (HOM-008). */
 .stats {
-  list-style: none; display: grid; grid-template-columns: repeat(4, auto); width: fit-content;
+  list-style: none; display: grid; grid-template-columns: repeat(3, auto); width: fit-content;
   border-radius: 18px; overflow: hidden;
   background: var(--card); border: 1px solid var(--card-edge); backdrop-filter: blur(14px);
 }
-.stats li { padding: 13px 20px; display: grid; }
+/* these read as sentences now rather than one-word labels, so they need a
+   measure to wrap against instead of stretching the row */
+.stats li { padding: 13px 20px; display: grid; align-content: start; max-width: 20ch; }
 .stats li + li { border-left: 1px solid var(--line); }
 .stats strong { font-family: var(--display); font-size: 24px; font-weight: 700; line-height: 1.15; }
 .stats li:nth-child(1) strong { color: var(--brand); }
@@ -507,11 +516,22 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 }
 @media (max-width: 640px) {
   .bento, .awards__grid { grid-template-columns: 1fr; }
+  /* The two doors carry a sentence each, and .btn is nowrap — on a phone
+     that runs straight off the right edge. Here they take the full width
+     and wrap instead. */
+  .hero__ctas { display: grid; gap: 10px; }
+  /* Keep each phrase unbroken but let the button itself wrap, so the label
+     falls as 'I'm a distributor or advisor →' / 'See Finexa' rather than
+     two ragged columns either side of a floating arrow. */
+  .hero__ctas .btn { flex-wrap: wrap; row-gap: 2px; width: 100%; padding-inline: 22px; }
 }
 @media (max-width: 560px) {
   .nav__brand img { height: 30px; }
   .btn--sm { display: none; }
+  /* three figures over two columns: the third sits alone on the second row */
   .stats { width: 100%; grid-template-columns: 1fr 1fr; }
+  .stats li { max-width: none; }
+  .stats li:nth-child(3) { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
   .foot__cols { grid-template-columns: 1fr 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {

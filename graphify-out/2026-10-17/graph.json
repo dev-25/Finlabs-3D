@@ -1423,7 +1423,7 @@
       "file_type": "code",
       "norm_label": "frame()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L364"
+      "source_location": "L383"
     },
     {
       "id": "src_partners_scene_onglobe",
@@ -1435,7 +1435,7 @@
       "file_type": "code",
       "norm_label": "onglobe()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L115"
+      "source_location": "L132"
     },
     {
       "id": "src_partners_scene_size",
@@ -1447,7 +1447,7 @@
       "file_type": "code",
       "norm_label": "size()",
       "source_file": "src/partners-scene.js",
-      "source_location": "L313"
+      "source_location": "L332"
     },
     {
       "id": "src_i18n_mountswitcher",
@@ -1930,28 +1930,40 @@
       "source_location": "L146"
     },
     {
+      "id": "src_after_paint_afterpaint",
+      "label": "afterPaint()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "afterpaint()",
+      "source_file": "src/after-paint.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "src_after_paint_idle",
+      "label": "idle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "idle()",
+      "source_file": "src/after-paint.js",
+      "source_location": "L39"
+    },
+    {
       "id": "src_case_study_wantscene",
       "label": "wantScene()",
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "wantscene()",
       "source_file": "src/case-study.js",
       "source_location": "L28"
-    },
-    {
-      "id": "src_doc_keepchipinview",
-      "label": "keepChipInView()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "keepchipinview()",
-      "source_file": "src/doc.js",
-      "source_location": "L33"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -2218,28 +2230,16 @@
       "source_location": "L48"
     },
     {
-      "id": "src_after_paint_afterpaint",
-      "label": "afterPaint()",
+      "id": "src_doc_keepchipinview",
+      "label": "keepChipInView()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "afterpaint()",
-      "source_file": "src/after-paint.js",
-      "source_location": "L12"
-    },
-    {
-      "id": "src_after_paint_idle",
-      "label": "idle()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "idle()",
-      "source_file": "src/after-paint.js",
-      "source_location": "L39"
+      "norm_label": "keepchipinview()",
+      "source_file": "src/doc.js",
+      "source_location": "L33"
     },
     {
       "id": "src_nav_drawline",
@@ -6621,7 +6621,7 @@
       "file_type": "code",
       "norm_label": "places",
       "source_file": "src/partners-scene.js",
-      "source_location": "L101"
+      "source_location": "L118"
     },
     {
       "id": "ref_three",
@@ -6745,14 +6745,25 @@
       "source_location": "L89"
     },
     {
-      "id": "src_brochure",
-      "label": "brochure.js",
+      "id": "src_x_scene",
+      "label": "./x-scene.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
+      "confidence": "EXTRACTED",
       "file_type": "code",
-      "norm_label": "brochure.js",
-      "source_file": "src/brochure.js",
+      "norm_label": "./x-scene.js",
+      "source_file": "src/x-scene.js"
+    },
+    {
+      "id": "src_after_paint",
+      "label": "after-paint.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "after-paint.js",
+      "source_file": "src/after-paint.js",
       "source_location": "L1"
     },
     {
@@ -6760,7 +6771,7 @@
       "label": "case-study.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "case-study.js",
       "source_file": "src/case-study.js",
@@ -6771,7 +6782,7 @@
       "label": "case-study-scene.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "case-study-scene.js",
       "source_file": "src/case-study-scene.js",
@@ -6782,7 +6793,7 @@
       "label": "canvas",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "canvas",
       "source_file": "src/case-study-scene.js",
@@ -6793,7 +6804,7 @@
       "label": "host",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "host",
       "source_file": "src/case-study-scene.js",
@@ -6804,62 +6815,40 @@
       "label": "wide",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "wide",
       "source_file": "src/case-study.js",
       "source_location": "L25"
     },
     {
-      "id": "src_doc",
-      "label": "doc.js",
+      "id": "src_home",
+      "label": "home.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
-      "norm_label": "doc.js",
-      "source_file": "src/doc.js",
+      "norm_label": "home.js",
+      "source_file": "src/home.js",
       "source_location": "L1"
     },
     {
-      "id": "src_doc_form",
-      "label": "form",
+      "id": "src_main",
+      "label": "main.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
-      "norm_label": "form",
-      "source_file": "src/doc.js",
-      "source_location": "L69"
-    },
-    {
-      "id": "src_doc_note",
-      "label": "note",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "note",
-      "source_file": "src/doc.js",
-      "source_location": "L70"
-    },
-    {
-      "id": "src_doc_toclinks",
-      "label": "tocLinks",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "toclinks",
-      "source_file": "src/doc.js",
-      "source_location": "L42"
+      "norm_label": "main.js",
+      "source_file": "src/main.js",
+      "source_location": "L1"
     },
     {
       "id": "src_partners",
       "label": "partners.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "partners.js",
       "source_file": "src/partners.js",
@@ -6870,18 +6859,40 @@
       "label": "mark",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "mark",
       "source_file": "src/partners.js",
       "source_location": "L24"
     },
     {
+      "id": "src_services",
+      "label": "services.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "services.js",
+      "source_file": "src/services.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_solutions",
+      "label": "solutions.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "file_type": "code",
+      "norm_label": "solutions.js",
+      "source_file": "src/solutions.js",
+      "source_location": "L1"
+    },
+    {
       "id": "src_whatsapp",
       "label": "whatsapp.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "whatsapp.js",
       "source_file": "src/whatsapp.js",
@@ -6892,7 +6903,7 @@
       "label": "button",
       "_origin": "ast",
       "community": 18,
-      "community_name": "doc.js",
+      "community_name": "after-paint.js",
       "file_type": "code",
       "norm_label": "button",
       "source_file": "src/whatsapp.js",
@@ -7262,37 +7273,59 @@
       "source_location": "L20"
     },
     {
-      "id": "src_after_paint",
-      "label": "after-paint.js",
+      "id": "src_brochure",
+      "label": "brochure.js",
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "after-paint.js",
-      "source_file": "src/after-paint.js",
+      "norm_label": "brochure.js",
+      "source_file": "src/brochure.js",
       "source_location": "L1"
     },
     {
-      "id": "src_home",
-      "label": "home.js",
+      "id": "src_doc",
+      "label": "doc.js",
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "home.js",
-      "source_file": "src/home.js",
+      "norm_label": "doc.js",
+      "source_file": "src/doc.js",
       "source_location": "L1"
     },
     {
-      "id": "src_main",
-      "label": "main.js",
+      "id": "src_doc_form",
+      "label": "form",
       "_origin": "ast",
       "community": 23,
       "community_name": "nav.js",
       "file_type": "code",
-      "norm_label": "main.js",
-      "source_file": "src/main.js",
-      "source_location": "L1"
+      "norm_label": "form",
+      "source_file": "src/doc.js",
+      "source_location": "L69"
+    },
+    {
+      "id": "src_doc_note",
+      "label": "note",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "note",
+      "source_file": "src/doc.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "src_doc_toclinks",
+      "label": "tocLinks",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "toclinks",
+      "source_file": "src/doc.js",
+      "source_location": "L42"
     },
     {
       "id": "src_nav",
@@ -7348,28 +7381,6 @@
       "norm_label": "nav",
       "source_file": "src/nav.js",
       "source_location": "L13"
-    },
-    {
-      "id": "src_services",
-      "label": "services.js",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "services.js",
-      "source_file": "src/services.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_solutions",
-      "label": "solutions.js",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "solutions.js",
-      "source_file": "src/solutions.js",
-      "source_location": "L1"
     },
     {
       "id": "package",
@@ -15192,8 +15203,8 @@
       "id": "src_bang",
       "label": "src_bang",
       "_origin": "semantic",
-      "community": 23,
-      "community_name": "nav.js",
+      "community": 18,
+      "community_name": "after-paint.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_bang",
@@ -15204,8 +15215,8 @@
       "id": "src_style",
       "label": "src_style",
       "_origin": "semantic",
-      "community": 23,
-      "community_name": "nav.js",
+      "community": 18,
+      "community_name": "after-paint.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_style",
@@ -19327,7 +19338,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/partners-scene.js",
-      "source_location": "L115",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -25155,7 +25166,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L101",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -25199,7 +25210,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/partners-scene.js",
-      "source_location": "L364",
+      "source_location": "L383",
       "weight": 1.0
     },
     {
@@ -28745,6 +28756,15 @@
       "weight": 1.0
     },
     {
+      "source": "src_after_paint",
+      "target": "src_x_scene",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/after-paint.js"
+    },
+    {
       "source": "src_case_study",
       "target": "src_case_study_scene",
       "relation": "dynamic_import",
@@ -29245,7 +29265,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/partners-scene.js",
-      "source_location": "L323",
+      "source_location": "L342",
       "weight": 1.0
     },
     {
