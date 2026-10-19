@@ -19,6 +19,11 @@ template, the Lambdas and the browser bundle read it so nothing is typed twice.
 
 ---
 
+> **No SAM CLI?** [`../docs/backend-console.md`](../docs/backend-console.md)
+> does the same job entirely in the AWS console, using the single-file
+> [`console/submit.mjs`](console/submit.mjs) and a Lambda Function URL
+> instead of this stack. Deploy one or the other, not both.
+
 ## One-time setup
 
 ### 1. Cloudflare Turnstile (the CAPTCHA — free, no request cap)
