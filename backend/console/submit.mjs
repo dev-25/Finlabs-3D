@@ -1,11 +1,27 @@
 /* =====================================================
  * FORM SUBMISSIONS — single file, console-pasteable
  * =====================================================
+ * NO THIRD PARTY. No Cloudflare, no Google. The bot
+ * defence is three checks inside this function:
+ *
+ *   1. a honeypot field a human never sees and a naive
+ *      bot always fills
+ *   2. a minimum time between the form rendering and
+ *      being submitted — scripts post instantly
+ *   3. a per-IP rate limit held in the same table
+ *
+ * Together these stop the overwhelming majority of form
+ * spam. They are NOT a CAPTCHA and will not stop someone
+ * who targets this form deliberately. The honest fix for
+ * that is AWS WAF with its CAPTCHA action, which needs
+ * CloudFront or an API Gateway REST API in front — see
+ * the runbook. Until then this is the proportionate
+ * answer, and it costs nothing.
+ *
  * Paste this whole file into the Lambda console editor as
  * index.mjs. Nothing to npm install and nothing to zip:
  * the only two AWS clients it uses ship inside the Node
- * runtime, and Turnstile is checked with the built-in
- * fetch.
+ * runtime.
  *
  * This is the same job as ../src/submit.mjs, which is the
  * version SAM deploys once you have the CLI. Deploy one
@@ -24,17 +40,24 @@
  *   MAIL_FROM                 website@finlabsindia.com
  *   MAIL_FROM_NAME            Finlabs website
  *   MAIL_ROUTES               {"contact":["info@finlabsindia.com"], ...}
- *   TURNSTILE_SECRET          from the Cloudflare dashboard
  *   ALLOWED_ORIGIN            http://finlabs-prod-website.s3-website.ap-south-1.amazonaws.com
+ *   NOTIFY                    sns | ses   (how the email goes out)
+ *   SNS_TOPIC_ARN             arn:aws:sns:ap-south-1:…:finlabs-form-submissions
+ *   MAX_PER_IP_PER_HOUR       5
  *   ENQUIRY_RETENTION_MONTHS  24
  *   NOTICE_VERSION            2.0
  * ===================================================== */
 
-import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient, PutItemCommand, UpdateItemCommand } from '@aws-sdk/client-dynamodb';
 import { SESv2Client, SendEmailCommand } from '@aws-sdk/client-sesv2';
+import { SNSClient, PublishCommand } from '@aws-sdk/client-sns';
 
 const ddb = new DynamoDBClient({});
+
+// Both clients are created but only the configured one is ever called, so
+// the unused one costs nothing but a few milliseconds of cold start.
 const ses = new SESv2Client({});
+const sns = new SNSClient({});
 
 const TABLE = process.env.TABLE_NAME;
 const FROM = process.env.MAIL_FROM;
@@ -42,6 +65,10 @@ const FROM_NAME = process.env.MAIL_FROM_NAME || 'Finlabs website';
 const ROUTES = JSON.parse(process.env.MAIL_ROUTES || '{}');
 const ORIGIN = process.env.ALLOWED_ORIGIN || '*';
 const RETAIN_MONTHS = Number(process.env.ENQUIRY_RETENTION_MONTHS || 24);
+const NOTIFY = (process.env.NOTIFY || 'sns').toLowerCase();
+const SNS_TOPIC = process.env.SNS_TOPIC_ARN;
+const MAX_PER_IP = Number(process.env.MAX_PER_IP_PER_HOUR || 5);
+const MIN_FILL_SECONDS = 3;
 const NOTICE_VERSION = process.env.NOTICE_VERSION || '2.0';
 const MAX_FIELD = 4000;
 
@@ -168,30 +195,62 @@ function render(formId, clean, meta) {
 }
 
 // -----------------------------------------------------
-// Cloudflare Turnstile
+// Bot defence, without a third party
 // -----------------------------------------------------
-async function verifyTurnstile(token, ip) {
-  if (!token) return { ok: false, reason: 'missing-token' };
-  const secret = process.env.TURNSTILE_SECRET;
-  if (!secret) return { ok: false, reason: 'no-secret-configured' };
 
-  const body = new URLSearchParams({ secret, response: token });
-  if (ip) body.set('remoteip', ip);
+/**
+ * 1. The honeypot. The form carries a field positioned off-screen and
+ *    marked so assistive technology ignores it. A person never sees it and
+ *    so never fills it; a bot parsing the HTML fills every input it finds.
+ *
+ * 2. The clock. The form records when it rendered. A person takes seconds
+ *    at least; a script posts the moment it has parsed the page.
+ *
+ * Both are silent on failure. A bot that is told why it was rejected is a
+ * bot that gets fixed, so this returns the same cheerful 200 a real
+ * submission gets and simply does not store or send anything.
+ */
+function looksAutomated({ trap, renderedAt }) {
+  if (trap) return 'honeypot';
+  const started = Number(renderedAt);
+  if (!Number.isFinite(started)) return 'no-timestamp';
+  const seconds = (Date.now() - started) / 1000;
+  if (seconds < MIN_FILL_SECONDS) return `too-fast:${seconds.toFixed(1)}s`;
+  if (seconds > 24 * 3600) return 'stale-page';
+  return null;
+}
 
-  let res;
+/**
+ * 3. The rate limit. A counter per IP per hour, in the same table, written
+ *    with ADD so two simultaneous requests cannot both read zero. The row
+ *    expires on the table's own TTL, so nothing has to clean it up.
+ *
+ * This is the check that protects the bill rather than the inbox: without
+ * it one script can invoke this function as fast as it likes.
+ */
+async function withinRateLimit(ip) {
+  if (!ip) return true;
+  const hour = new Date().toISOString().slice(0, 13); // 2026-10-19T15
   try {
-    res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      body,
-      signal: AbortSignal.timeout(5000),
-    });
-  } catch {
-    // Cloudflare unreachable. Fail closed — a form that accepts anything
-    // when the check is down is a form with no check at all.
-    return { ok: false, reason: 'verify-unreachable' };
+    const out = await ddb.send(
+      new UpdateItemCommand({
+        TableName: TABLE,
+        Key: { pk: { S: `rate#${ip}#${hour}` } },
+        UpdateExpression: 'ADD #n :one SET expiresAt = :exp',
+        ExpressionAttributeNames: { '#n': 'count' },
+        ExpressionAttributeValues: {
+          ':one': { N: '1' },
+          ':exp': { N: String(Math.floor(Date.now() / 1000) + 7200) },
+        },
+        ReturnValues: 'UPDATED_NEW',
+      })
+    );
+    return Number(out.Attributes?.count?.N || 0) <= MAX_PER_IP;
+  } catch (err) {
+    // The counter failing is not a reason to refuse a real customer.
+    console.error('rate limit check failed, allowing', String(err));
+    return true;
   }
-  const data = await res.json().catch(() => ({}));
-  return data.success ? { ok: true } : { ok: false, reason: (data['error-codes'] || ['failed']).join(',') };
 }
 
 // -----------------------------------------------------
@@ -235,21 +294,30 @@ export const handler = async (event) => {
     return reply(400, { ok: false, error: 'That request was not readable.' });
   }
 
-  const { form, fields, token, marketing, page } = payload;
+  const { form, fields, trap, renderedAt, marketing, page } = payload;
   if (!FORMS[form]) return reply(400, { ok: false, error: 'Unknown form.' });
 
-  // ---- 1. is this a person? cheap, and it rejects bots before we spend
   const ip =
-    event.headers?.['cf-connecting-ip'] ||
     event.headers?.['x-forwarded-for']?.split(',')[0]?.trim() ||
     event.requestContext?.http?.sourceIp;
 
-  const human = await verifyTurnstile(token, ip);
-  if (!human.ok) {
-    console.warn('turnstile rejected', { form, reason: human.reason });
-    return reply(400, {
+  // ---- 1a. does this look automated?
+  // Answered with a 200 and an id that leads nowhere. Telling a bot why it
+  // failed is how bots get fixed.
+  const automated = looksAutomated({ trap, renderedAt });
+  if (automated) {
+    console.warn('dropped as automated', { form, reason: automated, ip });
+    return reply(200, { ok: true, id: crypto.randomUUID() });
+  }
+
+  // ---- 1b. has this address had enough for one hour?
+  // This one does say no, because a real person hitting the limit needs to
+  // understand why nothing happened.
+  if (!(await withinRateLimit(ip))) {
+    console.warn('rate limited', { form, ip });
+    return reply(429, {
       ok: false,
-      error: 'We could not confirm you are human. Please reload the page and try again.',
+      error: 'That is several messages in a short time. Please try again in an hour, or email info@finlabsindia.com.',
     });
   }
 
@@ -296,28 +364,52 @@ export const handler = async (event) => {
   }
 
   // ---- 4. tell someone
-  const to = ROUTES[form] || ROUTES.contact || [];
-  if (to.length) {
-    try {
-      await ses.send(
-        new SendEmailCommand({
-          FromEmailAddress: `${FROM_NAME} <${FROM}>`,
-          Destination: { ToAddresses: to },
-          ReplyToAddresses: checked.clean.email ? [checked.clean.email] : undefined,
-          Content: {
-            Simple: {
-              Subject: { Data: FORMS[form].subject(checked.clean) },
-              Body: { Text: { Data: render(form, checked.clean, meta) } },
+  //
+  // SNS works the moment the topic exists; SES needs a verified domain and
+  // production access, which take a day. So SNS is the default and SES is
+  // one environment variable away once it is ready.
+  //
+  // The difference that matters day to day: SES sets Reply-To to the person
+  // who filled the form, so hitting reply in the inbox answers them. SNS
+  // cannot, so with SNS you copy the address out of the message.
+  const subject = FORMS[form].subject(checked.clean);
+  const body = render(form, checked.clean, meta);
+
+  try {
+    if (NOTIFY === 'ses') {
+      const to = ROUTES[form] || ROUTES.contact || [];
+      if (to.length) {
+        await ses.send(
+          new SendEmailCommand({
+            FromEmailAddress: `${FROM_NAME} <${FROM}>`,
+            Destination: { ToAddresses: to },
+            ReplyToAddresses: checked.clean.email ? [checked.clean.email] : undefined,
+            Content: {
+              Simple: {
+                Subject: { Data: subject },
+                Body: { Text: { Data: body } },
+              },
             },
-          },
+          })
+        );
+      }
+    } else if (SNS_TOPIC) {
+      await sns.send(
+        new PublishCommand({
+          TopicArn: SNS_TOPIC,
+          // SNS truncates the subject at 100 characters and rejects newlines
+          Subject: subject.replace(/\s+/g, ' ').slice(0, 99),
+          Message: body,
         })
       );
-    } catch (err) {
-      // Saved but not sent. The visitor is not told, because from where they
-      // stand it did work — the enquiry is safe. This line is what an alarm
-      // should watch for.
-      console.error('ses send failed, submission is stored', { id, form, error: String(err) });
+    } else {
+      console.error('no notification channel configured', { NOTIFY, hasTopic: Boolean(SNS_TOPIC) });
     }
+  } catch (err) {
+    // Saved but not sent. The visitor is not told, because from where they
+    // stand it did work — the enquiry is safe. This line is what an alarm
+    // should watch for.
+    console.error('notification failed, submission is stored', { id, form, via: NOTIFY, error: String(err) });
   }
 
   return reply(200, { ok: true, id });

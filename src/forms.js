@@ -1,9 +1,15 @@
 /* =====================================================
  * FORM SUBMISSION
  * =====================================================
- * Every form on the site goes through here: Turnstile
- * for the bot check, then a POST to the API, which
- * stores the enquiry and emails it on.
+ * Every form on the site goes through here: a POST to
+ * the API, which stores the enquiry and emails it on.
+ *
+ * No third-party bot check. Instead each form carries a
+ * honeypot field and the time it rendered, and the
+ * Lambda reads both. The honeypot is positioned off
+ * screen and hidden from assistive technology, so a
+ * person never meets it and a bot parsing the HTML fills
+ * it like any other input.
  *
  * Three things this has to get right, because a lost
  * enquiry is a lost customer:
@@ -20,84 +26,40 @@
 import { t } from './i18n.js';
 
 /** Injected at build time from backend.config.json — see vite.config.js. */
-const CFG = typeof __BACKEND__ !== 'undefined' ? __BACKEND__ : { apiBaseUrl: '', turnstileSiteKey: '' };
+const CFG = typeof __BACKEND__ !== 'undefined' ? __BACKEND__ : { apiBaseUrl: '' };
 
-export const backendReady = Boolean(CFG.apiBaseUrl && CFG.turnstileSiteKey);
+export const backendReady = Boolean(CFG.apiBaseUrl);
 
 // ---------------------------------------------------------------------
-// Turnstile
+// the quiet bot check
 // ---------------------------------------------------------------------
-const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-let loading = null;
-
-function loadTurnstile() {
-  if (window.turnstile) return Promise.resolve(window.turnstile);
-  if (loading) return loading;
-  loading = new Promise((resolve, reject) => {
-    const s = document.createElement('script');
-    s.src = TURNSTILE_SRC;
-    s.async = true;
-    s.defer = true;
-    s.onload = () => resolve(window.turnstile);
-    s.onerror = () => reject(new Error('turnstile failed to load'));
-    document.head.appendChild(s);
-  });
-  return loading;
-}
 
 /**
- * Put an invisible Turnstile widget in the form and keep its token fresh.
- * Managed mode: most people see nothing, and the ones Cloudflare is unsure
- * about get a single checkbox rather than a street-sign puzzle.
+ * Add the honeypot and the clock to a form, once.
+ *
+ * The field is named something a bot would want to fill. It is pushed off
+ * screen rather than display:none, because some bots skip fields that are
+ * not rendered, and it carries aria-hidden and tabindex=-1 so no person
+ * using a keyboard or a screen reader can land on it.
  */
-async function mountTurnstile(form) {
-  if (form.__turnstile) return form.__turnstile;
+function arm(form) {
+  if (form.__armed) return;
+  form.__armed = true;
 
-  const host = document.createElement('div');
-  host.className = 'cf-turnstile';
-  // above the button, below the last field — where a person looks last
-  const submit = form.querySelector('[type="submit"]');
-  submit ? submit.before(host) : form.appendChild(host);
+  const trap = document.createElement('div');
+  trap.setAttribute('aria-hidden', 'true');
+  trap.style.cssText =
+    'position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden';
+  trap.innerHTML =
+    '<label>Website<input type="text" name="_trap" tabindex="-1" autocomplete="off" /></label>';
+  form.appendChild(trap);
 
-  const api = await loadTurnstile();
-  const id = api.render(host, {
-    sitekey: CFG.turnstileSiteKey,
-    theme: 'auto',
-    size: 'flexible',
-    action: form.id || 'form',
-  });
-  form.__turnstile = { api, id, host };
-  return form.__turnstile;
+  form.__renderedAt = Date.now();
 }
 
-/**
- * Load Cloudflare the moment someone starts filling a form in, not on page
- * load and not at submit: by page load it is a third-party script on every
- * view for no reason, and by submit the person is left waiting on a checkbox
- * after they already pressed Send.
- */
+/** Arm every form on the page. Cheap, so it runs on load. */
 export function armForms(root = document) {
-  if (!backendReady) return;
-  for (const form of root.querySelectorAll('form')) {
-    form.addEventListener('focusin', () => mountTurnstile(form).catch(() => {}), { once: true });
-  }
-}
-
-/** A token is good for one submission; after a failure it has to be reset. */
-async function token(form) {
-  const w = await mountTurnstile(form);
-  const existing = w.api.getResponse(w.id);
-  if (existing) return existing;
-  // not solved yet (or already spent) — run it and wait
-  w.api.reset(w.id);
-  return new Promise((resolve, reject) => {
-    const started = Date.now();
-    const poll = setInterval(() => {
-      const r = w.api.getResponse(w.id);
-      if (r) { clearInterval(poll); resolve(r); }
-      else if (Date.now() - started > 30000) { clearInterval(poll); reject(new Error('turnstile timed out')); }
-    }, 250);
-  });
+  for (const form of root.querySelectorAll('form')) arm(form);
 }
 
 // ---------------------------------------------------------------------
@@ -115,6 +77,7 @@ export function readForm(form) {
   const out = {};
   for (const [k, v] of new FormData(form).entries()) {
     if (v instanceof File) continue;
+    if (k === '_trap') continue; // travels separately, not as a field
     if (k in out) out[k] = Array.isArray(out[k]) ? [...out[k], v] : [out[k], v];
     else out[k] = v;
   }
@@ -145,6 +108,7 @@ async function post(path, body) {
 export async function submitForm({ form, formId, extra = {}, say, onSuccess, fallback }) {
   if (!backendReady) return fallback?.();
 
+  arm(form); // in case this form was added to the page after load
   const button = form.querySelector('[type="submit"]');
   const fields = { ...readForm(form), ...extra };
   const marketing = Boolean(fields.marketing);
@@ -154,16 +118,15 @@ export async function submitForm({ form, formId, extra = {}, say, onSuccess, fal
   say(t('Sending…'), 'busy');
 
   try {
-    const cfToken = await token(form);
     const { id } = await post('/submit', {
       form: formId,
       fields,
-      token: cfToken,
+      trap: form.elements._trap?.value || '',
+      renderedAt: form.__renderedAt,
       marketing,
       page: location.pathname,
     });
     form.reset();
-    form.__turnstile?.api.reset(form.__turnstile.id);
 
     // A confirmation with its own URL is what makes the conversion countable —
     // analytics cannot see a message that only changed some text in place.
@@ -178,7 +141,6 @@ export async function submitForm({ form, formId, extra = {}, say, onSuccess, fal
     }
   } catch (err) {
     console.error('form submit failed', err);
-    form.__turnstile?.api.reset(form.__turnstile.id);
     say(err.message || t('Something went wrong. Please try again.'), 'err');
   } finally {
     button?.removeAttribute('disabled');
@@ -191,18 +153,17 @@ export async function submitForm({ form, formId, extra = {}, say, onSuccess, fal
  * gateway and there is no reason to pay to pass it through.
  */
 export async function uploadCv({ form, file, role, say }) {
+  arm(form);
   say(t('Uploading your CV…'), 'busy');
-  const cfToken = await token(form);
   const { url, key } = await post('/cv-upload-url', {
     filename: file.name,
     contentType: file.type,
     size: file.size,
     role,
-    token: cfToken,
+    trap: form.elements._trap?.value || '',
+    renderedAt: form.__renderedAt,
   });
   const put = await fetch(url, { method: 'PUT', headers: { 'content-type': file.type }, body: file });
   if (!put.ok) throw new Error(t('We could not upload that file. Please try again.'));
-  // the token was spent on the presign; the application POST needs a fresh one
-  form.__turnstile?.api.reset(form.__turnstile.id);
   return { key, name: file.name };
 }

@@ -8,7 +8,7 @@ CV uploads come later; they need a second function and an S3 bucket.
 What you end up with:
 
 ```
-form → Turnstile token → Lambda Function URL → Lambda ─┬→ DynamoDB  (the record)
+form (+honeypot, +clock) → Lambda Function URL → Lambda ─┬→ DynamoDB  (the record)
                                                         └→ SES       (the email)
 ```
 
@@ -21,33 +21,51 @@ About 40 minutes, most of it waiting for SES.
 
 ---
 
-## A. Cloudflare Turnstile — the bot check
+## A. SNS — where the notification goes
 
-Free, no request cap. Do this first; the keys are needed in step D.
+SNS sends the email. It works the moment the topic exists: no domain
+verification, no sandbox, no waiting. SES is the better long-term answer and
+step B sets it up, but this gets you receiving enquiries today.
 
-1. <https://dash.cloudflare.com> → **Turnstile** → **Add widget**
-2. Widget name: `Finlabs website`
-3. Hostnames — add **all** of these:
+1. Console → **Amazon SNS** → check the region is **ap-south-1** (top right)
+2. **Topics** → **Create topic**
+3. Type: **Standard**
+4. Name:
    ```
-   finlabs-prod-website.s3-website.ap-south-1.amazonaws.com
-   finlabsindia.com
-   www.finlabsindia.com
-   localhost
+   finlabs-form-submissions
    ```
-   A hostname missing here means the widget refuses to load there, and the
-   form cannot be submitted at all.
-4. Widget mode: **Managed**
-5. **Create**
-6. Copy both keys. The **site key** is public and goes in the repo; the
-   **secret key** goes into the Lambda in step D and nowhere else.
+5. **Create topic**
+6. **Copy the Topic ARN.** It looks like:
+   ```
+   arn:aws:sns:ap-south-1:883891414144:finlabs-form-submissions
+   ```
 
----
+Then subscribe the people who should receive enquiries:
 
-## B. SES — start this now, it has a waiting period
+7. On the topic → **Create subscription**
+8. Protocol: **Email**, Endpoint: `info@finlabsindia.com`
+9. **Create subscription**
+10. Repeat for `hr@finlabsindia.com`
+11. **Both addresses get a "Subscription Confirmation" email — somebody has to
+    click the link in each.** Until they do, the status stays
+    *PendingConfirmation* and nothing is delivered. This is the step most
+    likely to be missed.
+
+> **What SNS costs you compared with SES.** Mail arrives from
+> `no-reply@sns.amazonaws.com` with an unsubscribe footer, so it reads as a
+> system alert rather than a business email. More importantly **there is no
+> Reply-To**: hitting reply answers Amazon, not the customer, so you copy
+> their address out of the message body. SES fixes both, which is why step B
+> is worth starting now even though SNS is what runs first.
+
+## B. SES — the upgrade, worth starting now
+
+Optional for today; SNS from step A already works. Do it anyway, because SES
+sets **Reply-To to the person who wrote in** and sends from your own domain.
+Once it is ready, switching is one environment variable.
 
 SES begins in **sandbox mode**, where it will only send to addresses you have
-verified. That is fine for testing and useless in production, so request
-production access on the same day.
+verified, and production access takes about a day to approve.
 
 1. Console → **Amazon SES** → check the region is **ap-south-1** (top right)
 2. **Identities** → **Create identity**
@@ -148,7 +166,7 @@ rather than aspirational:
 
 **Configuration** tab → **General configuration** → **Edit**
 
-- Timeout: **15 seconds** (the default 3 is not enough — it calls Cloudflare, DynamoDB and SES in sequence)
+- Timeout: **15 seconds** (the default 3 is not enough — it writes to DynamoDB twice and then publishes)
 - Memory: **512 MB**
 - **Save**
 
@@ -160,8 +178,10 @@ rather than aspirational:
 | `MAIL_FROM` | `website@finlabsindia.com` (or a verified address — see B) |
 | `MAIL_FROM_NAME` | `Finlabs website` |
 | `MAIL_ROUTES` | `{"contact":["info@finlabsindia.com"],"solutions":["info@finlabsindia.com"],"services":["info@finlabsindia.com"],"learngenie-demo":["info@finlabsindia.com"],"careers":["hr@finlabsindia.com"]}` |
-| `TURNSTILE_SECRET` | the secret key from step A |
 | `ALLOWED_ORIGIN` | `http://finlabs-prod-website.s3-website.ap-south-1.amazonaws.com` |
+| `NOTIFY` | `sns` — change to `ses` once step B is verified |
+| `SNS_TOPIC_ARN` | the Topic ARN from step A |
+| `MAX_PER_IP_PER_HOUR` | `5` |
 | `ENQUIRY_RETENTION_MONTHS` | `24` |
 | `NOTICE_VERSION` | `2.0` |
 
@@ -191,9 +211,15 @@ The execution role can currently only write logs.
       "Resource": "arn:aws:dynamodb:ap-south-1:<ACCOUNT>:table/finlabs-submissions"
     },
     {
-      "Sid": "SendTheEmail",
+      "Sid": "CountSubmissionsPerIp",
       "Effect": "Allow",
-      "Action": ["ses:SendEmail"],
+      "Action": "dynamodb:UpdateItem",
+      "Resource": "arn:aws:dynamodb:ap-south-1:<ACCOUNT>:table/finlabs-submissions"
+    },
+    {
+      "Sid": "SendTheNotification",
+      "Effect": "Allow",
+      "Action": ["sns:Publish", "ses:SendEmail"],
       "Resource": "*"
     }
   ]
@@ -202,8 +228,10 @@ The execution role can currently only write logs.
 
 4. **Next** → name it `finlabs-form-submit` → **Create policy**
 
-> `PutItem` only. The function has no reason to read, update or delete an
-> enquiry, so it cannot.
+> `PutItem` writes the enquiry; `UpdateItem` is only for the per-IP counter.
+> Neither reads or deletes, so a bug here cannot expose or destroy enquiries.
+> Both `sns:Publish` and `ses:SendEmail` are granted so switching `NOTIFY`
+> later needs no permission change.
 
 ### D5 · Give it a URL
 
@@ -211,9 +239,9 @@ The execution role can currently only write logs.
 2. Auth type: **NONE**
 
    That is correct here and worth understanding: the endpoint is public
-   because a public website posts to it. What stops abuse is the Turnstile
-   check inside the function, not a credential the browser would have to
-   carry — and anything the browser carries is not a secret.
+   because a public website posts to it. What stops abuse is the three
+   checks inside the function, not a credential the browser would have to
+   carry — anything the browser carries is not a secret.
 
 3. Tick **Configure cross-origin resource sharing (CORS)**
    - Allow origin: `http://finlabs-prod-website.s3-website.ap-south-1.amazonaws.com`
@@ -235,8 +263,7 @@ repository:
 
 ```jsonc
 "public": {
-  "apiBaseUrl": "https://abc123xyz.lambda-url.ap-south-1.on.aws",
-  "turnstileSiteKey": "0x4AAAAAAA..."
+  "apiBaseUrl": "https://abc123xyz.lambda-url.ap-south-1.on.aws"
 }
 ```
 
@@ -271,13 +298,32 @@ table items**. You should see `pk`, `fields`, `marketingConsent`,
 | Symptom | Cause |
 |---|---|
 | Browser console: CORS error | `ALLOWED_ORIGIN` or the Function URL CORS origin does not match the address bar exactly |
-| "We could not confirm you are human" | `TURNSTILE_SECRET` wrong, or the hostname is missing from the widget in step A |
+| Your own test submission vanishes with no error | You filled it in under 3 seconds, so the clock check dropped it. The log says `dropped as automated`. Take your time, or lower `MIN_FILL_SECONDS` in the code while testing. |
+| "That is several messages in a short time" | The per-IP limit. Six submissions in an hour from one address. Raise `MAX_PER_IP_PER_HOUR` or wait. |
+| Nothing arrives and the log is clean | The SNS subscription was never confirmed — check the topic shows *Confirmed*, not *PendingConfirmation*. |
 | "We could not save that" | D4's DynamoDB permission, or the table name |
-| Thank-you page appears but no email | Expected while SES is in sandbox and the recipient is unverified. The log says `ses send failed, submission is stored` — the enquiry **is** in DynamoDB. This is the order working as intended. |
+| Thank-you page appears but no email | The log says `notification failed, submission is stored` — the enquiry **is** in DynamoDB. With SNS this means the subscription is unconfirmed; with SES it means the sandbox. Either way the order is working as intended. |
 | `Task timed out after 3.00 seconds` | D3's timeout was not raised |
 | The form still opens a mail client | `backend.config.json` has not deployed, or `apiBaseUrl` is empty |
 
 ---
+
+## About the bot defence
+
+There is no CAPTCHA here. Three checks inside the Lambda do the work: a
+honeypot field a person never sees, a minimum time between the form rendering
+and being submitted, and a per-IP hourly limit. Bots that fail the first two
+get a cheerful 200 and an id that leads nowhere, because a bot told why it was
+rejected is a bot that gets fixed.
+
+**That stops ordinary form spam, which is nearly all of it. It will not stop
+someone who targets this form deliberately.** If that starts happening, the
+AWS-native answer is WAF with its CAPTCHA action — but WAF cannot attach to a
+Lambda Function URL, so it needs CloudFront or an API Gateway REST API in
+front first. Worth knowing before it is urgent rather than after.
+
+The rate limit is also what protects the bill: without it a script can invoke
+this function as fast as it likes, and Lambda charges per invocation.
 
 ## One thing to be straight about
 

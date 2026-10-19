@@ -32,7 +32,7 @@ export function loadConfig() {
 
 /** What the browser is allowed to know. Everything else stays server-side. */
 export function publicConfig(cfg = loadConfig()) {
-  return { apiBaseUrl: cfg.public.apiBaseUrl || '', turnstileSiteKey: cfg.public.turnstileSiteKey || '' };
+  return { apiBaseUrl: cfg.public.apiBaseUrl || '' };
 }
 
 /* What the stack needs before it can be deployed. */
@@ -47,10 +47,7 @@ const REQUIRED_DEPLOY = [
 /* What the browser needs before the forms stop falling back to mailto.
    apiBaseUrl is not in the deploy list because it comes OUT of the first
    deploy — requiring it to deploy would be circular. */
-const REQUIRED_SITE = [
-  ['public.apiBaseUrl', 'the API URL from the stack output'],
-  ['public.turnstileSiteKey', 'the Turnstile site key from the Cloudflare dashboard'],
-];
+const REQUIRED_SITE = [['public.apiBaseUrl', "the Lambda's Function URL, without a trailing slash"]];
 
 const REQUIRED = [...REQUIRED_SITE, ...REQUIRED_DEPLOY];
 
@@ -83,7 +80,6 @@ export function params(cfg = loadConfig()) {
     SubmissionsTableName: cfg.aws.submissionsTableName,
     CvBucketName: cfg.aws.cvBucketName,
     CvPrefix: cfg.aws.cvPrefix,
-    TurnstileSecretParameter: cfg.aws.turnstileSecretParameter,
     MailFrom: cfg.email.from,
     MailFromName: cfg.email.fromName,
     MailRoutes: JSON.stringify(cfg.email.routes),

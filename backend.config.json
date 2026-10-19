@@ -8,43 +8,47 @@
     "  email.*    who the Lambda sends to, and who it sends as.",
     "  limits.*   enforced in the browser AND again in the Lambda.",
     "",
-    "SECRETS NEVER GO IN THIS FILE. The Turnstile secret key lives in AWS",
-    "(SSM Parameter Store) — see backend/README.md. This file is committed.",
+    "SECRETS NEVER GO IN THIS FILE. There are none to hold any more: the bot",
+    "check runs inside the Lambda. This file is committed.",
     "",
     "After editing: npm run backend:check"
   ],
-
   "public": {
-    "apiBaseUrl": "",
-    "turnstileSiteKey": ""
+    "apiBaseUrl": ""
   },
-
   "aws": {
     "region": "ap-south-1",
     "stackName": "finlabs-web-backend",
-
     "submitFunctionName": "finlabs-form-submit",
     "cvUploadUrlFunctionName": "finlabs-cv-upload-url",
-
     "submissionsTableName": "finlabs-submissions",
     "cvBucketName": "",
     "cvPrefix": "applications/",
-
-    "turnstileSecretParameter": "/finlabs/web/turnstile-secret"
+    "snsTopicArn": ""
   },
-
   "email": {
+    "$comment": "NOTIFY picks the channel. SNS works the moment the topic exists; SES needs a verified domain and production access, which take about a day — but only SES can set Reply-To to the person who wrote in.",
+    "notify": "sns",
     "from": "website@finlabsindia.com",
     "fromName": "Finlabs website",
     "routes": {
-      "contact": ["info@finlabsindia.com"],
-      "solutions": ["info@finlabsindia.com"],
-      "services": ["info@finlabsindia.com"],
-      "learngenie-demo": ["info@finlabsindia.com"],
-      "careers": ["hr@finlabsindia.com"]
+      "contact": [
+        "info@finlabsindia.com"
+      ],
+      "solutions": [
+        "info@finlabsindia.com"
+      ],
+      "services": [
+        "info@finlabsindia.com"
+      ],
+      "learngenie-demo": [
+        "info@finlabsindia.com"
+      ],
+      "careers": [
+        "hr@finlabsindia.com"
+      ]
     }
   },
-
   "limits": {
     "maxFieldChars": 4000,
     "maxCvBytes": 10485760,
@@ -52,9 +56,9 @@
       "application/pdf",
       "application/msword",
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-    ]
+    ],
+    "maxPerIpPerHour": 5
   },
-
   "retention": {
     "$comment": "Matches the Privacy Notice. The Lambda writes a TTL on every row and S3 expires CVs on a lifecycle rule, so the promise enforces itself.",
     "enquiryMonths": 24,
