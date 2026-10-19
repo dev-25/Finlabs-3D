@@ -12,6 +12,8 @@ export const PAGES = {
   contact: 'contact.html',
   // where every form lands on success — its own URL, so the conversion is countable
   'thank-you': 'thank-you.html',
+  // the branded 404 — hosts serve it for any address that does not resolve
+  '404': '404.html',
   about: 'about.html',
   careers: 'careers.html',
   brochure: 'brochure.html',

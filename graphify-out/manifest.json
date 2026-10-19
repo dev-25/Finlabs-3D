@@ -432,9 +432,9 @@
     "semantic_hash": "e1958c2baa8c69b4ac6d0167202e18d3"
   },
   "vite.config.js": {
-    "mtime": 1792392719.8870323,
-    "seen": 1792392743.973739,
-    "ast_hash": "e53594f86d530cc6984d8b157bbff3f3",
+    "mtime": 1792403582.8070278,
+    "seen": 1792403664.499511,
+    "ast_hash": "d5f9d7e8adfb2d593de71dd49dde973f",
     "semantic_hash": ""
   },
   ".github/workflows/deploy.yml": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1792403474.3751428,
-    "seen": 1792403506.6837518,
-    "ast_hash": "b07279fafcfa654cf6ab075e2e54dff1",
+    "mtime": 1792403651.343219,
+    "seen": 1792403664.4994628,
+    "ast_hash": "c18c799911a1f1f109e9345d71e2d119",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1792403474.379961,
-    "seen": 1792403506.683754,
-    "ast_hash": "c7c29ac9fba86a626fc7d28bf19cb740",
+    "mtime": 1792403651.347768,
+    "seen": 1792403664.499465,
+    "ast_hash": "1e968f646e647d5473e9864cfbe6759a",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1792403474.3857803,
-    "seen": 1792403506.683755,
-    "ast_hash": "cb5389cfb92ef09b9331b3c1a6db0be3",
+    "mtime": 1792403651.353826,
+    "seen": 1792403664.499465,
+    "ast_hash": "fd3e1eae8116924f9e6a5ab1298f7203",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1692,9 +1692,9 @@
     "semantic_hash": ""
   },
   "scripts/pages.mjs": {
-    "mtime": 1792392549.198995,
-    "seen": 1792392743.973716,
-    "ast_hash": "22ecd87a687af50cb37140d883f07dec",
+    "mtime": 1792403607.6285694,
+    "seen": 1792403664.499489,
+    "ast_hash": "ab0d0f007fadb581c6dbbcb1fba82980",
     "semantic_hash": ""
   },
   "src/i18n.js": {
@@ -1800,8 +1800,8 @@
     "semantic_hash": ""
   },
   "locales/handover/legal-strings-for-translation.json": {
-    "mtime": 1792403480.3052843,
-    "seen": 1792403506.683753,
+    "mtime": 1792403651.3868299,
+    "seen": 1792403664.499464,
     "ast_hash": "4f26d91b6d44da861238bb7c4edd7c56",
     "semantic_hash": ""
   },
@@ -1887,6 +1887,12 @@
     "mtime": 1792393544.8256483,
     "seen": 1792393621.40489,
     "ast_hash": "2200f30ed86595aafa10d0432ef40ef7",
+    "semantic_hash": ""
+  },
+  "404.html": {
+    "mtime": 1792403607.6515253,
+    "seen": 1792403664.4995131,
+    "ast_hash": "fdf287a4365e7776285edf741ad5b768",
     "semantic_hash": ""
   }
 }

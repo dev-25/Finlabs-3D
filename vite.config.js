@@ -238,6 +238,48 @@ function sitemap() {
           `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
           `${urls}\n</urlset>\n`,
       });
+      // /llms.txt — a plain-language summary for AI answer engines, which
+      // read a site far more cheaply from one file than from sixty pages.
+      this.emitFile({
+        type: 'asset',
+        fileName: 'llms.txt',
+        source: [
+          '# Finlabs India',
+          '',
+          '> Finlabs India Pvt. Ltd. builds the platforms mutual fund distributors run their practice on, and the technology AMCs, banks, NBFCs and insurers use to take wealth, investor awareness and learning digital. Founded 2016, based in BKC, Mumbai.',
+          '',
+          '## Products',
+          '- [Finexa](' + SITE + '/products/finexa.html): mutual fund distribution platform for MFDs and financial advisors — transactions on NSE Invest, BSE StAR MF and MF Utility, client portals, reporting and planning tools.',
+          '- [Finexa Nova](' + SITE + '/products/finexa.html): the investor app that comes with Finexa — clients onboard themselves, track goals and portfolios, and transact under the distributor\'s brand.',
+          '- [Finexa GenNxt](' + SITE + '/products/finexa-gennxt.html): multi-asset wealth management platform for wealth firms and family offices — aggregation, RM and client dashboards, analytics.',
+          '- [Finaware](' + SITE + '/products/finaware.html): run, track and report Investor Awareness Programs end to end, with SEBI-aligned audit reports. Used by AMCs and regulated bodies.',
+          '- [Learngenie](' + SITE + '/products/learngenie.html): AI-powered gamified learning platform for employees, partners and channels, in any sector. White-labelled, with HR integration.',
+          '- [Fiscus](' + SITE + '/products/fiscus.html): personal finance app — bank accounts, cards and e-wallets tracked in one place without sharing passwords.',
+          '',
+          '## Solutions',
+          '- [All six](' + SITE + '/solutions.html): cloud, website and app development, robo-advisory, data analytics and visualisation, document management, regulatory compliance automation.',
+          '- [Cloud](' + SITE + '/services/cloud.html): AWS, Azure and Google Cloud migration and architecture for financial institutions.',
+          '',
+          '## Services',
+          '- [Consulting and engineering](' + SITE + '/services.html): UI/UX consulting, application and infrastructure audits, cybersecurity, cloud architecture review, digital transformation strategy.',
+          '',
+          '## About',
+          '- [The company](' + SITE + '/about.html): ten years, ISO certified since 2021, 100+ partners across markets, data and technology. Board includes a former PFRDA Chairman and a former MD & CEO of CARE Ratings.',
+          '- [Case studies](' + SITE + '/case-study.html): delivery for AMCs, NBFCs and insurers.',
+          '- [Partners](' + SITE + '/partners.html): LSEG, BSE, Digio, Signzy, Thakral One, Nine Triangles, AAFM and others.',
+          '- [Knowledge Centre](' + SITE + '/knowledge-centre/blogs.html): writing on mutual fund distribution, investor awareness and wealth technology.',
+          '',
+          '## Contact',
+          '- [Talk to us](' + SITE + '/contact.html) · info@finlabsindia.com · WeWork, Enam Sambhav, 10th Floor, G Block, BKC, Mumbai 400051',
+          '',
+          '## Policies',
+          '- [Privacy Notice](' + SITE + '/privacy.html) — DPDP Act 2023',
+          '- [Terms & Conditions](' + SITE + '/terms.html)',
+          '',
+          'The site is also published in Hindi (/hi/) and Marathi (/mr/).',
+          '',
+        ].join('\n'),
+      });
       this.emitFile({
         type: 'asset',
         fileName: 'robots.txt',

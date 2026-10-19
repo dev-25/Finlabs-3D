@@ -366,3 +366,12 @@ a.channel:hover { transform: translateY(-3px); border-color: var(--brand); }
 @media (max-width: 820px) {
   .ty { grid-template-columns: 1fr; }
 }
+
+/* the 404's big number — decoration, so it is hidden from screen readers */
+.nf__code {
+  font: 800 clamp(64px, 11vw, 120px)/1 var(--display);
+  color: var(--brand);
+  opacity: 0.18;
+  margin: 0 0 -8px;
+  letter-spacing: -0.04em;
+}
