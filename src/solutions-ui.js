@@ -8,6 +8,7 @@
  * ===================================================== */
 
 import { t } from './i18n.js';
+import { submitForm, armForms } from './forms.js';
 
 /**
  * The six solutions, in page order. Shared with the 3D board: `label`

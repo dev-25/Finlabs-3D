@@ -432,9 +432,9 @@
     "semantic_hash": "e1958c2baa8c69b4ac6d0167202e18d3"
   },
   "vite.config.js": {
-    "mtime": 1792390836.5727575,
-    "seen": 1792391191.595232,
-    "ast_hash": "d52412cc3a1438e44468079f43b1b6b5",
+    "mtime": 1792392719.8870323,
+    "seen": 1792392743.973739,
+    "ast_hash": "e53594f86d530cc6984d8b157bbff3f3",
     "semantic_hash": ""
   },
   ".github/workflows/deploy.yml": {
@@ -444,33 +444,33 @@
     "semantic_hash": "15ebe9f4fcc68c4879fec70ac22441c6"
   },
   "about.html": {
-    "mtime": 1792389284.548807,
-    "seen": 1792389854.646158,
-    "ast_hash": "c2172753ec1437559d1bb8ee58f06e23",
+    "mtime": 1792392511.9998634,
+    "seen": 1792392743.97374,
+    "ast_hash": "6d2697e0e8dbc294507eee8e9ec6927d",
     "semantic_hash": ""
   },
   "brochure.html": {
-    "mtime": 1792389284.5493596,
-    "seen": 1792389854.646158,
-    "ast_hash": "bedfd9f107174c12ec82acc3afdcca5a",
+    "mtime": 1792392483.2663777,
+    "seen": 1792392743.973742,
+    "ast_hash": "4de2aeefec24783e20cde580dced6e5a",
     "semantic_hash": ""
   },
   "careers.html": {
-    "mtime": 1792389284.5501082,
-    "seen": 1792389854.6461592,
-    "ast_hash": "7b8ae66f00b29966ea6f73a60d2bd281",
+    "mtime": 1792392483.2665892,
+    "seen": 1792392743.973742,
+    "ast_hash": "84178e19e9d86cecd5cddc3a8d6bbded",
     "semantic_hash": ""
   },
   "contact.html": {
-    "mtime": 1792389514.870424,
-    "seen": 1792389854.64616,
-    "ast_hash": "fb52ea11f850852dc2ccf653812df75a",
+    "mtime": 1792392483.2669299,
+    "seen": 1792392743.9737432,
+    "ast_hash": "f9bca0ff09f3fd76df813f8e21200e83",
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1792389284.5526736,
-    "seen": 1792389854.6461608,
-    "ast_hash": "9052b1f759e8557d538592d758dea6b4",
+    "mtime": 1792392483.2673945,
+    "seen": 1792392743.9737442,
+    "ast_hash": "e55329d37148a5bb7066129f54b369c2",
     "semantic_hash": ""
   },
   "knowledge-centre/blogs.html": {
@@ -480,21 +480,21 @@
     "semantic_hash": ""
   },
   "privacy-learngenie.html": {
-    "mtime": 1792389760.372628,
-    "seen": 1792389854.646162,
-    "ast_hash": "db3d359e14c25ceb8c9c799888ba67b2",
+    "mtime": 1792392483.2677484,
+    "seen": 1792392743.9737458,
+    "ast_hash": "c93c8ad492b9cd2c120b4344534f8edf",
     "semantic_hash": ""
   },
   "privacy.html": {
-    "mtime": 1792390966.6863854,
-    "seen": 1792391191.5952399,
-    "ast_hash": "6d36f71b9a3d0c3de20aaf2566f3b53f",
+    "mtime": 1792392483.2678957,
+    "seen": 1792392743.9737458,
+    "ast_hash": "cd35fead91ebea317b6cc17cd0ca5aaf",
     "semantic_hash": ""
   },
   "products.html": {
-    "mtime": 1792389284.5550122,
-    "seen": 1792389854.646163,
-    "ast_hash": "cedeefd51128017b8519379424e2e38c",
+    "mtime": 1792392511.9984272,
+    "seen": 1792392743.973747,
+    "ast_hash": "9219d4611ef354de4846aab3f129113e",
     "semantic_hash": ""
   },
   "products/finaware.html": {
@@ -528,9 +528,9 @@
     "semantic_hash": ""
   },
   "services.html": {
-    "mtime": 1792389514.8711689,
-    "seen": 1792389854.646166,
-    "ast_hash": "b4434a5103be5742c8ef34ae4f400076",
+    "mtime": 1792392483.2685816,
+    "seen": 1792392743.97375,
+    "ast_hash": "23d55b5af620f81d382b7098f071fb07",
     "semantic_hash": ""
   },
   "services/cloud.html": {
@@ -540,9 +540,9 @@
     "semantic_hash": "22a8871f5724d40d4880c5d2693011bf"
   },
   "solutions.html": {
-    "mtime": 1792389514.8709838,
-    "seen": 1792389854.646167,
-    "ast_hash": "de251dfc8535003aa1bb2e00328bba84",
+    "mtime": 1792392483.268793,
+    "seen": 1792392743.973751,
+    "ast_hash": "eb7ad18e20c03c84e3eb39f9a18b2418",
     "semantic_hash": ""
   },
   "src/partials/knowledge/blog-cards.html": {
@@ -564,9 +564,9 @@
     "semantic_hash": "a4246429aa70ac5686e86605d0b3a164"
   },
   "src/partials/knowledge/footer.html": {
-    "mtime": 1792389284.5588768,
-    "seen": 1792389854.6461692,
-    "ast_hash": "4ece5ae7283eb89db504313a94d6886d",
+    "mtime": 1792392465.9259086,
+    "seen": 1792392743.973753,
+    "ast_hash": "a221cc0f4188e920fd7e835f61cedea8",
     "semantic_hash": ""
   },
   "src/partials/knowledge/home-latest-blogs.html": {
@@ -576,21 +576,21 @@
     "semantic_hash": "58cb0cdafa1be981ecb0b6e87507dcfe"
   },
   "src/partials/knowledge/nav.html": {
-    "mtime": 1791579964.6315618,
-    "seen": 1791580289.523537,
-    "ast_hash": "c5fa8a741140fedb5672e9d855c3956e",
+    "mtime": 1792392501.2778718,
+    "seen": 1792392743.9737542,
+    "ast_hash": "4e21180da21e102d2707a45a8ca58c79",
     "semantic_hash": ""
   },
   "src/partials/product-page/footer.html": {
-    "mtime": 1792389284.5596223,
-    "seen": 1792389854.6461709,
-    "ast_hash": "114fb601f8e951e30d1bfe0763a767d4",
+    "mtime": 1792392465.9262812,
+    "seen": 1792392743.973755,
+    "ast_hash": "fab8b1c1c85ea5e161dacfbfdf93017f",
     "semantic_hash": ""
   },
   "src/partials/product-page/nav.html": {
-    "mtime": 1791579964.6318827,
-    "seen": 1791580289.523537,
-    "ast_hash": "08fa984c24d7a5ba15b795d401a7bc6b",
+    "mtime": 1792392501.2772589,
+    "seen": 1792392743.973755,
+    "ast_hash": "310d3b4d95f136bda25f60ccfe492877",
     "semantic_hash": ""
   },
   "src/partials/products/finaware.html": {
@@ -606,9 +606,9 @@
     "semantic_hash": ""
   },
   "src/partials/products/finexa.html": {
-    "mtime": 1791952419.0244484,
-    "seen": 1791952626.038014,
-    "ast_hash": "3943ae43d7d35523296c9969ca024777",
+    "mtime": 1792392511.9992983,
+    "seen": 1792392743.973757,
+    "ast_hash": "22d16a2f418de8226de17309bd953392",
     "semantic_hash": ""
   },
   "src/partials/products/fiscus.html": {
@@ -624,21 +624,21 @@
     "semantic_hash": ""
   },
   "src/partials/service-page/footer.html": {
-    "mtime": 1792389284.5620959,
-    "seen": 1792389854.646174,
-    "ast_hash": "0a2635016ab723c05d5b6b72a5a7da26",
+    "mtime": 1792392465.926926,
+    "seen": 1792392743.973758,
+    "ast_hash": "abac6e3aa1b416f4ead976ce5f6c3e9b",
     "semantic_hash": ""
   },
   "src/partials/service-page/nav.html": {
-    "mtime": 1791579964.6324174,
-    "seen": 1791580289.523541,
-    "ast_hash": "db6b07d34b304003b835dd8a20e1e896",
+    "mtime": 1792392501.2777703,
+    "seen": 1792392743.973759,
+    "ast_hash": "b3304eddb0d14b36111adeafc5436f94",
     "semantic_hash": ""
   },
   "terms.html": {
-    "mtime": 1792389760.372474,
-    "seen": 1792389854.646175,
-    "ast_hash": "e9b77ff2b52838d56a3361189787707f",
+    "mtime": 1792392483.2695334,
+    "seen": 1792392743.973759,
+    "ast_hash": "f21d1fa4bb7dcacfe81bf84f94bc528d",
     "semantic_hash": ""
   },
   "public/Finlabs-Corpdeck-Brochure.pdf": {
@@ -1614,15 +1614,15 @@
     "semantic_hash": ""
   },
   "case-study.html": {
-    "mtime": 1792389284.5504613,
-    "seen": 1792389854.6461592,
-    "ast_hash": "0339cdaf09c0de2c6121927c33a4394e",
+    "mtime": 1792392483.2667203,
+    "seen": 1792392743.9737432,
+    "ast_hash": "f46c583fed3edb909be7502691d1ebd2",
     "semantic_hash": ""
   },
   "partners.html": {
-    "mtime": 1792389284.553336,
-    "seen": 1792389854.6461608,
-    "ast_hash": "efe1761d0d250822d7f87733456345c7",
+    "mtime": 1792392483.2676013,
+    "seen": 1792392743.9737449,
+    "ast_hash": "f96e344a1c06758d3436716852186dc9",
     "semantic_hash": ""
   },
   "src/partners-scene.js": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1792391146.59224,
-    "seen": 1792391191.5951831,
-    "ast_hash": "e2720db3277c0856998428cbed6c3d3c",
+    "mtime": 1792392703.8477104,
+    "seen": 1792392743.97369,
+    "ast_hash": "620e6b0656e8aa9da3d2c18544081334",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1792391146.5973125,
-    "seen": 1792391191.5951848,
-    "ast_hash": "d06ecd60b8da74e473d0d6dca8c64b20",
+    "mtime": 1792392703.8523202,
+    "seen": 1792392743.973692,
+    "ast_hash": "77eb83cee15d15253db77b60a96fc1c6",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1792391146.6033213,
-    "seen": 1792391191.5951848,
-    "ast_hash": "35a8dbd1aaceff66fe6385429d6bcdbc",
+    "mtime": 1792392703.8591607,
+    "seen": 1792392743.973692,
+    "ast_hash": "785eacbce9cf457396e73b421c30a6ad",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1692,9 +1692,9 @@
     "semantic_hash": ""
   },
   "scripts/pages.mjs": {
-    "mtime": 1791815059.2048695,
-    "seen": 1791815929.583585,
-    "ast_hash": "f3203893032d14325c986b3234a8d42a",
+    "mtime": 1792392549.198995,
+    "seen": 1792392743.973716,
+    "ast_hash": "22ecd87a687af50cb37140d883f07dec",
     "semantic_hash": ""
   },
   "src/i18n.js": {
@@ -1800,8 +1800,8 @@
     "semantic_hash": ""
   },
   "locales/handover/legal-strings-for-translation.json": {
-    "mtime": 1792391153.3472903,
-    "seen": 1792391191.595184,
+    "mtime": 1792392703.890963,
+    "seen": 1792392743.973691,
     "ast_hash": "4f26d91b6d44da861238bb7c4edd7c56",
     "semantic_hash": ""
   },
@@ -1860,9 +1860,9 @@
     "semantic_hash": ""
   },
   "src/forms.js": {
-    "mtime": 1792391029.9982834,
-    "seen": 1792391191.595219,
-    "ast_hash": "1680bf7df4ca9d075ab7d51a09210c22",
+    "mtime": 1792392575.1590655,
+    "seen": 1792392743.9737248,
+    "ast_hash": "5a922d854baf9fe079891eb0b3662bb8",
     "semantic_hash": ""
   },
   ".github/workflows/backend.yml": {
@@ -1881,6 +1881,12 @@
     "mtime": 1792390769.6713624,
     "seen": 1792391191.595235,
     "ast_hash": "e551757d18d7f0f89e503e76d48bfbb2",
+    "semantic_hash": ""
+  },
+  "thank-you.html": {
+    "mtime": 1792392549.17549,
+    "seen": 1792392743.97376,
+    "ast_hash": "22f498e140e8a2b49d22315ffbb29a9a",
     "semantic_hash": ""
   }
 }

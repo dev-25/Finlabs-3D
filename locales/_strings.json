@@ -22,6 +22,29 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
+ "Blogs": [
+  "index.html",
+  "products.html",
+  "services.html",
+  "solutions.html",
+  "terms.html",
+  "privacy.html",
+  "privacy-learngenie.html",
+  "contact.html",
+  "thank-you.html",
+  "about.html",
+  "careers.html",
+  "brochure.html",
+  "partners.html",
+  "case-study.html",
+  "knowledge-centre/blogs.html",
+  "services/cloud.html",
+  "products/finexa.html",
+  "products/finexa-gennxt.html",
+  "products/finaware.html",
+  "products/fiscus.html",
+  "products/learngenie.html"
+ ],
  "Book a call": [
   "index.html",
   "products.html",
@@ -391,29 +414,6 @@
   "products/learngenie.html"
  ],
  "Instagram": [
-  "index.html",
-  "products.html",
-  "services.html",
-  "solutions.html",
-  "terms.html",
-  "privacy.html",
-  "privacy-learngenie.html",
-  "contact.html",
-  "thank-you.html",
-  "about.html",
-  "careers.html",
-  "brochure.html",
-  "partners.html",
-  "case-study.html",
-  "knowledge-centre/blogs.html",
-  "services/cloud.html",
-  "products/finexa.html",
-  "products/finexa-gennxt.html",
-  "products/finaware.html",
-  "products/fiscus.html",
-  "products/learngenie.html"
- ],
- "Knowledge Centre": [
   "index.html",
   "products.html",
   "services.html",
@@ -5890,9 +5890,6 @@
  ],
  "BigQuery": [
   "services/cloud.html"
- ],
- "Blogs": [
-  "knowledge-centre/blogs.html"
  ],
  "Blogs — Finance Tips, Investing Guides and Learning Resources | Finlabs": [
   "knowledge-centre/blogs.html"

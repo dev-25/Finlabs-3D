@@ -7,6 +7,7 @@
  * ===================================================== */
 
 import { t } from './i18n.js';
+import { submitForm, armForms } from './forms.js';
 
 const ACCENT_HEX = {
   core: '#3b82f6',

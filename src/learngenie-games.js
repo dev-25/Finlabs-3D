@@ -20,6 +20,7 @@
 
 import './learngenie-games.css';
 import { t } from './i18n.js';
+import { submitForm } from './forms.js';
 
 const MAIL_TO = 'info@finlabsindia.com';
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
