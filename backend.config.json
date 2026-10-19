@@ -14,7 +14,8 @@
     "After editing: npm run backend:check"
   ],
   "public": {
-    "apiBaseUrl": ""
+    "apiBaseUrl": "",
+    "cvUploads": false
   },
   "aws": {
     "region": "ap-south-1",
@@ -31,11 +32,11 @@
     "$comment": [
       "info@finlabsindia.biz is the identity verified in SES (ap-south-1, DKIM",
       "passing). MAIL_FROM has to be a verified identity; the recipients do not,",
-      "because this account is out of the sandbox — 193,300/day and 48/sec, where",
+      "because this account is out of the sandbox \u2014 193,300/day and 48/sec, where",
       "a sandboxed account gets 200/day and 1/sec.",
       "",
       "The account is shared: 420 emails were sent on it the day this was set up,",
-      "by something else. A configuration set keeps this website’s bounces and",
+      "by something else. A configuration set keeps this website\u2019s bounces and",
       "complaints out of that reputation reporting.",
       "",
       "The website still shows @finlabsindia.com to visitors. Separate question,",

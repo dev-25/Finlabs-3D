@@ -40,7 +40,6 @@
  *   MAIL_FROM                 website@finlabsindia.com
  *   MAIL_FROM_NAME            Finlabs website
  *   MAIL_ROUTES               {"contact":["info@finlabsindia.com"], ...}
- *   ALLOWED_ORIGIN            http://finlabs-prod-website.s3-website.ap-south-1.amazonaws.com
  *   NOTIFY                    sns | ses   (how the email goes out)
  *   SNS_TOPIC_ARN             arn:aws:sns:ap-south-1:…:finlabs-form-submissions
  *   MAX_PER_IP_PER_HOUR       5
@@ -64,7 +63,6 @@ const TABLE = process.env.TABLE_NAME;
 const FROM = process.env.MAIL_FROM;
 const FROM_NAME = process.env.MAIL_FROM_NAME || 'Finlabs website';
 const ROUTES = JSON.parse(process.env.MAIL_ROUTES || '{}');
-const ORIGIN = process.env.ALLOWED_ORIGIN || '*';
 const RETAIN_MONTHS = Number(process.env.ENQUIRY_RETENTION_MONTHS || 24);
 const NOTIFY = (process.env.NOTIFY || 'sns').toLowerCase();
 const SNS_TOPIC = process.env.SNS_TOPIC_ARN;
@@ -277,17 +275,27 @@ function av(value) {
 }
 
 // -----------------------------------------------------
-const headers = {
-  'access-control-allow-origin': ORIGIN,
-  'access-control-allow-headers': 'content-type',
-  'access-control-allow-methods': 'POST,OPTIONS',
-  'content-type': 'application/json',
-};
+// NO CORS HEADERS HERE, deliberately.
+//
+// The Function URL's own CORS configuration adds them. If this function
+// adds them too, the response carries access-control-allow-origin twice,
+// the browser rejects it as malformed, and fetch() throws — while the
+// enquiry was stored and the email sent perfectly well. The symptom is
+// "Load failed" in Safari, or a CORS error in Chrome, on a request the
+// server handled successfully. It cost an evening once.
+//
+// CORS lives in one place: Lambda → Configuration → Function URL → CORS.
+// That is also where it has to change when the site moves to
+// https://finlabsindia.com.
+const headers = { 'content-type': 'application/json' };
 const reply = (statusCode, body) => ({ statusCode, headers, body: JSON.stringify(body) });
 
 export const handler = async (event) => {
+  // Preflight never reaches here: the Function URL answers OPTIONS itself
+  // when CORS is configured on it. Kept only so a misconfigured URL fails
+  // visibly rather than running the whole handler on an OPTIONS request.
   const method = event?.requestContext?.http?.method || event?.httpMethod;
-  if (method === 'OPTIONS') return { statusCode: 204, headers, body: '' };
+  if (method === 'OPTIONS') return { statusCode: 204, headers: {}, body: '' };
 
   let payload;
   try {

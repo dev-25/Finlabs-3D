@@ -155,14 +155,13 @@ rather than aspirational:
 - Memory: **512 MB**
 - **Save**
 
-**Configuration** → **Environment variables** → **Edit** → add seven:
+**Configuration** → **Environment variables** → **Edit** → add six:
 
 | Key | Value |
 |---|---|
 | `TABLE_NAME` | `finlabs-submissions` |
 | `NOTIFY` | `sns` |
 | `SNS_TOPIC_ARN` | the Topic ARN from step A1 |
-| `ALLOWED_ORIGIN` | `http://finlabs-prod-website.s3-website.ap-south-1.amazonaws.com` |
 | `MAX_PER_IP_PER_HOUR` | `5` |
 | `ENQUIRY_RETENTION_MONTHS` | `24` |
 | `NOTICE_VERSION` | `2.0` |
@@ -172,10 +171,15 @@ rather than aspirational:
 > now if you like — they are what *Moving to SES* needs — or leave them out
 > until then.
 
-> `ALLOWED_ORIGIN` must match the address in the browser's bar **exactly** —
-> scheme included, no trailing slash. Get it wrong and the browser blocks the
-> response with a CORS error even though the Lambda ran fine. **When you move
-> to `https://finlabsindia.com`, this has to change with it.**
+> **CORS lives in exactly one place: the Function URL (C5).** The function
+> deliberately sends no CORS headers of its own. If both did, the response
+> would carry `access-control-allow-origin` twice, the browser would reject it
+> as malformed, and `fetch` would throw — while the enquiry was stored and the
+> email sent perfectly well. The symptom is "Load failed" in Safari or "Failed
+> to fetch" in Chrome, on a request that actually succeeded.
+>
+> If you have an older copy of `submit.mjs` pasted in, re-paste the current
+> one from the repository.
 
 ### C4 · Let it write to DynamoDB and publish
 
@@ -239,6 +243,13 @@ The execution role can currently only write logs.
    https://abc123xyz.lambda-url.ap-south-1.on.aws/
    ```
 
+> This CORS block is the only place CORS is configured — the function sends
+> none of its own, on purpose. Setting it in both places sends the header
+> twice and the browser rejects the response.
+>
+> **This origin changes when the site moves to `https://finlabsindia.com`,**
+> and the forms stop working the moment it does not match the address bar.
+
 ---
 
 ## D. Point the website at it
@@ -253,7 +264,8 @@ repository:
 ```
 
 **Drop the trailing slash from the Function URL.** The site posts to
-`${apiBaseUrl}/submit`, and leaving the slash on makes that `//submit`.
+`${apiBaseUrl}/submit`; the code strips a trailing slash defensively, so one
+left on will not break anything, but the config reads better without it.
 
 Commit and push. The deploy runs on its own, and from then on the forms post
 to the Lambda instead of opening a mail client.
@@ -270,7 +282,8 @@ git push
 
 Open the contact page, fill it in, submit.
 
-**What should happen:** a brief pause, then the thank-you page. An email to
+**What should happen:** a brief pause, then **the thank-you page at
+`/thank-you.html`**. An email to
 every confirmed subscriber on the topic, from `no-reply@sns.amazonaws.com`. A
 row in DynamoDB.
 
@@ -287,7 +300,8 @@ table items**. You should see `pk`, `fields`, `marketingConsent`,
 
 | Symptom | Cause |
 |---|---|
-| Browser console: CORS error | `ALLOWED_ORIGIN` or the Function URL CORS origin does not match the address bar exactly |
+| "Load failed" (Safari) / "Failed to fetch" (Chrome), **but the email arrives and the row is in DynamoDB** | The response carries `access-control-allow-origin` twice — the Function URL adds it and an old copy of the function adds it too. Re-paste the current `submit.mjs`, which sends none. |
+| Browser console: CORS error, nothing stored | The Function URL's allow-origin does not match the address bar exactly — scheme included, no trailing slash |
 | Your own test submission vanishes with no error | You filled it in under 3 seconds, so the clock check dropped it. The log says `dropped as automated`. Take your time, or lower `MIN_FILL_SECONDS` in the code while testing. |
 | "That is several messages in a short time" | The per-IP limit. Six submissions in an hour from one address. Raise `MAX_PER_IP_PER_HOUR` or wait. |
 | Row in DynamoDB, no email, clean log | The subscription was never confirmed. SNS → the topic → **Subscriptions** must say *Confirmed*, not *PendingConfirmation*. This is the common one. |
@@ -385,6 +399,6 @@ outside the company, or point `finlabsindia.com` at it, CloudFront needs to
 exist. The Privacy Notice we published says HTTPS, and it should be true
 before the forms are collecting real names and email addresses.
 
-When that happens, remember to update `ALLOWED_ORIGIN` in C3 and the CORS
-origin in C5 — the forms stop working the moment the address changes, and the
-error in the browser console will say CORS rather than anything about the move.
+When that happens, remember to update the CORS origin on the Function URL
+(C5) — the forms stop working the moment it stops matching the address bar,
+and the browser's error will say CORS rather than anything about the move.

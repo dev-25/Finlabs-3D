@@ -26,9 +26,12 @@
 import { t } from './i18n.js';
 
 /** Injected at build time from backend.config.json — see vite.config.js. */
-const CFG = typeof __BACKEND__ !== 'undefined' ? __BACKEND__ : { apiBaseUrl: '' };
+const CFG = typeof __BACKEND__ !== 'undefined' ? __BACKEND__ : { apiBaseUrl: '', cvUploads: false };
 
 export const backendReady = Boolean(CFG.apiBaseUrl);
+
+/** CV upload is a separate endpoint, and may not be deployed yet. */
+export const cvUploadReady = Boolean(CFG.apiBaseUrl && CFG.cvUploads);
 
 // ---------------------------------------------------------------------
 // the quiet bot check
@@ -84,8 +87,11 @@ export function readForm(form) {
   return out;
 }
 
+/** A trailing slash in the configured URL would make this `//submit`. */
+const API = (CFG.apiBaseUrl || '').replace(/\/+$/, '');
+
 async function post(path, body) {
-  const res = await fetch(`${CFG.apiBaseUrl}${path}`, {
+  const res = await fetch(`${API}${path}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(body),

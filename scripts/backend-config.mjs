@@ -32,7 +32,13 @@ export function loadConfig() {
 
 /** What the browser is allowed to know. Everything else stays server-side. */
 export function publicConfig(cfg = loadConfig()) {
-  return { apiBaseUrl: cfg.public.apiBaseUrl || '' };
+  return {
+    apiBaseUrl: cfg.public.apiBaseUrl || '',
+    // CV upload needs a second Lambda (/cv-upload-url) and an S3 bucket. Until
+    // both exist the Apply buttons stay as mailto links, because a dialog that
+    // cannot send is worse than the email it replaced.
+    cvUploads: Boolean(cfg.public.cvUploads),
+  };
 }
 
 /* What the stack needs before it can be deployed. */

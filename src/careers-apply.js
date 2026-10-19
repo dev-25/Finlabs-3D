@@ -18,7 +18,7 @@
 
 import './careers-apply.css';
 import { t } from './i18n.js';
-import { submitForm, uploadCv, backendReady } from './forms.js';
+import { submitForm, uploadCv, cvUploadReady } from './forms.js';
 
 const MAX_MB = 10;
 const OK_TYPES = [
@@ -125,11 +125,12 @@ function open(role) {
 }
 
 // ---------------------------------------------------------------------
-// Take over the Apply links — but only when there is a backend to take
-// them to. Otherwise the mailto they already point at is better than a
-// dialog that cannot send.
+// Take over the Apply links — but only when CV upload is actually
+// deployed. An application needs /cv-upload-url and a bucket behind it;
+// until both exist the mailto these links already carry is better than a
+// dialog that collects someone's CV and then cannot send it.
 // ---------------------------------------------------------------------
-if (backendReady) {
+if (cvUploadReady) {
   document.addEventListener('click', (e) => {
     const link = e.target.closest('.btn-apply');
     if (!link) return;
