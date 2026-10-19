@@ -6,9 +6,9 @@
     "semantic_hash": "a24f68f3a5694cc08ad15ef76ddf723f"
   },
   "package.json": {
-    "mtime": 1791815186.3042176,
-    "seen": 1791815929.583562,
-    "ast_hash": "2e7681dd0299cb651f4ad3831a54ffce",
+    "mtime": 1792390836.6028075,
+    "seen": 1792391191.595186,
+    "ast_hash": "cfd4cc6a69f056d17dacf615e04b6b9e",
     "semantic_hash": ""
   },
   "public/knowledge-centre/blogs/12-financial-rules-to-rock-your-world-in-2024-and-beyond.json": {
@@ -258,9 +258,9 @@
     "semantic_hash": "4d612646854528b29265663fe97c62f2"
   },
   "src/careers.js": {
-    "mtime": 1791815036.7267838,
-    "seen": 1791815929.5835881,
-    "ast_hash": "39d342c1e216024c4cfd2b8aef172a3e",
+    "mtime": 1792390902.7089782,
+    "seen": 1792391191.5952132,
+    "ast_hash": "f7fb730c51f2bdf1087fecfc2cb127bb",
     "semantic_hash": ""
   },
   "src/cloud-scene.js": {
@@ -282,9 +282,9 @@
     "semantic_hash": "e912f4cce4554f6e6f95dd1029347f06"
   },
   "src/doc.js": {
-    "mtime": 1792389514.8714757,
-    "seen": 1792389854.6461408,
-    "ast_hash": "dcc4c781954471ad0c45bb783616471c",
+    "mtime": 1792391030.0212946,
+    "seen": 1792391191.595217,
+    "ast_hash": "bb833efdcfa751bb4881916c0db3eb09",
     "semantic_hash": ""
   },
   "src/finaware-flow.js": {
@@ -384,9 +384,9 @@
     "semantic_hash": ""
   },
   "src/services-ui.js": {
-    "mtime": 1792389526.5033493,
-    "seen": 1792389854.646152,
-    "ast_hash": "5e148cfbfecf739facf9bf0ed8f43b79",
+    "mtime": 1792391030.0228024,
+    "seen": 1792391191.595228,
+    "ast_hash": "2376c3c972ef9d5d44d87afbebafd88b",
     "semantic_hash": ""
   },
   "src/services.js": {
@@ -408,9 +408,9 @@
     "semantic_hash": ""
   },
   "src/solutions-ui.js": {
-    "mtime": 1792389526.5020642,
-    "seen": 1792389854.646154,
-    "ast_hash": "56ced7b5945fe1436b2f49bd3eded580",
+    "mtime": 1792391030.022459,
+    "seen": 1792391191.5952299,
+    "ast_hash": "cbd6e039265c9803a477c7c94afb279a",
     "semantic_hash": ""
   },
   "src/solutions.js": {
@@ -432,9 +432,9 @@
     "semantic_hash": "e1958c2baa8c69b4ac6d0167202e18d3"
   },
   "vite.config.js": {
-    "mtime": 1791815179.956478,
-    "seen": 1791815929.583606,
-    "ast_hash": "b0fda4ed21443e50d9604a22347d7dc6",
+    "mtime": 1792390836.5727575,
+    "seen": 1792391191.595232,
+    "ast_hash": "d52412cc3a1438e44468079f43b1b6b5",
     "semantic_hash": ""
   },
   ".github/workflows/deploy.yml": {
@@ -486,9 +486,9 @@
     "semantic_hash": ""
   },
   "privacy.html": {
-    "mtime": 1792389852.4947953,
-    "seen": 1792389854.646162,
-    "ast_hash": "a1790bb9aef61aca6f499c5b62d51b19",
+    "mtime": 1792390966.6863854,
+    "seen": 1792391191.5952399,
+    "ast_hash": "6d36f71b9a3d0c3de20aaf2566f3b53f",
     "semantic_hash": ""
   },
   "products.html": {
@@ -1650,21 +1650,21 @@
     "semantic_hash": ""
   },
   "locales/_strings.json": {
-    "mtime": 1792389853.1615293,
-    "seen": 1792389854.646105,
-    "ast_hash": "207053689e694419672c7cbb8fe11867",
+    "mtime": 1792391146.59224,
+    "seen": 1792391191.5951831,
+    "ast_hash": "e2720db3277c0856998428cbed6c3d3c",
     "semantic_hash": ""
   },
   "locales/hi.json": {
-    "mtime": 1792389853.1663146,
-    "seen": 1792389854.646107,
-    "ast_hash": "6a62341c37294c7c22511e95625bca2c",
+    "mtime": 1792391146.5973125,
+    "seen": 1792391191.5951848,
+    "ast_hash": "d06ecd60b8da74e473d0d6dca8c64b20",
     "semantic_hash": ""
   },
   "locales/mr.json": {
-    "mtime": 1792389853.172001,
-    "seen": 1792389854.646108,
-    "ast_hash": "68ff90df1647020d5d961649338b518a",
+    "mtime": 1792391146.6033213,
+    "seen": 1792391191.5951848,
+    "ast_hash": "35a8dbd1aaceff66fe6385429d6bcdbc",
     "semantic_hash": ""
   },
   "scripts/i18n-extract.mjs": {
@@ -1686,9 +1686,9 @@
     "semantic_hash": ""
   },
   "scripts/i18n.mjs": {
-    "mtime": 1792389715.5292773,
-    "seen": 1792389854.646134,
-    "ast_hash": "c241a02af136acbf1d62f0c1f0be68eb",
+    "mtime": 1792391115.38223,
+    "seen": 1792391191.595209,
+    "ast_hash": "22d12665cf5c45ae7e867b78a9f23c61",
     "semantic_hash": ""
   },
   "scripts/pages.mjs": {
@@ -1782,9 +1782,9 @@
     "semantic_hash": ""
   },
   "src/learngenie-games.js": {
-    "mtime": 1792006125.8660676,
-    "seen": 1792006271.1682339,
-    "ast_hash": "5641cc34ebb50e006cf6224bca321ef5",
+    "mtime": 1792390914.9332526,
+    "seen": 1792391191.5952241,
+    "ast_hash": "ca263ad80016c7beb2e24ed6dd7c425c",
     "semantic_hash": ""
   },
   "src/partials/case-study/studies.html": {
@@ -1800,15 +1800,87 @@
     "semantic_hash": ""
   },
   "locales/handover/legal-strings-for-translation.json": {
-    "mtime": 1792389769.858617,
-    "seen": 1792389854.646106,
-    "ast_hash": "0b382987e37c2a1896291818e35d4621",
+    "mtime": 1792391153.3472903,
+    "seen": 1792391191.595184,
+    "ast_hash": "4f26d91b6d44da861238bb7c4edd7c56",
     "semantic_hash": ""
   },
   "src/consent.js": {
     "mtime": 1792389337.8242116,
     "seen": 1792389854.6461399,
     "ast_hash": "b88c48ce63005165badfc427a47a364e",
+    "semantic_hash": ""
+  },
+  "backend.config.json": {
+    "mtime": 1792390985.7407873,
+    "seen": 1792391191.595178,
+    "ast_hash": "0392b3abc8099cabae98d69d4f9859dd",
+    "semantic_hash": ""
+  },
+  "backend/package.json": {
+    "mtime": 1792390920.3877304,
+    "seen": 1792391191.59518,
+    "ast_hash": "1cb5149f1966ac277004aa8b4df8d9e7",
+    "semantic_hash": ""
+  },
+  "backend/src/cv-upload-url.mjs": {
+    "mtime": 1792390718.0741081,
+    "seen": 1792391191.59518,
+    "ast_hash": "18661e875eef72e8174cb6e5dd1521b8",
+    "semantic_hash": ""
+  },
+  "backend/src/lib/forms.mjs": {
+    "mtime": 1792390661.8186297,
+    "seen": 1792391191.595181,
+    "ast_hash": "e11ead8bacbac6a4757d3e57d810310d",
+    "semantic_hash": ""
+  },
+  "backend/src/lib/turnstile.mjs": {
+    "mtime": 1792390674.032352,
+    "seen": 1792391191.595181,
+    "ast_hash": "80247bb5e0848dc219af30c864cff95a",
+    "semantic_hash": ""
+  },
+  "backend/src/submit.mjs": {
+    "mtime": 1792390698.672304,
+    "seen": 1792391191.5951822,
+    "ast_hash": "4e7cfe6e87791baa4c9c8f910dd166d4",
+    "semantic_hash": ""
+  },
+  "scripts/backend-config.mjs": {
+    "mtime": 1792390792.3522367,
+    "seen": 1792391191.595205,
+    "ast_hash": "da9d9543eefc26183206709d654286be",
+    "semantic_hash": ""
+  },
+  "src/careers-apply.js": {
+    "mtime": 1792390878.52152,
+    "seen": 1792391191.595212,
+    "ast_hash": "0a3ac7c387d0c792cbc9880034209393",
+    "semantic_hash": ""
+  },
+  "src/forms.js": {
+    "mtime": 1792391029.9982834,
+    "seen": 1792391191.595219,
+    "ast_hash": "1680bf7df4ca9d075ab7d51a09210c22",
+    "semantic_hash": ""
+  },
+  ".github/workflows/backend.yml": {
+    "mtime": 1792390958.8890214,
+    "seen": 1792391191.595233,
+    "ast_hash": "df3d3bb83ff208a79278aacfa534d3af",
+    "semantic_hash": ""
+  },
+  "backend/README.md": {
+    "mtime": 1792390949.3898203,
+    "seen": 1792391191.5952342,
+    "ast_hash": "2c4279c82d7f95f1eabd36d96bdcab47",
+    "semantic_hash": ""
+  },
+  "backend/template.yaml": {
+    "mtime": 1792390769.6713624,
+    "seen": 1792391191.595235,
+    "ast_hash": "e551757d18d7f0f89e503e76d48bfbb2",
     "semantic_hash": ""
   }
 }

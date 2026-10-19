@@ -139,7 +139,19 @@
     ]
   },
   {
+    "string": "— the anti-spam check on our forms, which sees your IP address in order to tell a person from a bot",
+    "pages": [
+      "privacy.html"
+    ]
+  },
+  {
     "string": "— use the unsubscribe link at the foot of any email we send you. It takes one click and needs no reply from us.",
+    "pages": [
+      "privacy.html"
+    ]
+  },
+  {
+    "string": "— where enquiries and CVs are stored, in the Mumbai region",
     "pages": [
       "privacy.html"
     ]
@@ -272,6 +284,12 @@
   },
   {
     "string": "Children",
+    "pages": [
+      "privacy.html"
+    ]
+  },
+  {
+    "string": "Cloudflare",
     "pages": [
       "privacy.html"
     ]

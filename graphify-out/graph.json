@@ -562,6 +562,18 @@
       "source_location": "L227"
     },
     {
+      "id": "src_solutions_ui_fallback",
+      "label": "fallback()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "solutions-ui.js",
+      "file_type": "code",
+      "norm_label": "fallback()",
+      "source_file": "src/solutions-ui.js",
+      "source_location": "L242"
+    },
+    {
       "id": "src_solutions_ui_onfitchange",
       "label": "onFitChange()",
       "_callable": true,
@@ -1114,6 +1126,90 @@
       "source_location": "L34"
     },
     {
+      "id": "src_finaware_flow_createflow",
+      "label": "createFlow()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "createflow()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L82"
+    },
+    {
+      "id": "src_finaware_flow_createflow_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L189"
+    },
+    {
+      "id": "src_finaware_flow_createflow_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L245"
+    },
+    {
+      "id": "src_finaware_flow_createflow_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L214"
+    },
+    {
+      "id": "src_finaware_flow_drawstage",
+      "label": "drawStage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "drawstage()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L40"
+    },
+    {
+      "id": "src_finaware_flow_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "src_finaware_flow_stagepos",
+      "label": "stagePos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "stagepos()",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L34"
+    },
+    {
       "id": "src_finexa_hub_createhub",
       "label": "createHub()",
       "_callable": true,
@@ -1184,114 +1280,6 @@
       "norm_label": "shadowtexture()",
       "source_file": "src/finexa-hub.js",
       "source_location": "L24"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture",
-      "label": "createPicture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "createpicture()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L96"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_card",
-      "label": "card()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "card()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L126"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L198"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L248"
-    },
-    {
-      "id": "src_fiscus_picture_createpicture_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L218"
-    },
-    {
-      "id": "src_fiscus_picture_drawsource",
-      "label": "drawSource()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "drawsource()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L46"
-    },
-    {
-      "id": "src_fiscus_picture_drawtarget",
-      "label": "drawTarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "drawtarget()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L64"
-    },
-    {
-      "id": "src_fiscus_picture_label",
-      "label": "label()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "label()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L38"
-    },
-    {
-      "id": "src_fiscus_picture_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L84"
     },
     {
       "id": "src_gennxt_stack_createstack",
@@ -1402,6 +1390,54 @@
       "source_location": "L332"
     },
     {
+      "id": "src_careers_apply_build",
+      "label": "build()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "build()",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L32"
+    },
+    {
+      "id": "src_careers_apply_close",
+      "label": "close()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "close()",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L112"
+    },
+    {
+      "id": "src_careers_apply_onkey",
+      "label": "onKey()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "onkey()",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L108"
+    },
+    {
+      "id": "src_careers_apply_open",
+      "label": "open()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "open()",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L119"
+    },
+    {
       "id": "src_consent_build",
       "label": "build()",
       "_callable": true,
@@ -1486,6 +1522,126 @@
       "source_location": "L62"
     },
     {
+      "id": "src_doc_fallback",
+      "label": "fallback()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "fallback()",
+      "source_file": "src/doc.js",
+      "source_location": "L126"
+    },
+    {
+      "id": "src_doc_keepchipinview",
+      "label": "keepChipInView()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "keepchipinview()",
+      "source_file": "src/doc.js",
+      "source_location": "L34"
+    },
+    {
+      "id": "src_forms_armforms",
+      "label": "armForms()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "armforms()",
+      "source_file": "src/forms.js",
+      "source_location": "L79"
+    },
+    {
+      "id": "src_forms_loadturnstile",
+      "label": "loadTurnstile()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "loadturnstile()",
+      "source_file": "src/forms.js",
+      "source_location": "L33"
+    },
+    {
+      "id": "src_forms_mountturnstile",
+      "label": "mountTurnstile()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "mountturnstile()",
+      "source_file": "src/forms.js",
+      "source_location": "L53"
+    },
+    {
+      "id": "src_forms_post",
+      "label": "post()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "src/forms.js",
+      "source_location": "L118"
+    },
+    {
+      "id": "src_forms_readform",
+      "label": "readForm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "readform()",
+      "source_file": "src/forms.js",
+      "source_location": "L108"
+    },
+    {
+      "id": "src_forms_submitform",
+      "label": "submitForm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "submitform()",
+      "source_file": "src/forms.js",
+      "source_location": "L139"
+    },
+    {
+      "id": "src_forms_token",
+      "label": "token()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "token()",
+      "source_file": "src/forms.js",
+      "source_location": "L87"
+    },
+    {
+      "id": "src_forms_uploadcv",
+      "label": "uploadCv()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "uploadcv()",
+      "source_file": "src/forms.js",
+      "source_location": "L177"
+    },
+    {
       "id": "src_i18n_mountswitcher",
       "label": "mountSwitcher()",
       "_callable": true,
@@ -1543,7 +1699,7 @@
       "file_type": "code",
       "norm_label": "confetti",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L256"
+      "source_location": "L267"
     },
     {
       "id": "src_learngenie_games_crorepati",
@@ -1555,7 +1711,7 @@
       "file_type": "code",
       "norm_label": "crorepati()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L297"
+      "source_location": "L308"
     },
     {
       "id": "src_learngenie_games_crorepati_end",
@@ -1567,7 +1723,7 @@
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L353"
+      "source_location": "L364"
     },
     {
       "id": "src_learngenie_games_crorepati_question",
@@ -1579,7 +1735,7 @@
       "file_type": "code",
       "norm_label": "question()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L302"
+      "source_location": "L313"
     },
     {
       "id": "src_learngenie_games_crorepati_question_answer",
@@ -1591,7 +1747,7 @@
       "file_type": "code",
       "norm_label": "answer()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L330"
+      "source_location": "L341"
     },
     {
       "id": "src_learngenie_games_demoform",
@@ -1615,7 +1771,7 @@
       "file_type": "code",
       "norm_label": "done()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L232"
+      "source_location": "L243"
     },
     {
       "id": "src_learngenie_games_endscreen",
@@ -1651,7 +1807,7 @@
       "file_type": "code",
       "norm_label": "match()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L503"
+      "source_location": "L514"
     },
     {
       "id": "src_learngenie_games_match_draw",
@@ -1663,7 +1819,7 @@
       "file_type": "code",
       "norm_label": "draw()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L510"
+      "source_location": "L521"
     },
     {
       "id": "src_learngenie_games_match_end",
@@ -1675,7 +1831,7 @@
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L561"
+      "source_location": "L572"
     },
     {
       "id": "src_learngenie_games_match_settle",
@@ -1687,7 +1843,7 @@
       "file_type": "code",
       "norm_label": "settle()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L538"
+      "source_location": "L549"
     },
     {
       "id": "src_learngenie_games_note",
@@ -1699,7 +1855,7 @@
       "file_type": "code",
       "norm_label": "note()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L286"
+      "source_location": "L297"
     },
     {
       "id": "src_learngenie_games_open",
@@ -1735,7 +1891,7 @@
       "file_type": "code",
       "norm_label": "rightorwrong()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L379"
+      "source_location": "L390"
     },
     {
       "id": "src_learngenie_games_rightorwrong_card",
@@ -1747,7 +1903,7 @@
       "file_type": "code",
       "norm_label": "card()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L382"
+      "source_location": "L393"
     },
     {
       "id": "src_learngenie_games_rightorwrong_end",
@@ -1759,7 +1915,7 @@
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L415"
+      "source_location": "L426"
     },
     {
       "id": "src_learngenie_games_scramble",
@@ -1771,7 +1927,7 @@
       "file_type": "code",
       "norm_label": "scramble()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L580"
+      "source_location": "L591"
     },
     {
       "id": "src_learngenie_games_scramble_check",
@@ -1783,7 +1939,7 @@
       "file_type": "code",
       "norm_label": "check()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L632"
+      "source_location": "L643"
     },
     {
       "id": "src_learngenie_games_scramble_draw",
@@ -1795,7 +1951,7 @@
       "file_type": "code",
       "norm_label": "draw()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L595"
+      "source_location": "L606"
     },
     {
       "id": "src_learngenie_games_scramble_end",
@@ -1807,7 +1963,7 @@
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L652"
+      "source_location": "L663"
     },
     {
       "id": "src_learngenie_games_scramble_start",
@@ -1819,7 +1975,7 @@
       "file_type": "code",
       "norm_label": "start()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L585"
+      "source_location": "L596"
     },
     {
       "id": "src_learngenie_games_wiregames",
@@ -1831,7 +1987,7 @@
       "file_type": "code",
       "norm_label": "wiregames()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L769"
+      "source_location": "L780"
     },
     {
       "id": "src_learngenie_games_wirelive",
@@ -1843,7 +1999,7 @@
       "file_type": "code",
       "norm_label": "wirelive()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L679"
+      "source_location": "L690"
     },
     {
       "id": "src_learngenie_games_wirelive_answer",
@@ -1855,7 +2011,7 @@
       "file_type": "code",
       "norm_label": "answer()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L711"
+      "source_location": "L722"
     },
     {
       "id": "src_learngenie_games_wirelive_draw",
@@ -1867,7 +2023,7 @@
       "file_type": "code",
       "norm_label": "draw()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L699"
+      "source_location": "L710"
     },
     {
       "id": "src_learngenie_games_wirelive_showyou",
@@ -1879,7 +2035,7 @@
       "file_type": "code",
       "norm_label": "showyou()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L753"
+      "source_location": "L764"
     },
     {
       "id": "src_learngenie_games_xpflash",
@@ -1891,7 +2047,7 @@
       "file_type": "code",
       "norm_label": "xpflash()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L276"
+      "source_location": "L287"
     },
     {
       "id": "src_learngenie_games_zipline",
@@ -1915,7 +2071,7 @@
       "file_type": "code",
       "norm_label": "end()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L485"
+      "source_location": "L496"
     },
     {
       "id": "src_learngenie_games_zipline_run",
@@ -1927,7 +2083,19 @@
       "file_type": "code",
       "norm_label": "run()",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L439"
+      "source_location": "L450"
+    },
+    {
+      "id": "src_nav_setopen",
+      "label": "setOpen()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "setopen()",
+      "source_file": "src/nav.js",
+      "source_location": "L18"
     },
     {
       "id": "src_after_paint_afterpaint",
@@ -1935,7 +2103,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "afterpaint()",
       "source_file": "src/after-paint.js",
@@ -1947,11 +2115,59 @@
       "_callable": true,
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "idle()",
       "source_file": "src/after-paint.js",
       "source_location": "L39"
+    },
+    {
+      "id": "src_case_study_wantscene",
+      "label": "wantScene()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "wantscene()",
+      "source_file": "src/case-study.js",
+      "source_location": "L28"
+    },
+    {
+      "id": "src_nav_drawline",
+      "label": "drawLine()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "drawline()",
+      "source_file": "src/nav.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "src_product_page_runpiece",
+      "label": "runPiece()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "runpiece()",
+      "source_file": "src/product-page.js",
+      "source_location": "L42"
+    },
+    {
+      "id": "src_services_ui_fallback",
+      "label": "fallback()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "services-ui.js",
+      "file_type": "code",
+      "norm_label": "fallback()",
+      "source_file": "src/services-ui.js",
+      "source_location": "L191"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -2038,16 +2254,112 @@
       "source_location": "L95"
     },
     {
-      "id": "src_case_study_wantscene",
-      "label": "wantScene()",
+      "id": "backend_src_cv_upload_url_handler",
+      "label": "handler()",
       "_callable": true,
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "submit.mjs",
       "file_type": "code",
-      "norm_label": "wantscene()",
-      "source_file": "src/case-study.js",
-      "source_location": "L28"
+      "norm_label": "handler()",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L47"
+    },
+    {
+      "id": "backend_src_cv_upload_url_reply",
+      "label": "reply()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "reply()",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L36"
+    },
+    {
+      "id": "backend_src_cv_upload_url_safename",
+      "label": "safeName()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "safename()",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L39"
+    },
+    {
+      "id": "backend_src_lib_forms_render",
+      "label": "render()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "render()",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L134"
+    },
+    {
+      "id": "backend_src_lib_forms_validate",
+      "label": "validate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "validate()",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L102"
+    },
+    {
+      "id": "backend_src_lib_turnstile_secret",
+      "label": "secret()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "secret()",
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L20"
+    },
+    {
+      "id": "backend_src_lib_turnstile_verifyturnstile",
+      "label": "verifyTurnstile()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "verifyturnstile()",
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L39"
+    },
+    {
+      "id": "backend_src_submit_handler",
+      "label": "handler()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "handler()",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L49"
+    },
+    {
+      "id": "backend_src_submit_reply",
+      "label": "reply()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "reply()",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L47"
     },
     {
       "id": "src_careers_filter",
@@ -2059,7 +2371,7 @@
       "file_type": "code",
       "norm_label": "filter()",
       "source_file": "src/careers.js",
-      "source_location": "L34"
+      "source_location": "L35"
     },
     {
       "id": "src_careers_followhash",
@@ -2071,7 +2383,7 @@
       "file_type": "code",
       "norm_label": "followhash()",
       "source_file": "src/careers.js",
-      "source_location": "L79"
+      "source_location": "L80"
     },
     {
       "id": "src_careers_matches",
@@ -2083,7 +2395,7 @@
       "file_type": "code",
       "norm_label": "matches()",
       "source_file": "src/careers.js",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "src_careers_setopen",
@@ -2095,31 +2407,139 @@
       "file_type": "code",
       "norm_label": "setopen()",
       "source_file": "src/careers.js",
-      "source_location": "L48"
+      "source_location": "L49"
     },
     {
-      "id": "src_nav_drawline",
-      "label": "drawLine()",
+      "id": "src_cloud_scene_asset",
+      "label": "asset()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "nav.js",
+      "community_name": "buildCloudScene",
       "file_type": "code",
-      "norm_label": "drawline()",
-      "source_file": "src/nav.js",
+      "norm_label": "asset()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene",
+      "label": "buildCloudScene()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "buildcloudscene()",
+      "source_file": "src/cloud-scene.js",
       "source_location": "L47"
     },
     {
-      "id": "src_nav_setopen",
-      "label": "setOpen()",
+      "id": "src_cloud_scene_buildcloudscene_canvastexture",
+      "label": "canvasTexture()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "nav.js",
+      "community_name": "buildCloudScene",
       "file_type": "code",
-      "norm_label": "setopen()",
-      "source_file": "src/nav.js",
-      "source_location": "L18"
+      "norm_label": "canvastexture()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_cloudat",
+      "label": "cloudAt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloudat()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L303"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L342"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_kick",
+      "label": "kick()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "kick()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L389"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L375"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L278"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_retarget",
+      "label": "retarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "retarget()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L310"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_start",
+      "label": "start()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "start()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L383"
+    },
+    {
+      "id": "src_cloud_scene_cloudgeometry",
+      "label": "cloudGeometry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "buildCloudScene",
+      "file_type": "code",
+      "norm_label": "cloudgeometry()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L30"
     },
     {
       "id": "src_about_hero_buildemblem",
@@ -2290,232 +2710,112 @@
       "source_location": "L24"
     },
     {
-      "id": "src_cloud_scene_asset",
-      "label": "asset()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "asset()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene",
-      "label": "buildCloudScene()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "buildcloudscene()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L47"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_canvastexture",
-      "label": "canvasTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "canvastexture()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L80"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_cloudat",
-      "label": "cloudAt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "cloudat()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L303"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L342"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_kick",
-      "label": "kick()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "kick()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L389"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L375"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L278"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_retarget",
-      "label": "retarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "retarget()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L310"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_start",
-      "label": "start()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "start()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L383"
-    },
-    {
-      "id": "src_cloud_scene_cloudgeometry",
-      "label": "cloudGeometry()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "cloudgeometry()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L30"
-    },
-    {
-      "id": "src_theme_ontheme",
-      "label": "onTheme()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "ontheme()",
-      "source_file": "src/theme.js",
-      "source_location": "L59"
-    },
-    {
-      "id": "src_finaware_flow_createflow",
-      "label": "createFlow()",
+      "id": "src_fiscus_picture_createpicture",
+      "label": "createPicture()",
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "finaware-flow.js",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
-      "norm_label": "createflow()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L82"
+      "norm_label": "createpicture()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L96"
     },
     {
-      "id": "src_finaware_flow_createflow_frame",
+      "id": "src_fiscus_picture_createpicture_card",
+      "label": "card()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "card()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L126"
+    },
+    {
+      "id": "src_fiscus_picture_createpicture_frame",
       "label": "frame()",
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "finaware-flow.js",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
       "norm_label": "frame()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L189"
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L198"
     },
     {
-      "id": "src_finaware_flow_createflow_loop",
+      "id": "src_fiscus_picture_createpicture_loop",
       "label": "loop()",
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "finaware-flow.js",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
       "norm_label": "loop()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L245"
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L248"
     },
     {
-      "id": "src_finaware_flow_createflow_resize",
+      "id": "src_fiscus_picture_createpicture_resize",
       "label": "resize()",
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "finaware-flow.js",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
       "norm_label": "resize()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L214"
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L218"
     },
     {
-      "id": "src_finaware_flow_drawstage",
-      "label": "drawStage()",
+      "id": "src_fiscus_picture_drawsource",
+      "label": "drawSource()",
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "finaware-flow.js",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
-      "norm_label": "drawstage()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L40"
+      "norm_label": "drawsource()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L46"
     },
     {
-      "id": "src_finaware_flow_shadowtexture",
+      "id": "src_fiscus_picture_drawtarget",
+      "label": "drawTarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "drawtarget()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L64"
+    },
+    {
+      "id": "src_fiscus_picture_label",
+      "label": "label()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "fiscus-picture.js",
+      "file_type": "code",
+      "norm_label": "label()",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L38"
+    },
+    {
+      "id": "src_fiscus_picture_shadowtexture",
       "label": "shadowTexture()",
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "finaware-flow.js",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
       "norm_label": "shadowtexture()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L70"
-    },
-    {
-      "id": "src_finaware_flow_stagepos",
-      "label": "stagePos()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "finaware-flow.js",
-      "file_type": "code",
-      "norm_label": "stagepos()",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L34"
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L84"
     },
     {
       "id": "src_solutions_scene_chiplabel",
@@ -2602,90 +2902,6 @@
       "source_location": "L107"
     },
     {
-      "id": "src_learngenie_climb_createclimb",
-      "label": "createClimb()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "createclimb()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L89"
-    },
-    {
-      "id": "src_learngenie_climb_createclimb_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L196"
-    },
-    {
-      "id": "src_learngenie_climb_createclimb_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L246"
-    },
-    {
-      "id": "src_learngenie_climb_createclimb_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L216"
-    },
-    {
-      "id": "src_learngenie_climb_drawstep",
-      "label": "drawStep()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "drawstep()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L32"
-    },
-    {
-      "id": "src_learngenie_climb_shadowtexture",
-      "label": "shadowTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "shadowtexture()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L62"
-    },
-    {
-      "id": "src_learngenie_climb_starshape",
-      "label": "starShape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "starshape()",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L75"
-    },
-    {
       "id": "src_theme_chosen",
       "label": "chosen()",
       "_callable": true,
@@ -2720,6 +2936,18 @@
       "norm_label": "inittheme()",
       "source_file": "src/theme.js",
       "source_location": "L65"
+    },
+    {
+      "id": "src_theme_ontheme",
+      "label": "onTheme()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "ontheme()",
+      "source_file": "src/theme.js",
+      "source_location": "L59"
     },
     {
       "id": "src_theme_paint",
@@ -3154,18 +3382,6 @@
       "source_location": "L604"
     },
     {
-      "id": "src_doc_keepchipinview",
-      "label": "keepChipInView()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "keepchipinview()",
-      "source_file": "src/doc.js",
-      "source_location": "L33"
-    },
-    {
       "id": "src_services_scene_arc",
       "label": "arc()",
       "_callable": true,
@@ -3598,6 +3814,66 @@
       "source_location": "L1223"
     },
     {
+      "id": "scripts_backend_config_check",
+      "label": "check()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "check()",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L50"
+    },
+    {
+      "id": "scripts_backend_config_dig",
+      "label": "dig()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "dig()",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L48"
+    },
+    {
+      "id": "scripts_backend_config_loadconfig",
+      "label": "loadConfig()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "loadconfig()",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L21"
+    },
+    {
+      "id": "scripts_backend_config_params",
+      "label": "params()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "params()",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L61"
+    },
+    {
+      "id": "scripts_backend_config_publicconfig",
+      "label": "publicConfig()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "publicconfig()",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L34"
+    },
+    {
       "id": "scripts_i18n_attrs",
       "label": "ATTRS",
       "_callable": true,
@@ -3691,7 +3967,7 @@
       "file_type": "code",
       "norm_label": "htmlincludes()",
       "source_file": "vite.config.js",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "vite_config_i18n",
@@ -3703,7 +3979,7 @@
       "file_type": "code",
       "norm_label": "i18n()",
       "source_file": "vite.config.js",
-      "source_location": "L102"
+      "source_location": "L103"
     },
     {
       "id": "vite_config_sitemap",
@@ -3715,7 +3991,7 @@
       "file_type": "code",
       "norm_label": "sitemap()",
       "source_file": "vite.config.js",
-      "source_location": "L201"
+      "source_location": "L202"
     },
     {
       "id": "vite_config_themeboot",
@@ -3727,7 +4003,7 @@
       "file_type": "code",
       "norm_label": "themeboot()",
       "source_file": "vite.config.js",
-      "source_location": "L68"
+      "source_location": "L69"
     },
     {
       "id": "src_showroom_buildtower",
@@ -4114,16 +4390,88 @@
       "source_location": "L310"
     },
     {
-      "id": "src_product_page_runpiece",
-      "label": "runPiece()",
+      "id": "src_learngenie_climb_createclimb",
+      "label": "createClimb()",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
       "community_name": "product-viewport.js",
       "file_type": "code",
-      "norm_label": "runpiece()",
-      "source_file": "src/product-page.js",
-      "source_location": "L42"
+      "norm_label": "createclimb()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L89"
+    },
+    {
+      "id": "src_learngenie_climb_createclimb_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L196"
+    },
+    {
+      "id": "src_learngenie_climb_createclimb_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L246"
+    },
+    {
+      "id": "src_learngenie_climb_createclimb_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L216"
+    },
+    {
+      "id": "src_learngenie_climb_drawstep",
+      "label": "drawStep()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "drawstep()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L32"
+    },
+    {
+      "id": "src_learngenie_climb_shadowtexture",
+      "label": "shadowTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "shadowtexture()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L62"
+    },
+    {
+      "id": "src_learngenie_climb_starshape",
+      "label": "starShape()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "starshape()",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L75"
     },
     {
       "id": "src_product_ui_asset",
@@ -6554,6 +6902,61 @@
       "source_location": "L32"
     },
     {
+      "id": "src_case_study_scene",
+      "label": "case-study-scene.js",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "case-study-scene.js",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_case_study_scene_canvas",
+      "label": "canvas",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "canvas",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "src_case_study_scene_host",
+      "label": "host",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "host",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_finaware_flow",
+      "label": "finaware-flow.js",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "finaware-flow.js",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_finaware_flow_stages",
+      "label": "STAGES",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "three",
+      "file_type": "code",
+      "norm_label": "stages",
+      "source_file": "src/finaware-flow.js",
+      "source_location": "L25"
+    },
+    {
       "id": "src_finexa_hub",
       "label": "finexa-hub.js",
       "_origin": "ast",
@@ -6574,28 +6977,6 @@
       "norm_label": "platforms",
       "source_file": "src/finexa-hub.js",
       "source_location": "L16"
-    },
-    {
-      "id": "src_fiscus_picture",
-      "label": "fiscus-picture.js",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "fiscus-picture.js",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_fiscus_picture_sources",
-      "label": "SOURCES",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "three",
-      "file_type": "code",
-      "norm_label": "sources",
-      "source_file": "src/fiscus-picture.js",
-      "source_location": "L27"
     },
     {
       "id": "src_gennxt_stack",
@@ -6694,7 +7075,29 @@
       "file_type": "concept",
       "norm_label": "three",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L19"
+    },
+    {
+      "id": "src_careers_apply",
+      "label": "careers-apply.js",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "careers-apply.js",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_careers_apply_ok_types",
+      "label": "OK_TYPES",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "ok_types",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L24"
     },
     {
       "id": "src_consent",
@@ -6717,6 +7120,72 @@
       "norm_label": "state",
       "source_file": "src/consent.js",
       "source_location": "L28"
+    },
+    {
+      "id": "src_doc",
+      "label": "doc.js",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "doc.js",
+      "source_file": "src/doc.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_doc_form",
+      "label": "form",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "form",
+      "source_file": "src/doc.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "src_doc_note",
+      "label": "note",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "note",
+      "source_file": "src/doc.js",
+      "source_location": "L71"
+    },
+    {
+      "id": "src_doc_toclinks",
+      "label": "tocLinks",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "toclinks",
+      "source_file": "src/doc.js",
+      "source_location": "L43"
+    },
+    {
+      "id": "src_forms",
+      "label": "forms.js",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "forms.js",
+      "source_file": "src/forms.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_forms_backendready",
+      "label": "backendReady",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "backendready",
+      "source_file": "src/forms.js",
+      "source_location": "L25"
     },
     {
       "id": "src_i18n",
@@ -6771,7 +7240,7 @@
       "file_type": "code",
       "norm_label": "games",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L668"
+      "source_location": "L679"
     },
     {
       "id": "src_learngenie_games_pairs",
@@ -6833,7 +7302,7 @@
       "label": "./x-scene.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "confidence": "EXTRACTED",
       "file_type": "code",
       "norm_label": "./x-scene.js",
@@ -6844,18 +7313,40 @@
       "label": "after-paint.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "after-paint.js",
       "source_file": "src/after-paint.js",
       "source_location": "L1"
     },
     {
+      "id": "src_case_study",
+      "label": "case-study.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "case-study.js",
+      "source_file": "src/case-study.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_case_study_wide",
+      "label": "wide",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "wide",
+      "source_file": "src/case-study.js",
+      "source_location": "L25"
+    },
+    {
       "id": "src_home",
       "label": "home.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "home.js",
       "source_file": "src/home.js",
@@ -6866,18 +7357,73 @@
       "label": "main.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "main.js",
       "source_file": "src/main.js",
       "source_location": "L1"
     },
     {
+      "id": "src_nav",
+      "label": "nav.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "nav.js",
+      "source_file": "src/nav.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_nav_fill",
+      "label": "fill",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "fill",
+      "source_file": "src/nav.js",
+      "source_location": "L42"
+    },
+    {
+      "id": "src_nav_line",
+      "label": "line",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "line",
+      "source_file": "src/nav.js",
+      "source_location": "L39"
+    },
+    {
+      "id": "src_nav_menu",
+      "label": "menu",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "menu",
+      "source_file": "src/nav.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "src_nav_nav",
+      "label": "nav",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "nav",
+      "source_file": "src/nav.js",
+      "source_location": "L15"
+    },
+    {
       "id": "src_partners",
       "label": "partners.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "partners.js",
       "source_file": "src/partners.js",
@@ -6888,18 +7434,40 @@
       "label": "mark",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "mark",
       "source_file": "src/partners.js",
       "source_location": "L24"
     },
     {
+      "id": "src_product_page",
+      "label": "product-page.js",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "product-page.js",
+      "source_file": "src/product-page.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_product_page_doc",
+      "label": "doc",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "nav.js",
+      "file_type": "code",
+      "norm_label": "doc",
+      "source_file": "src/product-page.js",
+      "source_location": "L22"
+    },
+    {
       "id": "src_services",
       "label": "services.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "services.js",
       "source_file": "src/services.js",
@@ -6910,7 +7478,7 @@
       "label": "solutions.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "solutions.js",
       "source_file": "src/solutions.js",
@@ -6921,7 +7489,7 @@
       "label": "whatsapp.js",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "whatsapp.js",
       "source_file": "src/whatsapp.js",
@@ -6932,7 +7500,7 @@
       "label": "button",
       "_origin": "ast",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "file_type": "code",
       "norm_label": "button",
       "source_file": "src/whatsapp.js",
@@ -7203,59 +7771,444 @@
       "source_location": "L93"
     },
     {
-      "id": "src_case_study",
-      "label": "case-study.js",
+      "id": "backend_package",
+      "label": "backend/package.json",
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "submit.mjs",
       "file_type": "code",
-      "norm_label": "case-study.js",
-      "source_file": "src/case-study.js",
+      "norm_label": "backend/package.json",
+      "source_file": "backend/package.json",
       "source_location": "L1"
     },
     {
-      "id": "src_case_study_scene",
-      "label": "case-study-scene.js",
+      "id": "backend_package_dependencies",
+      "label": "dependencies",
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "submit.mjs",
       "file_type": "code",
-      "norm_label": "case-study-scene.js",
-      "source_file": "src/case-study-scene.js",
+      "norm_label": "dependencies",
+      "source_file": "backend/package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "backend_package_dependencies_aws_sdk_client_dynamodb",
+      "label": "@aws-sdk/client-dynamodb",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "@aws-sdk/client-dynamodb",
+      "source_file": "backend/package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "backend_package_dependencies_aws_sdk_client_s3",
+      "label": "@aws-sdk/client-s3",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "@aws-sdk/client-s3",
+      "source_file": "backend/package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "backend_package_dependencies_aws_sdk_client_sesv2",
+      "label": "@aws-sdk/client-sesv2",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "@aws-sdk/client-sesv2",
+      "source_file": "backend/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "backend_package_dependencies_aws_sdk_client_ssm",
+      "label": "@aws-sdk/client-ssm",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "@aws-sdk/client-ssm",
+      "source_file": "backend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "backend_package_dependencies_aws_sdk_lib_dynamodb",
+      "label": "@aws-sdk/lib-dynamodb",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "@aws-sdk/lib-dynamodb",
+      "source_file": "backend/package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "backend_package_dependencies_aws_sdk_s3_request_presigner",
+      "label": "@aws-sdk/s3-request-presigner",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "@aws-sdk/s3-request-presigner",
+      "source_file": "backend/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "backend_package_description",
+      "label": "description",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "description",
+      "source_file": "backend/package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "backend_package_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "backend/package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "backend_package_private",
+      "label": "private",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "private",
+      "source_file": "backend/package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "backend_package_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "backend/package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "backend_package_version",
+      "label": "version",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "version",
+      "source_file": "backend/package.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "backend_src_cv_upload_url",
+      "label": "cv-upload-url.mjs",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "cv-upload-url.mjs",
+      "source_file": "backend/src/cv-upload-url.mjs",
       "source_location": "L1"
     },
     {
-      "id": "src_case_study_scene_canvas",
-      "label": "canvas",
+      "id": "backend_src_cv_upload_url_cors",
+      "label": "CORS",
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "submit.mjs",
       "file_type": "code",
-      "norm_label": "canvas",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L23"
+      "norm_label": "cors",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L30"
     },
     {
-      "id": "src_case_study_scene_host",
-      "label": "host",
+      "id": "backend_src_cv_upload_url_max_bytes",
+      "label": "MAX_BYTES",
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "submit.mjs",
       "file_type": "code",
-      "norm_label": "host",
-      "source_file": "src/case-study-scene.js",
+      "norm_label": "max_bytes",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L26"
+    },
+    {
+      "id": "backend_src_cv_upload_url_s3",
+      "label": "s3",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "s3",
+      "source_file": "backend/src/cv-upload-url.mjs",
       "source_location": "L22"
     },
     {
-      "id": "src_case_study_wide",
-      "label": "wide",
+      "id": "backend_src_cv_upload_url_types",
+      "label": "TYPES",
       "_origin": "ast",
       "community": 21,
-      "community_name": "case-study.js",
+      "community_name": "submit.mjs",
       "file_type": "code",
-      "norm_label": "wide",
-      "source_file": "src/case-study.js",
-      "source_location": "L25"
+      "norm_label": "types",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L27"
+    },
+    {
+      "id": "backend_src_lib_forms",
+      "label": "forms.mjs",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "forms.mjs",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_lib_forms_email",
+      "label": "email",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "email",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L18"
+    },
+    {
+      "id": "backend_src_lib_forms_forms",
+      "label": "FORMS",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "forms",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L26"
+    },
+    {
+      "id": "backend_src_lib_forms_list",
+      "label": "list",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "list",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L24"
+    },
+    {
+      "id": "backend_src_lib_forms_message",
+      "label": "message",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "message",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L21"
+    },
+    {
+      "id": "backend_src_lib_forms_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L19"
+    },
+    {
+      "id": "backend_src_lib_forms_phone",
+      "label": "phone",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "phone",
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L20"
+    },
+    {
+      "id": "backend_src_lib_turnstile",
+      "label": "turnstile.mjs",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "turnstile.mjs",
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_lib_turnstile_ssm",
+      "label": "ssm",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "ssm",
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L17"
+    },
+    {
+      "id": "backend_src_submit",
+      "label": "submit.mjs",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "submit.mjs",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_src_submit_cors",
+      "label": "CORS",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "cors",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L40"
+    },
+    {
+      "id": "backend_src_submit_ddb",
+      "label": "ddb",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "ddb",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L28"
+    },
+    {
+      "id": "backend_src_submit_max_field",
+      "label": "MAX_FIELD",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "max_field",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L37"
+    },
+    {
+      "id": "backend_src_submit_retain_months",
+      "label": "RETAIN_MONTHS",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "retain_months",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L38"
+    },
+    {
+      "id": "backend_src_submit_routes",
+      "label": "ROUTES",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "routes",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L36"
+    },
+    {
+      "id": "backend_src_submit_ses",
+      "label": "ses",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "code",
+      "norm_label": "ses",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L31"
+    },
+    {
+      "id": "ref_aws_sdk_client_dynamodb",
+      "label": "@aws-sdk/client-dynamodb",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "concept",
+      "norm_label": "@aws-sdk/client-dynamodb",
+      "source_file": "backend/package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "ref_aws_sdk_client_s3",
+      "label": "@aws-sdk/client-s3",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "concept",
+      "norm_label": "@aws-sdk/client-s3",
+      "source_file": "backend/package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "ref_aws_sdk_client_sesv2",
+      "label": "@aws-sdk/client-sesv2",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "concept",
+      "norm_label": "@aws-sdk/client-sesv2",
+      "source_file": "backend/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "ref_aws_sdk_client_ssm",
+      "label": "@aws-sdk/client-ssm",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "concept",
+      "norm_label": "@aws-sdk/client-ssm",
+      "source_file": "backend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "ref_aws_sdk_lib_dynamodb",
+      "label": "@aws-sdk/lib-dynamodb",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "concept",
+      "norm_label": "@aws-sdk/lib-dynamodb",
+      "source_file": "backend/package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "ref_aws_sdk_s3_request_presigner",
+      "label": "@aws-sdk/s3-request-presigner",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "file_type": "concept",
+      "norm_label": "@aws-sdk/s3-request-presigner",
+      "source_file": "backend/package.json",
+      "source_location": "L12"
     },
     {
       "id": "src_careers",
@@ -7277,7 +8230,7 @@
       "file_type": "code",
       "norm_label": "chips",
       "source_file": "src/careers.js",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "src_careers_count",
@@ -7288,7 +8241,7 @@
       "file_type": "code",
       "norm_label": "count",
       "source_file": "src/careers.js",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "src_careers_empty",
@@ -7299,7 +8252,7 @@
       "file_type": "code",
       "norm_label": "empty",
       "source_file": "src/careers.js",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "src_careers_jobs",
@@ -7310,7 +8263,7 @@
       "file_type": "code",
       "norm_label": "jobs",
       "source_file": "src/careers.js",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "src_careers_picked",
@@ -7321,7 +8274,7 @@
       "file_type": "code",
       "norm_label": "picked",
       "source_file": "src/careers.js",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "src_careers_search",
@@ -7332,62 +8285,29 @@
       "file_type": "code",
       "norm_label": "search",
       "source_file": "src/careers.js",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
-      "id": "src_nav",
-      "label": "nav.js",
+      "id": "src_cloud_scene",
+      "label": "cloud-scene.js",
       "_origin": "ast",
       "community": 23,
-      "community_name": "nav.js",
+      "community_name": "buildCloudScene",
       "file_type": "code",
-      "norm_label": "nav.js",
-      "source_file": "src/nav.js",
+      "norm_label": "cloud-scene.js",
+      "source_file": "src/cloud-scene.js",
       "source_location": "L1"
     },
     {
-      "id": "src_nav_fill",
-      "label": "fill",
+      "id": "src_cloud_scene_clouds",
+      "label": "CLOUDS",
       "_origin": "ast",
       "community": 23,
-      "community_name": "nav.js",
+      "community_name": "buildCloudScene",
       "file_type": "code",
-      "norm_label": "fill",
-      "source_file": "src/nav.js",
-      "source_location": "L42"
-    },
-    {
-      "id": "src_nav_line",
-      "label": "line",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "line",
-      "source_file": "src/nav.js",
-      "source_location": "L39"
-    },
-    {
-      "id": "src_nav_menu",
-      "label": "menu",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "menu",
-      "source_file": "src/nav.js",
-      "source_location": "L16"
-    },
-    {
-      "id": "src_nav_nav",
-      "label": "nav",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "nav",
-      "source_file": "src/nav.js",
-      "source_location": "L15"
+      "norm_label": "clouds",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L21"
     },
     {
       "id": "package",
@@ -7409,7 +8329,7 @@
       "file_type": "code",
       "norm_label": "dependencies",
       "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L18"
     },
     {
       "id": "package_dependencies_three",
@@ -7420,7 +8340,7 @@
       "file_type": "code",
       "norm_label": "three",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L19"
     },
     {
       "id": "package_devdependencies",
@@ -7431,7 +8351,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L12"
+      "source_location": "L15"
     },
     {
       "id": "package_devdependencies_vite",
@@ -7442,7 +8362,7 @@
       "file_type": "code",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L13"
+      "source_location": "L16"
     },
     {
       "id": "package_name",
@@ -7476,6 +8396,39 @@
       "norm_label": "scripts",
       "source_file": "package.json",
       "source_location": "L6"
+    },
+    {
+      "id": "package_scripts_backend_check",
+      "label": "backend:check",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "backend:check",
+      "source_file": "package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "package_scripts_backend_deploy",
+      "label": "backend:deploy",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "backend:deploy",
+      "source_file": "package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "package_scripts_backend_params",
+      "label": "backend:params",
+      "_origin": "ast",
+      "community": 24,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "backend:params",
+      "source_file": "package.json",
+      "source_location": "L12"
     },
     {
       "id": "package_scripts_build",
@@ -7552,7 +8505,7 @@
       "file_type": "concept",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L13"
+      "source_location": "L16"
     },
     {
       "id": "src_about_hero",
@@ -7621,48 +8574,26 @@
       "source_location": "L20"
     },
     {
-      "id": "src_cloud_scene",
-      "label": "cloud-scene.js",
+      "id": "src_fiscus_picture",
+      "label": "fiscus-picture.js",
       "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
+      "community": 26,
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
-      "norm_label": "cloud-scene.js",
-      "source_file": "src/cloud-scene.js",
+      "norm_label": "fiscus-picture.js",
+      "source_file": "src/fiscus-picture.js",
       "source_location": "L1"
     },
     {
-      "id": "src_cloud_scene_clouds",
-      "label": "CLOUDS",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "about-hero.js",
-      "file_type": "code",
-      "norm_label": "clouds",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L21"
-    },
-    {
-      "id": "src_finaware_flow",
-      "label": "finaware-flow.js",
+      "id": "src_fiscus_picture_sources",
+      "label": "SOURCES",
       "_origin": "ast",
       "community": 26,
-      "community_name": "finaware-flow.js",
+      "community_name": "fiscus-picture.js",
       "file_type": "code",
-      "norm_label": "finaware-flow.js",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_finaware_flow_stages",
-      "label": "STAGES",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "finaware-flow.js",
-      "file_type": "code",
-      "norm_label": "stages",
-      "source_file": "src/finaware-flow.js",
-      "source_location": "L25"
+      "norm_label": "sources",
+      "source_file": "src/fiscus-picture.js",
+      "source_location": "L27"
     },
     {
       "id": "src_solutions_scene_chips",
@@ -7687,26 +8618,124 @@
       "source_location": "L546"
     },
     {
-      "id": "src_learngenie_climb",
-      "label": "learngenie-climb.js",
+      "id": "backend_readme",
+      "label": "README.md",
       "_origin": "ast",
       "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "learngenie-climb.js",
-      "source_file": "src/learngenie-climb.js",
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "readme.md",
+      "source_file": "backend/README.md",
       "source_location": "L1"
     },
     {
-      "id": "src_learngenie_climb_steps",
-      "label": "STEPS",
+      "id": "backend_readme_1_cloudflare_turnstile_the_captcha_free_no_request_cap",
+      "label": "1. Cloudflare Turnstile (the CAPTCHA \u2014 free, no request cap)",
       "_origin": "ast",
       "community": 28,
-      "community_name": "learngenie-climb.js",
-      "file_type": "code",
-      "norm_label": "steps",
-      "source_file": "src/learngenie-climb.js",
-      "source_location": "L25"
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. cloudflare turnstile (the captcha \u2014 free, no request cap)",
+      "source_file": "backend/README.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "backend_readme_2_ses_so_the_mail_actually_sends",
+      "label": "2. SES \u2014 so the mail actually sends",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. ses \u2014 so the mail actually sends",
+      "source_file": "backend/README.md",
+      "source_location": "L40"
+    },
+    {
+      "id": "backend_readme_3_fill_in_the_config",
+      "label": "3. Fill in the config",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. fill in the config",
+      "source_file": "backend/README.md",
+      "source_location": "L60"
+    },
+    {
+      "id": "backend_readme_4_deploy",
+      "label": "4. Deploy",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. deploy",
+      "source_file": "backend/README.md",
+      "source_location": "L68"
+    },
+    {
+      "id": "backend_readme_checking_it_works",
+      "label": "Checking it works",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "checking it works",
+      "source_file": "backend/README.md",
+      "source_location": "L139"
+    },
+    {
+      "id": "backend_readme_costs",
+      "label": "Costs",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "costs",
+      "source_file": "backend/README.md",
+      "source_location": "L121"
+    },
+    {
+      "id": "backend_readme_one_time_setup",
+      "label": "One-time setup",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "one-time setup",
+      "source_file": "backend/README.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "backend_readme_website_backend",
+      "label": "Website backend",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "website backend",
+      "source_file": "backend/README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "backend_readme_what_gets_stored",
+      "label": "What gets stored",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "One-time setup",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "what gets stored",
+      "source_file": "backend/README.md",
+      "source_location": "L96"
     },
     {
       "id": "src_brochure",
@@ -7960,50 +8989,6 @@
       "norm_label": "views",
       "source_file": "src/home-scene.js",
       "source_location": "L150"
-    },
-    {
-      "id": "src_doc",
-      "label": "doc.js",
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "doc.js",
-      "source_file": "src/doc.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_doc_form",
-      "label": "form",
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "form",
-      "source_file": "src/doc.js",
-      "source_location": "L69"
-    },
-    {
-      "id": "src_doc_note",
-      "label": "note",
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "note",
-      "source_file": "src/doc.js",
-      "source_location": "L70"
-    },
-    {
-      "id": "src_doc_toclinks",
-      "label": "tocLinks",
-      "_origin": "ast",
-      "community": 30,
-      "community_name": "doc.js",
-      "file_type": "code",
-      "norm_label": "toclinks",
-      "source_file": "src/doc.js",
-      "source_location": "L42"
     },
     {
       "id": "src_services_scene_dottex",
@@ -8556,6 +9541,50 @@
       "source_location": "L16"
     },
     {
+      "id": "scripts_backend_config",
+      "label": "backend-config.mjs",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "backend-config.mjs",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_backend_config_config_path",
+      "label": "CONFIG_PATH",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "config_path",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L19"
+    },
+    {
+      "id": "scripts_backend_config_required",
+      "label": "REQUIRED",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "required",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L38"
+    },
+    {
+      "id": "scripts_backend_config_root",
+      "label": "ROOT",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "i18n.mjs",
+      "file_type": "code",
+      "norm_label": "root",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L18"
+    },
+    {
       "id": "scripts_i18n",
       "label": "i18n.mjs",
       "_origin": "ast",
@@ -8916,7 +9945,7 @@
       "file_type": "code",
       "norm_label": "site",
       "source_file": "vite.config.js",
-      "source_location": "L13"
+      "source_location": "L14"
     },
     {
       "id": "src_solutions_scene_glowtex",
@@ -8930,26 +9959,26 @@
       "source_location": "L404"
     },
     {
-      "id": "src_product_page",
-      "label": "product-page.js",
+      "id": "src_learngenie_climb",
+      "label": "learngenie-climb.js",
       "_origin": "ast",
       "community": 7,
       "community_name": "product-viewport.js",
       "file_type": "code",
-      "norm_label": "product-page.js",
-      "source_file": "src/product-page.js",
+      "norm_label": "learngenie-climb.js",
+      "source_file": "src/learngenie-climb.js",
       "source_location": "L1"
     },
     {
-      "id": "src_product_page_doc",
-      "label": "doc",
+      "id": "src_learngenie_climb_steps",
+      "label": "STEPS",
       "_origin": "ast",
       "community": 7,
       "community_name": "product-viewport.js",
       "file_type": "code",
-      "norm_label": "doc",
-      "source_file": "src/product-page.js",
-      "source_location": "L22"
+      "norm_label": "steps",
+      "source_file": "src/learngenie-climb.js",
+      "source_location": "L25"
     },
     {
       "id": "src_product_ui",
@@ -15514,7 +16543,7 @@
       "label": "src_bang",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_bang",
@@ -15526,7 +16555,7 @@
       "label": "src_style",
       "_origin": "semantic",
       "community": 18,
-      "community_name": "after-paint.js",
+      "community_name": "nav.js",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_style",
@@ -15580,9 +16609,140 @@
       "norm_label": "src_product_screen",
       "source_file": "",
       "type": "external"
+    },
+    {
+      "id": "ref_node_crypto",
+      "label": "ref_node_crypto",
+      "community": 21,
+      "community_name": "submit.mjs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_crypto",
+      "source_file": "",
+      "type": "external"
     }
   ],
   "links": [
+    {
+      "source": "src_careers_apply_onkey",
+      "target": "src_careers_apply_close",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url_handler",
+      "target": "backend_src_cv_upload_url_reply",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url_handler",
+      "target": "backend_src_lib_turnstile_verifyturnstile",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url_handler",
+      "target": "backend_src_cv_upload_url_safename",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_turnstile_verifyturnstile",
+      "target": "backend_src_lib_turnstile_secret",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit_handler",
+      "target": "backend_src_lib_forms_render",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit_handler",
+      "target": "backend_src_submit_reply",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit_handler",
+      "target": "backend_src_lib_turnstile_verifyturnstile",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit_handler",
+      "target": "backend_src_lib_forms_validate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config_check",
+      "target": "scripts_backend_config_dig",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L52",
+      "weight": 1.0
+    },
     {
       "source": "scripts_i18n_attrs",
       "target": "scripts_i18n_translatable",
@@ -16028,6 +17188,78 @@
       "weight": 1.0
     },
     {
+      "source": "src_careers_apply_build",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply_build",
+      "target": "src_careers_apply_close",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply_build",
+      "target": "src_forms_uploadcv",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply_build",
+      "target": "src_forms_submitform",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply_open",
+      "target": "src_careers_apply_close",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply_open",
+      "target": "src_careers_apply_build",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
       "source": "src_careers_filter",
       "target": "src_careers_matches",
       "relation": "calls",
@@ -16036,7 +17268,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/careers.js",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -16048,7 +17280,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/careers.js",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -16060,7 +17292,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/careers.js",
-      "source_location": "L82",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -16400,6 +17632,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_doc_fallback",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/doc.js",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
       "source": "src_finaware_flow_createflow",
       "target": "src_finaware_flow_drawstage",
       "relation": "calls",
@@ -16565,6 +17809,138 @@
       "context": "call",
       "source_file": "src/fiscus-picture.js",
       "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_armforms",
+      "target": "src_forms_mountturnstile",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_mountturnstile",
+      "target": "src_forms_loadturnstile",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_post",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_submitform",
+      "target": "src_forms_readform",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L143",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_submitform",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_submitform",
+      "target": "src_forms_token",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_submitform",
+      "target": "src_forms_post",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_token",
+      "target": "src_forms_mountturnstile",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_uploadcv",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_uploadcv",
+      "target": "src_forms_token",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms_uploadcv",
+      "target": "src_forms_post",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/forms.js",
+      "source_location": "L180",
       "weight": 1.0
     },
     {
@@ -17320,7 +18696,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L356",
+      "source_location": "L367",
       "weight": 1.0
     },
     {
@@ -17332,7 +18708,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L304",
+      "source_location": "L315",
       "weight": 1.0
     },
     {
@@ -17344,7 +18720,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L317",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -17356,7 +18732,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L341",
+      "source_location": "L352",
       "weight": 1.0
     },
     {
@@ -17368,7 +18744,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L344",
+      "source_location": "L355",
       "weight": 1.0
     },
     {
@@ -17380,7 +18756,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L347",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -17392,7 +18768,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L348",
+      "source_location": "L359",
       "weight": 1.0
     },
     {
@@ -17428,7 +18804,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L233",
+      "source_location": "L244",
       "weight": 1.0
     },
     {
@@ -17440,7 +18816,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L235",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -17452,7 +18828,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L246",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -17500,7 +18876,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L571",
+      "source_location": "L582",
       "weight": 1.0
     },
     {
@@ -17512,7 +18888,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L511",
+      "source_location": "L522",
       "weight": 1.0
     },
     {
@@ -17524,7 +18900,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L533",
+      "source_location": "L544",
       "weight": 1.0
     },
     {
@@ -17536,7 +18912,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L562",
+      "source_location": "L573",
       "weight": 1.0
     },
     {
@@ -17548,7 +18924,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L539",
+      "source_location": "L550",
       "weight": 1.0
     },
     {
@@ -17560,7 +18936,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L555",
+      "source_location": "L566",
       "weight": 1.0
     },
     {
@@ -17596,7 +18972,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L384",
+      "source_location": "L395",
       "weight": 1.0
     },
     {
@@ -17608,7 +18984,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L405",
+      "source_location": "L416",
       "weight": 1.0
     },
     {
@@ -17620,7 +18996,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L408",
+      "source_location": "L419",
       "weight": 1.0
     },
     {
@@ -17632,7 +19008,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L409",
+      "source_location": "L420",
       "weight": 1.0
     },
     {
@@ -17644,7 +19020,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L416",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -17656,7 +19032,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L633",
+      "source_location": "L644",
       "weight": 1.0
     },
     {
@@ -17668,7 +19044,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L639",
+      "source_location": "L650",
       "weight": 1.0
     },
     {
@@ -17680,7 +19056,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L640",
+      "source_location": "L651",
       "weight": 1.0
     },
     {
@@ -17692,7 +19068,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L597",
+      "source_location": "L608",
       "weight": 1.0
     },
     {
@@ -17704,7 +19080,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L618",
+      "source_location": "L629",
       "weight": 1.0
     },
     {
@@ -17716,7 +19092,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L627",
+      "source_location": "L638",
       "weight": 1.0
     },
     {
@@ -17728,7 +19104,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L653",
+      "source_location": "L664",
       "weight": 1.0
     },
     {
@@ -17740,7 +19116,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L592",
+      "source_location": "L603",
       "weight": 1.0
     },
     {
@@ -17752,7 +19128,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L790",
+      "source_location": "L801",
       "weight": 1.0
     },
     {
@@ -17764,7 +19140,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L732",
+      "source_location": "L743",
       "weight": 1.0
     },
     {
@@ -17776,24 +19152,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L725",
+      "source_location": "L736",
       "weight": 1.0
     },
     {
       "source": "src_learngenie_games_wirelive_answer",
       "target": "src_i18n_t",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/learngenie-games.js",
-      "source_location": "L732",
-      "weight": 1.0
-    },
-    {
-      "source": "src_learngenie_games_wirelive_answer",
-      "target": "src_learngenie_games_wirelive_draw",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -17805,6 +19169,18 @@
     },
     {
       "source": "src_learngenie_games_wirelive_answer",
+      "target": "src_learngenie_games_wirelive_draw",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L754",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_wirelive_answer",
       "target": "src_learngenie_games_crorepati",
       "relation": "calls",
       "_origin": "ast",
@@ -17812,7 +19188,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L747",
+      "source_location": "L758",
       "weight": 1.0
     },
     {
@@ -17824,7 +19200,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L759",
+      "source_location": "L770",
       "weight": 1.0
     },
     {
@@ -17836,7 +19212,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L486",
+      "source_location": "L497",
       "weight": 1.0
     },
     {
@@ -17848,7 +19224,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L443",
+      "source_location": "L454",
       "weight": 1.0
     },
     {
@@ -17860,7 +19236,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L479",
+      "source_location": "L490",
       "weight": 1.0
     },
     {
@@ -18281,6 +19657,18 @@
       "context": "call",
       "source_file": "src/services-scene.js",
       "source_location": "L329",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_ui_fallback",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/services-ui.js",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -18920,6 +20308,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_solutions_ui_fallback",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/solutions-ui.js",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
       "source": "src_solutions_ui_queuetrack",
       "target": "src_solutions_ui_track",
       "relation": "calls",
@@ -19048,7 +20448,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "vite.config.js",
-      "source_location": "L132",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -19204,7 +20604,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/careers.js",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -19396,7 +20796,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/doc.js",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -19660,19 +21060,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L302",
-      "weight": 1.0
-    },
-    {
-      "source": "src_learngenie_games_demoform",
-      "target": "src_learngenie_games_demoform_done",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/learngenie-games.js",
-      "source_location": "L232",
+      "source_location": "L313",
       "weight": 1.0
     },
     {
@@ -19684,7 +21072,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L382",
+      "source_location": "L393",
       "weight": 1.0
     },
     {
@@ -19696,7 +21084,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L585",
+      "source_location": "L596",
       "weight": 1.0
     },
     {
@@ -19708,7 +21096,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L699",
+      "source_location": "L710",
       "weight": 1.0
     },
     {
@@ -19720,7 +21108,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L439",
+      "source_location": "L450",
       "weight": 1.0
     },
     {
@@ -20190,6 +21578,138 @@
       "weight": 1.0
     },
     {
+      "source": "backend_package",
+      "target": "ref_aws_sdk_client_sesv2",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/package.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_aws_sdk_client_s3",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/package.json",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_aws_sdk_s3_request_presigner",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/package.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_aws_sdk_client_ssm",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/package.json",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_aws_sdk_client_dynamodb",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/package.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_aws_sdk_lib_dynamodb",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/package.json",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_lib_turnstile_verifyturnstile",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_lib_forms_forms",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_lib_forms_render",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_lib_forms_validate",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_lib_turnstile_verifyturnstile",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
       "source": "package",
       "target": "ref_vite",
       "relation": "imports",
@@ -20198,7 +21718,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -20210,7 +21730,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -20366,7 +21886,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/careers.js",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -20378,7 +21898,55 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/careers.js",
-      "source_location": "L7",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_i18n_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_forms_backendready",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_forms_submitform",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_forms_uploadcv",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -20455,7 +22023,7 @@
     },
     {
       "source": "src_doc",
-      "target": "src_i18n_t",
+      "target": "src_forms_armforms",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -20467,6 +22035,30 @@
     },
     {
       "source": "src_doc",
+      "target": "src_forms_submitform",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/doc.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_doc",
+      "target": "src_i18n_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/doc.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_doc",
       "target": "src_theme_inittheme",
       "relation": "imports",
       "_origin": "ast",
@@ -20474,7 +22066,19 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/doc.js",
-      "source_location": "L6",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_i18n_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/forms.js",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -21103,6 +22707,18 @@
     },
     {
       "source": "vite_config",
+      "target": "scripts_backend_config_publicconfig",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "vite.config.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "vite_config",
       "target": "scripts_pages_pages",
       "relation": "imports",
       "_origin": "ast",
@@ -21110,7 +22726,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "vite.config.js",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -21122,7 +22738,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "vite.config.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -21134,7 +22750,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "vite.config.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -21146,7 +22762,175 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "vite.config.js",
-      "source_location": "L5",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "ref_node_crypto",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "ref_aws_sdk_client_s3",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "ref_aws_sdk_s3_request_presigner",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_lib_turnstile",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_turnstile",
+      "target": "ref_aws_sdk_client_ssm",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "ref_node_crypto",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "ref_aws_sdk_client_dynamodb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "ref_aws_sdk_lib_dynamodb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "ref_aws_sdk_client_sesv2",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_lib_forms",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_lib_turnstile",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "ref_node_fs",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "ref_node_path",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "ref_node_url",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -21523,7 +23307,7 @@
     },
     {
       "source": "src_careers",
-      "target": "src_i18n",
+      "target": "src_careers_apply",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21535,19 +23319,19 @@
     },
     {
       "source": "src_careers",
-      "target": "src_nav",
+      "target": "src_i18n",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/careers.js",
-      "source_location": "L4",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
       "source": "src_careers",
-      "target": "src_whatsapp",
+      "target": "src_nav",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21559,6 +23343,18 @@
     },
     {
       "source": "src_careers",
+      "target": "src_whatsapp",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/careers.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers",
       "target": "src_theme",
       "relation": "imports_from",
       "_origin": "ast",
@@ -21566,7 +23362,31 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/careers.js",
-      "source_location": "L7",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_i18n",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_forms",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -21751,7 +23571,7 @@
     },
     {
       "source": "src_doc",
-      "target": "src_i18n",
+      "target": "src_forms",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21763,19 +23583,19 @@
     },
     {
       "source": "src_doc",
-      "target": "src_nav",
+      "target": "src_i18n",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/doc.js",
-      "source_location": "L4",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
       "source": "src_doc",
-      "target": "src_whatsapp",
+      "target": "src_nav",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21787,7 +23607,7 @@
     },
     {
       "source": "src_doc",
-      "target": "src_theme",
+      "target": "src_whatsapp",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21795,6 +23615,18 @@
       "context": "import",
       "source_file": "src/doc.js",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_doc",
+      "target": "src_theme",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/doc.js",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -21831,6 +23663,18 @@
       "context": "import",
       "source_file": "src/fiscus-picture.js",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_i18n",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/forms.js",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -22639,7 +24483,7 @@
     },
     {
       "source": "vite_config",
-      "target": "ref_node_fs",
+      "target": "scripts_backend_config",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -22651,7 +24495,7 @@
     },
     {
       "source": "vite_config",
-      "target": "ref_node_path",
+      "target": "ref_node_fs",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -22663,7 +24507,7 @@
     },
     {
       "source": "vite_config",
-      "target": "scripts_pages",
+      "target": "ref_node_path",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -22675,7 +24519,7 @@
     },
     {
       "source": "vite_config",
-      "target": "scripts_i18n",
+      "target": "scripts_pages",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -22683,6 +24527,535 @@
       "context": "import",
       "source_file": "vite.config.js",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "vite_config",
+      "target": "scripts_i18n",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "vite.config.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_version",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_private",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_type",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_description",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_dependencies",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_aws_sdk_client_sesv2",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_aws_sdk_client_s3",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_aws_sdk_s3_request_presigner",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_aws_sdk_client_ssm",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_aws_sdk_client_dynamodb",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_aws_sdk_lib_dynamodb",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/package.json",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme",
+      "target": "backend_readme_website_backend",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme_one_time_setup",
+      "target": "backend_readme_1_cloudflare_turnstile_the_captcha_free_no_request_cap",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme_one_time_setup",
+      "target": "backend_readme_2_ses_so_the_mail_actually_sends",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme_one_time_setup",
+      "target": "backend_readme_3_fill_in_the_config",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme_one_time_setup",
+      "target": "backend_readme_4_deploy",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme_website_backend",
+      "target": "backend_readme_costs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme_website_backend",
+      "target": "backend_readme_checking_it_works",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme_website_backend",
+      "target": "backend_readme_one_time_setup",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_readme_website_backend",
+      "target": "backend_readme_what_gets_stored",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/README.md",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_cv_upload_url_s3",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_cv_upload_url_max_bytes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_cv_upload_url_types",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_cv_upload_url_cors",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_cv_upload_url_reply",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_cv_upload_url_safename",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_cv_upload_url",
+      "target": "backend_src_cv_upload_url_handler",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/cv-upload-url.mjs",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_forms",
+      "target": "backend_src_lib_forms_validate",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_forms",
+      "target": "backend_src_lib_forms_render",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_forms",
+      "target": "backend_src_lib_forms_email",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_forms",
+      "target": "backend_src_lib_forms_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_forms",
+      "target": "backend_src_lib_forms_phone",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_forms",
+      "target": "backend_src_lib_forms_message",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_forms",
+      "target": "backend_src_lib_forms_list",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_forms",
+      "target": "backend_src_lib_forms_forms",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/forms.mjs",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_turnstile",
+      "target": "backend_src_lib_turnstile_ssm",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_turnstile",
+      "target": "backend_src_lib_turnstile_secret",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_lib_turnstile",
+      "target": "backend_src_lib_turnstile_verifyturnstile",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/lib/turnstile.mjs",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_submit_ddb",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_submit_ses",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_submit_routes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_submit_max_field",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_submit_retain_months",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_submit_cors",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_submit_reply",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "backend_src_submit",
+      "target": "backend_src_submit_handler",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/submit.mjs",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -22869,7 +25242,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L12",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -22880,7 +25253,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -22946,7 +25319,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -22957,7 +25330,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -22969,6 +25342,39 @@
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_backend_check",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_backend_params",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_backend_deploy",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -23002,6 +25408,94 @@
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "scripts_backend_config_root",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "scripts_backend_config_config_path",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "scripts_backend_config_loadconfig",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "scripts_backend_config_publicconfig",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "scripts_backend_config_required",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "scripts_backend_config_dig",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "scripts_backend_config_check",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_backend_config",
+      "target": "scripts_backend_config_params",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/backend-config.mjs",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -23804,7 +26298,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/careers.js",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -23815,7 +26309,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/careers.js",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -23826,7 +26320,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/careers.js",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -23837,7 +26331,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/careers.js",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -23848,7 +26342,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/careers.js",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -23859,7 +26353,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/careers.js",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -23870,7 +26364,62 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/careers.js",
-      "source_location": "L26",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_careers_apply_onkey",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/careers-apply.js",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_careers_apply_close",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/careers-apply.js",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_careers_apply_open",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/careers-apply.js",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_careers_apply_ok_types",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/careers-apply.js",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply",
+      "target": "src_careers_apply_build",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/careers-apply.js",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -24337,13 +26886,24 @@
     },
     {
       "source": "src_doc",
+      "target": "src_doc_fallback",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/doc.js",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "src_doc",
       "target": "src_doc_toclinks",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/doc.js",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -24354,7 +26914,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/doc.js",
-      "source_location": "L69",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -24365,7 +26925,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/doc.js",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -24553,6 +27113,105 @@
       "confidence_score": 1.0,
       "source_file": "src/fiscus-picture.js",
       "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_readform",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_post",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_submitform",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_uploadcv",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_backendready",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_loadturnstile",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_mountturnstile",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_armforms",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "src_forms",
+      "target": "src_forms_token",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/forms.js",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -25542,7 +28201,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L258",
+      "source_location": "L269",
       "weight": 1.0
     },
     {
@@ -25553,7 +28212,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L276",
+      "source_location": "L287",
       "weight": 1.0
     },
     {
@@ -25564,7 +28223,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L286",
+      "source_location": "L297",
       "weight": 1.0
     },
     {
@@ -25586,7 +28245,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L436",
+      "source_location": "L447",
       "weight": 1.0
     },
     {
@@ -25608,7 +28267,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L668",
+      "source_location": "L679",
       "weight": 1.0
     },
     {
@@ -25619,7 +28278,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L679",
+      "source_location": "L690",
       "weight": 1.0
     },
     {
@@ -25630,7 +28289,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L769",
+      "source_location": "L780",
       "weight": 1.0
     },
     {
@@ -25663,7 +28322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L353",
+      "source_location": "L364",
       "weight": 1.0
     },
     {
@@ -25674,7 +28333,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L510",
+      "source_location": "L521",
       "weight": 1.0
     },
     {
@@ -25685,7 +28344,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L538",
+      "source_location": "L549",
       "weight": 1.0
     },
     {
@@ -25696,7 +28355,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L561",
+      "source_location": "L572",
       "weight": 1.0
     },
     {
@@ -25707,7 +28366,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L415",
+      "source_location": "L426",
       "weight": 1.0
     },
     {
@@ -25718,7 +28377,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L595",
+      "source_location": "L606",
       "weight": 1.0
     },
     {
@@ -25729,7 +28388,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L632",
+      "source_location": "L643",
       "weight": 1.0
     },
     {
@@ -25740,7 +28399,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L652",
+      "source_location": "L663",
       "weight": 1.0
     },
     {
@@ -25751,7 +28410,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L711",
+      "source_location": "L722",
       "weight": 1.0
     },
     {
@@ -25762,7 +28421,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L753",
+      "source_location": "L764",
       "weight": 1.0
     },
     {
@@ -25773,7 +28432,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/learngenie-games.js",
-      "source_location": "L485",
+      "source_location": "L496",
       "weight": 1.0
     },
     {
@@ -26951,6 +29610,17 @@
       "confidence_score": 1.0,
       "source_file": "src/services-ui.js",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_ui",
+      "target": "src_services_ui_fallback",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/services-ui.js",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -29155,6 +31825,17 @@
     },
     {
       "source": "src_solutions_ui",
+      "target": "src_solutions_ui_fallback",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/solutions-ui.js",
+      "source_location": "L242",
+      "weight": 1.0
+    },
+    {
+      "source": "src_solutions_ui",
       "target": "src_solutions_ui_brand",
       "relation": "contains",
       "_origin": "ast",
@@ -29381,7 +32062,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vite.config.js",
-      "source_location": "L102",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -29392,7 +32073,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vite.config.js",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -29403,7 +32084,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vite.config.js",
-      "source_location": "L201",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -29414,7 +32095,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vite.config.js",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -29425,7 +32106,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vite.config.js",
-      "source_location": "L68",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -29578,7 +32259,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/careers.js",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -29590,7 +32271,19 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/careers.js",
-      "source_location": "L85",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "src_careers_apply_build",
+      "target": "src_careers_apply_onkey",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "src/careers-apply.js",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -29854,7 +32547,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L247",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -29902,7 +32595,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L784",
+      "source_location": "L795",
       "weight": 1.0
     },
     {
@@ -29914,7 +32607,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L460",
+      "source_location": "L471",
       "weight": 1.0
     },
     {
@@ -30202,7 +32895,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L668",
+      "source_location": "L679",
       "weight": 1.0
     },
     {
@@ -30214,7 +32907,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L668",
+      "source_location": "L679",
       "weight": 1.0
     },
     {
@@ -30226,7 +32919,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L668",
+      "source_location": "L679",
       "weight": 1.0
     },
     {
@@ -30238,7 +32931,19 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "src/learngenie-games.js",
-      "source_location": "L668",
+      "source_location": "L679",
+      "weight": 1.0
+    },
+    {
+      "source": "src_learngenie_games_demoform",
+      "target": "src_learngenie_games_demoform_done",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "collection",
+      "source_file": "src/learngenie-games.js",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -33550,5 +36255,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "a94508f4df5af19507e5ab98386df17a66007bb7"
+  "built_at_commit": "8065bc40f624b9ddd428e6ad898b4663da74732d"
 }

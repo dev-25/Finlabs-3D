@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { publicConfig } from './scripts/backend-config.mjs';
 import { readFileSync, statSync, existsSync } from 'node:fs';
 import { resolve, relative, dirname, sep } from 'node:path';
 import { PAGES } from './scripts/pages.mjs';
@@ -244,6 +245,10 @@ function sitemap() {
 export default defineConfig(({ command, isPreview }) => ({
   base: command === 'build' || isPreview ? '/Finlabs-3D/' : '/',
   plugins: [htmlIncludes(), themeBoot(), i18n(), sitemap()],
+  // Only the public half of backend.config.json reaches the browser: the API
+  // URL and the Turnstile site key, both of which are meant to be read by
+  // anyone. Table names, buckets and recipients stay server-side.
+  define: { __BACKEND__: JSON.stringify(publicConfig()) },
   build: {
     rollupOptions: {
       input: Object.fromEntries(

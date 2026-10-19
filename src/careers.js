@@ -1,4 +1,5 @@
 import './doc.css';
+import './careers-apply.js';
 import { t } from './i18n.js';
 import './nav.css';
 import './nav.js';

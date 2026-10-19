@@ -178,10 +178,23 @@ form?.addEventListener('submit', (e) => {
     .filter((l) => l !== false && l !== '')
     .join('\n');
 
-  window.location.href =
-    `mailto:info@finlabsindia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  note.textContent = t('Your email app should open with the enquiry ready to send.');
-  note.className = 'form__note ok';
+  // The backend stores the enquiry and emails it on. Until backend.config.json
+  // has an API URL, fall back to the visitor's mail client rather than
+  // swallowing what they just typed.
+  submitForm({
+    form,
+    formId: 'services',
+    say: (msg, kind) => {
+      note.textContent = msg;
+      note.className = `form__note ${kind === 'err' ? 'err' : kind === 'ok' ? 'ok' : ''}`;
+    },
+    fallback() {
+      window.location.href =
+        `mailto:info@finlabsindia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      note.textContent = t('Your email app should open with the enquiry ready to send.');
+      note.className = 'form__note ok';
+    },
+  });
 });
 
 // ---------------------------------------------------------------------
@@ -201,3 +214,6 @@ if (!REDUCED && window.matchMedia('(pointer: fine)').matches) {
     });
   });
 }
+
+// load the bot check as soon as someone starts typing, not at submit
+armForms();

@@ -1,0 +1,113 @@
+/* =====================================================
+ * THE APPLICATION DIALOG
+ * =====================================================
+ * Solid, not glass: someone is typing their name and
+ * attaching their CV into it, and the page behind must
+ * not compete for attention.
+ * ===================================================== */
+
+.ap {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(8, 14, 32, 0.6);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+}
+
+.ap__sheet {
+  position: relative;
+  width: min(520px, 100%);
+  background: #ffffff;
+  color: #0f1a33;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 30px 80px rgba(8, 14, 32, 0.4);
+}
+:root[data-theme='dark'] .ap__sheet {
+  background: #0e172c;
+  color: #e9eeff;
+  border: 1px solid rgba(160, 185, 255, 0.16);
+}
+
+/* the close control sits above the text, with room to be hit on a phone */
+.ap__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(15, 35, 75, 0.07);
+  color: inherit;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+:root[data-theme='dark'] .ap__close { background: rgba(160, 185, 255, 0.12); }
+.ap__close:hover { background: rgba(37, 99, 235, 0.16); }
+
+.ap__title { font: 700 20px/1.3 var(--display, inherit); margin: 0 0 4px; padding-right: 44px; }
+.ap__role { font-size: 14px; color: var(--brand, #2563eb); font-weight: 600; margin: 0 0 18px; }
+
+.ap__form { display: grid; gap: 14px; }
+.ap__form label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; }
+.ap__form input,
+.ap__form textarea {
+  font: inherit;
+  font-weight: 400;
+  padding: 11px 13px;
+  border-radius: 11px;
+  border: 1px solid rgba(15, 35, 75, 0.16);
+  background: #fff;
+  color: inherit;
+}
+:root[data-theme='dark'] .ap__form input,
+:root[data-theme='dark'] .ap__form textarea {
+  background: #0a1122;
+  border-color: rgba(160, 185, 255, 0.2);
+}
+.ap__form input:focus,
+.ap__form textarea:focus {
+  outline: none;
+  border-color: var(--brand, #2563eb);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+.ap__file small { font-weight: 400; font-size: 12px; color: #5d6a86; }
+:root[data-theme='dark'] .ap__file small { color: #8d99b5; }
+.ap__file input { padding: 9px; }
+
+.ap__notice { font-size: 12px; line-height: 1.6; color: #5d6a86; margin: 0; }
+:root[data-theme='dark'] .ap__notice { color: #8d99b5; }
+.ap__notice a { color: var(--brand, #2563eb); }
+
+.ap__send {
+  font: 600 15px/1 inherit;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brand, #2563eb);
+  color: #fff;
+  cursor: pointer;
+}
+.ap__send:hover { filter: brightness(1.08); }
+.ap__send[disabled] { opacity: 0.6; cursor: progress; }
+
+.ap__note { font-size: 13px; margin: 0; min-height: 1.2em; color: #5d6a86; }
+.ap__note.ok { color: #0a7d4b; font-weight: 600; }
+.ap__note.err { color: #c0392b; font-weight: 600; }
+:root[data-theme='dark'] .ap__note.ok { color: #4ade80; }
+:root[data-theme='dark'] .ap__note.err { color: #fca5a5; }
+
+/* Turnstile puts its widget here */
+.ap__form .cf-turnstile { min-height: 65px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ap__sheet { animation: ap-in 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes ap-in { from { opacity: 0; transform: translateY(14px) scale(0.98); } }
+}

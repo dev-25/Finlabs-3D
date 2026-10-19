@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "i18n:extract": "node scripts/i18n-extract.mjs"
+    "i18n:extract": "node scripts/i18n-extract.mjs",
+    "backend:check": "node scripts/backend-config.mjs check",
+    "backend:params": "node scripts/backend-config.mjs params",
+    "backend:deploy": "cd backend && sam build && sam deploy --no-confirm-changeset --parameter-overrides $(cd .. && node scripts/backend-config.mjs params)"
   },
   "devDependencies": {
     "vite": "^8.2.2"

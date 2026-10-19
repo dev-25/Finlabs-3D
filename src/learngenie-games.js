@@ -223,9 +223,20 @@ function demoForm() {
       '',
       get('note') || '(no message)',
     ].filter(Boolean);
-    window.location.href =
-      `mailto:${MAIL_TO}?subject=${encodeURIComponent('Learngenie live demo request')}&body=${encodeURIComponent(lines.join('\n'))}`;
-    done();
+    submitForm({
+      form,
+      formId: 'learngenie-demo',
+      say: (msg, kind) => {
+        note.textContent = msg;
+        note.className = `lg-form__note ${kind === 'err' ? 'is-bad' : ''}`;
+      },
+      onSuccess: done,
+      fallback() {
+        window.location.href =
+          `mailto:${MAIL_TO}?subject=${encodeURIComponent('Learngenie live demo request')}&body=${encodeURIComponent(lines.join('\n'))}`;
+        done();
+      },
+    });
   });
 
   /** the thank-you, with a way back into the quiz */

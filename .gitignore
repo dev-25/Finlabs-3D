@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# backend build artefacts
+backend/node_modules
+backend/.aws-sam
+backend.config.json.bak

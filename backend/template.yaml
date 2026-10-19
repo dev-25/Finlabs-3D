@@ -1,0 +1,208 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Finlabs website backend: every form submits here, is stored in DynamoDB and
+  emailed on, and CVs go straight to S3 through a presigned URL.
+
+  Every parameter default below is filled from backend.config.json by
+  `npm run backend:params`, so this file never has to be edited by hand.
+
+Parameters:
+  SubmitFunctionName:          { Type: String }
+  CvUploadUrlFunctionName:     { Type: String }
+  SubmissionsTableName:        { Type: String }
+  CvBucketName:                { Type: String }
+  CvPrefix:                    { Type: String, Default: 'applications/' }
+  TurnstileSecretParameter:    { Type: String }
+  MailFrom:                    { Type: String }
+  MailFromName:                { Type: String, Default: 'Finlabs website' }
+  MailRoutes:                  { Type: String, Description: 'JSON: form route -> list of recipients' }
+  AllowedOrigin:               { Type: String, Description: 'The site origin. Never leave this as *.' }
+  MaxFieldChars:               { Type: Number, Default: 4000 }
+  MaxCvBytes:                  { Type: Number, Default: 10485760 }
+  CvContentTypes:              { Type: String }
+  EnquiryRetentionMonths:      { Type: Number, Default: 24 }
+  CvRetentionDays:             { Type: Number, Default: 365 }
+  CreateCvBucket:
+    Type: String
+    Default: 'yes'
+    AllowedValues: ['yes', 'no']
+    Description: >
+      'no' if the bucket already exists. The stack will then use it as-is —
+      remember to set its CORS rule and lifecycle expiry by hand, because
+      only a bucket this stack creates gets them automatically.
+  NoticeVersion:               { Type: String, Default: '2.0' }
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures: [arm64]        # cheaper per ms than x86, and these are tiny
+    MemorySize: 512
+    Timeout: 15
+    LoggingConfig:
+      LogFormat: JSON
+    Environment:
+      Variables:
+        TURNSTILE_SECRET_PARAMETER: !Ref TurnstileSecretParameter
+        ALLOWED_ORIGIN: !Ref AllowedOrigin
+
+Conditions:
+  ShouldCreateCvBucket: !Equals [!Ref CreateCvBucket, 'yes']
+
+Resources:
+  # ---------------------------------------------------------------- the API
+  Api:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      # The browser calls this cross-origin from the website, so CORS is not
+      # optional. One origin, not '*': the endpoints write to a database.
+      CorsConfiguration:
+        AllowOrigins: [!Ref AllowedOrigin]
+        AllowHeaders: [content-type]
+        AllowMethods: [POST, OPTIONS]
+        MaxAge: 600
+      # A single burst from one bad actor should not be able to run up a bill.
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 20
+        ThrottlingRateLimit: 10
+
+  # ---------------------------------------------------------------- storage
+  SubmissionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref SubmissionsTableName
+      BillingMode: PAY_PER_REQUEST       # a low-traffic site stays inside the free tier
+      AttributeDefinitions:
+        - { AttributeName: pk,        AttributeType: S }
+        - { AttributeName: form,      AttributeType: S }
+        - { AttributeName: createdAt, AttributeType: S }
+      KeySchema:
+        - { AttributeName: pk, KeyType: HASH }
+      GlobalSecondaryIndexes:
+        # so the dashboard can list one form's submissions newest first
+        - IndexName: by-form
+          KeySchema:
+            - { AttributeName: form,      KeyType: HASH }
+            - { AttributeName: createdAt, KeyType: RANGE }
+          Projection: { ProjectionType: ALL }
+      # The Privacy Notice says 24 months. This is what makes that true.
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+
+  CvBucket:
+    Type: AWS::S3::Bucket
+    Condition: ShouldCreateCvBucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Ref CvBucketName
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      VersioningConfiguration: { Status: Enabled }
+      LifecycleConfiguration:
+        Rules:
+          # The Privacy Notice says CVs are kept 12 months. Same principle as
+          # the TTL above: the bucket enforces the promise, not a reminder.
+          - Id: expire-applications
+            Status: Enabled
+            Prefix: !Ref CvPrefix
+            ExpirationInDays: !Ref CvRetentionDays
+          - Id: tidy-old-versions
+            Status: Enabled
+            NoncurrentVersionExpirationInDays: 30
+      CorsConfiguration:
+        # the browser PUTs the file here directly
+        CorsRules:
+          - AllowedOrigins: [!Ref AllowedOrigin]
+            AllowedMethods: [PUT]
+            AllowedHeaders: ['*']
+            MaxAge: 600
+
+  # ---------------------------------------------------------------- functions
+  SubmitFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Ref SubmitFunctionName
+      CodeUri: src/
+      Handler: submit.handler
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref SubmissionsTableName
+          MAIL_FROM: !Ref MailFrom
+          MAIL_FROM_NAME: !Ref MailFromName
+          MAIL_ROUTES: !Ref MailRoutes
+          MAX_FIELD_CHARS: !Ref MaxFieldChars
+          ENQUIRY_RETENTION_MONTHS: !Ref EnquiryRetentionMonths
+          NOTICE_VERSION: !Ref NoticeVersion
+      Policies:
+        - DynamoDBWritePolicy: { TableName: !Ref SubmissionsTableName }
+        - SSMParameterReadPolicy: { ParameterName: !Sub '${TurnstileSecretParameter}' }
+        - Statement:
+            Effect: Allow
+            Action: ['ses:SendEmail']
+            Resource: '*'
+      Events:
+        Post:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Path: /submit, Method: POST }
+
+  CvUploadUrlFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Ref CvUploadUrlFunctionName
+      CodeUri: src/
+      Handler: cv-upload-url.handler
+      Environment:
+        Variables:
+          CV_BUCKET: !Ref CvBucketName
+          CV_PREFIX: !Ref CvPrefix
+          MAX_CV_BYTES: !Ref MaxCvBytes
+          CV_CONTENT_TYPES: !Ref CvContentTypes
+      Policies:
+        # write only: this function hands out upload URLs, it never reads a CV
+        - Statement:
+            Effect: Allow
+            Action: ['s3:PutObject']
+            Resource: !Sub 'arn:aws:s3:::${CvBucketName}/${CvPrefix}*'
+        - SSMParameterReadPolicy: { ParameterName: !Sub '${TurnstileSecretParameter}' }
+      Events:
+        Post:
+          Type: HttpApi
+          Properties: { ApiId: !Ref Api, Path: /cv-upload-url, Method: POST }
+
+  # ---------------------------------------------------------------- alarms
+  # The one failure the visitor cannot see: stored but never emailed.
+  SubmitErrorAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: The form handler is throwing. Enquiries may not be reaching anyone.
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions:
+        - { Name: FunctionName, Value: !Ref SubmitFunctionName }
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+
+Outputs:
+  ApiBaseUrl:
+    Description: Put this in backend.config.json under public.apiBaseUrl
+    Value: !Sub 'https://${Api}.execute-api.${AWS::Region}.amazonaws.com'
+  SubmissionsTable:
+    Value: !Ref SubmissionsTableName
+  CvBucket:
+    Value: !Ref CvBucketName

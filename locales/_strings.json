@@ -1405,6 +1405,10 @@
   "products.html",
   "products/fiscus.html"
  ],
+ "Amazon Web Services": [
+  "privacy.html",
+  "services/cloud.html"
+ ],
  "AMFI Registered Mutual Fund Distributor": [
   "products.html",
   "products/finexa.html"
@@ -4908,6 +4912,9 @@
  "— serving this website and its server logs": [
   "privacy.html"
  ],
+ "— the anti-spam check on our forms, which sees your IP address in order to tell a person from a bot": [
+  "privacy.html"
+ ],
  "— use the unsubscribe link at the foot of any email we send you. It takes one click and needs no reply from us.": [
   "privacy.html"
  ],
@@ -4916,6 +4923,9 @@
  ],
  "— WeWork, Enam Sambhav, 10th Floor, G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051": [
   "brochure.html"
+ ],
+ "— where enquiries and CVs are stored, in the Mumbai region": [
+  "privacy.html"
  ],
  ", at no charge. You can also turn off push notifications in your device settings at any time.": [
   "privacy-learngenie.html"
@@ -5556,9 +5566,6 @@
  "Amazon S3": [
   "services/cloud.html"
  ],
- "Amazon Web Services": [
-  "services/cloud.html"
- ],
  "AMCs · Institutions · Regulated Bodies": [
   "products.html"
  ],
@@ -5654,6 +5661,9 @@
  ],
  "Anything we should know?": [
   "solutions.html"
+ ],
+ "Anything you would like us to know": [
+  "(javascript)"
  ],
  "API testing tools such as Postman": [
   "careers.html"
@@ -6206,6 +6216,9 @@
  ],
  "Cloud-focused managed services: deploying, running and optimising your infrastructure for security and performance.": [
   "services.html"
+ ],
+ "Cloudflare": [
+  "privacy.html"
  ],
  "Co-Founder & CEO": [
   "about.html"
@@ -8379,6 +8392,9 @@
  "PDF · 13.7 MB": [
   "brochure.html"
  ],
+ "PDF or Word, up to": [
+  "(javascript)"
+ ],
  "PDF, 13.7 MB": [
   "brochure.html"
  ],
@@ -8420,6 +8436,9 @@
  ],
  "Persuasion, negotiation and objection handling": [
   "careers.html"
+ ],
+ "Phone": [
+  "(javascript)"
  ],
  "Phone number": [
   "contact.html"
@@ -8469,7 +8488,16 @@
  "Please add your name.": [
   "(javascript)"
  ],
+ "Please attach your CV.": [
+  "(javascript)"
+ ],
+ "Please enter a valid email address.": [
+  "(javascript)"
+ ],
  "Please enter a valid work email.": [
+  "(javascript)"
+ ],
+ "Please keep the file under": [
   "(javascript)"
  ],
  "PLEASE READ THIS DOCUMENT CAREFULLY.": [
@@ -8477,6 +8505,9 @@
  ],
  "Please report any violations of these Terms and Conditions to FIPL at": [
   "terms.html"
+ ],
+ "Please upload a PDF or Word document.": [
+  "(javascript)"
  ],
  "PM – Custom Fintech Solutions | [Your Name]": [
   "careers.html"
@@ -8955,6 +8986,9 @@
  "Selenium, JUnit, JMeter, Jenkins, Git, JIRA": [
   "brochure.html"
  ],
+ "Send application": [
+  "(javascript)"
+ ],
  "Send enquiry": [
   "services.html"
  ],
@@ -8969,6 +9003,9 @@
  ],
  "Send your updated resume with a brief note — no more than 200 words — on the most complex custom fintech project you have delivered and what made it exceptional. Use the subject line": [
   "careers.html"
+ ],
+ "Sending…": [
+  "(javascript)"
  ],
  "Senior Java Developer": [
   "careers.html"
@@ -9089,6 +9126,9 @@
  ],
  "someone to exercise these rights on your behalf if you die or become incapable of doing so": [
   "privacy.html"
+ ],
+ "Something went wrong. Please try again.": [
+  "(javascript)"
  ],
  "Somnath Chatterjee": [
   "index.html"
@@ -9359,6 +9399,9 @@
  ],
  "Thakral One across the region": [
   "partners.html"
+ ],
+ "Thank you — we have your message and will be in touch within one working day.": [
+  "(javascript)"
  ],
  "Thank you, team Finexa, for your quick response and steady support. Huge congratulations to the team on completing 10 wonderful years in the industry! Your advanced system has truly helped me elevate and scale my mutual fund business. Wishing the entire team many more decades of innovation and success.": [
   "index.html"
@@ -9675,6 +9718,9 @@
  "Update clients on new features, enhancements and renewal benefits": [
   "careers.html"
  ],
+ "Uploading your CV…": [
+  "(javascript)"
+ ],
  "Usability testing with real advisors and investors": [
   "services.html"
  ],
@@ -9795,6 +9841,9 @@
  "We ask for as little as we can. Everything below is given voluntarily — you can browse this website without telling us who you are.": [
   "privacy.html"
  ],
+ "We could not upload that file. Please try again.": [
+  "(javascript)"
+ ],
  "We do not ask for your date of birth, PAN, Aadhaar or any financial account details on this website, and you should never send them to us by email.": [
   "privacy.html"
  ],
@@ -9887,6 +9936,9 @@
  ],
  "We use service providers to run the app — hosting and storage, crash and performance reporting, and email delivery. They process your information only on our written instructions and only for as long as they need to. Where Learngenie is provided to you through your employer or training partner, that organisation decides who may see your learning records, and we act on its instructions.": [
   "privacy-learngenie.html"
+ ],
+ "We use your CV only to assess you for roles at Finlabs, and keep it for 12 months. You can ask us to delete it at any time:": [
+  "(javascript)"
  ],
  "We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us to keep your personal information for longer than the period of time in which users have an account with us. In practice we delete or anonymise learning records within 24 months of your account closing, unless your employer or training partner is required to keep a certification record for longer.": [
   "privacy-learngenie.html"
@@ -10199,6 +10251,9 @@
  ],
  "Your consent, given when you submit the form": [
   "privacy.html"
+ ],
+ "Your CV": [
+  "(javascript)"
  ],
  "Your CV and the contact details on it": [
   "privacy.html"

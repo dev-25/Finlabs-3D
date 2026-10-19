@@ -1,0 +1,61 @@
+name: Deploy backend
+
+# Only when the backend or its config actually changes — there is no reason to
+# redeploy a Lambda because someone fixed a typo on the About page.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'backend.config.json'
+      - 'scripts/backend-config.mjs'
+      - '.github/workflows/backend.yml'
+  workflow_dispatch:
+
+permissions:
+  id-token: write # for OIDC — no long-lived AWS keys in GitHub secrets
+  contents: read
+
+concurrency:
+  group: backend-deploy
+  cancel-in-progress: false # never cancel a deploy half-applied
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check the config is filled in
+        run: node scripts/backend-config.mjs check
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          # Create this role in IAM with a GitHub OIDC trust policy, then put
+          # its ARN in repository secrets as AWS_DEPLOY_ROLE_ARN.
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ap-south-1
+
+      - uses: aws-actions/setup-sam@v2
+        with:
+          use-installer: true
+
+      - name: Install function dependencies
+        working-directory: backend
+        run: npm ci --omit=dev
+
+      - name: Build
+        working-directory: backend
+        run: sam build
+
+      - name: Deploy
+        working-directory: backend
+        run: |
+          sam deploy \
+            --no-confirm-changeset \
+            --no-fail-on-empty-changeset \
+            --parameter-overrides $(cd .. && node scripts/backend-config.mjs params)

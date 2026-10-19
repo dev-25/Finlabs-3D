@@ -1,4 +1,5 @@
 import './doc.css';
+import { submitForm, armForms } from './forms.js';
 import { t } from './i18n.js';
 import './nav.css';
 import './nav.js';
@@ -112,8 +113,24 @@ form?.addEventListener('submit', (e) => {
     .filter((l) => l !== false && l !== '' && l !== 0)
     .join('\n');
 
-  window.location.href =
-    `mailto:info@finlabsindia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  note.textContent = t('Your email app should open with the message ready to send.');
-  note.className = 'form__note ok';
+  // The backend stores the enquiry and emails it on. Until backend.config.json
+  // has an API URL, fall back to the visitor's mail client rather than
+  // swallowing what they just typed.
+  submitForm({
+    form,
+    formId: 'contact',
+    say: (msg, kind) => {
+      note.textContent = msg;
+      note.className = `form__note ${kind === 'err' ? 'err' : kind === 'ok' ? 'ok' : ''}`;
+    },
+    fallback() {
+      window.location.href =
+        `mailto:info@finlabsindia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      note.textContent = t('Your email app should open with the message ready to send.');
+      note.className = 'form__note ok';
+    },
+  });
 });
+
+// load the bot check as soon as someone starts typing, not at submit
+armForms();

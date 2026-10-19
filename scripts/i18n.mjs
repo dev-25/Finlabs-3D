@@ -181,4 +181,15 @@ export const UI_STRINGS = [
   'Advertising', 'Lets us measure our ads and show you relevant ones elsewhere.',
   'Accept all', 'Reject non-essential', 'Choose', 'Save my choices',
   'Read our', 'Privacy Notice',
+  // form submission
+  'Sending…', 'Something went wrong. Please try again.',
+  'Thank you — we have your message and will be in touch within one working day.',
+  // the application dialog
+  'Apply for this role', 'Full name', 'Email', 'Phone', 'Your CV',
+  'PDF or Word, up to', 'Anything you would like us to know',
+  'We use your CV only to assess you for roles at Finlabs, and keep it for 12 months. You can ask us to delete it at any time:',
+  'Send application', 'Uploading your CV…', 'Please attach your CV.',
+  'Please upload a PDF or Word document.', 'Please keep the file under',
+  'Please enter a valid email address.',
+  'We could not upload that file. Please try again.',
 ];
