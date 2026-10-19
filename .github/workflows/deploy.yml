@@ -16,6 +16,11 @@ concurrency:
 
 jobs:
   build:
+    # The same codebase now lives in two places: this one, which publishes to
+    # GitHub Pages, and the company's production repo, which publishes to S3
+    # (deploy-prod.yml). Without this the Pages job would run there too and
+    # fail every push, because Pages is not enabled on that repo.
+    if: github.repository == 'dev-25/Finlabs-3D'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

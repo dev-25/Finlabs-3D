@@ -1,0 +1,156 @@
+name: Deploy to production
+
+# Push to main, and the site is live. No manual step in between, as asked.
+#
+# Everything it needs comes from repository variables and one secret, so the
+# workflow itself holds nothing environment-specific and nothing sensitive:
+#
+#   Variables (Settings → Secrets and variables → Actions → Variables)
+#     S3_BUCKET            finlabs-prod-website
+#     SITE_URL             https://finlabsindia.com      ← the real origin
+#     AWS_REGION           ap-south-1
+#     CLOUDFRONT_ID        (leave empty until the distribution exists)
+#
+#   Secret
+#     AWS_DEPLOY_ROLE_ARN  arn:aws:iam::<account>:role/finlabs-site-deploy
+#
+# Until S3_BUCKET is set the job says so and ends green, so a fork or a
+# fresh clone does not sit there failing. See docs/deploy-prod.md.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # OIDC — no long-lived AWS keys live in GitHub
+  contents: read
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false   # never interrupt a half-finished sync
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Is production configured?
+        id: cfg
+        run: |
+          if [ -z "${{ vars.S3_BUCKET }}" ]; then
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+            echo '::notice::No S3_BUCKET variable set, so there is nothing to deploy to. See docs/deploy-prod.md.'
+          else
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.cfg.outputs.ready == 'true'
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install
+        if: steps.cfg.outputs.ready == 'true'
+        run: npm ci
+
+      - name: Build
+        if: steps.cfg.outputs.ready == 'true'
+        env:
+          # S3 serves the site from the root, unlike GitHub Pages. Getting
+          # this wrong ships a site whose every asset 404s.
+          SITE_BASE: /
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          if [ -z "$SITE_URL" ]; then
+            echo "::error::SITE_URL variable is not set. Canonicals, the sitemap and llms.txt would point at the wrong domain."
+            exit 1
+          fi
+          npm run build
+
+      - name: Check the build looks right
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          test -f dist/index.html || { echo "::error::no index.html"; exit 1; }
+          test -f dist/404.html   || { echo "::error::no 404.html";   exit 1; }
+          test -f dist/sitemap.xml || { echo "::error::no sitemap.xml"; exit 1; }
+          # a root-hosted build must not carry the Pages prefix anywhere
+          if grep -rq '/Finlabs-3D/' dist/ ; then
+            echo "::error::dist still contains the GitHub Pages path prefix."
+            exit 1
+          fi
+          echo "pages: $(find dist -name '*.html' | wc -l), assets: $(find dist/assets -type f 2>/dev/null | wc -l)"
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        if: steps.cfg.outputs.ready == 'true'
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION || 'ap-south-1' }}
+
+      # Two passes, because one cache policy cannot serve both halves of the
+      # site. Assets carry a content hash in the filename, so they can be
+      # cached forever — a change produces a new name. HTML keeps the same
+      # name for ever, so it must be revalidated or visitors keep yesterday's
+      # page pointing at deleted assets.
+      - name: Upload immutable assets
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          aws s3 sync dist/ "s3://${{ vars.S3_BUCKET }}/" \
+            --no-progress \
+            --exclude '*' \
+            --include 'assets/*' \
+            --cache-control 'public, max-age=31536000, immutable'
+
+      - name: Upload everything else
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          # --delete runs here, last, so pages removed from the site go too.
+          # Assets were uploaded first for the same reason: a visitor must
+          # never be served new HTML pointing at an asset not yet uploaded.
+          #
+          # --delete honours --exclude, so old hashed assets are NOT removed.
+          # That is deliberate: someone who loaded a page thirty seconds ago
+          # is still asking for the previous build's files. It does mean they
+          # accumulate — a few hundred KB per deploy. Sweep them occasionally
+          # rather than automatically; see docs/deploy-prod.md.
+          aws s3 sync dist/ "s3://${{ vars.S3_BUCKET }}/" \
+            --no-progress \
+            --delete \
+            --exclude 'assets/*' \
+            --cache-control 'public, max-age=0, must-revalidate'
+
+      - name: Set content types S3 guesses wrong
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          for f in sitemap.xml robots.txt llms.txt; do
+            [ -f "dist/$f" ] || continue
+            case "$f" in
+              *.xml) ct='application/xml; charset=utf-8' ;;
+              *)     ct='text/plain; charset=utf-8' ;;
+            esac
+            aws s3 cp "dist/$f" "s3://${{ vars.S3_BUCKET }}/$f" \
+              --no-progress --content-type "$ct" \
+              --cache-control 'public, max-age=300'
+          done
+
+      - name: Invalidate CloudFront
+        if: steps.cfg.outputs.ready == 'true' && vars.CLOUDFRONT_ID != ''
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id '${{ vars.CLOUDFRONT_ID }}' \
+            --paths '/*'
+
+      - name: Where it went
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          echo "### Deployed to production" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- bucket: \`${{ vars.S3_BUCKET }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- origin: ${{ vars.SITE_URL }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ -z "${{ vars.CLOUDFRONT_ID }}" ]; then
+            echo "- CloudFront: not configured yet, so nothing was invalidated" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- CloudFront \`${{ vars.CLOUDFRONT_ID }}\` invalidated" >> "$GITHUB_STEP_SUMMARY"
+          fi

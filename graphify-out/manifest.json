@@ -432,16 +432,16 @@
     "semantic_hash": "e1958c2baa8c69b4ac6d0167202e18d3"
   },
   "vite.config.js": {
-    "mtime": 1792403582.8070278,
-    "seen": 1792403664.499511,
-    "ast_hash": "d5f9d7e8adfb2d593de71dd49dde973f",
+    "mtime": 1792410276.1441324,
+    "seen": 1792410450.620097,
+    "ast_hash": "e017bfc7161309f67352f9536e9575f3",
     "semantic_hash": ""
   },
   ".github/workflows/deploy.yml": {
-    "mtime": 1789041149.7225337,
-    "seen": 1790526272.0577269,
-    "ast_hash": "15ebe9f4fcc68c4879fec70ac22441c6",
-    "semantic_hash": "15ebe9f4fcc68c4879fec70ac22441c6"
+    "mtime": 1792410320.1389117,
+    "seen": 1792410450.620099,
+    "ast_hash": "3be6200f49cb1249e56709a2f81b08e0",
+    "semantic_hash": ""
   },
   "about.html": {
     "mtime": 1792403204.7270603,
@@ -1893,6 +1893,18 @@
     "mtime": 1792403607.6515253,
     "seen": 1792403664.4995131,
     "ast_hash": "fdf287a4365e7776285edf741ad5b768",
+    "semantic_hash": ""
+  },
+  ".github/workflows/deploy-prod.yml": {
+    "mtime": 1792410437.2920756,
+    "seen": 1792410450.620099,
+    "ast_hash": "2bb365d74a8de1bea869bcdb4d04ea57",
+    "semantic_hash": ""
+  },
+  "docs/deploy-prod.md": {
+    "mtime": 1792410437.2923527,
+    "seen": 1792410450.620105,
+    "ast_hash": "8f2826b1807f2ef21c9d37e65d8b8643",
     "semantic_hash": ""
   }
 }

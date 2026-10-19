@@ -8,10 +8,18 @@ import { walkHtml, LOCALES, UI_STRINGS } from './scripts/i18n.mjs';
 const ROOT = __dirname;
 
 /* Where the site is served from. Link previews need absolute addresses, so
- * pages write `{{site}}` and `{{url}}` and the build fills them in. Point it
- * at the real domain when the site moves:
- *   SITE_URL=https://finlabsindia.org npm run build */
+ * pages write `{{site}}` and `{{url}}` and the build fills them in.
+ *
+ *   SITE_URL   the origin, for canonicals, og:url, the sitemap and llms.txt
+ *   SITE_BASE  the path assets are served under
+ *
+ * GitHub Pages serves this project from a subfolder, so its build needs
+ * base '/Finlabs-3D/'. S3 and CloudFront serve it from the root, so theirs
+ * needs '/'. Getting that wrong does not fail the build — it ships a site
+ * whose every stylesheet and script 404s — so both are set explicitly by
+ * each deploy workflow rather than inferred here. */
 const SITE = (process.env.SITE_URL || 'https://dev-25.github.io/Finlabs-3D').replace(/\/$/, '');
+const BASE = process.env.SITE_BASE || null;
 
 /* HTML includes: `<!-- include: src/partials/x.html -->` is replaced by that
  * file, so one piece of markup can serve several pages. It runs before Vite
@@ -292,7 +300,7 @@ function sitemap() {
 // GitHub Pages serves this project at https://dev-25.github.io/Finlabs-3D/,
 // so production URLs need that prefix. The dev server keeps serving from /.
 export default defineConfig(({ command, isPreview }) => ({
-  base: command === 'build' || isPreview ? '/Finlabs-3D/' : '/',
+  base: BASE ?? (command === 'build' || isPreview ? '/Finlabs-3D/' : '/'),
   plugins: [htmlIncludes(), themeBoot(), i18n(), sitemap()],
   // Only the public half of backend.config.json reaches the browser: the API
   // URL and the Turnstile site key, both of which are meant to be read by
