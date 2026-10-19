@@ -121,7 +121,7 @@ That ARN goes into GitHub as a secret in the next step.
 |---|---|---|
 | Secret | `AWS_DEPLOY_ROLE_ARN` | the ARN printed above |
 | Variable | `S3_BUCKET` | `finlabs-prod-website` |
-| Variable | `SITE_URL` | `https://finlabsindia.com` — **see the note below** |
+| Variable | `SITE_URL` | `https://finlabsindia.com` |
 | Variable | `AWS_REGION` | the bucket's region, e.g. `ap-south-1` |
 | Variable | `CLOUDFRONT_ID` | leave empty for now |
 
@@ -135,9 +135,11 @@ goes red while you are still setting up.
 > is just another deploy, but Google will have indexed the wrong host in the
 > meantime. **Decide the final domain before the first public deploy.**
 >
-> One thing still unresolved from the audit: the workbook says `.com` in four
-> places and `.org` in one. The current live site is `finlabsindia.org`. Settle
-> this in writing before you set the variable.
+> **Decided: the site launches on `finlabsindia.com`.** That settles the one
+> contradiction in the audit workbook, which said `.com` in four places and
+> `.org` in one. `finlabsindia.org` stays registered and 301-redirects to
+> `.com` page by page — that is what carries ten years of search ranking
+> across, and it needs CloudFront, so it happens at the same time as HTTPS.
 
 ---
 

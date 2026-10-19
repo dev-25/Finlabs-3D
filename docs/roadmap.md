@@ -31,7 +31,7 @@ Two rules drive the whole order:
 
 | # | What | Who | Note |
 |---|---|---|---|
-| #46a | Confirm the launch domain is **finlabsindia.com** | Leadership | The workbook contradicts itself: SEO&AIEO row 10 says `.org`, four other rows say `.com`. Settle it in writing before any canonical, sitemap or redirect is written. |
+| ~~#46a~~ | ~~Confirm the launch domain~~ — **DECIDED 19 Oct 2026: `finlabsindia.com`** | Leadership | Settled. `.org` stays registered and redirects page by page. Every canonical, sitemap entry and schema URL is built from this. |
 | #47a | Choose the host | IT | Cloudflare Pages / Netlify / Vercel / own server. GitHub Pages cannot do server-side 301s or host a form backend, so this gates #40, #41, #45 and #59. |
 | #18, #38 | Fiscus positioning | Leadership | Keep as B2C "Find an Advisor" lead source, reposition as an MFD engagement tool, or move down the product order. Changes Home (HOM-015), Products and the Fiscus page. |
 | #10 | Which proof figures may be published | Rajan & Nimish | "Trusted by 10 of India's AMCs" and the MFD/AUM/IAP figure. Without these the new Home stats block cannot be finished. |
