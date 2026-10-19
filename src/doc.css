@@ -286,3 +286,52 @@ a.channel:hover { transform: translateY(-3px); border-color: var(--brand); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+/* ---------- the DPDP disclosure ---------- */
+/* The Act wants each kind of personal data set against the purpose, the
+   basis and the retention period. A four-column table cannot be read on a
+   phone, so each kind is a card and the three facts line up beside it on
+   a wide screen, stacking when there is no room. */
+.dpdp { list-style: none; padding: 0; display: grid; gap: 14px; margin: 18px 0 0; }
+.dpdp__item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: var(--card);
+}
+.dpdp__item h3 {
+  font: 600 15.5px/1.4 var(--display);
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.dpdp dl { display: grid; gap: 10px; margin: 0; }
+.dpdp dl > div { display: grid; gap: 2px; }
+.dpdp dt {
+  font: 600 11px/1.4 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.dpdp dd { margin: 0; font-size: 15px; line-height: 1.6; }
+@media (min-width: 760px) {
+  .dpdp dl { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+}
+
+/* an in-prose control that opens the cookie panel */
+.prose-btn {
+  font: inherit;
+  color: var(--brand);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* the grievance address block */
+.doc__address {
+  border-left: 3px solid var(--brand);
+  padding: 4px 0 4px 16px;
+  line-height: 1.7;
+}

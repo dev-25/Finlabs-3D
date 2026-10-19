@@ -223,7 +223,6 @@
           <label><span>Your phone number <em>(optional)</em></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Phone number" /></label>
           <label>Your company name<input name="company" type="text" autocomplete="organization" placeholder="Company name" /></label>
         </div>
-        <label>Your company's website<input name="website" type="url" autocomplete="url" placeholder="https://" /></label>
         <fieldset>
           <legend><span>Products, solutions and services you’re interested in <em>(optional)</em></span></legend>
           <div class="interest-group" role="group" aria-labelledby="int-products">
@@ -259,12 +258,16 @@
           </div>
         </fieldset>
         <label><span>Your message <em>(optional)</em></span><textarea name="message" rows="4" placeholder="How can we help?"></textarea></label>
-        <button class="btn-submit" type="submit">Send message <span aria-hidden="true">→</span></button>
-        <p class="form__note" id="formNote">Sending opens your email app with these details filled in.</p>
-        <p class="form__legal">
-          By providing your contact info, you agree to receive communications from Finlabs. You can opt-out
-          at any time. For details refer to our <a href="privacy.html">Privacy Policy</a>.
+        <label class="form__optin">
+          <input type="checkbox" name="marketing" value="yes" />
+          <span>Send me product updates, events and insights from Finlabs by email or WhatsApp. I can unsubscribe at any time.</span>
+        </label>
+        <p class="form__notice">
+          We&rsquo;ll use these details only to respond to your request. See our
+          <a href="privacy.html">Privacy Notice</a> for what we collect, why, and your rights.
         </p>
+        <button class="btn-submit" type="submit">Send message <span aria-hidden="true">→</span></button>
+        <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
       </form>
     </div>
   </main>
@@ -300,7 +303,9 @@
         <ul>
           <li><a href="contact.html" aria-current="page">Contact Us</a></li>
           <li><a href="brochure.html">Corporate Deck</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="privacy.html">Privacy Notice</a></li>
+            <li><a href="privacy.html#choices">Your privacy choices</a></li>
+            <li><button class="foot__link-btn" type="button" data-cookie-settings>Cookie settings</button></li>
           <li><a href="terms.html">Terms and Conditions</a></li>
         </ul>
       </nav>

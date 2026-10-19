@@ -522,8 +522,16 @@
           </select>
         </label>
         <label>Anything we should know?<textarea name="message" rows="3"></textarea></label>
+        <label class="form__optin">
+          <input type="checkbox" name="marketing" value="yes" />
+          <span>Send me product updates, events and insights from Finlabs by email or WhatsApp. I can unsubscribe at any time.</span>
+        </label>
+        <p class="form__notice">
+          We&rsquo;ll use these details only to respond to your request. See our
+          <a href="privacy.html">Privacy Notice</a> for what we collect, why, and your rights.
+        </p>
         <button class="btn btn--primary form__submit" type="submit" data-magnetic>Request my demo <span aria-hidden="true">→</span></button>
-        <p class="form__note" id="formNote">Sending opens your email app with these details filled in.</p>
+        <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
       </form>
     </section>
 
@@ -558,7 +566,9 @@
           <ul>
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="brochure.html">Corporate Deck</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="privacy.html">Privacy Notice</a></li>
+            <li><a href="privacy.html#choices">Your privacy choices</a></li>
+            <li><button class="foot__link-btn" type="button" data-cookie-settings>Cookie settings</button></li>
             <li><a href="terms.html">Terms and Conditions</a></li>
           </ul>
         </nav>

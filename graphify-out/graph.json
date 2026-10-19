@@ -610,6 +610,18 @@
       "source_location": "L95"
     },
     {
+      "id": "src_solutions_ui_selectgoal",
+      "label": "selectGoal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "solutions-ui.js",
+      "file_type": "code",
+      "norm_label": "selectgoal()",
+      "source_file": "src/solutions-ui.js",
+      "source_location": "L146"
+    },
+    {
       "id": "src_solutions_ui_track",
       "label": "track()",
       "_callable": true,
@@ -1390,6 +1402,90 @@
       "source_location": "L332"
     },
     {
+      "id": "src_consent_build",
+      "label": "build()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "build()",
+      "source_file": "src/consent.js",
+      "source_location": "L84"
+    },
+    {
+      "id": "src_consent_build_showchoices",
+      "label": "showChoices()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "showchoices()",
+      "source_file": "src/consent.js",
+      "source_location": "L129"
+    },
+    {
+      "id": "src_consent_close",
+      "label": "close()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "close()",
+      "source_file": "src/consent.js",
+      "source_location": "L79"
+    },
+    {
+      "id": "src_consent_gtagconsent",
+      "label": "gtagConsent()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "gtagconsent()",
+      "source_file": "src/consent.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_consent_gtagconsent_gtag",
+      "label": "gtag()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "gtag()",
+      "source_file": "src/consent.js",
+      "source_location": "L50"
+    },
+    {
+      "id": "src_consent_root",
+      "label": "root()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "root()",
+      "source_file": "src/consent.js",
+      "source_location": "L148"
+    },
+    {
+      "id": "src_consent_save",
+      "label": "save()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "save()",
+      "source_file": "src/consent.js",
+      "source_location": "L62"
+    },
+    {
       "id": "src_i18n_mountswitcher",
       "label": "mountSwitcher()",
       "_callable": true,
@@ -1834,42 +1930,6 @@
       "source_location": "L439"
     },
     {
-      "id": "src_product_ui_wirefaqs",
-      "label": "wireFaqs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "wirefaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L48"
-    },
-    {
-      "id": "src_product_ui_wirefaqs_filterfaqs",
-      "label": "filterFaqs()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "filterfaqs()",
-      "source_file": "src/product-ui.js",
-      "source_location": "L55"
-    },
-    {
-      "id": "src_solutions_ui_selectgoal",
-      "label": "selectGoal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "t",
-      "file_type": "code",
-      "norm_label": "selectgoal()",
-      "source_file": "src/solutions-ui.js",
-      "source_location": "L146"
-    },
-    {
       "id": "src_after_paint_afterpaint",
       "label": "afterPaint()",
       "_callable": true,
@@ -1892,18 +1952,6 @@
       "norm_label": "idle()",
       "source_file": "src/after-paint.js",
       "source_location": "L39"
-    },
-    {
-      "id": "src_case_study_wantscene",
-      "label": "wantScene()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "wantscene()",
-      "source_file": "src/case-study.js",
-      "source_location": "L28"
     },
     {
       "id": "src_services_ui_onscenechange",
@@ -1990,136 +2038,16 @@
       "source_location": "L95"
     },
     {
-      "id": "src_cloud_scene_asset",
-      "label": "asset()",
+      "id": "src_case_study_wantscene",
+      "label": "wantScene()",
       "_callable": true,
       "_origin": "ast",
       "community": 21,
-      "community_name": "buildCloudScene",
+      "community_name": "case-study.js",
       "file_type": "code",
-      "norm_label": "asset()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L27"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene",
-      "label": "buildCloudScene()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "buildcloudscene()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L47"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_canvastexture",
-      "label": "canvasTexture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "canvastexture()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L80"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_cloudat",
-      "label": "cloudAt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "cloudat()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L303"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_frame",
-      "label": "frame()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "frame()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L342"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_kick",
-      "label": "kick()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "kick()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L389"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_loop",
-      "label": "loop()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "loop()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L375"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_resize",
-      "label": "resize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "resize()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L278"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_retarget",
-      "label": "retarget()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "retarget()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L310"
-    },
-    {
-      "id": "src_cloud_scene_buildcloudscene_start",
-      "label": "start()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "start()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L383"
-    },
-    {
-      "id": "src_cloud_scene_cloudgeometry",
-      "label": "cloudGeometry()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "buildCloudScene",
-      "file_type": "code",
-      "norm_label": "cloudgeometry()",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L30"
+      "norm_label": "wantscene()",
+      "source_file": "src/case-study.js",
+      "source_location": "L28"
     },
     {
       "id": "src_careers_filter",
@@ -2170,18 +2098,6 @@
       "source_location": "L48"
     },
     {
-      "id": "src_doc_keepchipinview",
-      "label": "keepChipInView()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "keepchipinview()",
-      "source_file": "src/doc.js",
-      "source_location": "L33"
-    },
-    {
       "id": "src_nav_drawline",
       "label": "drawLine()",
       "_callable": true,
@@ -2191,7 +2107,7 @@
       "file_type": "code",
       "norm_label": "drawline()",
       "source_file": "src/nav.js",
-      "source_location": "L45"
+      "source_location": "L47"
     },
     {
       "id": "src_nav_setopen",
@@ -2203,7 +2119,7 @@
       "file_type": "code",
       "norm_label": "setopen()",
       "source_file": "src/nav.js",
-      "source_location": "L16"
+      "source_location": "L18"
     },
     {
       "id": "src_about_hero_buildemblem",
@@ -2372,6 +2288,150 @@
       "norm_label": "yearcolor()",
       "source_file": "src/about-hero.js",
       "source_location": "L24"
+    },
+    {
+      "id": "src_cloud_scene_asset",
+      "label": "asset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "asset()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene",
+      "label": "buildCloudScene()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "buildcloudscene()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_canvastexture",
+      "label": "canvasTexture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "canvastexture()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_cloudat",
+      "label": "cloudAt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "cloudat()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L303"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_frame",
+      "label": "frame()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "frame()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L342"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_kick",
+      "label": "kick()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "kick()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L389"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_loop",
+      "label": "loop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "loop()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L375"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_resize",
+      "label": "resize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "resize()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L278"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_retarget",
+      "label": "retarget()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "retarget()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L310"
+    },
+    {
+      "id": "src_cloud_scene_buildcloudscene_start",
+      "label": "start()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "start()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L383"
+    },
+    {
+      "id": "src_cloud_scene_cloudgeometry",
+      "label": "cloudGeometry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "cloudgeometry()",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L30"
+    },
+    {
+      "id": "src_theme_ontheme",
+      "label": "onTheme()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "ontheme()",
+      "source_file": "src/theme.js",
+      "source_location": "L59"
     },
     {
       "id": "src_finaware_flow_createflow",
@@ -2660,18 +2720,6 @@
       "norm_label": "inittheme()",
       "source_file": "src/theme.js",
       "source_location": "L65"
-    },
-    {
-      "id": "src_theme_ontheme",
-      "label": "onTheme()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 29,
-      "community_name": "theme.js",
-      "file_type": "code",
-      "norm_label": "ontheme()",
-      "source_file": "src/theme.js",
-      "source_location": "L59"
     },
     {
       "id": "src_theme_paint",
@@ -3106,6 +3154,18 @@
       "source_location": "L604"
     },
     {
+      "id": "src_doc_keepchipinview",
+      "label": "keepChipInView()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "keepchipinview()",
+      "source_file": "src/doc.js",
+      "source_location": "L33"
+    },
+    {
       "id": "src_services_scene_arc",
       "label": "arc()",
       "_callable": true,
@@ -3423,7 +3483,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 40,
-      "community_name": "home.js",
+      "community_name": "home-ui.js",
       "file_type": "code",
       "norm_label": "revealvisible()",
       "source_file": "src/home-ui.js",
@@ -3435,7 +3495,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 40,
-      "community_name": "home.js",
+      "community_name": "home-ui.js",
       "file_type": "code",
       "norm_label": "step()",
       "source_file": "src/home-ui.js",
@@ -3447,7 +3507,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 40,
-      "community_name": "home.js",
+      "community_name": "home-ui.js",
       "file_type": "code",
       "norm_label": "syncarrows()",
       "source_file": "src/home-ui.js",
@@ -4124,6 +4184,30 @@
       "norm_label": "open()",
       "source_file": "src/product-ui.js",
       "source_location": "L97"
+    },
+    {
+      "id": "src_product_ui_wirefaqs",
+      "label": "wireFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "wirefaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_product_ui_wirefaqs_filterfaqs",
+      "label": "filterFaqs()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "product-viewport.js",
+      "file_type": "code",
+      "norm_label": "filterfaqs()",
+      "source_file": "src/product-ui.js",
+      "source_location": "L55"
     },
     {
       "id": "src_product_ui_wiretabs",
@@ -6613,6 +6697,28 @@
       "source_location": "L16"
     },
     {
+      "id": "src_consent",
+      "label": "consent.js",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "consent.js",
+      "source_file": "src/consent.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_consent_state",
+      "label": "state",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "t",
+      "file_type": "code",
+      "norm_label": "state",
+      "source_file": "src/consent.js",
+      "source_location": "L28"
+    },
+    {
       "id": "src_i18n",
       "label": "i18n.js",
       "_origin": "ast",
@@ -6745,59 +6851,15 @@
       "source_location": "L1"
     },
     {
-      "id": "src_case_study",
-      "label": "case-study.js",
+      "id": "src_home",
+      "label": "home.js",
       "_origin": "ast",
       "community": 18,
       "community_name": "after-paint.js",
       "file_type": "code",
-      "norm_label": "case-study.js",
-      "source_file": "src/case-study.js",
+      "norm_label": "home.js",
+      "source_file": "src/home.js",
       "source_location": "L1"
-    },
-    {
-      "id": "src_case_study_scene",
-      "label": "case-study-scene.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "case-study-scene.js",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_case_study_scene_canvas",
-      "label": "canvas",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "canvas",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "src_case_study_scene_host",
-      "label": "host",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "host",
-      "source_file": "src/case-study-scene.js",
-      "source_location": "L22"
-    },
-    {
-      "id": "src_case_study_wide",
-      "label": "wide",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "after-paint.js",
-      "file_type": "code",
-      "norm_label": "wide",
-      "source_file": "src/case-study.js",
-      "source_location": "L25"
     },
     {
       "id": "src_main",
@@ -7141,26 +7203,59 @@
       "source_location": "L93"
     },
     {
-      "id": "src_cloud_scene",
-      "label": "cloud-scene.js",
+      "id": "src_case_study",
+      "label": "case-study.js",
       "_origin": "ast",
       "community": 21,
-      "community_name": "buildCloudScene",
+      "community_name": "case-study.js",
       "file_type": "code",
-      "norm_label": "cloud-scene.js",
-      "source_file": "src/cloud-scene.js",
+      "norm_label": "case-study.js",
+      "source_file": "src/case-study.js",
       "source_location": "L1"
     },
     {
-      "id": "src_cloud_scene_clouds",
-      "label": "CLOUDS",
+      "id": "src_case_study_scene",
+      "label": "case-study-scene.js",
       "_origin": "ast",
       "community": 21,
-      "community_name": "buildCloudScene",
+      "community_name": "case-study.js",
       "file_type": "code",
-      "norm_label": "clouds",
-      "source_file": "src/cloud-scene.js",
-      "source_location": "L21"
+      "norm_label": "case-study-scene.js",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_case_study_scene_canvas",
+      "label": "canvas",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "case-study.js",
+      "file_type": "code",
+      "norm_label": "canvas",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "src_case_study_scene_host",
+      "label": "host",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "case-study.js",
+      "file_type": "code",
+      "norm_label": "host",
+      "source_file": "src/case-study-scene.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_case_study_wide",
+      "label": "wide",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "case-study.js",
+      "file_type": "code",
+      "norm_label": "wide",
+      "source_file": "src/case-study.js",
+      "source_location": "L25"
     },
     {
       "id": "src_careers",
@@ -7240,61 +7335,6 @@
       "source_location": "L20"
     },
     {
-      "id": "src_brochure",
-      "label": "brochure.js",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "brochure.js",
-      "source_file": "src/brochure.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_doc",
-      "label": "doc.js",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "doc.js",
-      "source_file": "src/doc.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_doc_form",
-      "label": "form",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "form",
-      "source_file": "src/doc.js",
-      "source_location": "L69"
-    },
-    {
-      "id": "src_doc_note",
-      "label": "note",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "note",
-      "source_file": "src/doc.js",
-      "source_location": "L70"
-    },
-    {
-      "id": "src_doc_toclinks",
-      "label": "tocLinks",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "nav.js",
-      "file_type": "code",
-      "norm_label": "toclinks",
-      "source_file": "src/doc.js",
-      "source_location": "L42"
-    },
-    {
       "id": "src_nav",
       "label": "nav.js",
       "_origin": "ast",
@@ -7314,7 +7354,7 @@
       "file_type": "code",
       "norm_label": "fill",
       "source_file": "src/nav.js",
-      "source_location": "L40"
+      "source_location": "L42"
     },
     {
       "id": "src_nav_line",
@@ -7325,7 +7365,7 @@
       "file_type": "code",
       "norm_label": "line",
       "source_file": "src/nav.js",
-      "source_location": "L37"
+      "source_location": "L39"
     },
     {
       "id": "src_nav_menu",
@@ -7336,7 +7376,7 @@
       "file_type": "code",
       "norm_label": "menu",
       "source_file": "src/nav.js",
-      "source_location": "L14"
+      "source_location": "L16"
     },
     {
       "id": "src_nav_nav",
@@ -7347,7 +7387,7 @@
       "file_type": "code",
       "norm_label": "nav",
       "source_file": "src/nav.js",
-      "source_location": "L13"
+      "source_location": "L15"
     },
     {
       "id": "package",
@@ -7581,6 +7621,28 @@
       "source_location": "L20"
     },
     {
+      "id": "src_cloud_scene",
+      "label": "cloud-scene.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "cloud-scene.js",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_cloud_scene_clouds",
+      "label": "CLOUDS",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "about-hero.js",
+      "file_type": "code",
+      "norm_label": "clouds",
+      "source_file": "src/cloud-scene.js",
+      "source_location": "L21"
+    },
+    {
       "id": "src_finaware_flow",
       "label": "finaware-flow.js",
       "_origin": "ast",
@@ -7645,6 +7707,17 @@
       "norm_label": "steps",
       "source_file": "src/learngenie-climb.js",
       "source_location": "L25"
+    },
+    {
+      "id": "src_brochure",
+      "label": "brochure.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "theme.js",
+      "file_type": "code",
+      "norm_label": "brochure.js",
+      "source_file": "src/brochure.js",
+      "source_location": "L1"
     },
     {
       "id": "src_theme",
@@ -7887,6 +7960,50 @@
       "norm_label": "views",
       "source_file": "src/home-scene.js",
       "source_location": "L150"
+    },
+    {
+      "id": "src_doc",
+      "label": "doc.js",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "doc.js",
+      "source_file": "src/doc.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_doc_form",
+      "label": "form",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "form",
+      "source_file": "src/doc.js",
+      "source_location": "L69"
+    },
+    {
+      "id": "src_doc_note",
+      "label": "note",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "note",
+      "source_file": "src/doc.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "src_doc_toclinks",
+      "label": "tocLinks",
+      "_origin": "ast",
+      "community": 30,
+      "community_name": "doc.js",
+      "file_type": "code",
+      "norm_label": "toclinks",
+      "source_file": "src/doc.js",
+      "source_location": "L42"
     },
     {
       "id": "src_services_scene_dottex",
@@ -8384,22 +8501,11 @@
       "source_location": "L312"
     },
     {
-      "id": "src_home",
-      "label": "home.js",
-      "_origin": "ast",
-      "community": 40,
-      "community_name": "home.js",
-      "file_type": "code",
-      "norm_label": "home.js",
-      "source_file": "src/home.js",
-      "source_location": "L1"
-    },
-    {
       "id": "src_home_ui",
       "label": "home-ui.js",
       "_origin": "ast",
       "community": 40,
-      "community_name": "home.js",
+      "community_name": "home-ui.js",
       "file_type": "code",
       "norm_label": "home-ui.js",
       "source_file": "src/home-ui.js",
@@ -8410,7 +8516,7 @@
       "label": "next",
       "_origin": "ast",
       "community": 40,
-      "community_name": "home.js",
+      "community_name": "home-ui.js",
       "file_type": "code",
       "norm_label": "next",
       "source_file": "src/home-ui.js",
@@ -8421,7 +8527,7 @@
       "label": "prev",
       "_origin": "ast",
       "community": 40,
-      "community_name": "home.js",
+      "community_name": "home-ui.js",
       "file_type": "code",
       "norm_label": "prev",
       "source_file": "src/home-ui.js",
@@ -8432,7 +8538,7 @@
       "label": "rail",
       "_origin": "ast",
       "community": 40,
-      "community_name": "home.js",
+      "community_name": "home-ui.js",
       "file_type": "code",
       "norm_label": "rail",
       "source_file": "src/home-ui.js",
@@ -8443,7 +8549,7 @@
       "label": "revealables",
       "_origin": "ast",
       "community": 40,
-      "community_name": "home.js",
+      "community_name": "home-ui.js",
       "file_type": "code",
       "norm_label": "revealables",
       "source_file": "src/home-ui.js",
@@ -15404,6 +15510,18 @@
       "type": "external"
     },
     {
+      "id": "src_bang",
+      "label": "src_bang",
+      "_origin": "semantic",
+      "community": 18,
+      "community_name": "after-paint.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "src_bang",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "src_style",
       "label": "src_style",
       "_origin": "semantic",
@@ -15412,18 +15530,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "src_style",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "src_bang",
-      "label": "src_bang",
-      "_origin": "semantic",
-      "community": 40,
-      "community_name": "home.js",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "src_bang",
       "source_file": "",
       "type": "external"
     },
@@ -16231,6 +16337,66 @@
       "context": "call",
       "source_file": "src/cloud-scene.js",
       "source_location": "L291",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent_build",
+      "target": "src_consent_root",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/consent.js",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent_build",
+      "target": "src_consent_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/consent.js",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent_build",
+      "target": "src_consent_close",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/consent.js",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent_build",
+      "target": "src_i18n_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/consent.js",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent_save",
+      "target": "src_consent_gtagconsent",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/consent.js",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -17706,7 +17872,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/nav.js",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -19186,6 +19352,42 @@
       "weight": 1.0
     },
     {
+      "source": "src_consent",
+      "target": "src_consent_build",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/consent.js",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent_build",
+      "target": "src_consent_build_showchoices",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/consent.js",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent_gtagconsent",
+      "target": "src_consent_gtagconsent_gtag",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/consent.js",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
       "source": "src_doc",
       "target": "src_doc_keepchipinview",
       "relation": "contains",
@@ -19530,7 +19732,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/nav.js",
-      "source_location": "L16",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -20237,6 +20439,18 @@
       "context": "import",
       "source_file": "src/cloud-scene.js",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent",
+      "target": "src_i18n_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/consent.js",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -21524,6 +21738,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_consent",
+      "target": "src_i18n",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/consent.js",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
       "source": "src_doc",
       "target": "src_i18n",
       "relation": "imports_from",
@@ -21917,6 +22143,18 @@
       "context": "import",
       "source_file": "src/nav.js",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_nav",
+      "target": "src_consent",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/nav.js",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -24032,6 +24270,61 @@
       "weight": 1.0
     },
     {
+      "source": "src_consent",
+      "target": "src_consent_root",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/consent.js",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent",
+      "target": "src_consent_state",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/consent.js",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent",
+      "target": "src_consent_gtagconsent",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/consent.js",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent",
+      "target": "src_consent_save",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/consent.js",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "src_consent",
+      "target": "src_consent_close",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/consent.js",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
       "source": "src_counter",
       "target": "src_counter_setupcounter",
       "relation": "contains",
@@ -25491,7 +25784,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/nav.js",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -25502,7 +25795,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/nav.js",
-      "source_location": "L14",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -25513,7 +25806,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/nav.js",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -25524,7 +25817,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/nav.js",
-      "source_location": "L40",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -29633,7 +29926,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "src/nav.js",
-      "source_location": "L50",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -33257,5 +33550,5 @@
       "source_file": "src/partials/product-page/nav.html"
     }
   ],
-  "built_at_commit": "61c681bc073c766cc204d66aa75ad53a54b01453"
+  "built_at_commit": "a94508f4df5af19507e5ab98386df17a66007bb7"
 }

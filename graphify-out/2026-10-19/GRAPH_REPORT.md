@@ -1,7 +1,7 @@
 # Graph Report - my-three-site  (2026-10-19)
 
 ## Corpus Check
-- 89 files · ~481,732 words
+- 89 files · ~481,733 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 21 file(s) not represented in the graph (top: .css 19, (none) 2)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `61c681bc`
+- Built from commit: `a94508f4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -564,7 +564,7 @@ Cohesion: 0.67
 Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Service Page Footer Partial
 
 ## Knowledge Gaps
-- **651 isolated node(s):** `How to read this`, `Stage 0 — Decisions and accounts`, `Stage 1 — Same-day fixes`, `Stage 2 — Platform foundations`, `Stage 3 — Brand repaint` (+646 more)
+- **651 isolated node(s):** `CONFETTI`, `ambientLight`, `BACK_TEX`, `backWall`, `backWallMat` (+646 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 723 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **110 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -572,12 +572,12 @@ Nodes (3): Product Page Footer Partial, Screenshot & Client Story Lightbox, Serv
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `three` connect `three` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `after-paint.js`, `buildCloudScene`, `package.json`, `about-hero.js`, `finaware-flow.js`, `learngenie-climb.js`?**
-  _High betweenness centrality (0.099) - this node is a cross-community bridge._
+  _High betweenness centrality (0.100) - this node is a cross-community bridge._
 - **Why does `t()` connect `t` to `i18n.mjs`, `product-viewport.js`, `solutions-ui.js`, `kc-blogs.js`, `services-ui.js`, `careers.js`, `nav.js`, `doc.js`?**
-  _High betweenness centrality (0.088) - this node is a cross-community bridge._
+  _High betweenness centrality (0.097) - this node is a cross-community bridge._
 - **Why does `onTheme()` connect `theme.js` to `showroom.js`, `solutions-scene.js`, `home-scene.js`, `services-scene.js`, `buildRide`, `buildCloudScene`, `about-hero.js`?**
-  _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **What connects `How to read this`, `Stage 0 — Decisions and accounts`, `Stage 1 — Same-day fixes` to the rest of the system?**
+  _High betweenness centrality (0.055) - this node is a cross-community bridge._
+- **What connects `CONFETTI`, `ambientLight`, `BACK_TEX` to the rest of the system?**
   _651 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `showroom.js` be split into smaller, more focused modules?**
   _Cohesion score 0.020618556701030927 - nodes in this community are weakly interconnected._

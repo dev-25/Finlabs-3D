@@ -173,4 +173,12 @@ export const UI_STRINGS = [
   'Request Live Demo', 'Demo Request Received!',
   'Our team will reach out within 24 hours to schedule your personalised walkthrough. Meanwhile, try our live Financial Quiz!',
   'Try the Quiz Now',
+  // the cookie banner — consent.js writes these at runtime
+  'Cookies on this site',
+  'We use essential cookies to run this site. With your permission we would also like to use analytics cookies to understand how it is used, and advertising cookies to show you relevant ads.',
+  'Strictly necessary', 'Remembers your language and theme. The site cannot work without them.',
+  'Analytics', 'How many people visit, and which pages they read.',
+  'Advertising', 'Lets us measure our ads and show you relevant ones elsewhere.',
+  'Accept all', 'Reject non-essential', 'Choose', 'Save my choices',
+  'Read our', 'Privacy Notice',
 ];

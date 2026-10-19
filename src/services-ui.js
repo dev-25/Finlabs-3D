@@ -172,6 +172,8 @@ form?.addEventListener('submit', (e) => {
     `Interested in: ${service}`,
     '',
     message || '(no message)',
+    '',
+    `Marketing consent: ${data.get('marketing') ? 'yes' : 'no'}`,
   ]
     .filter((l) => l !== false && l !== '')
     .join('\n');

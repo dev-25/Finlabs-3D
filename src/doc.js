@@ -101,12 +101,13 @@ form?.addEventListener('submit', (e) => {
     `Email: ${email}`,
     phone && `Phone: ${phone}`,
     company && `Company: ${company}`,
-    get('website') && `Website: ${get('website')}`,
     picked('product') && `Products: ${picked('product')}`,
     picked('solution') && `Solutions: ${picked('solution')}`,
     picked('service') && `Services: ${picked('service')}`,
     '',
     get('message') || '(no message)',
+    '',
+    `Marketing consent: ${data.get('marketing') ? 'yes' : 'no'}`,
   ]
     .filter((l) => l !== false && l !== '' && l !== 0)
     .join('\n');

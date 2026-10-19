@@ -9,6 +9,8 @@
  * ===================================================== */
 
 import { t, mountSwitcher } from './i18n.js';
+// the cookie banner belongs on every page, and every page loads this module
+import './consent.js';
 
 const nav = document.querySelector('.site-nav');
 const menu = nav?.querySelector('.site-nav__menu');

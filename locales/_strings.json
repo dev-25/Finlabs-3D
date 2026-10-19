@@ -153,6 +153,28 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
+ "Cookie settings": [
+  "index.html",
+  "products.html",
+  "services.html",
+  "solutions.html",
+  "terms.html",
+  "privacy.html",
+  "privacy-learngenie.html",
+  "contact.html",
+  "about.html",
+  "careers.html",
+  "brochure.html",
+  "partners.html",
+  "case-study.html",
+  "knowledge-centre/blogs.html",
+  "services/cloud.html",
+  "products/finexa.html",
+  "products/finexa-gennxt.html",
+  "products/finaware.html",
+  "products/fiscus.html",
+  "products/learngenie.html"
+ ],
  "Corporate Deck": [
   "index.html",
   "products.html",
@@ -505,7 +527,7 @@
   "products/fiscus.html",
   "products/learngenie.html"
  ],
- "Privacy Policy": [
+ "Privacy Notice": [
   "index.html",
   "products.html",
   "services.html",
@@ -660,6 +682,28 @@
   "products/learngenie.html"
  ],
  "X (Twitter)": [
+  "index.html",
+  "products.html",
+  "services.html",
+  "solutions.html",
+  "terms.html",
+  "privacy.html",
+  "privacy-learngenie.html",
+  "contact.html",
+  "about.html",
+  "careers.html",
+  "brochure.html",
+  "partners.html",
+  "case-study.html",
+  "knowledge-centre/blogs.html",
+  "services/cloud.html",
+  "products/finexa.html",
+  "products/finexa-gennxt.html",
+  "products/finaware.html",
+  "products/fiscus.html",
+  "products/learngenie.html"
+ ],
+ "Your privacy choices": [
   "index.html",
   "products.html",
   "services.html",
@@ -886,6 +930,11 @@
   "solutions.html",
   "contact.html"
  ],
+ "Email": [
+  "services.html",
+  "solutions.html",
+  "privacy-learngenie.html"
+ ],
  "Enterprise-grade security": [
   "products.html",
   "products/finexa-gennxt.html",
@@ -900,6 +949,16 @@
   "privacy-learngenie.html",
   "contact.html",
   "brochure.html"
+ ],
+ "Finlabs India Pvt. Ltd.": [
+  "terms.html",
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
+ "for what we collect, why, and your rights.": [
+  "services.html",
+  "solutions.html",
+  "contact.html"
  ],
  "Ganesh Madhukar": [
   "index.html",
@@ -941,7 +1000,7 @@
   "products/finexa-gennxt.html",
   "products/finaware.html"
  ],
- "Questions:": [
+ "Published in English. If a translation differs, the English version applies.": [
   "terms.html",
   "privacy.html",
   "privacy-learngenie.html"
@@ -976,7 +1035,7 @@
   "products/finexa-gennxt.html",
   "products/finaware.html"
  ],
- "Sending opens your email app with these details filled in.": [
+ "Send me product updates, events and insights from Finlabs by email or WhatsApp. I can unsubscribe at any time.": [
   "services.html",
   "solutions.html",
   "contact.html"
@@ -995,6 +1054,11 @@
   "index.html",
   "products.html",
   "products/finexa.html"
+ ],
+ "We’ll use these details only to respond to your request. See our": [
+  "services.html",
+  "solutions.html",
+  "contact.html"
  ],
  "We're happy to assist you": [
   "products.html",
@@ -1221,6 +1285,10 @@
   "products.html",
   "products/learngenie.html"
  ],
+ "a summary of the personal data we hold about you and what we do with it": [
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
  "A team working around a bank of servers, illustrating order management and data processing": [
   "products.html",
   "products/finexa-gennxt.html"
@@ -1349,6 +1417,14 @@
   "products.html",
   "products/finaware.html"
  ],
+ "and": [
+  "privacy.html",
+  "about.html"
+ ],
+ "and we will delete it.": [
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
  "Ankita J.": [
   "products.html",
   "products/learngenie.html"
@@ -1356,6 +1432,10 @@
  "Anuj Modi": [
   "products.html",
   "products/fiscus.html"
+ ],
+ "anything inaccurate, or complete anything missing": [
+  "privacy.html",
+  "privacy-learngenie.html"
  ],
  "Architecture": [
   "products.html",
@@ -1396,10 +1476,6 @@
  "Audit & invoice": [
   "products.html",
   "products/finaware.html"
- ],
- "Aug 2026": [
-  "terms.html",
-  "privacy.html"
  ],
  "AUM reconciliation": [
   "products.html",
@@ -1865,6 +1941,10 @@
   "products.html",
   "products/learngenie.html"
  ],
+ "Correct": [
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
  "Course management in Learngenie: single-subject, multi-subject and recurring courses": [
   "products.html",
   "products/learngenie.html"
@@ -1984,6 +2064,10 @@
  "Data Analytics and Visualisation": [
   "solutions.html",
   "contact.html"
+ ],
+ "Data Protection Board of India": [
+  "privacy.html",
+  "privacy-learngenie.html"
  ],
  "Data residency and infrastructure within Indian geography": [
   "products.html",
@@ -2189,10 +2273,6 @@
   "products.html",
   "products/learngenie.html"
  ],
- "Email": [
-  "services.html",
-  "solutions.html"
- ],
  "Empowering wealth management,": [
   "products.html",
   "products/finexa-gennxt.html"
@@ -2240,6 +2320,10 @@
  "Equity, funds, deposits": [
   "products.html",
   "products/fiscus.html"
+ ],
+ "Erase": [
+  "privacy.html",
+  "privacy-learngenie.html"
  ],
  "Events": [
   "products.html",
@@ -2497,10 +2581,6 @@
   "products.html",
   "products/finexa.html"
  ],
- "Finlabs India Pvt. Ltd.": [
-  "terms.html",
-  "privacy.html"
- ],
  "Finlabs Learning Hub": [
   "products.html",
   "products/finaware.html"
@@ -2684,6 +2764,10 @@
  "Governed from the start": [
   "products.html",
   "products/finaware.html"
+ ],
+ "Grievance Officer": [
+  "privacy.html",
+  "privacy-learngenie.html"
  ],
  "Higher engagement, better conversions": [
   "products.html",
@@ -3021,10 +3105,6 @@
   "products.html",
   "products/finexa-gennxt.html"
  ],
- "Last updated:": [
-  "terms.html",
-  "privacy.html"
- ],
  "Latest release": [
   "products.html",
   "products/finexa.html"
@@ -3349,6 +3429,10 @@
   "products.html",
   "products/fiscus.html"
  ],
+ "Nominate": [
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
  "Not sure yet — let's talk": [
   "services.html",
   "solutions.html"
@@ -3589,6 +3673,14 @@
   "products.html",
   "products/finexa.html"
  ],
+ "Privacy Notice — Learngenie": [
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
+ "privacy@finlabsindia.com": [
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
  "Priya S.": [
   "products.html",
   "products/learngenie.html"
@@ -3632,6 +3724,10 @@
  "Questions people ask about Fiscus": [
   "products.html",
   "products/fiscus.html"
+ ],
+ "Questions:": [
+  "terms.html",
+  "privacy-learngenie.html"
  ],
  "Quick Access is a navigation tool that helps you reach frequently used pages and features in just a few clicks, reducing the time spent searching through menus.": [
   "products.html",
@@ -4001,6 +4097,10 @@
   "products.html",
   "products/finaware.html"
  ],
+ "Show you": [
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
  "Sign up": [
   "products.html",
   "products/fiscus.html"
@@ -4277,6 +4377,10 @@
   "products.html",
   "products/learngenie.html"
  ],
+ "Under the Digital Personal Data Protection Act, 2023, you can ask us to:": [
+  "privacy.html",
+  "privacy-learngenie.html"
+ ],
  "Under which Income Tax section can you claim deduction for ELSS investments?": [
   "products.html",
   "products/learngenie.html"
@@ -4368,6 +4472,10 @@
  "Welcome to Fiscus, where financial management becomes simple, efficient and convenient. With Fiscus you can effortlessly take control of your finances, making informed decisions that align with your financial goals.": [
   "products.html",
   "products/fiscus.html"
+ ],
+ "WeWork, Enam Sambhav, 10th Floor, G Block, BKC, Mumbai 400051": [
+  "privacy.html",
+  "privacy-learngenie.html"
  ],
  "What AMCs ask us about Finaware": [
   "products.html",
@@ -4761,8 +4869,23 @@
   "products.html",
   "products/finexa.html"
  ],
+ "—": [
+  "privacy.html"
+ ],
  "— a technical, commercially sharp founding team": [
   "careers.html"
+ ],
+ "— advertising measurement, only if you accept advertising cookies": [
+  "privacy.html"
+ ],
+ "— email": [
+  "privacy.html"
+ ],
+ "— email, documents and meetings": [
+  "privacy.html"
+ ],
+ "— forms, CRM and the emails we send you": [
+  "privacy.html"
  ],
  "— India's leading AMCs, banks, DPs and financial institutions": [
   "careers.html"
@@ -4773,8 +4896,20 @@
  "— new products and greenfield builds": [
   "careers.html"
  ],
+ "— only if you start a WhatsApp conversation with us": [
+  "privacy.html"
+ ],
  "— Palliser House, Palliser Road, London W14 9EQ": [
   "brochure.html"
+ ],
+ "— reply": [
+  "privacy.html"
+ ],
+ "— serving this website and its server logs": [
+  "privacy.html"
+ ],
+ "— use the unsubscribe link at the foot of any email we send you. It takes one click and needs no reply from us.": [
+  "privacy.html"
  ],
  "— we read every CV.": [
   "careers.html"
@@ -4782,11 +4917,26 @@
  "— WeWork, Enam Sambhav, 10th Floor, G Block, Bandra Kurla Complex, Bandra East, Mumbai 400051": [
   "brochure.html"
  ],
+ ", at no charge. You can also turn off push notifications in your device settings at any time.": [
+  "privacy-learngenie.html"
+ ],
+ ", or to the Grievance Officer named under": [
+  "privacy.html"
+ ],
+ ", or write to our Grievance Officer:": [
+  "privacy-learngenie.html"
+ ],
  ", who moved from successful corporate finance careers to follow their passion.": [
   "about.html"
  ],
+ ". Declining costs you nothing on this site.": [
+  "privacy.html"
+ ],
  ". In 2016 two founders left comfortable corporate careers to build something of their own, and a deep look at the BFSI space turned up gaps and inefficiencies that could not be ignored — complex legacy infrastructure, siloed data, rising regulatory cost and slow, expensive product development.": [
   "brochure.html"
+ ],
+ ". We acknowledge complaints promptly and resolve them within 90 days. If we have not resolved yours, you may take it to the": [
+  "privacy-learngenie.html"
  ],
  "· {n} min read": [
   "(javascript)"
@@ -4881,6 +5031,9 @@
  "10 years": [
   "about.html"
  ],
+ "10. Complaints": [
+  "privacy-learngenie.html"
+ ],
  "10+ years (fintech / financial services)": [
   "careers.html"
  ],
@@ -4901,6 +5054,9 @@
  ],
  "12 Jan 2024": [
   "knowledge-centre/blogs.html"
+ ],
+ "12 months from your application": [
+  "privacy.html"
  ],
  "13 Feb 2024": [
   "knowledge-centre/blogs.html"
@@ -4934,6 +5090,9 @@
  ],
  "19 Jan 2024": [
   "knowledge-centre/blogs.html"
+ ],
+ "19 October 2026": [
+  "privacy.html"
  ],
  "2 Feb 2019": [
   "knowledge-centre/blogs.html"
@@ -4988,6 +5147,9 @@
  ],
  "24 Jun 2025": [
   "knowledge-centre/blogs.html"
+ ],
+ "24 months after we last hear from you, then deleted or anonymised": [
+  "privacy.html"
  ],
  "24 Sep 2018": [
   "knowledge-centre/blogs.html"
@@ -5118,14 +5280,14 @@
  "8 Apr 2025": [
   "knowledge-centre/blogs.html"
  ],
- "8. How can you review, update, or delete the data we collect from you?": [
-  "privacy-learngenie.html"
- ],
- "8. Review, update or delete your data": [
+ "8. Your rights over your data": [
   "privacy-learngenie.html"
  ],
  "9 Reasons Why You Should Do Personal Financial Planning": [
   "knowledge-centre/blogs.html"
+ ],
+ "9. Children": [
+  "privacy-learngenie.html"
  ],
  "A central, encrypted repository with role-based access": [
   "solutions.html"
@@ -5162,9 +5324,6 @@
  ],
  "A flexible working model with performance-based incentives": [
   "careers.html"
- ],
- "A full user always has the option of not providing the information which is not mandatory. You are solely responsible for maintaining confidentiality of the User password and user identification and all activities and transmission performed by the User through his user identification and shall be solely responsible for carrying out any online or off-line transaction involving credit cards / debit cards or such other forms of instruments or documents for making such transactions and Finlabs India assumes no responsibility or liability for their improper use of information relating to such usage of credit cards / debit cards used by the subscriber online / off-line.": [
-  "privacy.html"
  ],
  "A genuine interest in financial technology and innovation": [
   "careers.html"
@@ -5274,13 +5433,13 @@
  "About this notice": [
   "privacy-learngenie.html"
  ],
- "About this policy": [
-  "privacy.html"
- ],
  "About this website": [
   "terms.html"
  ],
- "Access data not intended for you or log into server or account that you are not authorized to access;": [
+ "Accept all": [
+  "(javascript)"
+ ],
+ "Access data not intended for you or log into a server or account that you are not authorised to access;": [
   "terms.html"
  ],
  "Accolades": [
@@ -5300,6 +5459,9 @@
  ],
  "Advanced analytics & multi-asset reporting": [
   "products.html"
+ ],
+ "Advertising": [
+  "(javascript)"
  ],
  "Advice grounded in your stack and your regulators: the five practices above, run by specialists who know financial services.": [
   "services.html"
@@ -5448,6 +5610,12 @@
  "Analysts": [
   "solutions.html"
  ],
+ "Analytics": [
+  "(javascript)"
+ ],
+ "Analytics and advertising cookies run only if you accept them. You are asked the first time you visit, your answer is remembered, and you can change it whenever you like through": [
+  "privacy.html"
+ ],
  "Analytics and QA automation": [
   "services.html"
  ],
@@ -5457,11 +5625,17 @@
  "Anaplan for planning and modelling": [
   "partners.html"
  ],
- "and": [
-  "about.html"
- ],
  "and build with": [
   "partners.html"
+ ],
+ "and change your answer at any time.": [
+  "privacy.html"
+ ],
+ "and we will not message you again.": [
+  "privacy.html"
+ ],
+ "and we will stop.": [
+  "privacy.html"
  ],
  "Android and iOS apps on one shared, secure API layer": [
   "solutions.html"
@@ -5508,6 +5682,9 @@
  "As an MFD, I have been associated with Finexa for nearly three years, and it has been a wonderful experience. The platform is simple, convenient, and easy to navigate. More importantly, their client servicing team is outstanding. Whenever I encounter any difficulty, I just need to make one call, and the team is ready to help.": [
   "index.html"
  ],
+ "As set out in": [
+  "privacy.html"
+ ],
  "Assess": [
   "services.html"
  ],
@@ -5523,10 +5700,10 @@
  "At Finlabs we believe in fostering not just careers, but people who become catalysts of innovation. Joining the team means a dynamic environment that runs on individual responsibility and collective growth.": [
   "careers.html"
  ],
- "Attempt or breach security or authentication measures without proper authorization;": [
+ "Attempt to breach security or authentication measures without proper authorisation;": [
   "terms.html"
  ],
- "Attempt to interfere with, access to any other user including but not limited to by submitting a virus of any kind or Trojan horse to Finlabs India, overloading, Flooding, mail bombing or crashing;": [
+ "Attempt to interfere with service to any user, host or network, including but not limited to by submitting a virus or Trojan horse to Finlabs India, overloading, flooding, mail bombing or crashing;": [
   "terms.html"
  ],
  "Attention to detail and a commitment to software quality": [
@@ -5537,6 +5714,9 @@
  ],
  "Aug": [
   "about.html"
+ ],
+ "Aug 2026": [
+  "terms.html"
  ],
  "Authentication and authorisation, including JWT and OAuth": [
   "careers.html"
@@ -5658,9 +5838,6 @@
  "Banks & NBFCs": [
   "solutions.html"
  ],
- "Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information.": [
-  "privacy-learngenie.html"
- ],
  "Basic Docker knowledge is an added advantage": [
   "careers.html"
  ],
@@ -5670,7 +5847,7 @@
  "Be the interface between Finlabs leadership, engineering teams and BFSI clients": [
   "careers.html"
  ],
- "Belongs to another person and to which the user does not have any right to;": [
+ "Belongs to another person and to which the user does not have any right;": [
   "terms.html"
  ],
  "Best for:": [
@@ -5808,9 +5985,6 @@
  "By accessing the Website you agree that the laws prevailing in India shall be the governing laws in all matters relating to Finlabs India as well as these Terms and Conditions.": [
   "terms.html"
  ],
- "By providing your contact info, you agree to receive communications from Finlabs. You can opt-out at any time. For details refer to our": [
-  "contact.html"
- ],
  "Call warm and cold leads — MFDs, IFAs and wealth managers — from campaigns, emails and events": [
   "careers.html"
  ],
@@ -5877,6 +6051,9 @@
  "Change Initiatives has been associated with Finlabs for almost a decade. Their expertise in exam software has helped us achieve our digital literacy goals at scale. The team is always available to resolve queries and guide us through every process. Finlabs' strong knowledge of personal finance and easy-to-use applications are extremely valuable. Their solutions have greatly supported our on-ground financial literacy initiatives.": [
   "index.html"
  ],
+ "Changes to this notice": [
+  "privacy.html"
+ ],
  "Checks, calendar and audit trail": [
   "solutions.html"
  ],
@@ -5891,6 +6068,12 @@
  ],
  "Chief Operating Officer": [
   "about.html"
+ ],
+ "Children": [
+  "privacy.html"
+ ],
+ "Choose": [
+  "(javascript)"
  ],
  "Choose a cloud platform": [
   "services/cloud.html"
@@ -6057,6 +6240,9 @@
  "Company name": [
   "contact.html"
  ],
+ "Complaints": [
+  "privacy.html"
+ ],
  "Complete audit trails and ready-to-share reports": [
   "solutions.html"
  ],
@@ -6114,8 +6300,14 @@
  "Controls mapped to ISO 27001 and SOC 2": [
   "services.html"
  ],
- "Cookies and IP addresses": [
+ "Cookies": [
   "privacy.html"
+ ],
+ "Cookies and tracking": [
+  "privacy.html"
+ ],
+ "Cookies on this site": [
+  "(javascript)"
  ],
  "Copy a link to this article": [
   "knowledge-centre/blogs.html"
@@ -6191,6 +6383,9 @@
  ],
  "Data privacy, DPDP Act compliance and BFSI regulatory constraints": [
   "careers.html"
+ ],
+ "data we no longer need, or that you have withdrawn consent for": [
+  "privacy-learngenie.html"
  ],
  "Data-centre exit": [
   "services/cloud.html"
@@ -6501,9 +6696,6 @@
  "Every document secure, and a search away": [
   "solutions.html"
  ],
- "Every effort will be made to keep the information provided by users in a safe manner, the information will be displayed on the website will be done so only after obtaining consent from the users. Any user browsing the site generally is not required to disclose his identity or provide any information about him/her, it is only at the time of registration you will be required to furnish the details in the registration form.": [
-  "privacy.html"
- ],
  "Every engagement starts with a conversation about your goals, then moves through four stages.": [
   "services/cloud.html"
  ],
@@ -6521,6 +6713,9 @@
  ],
  "Every workload gets its own path": [
   "services/cloud.html"
+ ],
+ "Everything else": [
+  "privacy.html"
  ],
  "Evidence packs ready for audit": [
   "services.html"
@@ -6804,10 +6999,13 @@
  "Finlabs India privacy policy, privacy policy, data protection, personal information, how we use your data": [
   "privacy.html"
  ],
+ "Finlabs India Pvt. Ltd. (“Finlabs”, “we”, “us”) builds technology platforms for financial institutions and mutual fund distributors. When you use this website, Finlabs is the Data Fiduciary for the personal data described below — that is, we decide why and how it is processed.": [
+  "privacy.html"
+ ],
  "Finlabs India Pvt. Ltd. shall not be liable for any loss or damage sustained by reason of any disclosure (inadvertent or otherwise) of any information concerning the user’s account and / or information relating to or regarding online transactions using credit cards / debit cards and / or their verification process and particulars nor for any error, omission or inaccuracy with respect to any information so disclosed and used whether or not in pursuance of a legal process or otherwise.": [
   "terms.html"
  ],
- "Finlabs India Pvt. Ltd. uses the maximum care as is possible to ensure that all or any data / information in respect of electronic transfer of money does not fall in the wrong hands. For completing online transactions involving payments a user is directed to a Payment Gateway, Finlabs India Pvt. Ltd does not store or keep credit card data. Since the transaction happens on a third party network not controlled by Finlabs India Pvt. Ltd., once a credit card transaction has been completed, the payment information is not accessible to anyone at Finlabs India Pvt. Limited after completion of the on-line transaction at the Payment Gateway, this ensures the maximum security.": [
+ "Finlabs India Pvt. Ltd. takes the maximum care possible to ensure that data relating to electronic transfer of money does not fall into the wrong hands. To complete online transactions involving payments, a user is directed to a payment gateway; Finlabs India Pvt. Ltd. does not store or keep credit card data. Since the transaction happens on a third-party network not controlled by Finlabs India Pvt. Ltd., once a card transaction has been completed at the payment gateway, the payment information is not accessible to anyone at Finlabs India Pvt. Ltd. This ensures maximum security.": [
   "terms.html"
  ],
  "Finlabs India terms and conditions, terms and conditions, website terms of use, terms of service": [
@@ -6867,7 +7065,7 @@
  "FIPL AND ANY THIRD PARTY PROVIDING MATERIALS, SERVICES OR CONTENT TO THIS WEBSITE, DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, STATUTORY OR OTHERWISE INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT OF THIRD PARTY RIGHTS, COMPLETENESS OR ACCURACY OF THE INFORMATION, UPDATE OR CORRECTNESS OF THE INFORMATION, FREEDOM FROM COMPUTER VIRUSES, OTHER VIOLATION OF RIGHTS REGARDING SERVICES, PRODUCTS, MATERIAL AND CONTENTS OF Finlabs India.": [
   "terms.html"
  ],
- "FIPL assumes no responsibility for any error, omission, interruption, deletion, defect, delay in operation or transmission, communication line failure, theft or destruction or unauthorised access to or alteration of Customer’s data/information. FIPL shall not be responsible for any problem or technical malfunction on-line-systems, servers or providers, computer equipment, software, failure of e-mail or players on account of technical problem or traffic congestion on the Internet or at any website or combination thereof, including injury or damage to any customer and/or Members or to any other person’s computer related to or resulting from participating or downloading materials/information from the website.": [
+ "FIPL assumes no responsibility for any error, omission, interruption, deletion, defect, delay in operation or transmission, communication line failure, theft or destruction or unauthorised access to or alteration of Customer’s data/information. FIPL shall not be responsible for any problem or technical malfunction of online systems, servers or providers, computer equipment, software, failure of email or players on account of technical problems or traffic congestion on the internet or at any website or combination thereof, including injury or damage to any customer and/or Members or to any other person’s computer related to or resulting from participating in or downloading materials/information from the website.": [
   "terms.html"
  ],
  "FIPL does not routinely monitor your postings to the web site but reserves the right to do so. However, if FIPL becomes aware of an inappropriate use of Finlabs India or any of its Services, FIPL will respond in any way that, in its sole discretion, FIPL deems appropriate. You acknowledge that FIPL will have the right to report to law enforcement authorities any actions that may be considered illegal, as well as any information it receives of such illegal conduct. When requested, FIPL will co-operate fully with law enforcement agencies in any investigation of alleged illegal activity on the Internet.": [
@@ -6879,7 +7077,7 @@
  "FIPL may, without notice in its sole discretion, and at any time, terminate or restrict your use or access to Finlabs India (or any part thereof) for any reason, including, without limitation, that FIPL based on its judgement and perception believes you have violated or acted inconsistently with the letter or spirit of these Terms and Conditions.": [
   "terms.html"
  ],
- "FIPL offers products, services, content and various other functionalities (collectively the “Services”) to specific regions worldwide. The Services offered in one region may differ from those in other regions due to availability, local or regional laws or legal impediments and other considerations/factors. FIPL does not make any warranty or representation that a user in one region may also obtain the Services as provided in another region. Information on this Website may contain references to products, programs or services that are not announced or available in your country. Such references do not in any manner imply that FIPL intends to announce, launch or provide such products, programs or services in your country.": [
+ "FIPL offers products, services, content and various other functionalities (collectively the “Services”) to specific regions worldwide. The Services offered in one region may differ from those in other regions due to availability, local or regional laws or legal impediments and other considerations/factors. FIPL does not make any warranty or representation that a user in one region may also obtain the Services as provided in another region. Information on this Website may contain references to products, programmes or services that are not announced or available in your country. Such references do not in any manner imply that FIPL intends to announce, launch or provide such products, programmes or services in your country.": [
   "terms.html"
  ],
  "FIPL reserves all other rights.": [
@@ -6888,7 +7086,7 @@
  "FIPL respects the Intellectual Property Rights of all, it has and will continue to adhere to all the laws applicable in India in this respect. FIPL shall protect and respect the Intellectual Property Rights of the users as well as third parties to the best of its ability. In a case where a user/users are found to be using Finlabs India as a platform to infringe the Intellectual Property Rights of others, FIPL will be free to terminate this agreement forthwith without any notice to the user.": [
   "terms.html"
  ],
- "FIPL will not be liable for any damages of any kind arising out of or relating to the use or the inability to use this Website, its content or links, including but not limited to damages caused by or related to errors, omissions, interruptions, defects, delay in operation or transmission, computer virus, line failure and all other direct, indirect, special, incidental, punitive, loss of profit, exemplary or consequential damages whether based on warranty, contract, tort or any other legal theory including Force Majeure, and whether or not, such organizations or entities were intimated or advised of the possibility of such damages.": [
+ "FIPL will not be liable for any damages of any kind arising out of or relating to the use or the inability to use this Website, its content or links, including but not limited to damages caused by or related to errors, omissions, interruptions, defects, delay in operation or transmission, computer virus, line failure and all other direct, indirect, special, incidental, punitive, loss of profit, exemplary or consequential damages whether based on warranty, contract, tort or any other legal theory including Force Majeure, and whether or not, such organisations or entities were intimated or advised of the possibility of such damages.": [
   "terms.html"
  ],
  "First 50 Advisors": [
@@ -6954,6 +7152,12 @@
  "Follow up diligently on demo-to-sale conversion and track leads in the CRM": [
   "careers.html"
  ],
+ "For anything to do with your personal data, email": [
+  "privacy-learngenie.html"
+ ],
+ "For anything to do with your personal data, write to": [
+  "privacy.html"
+ ],
  "For most financial firms it now is. Here is what changes when your platforms run on a hyperscale cloud instead of a server room.": [
   "services/cloud.html"
  ],
@@ -6966,7 +7170,7 @@
  "For ten years, Finlabs has combined finance and technology to deliver innovative solutions in investment advising, wealth management, insurance and financial education.": [
   "about.html"
  ],
- "For the purposes of this agreement, any person who does not have a legal or a contractual right to access the services, but does so, will fall within the definition of an ‘unauthorized user’ and will be subject to the terms and conditions, and expressly so with respect to respecting the intellectual property rights of the provider, and abiding by licensing terms and conditions.": [
+ "For the purposes of this agreement, any person who does not have a legal or a contractual right to access the services, but does so, will fall within the definition of an ‘unauthorised user’ and will be subject to the terms and conditions, and expressly so with respect to respecting the intellectual property rights of the provider, and abiding by licensing terms and conditions.": [
   "terms.html"
  ],
  "Forget the gym memberships and juice cleanses; let’s talk about real resolutions that will transform your life in 2024. We’re not talking about fleeting trends, but concrete steps to build a future filled with financial security and freedom. So, ditch the pressure and embrace these 12 personal finance rules that will empower you to thrive,": [
@@ -7104,6 +7308,9 @@
  "Good understanding of Agile/Scrum": [
   "careers.html"
  ],
+ "Google": [
+  "privacy.html"
+ ],
  "Google Cloud Well-Architected Framework": [
   "services/cloud.html"
  ],
@@ -7140,7 +7347,7 @@
  "Hariharan Iyer, Chief Operating Officer — view profile": [
   "about.html"
  ],
- "Harm minors in any way;": [
+ "Harms minors in any way;": [
   "terms.html"
  ],
  "Health One": [
@@ -7164,17 +7371,17 @@
  "How can we help?": [
   "contact.html"
  ],
- "How Finlabs India collects, uses and protects the information you share with us when you use our website and services.": [
-  "privacy.html"
- ],
- "How Finlabs India Pvt. Ltd. collects, uses and protects the personal information of people who use its website and services.": [
-  "privacy.html"
- ],
  "How Investors Behave During Festivals: Cultural + Financial Drivers": [
   "knowledge-centre/blogs.html"
  ],
  "How it began": [
   "brochure.html"
+ ],
+ "How long we keep it": [
+  "privacy.html"
+ ],
+ "How many people visit, and which pages they read.": [
+  "(javascript)"
  ],
  "How Technology Fuels Growth in Financial Advisory & Distribution": [
   "knowledge-centre/blogs.html"
@@ -7188,7 +7395,7 @@
  "How we engage": [
   "services/cloud.html"
  ],
- "How we use your information": [
+ "How we protect it": [
   "privacy.html"
  ],
  "How we work": [
@@ -7205,9 +7412,6 @@
  ],
  "HTML5, React, Bootstrap, Django": [
   "brochure.html"
- ],
- "https://": [
-  "contact.html"
  ],
  "I came to know of Finlabs at an event organized by Network FP, I subscribed to Finlabs - Finexa for financial planning post the demo and have been using it for more than a year now. The team at Finlabs is very supportive in resolving queries and constantly looking for inputs to update their product, the financial planning report is exhaustive and very helpful. I recommend subscribing Finexa!!": [
   "index.html"
@@ -7236,8 +7440,14 @@
  "If any dispute arises between a user/users and FIPL arising out of use of the website or thereafter, in connection with the validity, interpretation, implementation or alleged breach of any provision of this Agreement, the dispute shall be referred to a sole Arbitrator who shall be an independent and neutral third party identified by FIPL. Decision of the Arbitrator shall be final and binding on both the parties to the dispute. The place of arbitration shall be Mumbai. The Arbitration & Conciliation Act, 1996, shall govern the arbitration proceedings.": [
   "terms.html"
  ],
- "If you have questions or comments about this notice, you may email us at": [
+ "If something about your personal data is not right, tell our Grievance Officer at": [
   "privacy-learngenie.html"
+ ],
+ "If something about your personal data is not right, tell our Grievance Officer. We acknowledge complaints promptly and resolve them within 90 days.": [
+  "privacy.html"
+ ],
+ "If we have not resolved your complaint, you may take it to the": [
+  "privacy.html"
  ],
  "If you run market infrastructure, a data service or an advisory network and your customers overlap with ours, there is usually an integration worth having. Tell us what you do.": [
   "partners.html"
@@ -7245,13 +7455,13 @@
  "If you use our application(s), we also may collect the following information if you choose to provide us with access or permission:": [
   "privacy-learngenie.html"
  ],
- "If you utilize Finlabs India in a manner inconsistent with these Terms and Conditions, FIPL may terminate your access, block your future access and/or seek such additional relief as the circumstances of your misuse may be deemed to be fit and proper.": [
+ "If you utilise Finlabs India in a manner inconsistent with these Terms and Conditions, FIPL may terminate your access, block your future access and/or seek such additional relief as the circumstances of your misuse may be deemed to be fit and proper.": [
   "terms.html"
  ],
  "Imagine a world where every young adult steps into the real world with a clear understanding of how to manage their money. A world where financial literacy is as fundamental as reading and writing. While this may sound like a utopian dream, it is entirely achievable through proactive education and engagement. Teaching students, particularly those": [
   "knowledge-centre/blogs.html"
  ],
- "Impersonate another person;": [
+ "Impersonates another person;": [
   "terms.html"
  ],
  "Implement": [
@@ -7277,9 +7487,6 @@
  ],
  "In many households, it is generally seen that the important financial decisions are taken by the man of the house. It was considered to be their domain with the assumption that they understood the money matters better and hence were in a position to take the best decision.": [
   "knowledge-centre/blogs.html"
- ],
- "In order to provide a personalized browsing experience, Finlabs India may collect personal information from you. Additionally our website may require you to complete a registration form or seek some information from you. When you let us have your preferences, we will be able to deliver or allow you to access the most relevant information that meets your end.": [
-  "privacy.html"
  ],
  "In our first part, we explored how traditional investor education methods limited reach and how technology began transforming this landscape. Now, let us dive deeper into the specific digital tools and approaches that are breaking down every barrier to financial education. Learning Anytime, Anywhere Cloud-based platforms have demolished the walls that once confined financial education.": [
   "knowledge-centre/blogs.html"
@@ -7340,9 +7547,6 @@
  ],
  "Information Technology": [
   "careers.html"
- ],
- "Information we collect": [
-  "privacy.html"
  ],
  "Infrastructure-as-code and CIS benchmark checks": [
   "services.html"
@@ -7416,7 +7620,7 @@
  "Iqbal Shaikh": [
   "index.html"
  ],
- "Is grossly harmful, harassing, blasphemous, defamatory, obscene, pornographic, paedophilic, libellous, invasive of another’s privacy, hateful, or racially, ethnically objectionable, disparaging, relating or encouraging money laundering or gambling, or otherwise unlawful in any manner whatever;": [
+ "Is grossly harmful, harassing, blasphemous, defamatory, obscene, pornographic, paedophilic, libellous, invasive of another’s privacy, hateful, or racially or ethnically objectionable, disparaging, relating to or encouraging money laundering or gambling, or otherwise unlawful in any manner whatever;": [
   "terms.html"
  ],
  "Is the cloud right for your business?": [
@@ -7448,6 +7652,9 @@
  ],
  "Its ease of use has helped us work more efficiently and deliver better outcomes for our clients.": [
   "index.html"
+ ],
+ "its own notice": [
+  "privacy.html"
  ],
  "Java 11/17 or above": [
   "careers.html"
@@ -7533,6 +7740,9 @@
  "Last name": [
   "solutions.html"
  ],
+ "Last updated:": [
+  "terms.html"
+ ],
  "Latest": [
   "knowledge-centre/blogs.html"
  ],
@@ -7572,8 +7782,14 @@
  "Learngenie is a Finlabs India product. Press Esc, click outside the screen, or use the button at the top left to close it.": [
   "products.html"
  ],
+ "Learngenie is used in schools and training programmes, so some learners are under 18. Where that is the case, we process a child’s data only after verifiable parental consent has been obtained — usually by the school, employer or programme partner that enrols them, acting on our instructions.": [
+  "privacy-learngenie.html"
+ ],
  "Learngenie Launch": [
   "about.html"
+ ],
+ "Learngenie notice": [
+  "privacy.html"
  ],
  "Learngenie privacy policy, LMS app privacy, learning app data protection, Learngenie-Fintech app, app data collection": [
   "privacy-learngenie.html"
@@ -7581,7 +7797,7 @@
  "Learngenie, learning management system, white label LMS, corporate training platform, gamified learning, employee training software India, online assessments and certification, live training platform, LMS for financial services": [
   "products/learngenie.html"
  ],
- "Learngenie, our learning and development app, has its own privacy policy:": [
+ "Learngenie, our learning app, collects different data for different purposes and has its own notice:": [
   "privacy.html"
  ],
  "Learning & development": [
@@ -7593,9 +7809,6 @@
  "Legacy inventory and capability-gap analysis": [
   "services.html"
  ],
- "Legal compliance": [
-  "privacy.html"
- ],
  "Less downtime": [
   "solutions.html"
  ],
@@ -7604,6 +7817,9 @@
  ],
  "Let's talk about your cloud": [
   "services/cloud.html"
+ ],
+ "Lets us measure our ads and show you relevant ones elsewhere.": [
+  "(javascript)"
  ],
  "Leverage our specialized services to tackle challenges, improve efficiency, and drive results.": [
   "index.html"
@@ -7619,6 +7835,9 @@
  ],
  "Link copied": [
   "(javascript)"
+ ],
+ "LinkedIn and Meta": [
+  "privacy.html"
  ],
  "Links to Third-Party Websites": [
   "terms.html"
@@ -7707,6 +7926,12 @@
  "Market intelligence": [
   "careers.html"
  ],
+ "Marketing emails": [
+  "privacy.html"
+ ],
+ "Marketing preferences": [
+  "privacy.html"
+ ],
  "Markets, data & technology": [
   "about.html"
  ],
@@ -7728,6 +7953,9 @@
  "Message / How can we help you?": [
   "(javascript)"
  ],
+ "Meta (WhatsApp)": [
+  "privacy.html"
+ ],
  "Methodologies": [
   "careers.html"
  ],
@@ -7742,6 +7970,9 @@
  ],
  "Microservices architecture (preferred)": [
   "careers.html"
+ ],
+ "Microsoft": [
+  "privacy.html"
  ],
  "Microsoft Defender for Cloud": [
   "services/cloud.html"
@@ -7875,6 +8106,9 @@
  "Name": [
   "privacy-learngenie.html"
  ],
+ "Name, work email, phone number and organisation": [
+  "privacy.html"
+ ],
  "Nandip Vaidya": [
   "about.html"
  ],
@@ -7928,6 +8162,9 @@
  ],
  "No roles match that search. Clear the filters, or write to": [
   "careers.html"
+ ],
+ "No website can promise perfect security. If a breach ever affects your personal data, we will tell you and report it to the Data Protection Board of India as the Act requires.": [
+  "privacy.html"
  ],
  "Not sure where to start?": [
   "solutions.html"
@@ -7989,6 +8226,9 @@
  "Open roles in engineering, sales and product at Finlabs India, plus internships in Mumbai.": [
   "careers.html"
  ],
+ "open your cookie settings": [
+  "privacy.html"
+ ],
  "Operations teams": [
   "solutions.html"
  ],
@@ -7997,9 +8237,6 @@
  ],
  "Optimise and support": [
   "services/cloud.html"
- ],
- "or by post to:": [
-  "privacy-learngenie.html"
  ],
  "or call for services ↗": [
   "index.html"
@@ -8019,8 +8256,14 @@
  "Our association with Finlabs Learning Hub has been highly positive. The platform is reliable, user-friendly, and effective in supporting our learning and development needs. We value this partnership and would recommend Finlabs Learning Hub to organizations seeking a dependable and well-supported learning solution.": [
   "index.html"
  ],
+ "Our basis": [
+  "privacy.html"
+ ],
  "Our core values": [
   "about.html"
+ ],
+ "Our hosting provider": [
+  "privacy.html"
  ],
  "Our journey": [
   "about.html"
@@ -8130,7 +8373,7 @@
  "Payment Terms": [
   "terms.html"
  ],
- "Payments for the services offered by Finlabs India shall be on a 100% advance basis. The payment for service once subscribed to by the subscriber is not refundable and any amount paid shall stand appropriated. Refund if any will be at the sole discretion of Finlabs India Pvt. Limited. FIPL offers no guarantees whatsoever for the accuracy or timeliness of the refunds reaching the Customers card/bank accounts. User acknowledges and agrees that FIPL/Finlabs India.com, at its sole discretion and without prejudice to other rights and remedies that it may have under the applicable laws, shall be entitled to set off the amount paid or payable by a subscriber/user against any amount(s) payable by User to FIPL under any other agreement or commercial relationship towards other products/services. Finlabs India Pvt. Ltd. gives no guarantees of server uptime or applications working properly. All is on a best effort basis and liability is limited to refund of amount only. Finlabs India Pvt. Ltd. undertakes no liability for free services. Finlabs India Pvt. Ltd. reserves its right to amend / alter or change all or any disclaimers or terms of agreements at any time without any prior notice. All terms / disclaimers whether specifically mentioned or not shall be deemed to be included if any reference is made to them.": [
+ "Payments for the services offered by Finlabs India shall be on a 100% advance basis. Payment for a service, once subscribed to, is not refundable and any amount paid shall stand appropriated. Refunds, if any, will be at the sole discretion of Finlabs India Pvt. Ltd. FIPL offers no guarantees whatsoever for the accuracy or timeliness of refunds reaching the Customer's card or bank account. User acknowledges and agrees that FIPL, at its sole discretion and without prejudice to other rights and remedies that it may have under the applicable laws, shall be entitled to set off the amount paid or payable by a subscriber/user against any amount(s) payable by User to FIPL under any other agreement or commercial relationship towards other products/services. Finlabs India Pvt. Ltd. gives no guarantees of server uptime or applications working properly. All services are provided on a best-effort basis and liability is limited to refund of the amount only. Finlabs India Pvt. Ltd. undertakes no liability for free services. Finlabs India Pvt. Ltd. reserves the right to amend, alter or change all or any disclaimers or terms of agreements at any time without prior notice. All terms and disclaimers, whether specifically mentioned or not, shall be deemed to be included if any reference is made to them.": [
   "terms.html"
  ],
  "PDF · 13.7 MB": [
@@ -8162,6 +8405,9 @@
  ],
  "Perseverance": [
   "about.html"
+ ],
+ "personal data we no longer need, or that you have withdrawn consent for": [
+  "privacy.html"
  ],
  "Personal finance for individuals — accounts, bills, investments and expenses in one picture": [
   "brochure.html"
@@ -8265,17 +8511,14 @@
  "Previous testimonials": [
   "index.html"
  ],
- "Privacy Policy — Finlabs": [
+ "Privacy Notice — Finlabs": [
   "privacy.html"
  ],
- "Privacy policy — Learngenie": [
+ "Privacy Notice — Learngenie | Finlabs": [
+  "privacy-learngenie.html"
+ ],
+ "Privacy questions:": [
   "privacy.html"
- ],
- "Privacy Policy — Learngenie": [
-  "privacy-learngenie.html"
- ],
- "Privacy Policy — Learngenie | Finlabs": [
-  "privacy-learngenie.html"
  ],
  "Proactive and disciplined, with flexible hours when required": [
   "careers.html"
@@ -8406,6 +8649,9 @@
  "Read more →": [
   "index.html"
  ],
+ "Read our": [
+  "(javascript)"
+ ],
  "Read our privacy policy carefully below to know your rights as a privileged user of Learngenie-Fintech, our learning management app.": [
   "privacy-learngenie.html"
  ],
@@ -8460,6 +8706,9 @@
  "Rehost": [
   "services/cloud.html"
  ],
+ "Reject non-essential": [
+  "(javascript)"
+ ],
  "Relationship managers": [
   "solutions.html"
  ],
@@ -8468,6 +8717,9 @@
  ],
  "Relocate": [
   "services/cloud.html"
+ ],
+ "Remembers your language and theme. The site cannot work without them.": [
+  "(javascript)"
  ],
  "Remove any copyright, trade mark or other intellectual property notices contained in the original material from any material copied or printed off from Finlabs India or link to Finlabs India, without our express written consent.": [
   "terms.html"
@@ -8585,6 +8837,9 @@
  ],
  "SAST / DAST": [
   "services.html"
+ ],
+ "Save my choices": [
+  "(javascript)"
  ],
  "Scale": [
   "services.html"
@@ -8748,9 +9003,6 @@
  "Share your goals": [
   "solutions.html"
  ],
- "Sharing and safekeeping": [
-  "privacy.html"
- ],
  "Show more {noun} ({n} left)": [
   "(javascript)"
  ],
@@ -8832,6 +9084,12 @@
  "Solutions offered": [
   "solutions.html"
  ],
+ "someone to exercise these rights for you if you die or become incapable of doing so": [
+  "privacy-learngenie.html"
+ ],
+ "someone to exercise these rights on your behalf if you die or become incapable of doing so": [
+  "privacy.html"
+ ],
  "Somnath Chatterjee": [
   "index.html"
  ],
@@ -8898,6 +9156,12 @@
  "Strategic tie-up to drive innovation in wealth-tech solutions: Finlabs and LSEG Data & Analytics": [
   "about.html"
  ],
+ "Strictly necessary": [
+  "(javascript)"
+ ],
+ "Strictly necessary cookies — the ones that remember your language and whether you chose the light or dark theme — run whenever you visit, because the site cannot work without them. They stay on your device for up to 12 months and tell us nothing about you.": [
+  "privacy.html"
+ ],
  "Strong analytical and problem-solving skills": [
   "careers.html"
  ],
@@ -8919,7 +9183,7 @@
  "Students or recent graduates eager to learn and grow": [
   "careers.html"
  ],
- "Submissions and unauthorized use of any information(s)/materials contained on Finlabs India may violate copyright laws, trademark laws, the laws of privacy and publicity, certain communications statutes and regulations thereto and other applicable laws, statutes and its rules and regulations. You alone are responsible for your actions or the actions of any person using your user name and/or password.": [
+ "Submissions and unauthorised use of any information(s)/materials contained on Finlabs India may violate copyright laws, trademark laws, the laws of privacy and publicity, certain communications statutes and regulations thereto and other applicable laws, statutes and its rules and regulations. You alone are responsible for your actions or the actions of any person using your user name and/or password.": [
   "terms.html"
  ],
  "Success stories": [
@@ -9144,9 +9408,6 @@
  "The Finlabs corporate deck, as a page: who we are, the five products, the solutions and services built on them, success stories, clients, partners and the team — with the full PDF to download.": [
   "brochure.html"
  ],
- "The FINLABS INDIA website fully complies with all Indian Laws applicable. FINLABS INDIA has always cooperated with all law enforcement inquires. FINLABS INDIA may disclose all or part of your personal details in response to a request from the law enforcement authorities or in a case of bonafide requirement to prevent an imminent breach of the law.": [
-  "privacy.html"
- ],
  "The Finlabs team came together to celebrate our tenth anniversary — product builders, technologists and industry veterans, the people behind every milestone on this page.": [
   "about.html"
  ],
@@ -9207,9 +9468,6 @@
  "The people, and where to find us": [
   "brochure.html"
  ],
- "The personal information provided by the users to Finlabs India will not be provided to third parties without previous consent of the user concerned. Information of a general nature may however be revealed to external parties.": [
-  "privacy.html"
- ],
  "The personal information we collect may include the following:": [
   "privacy-learngenie.html"
  ],
@@ -9237,13 +9495,13 @@
  "The suite, in one place": [
   "brochure.html"
  ],
- "The term ‘authorized user’ would include any person, whether an individual or a legal entity who has subscribed to the services of Finlabs India, and to whom the access is restricted by the use of a sign in user name and a password. The user name and password are either allotted by Finlabs India or chosen by the user or agreed upon by Finlabs India. It is made abundantly clear that only the authorized user has the right to access the services so offered by Finlabs India.": [
+ "The term ‘authorised user’ includes any person, whether an individual or a legal entity, who has subscribed to the services of Finlabs India and whose access is restricted by a sign-in username and password. The username and password are either allotted by Finlabs India, or chosen by the user and agreed by Finlabs India. Only the authorised user has the right to access the services offered by Finlabs India.": [
   "terms.html"
  ],
- "The terms ‘service’ or ‘services’ would mean to include the interactive online tools, information & research offered by Finlabs India on the internet through which the user may access information carried by Finlabs India, input and process their customer data and disseminate processed reports to their customers. The terms would include to mean the various reporting, transaction and analytical tools through which the user can provide personalized financial planning & advice, transaction facilities and monitoring portal to their clients.": [
+ "The terms ‘service’ or ‘services’ would mean to include the interactive online tools, information & research offered by Finlabs India on the internet through which the user may access information carried by Finlabs India, input and process their customer data and disseminate processed reports to their customers. The terms would include to mean the various reporting, transaction and analytical tools through which the user can provide personalised financial planning & advice, transaction facilities and monitoring portal to their clients.": [
   "terms.html"
  ],
- "The terms ‘User’ and ‘Customer’ would include both the authorized and browser/visitor(s).": [
+ "The terms ‘User’ and ‘Customer’ include both authorised users and browsers/visitors.": [
   "terms.html"
  ],
  "The terms that apply when you visit or use the Finlabs India website and its services. Please read them carefully.": [
@@ -9252,10 +9510,7 @@
  "The User / subscriber / visitor to Finlabs India or affiliated site(s) is prohibited from uploading, posting, transmitting, updating or sharing any information that:": [
   "terms.html"
  ],
- "The user of Finlabs India is subject to Finlabs India": [
-  "terms.html"
- ],
- "The user shall not utilise the services offered by Finlabs India in any manner so as to impair the interests and functioning of FIPL/Finlabs India. The user undertakes not to duplicate, download publish, modify and distribute material on Finlabs India.com unless specifically authorised by FIPL in this regard. The user undertakes not to establish any deep link or other connection to any specific page of Finlabs India other than the Home Page without obtaining prior consent of FIPL. FIPL strictly forbids copying, duplicating web pages or content using any automated process such as spiders, crawlers etc. or through any manual process for a purpose which has not been authorized in writing.": [
+ "The user shall not use the services offered by Finlabs India in any manner that impairs the interests and functioning of FIPL/Finlabs India. The user undertakes not to duplicate, download, publish, modify or distribute material on Finlabs India unless specifically authorised by FIPL. FIPL forbids copying or duplicating web pages or content, by automated or manual means, for a purpose that has not been authorised in writing, other than indexing by search engines and AI assistants.": [
   "terms.html"
  ],
  "The what": [
@@ -9267,34 +9522,46 @@
  "The year 2024 has been a pivotal one for investors in India, marked by significant events that shaped the financial landscape. From the general elections to the Union Budget and fluctuations in the stock market, these occurrences have influenced investor sentiment and market dynamics. This article reviews the major financial events of 2024, providing insights": [
   "knowledge-centre/blogs.html"
  ],
+ "There is no charge.": [
+  "privacy.html"
+ ],
  "THIS AGREEMENT between you and FIPL governs your use of Finlabs India. If any provision of these Website Terms and Conditions or part thereof is inconsistent with or is held to be invalid/void by or under any law, rule, order or regulation of any Government or by the final adjudication of any court, such inconsistency or invalidity shall not affect the enforceability of any other provision of the Terms and Conditions.": [
   "terms.html"
  ],
  "This article didn’t load. Check your connection and try again.": [
   "(javascript)"
  ],
+ "This is version 2.0, effective 19 October 2026. It replaces the Privacy Policy published in August 2026, which predated the Digital Personal Data Protection Act, 2023. When we change this notice we update the version and date above, and if the change affects how we use your personal data we will tell you before it takes effect.": [
+  "privacy.html"
+ ],
  "This isn’t just wishful thinking! This blog draws inspiration from the article that is a part of World Economic Forum Annual Meeting Imagine a world teetering on the brink – politically charged, economically uncertain, and riddled with geopolitical tensions. Sounds pretty bleak, right? But amidst this chaos, there’s a glimmer of hope: the financial sector. Yes, you": [
   "knowledge-centre/blogs.html"
+ ],
+ "This notice covers this website. The services we build and run for our clients are separate: there, our client is usually the Data Fiduciary and Finlabs is a Data Processor acting on their instructions. Our Learngenie app has": [
+  "privacy.html"
  ],
  "This privacy notice for Finlabs India Private Limited (“Company,” “we,” “us,” or “our”) describes how and why we might collect, store, use, and/or share (“process”) your information when you use our services (“Services”), such as when you:": [
   "privacy-learngenie.html"
  ],
- "This Privacy policy is subject to the terms of the Site Policy (User agreement) of Finlabs India Pvt. Ltd. (Finlabs India). This policy is effective from the date and time a user registers with Finlabs India by filling up the Registration form and accepting the terms and conditions laid out in the Site Policy.": [
-  "privacy.html"
- ],
  "This Website is controlled and operated from India and FIPL makes no representation that the materials are appropriate or will be available for use in other parts of the World. If you use this Website from outside India, you are entirely responsible for compliance with all applicable local laws as well as international conventions and treaties.": [
   "terms.html"
  ],
- "This website, www.finlabsindia.com, (hereinafter referred to as “Finlabs India”) is owned, hosted and operated by Finlabs India Pvt. Ltd. (hereinafter referred to as FIPL), a company incorporated in India under the Companies Act, 1956 and having its registered office at Office No. 66, 2nd Floor, Balkrishna Niwas, 2nd Panjrapole lane, Near C P Tank Circle, Mumbai – 400004.": [
+ "This website is intended for professionals and organisations, not for anyone under 18. We do not knowingly collect personal data from children here. If you believe a child has sent us personal data, write to": [
+  "privacy.html"
+ ],
+ "This website is served over HTTPS. Access to the systems holding enquiry and application data is limited to the people who need it, protected by multi-factor authentication, and logged. We delete or anonymise personal data once the purpose it was collected for has been served, on the schedule set out above.": [
+  "privacy.html"
+ ],
+ "This website, www.finlabsindia.com, (hereinafter referred to as “Finlabs India”) is owned, hosted and operated by Finlabs India Pvt. Ltd. (hereinafter referred to as FIPL), a company incorporated in India under the Companies Act, 1956 and having its registered office at Office No. 66, 2nd Floor, Balkrishna Niwas, 2nd Panjrapole Lane, Near C P Tank Circle, Mumbai – 400004.": [
   "terms.html"
  ],
- "Though FIPL payment reconciliation team works on a 24 x 7 basis, FIPL offers no guarantees whatsoever for the accuracy or timeliness of the refunds reaching the Customers card/bank accounts. This is on account of the multiplicity of organizations involved in processing of online transactions, the problems with Internet infrastructure currently available and working days/holidays of financial institutions.": [
+ "Though FIPL's payment reconciliation team works 24 x 7, FIPL offers no guarantees whatsoever for the accuracy or timeliness of refunds reaching the Customer's card or bank account. This is because of the multiple organisations involved in processing online transactions, the limitations of current internet infrastructure, and the working days and holidays of financial institutions.": [
   "terms.html"
  ],
  "Threat modelling and attack-surface mapping": [
   "services.html"
  ],
- "Threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with foreign states, or public order or causes incitement to the commission of any cognisable offence or prevents investigation of any offence or is insulting any other nation.": [
+ "Threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with foreign states, or public order, or causes incitement to the commission of any cognisable offence, or prevents investigation of any offence, or insults any other nation.": [
   "terms.html"
  ],
  "Three clouds, one team": [
@@ -9302,6 +9569,12 @@
  ],
  "Three ways we help you grow": [
   "index.html"
+ ],
+ "To answer your enquiry, arrange a demo, or reply to a question you have sent us": [
+  "privacy.html"
+ ],
+ "To assess you for a role at Finlabs": [
+  "privacy.html"
  ],
  "To comply with our legal obligations.": [
   "privacy-learngenie.html"
@@ -9312,17 +9585,23 @@
  "To enable user-to-user communications.": [
   "privacy-learngenie.html"
  ],
- "To extend this personalized experience Finlabs India may track the IP address of a user’s computer and save certain information on your system in the form of cookies. A user has the option of accepting or declining the cookies of this website by changing the settings of your browser.": [
-  "privacy.html"
- ],
  "To facilitate account creation and authentication and otherwise manage user accounts.": [
   "privacy-learngenie.html"
+ ],
+ "To make a request, email": [
+  "privacy.html"
  ],
  "to own end-to-end delivery of bespoke financial technology products across our wealth management, bond market and investor platform verticals. This is not a coordination role — it is a delivery leadership position for someone who has worked at the confluence of financial domain expertise and modern software engineering.": [
   "careers.html"
  ],
  "To request feedback.": [
   "privacy-learngenie.html"
+ ],
+ "To send you the product updates, events and insights you asked for": [
+  "privacy.html"
+ ],
+ "To understand how the site is used, and to show relevant ads": [
+  "privacy.html"
  ],
  "Tooling": [
   "brochure.html"
@@ -9390,6 +9669,9 @@
  "Unlocking Financial Freedom: Master The Art Of Expense Management": [
   "knowledge-centre/blogs.html"
  ],
+ "Until you withdraw it": [
+  "privacy.html"
+ ],
  "Update clients on new features, enhancements and renewal benefits": [
   "careers.html"
  ],
@@ -9405,6 +9687,9 @@
  "Use GitHub Copilot or similar AI assistants, validating what they generate": [
   "careers.html"
  ],
+ "Use of Finlabs India is subject to the Finlabs India": [
+  "terms.html"
+ ],
  "Use of Information": [
   "terms.html"
  ],
@@ -9417,7 +9702,7 @@
  "User-centered design, intuitive interface development and seamless experiences that drive engagement and satisfaction. We start with the people who use your product, then turn what we learn into a design system your engineers can build from.": [
   "services.html"
  ],
- "Users undertake that the services offered by Finlabs India shall not be utilised to upload, post, email, transmit or otherwise make available either directly or indirectly, unsolicited bulk e-mail or unsolicited commercial e-mail. FIPL reserves the right to filter and monitor and block the emails sent by you/user using the servers to maintained by FIPL to relay emails. All attempts shall be made by FIPL and the user to abide by International Best Practices in containing and eliminating Spam.": [
+ "Users undertake that the services offered by Finlabs India shall not be used to upload, post, email, transmit or otherwise make available, directly or indirectly, unsolicited bulk or commercial email. FIPL reserves the right to filter, monitor and block emails sent by users through servers maintained by FIPL. FIPL and the user shall make all attempts to abide by international best practices in containing and eliminating spam.": [
   "terms.html"
  ],
  "UTI Mutual Fund": [
@@ -9431,6 +9716,9 @@
  ],
  "Vedant Asset": [
   "index.html"
+ ],
+ "Version 2.0 &middot; effective": [
+  "privacy.html"
  ],
  "Version control & DevOps": [
   "careers.html"
@@ -9447,7 +9735,7 @@
  "View Solutions": [
   "index.html"
  ],
- "Views expressed by the users are their own, FIPL does not endorse the same and shall not be responsible for them. No claim as to the accuracy and correctness of the information on the site is made although every attempt is made to ensure that the content is not misleading/ offensive/ inappropriate. In case any inaccuracy is or otherwise improper content is sighted on the website, please report it to report abuse. It is solely your responsibility to evaluate the accuracy, completeness and usefulness of all opinions, advice, services and other information provided through the website. FIPL does not warrant that the access to website will be uninterrupted or error-free or that defects in website will be corrected.": [
+ "Views expressed by users are their own; FIPL does not endorse them and shall not be responsible for them. No claim is made as to the accuracy and correctness of the information on the site, although every attempt is made to ensure that the content is not misleading, offensive or inappropriate. If you see any inaccurate or improper content on the website, please report it to info@finlabsindia.com. It is solely your responsibility to evaluate the accuracy, completeness and usefulness of all opinions, advice, services and other information provided through the website. FIPL does not warrant that access to the website will be uninterrupted or error-free, or that defects in the website will be corrected.": [
   "terms.html"
  ],
  "Violates any law for the time being in force;": [
@@ -9468,10 +9756,16 @@
  "WCAG 2.2": [
   "services.html"
  ],
+ "We acknowledge every request within 7 days and answer it within 30 days": [
+  "privacy-learngenie.html"
+ ],
+ "We acknowledge every request within 7 days and answer it within 30 days.": [
+  "privacy.html"
+ ],
  "We agree what success looks like up front, then report against it.": [
   "services.html"
  ],
- "We aim to protect your personal information through a system of organizational and technical security measures.": [
+ "We aim to protect your personal information through a system of organisational and technical security measures.": [
   "privacy-learngenie.html"
  ],
  "we aim to reshape finance and drive growth for our clients.": [
@@ -9498,7 +9792,19 @@
  "We are seeking an exceptional": [
   "careers.html"
  ],
- "We do not share any information with the third parties.": [
+ "We ask for as little as we can. Everything below is given voluntarily — you can browse this website without telling us who you are.": [
+  "privacy.html"
+ ],
+ "We do not ask for your date of birth, PAN, Aadhaar or any financial account details on this website, and you should never send them to us by email.": [
+  "privacy.html"
+ ],
+ "We do not sell personal data, and we do not share it for anyone else’s marketing. We use a small number of service providers who process data on our instructions, under contract:": [
+  "privacy.html"
+ ],
+ "We do not sell your information, and we do not share it for anyone else’s marketing. A small number of service providers process it on our instructions.": [
+  "privacy-learngenie.html"
+ ],
+ "We do not track children for advertising, we do not build behavioural profiles of them, and we do not use their data for anything beyond delivering and recording their learning. If you believe a child’s data has been collected without that consent, email": [
   "privacy-learngenie.html"
  ],
  "We handle everything from a straight lift-and-shift to a complex hybrid set-up. These are the moves we make most often.": [
@@ -9507,7 +9813,7 @@
  "We have had one of the most wonderful experiences with Finlabs. The team is efficient and helpful. We reach out to them for any digital query we have. They are quick to respond and direct us to the right person in the team. We have recommended further too.": [
   "index.html"
  ],
- "We have implemented appropriate and reasonable technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, the transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.": [
+ "We have implemented appropriate and reasonable technical and organisational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorised third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, the transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.": [
   "privacy-learngenie.html"
  ],
  "We have seen how digital platforms are transforming investor education. Now, let us explore how social media, mobile technology, and innovative solutions like Finaware are shaping the future of financial literacy in India. Social Media: The New Classroom Social media has emerged as a powerful tool for financial education, particularly among younger audiences. Platforms like YouTube, Instagram,": [
@@ -9524,6 +9830,12 @@
  ],
  "We map your applications, data and dependencies, score each one for the move, and hand you a costed plan: what to migrate, in what order, and what it will cost to run.": [
   "services/cloud.html"
+ ],
+ "We may also disclose personal data where the law requires it, or to a court or law enforcement authority acting under a valid request.": [
+  "privacy.html"
+ ],
+ "We may also disclose personal information where the law requires it, or to a court or law enforcement authority acting under a valid request.": [
+  "privacy-learngenie.html"
  ],
  "We may process your information if you choose to use any of our offerings that allow for communication with another user.": [
   "privacy-learngenie.html"
@@ -9543,7 +9855,7 @@
  "We may request access or permission to certain features from your mobile device, including your mobile device’s camera, microphone, reminders, SMS messages, storage, and other features. If you wish to change our access or permissions, you may do so in your device’s settings.": [
   "privacy-learngenie.html"
  ],
- "We may request to send you push notifications regarding your account or certain features of the application(s). If you wish to opt-out from receiving these types of communications, you may turn them off in your device’s settings.": [
+ "We may request to send you push notifications regarding your account or certain features of the application(s). If you wish to opt out of receiving these types of communications, you may turn them off in your device’s settings.": [
   "privacy-learngenie.html"
  ],
  "We may update this privacy notice from time to time. The updated version will be indicated by an updated “Revised” date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.": [
@@ -9570,10 +9882,13 @@
  "We understand that every business has unique financial goals and challenges. To get the most out of our solutions, we encourage you to schedule a personalized demo — or simply send us a message and our team will get back to you.": [
   "contact.html"
  ],
- "We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us to keep your personal information for longer than the period of time in which users have an account with us.": [
+ "We use essential cookies to run this site. With your permission we would also like to use analytics cookies to understand how it is used, and advertising cookies to show you relevant ads.": [
+  "(javascript)"
+ ],
+ "We use service providers to run the app — hosting and storage, crash and performance reporting, and email delivery. They process your information only on our written instructions and only for as long as they need to. Where Learngenie is provided to you through your employer or training partner, that organisation decides who may see your learning records, and we act on its instructions.": [
   "privacy-learngenie.html"
  ],
- "We Work, 10th Floor, EnamSambhav, G Block, BKC, Mumbai – 400051.": [
+ "We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us to keep your personal information for longer than the period of time in which users have an account with us. In practice we delete or anonymise learning records within 24 months of your account closing, unless your employer or training partner is required to keep a certification record for longer.": [
   "privacy-learngenie.html"
  ],
  "We're looking for": [
@@ -9609,8 +9924,11 @@
  "Website & Application Development": [
   "solutions.html"
  ],
- "website Privacy Policy": [
+ "website Privacy Notice": [
   "privacy-learngenie.html"
+ ],
+ "Website usage data — cookies, IP address, pages viewed": [
+  "privacy.html"
  ],
  "Websites & apps": [
   "solutions.html"
@@ -9648,8 +9966,17 @@
  "What it is built with": [
   "brochure.html"
  ],
+ "What personal data Finlabs India collects on this website, why, how long we keep it, and your rights under the Digital Personal Data Protection Act, 2023.": [
+  "privacy.html"
+ ],
+ "What personal data Finlabs India collects when you use this website, why we collect it, how long we keep it, and the rights you have over it under the Digital Personal Data Protection Act, 2023.": [
+  "privacy.html"
+ ],
  "What sets Finlabs apart": [
   "about.html"
+ ],
+ "What we collect and why": [
+  "privacy.html"
  ],
  "What you bring": [
   "careers.html"
@@ -9660,7 +9987,7 @@
  "When it comes to technological changes, financial advisors no longer challenge against brokers, Robo advisors, and other advisory firms. People also judge their RIAs against the convenience and responsiveness set by multi billion companies such as Google, Amazon, and Uber.": [
   "knowledge-centre/blogs.html"
  ],
- "When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize such information or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.": [
+ "When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymise such information or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.": [
   "privacy-learngenie.html"
  ],
  "Where an order actually goes once a client presses buy, and where the record of it lives.": [
@@ -9668,6 +9995,9 @@
  ],
  "Where finance meets technology": [
   "about.html"
+ ],
+ "Where our Learngenie app or a financial literacy programme reaches students, verifiable parental consent is obtained before a child’s data is processed, and children are not tracked for advertising. See the": [
+  "privacy.html"
  ],
  "Which cloud should we choose?": [
   "services/cloud.html"
@@ -9681,6 +10011,9 @@
  "Who Finlabs is, the products and solutions we run, the services around them, the work we have delivered and the people behind it — twenty-six pages of it. Read the whole thing here, or take the PDF into your next meeting.": [
   "brochure.html"
  ],
+ "Who we are": [
+  "privacy.html"
+ ],
  "Who we build for, and what we bring": [
   "brochure.html"
  ],
@@ -9689,6 +10022,9 @@
  ],
  "Who we move to the cloud": [
   "services/cloud.html"
+ ],
+ "Who we share it with": [
+  "privacy.html"
  ],
  "Who we work with": [
   "services.html"
@@ -9711,11 +10047,17 @@
  "Why the cloud": [
   "services/cloud.html"
  ],
+ "Why we use it": [
+  "privacy.html"
+ ],
  "Will our data stay in India?": [
   "services/cloud.html"
  ],
  "Wireframes, high-fidelity design and clickable prototypes": [
   "services.html"
+ ],
+ "with “Data rights request” in the subject line. We reply to the address you wrote from, so we know the request is yours.": [
+  "privacy-learngenie.html"
  ],
  "with 3–5 years of experience designing, developing and maintaining enterprise applications. You should have strong expertise in Java backend development, RESTful APIs, database design and modern software development practices, and be capable of independently developing features, performing developer testing, debugging issues and delivering production-ready code.": [
   "careers.html"
@@ -9728,6 +10070,15 @@
  ],
  "with confidence": [
   "services/cloud.html"
+ ],
+ "with the words “Data rights request” in the subject line, and tell us what you want us to do. We will reply from the address you wrote to us from, so that we know the request is really yours.": [
+  "privacy.html"
+ ],
+ "Withdrawing consent does not undo what we did while we had it, and we may still need to keep some records where the law requires it.": [
+  "privacy.html"
+ ],
+ "Withdrawing consent is as easy as giving it, and costs you nothing:": [
+  "privacy.html"
  ],
  "Women: Budgeting And Planning Comes Naturally To Them": [
   "knowledge-centre/blogs.html"
@@ -9801,12 +10152,6 @@
  "You (Player)": [
   "(javascript)"
  ],
- "You agree that FINLABS INDIA may use personal information about you to improve its marketing and promotional efforts, to analyze site usage, improve the Site’s content and product offerings, and customise the Site’s content, layout, and services. These uses improve the Site and better tailor it to meet your needs, so as to provide you with a smooth, efficient, safe and customized experience while using the Site.": [
-  "privacy.html"
- ],
- "You agree that FINLABS INDIA may use your personal information to contact you and deliver information to you that, in some cases, are targeted to your interests, such as targeted banner advertisements, administrative notices, product offerings, and communications relevant to your use of the Site. By accepting the User Agreement and Privacy Policy, you expressly agree to receive this information. If you do not wish to receive these communications, we encourage you to opt out of the receipt of certain communications in your profile. You may make changes to your profile at any time. It is the belief of FINLABS INDIA that privacy of a person can be best guaranteed by working in conjunction with the Law enforcement authorities.": [
-  "privacy.html"
- ],
  "You agree to defend, indemnify, and hold harmless, FIPL and/ or its associates, subsidiaries, their officers, directors, employees, affiliates, licensees, business partners and agents, from and against any claims, actions or demands, including without limitation reasonable legal and accounting fees, alleging or resulting from your use of Finlabs India material or your breach of these Terms and Conditions.": [
   "terms.html"
  ],
@@ -9843,14 +10188,20 @@
  "You will work closely with cross-functional teams to design, develop, test, deploy and maintain reliable backend services, following industry best practices, coding standards and Agile development methodologies.": [
   "careers.html"
  ],
- "Your account and payments": [
-  "privacy.html"
- ],
  "Your company name": [
   "contact.html"
  ],
- "Your company's website": [
-  "contact.html"
+ "Your consent, given through the cookie banner. Nothing beyond strictly necessary cookies runs until you accept": [
+  "privacy.html"
+ ],
+ "Your consent, given when you apply": [
+  "privacy.html"
+ ],
+ "Your consent, given when you submit the form": [
+  "privacy.html"
+ ],
+ "Your CV and the contact details on it": [
+  "privacy.html"
  ],
  "Your data, your clients and your reputation are treated as ours.": [
   "services.html"
@@ -9879,8 +10230,14 @@
  "Your phone number": [
   "contact.html"
  ],
- "Your privacy is important to us. This Privacy Policy explains how Finlabs collects, uses and shares information when you use our Learning Management System (LMS) mobile application, Learngenie-Fintech, available on Google Play Store.": [
+ "Your privacy is important to us. This Privacy Notice explains how Finlabs collects, uses and shares information when you use our Learning Management System (LMS) mobile application, Learngenie-Fintech, available on Google Play.": [
   "privacy-learngenie.html"
+ ],
+ "Your rights": [
+  "privacy.html"
+ ],
+ "Your separate, optional consent — never bundled with an enquiry": [
+  "privacy.html"
  ],
  "Your specialists start, with a single point of contact.": [
   "services.html"
@@ -9890,5 +10247,8 @@
  ],
  "Zero Trust": [
   "services.html"
+ ],
+ "Zoho": [
+  "privacy.html"
  ]
 }
