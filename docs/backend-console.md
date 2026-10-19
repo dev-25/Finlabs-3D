@@ -17,87 +17,48 @@ and is three clicks instead of a wizard. If you later need request throttling
 or a custom domain on the API, that is the moment to move to API Gateway —
 not before.
 
-About 40 minutes, most of it waiting for SES.
+About 25 minutes. SES is already verified, so there is nothing to wait for.
 
 ---
 
-## A. SNS — where the notification goes
+## A. SES — already done, mostly
 
-SNS sends the email. It works the moment the topic exists: no domain
-verification, no sandbox, no waiting. SES is the better long-term answer and
-step B sets it up, but this gets you receiving enquiries today.
+`info@finlabsindia.biz` is **already a verified identity** in `ap-south-1`
+with DKIM passing, so there is nothing to set up to start sending. That also
+means SES rather than SNS from the start, which matters: **SES sets Reply-To
+to the person who filled the form**, so hitting reply in the inbox answers
+them. SNS cannot do that.
 
-1. Console → **Amazon SNS** → check the region is **ap-south-1** (top right)
-2. **Topics** → **Create topic**
-3. Type: **Standard**
-4. Name:
-   ```
-   finlabs-form-submissions
-   ```
-5. **Create topic**
-6. **Copy the Topic ARN.** It looks like:
-   ```
-   arn:aws:sns:ap-south-1:883891414144:finlabs-form-submissions
-   ```
+### A1 · Check whether the account is still in the sandbox
 
-Then subscribe the people who should receive enquiries:
+This is the one thing that decides whether anything arrives.
 
-7. On the topic → **Create subscription**
-8. Protocol: **Email**, Endpoint: `info@finlabsindia.com`
-9. **Create subscription**
-10. Repeat for `hr@finlabsindia.com`
-11. **Both addresses get a "Subscription Confirmation" email — somebody has to
-    click the link in each.** Until they do, the status stays
-    *PendingConfirmation* and nothing is delivered. This is the step most
-    likely to be missed.
+1. Console → **Amazon SES** → region **ap-south-1** → **Account dashboard**
+2. Look for a banner saying *"Your Amazon SES account is in the sandbox"*
 
-> **What SNS costs you compared with SES.** Mail arrives from
-> `no-reply@sns.amazonaws.com` with an unsubscribe footer, so it reads as a
-> system alert rather than a business email. More importantly **there is no
-> Reply-To**: hitting reply answers Amazon, not the customer, so you copy
-> their address out of the message body. SES fixes both, which is why step B
-> is worth starting now even though SNS is what runs first.
+**In the sandbox**, SES will only send **to** addresses that are themselves
+verified. `info@finlabsindia.biz` is verified, so routing everything there
+works today — which is exactly what `MAIL_ROUTES` in step C3 does.
 
-## B. SES — the upgrade, worth starting now
+**Out of the sandbox**, you can route anywhere, and splitting `hr@` out for
+job applications is worth doing.
 
-Optional for today; SNS from step A already works. Do it anyway, because SES
-sets **Reply-To to the person who wrote in** and sends from your own domain.
-Once it is ready, switching is one environment variable.
+### A2 · Request production access, if it is sandboxed
 
-SES begins in **sandbox mode**, where it will only send to addresses you have
-verified, and production access takes about a day to approve.
+3. **Account dashboard** → **Request production access**
+4. Mail type: **Transactional**
+5. Website URL: your site
+6. Describe it as: *"Enquiry and demo-request forms on our company website.
+   Recipients are our own staff addresses. Volume under 100 emails a month."*
 
-1. Console → **Amazon SES** → check the region is **ap-south-1** (top right)
-2. **Identities** → **Create identity**
-3. Choose **Domain**, enter `finlabsindia.com`
-4. Leave **Easy DKIM** enabled — mail from a new domain without DKIM lands in
-   spam, which is the problem we are trying to solve
-5. **Create identity**
-6. It shows CNAME records. Add them to the DNS for `finlabsindia.com`.
-   Verification completes minutes to hours later.
+Approval usually takes about a day. Nothing is blocked while you wait —
+notifications reach `info@finlabsindia.biz` either way.
 
-**While the domain verifies**, add the recipients so you can test:
+> **Why everything goes to one address for now.** In the sandbox it is the
+> only one that can receive. Once production access is granted, split
+> `careers` out to `hr@` by editing `MAIL_ROUTES`.
 
-7. **Create identity** → **Email address** → `info@finlabsindia.com` → create
-8. Repeat for `hr@finlabsindia.com`
-9. Each address gets a confirmation email. Click the link in both.
-
-**Then request production access:**
-
-10. SES → **Account dashboard** → **Request production access**
-11. Mail type: **Transactional**. Website URL: your site. Describe it as
-    *"Enquiry and demo-request forms on our company website. Recipients are
-    our own staff addresses. Volume under 100 emails a month."*
-
-Approval usually takes a day. **Until it is granted, the Lambda can only
-email verified addresses** — which is enough to test end to end.
-
-> If the domain is not yet verified, set `MAIL_FROM` in step D to a verified
-> *email address* instead. It works the same; it just looks less polished.
-
----
-
-## C. DynamoDB — where enquiries are kept
+## B. DynamoDB — where enquiries are kept
 
 1. Console → **DynamoDB** → **Tables** → **Create table**
 2. Table name:
@@ -135,9 +96,9 @@ rather than aspirational:
 
 ---
 
-## D. The Lambda
+## C. The Lambda
 
-### D1 · Create it
+### C1 · Create it
 
 1. Console → **Lambda** → **Create function**
 2. **Author from scratch**
@@ -151,7 +112,7 @@ rather than aspirational:
    basic Lambda permissions**
 7. **Create function**
 
-### D2 · Paste the code
+### C2 · Paste the code
 
 1. On the function page, scroll to **Code source**
 2. Open `index.mjs` in the editor
@@ -162,37 +123,42 @@ rather than aspirational:
 > The file is one piece on purpose. The only two AWS clients it uses ship
 > inside the Node runtime, so there is nothing to install and nothing to zip.
 
-### D3 · Configuration
+### C3 · Configuration
 
 **Configuration** tab → **General configuration** → **Edit**
 
-- Timeout: **15 seconds** (the default 3 is not enough — it writes to DynamoDB twice and then publishes)
+- Timeout: **15 seconds** (the default 3 is not enough — it writes to DynamoDB twice, then sends)
 - Memory: **512 MB**
 - **Save**
 
-**Configuration** → **Environment variables** → **Edit** → add eight:
+**Configuration** → **Environment variables** → **Edit** → add nine:
 
 | Key | Value |
 |---|---|
 | `TABLE_NAME` | `finlabs-submissions` |
-| `MAIL_FROM` | `website@finlabsindia.com` (or a verified address — see B) |
+| `MAIL_FROM` | `info@finlabsindia.biz` |
 | `MAIL_FROM_NAME` | `Finlabs website` |
-| `MAIL_ROUTES` | `{"contact":["info@finlabsindia.com"],"solutions":["info@finlabsindia.com"],"services":["info@finlabsindia.com"],"learngenie-demo":["info@finlabsindia.com"],"careers":["hr@finlabsindia.com"]}` |
+| `MAIL_ROUTES` | `{"contact":["info@finlabsindia.biz"],"solutions":["info@finlabsindia.biz"],"services":["info@finlabsindia.biz"],"learngenie-demo":["info@finlabsindia.biz"],"careers":["info@finlabsindia.biz"]}` |
 | `ALLOWED_ORIGIN` | `http://finlabs-prod-website.s3-website.ap-south-1.amazonaws.com` |
-| `NOTIFY` | `sns` — change to `ses` once step B is verified |
-| `SNS_TOPIC_ARN` | the Topic ARN from step A |
+| `NOTIFY` | `ses` |
 | `MAX_PER_IP_PER_HOUR` | `5` |
 | `ENQUIRY_RETENTION_MONTHS` | `24` |
 | `NOTICE_VERSION` | `2.0` |
 
 `MAIL_ROUTES` must be on one line, valid JSON. Paste it exactly as above.
 
+> `MAIL_FROM` has to be an identity **verified in SES**, which is why it is
+> `.biz` rather than the `.com` addresses the website shows visitors. Those
+> are a separate question — SES verification is about sending, not receiving,
+> so it says nothing about whether `finlabsindia.com` accepts mail. Worth
+> settling before launch; it does not block this.
+
 > `ALLOWED_ORIGIN` must match the address in the browser's bar **exactly** —
 > scheme included, no trailing slash. Get it wrong and the browser blocks the
 > response with a CORS error even though the Lambda ran fine. **When you move
 > to `https://finlabsindia.com`, this has to change with it.**
 
-### D4 · Let it write to DynamoDB and send mail
+### C4 · Let it write to DynamoDB and send mail
 
 The execution role can currently only write logs.
 
@@ -233,7 +199,7 @@ The execution role can currently only write logs.
 > Both `sns:Publish` and `ses:SendEmail` are granted so switching `NOTIFY`
 > later needs no permission change.
 
-### D5 · Give it a URL
+### C5 · Give it a URL
 
 1. Back on the function → **Configuration** → **Function URL** → **Create function URL**
 2. Auth type: **NONE**
@@ -256,7 +222,7 @@ The execution role can currently only write logs.
 
 ---
 
-## E. Point the website at it
+## D. Point the website at it
 
 Two values go into [`backend.config.json`](../backend.config.json), in the
 repository:
@@ -281,7 +247,7 @@ git push
 
 ---
 
-## F. Test it
+## E. Test it
 
 Open the contact page, fill it in, submit.
 
@@ -300,10 +266,10 @@ table items**. You should see `pk`, `fields`, `marketingConsent`,
 | Browser console: CORS error | `ALLOWED_ORIGIN` or the Function URL CORS origin does not match the address bar exactly |
 | Your own test submission vanishes with no error | You filled it in under 3 seconds, so the clock check dropped it. The log says `dropped as automated`. Take your time, or lower `MIN_FILL_SECONDS` in the code while testing. |
 | "That is several messages in a short time" | The per-IP limit. Six submissions in an hour from one address. Raise `MAX_PER_IP_PER_HOUR` or wait. |
-| Nothing arrives and the log is clean | The SNS subscription was never confirmed — check the topic shows *Confirmed*, not *PendingConfirmation*. |
-| "We could not save that" | D4's DynamoDB permission, or the table name |
-| Thank-you page appears but no email | The log says `notification failed, submission is stored` — the enquiry **is** in DynamoDB. With SNS this means the subscription is unconfirmed; with SES it means the sandbox. Either way the order is working as intended. |
-| `Task timed out after 3.00 seconds` | D3's timeout was not raised |
+| `MessageRejected: Email address is not verified` | The account is in the sandbox and the recipient is not a verified identity. Route to `info@finlabsindia.biz`, or get production access (A2). |
+| "We could not save that" | C4's DynamoDB permission, or the table name |
+| Thank-you page appears but no email | The log says `notification failed, submission is stored` — the enquiry **is** in DynamoDB. With SES that usually means the sandbox — check A1. Either way the order is working as intended. |
+| `Task timed out after 3.00 seconds` | C3's timeout was not raised |
 | The form still opens a mail client | `backend.config.json` has not deployed, or `apiBaseUrl` is empty |
 
 ---
@@ -337,6 +303,6 @@ outside the company, or point `finlabsindia.com` at it, CloudFront needs to
 exist. The Privacy Notice we published says HTTPS, and it should be true
 before the forms are collecting real names and email addresses.
 
-When that happens, remember to update `ALLOWED_ORIGIN` in D3 and the CORS
-origin in D5 — the forms stop working the moment the address changes, and the
+When that happens, remember to update `ALLOWED_ORIGIN` in C3 and the CORS
+origin in C5 — the forms stop working the moment the address changes, and the
 error in the browser console will say CORS rather than anything about the move.

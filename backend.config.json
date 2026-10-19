@@ -27,25 +27,38 @@
     "snsTopicArn": ""
   },
   "email": {
-    "$comment": "NOTIFY picks the channel. SNS works the moment the topic exists; SES needs a verified domain and production access, which take about a day — but only SES can set Reply-To to the person who wrote in.",
-    "notify": "sns",
-    "from": "website@finlabsindia.com",
+    "$comment": [
+      "info@finlabsindia.biz is the identity already verified in SES (ap-south-1,",
+      "DKIM passing), so SES is the channel from the start and Reply-To works —",
+      "hitting reply in the inbox answers the person who wrote in.",
+      "",
+      "Everything routes to that one address on purpose. If the account is still",
+      "in the SES sandbox it can only send TO verified addresses, and that is the",
+      "only one. Split hr@ out once it is verified, or once production access is",
+      "granted.",
+      "",
+      "The website still shows @finlabsindia.com addresses to visitors. That is a",
+      "separate question from where these notifications land, and is being left",
+      "until the real staff domain is confirmed."
+    ],
+    "notify": "ses",
+    "from": "info@finlabsindia.biz",
     "fromName": "Finlabs website",
     "routes": {
       "contact": [
-        "info@finlabsindia.com"
+        "info@finlabsindia.biz"
       ],
       "solutions": [
-        "info@finlabsindia.com"
+        "info@finlabsindia.biz"
       ],
       "services": [
-        "info@finlabsindia.com"
+        "info@finlabsindia.biz"
       ],
       "learngenie-demo": [
-        "info@finlabsindia.com"
+        "info@finlabsindia.biz"
       ],
       "careers": [
-        "hr@finlabsindia.com"
+        "info@finlabsindia.biz"
       ]
     }
   },
