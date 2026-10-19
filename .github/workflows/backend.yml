@@ -30,29 +30,48 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Check the config is filled in
-        run: node scripts/backend-config.mjs check
+      # Nobody has filled the config in yet, so there is nothing to deploy.
+      # Say so and stop, rather than leaving a red cross on every push.
+      - name: Has the backend been set up?
+        id: setup
+        run: |
+          echo "region=$(node -p "require('./backend.config.json').aws.region")" >> "$GITHUB_OUTPUT"
+          if node scripts/backend-config.mjs started; then
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+            echo '::notice::backend.config.json has no cvBucketName yet, so there is nothing to deploy. See backend/README.md.'
+          fi
+
+      - name: Check the config is complete
+        if: steps.setup.outputs.ready == 'true'
+        run: node scripts/backend-config.mjs check --deploy
 
       - uses: aws-actions/configure-aws-credentials@v4
+        if: steps.setup.outputs.ready == 'true'
         with:
           # Create this role in IAM with a GitHub OIDC trust policy, then put
           # its ARN in repository secrets as AWS_DEPLOY_ROLE_ARN.
           role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
-          aws-region: ap-south-1
+          aws-region: ${{ steps.setup.outputs.region }}
 
       - uses: aws-actions/setup-sam@v2
+        if: steps.setup.outputs.ready == 'true'
         with:
           use-installer: true
 
       - name: Install function dependencies
+        if: steps.setup.outputs.ready == 'true'
         working-directory: backend
         run: npm ci --omit=dev
 
       - name: Build
+        if: steps.setup.outputs.ready == 'true'
         working-directory: backend
         run: sam build
 
       - name: Deploy
+        if: steps.setup.outputs.ready == 'true'
         working-directory: backend
         run: |
           sam deploy \

@@ -35,9 +35,8 @@ export function publicConfig(cfg = loadConfig()) {
   return { apiBaseUrl: cfg.public.apiBaseUrl || '', turnstileSiteKey: cfg.public.turnstileSiteKey || '' };
 }
 
-const REQUIRED = [
-  ['public.apiBaseUrl', 'the API URL from the stack output'],
-  ['public.turnstileSiteKey', 'the Turnstile site key from the Cloudflare dashboard'],
+/* What the stack needs before it can be deployed. */
+const REQUIRED_DEPLOY = [
   ['aws.region', 'the AWS region'],
   ['aws.stackName', 'the CloudFormation stack name'],
   ['aws.submissionsTableName', 'the DynamoDB table name'],
@@ -45,15 +44,33 @@ const REQUIRED = [
   ['email.from', 'the SES-verified From address'],
 ];
 
+/* What the browser needs before the forms stop falling back to mailto.
+   apiBaseUrl is not in the deploy list because it comes OUT of the first
+   deploy — requiring it to deploy would be circular. */
+const REQUIRED_SITE = [
+  ['public.apiBaseUrl', 'the API URL from the stack output'],
+  ['public.turnstileSiteKey', 'the Turnstile site key from the Cloudflare dashboard'],
+];
+
+const REQUIRED = [...REQUIRED_SITE, ...REQUIRED_DEPLOY];
+
+/** Has anyone started? The bucket name has to be chosen by hand, so it is the
+ *  honest sentinel for "this has been set up" versus "this is still the
+ *  template as committed". */
+export const isStarted = (cfg = loadConfig()) => Boolean(cfg.aws?.cvBucketName);
+
 const dig = (o, path) => path.split('.').reduce((a, k) => (a == null ? a : a[k]), o);
 
-export function check(cfg = loadConfig()) {
-  const missing = REQUIRED.filter(([p]) => {
+export function check(cfg = loadConfig(), scope = 'all') {
+  const list = scope === 'deploy' ? REQUIRED_DEPLOY : scope === 'site' ? REQUIRED_SITE : REQUIRED;
+  const missing = list.filter(([p]) => {
     const v = dig(cfg, p);
     return v === undefined || v === null || v === '';
   });
-  const routes = Object.entries(cfg.email?.routes || {});
-  if (!routes.length) missing.push(['email.routes', 'at least one recipient list']);
+  if (scope !== 'site') {
+    const routes = Object.entries(cfg.email?.routes || {});
+    if (!routes.length) missing.push(['email.routes', 'at least one recipient list']);
+  }
   return missing;
 }
 
@@ -85,8 +102,14 @@ if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop()
   const cmd = process.argv[2] || 'check';
   const cfg = loadConfig();
 
+  if (cmd === 'started') {
+    // exit 0 when there is something to deploy, 1 when the file is untouched
+    process.exit(isStarted(cfg) ? 0 : 1);
+  }
+
   if (cmd === 'check') {
-    const missing = check(cfg);
+    const scope = process.argv[3]?.replace(/^--/, '') || 'all';
+    const missing = check(cfg, scope);
     if (!missing.length) {
       console.log('backend.config.json looks complete.');
       process.exit(0);
@@ -106,6 +129,6 @@ if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop()
     process.exit(0);
   }
 
-  console.error(`Unknown command '${cmd}'. Try: check | params`);
+  console.error(`Unknown command '${cmd}'. Try: check [--deploy|--site] | params | started`);
   process.exit(1);
 }
