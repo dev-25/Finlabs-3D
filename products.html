@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..700&family=Outfit:wght@400..800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
 
@@ -24,7 +24,7 @@
   <!-- tab icon, and how the link looks when it is shared -->
   <link rel="icon" href="{{root}}favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="{{root}}apple-touch-icon.png" />
-  <meta name="theme-color" content="#2563eb" />
+  <meta name="theme-color" content="#11568e" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Finlabs India" />
   <meta property="og:locale" content="en_IN" />
@@ -209,11 +209,11 @@
 
   <!-- bullets only, like Services and Solutions — each jumps to its product -->
   <aside class="rail" aria-label="Products">
-    <a href="#finexa" data-rail="0" aria-label="Finexa" style="--accent:#1a8fb5"><i></i></a>
-    <a href="#gennxt" data-rail="1" aria-label="Finexa GenNxt" style="--accent:#2aa7c9"><i></i></a>
-    <a href="#finaware" data-rail="2" aria-label="Finaware" style="--accent:#2f6fd0"><i></i></a>
-    <a href="#learngenie" data-rail="3" aria-label="Learngenie" style="--accent:#4f6ae0"><i></i></a>
-    <a href="#fiscus" data-rail="4" aria-label="Fiscus" style="--accent:#0f6d8c"><i></i></a>
+    <a href="#finexa" data-rail="0" aria-label="Finexa" style="--accent:#2a6ea8"><i></i></a>
+    <a href="#gennxt" data-rail="1" aria-label="Finexa GenNxt" style="--accent:#4a92cc"><i></i></a>
+    <a href="#finaware" data-rail="2" aria-label="Finaware" style="--accent:#11568e"><i></i></a>
+    <a href="#learngenie" data-rail="3" aria-label="Learngenie" style="--accent:#3875b0"><i></i></a>
+    <a href="#fiscus" data-rail="4" aria-label="Fiscus" style="--accent:#1c4f7a"><i></i></a>
   </aside>
 
   <!-- ===================================================== -->
@@ -244,7 +244,7 @@
 
     <section class="products" id="all-products">
 
-      <article class="product product--left" id="finexa" data-index="0" style="--accent:#1a8fb5">
+      <article class="product product--left" id="finexa" data-index="0" style="--accent:#2a6ea8">
         <div class="product__inner">
           <div class="product__card">
             <p class="product__tag">PRODUCT 01 — MUTUAL FUND DISTRIBUTION</p>
@@ -264,14 +264,19 @@
               <div><dt>CATEGORY</dt><dd>Mutual Fund Distribution Platform</dd></div>
               <div><dt>BUILT FOR</dt><dd>MFDs · Financial Advisors</dd></div>
             </dl>
-            <a class="product__cta" href="products/finexa.html">
-              Explore Finexa <span>→</span>
-            </a>
+            <div class="product__ctas">
+              <a class="product__cta" href="products/finexa.html">
+                Explore Finexa <span>→</span>
+              </a>
+              <a class="product__cta product__cta--sub" href="products/finexa-nova.html">
+                Finexa Nova, the investor app <span>→</span>
+              </a>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="product product--right" id="gennxt" data-index="1" style="--accent:#2aa7c9">
+      <article class="product product--right" id="gennxt" data-index="1" style="--accent:#4a92cc">
         <div class="product__inner">
           <div class="product__card">
             <p class="product__tag">PRODUCT 02 — MULTI-ASSET WEALTH MANAGEMENT</p>
@@ -291,14 +296,16 @@
               <div><dt>CATEGORY</dt><dd>Multi-Asset Wealth Management Platform</dd></div>
               <div><dt>BUILT FOR</dt><dd>Wealth Firms · Family Offices</dd></div>
             </dl>
-            <a class="product__cta" href="products/finexa-gennxt.html">
-              Explore GenNxt <span>→</span>
-            </a>
+            <div class="product__ctas">
+              <a class="product__cta" href="products/finexa-gennxt.html">
+                Explore GenNxt <span>→</span>
+              </a>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="product product--left" id="finaware" data-index="2" style="--accent:#2f6fd0">
+      <article class="product product--left" id="finaware" data-index="2" style="--accent:#11568e">
         <div class="product__inner">
           <div class="product__card">
             <p class="product__tag">PRODUCT 03 — INVESTOR AWARENESS</p>
@@ -319,14 +326,16 @@
               <div><dt>CATEGORY</dt><dd>Investor Awareness Programs</dd></div>
               <div><dt>BUILT FOR</dt><dd>AMCs · Institutions · Regulated Bodies</dd></div>
             </dl>
-            <a class="product__cta" href="products/finaware.html">
-              Explore Finaware <span>→</span>
-            </a>
+            <div class="product__ctas">
+              <a class="product__cta" href="products/finaware.html">
+                Explore Finaware <span>→</span>
+              </a>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="product product--right" id="learngenie" data-index="3" style="--accent:#4f6ae0">
+      <article class="product product--right" id="learngenie" data-index="3" style="--accent:#3875b0">
         <div class="product__inner">
           <div class="product__card">
             <p class="product__tag">PRODUCT 04 — GAMIFIED LEARNING</p>
@@ -346,14 +355,16 @@
               <div><dt>CATEGORY</dt><dd>Gamified Learning Platform</dd></div>
               <div><dt>BUILT FOR</dt><dd>Employees · Partners · Channels</dd></div>
             </dl>
-            <a class="product__cta" href="products/learngenie.html">
-              Explore Learngenie <span>→</span>
-            </a>
+            <div class="product__ctas">
+              <a class="product__cta" href="products/learngenie.html">
+                Explore Learngenie <span>→</span>
+              </a>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="product product--left" id="fiscus" data-index="4" style="--accent:#0f6d8c">
+      <article class="product product--left" id="fiscus" data-index="4" style="--accent:#1c4f7a">
         <div class="product__inner">
           <div class="product__card">
             <p class="product__tag">PRODUCT 05 — PERSONAL FINANCE</p>
@@ -371,9 +382,11 @@
               <div><dt>CATEGORY</dt><dd>Personal Finance Manager</dd></div>
               <div><dt>BUILT FOR</dt><dd>Investors · Individuals</dd></div>
             </dl>
-            <a class="product__cta" href="products/fiscus.html">
-              Explore Fiscus <span>→</span>
-            </a>
+            <div class="product__ctas">
+              <a class="product__cta" href="products/fiscus.html">
+                Explore Fiscus <span>→</span>
+              </a>
+            </div>
           </div>
         </div>
       </article>

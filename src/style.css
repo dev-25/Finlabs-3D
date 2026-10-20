@@ -27,9 +27,9 @@
   --line: rgba(20, 110, 145, 0.16);
   --panel: rgba(255, 255, 255, 0.86);
 
-  --display: "Outfit", "Segoe UI", system-ui, sans-serif;
-  --body: "Inter", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --display: "Open Sans", "Noto Sans Devanagari", "Segoe UI", system-ui, sans-serif;
+  --body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 /* ---------- DARK THEME ---------- */
@@ -392,8 +392,21 @@ body.no3d #canvas {
   margin-top: 2px;
 }
 
+/* The card is a block, so these were laid out as inline text: two pills on
+   one line, the longer one breaking across two lines with the pill shape
+   broken with it. A flex row keeps each pill whole and drops the second to
+   its own line when it does not fit. */
+.product__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
 .product__cta {
-  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 700;
@@ -416,6 +429,21 @@ body.no3d #canvas {
 }
 .product__cta:hover span {
   transform: translateX(4px);
+}
+
+/* the second link on a card is a way through to a related product, not a
+   second thing to do first — one filled pill per card */
+.product__cta--sub {
+  color: var(--accent);
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.product__cta--sub:hover {
+  filter: none;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-color: var(--accent);
+  box-shadow: none;
 }
 
 /* a short run-out: the end wall starts rising into view as the last
@@ -494,14 +522,14 @@ body.no3d #canvas {
   width: 36px;
   height: 36px;
   border-radius: 11px;
-  color: #2563eb;
-  background: rgba(37, 99, 235, 0.12);
+  color: #11568e;
+  background: rgba(17, 86, 142, 0.12);
   transition: transform 0.2s, background 0.2s, color 0.2s;
 }
 .social a:hover,
 .endwall__mail:hover .foot__mail-ico {
   transform: translateY(-3px);
-  background: #2563eb;
+  background: #11568e;
   color: #fff;
 }
 .social svg,
@@ -511,12 +539,12 @@ body.no3d #canvas {
 }
 :root[data-theme="dark"] .social a,
 :root[data-theme="dark"] .foot__mail-ico {
-  color: #4f86ff;
-  background: rgba(79, 134, 255, 0.14);
+  color: #709abb;
+  background: rgba(112, 154, 187, 0.14);
 }
 :root[data-theme="dark"] .social a:hover,
 :root[data-theme="dark"] .endwall__mail:hover .foot__mail-ico {
-  background: #4f86ff;
+  background: #709abb;
   color: #fff;
 }
 
