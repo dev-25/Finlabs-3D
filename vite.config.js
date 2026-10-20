@@ -146,6 +146,18 @@ function i18n() {
       .replace(/(<meta[^>]+property="og:url"[^>]+content=")[^"]*(")/i, `$1${here}$2`)
       .replace(/(<meta[^>]+property="og:locale"[^>]+content=")[^"]*(")/i, `$1${loc}_IN$2`);
 
+    /* A translated page is the English page copied one folder deeper, so a
+     * relative link in it resolves one level short of where it did. Links
+     * between pages are left alone on purpose — `../contact.html` from
+     * /mr/products/ should reach the Marathi contact page, and it does. But
+     * a file that only exists at the real site root (the favicons, the
+     * brochure PDF) needs the extra step back, or it 404s on every page in
+     * every language. */
+    out = out.replace(
+      /(\s(?:href|src)=")(?!\/|#|[a-z][a-z0-9+.-]*:|\/\/)([^"]+)(")/gi,
+      (whole, open_, url, close) => (/\.html(?:[?#]|$)/i.test(url) ? whole : `${open_}../${url}${close}`)
+    );
+
     // the strings JavaScript writes once the page is running
     const ui = {};
     for (const text of UI_STRINGS) if (dict[text]) ui[text] = dict[text];
