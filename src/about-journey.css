@@ -60,7 +60,7 @@
 .a-ride.is-live .a-year h3 {
   display: block; padding: 0; margin-bottom: 14px;
   font-size: clamp(54px, 5vw, 74px); line-height: 0.95; letter-spacing: -0.04em;
-  background: linear-gradient(100deg, #2563eb, #8b5cf6 55%, #ec4899);
+  background: linear-gradient(100deg, #11568e, #8b5cf6 55%, #ec4899);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .a-ride.is-live .a-year h3::before { display: none; }
@@ -68,7 +68,7 @@
 .a-ride.is-live .a-mile { flex: none; max-width: none; box-shadow: none; background: var(--bg); }
 :root[data-theme="dark"] .a-ride.is-live .a-mile { background: #0a1122; }
 .a-ride.is-live .a-mile:hover { transform: none; }
-.a-ride.is-live .a-year--now .a-mile { background: linear-gradient(135deg, #1d3fa8, #7c3aed); }
+.a-ride.is-live .a-year--now .a-mile { background: linear-gradient(135deg, #1d3fa8, #3875b0); }
 
 /* jump straight to a year */
 .a-ride.is-live .a-ride__years {

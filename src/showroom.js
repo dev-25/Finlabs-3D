@@ -79,7 +79,7 @@ const C = {
   teal: 0x1a8fb5,
   cyan: 0x45bede,
   cyanSoft: 0xc9c8f4, // now a soft periwinkle, for planter tops and props
-  royal: 0x2f6fd0,
+  royal: 0x11568e,
   indigo: 0x6d7fe8,
   steel: 0x5a90b8,
   orange: 0xf26722,
@@ -116,7 +116,7 @@ const CSS = {
 const PRODUCTS = [
   { name: 'FINEXA', screen: 'wealth', accent: 0x1a8fb5, prop: 'goldbars', logo: 'products/finexa/logo-light.webp' },
   { name: 'FINEXA GenNxt', screen: 'aggregate', accent: 0x3fb9dd, prop: 'coins', logo: 'products/gennxt/logo-light.webp' },
-  { name: 'FINAWARE', screen: 'awareness', accent: 0x2f6fd0, prop: 'calculator', logo: 'products/finaware/logo-light.webp' },
+  { name: 'FINAWARE', screen: 'awareness', accent: 0x11568e, prop: 'calculator', logo: 'products/finaware/logo-light.webp' },
   { name: 'LEARNGENIE', screen: 'learning', accent: 0x6d7fe8, prop: 'vault', logo: 'products/learngenie/logo-row-light.webp' },
   { name: 'FISCUS', screen: 'finance', accent: 0x0d5f7d, prop: 'cards', logo: 'products/fiscus/logo-light.webp' },
 ];

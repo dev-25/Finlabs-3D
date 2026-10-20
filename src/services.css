@@ -16,15 +16,18 @@
   --card-strong: rgba(255, 255, 255, 0.92);
   --card-edge: rgba(255, 255, 255, 0.95);
   --shadow: 0 30px 60px -32px rgba(20, 40, 90, 0.35);
-  --brand: #2f6bff;
-  --brand-2: #6a5cff;
+  --brand: #11568e;
+  --brand-2: #3875b0;
+  /* The guideline green. 1.77 against white, so it never carries
+     text — it is a fill, and anything on it is dark ink. */
+  --brand-accent: #9ad438;
   --accent: var(--brand);
   --orb-a: #86adff;
   --orb-b: #bba6ff;
   --orb-c: #7fdcec;
 
-  --display: "Outfit", "Segoe UI", system-ui, sans-serif;
-  --body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --display: "Open Sans", "Noto Sans Devanagari", "Segoe UI", system-ui, sans-serif;
+  --body: "Open Sans", "Segoe UI", system-ui, sans-serif;
   --col: min(600px, 46vw);
   /* the page gutter — the same on every page, so content lines up from page to page */
   --pad: clamp(18px, 5vw, 72px);
@@ -51,8 +54,11 @@
   --card-strong: rgba(15, 21, 40, 0.86);
   --card-edge: rgba(160, 180, 255, 0.14);
   --shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.85);
-  --brand: #5b8cff;
-  --brand-2: #8b7bff;
+  --brand: #709abb;
+  --brand-2: #8fb6da;
+  /* The guideline green. 1.77 against white, so it never carries
+     text — it is a fill, and anything on it is dark ink. */
+  --brand-accent: #9ad438;
   --orb-a: #1d3aa0;
   --orb-b: #43269a;
   --orb-c: #0b5669;
@@ -226,7 +232,7 @@ main { position: relative; z-index: 2; }
 .service__head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
 .service__icon {
   display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px;
-  color: #fff; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, #22d3ee));
+  color: #fff; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, #9ad438));
   box-shadow: 0 14px 28px -14px var(--accent);
 }
 .service__icon .ico { width: 26px; height: 26px; }

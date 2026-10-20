@@ -10,16 +10,16 @@
  * ===================================================== */
 
 :root {
-  --band: linear-gradient(115deg, #1e3a8a 0%, #2563eb 50%, #0891b2 100%);
+  --band: linear-gradient(115deg, #1e3a8a 0%, #11568e 50%, #3875b0 100%);
   --band-ink: rgba(255, 255, 255, 0.9);
   --band-dot: #7fdcec;
-  --brand-3: #7c3aed;
+  --brand-3: #3875b0;
 }
 :root[data-theme="dark"] {
   --band: rgba(10, 16, 34, 0.6);
   --band-ink: #8b97b6;
-  --band-dot: #4f86ff;
-  --brand-3: #a78bfa;
+  --band-dot: #709abb;
+  --brand-3: #8fb6da;
 }
 
 /* the same column as every other page: the gutter on the section, a 1280
@@ -72,9 +72,9 @@
   margin-bottom: 26px;
   overflow: visible;
 }
-.pt-mark__ours { fill: #2563eb; }
-.pt-mark__theirs { fill: #22d3ee; }
-:root[data-theme="dark"] .pt-mark__ours { fill: #4f86ff; }
+.pt-mark__ours { fill: #11568e; }
+.pt-mark__theirs { fill: #9ad438; }
+:root[data-theme="dark"] .pt-mark__ours { fill: #709abb; }
 
 /* the one piece of motion on this page: the halves close, and hold */
 .pt-mark__ours,
@@ -110,7 +110,7 @@
 }
 .quote:nth-child(3n + 1) { --q: var(--brand); }
 .quote:nth-child(3n + 2) { --q: var(--brand-3); }
-.quote:nth-child(3n) { --q: #0891b2; }
+.quote:nth-child(3n) { --q: #9ad438; }
 .quote__mark { width: 30px; height: 30px; color: var(--q, var(--brand)); flex: none; }
 .quote blockquote { color: var(--ink-2); font-size: 15px; line-height: 1.6; flex: 1; }
 .quote figcaption { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line); }
@@ -172,11 +172,11 @@
 .pt__cta {
   margin: clamp(56px, 7vw, 92px) auto 0; padding: clamp(30px, 4vw, 52px);
   border-radius: 28px; text-align: center; color: #fff;
-  background: linear-gradient(125deg, #1d4ed8 0%, #2563eb 42%, #0891b2 100%);
+  background: linear-gradient(125deg, #1d4ed8 0%, #11568e 42%, #3875b0 100%);
   border: 1px solid var(--paper-edge); box-shadow: var(--shadow);
 }
 :root[data-theme="dark"] .pt__cta {
-  background: radial-gradient(120% 90% at 50% 0%, rgba(79, 134, 255, 0.2), transparent 60%), rgba(10, 16, 34, 0.94);
+  background: radial-gradient(120% 90% at 50% 0%, rgba(112, 154, 187, 0.2), transparent 60%), rgba(10, 16, 34, 0.94);
 }
 .pt__cta h2 {
   font-family: var(--display); font-weight: 700; font-size: var(--h2);

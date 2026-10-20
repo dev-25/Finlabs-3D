@@ -28,10 +28,10 @@ function start() {
 
   // the five, in the order they are walked
   const CASES = [
-    { id: 'amc', tint: 0x2f6fd0, deep: 0x1b4694, vignette: 'advice' },
+    { id: 'amc', tint: 0x11568e, deep: 0x1b4694, vignette: 'advice' },
     { id: 'nps', tint: 0x0ea5b7, deep: 0x0a6f7e, vignette: 'kiosk' },
-    { id: 'insurer', tint: 0x6366f1, deep: 0x4338ca, vignette: 'planning' },
-    { id: 'nbfc', tint: 0x2563eb, deep: 0x1a3f8f, vignette: 'branch' },
+    { id: 'insurer', tint: 0x3875b0, deep: 0x4338ca, vignette: 'planning' },
+    { id: 'nbfc', tint: 0x11568e, deep: 0x1a3f8f, vignette: 'branch' },
     { id: 'market', tint: 0x14b8a6, deep: 0x0d7a6e, vignette: 'market' },
   ];
 
@@ -300,7 +300,7 @@ function start() {
       const lid = new THREE.Mesh(box(0.42, 0.28, 0.02, 0.01), inkMat);
       lid.position.set(0, 0.15, -0.14);
       lid.rotation.x = -0.32;
-      const glow = new THREE.Mesh(new THREE.PlaneGeometry(0.36, 0.22), flat(i ? tint : 0x4f86ff, 0.9));
+      const glow = new THREE.Mesh(new THREE.PlaneGeometry(0.36, 0.22), flat(i ? tint : 0x709abb, 0.9));
       glow.position.set(0, 0.15, -0.125);
       glow.rotation.x = -0.32;
       lap.add(base, lid, glow);
@@ -575,7 +575,7 @@ function start() {
       });
       const books = new THREE.Group();
       [0, 1, 2].forEach((k) => {
-        const b = new THREE.Mesh(box(0.8, 0.12, 0.56, 0.02), k === 1 ? mat(0x4f86ff) : paleMat);
+        const b = new THREE.Mesh(box(0.8, 0.12, 0.56, 0.02), k === 1 ? mat(0x709abb) : paleMat);
         b.position.y = 0.06 + k * 0.13;
         books.add(b);
       });
@@ -646,7 +646,7 @@ function start() {
   {
     const seed = (n) => () => ((n = (n * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
     const rand = seed(90210);
-    const COLORS = [0xf0587f, 0x4f86ff, 0xffffff, 0x38bdf8, 0xf9a8d4];
+    const COLORS = [0xf0587f, 0x709abb, 0xffffff, 0x38bdf8, 0xf9a8d4];
     for (let k = 0; k < 24; k++) {
       const solid = rand() > 0.5;
       const size = 0.45 + rand() * 0.5;

@@ -104,7 +104,7 @@ function buildEmblem(renderer, stage) {
   const hemi = new THREE.HemisphereLight(0xffffff, 0x9aa6e6, 0.6);
   const key = new THREE.DirectionalLight(0xffffff, 1.3);
   key.position.set(4, 9, 7);
-  const rim = new THREE.DirectionalLight(0xc4b5fd, 0.9); // a violet rim light from behind
+  const rim = new THREE.DirectionalLight(0x9ec4e8, 0.9); // a violet rim light from behind
   rim.position.set(-6, 4, -6);
   scene.add(hemi, key, rim);
 
@@ -137,7 +137,7 @@ function buildEmblem(renderer, stage) {
   }
   const topMat = new THREE.MeshPhysicalMaterial({
     color: 0xeef0ff, roughness: 0.45, clearcoat: 0.5,
-    emissive: 0x6d5cf6, emissiveMap: new THREE.CanvasTexture(dotCanvas), emissiveIntensity: 0.4,
+    emissive: 0x3875b0, emissiveMap: new THREE.CanvasTexture(dotCanvas), emissiveIntensity: 0.4,
   });
   const top = new THREE.Mesh(new THREE.CircleGeometry(PLAT_R - 0.14, 128), topMat);
   top.rotation.x = -Math.PI / 2;
@@ -145,12 +145,12 @@ function buildEmblem(renderer, stage) {
   root.add(top);
 
   // a bright rim, and a faint halo ring floating beneath
-  const rimMat = new THREE.MeshBasicMaterial({ color: 0x7c5cf6, toneMapped: false });
+  const rimMat = new THREE.MeshBasicMaterial({ color: 0x3875b0, toneMapped: false });
   const rimRing = new THREE.Mesh(new THREE.TorusGeometry(PLAT_R + 0.01, 0.03, 12, 200), rimMat);
   rimRing.rotation.x = Math.PI / 2;
   rimRing.position.y = PLAT_H;
   const haloMat = new THREE.MeshBasicMaterial({
-    color: 0x8b5cf6, transparent: true, opacity: 0.35, depthWrite: false, side: THREE.DoubleSide,
+    color: 0x3875b0, transparent: true, opacity: 0.35, depthWrite: false, side: THREE.DoubleSide,
   });
   const halo = new THREE.Mesh(new THREE.RingGeometry(PLAT_R + 0.35, PLAT_R + 0.42, 200), haloMat);
   halo.rotation.x = -Math.PI / 2;
@@ -245,7 +245,7 @@ function buildEmblem(renderer, stage) {
   const packet = new THREE.Group();
   packet.add(new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 12), new THREE.MeshBasicMaterial({ color: 0xffffff, toneMapped: false })));
   const packetGlow = new THREE.Sprite(
-    new THREE.SpriteMaterial({ map: glowTexture(), color: 0xf0abfc, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending })
+    new THREE.SpriteMaterial({ map: glowTexture(), color: 0x9ad438, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending })
   );
   packetGlow.scale.setScalar(0.7);
   packet.add(packetGlow);
@@ -261,7 +261,7 @@ function buildEmblem(renderer, stage) {
   const frontMat = new THREE.MeshPhysicalMaterial({
     vertexColors: true, roughness: 0.2, metalness: 0.1, clearcoat: 1, clearcoatRoughness: 0.1,
   });
-  const backMat = new THREE.MeshPhysicalMaterial({ color: 0xc7d2fe, roughness: 0.35, clearcoat: 0.6 });
+  const backMat = new THREE.MeshPhysicalMaterial({ color: 0x9ec4e8, roughness: 0.35, clearcoat: 0.6 });
   const DIGIT_STOPS = [[0, new THREE.Color('#1d4ed8')], [0.55, new THREE.Color('#5b4ff0')], [1, new THREE.Color('#a855f7')]];
   const ten = new THREE.Group(); // origin at the digits' foot, so it grows up from the platform
   ten.position.set(0, PLAT_H, 0.35);
@@ -347,9 +347,9 @@ function buildEmblem(renderer, stage) {
     platformMat.color.setHex(dark ? 0x18223f : 0xffffff);
     topMat.color.setHex(dark ? 0x1c2748 : 0xeef0ff);
     topMat.emissiveIntensity = dark ? 0.9 : 0.4;
-    backMat.color.setHex(dark ? 0x312e81 : 0xc7d2fe);
-    rimMat.color.setHex(dark ? 0xa78bfa : 0x7c5cf6);
-    haloMat.color.setHex(dark ? 0xa78bfa : 0x8b5cf6);
+    backMat.color.setHex(dark ? 0x11568e : 0x9ec4e8);
+    rimMat.color.setHex(dark ? 0x9ec4e8 : 0x3875b0);
+    haloMat.color.setHex(dark ? 0x9ec4e8 : 0x3875b0);
     scene.environmentIntensity = dark ? 0.6 : 1;
     renderer.toneMappingExposure = dark ? 1.15 : 1;
     hemi.intensity = dark ? 0.4 : 0.6;

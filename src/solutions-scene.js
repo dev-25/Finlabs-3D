@@ -1096,7 +1096,7 @@ function linePath(points) {
   donut.position.set(0.72, 1.35, -0.55);
   g.add(donut);
   let a0 = 0;
-  [[2.3, accentMat(A, 0.2)], [2.2, M.panel], [1.78, accentMat(0x3b82f6, 0.15)]].forEach(([arc, mat]) => {
+  [[2.3, accentMat(A, 0.2)], [2.2, M.panel], [1.78, accentMat(0x3875b0, 0.15)]].forEach(([arc, mat]) => {
     const seg = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.13, 16, 48, arc - 0.06), mat);
     seg.rotation.z = a0;
     donut.add(seg);

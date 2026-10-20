@@ -17,15 +17,18 @@
   --card-solid: rgba(255, 255, 255, 0.95);
   --card-edge: rgba(255, 255, 255, 0.95);
   --shadow: 0 30px 60px -32px rgba(15, 40, 100, 0.38);
-  --brand: #2563eb;
-  --brand-2: #06b6d4;
+  --brand: #11568e;
+  --brand-2: #3875b0;
+  /* The guideline green. 1.77 against white, so it never carries
+     text — it is a fill, and anything on it is dark ink. */
+  --brand-accent: #9ad438;
   --accent: var(--brand);
   --glow-a: #86adff;
   --glow-b: #7fdcec;
 
-  --display: "Outfit", "Segoe UI", system-ui, sans-serif;
-  --body: "Inter", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Open Sans", "Noto Sans Devanagari", "Segoe UI", system-ui, sans-serif;
+  --body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
   --col: min(560px, 44vw);
   /* the page gutter — the same on every page, so content lines up from page to page */
   --pad: clamp(18px, 5vw, 72px);
@@ -52,8 +55,11 @@
   --card-solid: rgba(10, 16, 34, 0.94);
   --card-edge: rgba(150, 175, 255, 0.14);
   --shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.85);
-  --brand: #4f86ff;
-  --brand-2: #22d3ee;
+  --brand: #709abb;
+  --brand-2: #8fb6da;
+  /* The guideline green. 1.77 against white, so it never carries
+     text — it is a fill, and anything on it is dark ink. */
+  --brand-accent: #9ad438;
   --glow-a: #16307e;
   --glow-b: #07465a;
 }

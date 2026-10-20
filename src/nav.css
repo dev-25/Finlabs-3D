@@ -12,10 +12,10 @@
   --n-edge: rgba(255, 255, 255, 0.95);
   --n-ink: #0f1a33;
   --n-ink-2: #3a4760;
-  --n-hover: rgba(37, 99, 235, 0.08);
+  --n-hover: rgba(17, 86, 142, 0.08);
   --n-line: rgba(15, 35, 75, 0.12);
-  --n-brand: #2563eb;
-  --n-brand-2: #0891b2;
+  --n-brand: #11568e;
+  --n-brand-2: #3875b0;
   --n-shadow: 0 24px 50px -30px rgba(15, 40, 100, 0.45);
 
   position: fixed;
@@ -35,7 +35,7 @@
   -webkit-backdrop-filter: blur(18px) saturate(1.3);
   backdrop-filter: blur(18px) saturate(1.3);
   box-shadow: var(--n-shadow);
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-family: "Open Sans", "Segoe UI", system-ui, sans-serif;
   line-height: 1.2;
 }
 :root[data-theme="dark"] .site-nav {
@@ -46,8 +46,8 @@
   --n-ink-2: #b3bfdc;
   --n-hover: rgba(120, 160, 255, 0.12);
   --n-line: rgba(160, 185, 255, 0.14);
-  --n-brand: #4f86ff;
-  --n-brand-2: #22d3ee;
+  --n-brand: #709abb;
+  --n-brand-2: #8fb6da;
   --n-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.85);
 }
 
@@ -222,15 +222,15 @@
  * Sans Devanagari and sits in front of the Latin faces,
  * which have no Devanagari glyphs of their own; Latin
  * words inside a Hindi sentence — product names, mostly —
- * still come out in Inter or Outfit, because the browser
+ * still come out in Open Sans, because the browser
  * falls through to them for the characters Noto's Latin
  * set is not asked for.
  * ===================================================== */
 
 :lang(hi),
 :lang(mr) {
-  --body: "Noto Sans Devanagari", "Inter", "Segoe UI", system-ui, sans-serif;
-  --display: "Noto Sans Devanagari", "Outfit", "Segoe UI", system-ui, sans-serif;
+  --body: "Noto Sans Devanagari", "Open Sans", "Segoe UI", system-ui, sans-serif;
+  --display: "Open Sans", "Noto Sans Devanagari", "Segoe UI", system-ui, sans-serif;
   /* Devanagari sets taller: give the lines a little more room */
   line-height: 1.65;
 }

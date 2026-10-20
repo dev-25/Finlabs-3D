@@ -151,7 +151,7 @@ export function createFlow(canvas) {
 
   const runner = new THREE.Mesh(
     new THREE.SphereGeometry(0.075, 18, 14),
-    new THREE.MeshBasicMaterial({ color: 0x2f6fd0 })
+    new THREE.MeshBasicMaterial({ color: 0x11568e })
   );
   root.add(runner);
 

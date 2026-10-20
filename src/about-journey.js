@@ -188,7 +188,7 @@ function buildRide(renderer, ride, canvas) {
   dotTex.wrapS = dotTex.wrapT = THREE.RepeatWrapping;
   const LEN = (N - 1) * STEP + 40;
   dotTex.repeat.set(LEN / 1.4, 84 / 1.4);
-  const groundMat = new THREE.MeshBasicMaterial({ map: dotTex, color: 0x6d5cf6, transparent: true, opacity: 0.28, depthWrite: false });
+  const groundMat = new THREE.MeshBasicMaterial({ map: dotTex, color: 0x3875b0, transparent: true, opacity: 0.28, depthWrite: false });
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(LEN, 84), groundMat);
   ground.rotation.x = -Math.PI / 2;
   ground.position.set(((N - 1) * STEP) / 2, -0.01, 0);
@@ -297,7 +297,7 @@ function buildRide(renderer, ride, canvas) {
     blob.translate(point.x + side.x * away, r * 0.5, point.z + side.z * away);
     bushes.push(blob);
   }
-  const bushMat = new THREE.MeshStandardMaterial({ color: 0xa5b4fc, roughness: 0.75 });
+  const bushMat = new THREE.MeshStandardMaterial({ color: 0x9ec4e8, roughness: 0.75 });
   scene.add(new THREE.Mesh(mergeGeometries(bushes), bushMat));
 
   // ₹ coins turning over the road — the point of the whole decade
@@ -470,10 +470,10 @@ function buildRide(renderer, ride, canvas) {
     scene.fog.color.setHex(dark ? 0x0a1122 : 0xe7e4fb);
     roadMat.color.setHex(dark ? 0x1a2542 : 0xfbfaff);
     pedMat.color.setHex(dark ? 0x1b2744 : 0xffffff);
-    groundMat.color.setHex(dark ? 0x8fa6ff : 0x6d5cf6);
+    groundMat.color.setHex(dark ? 0x8fa6ff : 0x3875b0);
     groundMat.opacity = dark ? 0.18 : 0.28;
     poleMat.color.setHex(dark ? 0x35406b : 0xf2f4ff);
-    bushMat.color.setHex(dark ? 0x2a3566 : 0xa5b4fc);
+    bushMat.color.setHex(dark ? 0x2a3566 : 0x9ec4e8);
     edgeMat.opacity = dark ? 0.3 : 0.5;
     aheadMat.opacity = dark ? 0.3 : 0.22;
     hemi.intensity = dark ? 0.35 : 0.55;

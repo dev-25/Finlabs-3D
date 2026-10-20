@@ -18,10 +18,10 @@ import { onSceneChange } from './services-ui.js';
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const ACCENTS = {
-  core: 0x3b82f6,
-  uiux: 0x8b5cf6,
+  core: 0x3875b0,
+  uiux: 0x3875b0,
   audit: 0x14b8a6,
-  security: 0x6366f1,
+  security: 0x3875b0,
   cloud: 0x0ea5e9,
   transform: 0x22c55e,
 };

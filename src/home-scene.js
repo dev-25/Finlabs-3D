@@ -591,7 +591,7 @@ addView('hero', (v) => {
     return { holder, model, home: SPOTS[i].p, size: SPOTS[i].size };
   });
 
-  const beads = [[2.55, -0.85, -0.6, 0.22, 0x22d3ee], [-2.2, -2.2, 0.2, 0.15, 0xa78bfa], [0.8, 2.35, -0.9, 0.13, 0x60a5fa]]
+  const beads = [[2.55, -0.85, -0.6, 0.22, 0x9ad438], [-2.2, -2.2, 0.2, 0.15, 0x9ec4e8], [0.8, 2.35, -0.9, 0.13, 0x60a5fa]]
     .map(([x, y, z, r, hex], k) => {
       const m = new THREE.Mesh(new THREE.SphereGeometry(r, 32, 24), accentMat(hex, 0.25));
       m.userData = { x, y, z, k };
@@ -774,7 +774,7 @@ function buildOrbit(accent) {
   ring.rotation.set(1.15, 0, 0.3);
   holder.add(ring);
   ring.add(new THREE.Mesh(new THREE.TorusGeometry(0.92, 0.024, 8, 120), glowMat(accent, 0.7)));
-  const sats = [accentMat(accent, 0.3), M.panel, accentMat(0x2563eb, 0.2)].map((mat) => {
+  const sats = [accentMat(accent, 0.3), M.panel, accentMat(0x11568e, 0.2)].map((mat) => {
     const s = new THREE.Mesh(rbox(0.25, 0.25, 0.25, 0.06), mat);
     ring.add(s);
     return s;
@@ -967,7 +967,7 @@ addView('cta', (v) => {
   // the panel behind this one is deep blue in either theme, so these keep
   // their own light colours rather than following the page
   const pale = new THREE.MeshPhysicalMaterial({ color: 0xe9f1ff, roughness: 0.3, clearcoat: 0.85, clearcoatRoughness: 0.15 });
-  const cyan = accentMat(0x22d3ee, 0.35);
+  const cyan = accentMat(0x9ad438, 0.35);
   const sky = accentMat(0x7cb0ff, 0.28);
 
   const softGlow = (size, opacity) => new THREE.Mesh(

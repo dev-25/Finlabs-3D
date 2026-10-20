@@ -155,7 +155,7 @@ if (canvas) {
   const key = new THREE.DirectionalLight(0xffffff, 1.6);
   key.position.set(5, 4, 8);
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0x4f86ff, 1.4);
+  const rim = new THREE.DirectionalLight(0x709abb, 1.4);
   rim.position.set(-7, 2, -5);
   scene.add(rim);
 

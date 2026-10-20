@@ -174,7 +174,7 @@
 }
 .lg-rank__pic--p { background: linear-gradient(135deg, #2e8bb5, #3cdec2); }
 .lg-rank__pic--r { background: linear-gradient(135deg, #1b8f9c, #3cdec2); }
-.lg-rank__pic--a { background: linear-gradient(135deg, #7c6ae8, #a78bfa); }
+.lg-rank__pic--a { background: linear-gradient(135deg, #7c6ae8, #8fb6da); }
 .lg-rank__pic--you { background: #1b6098; font-size: 0.66em; letter-spacing: 0.02em; }
 .lg-rank__who { font-weight: 600; color: var(--fx-navy); }
 .lg-rank__pts { font-weight: 700; color: var(--fx-brand); }
@@ -269,7 +269,7 @@
 .gc-gold { background: linear-gradient(135deg, #f5a524, #f59e0b); }
 .gc-mint { background: linear-gradient(135deg, #1b6098, #3cdec2); }
 .gc-blue { background: linear-gradient(135deg, #2980e0, #0ea5e9); }
-.gc-purple { background: linear-gradient(135deg, #1b6098, #7c3aed); }
+.gc-purple { background: linear-gradient(135deg, #1b6098, #3875b0); }
 .gc-rose { background: linear-gradient(135deg, #f43f5e, #fb923c); }
 .gc-orange { background: linear-gradient(135deg, #fb923c, #f59e0b); }
 .gc-indigo { background: linear-gradient(135deg, #4f46e5, #6366f1); }
@@ -404,7 +404,7 @@
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, opacity 0.2s;
 }
-.lg-match button.is-picked { border-color: #7c3aed; background: #f3ecff; font-weight: 600; }
+.lg-match button.is-picked { border-color: #3875b0; background: #f3ecff; font-weight: 600; }
 .lg-match button.is-done { border-color: #3cdec2; background: #e8fbf7; color: #0d9e8d; opacity: 0.75; cursor: default; }
 .lg-match button.is-miss { border-color: #ef4444; background: #fef2f2; }
 
