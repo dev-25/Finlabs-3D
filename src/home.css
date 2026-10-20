@@ -18,9 +18,12 @@
   --card-solid: rgba(255, 255, 255, 0.93);
   --card-edge: rgba(255, 255, 255, 0.95);
   --shadow: 0 30px 60px -30px rgba(30, 60, 160, 0.38);
-  --brand: #2563eb;
-  --brand-2: #06b6d4;
-  --brand-3: #7c3aed;
+  --brand: #11568e;
+  --brand-2: #3875b0;
+  /* The guideline green. 1.77 against white, so it never carries
+     text — it is a fill, and anything on it is dark ink. */
+  --brand-accent: #9ad438;
+  --brand-3: #3875b0;
   --gold: #a8700a;
   --gold-2: #e0a526;
   --accent: var(--brand);
@@ -29,17 +32,25 @@
   --glow-c: #bba6ff;
   --glow-d: #ffcf9c;
   --glow-o: 0;
-  --band: linear-gradient(115deg, #1e3a8a 0%, #2563eb 50%, #0891b2 100%);
+  /* One step of vertical rhythm. Every section on this page pads top and
+     bottom by it, so the gap between any two of them is the same 2x step —
+     the sections used to carry seven different hand-set values, and the
+     Recognition/Voices boundary came out nearly twice the Voices/Blog one. */
+  --sec-pad: clamp(40px, 6.5vh, 68px);
+  --band: linear-gradient(115deg, #1e3a8a 0%, #11568e 50%, #3875b0 100%);
   --band-ink: rgba(255, 255, 255, 0.9);
   --band-dot: #7fdcec;
-  --wash: linear-gradient(180deg, transparent, rgba(124, 58, 237, 0.09) 18%, rgba(37, 99, 235, 0.09) 82%, transparent);
-  --cta: linear-gradient(125deg, #1d4ed8 0%, #2563eb 42%, #0891b2 100%);
+  /* the logo strip: pale enough that a white-backed mark disappears into it */
+  --logo-band: #fbfcff;
+  --logo-band-edge: rgba(15, 35, 75, 0.1);
+  --wash: linear-gradient(180deg, transparent, rgba(62, 130, 196, 0.09) 18%, rgba(17, 86, 142, 0.09) 82%, transparent);
+  --cta: linear-gradient(125deg, #1d4ed8 0%, #11568e 42%, #3875b0 100%);
   --cta-ink: #ffffff;
   --cta-ink-2: rgba(255, 255, 255, 0.86);
 
-  --display: "Outfit", "Segoe UI", system-ui, sans-serif;
-  --body: "Inter", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display: "Open Sans", "Noto Sans Devanagari", "Segoe UI", system-ui, sans-serif;
+  --body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
   /* the page gutter — the same on every page, so content lines up from page to page */
   --pad: clamp(18px, 5vw, 72px);
   /* how far the first line of a page sits from the top, so every page
@@ -66,9 +77,12 @@
   --card-solid: rgba(10, 16, 34, 0.94);
   --card-edge: rgba(150, 175, 255, 0.14);
   --shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.85);
-  --brand: #4f86ff;
-  --brand-2: #22d3ee;
-  --brand-3: #a78bfa;
+  --brand: #709abb;
+  --brand-2: #8fb6da;
+  /* The guideline green. 1.77 against white, so it never carries
+     text — it is a fill, and anything on it is dark ink. */
+  --brand-accent: #9ad438;
+  --brand-3: #8fb6da;
   --gold: #f2c14e;
   --gold-2: #f2c14e;
   --glow-a: #16307e;
@@ -78,9 +92,12 @@
   --glow-o: 0.55;
   --band: rgba(10, 16, 34, 0.6);
   --band-ink: #8b97b6;
-  --band-dot: #4f86ff;
+  --band-dot: #709abb;
+  /* a shade below the light-mode strip, so it reads as paper rather than glare */
+  --logo-band: #eef2fb;
+  --logo-band-edge: rgba(160, 185, 255, 0.2);
   --wash: none;
-  --cta: radial-gradient(120% 90% at 50% 0%, rgba(79, 134, 255, 0.2), transparent 60%), rgba(10, 16, 34, 0.94);
+  --cta: radial-gradient(120% 90% at 50% 0%, rgba(112, 154, 187, 0.2), transparent 60%), rgba(10, 16, 34, 0.94);
   --cta-ink: #edf2ff;
   --cta-ink-2: #b3bfdc;
 }
@@ -213,7 +230,7 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
   /* tall enough for the 3D beside the copy, but no taller */
   min-height: min(760px, 88vh); width: 100%;
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start;
-  gap: clamp(16px, 3vw, 48px); padding: var(--top) var(--gut) 64px;
+  gap: clamp(16px, 3vw, 48px); padding: var(--top) var(--gut) var(--sec-pad);
 }
 /* the 3D is taller than the copy, so the copy sits in the middle of the row
    rather than at the top of it — otherwise all the slack falls below it */
@@ -248,35 +265,68 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 .stats li + li { border-left: 1px solid var(--line); }
 .stats strong { font-family: var(--display); font-size: 24px; font-weight: 700; line-height: 1.15; }
 .stats li:nth-child(1) strong { color: var(--brand); }
-.stats li:nth-child(2) strong { color: #0891b2; }
+.stats li:nth-child(2) strong { color: #3875b0; }
 .stats li:nth-child(3) strong { color: var(--brand-3); }
 .stats li:nth-child(4) strong { color: var(--gold); }
 .stats span { font-size: 13px; color: var(--ink-3); }
 .hero__visual { align-self: center; position: relative; width: 100%; aspect-ratio: 1 / 1; max-height: 76vh; justify-self: center; }
 
 /* ---------- clients ---------- */
-.clients { padding: 4vh 0 6vh; overflow: hidden; }
+.clients { padding: var(--sec-pad) 0; overflow: hidden; }
 .clients__title {
   text-align: center; margin-bottom: 20px;
   font: 600 12px/1.4 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
 }
 .marquee {
-  /* flat, not tilted: the band runs straight across the page */
-  overflow: hidden; background: var(--band); color: var(--band-ink);
-  border-block: 1px solid var(--line);
+  /* flat, not tilted: the band runs straight across the page.
+     A pale strip rather than the deep blue it used to be: these are real
+     marks in their own colours, and nearly all of them are dark ink meant
+     for a light background. The strip stays pale in dark mode too — a logo
+     wall is the one place a page is allowed to go light, and it beats
+     inverting twenty-six brands into something none of them own. */
+  overflow: hidden; background: var(--logo-band);
+  border-block: 1px solid var(--logo-band-edge);
 }
 .marquee + .marquee { border-top: 0; }
-.marquee__track { display: flex; width: max-content; animation: marquee 48s linear infinite; }
-.marquee--rev .marquee__track { animation-direction: reverse; animation-duration: 56s; }
-.marquee span {
-  font-family: var(--display); font-weight: 700; font-size: clamp(18px, 1.8vw, 24px); letter-spacing: -0.01em;
-  padding: 15px 30px; white-space: nowrap;
+.marquee__track {
+  display: flex; align-items: center; width: max-content;
+  list-style: none; margin: 0; padding: 0;
+  animation: marquee 48s linear infinite;
 }
-.marquee span::after { content: "✦"; margin-left: 30px; color: var(--band-dot); font-size: 0.7em; vertical-align: middle; }
+.marquee--rev .marquee__track { animation-direction: reverse; animation-duration: 56s; }
+
+/* Real marks, so each one keeps its own colours. Some of these files are
+   transparent and some carry a white or dark background of their own, so
+   every logo gets the same white chip — the one treatment that shows all
+   twenty-six, in both themes. Same reasoning as the partner wall. */
+.marquee__track li {
+  flex: none; display: grid; place-items: center;
+  padding: 22px 28px;
+}
+/* Each mark carries its own height, set in the markup, so that all twenty-six
+   take up roughly the same optical area. Sizing them all to one height makes
+   a square mark (Kotak, DSP, ICEX) look half the size of a long wordmark
+   (NISM, Edelweiss) sitting right beside it. */
+.marquee__track img {
+  height: var(--lh, 44px); width: auto; object-fit: contain; display: block;
+}
 @keyframes marquee { to { transform: translateX(-50%); } }
 
+@media (prefers-reduced-motion: reduce) {
+  /* a band that scrolls by itself is exactly what this setting asks to stop;
+     the marks then sit still and the row scrolls by hand */
+  .marquee { overflow-x: auto; }
+  .marquee__track { animation: none; }
+}
+
+@media (max-width: 700px) {
+  .marquee__track li { padding: 15px 17px; }
+  /* the same relative sizing, scaled down as one */
+  .marquee__track img { height: calc(var(--lh, 44px) * 0.72); }
+}
+
 /* ---------- offerings: three tiles, a 3D model in each ---------- */
-.offerings { padding: 12vh var(--gut) 6vh; }
+.offerings { padding: var(--sec-pad) var(--gut); }
 .bento { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: min(1280px, 100%); margin: 0 auto; }
 .offer {
   display: flex; flex-direction: column; overflow: hidden; border-radius: 26px;
@@ -344,7 +394,7 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 .offer__more:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* ---------- awards: a gold trophy between the honours ---------- */
-.awards { position: relative; padding: 12vh var(--gut) 10vh; }
+.awards { position: relative; padding: var(--sec-pad) var(--gut); }
 .awards::before {
   content: ""; position: absolute; inset: 18% 0 0; pointer-events: none;
   background: radial-gradient(42% 50% at 50% 50%, color-mix(in srgb, var(--gold-2) 30%, transparent), transparent 72%);
@@ -378,7 +428,7 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 .award h3 { font-family: var(--display); font-size: var(--h3); line-height: 1.28; letter-spacing: -0.01em; margin-top: 8px; }
 
 /* ---------- testimonials ---------- */
-.voices { padding: 14vh 0 8vh; background: var(--wash); }
+.voices { padding: var(--sec-pad) 0; background: var(--wash); }
 .voices__bar {
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
   width: min(1280px, calc(100% - 2 * var(--gut))); margin: 0 auto 18px;
@@ -400,7 +450,7 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 }
 .quote:nth-child(3n + 1) { --q: var(--brand); }
 .quote:nth-child(3n + 2) { --q: var(--brand-3); }
-.quote:nth-child(3n) { --q: #0891b2; }
+.quote:nth-child(3n) { --q: #9ad438; }
 .quote__mark { width: 30px; height: 30px; color: var(--q, var(--brand)); flex: none; }
 .quote blockquote { color: var(--ink-2); font-size: 15px; line-height: 1.6; flex: 1; }
 .quote figcaption { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line); }
@@ -413,11 +463,11 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 .quote small { display: block; color: var(--ink-3); font-size: 13px; line-height: 1.35; }
 
 /* ---------- blog ---------- */
-.blog { padding: 8vh var(--gut) 6vh; }
+.blog { padding: var(--sec-pad) var(--gut); }
 .posts { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: min(1280px, 100%); margin: 0 auto; }
 .post:nth-child(1) { --p: var(--brand); }
 .post:nth-child(2) { --p: var(--brand-3); }
-.post:nth-child(3) { --p: #0891b2; }
+.post:nth-child(3) { --p: #9ad438; }
 .post a {
   position: relative; overflow: hidden;
   display: flex; flex-direction: column; gap: 10px; height: 100%;
@@ -443,7 +493,7 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
 .blog__more a:hover { transform: translateY(-2px); border-color: var(--brand); }
 
 /* ---------- CTA ---------- */
-.cta { padding: 12vh var(--gut) 10vh; }
+.cta { padding: var(--sec-pad) var(--gut); }
 .cta__panel {
   position: relative; overflow: hidden; text-align: center;
   width: min(1100px, 100%); margin: 0 auto; padding: clamp(36px, 6vw, 80px) clamp(22px, 5vw, 70px);
@@ -538,3 +588,6 @@ body.no3d .view__fallback .ico { width: 34%; height: 34%; stroke-width: 1.3; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js [data-reveal] { opacity: 1; transform: none; }
 }
+
+
+
