@@ -387,6 +387,65 @@ else. Five minutes now, much harder to untangle once there is history.
 > especially `privacy@`, which the Privacy Notice names as the route for data
 > rights requests. It does not block any of this.
 
+## Is it safe that the Lambda URL is public?
+
+The URL is in the page source and the network tab, and that cannot be
+changed: the browser has to know where to POST, so anything the browser knows
+is public. Hiding it would not be security anyway.
+
+The question that matters is what someone can do with it.
+
+**What they cannot do.** There is no GET route and no read path, and the
+execution role grants `PutItem` and `UpdateItem` on one table plus `Publish`
+to one topic — nothing else. Enquiries cannot be read back, changed or
+deleted through this endpoint, whatever is sent to it.
+
+**What they can do.** Submit junk. **CORS does not prevent this** — it is a
+rule browsers follow, and `curl` ignores it entirely. A script that sets a
+plausible `renderedAt` and leaves the honeypot empty will get through the
+first two checks exactly like a person would.
+
+So the defences are about cost and noise, not confidentiality:
+
+| Check | Stops | Cost to us when it fires |
+|---|---|---|
+| Honeypot and clock | naive bots | nothing — rejected before any AWS call |
+| Per-IP hourly limit | one abuser in a loop | one DynamoDB write |
+| Schema validation | malformed or oversized payloads | nothing |
+
+### Cap the blast radius
+
+The per-IP limit does not stop a botnet, and every request that gets past the
+first two checks costs a Lambda invocation and a DynamoDB write. Two settings
+put a ceiling on that, and both take a minute.
+
+**1. Reserved concurrency** — Lambda → the function → **Configuration** →
+**Concurrency** → **Edit** → **Reserve concurrency** → `5`.
+
+A form that five people submit at the same instant is already busy. Capping
+it means a flood is throttled rather than scaled, so the worst case is
+rejected requests rather than a bill. It also stops this function exhausting
+the account's concurrency and starving anything else on it.
+
+**2. A billing alarm** — Billing → **Budgets** → **Create budget** →
+Cost budget → a figure you would want to hear about, say $20/month → alert at
+80%.
+
+Not a defence, but the difference between noticing in an hour and noticing on
+the statement.
+
+### When it is worth more than that
+
+If junk actually starts arriving, the real answer is AWS WAF with its rate
+rules and CAPTCHA action. WAF cannot attach to a Lambda Function URL, so it
+needs CloudFront or an API Gateway REST API in front — which is on the list
+anyway for HTTPS. At that point the Function URL can also be locked to
+`AWS_IAM` auth so only CloudFront may call it, and the public cannot reach it
+at all.
+
+Worth knowing the shape of that now; not worth building before there is a
+problem.
+
 ## One thing to be straight about
 
 The site is on `http://`. The form posts over HTTPS, so what visitors type is
