@@ -61,18 +61,18 @@
  * ===================================================== */
 
 .fx {
-  --fx-brand: #2563eb;
+  --fx-brand: #11568e;
   --fx-deep: #1d4ed8;
   --fx-navy: #12244e;
   --fx-ink: #14254a;
   --fx-ink-2: #4b5d84;
   --fx-ink-3: #8491b3;
-  --fx-line: rgba(37, 99, 235, 0.16);
-  --fx-soft: rgba(37, 99, 235, 0.08);
+  --fx-line: rgba(17, 86, 142, 0.16);
+  --fx-soft: rgba(17, 86, 142, 0.08);
   --fx-wash: #eef2fd;
   --fx-alt: #f6f8fe;
-  --fx-glow: rgba(37, 99, 235, 0.24);
-  --fx-glow-cta: rgba(37, 99, 235, 0.5);
+  --fx-glow: rgba(17, 86, 142, 0.24);
+  --fx-glow-cta: rgba(17, 86, 142, 0.5);
   --fx-surface: #fff;
   --fx-top: rgba(255, 255, 255, 0.92);
   --fx-pad: clamp(18px, 3.4cqw, 46px);
@@ -502,6 +502,43 @@
 .fx-clients--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .fx-client__thumb--face { aspect-ratio: 1 / 1; max-width: 108px; margin: 16px 0 10px 14px; border-radius: 14px; }
 
+/* ---------- Finexa Nova: release strip and screenshot rows ---------- */
+
+/* the four highlights from the newest release — an icon, a name, a line */
+.fx-rel {
+  list-style: none; margin: 26px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;
+}
+.fx-rel li {
+  display: grid; justify-items: center; text-align: center; gap: 6px;
+  padding: 20px 16px 18px; border-radius: 14px;
+  background: var(--fx-surface); border: 1px solid var(--fx-line);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.fx-rel li:hover { border-color: var(--fx-brand); transform: translateY(-3px); }
+.fx-rel img { width: 54px; height: 54px; margin-bottom: 4px; }
+.fx-rel b { font-size: 0.92em; color: var(--fx-navy); line-height: 1.35; }
+.fx-rel span { font-size: 0.84em; color: var(--fx-ink-2); line-height: 1.5; }
+
+/* a feature and the screen it lives on, side by side, alternating down the
+   page so the eye has somewhere to go */
+.fx-rows { display: grid; gap: clamp(22px, 3cqw, 44px); margin-top: 26px; }
+.fx-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: clamp(18px, 3cqw, 44px); align-items: center;
+}
+.fx-row--flip .fx-row__text { order: 2; }
+.fx-row__text h3 {
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.015em;
+  font-size: clamp(17px, 1.9cqw, 24px); color: var(--fx-navy); margin-bottom: 8px;
+}
+.fx-row__text p { color: var(--fx-ink-2); max-width: 44ch; }
+/* these repeat down the page, so they do not stick the way a tab panel's does */
+.fx-row .fx-shot { position: static; }
+
+/* the hero's screen sits beside the headline rather than under a tab */
+.fx-shot--hero { position: static; }
+
 /* on a narrow screen the stage cannot carry six labels legibly, and the
    layer cards below already say the same thing, so it steps aside */
 @container (max-width: 470px) {
@@ -510,6 +547,10 @@
 /* narrow screens */
 @container (max-width: 620px) {
   .fx-hero__grid, .fx-panel, .fx-nova { grid-template-columns: minmax(0, 1fr); }
+  /* stacked, the screen always follows the words it illustrates */
+  .fx-row { grid-template-columns: minmax(0, 1fr); }
+  .fx-row--flip .fx-row__text { order: 0; }
+  .fx-rel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fx-cards, .fx-stats, .fx-clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fx-layers, .fx-caps, .fx-adv { grid-template-columns: minmax(0, 1fr); }
   .fx-cards--six, .fx-gallery, .fx-quotes, .fx-stats--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -25,6 +25,7 @@ export const PAGES = {
   'service-cloud': 'services/cloud.html',
   // one page per product, sharing its body with the showroom's monitor
   'product-finexa': 'products/finexa.html',
+  'product-finexa-nova': 'products/finexa-nova.html',
   'product-finexa-gennxt': 'products/finexa-gennxt.html',
   'product-finaware': 'products/finaware.html',
   'product-fiscus': 'products/fiscus.html',
